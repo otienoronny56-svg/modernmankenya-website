@@ -8,7 +8,7 @@ import { SartorialSilkCanvas } from '@/components/canvas/SartorialSilkCanvas';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[92vh] bg-brand-navy flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[85vh] lg:min-h-0 bg-brand-navy flex flex-col justify-start items-center overflow-hidden">
       {/* 3D Sartorial Silk Canvas Animation (Three.js) */}
       <div className="absolute inset-0 z-0">
         <SartorialSilkCanvas intensity={1.1} />
@@ -20,30 +20,30 @@ export const HeroSection: React.FC = () => {
       {/* Subtle Pinstripe Layer */}
       <div className="absolute inset-0 sartorial-pinstripe opacity-15 z-10 pointer-events-none" />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 flex flex-col items-center text-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20 flex flex-col items-center text-center">
         
         {/* Heritage Pill */}
-        <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold text-[10px] sm:text-xs tracking-luxury uppercase font-semibold mb-5 sm:mb-6 backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-500 max-w-[90vw] truncate">
+        <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold text-[10px] sm:text-xs tracking-luxury uppercase font-semibold mb-3 sm:mb-4 lg:mb-5 backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-500 max-w-[90vw] truncate">
           <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-gold animate-pulse flex-shrink-0" />
           <span className="truncate">Modern Man Bespoke • Nairobi Flagship</span>
         </div>
 
         {/* Headline */}
-        <h1 className="font-serif text-3xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15] max-w-4xl mb-4 sm:mb-6">
+        <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15] max-w-4xl mb-3 sm:mb-4">
           Bespoke Sartorial Excellence.{' '}
-          <span className="block mt-1 sm:mt-2 font-normal italic gold-gradient-text">
+          <span className="block mt-1 sm:mt-1.5 font-normal italic gold-gradient-text">
             Made to Measure in Nairobi.
           </span>
         </h1>
 
         {/* Sub-headline */}
-        <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl font-light leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
+        <p className="text-sm sm:text-base text-slate-300 max-w-2xl font-light leading-relaxed mb-6 sm:mb-7 px-2 sm:px-0">
           Individual wooden patterns drafted exclusively for your anatomy. Sculpted with 
           full floating horsehair canvas and hand-padded lapels using authentic British and Italian cloths.
         </p>
 
         {/* Dual CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-14">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-6 sm:mb-8 lg:mb-10">
           <Link
             href="/ready-to-wear"
             className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-sm bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury text-xs transition-all duration-200 flex items-center justify-center space-x-2.5 shadow-gold group"
@@ -62,7 +62,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Heritage Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 pt-6 sm:pt-8 border-t border-white/10 w-full max-w-4xl text-left text-xs text-slate-300">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 pt-5 sm:pt-6 border-t border-white/10 w-full max-w-4xl text-left text-xs text-slate-300">
           <div className="flex items-center space-x-2.5 sm:space-x-3 bg-white/[0.03] sm:bg-transparent p-2.5 sm:p-0 rounded">
             <Award className="w-4 sm:w-5 h-4 sm:h-5 text-brand-gold flex-shrink-0" />
             <div>
