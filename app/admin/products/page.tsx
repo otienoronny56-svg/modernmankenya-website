@@ -209,7 +209,7 @@ export default function AdminProductsPage() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-600">
+            <table className="w-full min-w-[780px] text-left text-xs text-slate-600">
               <thead className="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
                 <tr>
                   <th className="py-3 px-4">Garment & Photography</th>
