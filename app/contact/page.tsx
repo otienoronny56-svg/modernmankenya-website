@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { MapPin, Phone, Mail, Clock, Send, Check, Sparkles } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
+import { AtelierMap } from '@/components/common/AtelierMap';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
@@ -210,6 +211,24 @@ export default function ContactPage() {
           </div>
 
         </div>
+
+        {/* Dedicated Flagship Atelier Map Section */}
+        <div className="mt-14 sm:mt-16 space-y-4">
+          <div className="text-center max-w-lg mx-auto space-y-1">
+            <span className="text-[10px] uppercase tracking-luxury text-brand-gold font-bold">
+              Find The Atelier
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
+              Flagship Atelier Location
+            </h2>
+            <p className="text-xs text-slate-500 font-light">
+              Centrally located in Nairobi. View our exact GPS coordinates or launch turn-by-turn navigation in Google Maps.
+            </p>
+          </div>
+
+          <AtelierMap />
+        </div>
+
       </div>
     </div>
   );

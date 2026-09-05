@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Clock, ArrowRight, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ArrowRight, Check, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -58,7 +58,15 @@ export const Footer: React.FC = () => {
             <div className="space-y-2 text-xs text-slate-300">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <span>The Flagship Atelier, Westlands / Karen, Nairobi, Kenya</span>
+                <a
+                  href="https://maps.app.goo.gl/FV4B4XcDXLx5DWGj8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-gold transition-colors inline-flex items-center space-x-1"
+                >
+                  <span>The Flagship Atelier, Nairobi, Kenya</span>
+                  <ExternalLink className="w-3 h-3 text-brand-gold opacity-80" />
+                </a>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />

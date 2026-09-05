@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
 import { LuxuryCalendarPicker } from '@/components/booking/LuxuryCalendarPicker';
+import { AtelierMap } from '@/components/common/AtelierMap';
 
 function BookAppointmentContent() {
   const searchParams = useSearchParams();
@@ -65,7 +66,7 @@ function BookAppointmentContent() {
   const locations = [
     {
       title: 'Flagship Atelier Nairobi',
-      desc: 'Westlands / Karen, Nairobi. Full access to VIP bar, cloth library, and master cutters.',
+      desc: 'Nairobi, Kenya. Full access to VIP bar, cloth library, and master cutters.',
     },
     {
       title: 'Private Residence / Luxury Hotel Suite',
@@ -232,6 +233,16 @@ function BookAppointmentContent() {
                   </div>
                 ))}
               </div>
+
+              {/* If Flagship Atelier is selected, show interactive map */}
+              {locationType === 'Flagship Atelier Nairobi' && (
+                <div className="pt-2 animate-in fade-in duration-300">
+                  <AtelierMap 
+                    title="Flagship Atelier Location & Directions"
+                    className="border border-brand-gold/30"
+                  />
+                </div>
+              )}
 
               <div className="pt-6 flex justify-between">
                 <button
