@@ -124,7 +124,7 @@ function BookAppointmentContent() {
 
   return (
     <div className="min-h-screen bg-brand-canvas-alt py-10 sm:py-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
@@ -283,60 +283,123 @@ function BookAppointmentContent() {
 
                 {/* Right: Time Slot & Overview Column (5 Cols on desktop) */}
                 <div className="lg:col-span-5 space-y-4">
-                  {/* Selected Slot Overview Card */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-brand-navy text-white border border-brand-gold/30 shadow-luxury space-y-3">
-                    <div className="flex items-center justify-between text-[11px] text-brand-gold font-bold uppercase tracking-luxury">
+                  {/* Selected Slot Overview Card: Styled like an Atelier VIP Pass */}
+                  <div className="p-5 rounded-2xl bg-gradient-to-br from-brand-navy via-[#16114E] to-brand-navy text-white border-2 border-brand-gold/40 shadow-2xl relative overflow-hidden space-y-3.5">
+                    {/* Golden top accent banner */}
+                    <div className="flex items-center justify-between text-[11px] text-brand-gold font-bold uppercase tracking-[0.2em] border-b border-white/10 pb-2.5">
                       <span className="flex items-center space-x-1.5">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>Appointment Slot</span>
+                        <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                        <span>Private Fitting Pass</span>
                       </span>
-                      <span className="bg-brand-gold/20 text-brand-gold px-2 py-0.5 rounded text-[10px]">
-                        Private VIP
+                      <span className="bg-brand-gold text-brand-navy px-2 py-0.5 rounded text-[9px] font-extrabold tracking-wider">
+                        VIP CONCIERGE
                       </span>
                     </div>
 
-                    <div className="space-y-0.5 pt-1">
-                      <p className="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Date</p>
-                      <p className="font-serif text-base font-bold text-white">
+                    {/* Date */}
+                    <div className="space-y-0.5">
+                      <span className="text-[10px] uppercase tracking-wider text-slate-300 font-semibold block">
+                        Reserved Fitting Date
+                      </span>
+                      <p className="font-serif text-lg sm:text-xl font-bold text-white tracking-wide">
                         {selectedDateDisplay || selectedDate}
                       </p>
                     </div>
 
-                    <div className="space-y-0.5">
-                      <p className="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Time</p>
-                      <p className="font-serif text-base font-bold text-brand-gold">
-                        {selectedTime}
-                      </p>
+                    {/* Time & Discipline */}
+                    <div className="grid grid-cols-2 gap-3 pt-1 border-t border-white/10">
+                      <div>
+                        <span className="text-[10px] uppercase tracking-wider text-slate-300 font-semibold block">
+                          Session Time
+                        </span>
+                        <p className="font-serif text-base font-bold text-brand-gold">
+                          {selectedTime}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="text-[10px] uppercase tracking-wider text-slate-300 font-semibold block">
+                          Duration
+                        </span>
+                        <p className="text-xs font-semibold text-slate-200">
+                          60 Min Bespoke
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="pt-2.5 border-t border-white/10 text-[11px] text-slate-300 font-light flex items-center space-x-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
-                      <span className="truncate">{locationType}</span>
+                    {/* Atelier Location */}
+                    <div className="pt-2 border-t border-white/10 text-xs text-slate-300 flex items-center space-x-2">
+                      <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                      <span className="font-light">{locationType}</span>
+                    </div>
+
+                    <div className="bg-white/5 -mx-5 -mb-5 px-5 py-2.5 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-300">
+                      <span>• Master Cutter Reserved</span>
+                      <span className="text-brand-gold font-semibold">• VIP Lounge Hospitality</span>
                     </div>
                   </div>
 
-                  {/* Time Slots Area */}
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-luxury text-brand-slate mb-2.5 flex items-center justify-between">
-                      <span>Select Time Slot</span>
-                      <span className="text-[10px] text-slate-400 font-normal">Nairobi Time (EAT)</span>
-                    </label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {timeSlots.map((time) => (
-                        <button
-                          key={time}
-                          type="button"
-                          onClick={() => setSelectedTime(time)}
-                          className={`p-3 rounded-lg border text-center transition-all ${
-                            selectedTime === time
-                              ? 'bg-brand-navy text-brand-gold border-brand-gold ring-2 ring-brand-gold/30 font-bold shadow-sm'
-                              : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-brand-gold/50 hover:bg-amber-50/40'
-                          }`}
-                        >
-                          <Clock className={`w-3.5 h-3.5 mx-auto mb-1 ${selectedTime === time ? 'text-brand-gold' : 'text-slate-400'}`} />
-                          <span className="text-xs font-semibold block">{time}</span>
-                        </button>
-                      ))}
+                  {/* Luxury Time Slots Selector */}
+                  <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                      <label className="text-xs font-bold uppercase tracking-luxury text-brand-navy flex items-center space-x-1.5">
+                        <Clock className="w-3.5 h-3.5 text-brand-gold" />
+                        <span>Select Consultation Hour</span>
+                      </label>
+                      <span className="text-[10px] text-slate-400 font-medium">Nairobi EAT (UTC+3)</span>
+                    </div>
+
+                    {/* Morning Slots */}
+                    <div className="space-y-1.5">
+                      <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">
+                        Morning Sessions
+                      </span>
+                      <div className="grid grid-cols-2 gap-2">
+                        {['09:30 AM', '11:00 AM'].map((time) => (
+                          <button
+                            key={time}
+                            type="button"
+                            onClick={() => setSelectedTime(time)}
+                            className={`py-3 px-2.5 rounded-xl border text-center transition-all ${
+                              selectedTime === time
+                                ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-md font-bold'
+                                : 'bg-slate-50/70 text-slate-700 border-slate-200 hover:border-brand-gold/60 hover:bg-amber-50/50'
+                            }`}
+                          >
+                            <span className={`text-xs font-bold block ${selectedTime === time ? 'text-brand-gold' : 'text-brand-navy'}`}>
+                              {time}
+                            </span>
+                            <span className="text-[9px] text-slate-400 block mt-0.5">Private Salon</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Afternoon & Evening Slots */}
+                    <div className="space-y-1.5 pt-1">
+                      <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">
+                        Afternoon & Evening Sessions
+                      </span>
+                      <div className="grid grid-cols-2 gap-2">
+                        {['01:30 PM', '03:00 PM', '04:30 PM', '06:00 PM'].map((time) => (
+                          <button
+                            key={time}
+                            type="button"
+                            onClick={() => setSelectedTime(time)}
+                            className={`py-3 px-2.5 rounded-xl border text-center transition-all ${
+                              selectedTime === time
+                                ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-md font-bold'
+                                : 'bg-slate-50/70 text-slate-700 border-slate-200 hover:border-brand-gold/60 hover:bg-amber-50/50'
+                            }`}
+                          >
+                            <span className={`text-xs font-bold block ${selectedTime === time ? 'text-brand-gold' : 'text-brand-navy'}`}>
+                              {time}
+                            </span>
+                            <span className="text-[9px] text-slate-400 block mt-0.5">
+                              {time === '06:00 PM' ? 'Evening Lounge' : 'Private Salon'}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

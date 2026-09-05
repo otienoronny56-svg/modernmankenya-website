@@ -42,6 +42,9 @@ const config: Config = {
         "gold-shimmer": "linear-gradient(135deg, #A88A00 0%, #E6C84F 50%, #A88A00 100%)",
         "navy-luxury": "linear-gradient(180deg, #1B1464 0%, #0F0B3D 100%)",
       },
+      gridTemplateColumns: {
+        '7': 'repeat(7, minmax(0, 1fr))',
+      },
       boxShadow: {
         luxury: "0 10px 40px -10px rgba(27, 20, 100, 0.12)",
         "luxury-hover": "0 20px 50px -10px rgba(27, 20, 100, 0.22)",

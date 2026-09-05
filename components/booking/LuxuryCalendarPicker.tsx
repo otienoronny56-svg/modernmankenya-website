@@ -7,6 +7,7 @@ import {
   Calendar as CalendarIcon, 
   Sparkles,
   Check,
+  Shield,
   Clock
 } from 'lucide-react';
 
@@ -106,7 +107,6 @@ export function LuxuryCalendarPicker({
       const d = daysInPrevMonth - i;
       const prevMonth = currentMonth === 0 ? 11 : currentMonth - 1;
       const prevYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-      const dateObj = new Date(prevYear, prevMonth, d);
       const str = `${prevYear}-${String(prevMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
       days.push({
         day: d,
@@ -144,7 +144,7 @@ export function LuxuryCalendarPicker({
       });
     }
 
-    // Fill remaining grid to 35 or 42 cells
+    // Fill remaining grid to multiple of 7
     const totalSlots = Math.ceil(days.length / 7) * 7;
     const remainingSlots = totalSlots - days.length;
     for (let d = 1; d <= remainingSlots; d++) {
@@ -166,7 +166,7 @@ export function LuxuryCalendarPicker({
     return days;
   }, [currentYear, currentMonth, minimumDate, today, selectedDate]);
 
-  // Format display string helper (e.g. "Thu, Sep 10, 2026")
+  // Format display string helper (e.g. "Thursday, Sep 10, 2026")
   const formatFriendlyDate = (dateStr: string) => {
     const [y, m, d] = dateStr.split('-').map(Number);
     const dateObj = new Date(y, m - 1, d);
@@ -196,7 +196,6 @@ export function LuxuryCalendarPicker({
     handleSelect(dateStr);
   };
 
-  // Find next Saturday
   const selectNextSaturday = () => {
     const target = new Date(today);
     const dayOfWeek = target.getDay(); // 0 = Sunday, 6 = Saturday
@@ -212,160 +211,188 @@ export function LuxuryCalendarPicker({
   };
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 sm:p-6 space-y-4">
+    <div className="w-full bg-gradient-to-b from-white to-amber-50/20 rounded-2xl border border-brand-gold/30 shadow-xl overflow-hidden">
       
-      {/* Calendar Header: Month/Year and Navigation */}
-      <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-        <div className="flex items-center space-x-2">
-          <div className="p-1.5 bg-brand-gold/10 text-brand-gold rounded-md">
-            <CalendarIcon className="w-4 h-4" />
-          </div>
-          <div>
-            <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy tracking-tight">
-              {MONTH_NAMES[currentMonth]} {currentYear}
+      {/* Luxury Gold & Navy Crown Header */}
+      <div className="bg-brand-navy p-5 sm:p-6 text-white border-b-2 border-brand-gold relative overflow-hidden">
+        {/* Subtle Background Monogram Accent */}
+        <div className="absolute -right-6 -bottom-8 opacity-10 pointer-events-none select-none text-white font-serif text-9xl font-bold">
+          MM
+        </div>
+
+        <div className="flex items-center justify-between relative z-10">
+          <div className="space-y-1">
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
+              <span className="text-[10px] uppercase font-bold tracking-[0.25em] text-brand-gold">
+                Atelier Calendar
+              </span>
+            </div>
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide">
+              {MONTH_NAMES[currentMonth]} <span className="text-brand-gold font-light">{currentYear}</span>
             </h3>
-            <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">
-              Private Fitting Calendar
+            <p className="text-[11px] text-slate-300 font-light">
+              Select an exclusive private fitting date
             </p>
           </div>
-        </div>
 
-        {/* Month Navigation Chevrons */}
-        <div className="flex items-center space-x-1.5">
-          <button
-            type="button"
-            onClick={handlePreviousMonth}
-            disabled={!canGoPrevious}
-            className={`p-2 rounded-lg border text-brand-navy transition-all ${
-              canGoPrevious
-                ? 'border-slate-200 hover:border-brand-gold hover:bg-brand-gold/10 hover:text-brand-navy shadow-sm'
-                : 'border-slate-100 text-slate-300 cursor-not-allowed opacity-40'
-            }`}
-            aria-label="Previous Month"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-
-          <button
-            type="button"
-            onClick={handleNextMonth}
-            className="p-2 rounded-lg border border-slate-200 hover:border-brand-gold hover:bg-brand-gold/10 text-brand-navy hover:text-brand-navy transition-all shadow-sm"
-            aria-label="Next Month"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-
-      {/* Weekday Header Row */}
-      <div className="grid grid-cols-7 gap-1 text-center">
-        {WEEKDAYS.map((day) => (
-          <div
-            key={day}
-            className="py-1 text-[11px] font-bold uppercase tracking-luxury text-slate-400"
-          >
-            {day}
-          </div>
-        ))}
-      </div>
-
-      {/* Day Cells Grid */}
-      <div className="grid grid-cols-7 gap-1 sm:gap-1.5">
-        {calendarDays.map((slot, index) => {
-          if (!slot.isCurrentMonth) {
-            return (
-              <div
-                key={index}
-                className="h-10 sm:h-11 flex items-center justify-center text-xs text-slate-300 select-none opacity-20"
-              >
-                {slot.day}
-              </div>
-            );
-          }
-
-          if (slot.disabled) {
-            return (
-              <div
-                key={index}
-                className="h-10 sm:h-11 flex items-center justify-center text-xs text-slate-300 bg-slate-50/40 rounded-lg cursor-not-allowed select-none line-through decoration-slate-300/60"
-                title="Date is in the past"
-              >
-                {slot.day}
-              </div>
-            );
-          }
-
-          return (
+          {/* Luxury Month Navigation Chevrons */}
+          <div className="flex items-center space-x-2">
             <button
-              key={index}
               type="button"
-              onClick={() => handleSelect(slot.dateString)}
-              className={`h-10 sm:h-11 rounded-lg flex flex-col items-center justify-center text-xs sm:text-sm font-semibold transition-all relative group ${
-                slot.isSelected
-                  ? 'bg-brand-navy text-brand-gold border-2 border-brand-gold shadow-md scale-105 font-bold z-10'
-                  : 'text-brand-navy bg-slate-50/70 hover:bg-amber-50/60 border border-slate-200/80 hover:border-brand-gold/50'
+              onClick={handlePreviousMonth}
+              disabled={!canGoPrevious}
+              className={`p-2.5 rounded-full border transition-all ${
+                canGoPrevious
+                  ? 'border-brand-gold/40 hover:border-brand-gold hover:bg-brand-gold/20 text-white shadow-sm active:scale-95'
+                  : 'border-white/10 text-white/30 cursor-not-allowed opacity-30'
               }`}
+              title="Previous Month"
             >
-              <span>{slot.day}</span>
-              
-              {/* Gold dot indicator for Today */}
-              {slot.isToday && !slot.isSelected && (
-                <span 
-                  className="w-1.5 h-1.5 rounded-full bg-brand-gold absolute bottom-1" 
-                  title="Today" 
-                />
-              )}
-
-              {/* Selected subtle checkmark hint */}
-              {slot.isSelected && (
-                <span className="text-[8px] uppercase tracking-tighter text-brand-gold/80 font-bold leading-none mt-0.5">
-                  Chosen
-                </span>
-              )}
+              <ChevronLeft className="w-4 h-4 text-brand-gold" />
             </button>
-          );
-        })}
+
+            <button
+              type="button"
+              onClick={handleNextMonth}
+              className="p-2.5 rounded-full border border-brand-gold/40 hover:border-brand-gold hover:bg-brand-gold/20 text-white transition-all shadow-sm active:scale-95"
+              title="Next Month"
+            >
+              <ChevronRight className="w-4 h-4 text-brand-gold" />
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Quick Select Shortcut Chips */}
-      <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold mr-1">
-            Quick:
-          </span>
-          <button
-            type="button"
-            onClick={() => selectQuickOffset(1)}
-            className="px-2.5 py-1 rounded bg-slate-100 hover:bg-brand-gold/15 hover:text-brand-navy text-slate-600 text-[11px] font-semibold transition-all border border-slate-200"
-          >
-            Tomorrow
-          </button>
-          <button
-            type="button"
-            onClick={() => selectQuickOffset(3)}
-            className="px-2.5 py-1 rounded bg-slate-100 hover:bg-brand-gold/15 hover:text-brand-navy text-slate-600 text-[11px] font-semibold transition-all border border-slate-200"
-          >
-            In 3 Days
-          </button>
-          <button
-            type="button"
-            onClick={selectNextSaturday}
-            className="px-2.5 py-1 rounded bg-slate-100 hover:bg-brand-gold/15 hover:text-brand-navy text-slate-600 text-[11px] font-semibold transition-all border border-slate-200"
-          >
-            This Saturday
-          </button>
+      {/* Calendar Body */}
+      <div className="p-4 sm:p-6 space-y-4">
+        
+        {/* Weekdays Row: Strict 7 Columns via explicit CSS grid */}
+        <div 
+          className="w-full pb-2 border-b border-slate-100"
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(7, minmax(0, 1fr))',
+            gap: '6px'
+          }}
+        >
+          {WEEKDAYS.map((day) => (
+            <div
+              key={day}
+              className="text-center text-[11px] font-bold uppercase tracking-[0.18em] text-brand-gold py-1"
+            >
+              {day}
+            </div>
+          ))}
         </div>
 
-        {/* Selected Date Confirmation Badge */}
-        {selectedDate && (
-          <div className="flex items-center space-x-1.5 text-brand-navy font-semibold text-[11px] bg-amber-50/80 px-2.5 py-1 rounded border border-brand-gold/30">
+        {/* Days Grid: Strict 7 Columns via explicit inline CSS grid */}
+        <div 
+          className="w-full"
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(7, minmax(0, 1fr))',
+            gap: '8px'
+          }}
+        >
+          {calendarDays.map((slot, index) => {
+            // Inactive previous/next month slot
+            if (!slot.isCurrentMonth) {
+              return (
+                <div
+                  key={index}
+                  className="aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex items-center justify-center text-xs text-slate-300 select-none opacity-20 border border-transparent"
+                >
+                  {slot.day}
+                </div>
+              );
+            }
+
+            // Past date (Disabled)
+            if (slot.disabled) {
+              return (
+                <div
+                  key={index}
+                  className="aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex flex-col items-center justify-center text-xs text-slate-300 bg-slate-50/60 border border-slate-100 select-none cursor-not-allowed line-through decoration-slate-300"
+                  title="Past Date"
+                >
+                  {slot.day}
+                </div>
+              );
+            }
+
+            // Active / Selectable Date
+            return (
+              <button
+                key={index}
+                type="button"
+                onClick={() => handleSelect(slot.dateString)}
+                className={`aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex flex-col items-center justify-center text-sm font-semibold transition-all duration-200 relative group ${
+                  slot.isSelected
+                    ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-[0_6px_20px_rgba(27,20,100,0.35)] scale-105 z-10'
+                    : 'text-brand-navy bg-white hover:bg-amber-50/80 border border-slate-200 hover:border-brand-gold/60 shadow-sm hover:shadow hover:scale-[1.03]'
+                }`}
+              >
+                <span className={`leading-none ${slot.isSelected ? 'text-brand-gold font-bold text-base sm:text-lg' : 'text-slate-800'}`}>
+                  {slot.day}
+                </span>
+
+                {/* Subtle marker for Today */}
+                {slot.isToday && !slot.isSelected && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold absolute bottom-1.5" title="Today" />
+                )}
+
+                {/* Golden Badge on Selected Day */}
+                {slot.isSelected && (
+                  <span className="text-[8px] uppercase tracking-widest text-brand-gold font-extrabold mt-0.5 leading-none">
+                    FITTING
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Quick Executive Preset Buttons */}
+        <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mr-1">
+              Shortcuts:
+            </span>
+            <button
+              type="button"
+              onClick={() => selectQuickOffset(1)}
+              className="px-3 py-1.5 rounded-full bg-white hover:bg-brand-navy hover:text-white text-slate-700 text-xs font-semibold transition-all border border-slate-200 hover:border-brand-navy shadow-sm"
+            >
+              Tomorrow
+            </button>
+            <button
+              type="button"
+              onClick={() => selectQuickOffset(3)}
+              className="px-3 py-1.5 rounded-full bg-white hover:bg-brand-navy hover:text-white text-slate-700 text-xs font-semibold transition-all border border-slate-200 hover:border-brand-navy shadow-sm"
+            >
+              In 3 Days
+            </button>
+            <button
+              type="button"
+              onClick={selectNextSaturday}
+              className="px-3 py-1.5 rounded-full bg-white hover:bg-brand-navy hover:text-white text-slate-700 text-xs font-semibold transition-all border border-slate-200 hover:border-brand-navy shadow-sm"
+            >
+              This Saturday
+            </button>
+          </div>
+
+          {/* Active Status Badge */}
+          <div className="flex items-center space-x-1.5 text-xs text-brand-navy bg-amber-50 px-3 py-1.5 rounded-full border border-brand-gold/40">
             <Check className="w-3.5 h-3.5 text-brand-gold stroke-[3]" />
-            <span className="font-serif font-bold text-brand-navy">
+            <span className="font-serif font-bold">
               {formatFriendlyDate(selectedDate)}
             </span>
           </div>
-        )}
+        </div>
+
       </div>
+
     </div>
   );
 }
