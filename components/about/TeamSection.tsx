@@ -7,49 +7,24 @@ import {
   Scissors, 
   Award, 
   Quote, 
-  Sparkles, 
-  PlusCircle, 
   X, 
-  Check, 
-  User, 
-  Briefcase, 
-  Clock, 
-  Layers,
   ArrowRight
 } from 'lucide-react';
 import type { TeamMember } from '@/types';
 import { INITIAL_TEAM_MEMBERS } from '@/data/teamData';
 
 interface TeamSectionProps {
-  showAddButton?: boolean;
   limit?: number;
   isTeaser?: boolean;
 }
 
 export const TeamSection: React.FC<TeamSectionProps> = ({ 
-  showAddButton = true,
   limit,
   isTeaser = false 
 }) => {
   const [team, setTeam] = useState<TeamMember[]>(INITIAL_TEAM_MEMBERS);
   const [loading, setLoading] = useState(true);
   const [selectedArtisan, setSelectedArtisan] = useState<TeamMember | null>(null);
-  
-  // Quick Add Modal state
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [addError, setAddError] = useState<string | null>(null);
-  const [addSuccess, setAddSuccess] = useState(false);
-
-  // Form fields
-  const [formName, setFormName] = useState('');
-  const [formRole, setFormRole] = useState('');
-  const [formSpecialty, setFormSpecialty] = useState('');
-  const [formBio, setFormBio] = useState('');
-  const [formYears, setFormYears] = useState(8);
-  const [formImage, setFormImage] = useState('');
-  const [formQuote, setFormQuote] = useState('');
-  const [formCloth, setFormCloth] = useState('');
 
   const fetchTeam = async () => {
     try {
@@ -70,59 +45,6 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
   useEffect(() => {
     fetchTeam();
   }, []);
-
-  const handleAddMember = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setAddError(null);
-
-    try {
-      const payload = {
-        name: formName,
-        role: formRole,
-        specialty: formSpecialty,
-        bio: formBio,
-        experienceYears: Number(formYears),
-        image: formImage || '/images/team/samuel-kibet.jpg',
-        quote: formQuote || undefined,
-        favoriteCloth: formCloth || undefined,
-      };
-
-      const res = await fetch('/api/team', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        // If unauthorized (no staff cookie), let user know to login to admin or inform them
-        const data = await res.json().catch(() => ({}));
-        if (res.status === 401) {
-          throw new Error('Staff authentication required. Please log into the Staff Portal at /admin/login to publish permanently.');
-        }
-        throw new Error(data.error || 'Failed to add team member');
-      }
-
-      setAddSuccess(true);
-      await fetchTeam();
-      setTimeout(() => {
-        setIsAddModalOpen(false);
-        setAddSuccess(false);
-        // Reset form
-        setFormName('');
-        setFormRole('');
-        setFormSpecialty('');
-        setFormBio('');
-        setFormImage('');
-        setFormQuote('');
-        setFormCloth('');
-      }, 1200);
-    } catch (err: any) {
-      setAddError(err.message || 'An unexpected error occurred');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const displayedTeam = limit ? team.slice(0, limit) : team;
 
@@ -146,18 +68,8 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center space-x-3 flex-shrink-0">
-            {showAddButton && (
-              <button
-                onClick={() => setIsAddModalOpen(true)}
-                className="px-4 py-2.5 bg-brand-navy hover:bg-brand-navy/90 text-white rounded text-xs uppercase tracking-luxury font-bold transition-all flex items-center space-x-2 shadow-sm border border-brand-gold/30 hover:border-brand-gold"
-              >
-                <PlusCircle className="w-3.5 h-3.5 text-brand-gold" />
-                <span>+ Add Team Member</span>
-              </button>
-            )}
-
-            {isTeaser && (
+          {isTeaser && (
+            <div className="flex items-center space-x-3 flex-shrink-0">
               <Link
                 href="/about#the-team"
                 className="px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy rounded text-xs uppercase tracking-luxury font-bold transition-all flex items-center space-x-1.5 shadow-gold"
@@ -165,8 +77,8 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
                 <span>Full Atelier Roster</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* Team Grid */}
@@ -343,183 +255,6 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
               </div>
 
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* 2. Quick Add Team Member Modal */}
-      {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="relative bg-white rounded-lg shadow-2xl border border-brand-gold/40 max-w-lg w-full overflow-hidden max-h-[92vh] flex flex-col">
-            
-            {/* Header */}
-            <div className="bg-brand-navy p-5 text-white flex items-center justify-between border-b border-brand-gold/30">
-              <div className="flex items-center space-x-2">
-                <Sparkles className="w-4 h-4 text-brand-gold" />
-                <h3 className="font-serif font-bold text-lg text-white">
-                  Add Atelier Team Member
-                </h3>
-              </div>
-              <button
-                onClick={() => setIsAddModalOpen(false)}
-                className="text-slate-300 hover:text-white"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Form Content */}
-            <form onSubmit={handleAddMember} className="overflow-y-auto p-5 sm:p-6 space-y-4 text-xs">
-              
-              {addSuccess && (
-                <div className="p-3 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded flex items-center space-x-2">
-                  <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Artisan successfully added to the Modern Man Atelier roster!</span>
-                </div>
-              )}
-
-              {addError && (
-                <div className="p-3 bg-red-50 border border-red-300 text-red-800 rounded space-y-1">
-                  <p className="font-bold">{addError}</p>
-                  <Link href="/admin/login" className="text-brand-navy underline font-medium">
-                    Click here to log into the Staff Portal &rarr;
-                  </Link>
-                </div>
-              )}
-
-              <div className="space-y-1.5">
-                <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Master David Omondi"
-                  value={formName}
-                  onChange={(e) => setFormName(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="space-y-1.5">
-                  <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                    Role Title *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Senior Coatmaker"
-                    value={formRole}
-                    onChange={(e) => setFormRole(e.target.value)}
-                    className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                    Years Experience *
-                  </label>
-                  <input
-                    type="number"
-                    required
-                    min={1}
-                    max={50}
-                    value={formYears}
-                    onChange={(e) => setFormYears(Number(e.target.value))}
-                    className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                  Craft Specialty
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Hand Pad-Stitching & Floating Horsehair Architecture"
-                  value={formSpecialty}
-                  onChange={(e) => setFormSpecialty(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                />
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                  Portrait Photo URL
-                </label>
-                <input
-                  type="url"
-                  placeholder="https://images.unsplash.com/... or direct image link"
-                  value={formImage}
-                  onChange={(e) => setFormImage(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                />
-                <p className="text-[10px] text-slate-500">
-                  Leave blank to use a distinguished editorial portrait placeholder.
-                </p>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                  Artisan Biography
-                </label>
-                <textarea
-                  rows={3}
-                  placeholder="Describe their tailoring discipline, background, and dedication to bespoke craft in Nairobi..."
-                  value={formBio}
-                  onChange={(e) => setFormBio(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                />
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                  Artisan Quote / Philosophy
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Precision is not an act; it is our timeless habit."
-                  value={formQuote}
-                  onChange={(e) => setFormQuote(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                />
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="font-semibold text-brand-navy uppercase tracking-wider text-[11px]">
-                  Favorite Cloth Mill & Reference
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Scabal Super 150s Midnight Navy"
-                  value={formCloth}
-                  onChange={(e) => setFormCloth(e.target.value)}
-                  className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"
-                />
-              </div>
-
-              {/* Submit Buttons */}
-              <div className="pt-3 border-t border-slate-200 flex justify-end space-x-3">
-                <button
-                  type="button"
-                  onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2 text-slate-600 hover:text-slate-800 font-semibold"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="px-6 py-2.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury rounded transition-all shadow-gold disabled:opacity-50"
-                >
-                  {isSubmitting ? 'Saving...' : 'Add to Team'}
-                </button>
-              </div>
-
-            </form>
-
           </div>
         </div>
       )}

@@ -27,8 +27,8 @@ export default function AboutPage() {
       {/* 3. The 4 Master Pillars of the Atelier */}
       <AtelierPillars />
 
-      {/* 4. The Master Tailoring Artisans & Team (with dynamic loading & add modal) */}
-      <TeamSection showAddButton={true} />
+      {/* 4. The Master Tailoring Artisans & Team */}
+      <TeamSection />
 
       {/* 5. Nairobi Flagship Atelier Experience & Map Navigation */}
       <AtelierExperienceSection />

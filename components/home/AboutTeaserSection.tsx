@@ -44,7 +44,7 @@ export const AboutTeaserSection: React.FC = () => {
         </div>
 
         {/* Master Artisans Showcase */}
-        <TeamSection showAddButton={false} limit={3} isTeaser={true} />
+        <TeamSection limit={3} isTeaser={true} />
 
       </div>
     </section>
