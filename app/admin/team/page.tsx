@@ -108,7 +108,7 @@ export default function AdminTeamPage() {
         specialty: specialty.trim(),
         bio: bio.trim(),
         experienceYears: Number(experienceYears),
-        image: image.trim() || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85',
+        image: image.trim() || '/images/team/samuel-kibet.jpg',
         quote: quote.trim() || undefined,
         favoriteCloth: favoriteCloth.trim() || undefined,
         isLeadership,

@@ -83,7 +83,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
         specialty: formSpecialty,
         bio: formBio,
         experienceYears: Number(formYears),
-        image: formImage || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85',
+        image: formImage || '/images/team/samuel-kibet.jpg',
         quote: formQuote || undefined,
         favoriteCloth: formCloth || undefined,
       };
