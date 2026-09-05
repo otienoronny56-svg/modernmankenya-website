@@ -187,6 +187,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
             <Link href="/privacy" className="hover:text-brand-gold transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-brand-gold transition-colors">Terms of Commission</Link>
+            <Link href="/admin" className="text-slate-400 hover:text-brand-gold transition-colors">Staff Portal</Link>
             <Link href="/book-appointment" className="text-brand-gold hover:underline font-semibold">Book an Appointment &rarr;</Link>
           </div>
         </div>

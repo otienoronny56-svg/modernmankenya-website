@@ -1,0 +1,614 @@
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import { 
+  X, 
+  UploadCloud, 
+  Trash2, 
+  Sparkles, 
+  Plus, 
+  Check, 
+  AlertCircle,
+  Link as LinkIcon
+} from 'lucide-react';
+import type { Product } from '@/types';
+
+interface ProductFormModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSaved: () => void;
+  productToEdit?: Product | null;
+}
+
+const CATEGORIES = [
+  { id: 'suits', name: 'Suits' },
+  { id: 'jackets', name: 'Blazers & Jackets' },
+  { id: 'velvets', name: 'Velvet Smoking Jackets' },
+  { id: 'evening-dinner', name: 'Evening & Dinner Wear' },
+  { id: 'fragrances', name: 'Fragrances' },
+  { id: 'accessories', name: 'Accessories' },
+];
+
+const STANDARD_SIZES = ['38R', '40R', '42R', '44R', '46L', '48L', '100ml Flacon', 'Standard'];
+
+export function ProductFormModal({
+  isOpen,
+  onClose,
+  onSaved,
+  productToEdit,
+}: ProductFormModalProps) {
+  const isEditing = Boolean(productToEdit);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [name, setName] = useState('');
+  const [slug, setSlug] = useState('');
+  const [tagline, setTagline] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('suits');
+  const [fabricDetails, setFabricDetails] = useState('');
+  const [construction, setConstruction] = useState('Full Floating Canvas');
+  const [priceKes, setPriceKes] = useState<number | string>(165000);
+  const [priceUsd, setPriceUsd] = useState<number | string>(1275);
+  const [images, setImages] = useState<string[]>([]);
+  const [selectedSizes, setSelectedSizes] = useState<string[]>(['38R', '40R', '42R', '44R']);
+  const [customSizeInput, setCustomSizeInput] = useState('');
+  const [isInStock, setIsInStock] = useState(true);
+  const [isFeatured, setIsFeatured] = useState(false);
+
+  // Direct image URL input state
+  const [customImageUrl, setCustomImageUrl] = useState('');
+
+  const [uploading, setUploading] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (productToEdit) {
+      setName(productToEdit.name || '');
+      setSlug(productToEdit.slug || '');
+      setTagline(productToEdit.tagline || '');
+      setDescription(productToEdit.description || '');
+      setCategory(productToEdit.category || 'suits');
+      setFabricDetails(productToEdit.fabricDetails || '');
+      setConstruction(productToEdit.construction || 'Full Floating Canvas');
+      setPriceKes(productToEdit.priceKes || 165000);
+      setPriceUsd(productToEdit.priceUsd || 1275);
+      setImages(productToEdit.images || []);
+      setIsInStock(productToEdit.isInStock !== undefined ? productToEdit.isInStock : true);
+      setIsFeatured(Boolean(productToEdit.isFeatured));
+      if (productToEdit.variants && productToEdit.variants.length > 0) {
+        setSelectedSizes(productToEdit.variants.map((v) => v.size));
+      }
+    } else {
+      // Reset form
+      setName('');
+      setSlug('');
+      setTagline('');
+      setDescription('');
+      setCategory('suits');
+      setFabricDetails('Super 150s Merino Wool (England)');
+      setConstruction('Full Floating Canvas');
+      setPriceKes(165000);
+      setPriceUsd(1275);
+      setImages([]);
+      setSelectedSizes(['38R', '40R', '42R', '44R']);
+      setIsInStock(true);
+      setIsFeatured(false);
+      setError(null);
+    }
+  }, [productToEdit, isOpen]);
+
+  // Automatically generate slug and USD estimate when name/price changes
+  const handleNameChange = (val: string) => {
+    setName(val);
+    if (!isEditing) {
+      setSlug(
+        val
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '')
+      );
+    }
+  };
+
+  const handlePriceKesChange = (val: string) => {
+    const num = parseFloat(val) || 0;
+    setPriceKes(val);
+    // 1 USD ~ 129.5 KES
+    setPriceUsd(Math.round(num / 129.5));
+  };
+
+  const toggleSize = (sz: string) => {
+    setSelectedSizes((prev) =>
+      prev.includes(sz) ? prev.filter((s) => s !== sz) : [...prev, sz]
+    );
+  };
+
+  const addCustomSize = () => {
+    if (customSizeInput.trim() && !selectedSizes.includes(customSizeInput.trim())) {
+      setSelectedSizes([...selectedSizes, customSizeInput.trim()]);
+      setCustomSizeInput('');
+    }
+  };
+
+  // Image Upload Handler
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+
+    setUploading(true);
+    setError(null);
+
+    try {
+      const uploadPromises = Array.from(files).map(async (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const res = await fetch('/api/admin/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Failed to upload photo');
+        }
+        return data.url as string;
+      });
+
+      const uploadedUrls = await Promise.all(uploadPromises);
+      setImages((prev) => [...prev, ...uploadedUrls]);
+    } catch (err: any) {
+      setError(err.message || 'Error uploading photos');
+    } finally {
+      setUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
+
+  const addDirectImageUrl = () => {
+    if (customImageUrl.trim()) {
+      setImages((prev) => [...prev, customImageUrl.trim()]);
+      setCustomImageUrl('');
+    }
+  };
+
+  const removeImage = (indexToRemove: number) => {
+    setImages((prev) => prev.filter((_, idx) => idx !== indexToRemove));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim()) {
+      setError('Product title is required');
+      return;
+    }
+    if (!priceKes || Number(priceKes) <= 0) {
+      setError('Please enter a valid price in KES');
+      return;
+    }
+    if (images.length === 0) {
+      setError('Please upload at least one photo for the outfit');
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    const payload = {
+      name,
+      slug: slug || name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      tagline,
+      description,
+      category,
+      fabricDetails,
+      construction,
+      priceKes: Number(priceKes),
+      priceUsd: Number(priceUsd),
+      images,
+      sizes: selectedSizes,
+      isInStock,
+      isFeatured,
+    };
+
+    try {
+      const url = isEditing && productToEdit
+        ? `/api/products/${productToEdit.id}`
+        : '/api/products';
+      const method = isEditing ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to save product');
+      }
+
+      onSaved();
+      onClose();
+    } catch (err: any) {
+      setError(err.message || 'Failed to save product');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl bg-white rounded-xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col border border-slate-200">
+        {/* Modal Header */}
+        <div className="bg-brand-navy text-white px-6 py-4 flex items-center justify-between border-b border-brand-gold/30 flex-shrink-0">
+          <div className="flex items-center space-x-2.5">
+            <Sparkles className="w-5 h-5 text-brand-gold" />
+            <div>
+              <h3 className="font-serif text-lg font-bold">
+                {isEditing ? 'Edit Ready-to-Wear Outfit' : 'Publish New Ready-to-Wear Outfit'}
+              </h3>
+              <p className="text-[11px] text-slate-300">
+                Uploaded photography and pricing reflect directly on the storefront.
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Modal Form Scrollable Body */}
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-6">
+          {error && (
+            <div className="p-3.5 bg-red-50 border border-red-200 rounded text-red-700 text-xs flex items-start space-x-2">
+              <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-red-500" />
+              <span>{error}</span>
+            </div>
+          )}
+
+          {/* 1. PHOTO UPLOADS SECTION */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <label className="block text-xs font-bold uppercase tracking-wider text-brand-navy">
+                Outfit Photography (Upload Photos) <span className="text-red-500">*</span>
+              </label>
+              <span className="text-[11px] text-slate-500">
+                {images.length} photo{images.length !== 1 ? 's' : ''} added
+              </span>
+            </div>
+
+            {/* Photo Previews Gallery */}
+            {images.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
+                {images.map((imgUrl, idx) => (
+                  <div key={idx} className="relative group aspect-[3/4] rounded-md overflow-hidden bg-slate-200 border border-slate-300">
+                    <Image
+                      src={imgUrl}
+                      alt={`Product preview ${idx + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => removeImage(idx)}
+                      className="absolute top-1.5 right-1.5 p-1 bg-red-600 text-white rounded-full opacity-80 hover:opacity-100 hover:scale-105 transition-all shadow-md"
+                      title="Remove image"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                    {idx === 0 && (
+                      <span className="absolute bottom-1 left-1 px-1.5 py-0.5 bg-brand-navy/90 text-brand-gold text-[9px] font-bold rounded uppercase tracking-wider">
+                        Primary Cover
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Upload Zone */}
+            <div 
+              onClick={() => fileInputRef.current?.click()}
+              className="border-2 border-dashed border-slate-300 hover:border-brand-gold rounded-lg p-6 text-center cursor-pointer transition-colors bg-slate-50/50 hover:bg-amber-50/30 group"
+            >
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileUpload}
+                multiple
+                accept="image/*"
+                className="hidden"
+              />
+              <UploadCloud className="w-8 h-8 mx-auto text-slate-400 group-hover:text-brand-gold transition-colors mb-2" />
+              <p className="text-xs font-semibold text-slate-700">
+                {uploading ? 'Uploading photos to Atelier store...' : 'Click to select photos from your device'}
+              </p>
+              <p className="text-[11px] text-slate-500 mt-1">
+                Supports JPG, PNG, WEBP high-resolution photography.
+              </p>
+            </div>
+
+            {/* Direct Image URL input as quick alternative */}
+            <div className="flex space-x-2 pt-1">
+              <div className="relative flex-1">
+                <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                <input
+                  type="url"
+                  value={customImageUrl}
+                  onChange={(e) => setCustomImageUrl(e.target.value)}
+                  placeholder="Or paste an image URL directly (e.g. https://...)"
+                  className="w-full pl-8 pr-3 py-1.5 text-xs bg-white border border-slate-300 rounded focus:ring-1 focus:ring-brand-gold focus:outline-none"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={addDirectImageUrl}
+                disabled={!customImageUrl.trim()}
+                className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded disabled:opacity-40 transition-colors"
+              >
+                Add URL
+              </button>
+            </div>
+          </div>
+
+          {/* 2. BASIC INFO */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+                Outfit Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={(e) => handleNameChange(e.target.value)}
+                placeholder="e.g. The Sovereign Double-Breasted Cashmere Blazer"
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+                Category <span className="text-red-500">*</span>
+              </label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
+              >
+                {CATEGORIES.map((cat) => (
+                  <option key={cat.id} value={cat.id}>
+                    {cat.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Tagline */}
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+              Tagline / Headline Highlight
+            </label>
+            <input
+              type="text"
+              value={tagline}
+              onChange={(e) => setTagline(e.target.value)}
+              placeholder="e.g. 6x2 Stance in Loro Piana Pure Cashmere"
+              className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
+            />
+          </div>
+
+          {/* Description */}
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+              Detailed Garment Description
+            </label>
+            <textarea
+              rows={3}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Describe the silhouette, lapels, canvas interior, styling notes, and occasion versatility..."
+              className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy leading-relaxed"
+            />
+          </div>
+
+          {/* 3. FABRIC & CONSTRUCTION */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+                Fabric Details & Mill
+              </label>
+              <input
+                type="text"
+                value={fabricDetails}
+                onChange={(e) => setFabricDetails(e.target.value)}
+                placeholder="e.g. Scabal Super 150s Pure Merino Wool"
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+                Internal Construction
+              </label>
+              <select
+                value={construction}
+                onChange={(e) => setConstruction(e.target.value)}
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
+              >
+                <option value="Full Floating Canvas">Full Floating Canvas (Horsehair)</option>
+                <option value="Half Canvas Sartorial">Half Canvas Sartorial</option>
+                <option value="Soft Unstructured Tailoring">Soft Unstructured Tailoring</option>
+                <option value="Neapolitan Spalla Camicia">Neapolitan Spalla Camicia</option>
+              </select>
+            </div>
+          </div>
+
+          {/* 4. PRICING */}
+          <div className="p-4 bg-amber-50/50 rounded-lg border border-amber-200/80 space-y-3">
+            <div className="flex items-center space-x-2 text-brand-navy">
+              <Sparkles className="w-4 h-4 text-brand-gold" />
+              <h4 className="text-xs font-bold uppercase tracking-wider">
+                Outfit Pricing (Kenyan Shillings & US Dollars)
+              </h4>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Price in KES (KES) <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-500">
+                    KES
+                  </span>
+                  <input
+                    type="number"
+                    required
+                    min="0"
+                    step="500"
+                    value={priceKes}
+                    onChange={(e) => handlePriceKesChange(e.target.value)}
+                    placeholder="165000"
+                    className="w-full pl-12 pr-3 py-2 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-gold font-bold text-brand-navy"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Price in USD ($)
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-500">
+                    $
+                  </span>
+                  <input
+                    type="number"
+                    min="0"
+                    value={priceUsd}
+                    onChange={(e) => setPriceUsd(e.target.value)}
+                    placeholder="1275"
+                    className="w-full pl-8 pr-3 py-2 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-gold font-semibold text-brand-navy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 5. SIZES AVAILABLE */}
+          <div>
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
+              Available Sizes
+            </label>
+            <div className="flex flex-wrap gap-2 mb-2">
+              {STANDARD_SIZES.map((sz) => {
+                const isSelected = selectedSizes.includes(sz);
+                return (
+                  <button
+                    key={sz}
+                    type="button"
+                    onClick={() => toggleSize(sz)}
+                    className={`px-3 py-1.5 rounded text-xs font-semibold transition-colors flex items-center space-x-1.5 ${
+                      isSelected
+                        ? 'bg-brand-navy text-brand-gold border-2 border-brand-gold'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200 border border-slate-200'
+                    }`}
+                  >
+                    {isSelected && <Check className="w-3 h-3" />}
+                    <span>{sz}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Custom size addition */}
+            <div className="flex space-x-2 mt-2">
+              <input
+                type="text"
+                value={customSizeInput}
+                onChange={(e) => setCustomSizeInput(e.target.value)}
+                placeholder="Add custom size (e.g. 50R, XL, 50ml)"
+                className="w-56 px-3 py-1 text-xs bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={addCustomSize}
+                className="px-3 py-1 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded flex items-center space-x-1"
+              >
+                <Plus className="w-3 h-3" />
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+
+          {/* 6. STOCK & FEATURED TOGGLES */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200">
+            <label className="flex items-center space-x-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={isInStock}
+                onChange={(e) => setIsInStock(e.target.checked)}
+                className="w-4 h-4 text-brand-gold rounded border-slate-300 focus:ring-brand-gold"
+              />
+              <div>
+                <p className="text-xs font-bold text-brand-navy">Available in Stock</p>
+                <p className="text-[11px] text-slate-500">Uncheck if temporarily sold out</p>
+              </div>
+            </label>
+
+            <label className="flex items-center space-x-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={isFeatured}
+                onChange={(e) => setIsFeatured(e.target.checked)}
+                className="w-4 h-4 text-brand-gold rounded border-slate-300 focus:ring-brand-gold"
+              />
+              <div>
+                <p className="text-xs font-bold text-brand-navy">Featured on Homepage</p>
+                <p className="text-[11px] text-slate-500">Show in featured luxury spotlight</p>
+              </div>
+            </label>
+          </div>
+        </form>
+
+        {/* Modal Footer Actions */}
+        <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex items-center justify-end space-x-3 flex-shrink-0">
+          <button
+            type="button"
+            onClick={onClose}
+            disabled={submitting}
+            className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-slate-800 transition-colors"
+          >
+            Cancel
+          </button>
+
+          <button
+            onClick={handleSubmit}
+            disabled={submitting || uploading}
+            className="px-6 py-2.5 bg-brand-navy hover:bg-brand-navy-dark text-white rounded font-bold uppercase tracking-luxury text-xs transition-all shadow-md hover:shadow-lg disabled:opacity-50 flex items-center space-x-2"
+          >
+            {submitting ? (
+              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            ) : (
+              <>
+                <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                <span>{isEditing ? 'Save Changes' : 'Publish Outfit'}</span>
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -21,6 +21,7 @@ function ReadyToWearContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || 'all';
 
+  const [products, setProducts] = useState<Product[]>(READY_TO_WEAR_PRODUCTS);
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedSize, setSelectedSize] = useState<string>('all');
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all');
@@ -29,6 +30,23 @@ function ReadyToWearContent() {
   const [selectedVariantSize, setSelectedVariantSize] = useState<string>('');
 
   const { addItem } = useCartStore();
+
+  // Dynamically fetch live products from admin API
+  React.useEffect(() => {
+    let isMounted = true;
+    fetch('/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted && data.products && data.products.length > 0) {
+          setProducts(data.products);
+        }
+      })
+      .catch((err) => console.warn('Could not fetch dynamic products, using fallback:', err));
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const categories = [
     { id: 'all', label: 'All Ready to Wear' },
@@ -44,7 +62,7 @@ function ReadyToWearContent() {
 
   // Multi-faceted filtering
   const filteredProducts = useMemo(() => {
-    return READY_TO_WEAR_PRODUCTS.filter((product) => {
+    return products.filter((product) => {
       // Category match
       if (selectedCategory !== 'all' && product.category !== selectedCategory) {
         return false;
@@ -65,7 +83,7 @@ function ReadyToWearContent() {
       if (sortBy === 'price-desc') return b.priceKes - a.priceKes;
       return 0; // featured
     });
-  }, [selectedCategory, selectedSize, selectedPriceRange, sortBy]);
+  }, [products, selectedCategory, selectedSize, selectedPriceRange, sortBy]);
 
   const handleQuickAdd = (product: Product, size: string) => {
     addItem({
