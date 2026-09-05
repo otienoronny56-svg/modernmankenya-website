@@ -58,9 +58,9 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-slate-50">
       {/* Mobile Top Bar */}
-      <div className="md:hidden bg-brand-navy text-white px-4 py-3 flex items-center justify-between border-b border-brand-gold/30">
+      <div className="md:hidden bg-brand-navy text-white px-4 py-3 flex items-center justify-between border-b border-brand-gold/30 sticky top-0 z-30">
         <Link href="/admin" className="flex items-center space-x-2">
           <div className="relative w-8 h-8">
             <Image
@@ -81,10 +81,18 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
         </button>
       </div>
 
-      {/* Sidebar for Desktop */}
+      {/* Mobile Overlay */}
+      {mobileNavOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 z-30 md:hidden"
+          onClick={() => setMobileNavOpen(false)}
+        />
+      )}
+
+      {/* Sidebar for Desktop & Mobile */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 w-64 bg-brand-navy text-white flex flex-col justify-between border-r border-white/10 transition-transform duration-200 md:translate-x-0 md:static ${
-          mobileNavOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed inset-y-0 left-0 z-40 w-64 bg-brand-navy text-white flex flex-col justify-between border-r border-white/10 transition-transform duration-200 ${
+          mobileNavOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         <div>
@@ -174,10 +182,12 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
         </div>
       </aside>
 
-      {/* Main Content Area */}
-      <main className="flex-1 min-w-0 flex flex-col bg-slate-50 min-h-screen">
-        {children}
-      </main>
+      {/* Main Content Area with md:pl-64 offset */}
+      <div className="md:pl-64 min-h-screen flex flex-col bg-slate-50">
+        <main className="flex-1 min-w-0 bg-slate-50">
+          {children}
+        </main>
+      </div>
     </div>
   );
 }

@@ -250,7 +250,7 @@ export const READY_TO_WEAR_PRODUCTS: Product[] = [
     isFeatured: false,
     isInStock: true,
     variants: [
-      { id: 'v-18', size: '8.5cm Width', color: 'Savile Navy & Gold Pin-Dot', stockQuantity: 15, sku: 'MM-TIE-NAVY' },
+      { id: 'v-18', size: '8.5cm Width', color: 'Midnight Navy & Gold Pin-Dot', stockQuantity: 15, sku: 'MM-TIE-NAVY' },
       { id: 'v-19', size: '8.5cm Width', color: 'Deep Burgundy Wine', stockQuantity: 12, sku: 'MM-TIE-BUR' },
     ],
     detailsList: [
