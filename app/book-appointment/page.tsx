@@ -15,6 +15,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
+import { LuxuryCalendarPicker } from '@/components/booking/LuxuryCalendarPicker';
 
 function BookAppointmentContent() {
   const searchParams = useSearchParams();
@@ -31,6 +32,7 @@ function BookAppointmentContent() {
   );
   const [locationType, setLocationType] = useState<string>('Flagship Atelier Nairobi');
   const [selectedDate, setSelectedDate] = useState<string>('2026-09-10');
+  const [selectedDateDisplay, setSelectedDateDisplay] = useState<string>('Thu, Sep 10, 2026');
   const [selectedTime, setSelectedTime] = useState<string>('11:00 AM');
   const [clientName, setClientName] = useState<string>('');
   const [clientEmail, setClientEmail] = useState<string>('');
@@ -73,14 +75,6 @@ function BookAppointmentContent() {
       title: 'Virtual Master Tailor Consultation',
       desc: 'High-definition video consultation for diaspora and international clientele.',
     },
-  ];
-
-  const dates = [
-    { date: '2026-09-10', display: 'Thu, Sep 10' },
-    { date: '2026-09-11', display: 'Fri, Sep 11' },
-    { date: '2026-09-12', display: 'Sat, Sep 12' },
-    { date: '2026-09-15', display: 'Tue, Sep 15' },
-    { date: '2026-09-16', display: 'Wed, Sep 16' },
   ];
 
   const timeSlots = [
@@ -261,67 +255,107 @@ function BookAppointmentContent() {
           {/* STEP 3: Date & Time Picker */}
           {step === 3 && (
             <div className="space-y-6">
-              <h2 className="font-serif text-2xl text-brand-navy font-bold">
-                3. Choose Private Appointment Slot
-              </h2>
-              
               <div>
-                <label className="block text-xs font-bold uppercase tracking-luxury text-brand-slate mb-3">
-                  Select Date
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
-                  {dates.map((d) => (
-                    <button
-                      key={d.date}
-                      type="button"
-                      onClick={() => setSelectedDate(d.date)}
-                      className={`p-3 rounded border text-center transition-all ${
-                        selectedDate === d.date
-                          ? 'bg-brand-navy text-white border-brand-navy font-bold'
-                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300'
-                      }`}
-                    >
-                      <CalendarIcon className="w-4 h-4 mx-auto mb-1 text-brand-gold" />
-                      <span className="text-xs block">{d.display}</span>
-                    </button>
-                  ))}
-                </div>
+                <h2 className="font-serif text-xl sm:text-2xl text-brand-navy font-bold">
+                  3. Choose Private Appointment Slot
+                </h2>
+                <p className="text-xs text-slate-500 mt-1">
+                  Select your fitting date on the bespoke calendar, then choose an executive consultation time.
+                </p>
               </div>
 
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-luxury text-brand-slate mb-3">
-                  Select Time Slot
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-                  {timeSlots.map((time) => (
-                    <button
-                      key={time}
-                      type="button"
-                      onClick={() => setSelectedTime(time)}
-                      className={`p-3 rounded border text-center transition-all ${
-                        selectedTime === time
-                          ? 'bg-brand-navy text-white border-brand-navy font-bold'
-                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300'
-                      }`}
-                    >
-                      <Clock className="w-3.5 h-3.5 mx-auto mb-1 text-brand-gold" />
-                      <span className="text-xs block">{time}</span>
-                    </button>
-                  ))}
+              {/* Responsive Layout: Calendar on Left, Time Slots & Overview on Right */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                {/* Left: Luxury Monthly Calendar Picker (7 Cols on desktop) */}
+                <div className="lg:col-span-7 space-y-2">
+                  <label className="block text-xs font-bold uppercase tracking-luxury text-brand-slate">
+                    Select Fitting Date
+                  </label>
+                  <LuxuryCalendarPicker
+                    selectedDate={selectedDate}
+                    onSelectDate={(dateStr, displayStr) => {
+                      setSelectedDate(dateStr);
+                      setSelectedDateDisplay(displayStr);
+                    }}
+                  />
                 </div>
+
+                {/* Right: Time Slot & Overview Column (5 Cols on desktop) */}
+                <div className="lg:col-span-5 space-y-4">
+                  {/* Selected Slot Overview Card */}
+                  <div className="p-4 sm:p-5 rounded-xl bg-brand-navy text-white border border-brand-gold/30 shadow-luxury space-y-3">
+                    <div className="flex items-center justify-between text-[11px] text-brand-gold font-bold uppercase tracking-luxury">
+                      <span className="flex items-center space-x-1.5">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Appointment Slot</span>
+                      </span>
+                      <span className="bg-brand-gold/20 text-brand-gold px-2 py-0.5 rounded text-[10px]">
+                        Private VIP
+                      </span>
+                    </div>
+
+                    <div className="space-y-0.5 pt-1">
+                      <p className="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Date</p>
+                      <p className="font-serif text-base font-bold text-white">
+                        {selectedDateDisplay || selectedDate}
+                      </p>
+                    </div>
+
+                    <div className="space-y-0.5">
+                      <p className="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Time</p>
+                      <p className="font-serif text-base font-bold text-brand-gold">
+                        {selectedTime}
+                      </p>
+                    </div>
+
+                    <div className="pt-2.5 border-t border-white/10 text-[11px] text-slate-300 font-light flex items-center space-x-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
+                      <span className="truncate">{locationType}</span>
+                    </div>
+                  </div>
+
+                  {/* Time Slots Area */}
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-luxury text-brand-slate mb-2.5 flex items-center justify-between">
+                      <span>Select Time Slot</span>
+                      <span className="text-[10px] text-slate-400 font-normal">Nairobi Time (EAT)</span>
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {timeSlots.map((time) => (
+                        <button
+                          key={time}
+                          type="button"
+                          onClick={() => setSelectedTime(time)}
+                          className={`p-3 rounded-lg border text-center transition-all ${
+                            selectedTime === time
+                              ? 'bg-brand-navy text-brand-gold border-brand-gold ring-2 ring-brand-gold/30 font-bold shadow-sm'
+                              : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-brand-gold/50 hover:bg-amber-50/40'
+                          }`}
+                        >
+                          <Clock className={`w-3.5 h-3.5 mx-auto mb-1 ${selectedTime === time ? 'text-brand-gold' : 'text-slate-400'}`} />
+                          <span className="text-xs font-semibold block">{time}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
-              <div className="pt-6 flex justify-between">
+              <div className="pt-6 border-t border-slate-100 flex justify-between">
                 <button
+                  type="button"
                   onClick={() => setStep(2)}
-                  className="px-6 py-3.5 border border-slate-300 text-brand-navy text-xs font-bold uppercase tracking-luxury rounded flex items-center space-x-2"
+                  className="px-6 py-3.5 border border-slate-300 text-brand-navy text-xs font-bold uppercase tracking-luxury rounded flex items-center space-x-2 hover:bg-slate-50 transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Previous</span>
                 </button>
                 <button
+                  type="button"
                   onClick={() => setStep(4)}
-                  className="px-8 py-3.5 bg-brand-navy hover:bg-brand-navy-light text-white text-xs font-bold uppercase tracking-luxury rounded flex items-center space-x-2"
+                  className="px-8 py-3.5 bg-brand-navy hover:bg-brand-navy-light text-white text-xs font-bold uppercase tracking-luxury rounded flex items-center space-x-2 transition-all shadow-md"
                 >
                   <span>Client Information</span>
                   <ArrowRight className="w-4 h-4 text-brand-gold" />
@@ -398,7 +432,7 @@ function BookAppointmentContent() {
               <div className="p-4 bg-brand-canvas-alt rounded border border-slate-200 text-xs space-y-1">
                 <p className="font-semibold text-brand-navy">Appointment Review:</p>
                 <p className="text-slate-600">{fittingType} • {locationType}</p>
-                <p className="text-brand-gold font-bold">{selectedDate} at {selectedTime}</p>
+                <p className="text-brand-gold font-bold">{selectedDateDisplay || selectedDate} at {selectedTime}</p>
               </div>
 
               <div className="pt-6 flex justify-between items-center">
@@ -466,7 +500,7 @@ function BookAppointmentContent() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-400">Date & Time:</span>
-                  <span className="font-bold text-brand-gold-dark">{selectedDate} at {selectedTime}</span>
+                  <span className="font-bold text-brand-gold-dark">{selectedDateDisplay || selectedDate} at {selectedTime}</span>
                 </div>
               </div>
 
