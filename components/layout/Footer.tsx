@@ -164,6 +164,7 @@ export const Footer: React.FC = () => {
               Concierge & Atelier
             </h4>
             <ul className="space-y-2 text-slate-400">
+              <li><Link href="/about" className="hover:text-white transition-colors text-brand-gold font-medium">About Us & Artisans</Link></li>
               <li><Link href="/book-appointment" className="hover:text-white transition-colors">Book Private Fitting</Link></li>
               <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Wedding Commissions</Link></li>
               <li><Link href="/services/alterations" className="hover:text-white transition-colors">Bespoke Alterations</Link></li>
@@ -179,6 +180,7 @@ export const Footer: React.FC = () => {
               The Standard
             </h4>
             <ul className="space-y-2 text-slate-400">
+              <li><Link href="/about#the-team" className="hover:text-brand-gold transition-colors text-brand-gold/90 font-semibold">Meet The Tailors &rarr;</Link></li>
               <li><span className="text-brand-gold font-semibold">Floating Canvas</span></li>
               <li><span>Millimetric Cut</span></li>
               <li><span>Dormeuil & Scabal</span></li>

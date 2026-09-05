@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { 
   LayoutDashboard, 
   ShoppingBag, 
+  Users,
   ExternalLink, 
   LogOut, 
   Sparkles, 
@@ -54,6 +55,12 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
       href: '/admin/products',
       icon: ShoppingBag,
       active: pathname.startsWith('/admin/products'),
+    },
+    {
+      name: 'Atelier Team',
+      href: '/admin/team',
+      icon: Users,
+      active: pathname.startsWith('/admin/team'),
     },
   ];
 

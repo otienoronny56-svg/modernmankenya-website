@@ -91,3 +91,17 @@ export interface AppointmentBooking {
   notes?: string;
   bespokeReference?: Partial<BespokeConfiguration>;
 }
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  specialty: string;
+  bio: string;
+  experienceYears: number;
+  image: string;
+  quote?: string;
+  favoriteCloth?: string;
+  isLeadership?: boolean;
+  order?: number;
+}

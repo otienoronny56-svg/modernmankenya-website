@@ -69,6 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   ];
 
   const servicesLinks = [
+    { name: 'About Us & Artisans', href: '/about', desc: 'Our Nairobi atelier heritage & master team' },
     { name: 'Weddings', href: '/bespoke/weddings', desc: 'Groom & bridal party bespoke sartorial care' },
     { name: 'Alterations', href: '/services/alterations', desc: 'Master tailor refitting & garment surgery' },
     { name: 'Gift Vouchers', href: '/services/gift-vouchers', desc: 'The gift of an artisanal fitting experience' },
@@ -274,6 +275,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             </div>
 
             <Link
+              href="/about"
+              className="hover:text-brand-gold transition-colors font-medium tracking-wide"
+            >
+              About Us
+            </Link>
+
+            <Link
               href="/bespoke/the-craft"
               className="hover:text-brand-gold transition-colors font-medium tracking-wide"
             >
@@ -357,6 +365,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 ))}
               </div>
             </div>
+
+            {/* About Us Direct Link */}
+            <Link
+              href="/about"
+              className="flex items-center justify-between py-2.5 text-left border-b border-slate-100 group"
+            >
+              <div className="flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+                <span className="font-serif text-sm font-bold uppercase tracking-luxury text-brand-navy group-hover:text-brand-gold transition-colors">
+                  About Us & Artisans
+                </span>
+              </div>
+              <span className="text-xs text-brand-gold font-bold">&rarr;</span>
+            </Link>
 
             {/* Accordion 1: Bespoke House */}
             <div className="border-b border-slate-100 pb-2">

@@ -4,6 +4,7 @@ import { PillarsSection } from '@/components/home/PillarsSection';
 import { CollectionGrids } from '@/components/home/CollectionGrids';
 import { InteractiveCustomizerTeaser } from '@/components/home/InteractiveCustomizerTeaser';
 import { ProcessSection } from '@/components/home/ProcessSection';
+import { AboutTeaserSection } from '@/components/home/AboutTeaserSection';
 import { AtelierInvitation } from '@/components/home/AtelierInvitation';
 
 export default function HomePage() {
@@ -24,7 +25,10 @@ export default function HomePage() {
       {/* 5. Bespoke Fitting Process Walkthrough & Client Reviews */}
       <ProcessSection />
 
-      {/* 6. Nairobi Flagship Atelier Private Invitation */}
+      {/* 6. About Modern Man & Master Artisans Teaser */}
+      <AboutTeaserSection />
+
+      {/* 7. Nairobi Flagship Atelier Private Invitation */}
       <AtelierInvitation />
     </main>
   );
