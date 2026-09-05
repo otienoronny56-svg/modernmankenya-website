@@ -58,9 +58,9 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
-      {/* 1. Permanent Desktop Sidebar (In normal flex flow, never overlaps content) */}
-      <aside className="hidden lg:flex flex-col justify-between w-64 flex-shrink-0 bg-brand-navy text-white min-h-screen sticky top-0 border-r border-white/10 z-20">
+    <div className="h-screen w-full bg-slate-50 flex overflow-hidden">
+      {/* 1. Permanent Desktop Sidebar (Fixed height, never scrolls with the page) */}
+      <aside className="hidden lg:flex flex-col justify-between w-64 flex-shrink-0 bg-brand-navy text-white h-screen border-r border-white/10 z-20 overflow-y-auto">
         <div>
           {/* Brand Header */}
           <div className="p-5 border-b border-white/10 flex items-center space-x-3">
@@ -247,10 +247,10 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
         </div>
       )}
 
-      {/* 3. Main Content Column (Takes 100% of remaining width, strictly bounded) */}
-      <div className="flex-1 flex flex-col min-w-0 max-w-full overflow-x-hidden">
-        {/* Top Control Bar */}
-        <header className="bg-brand-navy text-white px-4 sm:px-6 py-3 flex items-center justify-between border-b border-white/10 sticky top-0 z-10 shadow-sm w-full">
+      {/* 3. Main Content Column (Locked h-screen, only main scrolls internally) */}
+      <div className="flex-1 flex flex-col h-screen min-w-0 max-w-full overflow-hidden">
+        {/* Top Control Bar (Permanently fixed at top) */}
+        <header className="flex-shrink-0 bg-brand-navy text-white px-4 sm:px-6 py-3 flex items-center justify-between border-b border-white/10 z-10 shadow-sm w-full">
           <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
             {/* Hamburger Button on small screens */}
             <button
