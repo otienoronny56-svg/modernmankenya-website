@@ -113,7 +113,9 @@ export function AtelierMap({
               <p className="font-bold text-brand-navy uppercase tracking-wider text-[10px]">
                 Concierge Assistance
               </p>
-              <p className="text-slate-600 font-medium">+254 700 000 254</p>
+              <a href="tel:+254718923082" className="text-slate-600 hover:text-brand-navy font-medium block">
+                +254 718 923082
+              </a>
               <a 
                 href={googleMapsUrl}
                 target="_blank" 

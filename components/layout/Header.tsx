@@ -87,9 +87,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               <span className="truncate">Nairobi Atelier</span>
             </span>
             <span className="text-brand-gold/40 hidden xs:inline">|</span>
-            <a href="tel:+254700000254" className="hidden sm:flex items-center space-x-1.5 hover:text-white transition-colors">
+            <a href="tel:+254718923082" className="hidden sm:flex items-center space-x-1.5 hover:text-white transition-colors">
               <Phone className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
-              <span>+254 700 000 254</span>
+              <span>+254 718 923082</span>
             </a>
           </div>
 

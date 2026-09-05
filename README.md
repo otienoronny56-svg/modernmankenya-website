@@ -93,8 +93,9 @@ This project is optimized for deployment on [Vercel](https://vercel.com/):
 
 ## 🏛 Atelier Concierge & Contact
 
-- **Flagship Atelier**: Westlands / Karen, Nairobi, Kenya
-- **Private Concierge**: +254 700 000 254 / +254 711 000 254
+- **Flagship Atelier**: Nairobi, Kenya
+- **Direct Telephone & WhatsApp**: +254 718 923082
+- **Official Email**: modernmanke254@gmail.com
 - **Hours**: Tuesday – Saturday: 09:30 – 18:30 (By Private Appointment Only)
 
 © 2026 Modern Man Kenya 254. All rights reserved.
