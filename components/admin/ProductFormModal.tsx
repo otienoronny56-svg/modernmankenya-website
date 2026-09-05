@@ -180,6 +180,24 @@ export function ProductFormModal({
     setImages((prev) => prev.filter((_, idx) => idx !== indexToRemove));
   };
 
+  const moveImage = (index: number, direction: 'left' | 'right') => {
+    const targetIndex = direction === 'left' ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= images.length) return;
+    const newImages = [...images];
+    const temp = newImages[index];
+    newImages[index] = newImages[targetIndex];
+    newImages[targetIndex] = temp;
+    setImages(newImages);
+  };
+
+  const getAngleLabel = (idx: number) => {
+    if (idx === 0) return '1. Cover (Front)';
+    if (idx === 1) return '2. Hover (Back/Side)';
+    if (idx === 2) return '3. Side Profile';
+    if (idx === 3) return '4. Detail Zoom';
+    return `${idx + 1}. Angle ${idx + 1}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) {
@@ -278,38 +296,78 @@ export function ProductFormModal({
           {/* 1. PHOTO UPLOADS SECTION */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <label className="block text-xs font-bold uppercase tracking-wider text-brand-navy">
-                Outfit Photography (Upload Photos) <span className="text-red-500">*</span>
-              </label>
-              <span className="text-[11px] text-slate-500">
-                {images.length} photo{images.length !== 1 ? 's' : ''} added
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-brand-navy">
+                  Multi-Angle Photography (Front, Back, Side, Detail) <span className="text-red-500">*</span>
+                </label>
+                <p className="text-[11px] text-slate-500 mt-0.5">
+                  Upload 4 to 5 photos. Photo 1 is the main cover, Photo 2 shows on hover.
+                </p>
+              </div>
+              <span className="text-[11px] font-bold text-brand-gold bg-brand-navy/5 px-2 py-0.5 rounded">
+                {images.length} photo{images.length !== 1 ? 's' : ''}
               </span>
             </div>
 
-            {/* Photo Previews Gallery */}
+            {/* Photo Previews Gallery with Reordering */}
             {images.length > 0 && (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
                 {images.map((imgUrl, idx) => (
-                  <div key={idx} className="relative group aspect-[3/4] rounded-md overflow-hidden bg-slate-200 border border-slate-300">
+                  <div key={idx} className="relative group aspect-[3/4] rounded-md overflow-hidden bg-slate-200 border border-slate-300 shadow-sm flex flex-col justify-between">
                     <Image
                       src={imgUrl}
-                      alt={`Product preview ${idx + 1}`}
+                      alt={`Product angle ${idx + 1}`}
                       fill
                       className="object-cover"
                     />
-                    <button
-                      type="button"
-                      onClick={() => removeImage(idx)}
-                      className="absolute top-1.5 right-1.5 p-1 bg-red-600 text-white rounded-full opacity-80 hover:opacity-100 hover:scale-105 transition-all shadow-md"
-                      title="Remove image"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                    {idx === 0 && (
-                      <span className="absolute bottom-1 left-1 px-1.5 py-0.5 bg-brand-navy/90 text-brand-gold text-[9px] font-bold rounded uppercase tracking-wider">
-                        Primary Cover
+
+                    {/* Top Action Row: Reorder & Delete */}
+                    <div className="relative z-10 p-1.5 flex items-center justify-between bg-gradient-to-b from-black/60 to-transparent">
+                      <div className="flex items-center space-x-1">
+                        {idx > 0 && (
+                          <button
+                            type="button"
+                            onClick={() => moveImage(idx, 'left')}
+                            className="p-1 bg-black/60 hover:bg-brand-navy text-white rounded text-[9px] transition-all"
+                            title="Move Earlier"
+                          >
+                            ←
+                          </button>
+                        )}
+                        {idx < images.length - 1 && (
+                          <button
+                            type="button"
+                            onClick={() => moveImage(idx, 'right')}
+                            className="p-1 bg-black/60 hover:bg-brand-navy text-white rounded text-[9px] transition-all"
+                            title="Move Later"
+                          >
+                            →
+                          </button>
+                        )}
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => removeImage(idx)}
+                        className="p-1 bg-red-600 hover:bg-red-700 text-white rounded-full transition-all shadow-md"
+                        title="Delete photo"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+
+                    {/* Bottom Angle Label Badge */}
+                    <div className="relative z-10 p-1.5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                      <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider block text-center ${
+                        idx === 0
+                          ? 'bg-brand-gold text-brand-navy'
+                          : idx === 1
+                          ? 'bg-white/90 text-brand-navy'
+                          : 'bg-black/60 text-white'
+                      }`}>
+                        {getAngleLabel(idx)}
                       </span>
-                    )}
+                    </div>
                   </div>
                 ))}
               </div>
