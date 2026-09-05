@@ -186,8 +186,8 @@ export default function AdminProductsPage() {
         </div>
       </div>
 
-      {/* Outfits Table Card */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden w-full min-w-0">
+      {/* Outfits Table Card (Strictly 100% width, No horizontal scrollbar) */}
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden w-full">
         {loading ? (
           <div className="p-16 text-center text-slate-400">
             <div className="w-8 h-8 border-2 border-brand-navy/30 border-t-brand-navy rounded-full animate-spin mx-auto mb-3" />
@@ -208,26 +208,23 @@ export default function AdminProductsPage() {
             </button>
           </div>
         ) : (
-          <div className="overflow-x-auto w-full">
-            <table className="w-full min-w-[650px] text-left text-xs text-slate-600">
+          <div className="w-full">
+            <table className="w-full text-left text-xs text-slate-600">
               <thead className="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
                 <tr>
-                  <th className="py-3 px-4">Garment & Photography</th>
-                  <th className="py-3 px-4">Category</th>
-                  <th className="py-3 px-4 hidden xl:table-cell">Fabric & Construction</th>
-                  <th className="py-3 px-4">Price (KES)</th>
-                  <th className="py-3 px-4 hidden md:table-cell">Price (USD)</th>
-                  <th className="py-3 px-4">Stock</th>
-                  <th className="py-3 px-4 text-right">Manage</th>
+                  <th className="py-3 px-3 sm:px-4">Garment</th>
+                  <th className="py-3 px-3 sm:px-4 text-right">Price</th>
+                  <th className="py-3 px-3 sm:px-4 text-center">Status</th>
+                  <th className="py-3 px-3 sm:px-4 text-right">Manage</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {filteredProducts.map((item) => (
                   <tr key={item.id} className="hover:bg-slate-50/70 transition-colors">
-                    {/* Garment Image & Name */}
-                    <td className="py-3.5 px-4">
-                      <div className="flex items-center space-x-3.5">
-                        <div className="relative w-14 h-18 sm:w-16 sm:h-20 rounded bg-slate-100 overflow-hidden flex-shrink-0 border border-slate-200 shadow-sm">
+                    {/* Garment Image, Name, and Category */}
+                    <td className="py-3 px-3 sm:px-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="relative w-12 h-16 sm:w-14 sm:h-18 rounded bg-slate-100 overflow-hidden flex-shrink-0 border border-slate-200 shadow-sm">
                           <Image
                             src={item.images[0] || '/images/bespoke-placeholder.jpg'}
                             alt={item.name}
@@ -235,57 +232,44 @@ export default function AdminProductsPage() {
                             className="object-cover"
                           />
                           {item.images.length > 1 && (
-                            <span className="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] font-bold px-1 rounded">
+                            <span className="absolute bottom-0.5 right-0.5 bg-black/75 text-white text-[8px] font-bold px-1 rounded">
                               +{item.images.length - 1}
                             </span>
                           )}
                         </div>
-                        <div className="min-w-0 max-w-xs sm:max-w-sm">
-                          <p className="font-serif font-bold text-sm text-brand-navy truncate">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-serif font-bold text-xs sm:text-sm text-brand-navy line-clamp-1">
                             {item.name}
                           </p>
-                          <p className="text-[11px] text-brand-gold font-medium truncate mt-0.5">
-                            {item.tagline || item.slug}
-                          </p>
-                          <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
-                            {item.description}
-                          </p>
+                          <div className="flex flex-wrap items-center gap-1.5 mt-1">
+                            <span className="capitalize px-1.5 py-0.5 rounded bg-slate-100 font-semibold text-[10px] text-slate-700">
+                              {item.category.replace('-', ' ')}
+                            </span>
+                            {item.tagline && (
+                              <span className="text-[10px] sm:text-[11px] text-brand-gold font-medium truncate max-w-[160px] sm:max-w-xs hidden xs:inline">
+                                {item.tagline}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </td>
 
-                    {/* Category */}
-                    <td className="py-3.5 px-4">
-                      <span className="capitalize px-2.5 py-1 rounded bg-slate-100 font-semibold text-[11px] text-slate-700">
-                        {item.category.replace('-', ' ')}
-                      </span>
-                    </td>
-
-                    {/* Fabric & Canvas */}
-                    <td className="py-3.5 px-4 max-w-xs hidden xl:table-cell">
-                      <p className="font-medium text-slate-800 text-[11px] truncate">
-                        {item.fabricDetails}
+                    {/* Price KES & USD stacked */}
+                    <td className="py-3 px-3 sm:px-4 text-right whitespace-nowrap">
+                      <p className="font-bold text-brand-navy text-xs sm:text-sm">
+                        KES {item.priceKes.toLocaleString()}
                       </p>
-                      <p className="text-[10px] text-slate-400 mt-0.5 truncate">
-                        {item.construction}
+                      <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium">
+                        ${item.priceUsd.toLocaleString()}
                       </p>
-                    </td>
-
-                    {/* Price KES */}
-                    <td className="py-3.5 px-4 font-bold text-brand-navy text-sm">
-                      KES {item.priceKes.toLocaleString()}
-                    </td>
-
-                    {/* Price USD */}
-                    <td className="py-3.5 px-4 text-slate-600 font-semibold text-xs hidden md:table-cell">
-                      ${item.priceUsd.toLocaleString()}
                     </td>
 
                     {/* Stock Status Toggle */}
-                    <td className="py-3.5 px-4">
+                    <td className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">
                       <button
                         onClick={() => handleToggleStock(item)}
-                        className={`inline-flex items-center space-x-1 text-[11px] font-semibold px-2.5 py-1 rounded transition-colors ${
+                        className={`inline-flex items-center space-x-1 text-[10px] sm:text-[11px] font-semibold px-2 py-1 rounded transition-colors ${
                           item.isInStock !== false
                             ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
                             : 'bg-red-50 text-red-700 hover:bg-red-100'
@@ -294,12 +278,12 @@ export default function AdminProductsPage() {
                       >
                         {item.isInStock !== false ? (
                           <>
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                             <span>In Stock</span>
                           </>
                         ) : (
                           <>
-                            <XCircle className="w-3.5 h-3.5 text-red-600" />
+                            <XCircle className="w-3 h-3 text-red-600" />
                             <span>Out of Stock</span>
                           </>
                         )}
@@ -307,8 +291,8 @@ export default function AdminProductsPage() {
                     </td>
 
                     {/* Actions */}
-                    <td className="py-3.5 px-4 text-right">
-                      <div className="flex items-center justify-end space-x-1.5">
+                    <td className="py-3 px-3 sm:px-4 text-right whitespace-nowrap">
+                      <div className="flex items-center justify-end space-x-1">
                         <button
                           onClick={() => handleOpenEdit(item)}
                           className="p-1.5 text-slate-600 hover:text-brand-navy hover:bg-slate-100 rounded transition-colors"

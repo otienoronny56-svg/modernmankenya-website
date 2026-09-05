@@ -184,24 +184,22 @@ export default function AdminDashboardPage() {
             </button>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[650px] text-left text-xs text-slate-600">
+          <div className="w-full">
+            <table className="w-full text-left text-xs text-slate-600">
               <thead className="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
                 <tr>
-                  <th className="py-3 px-4">Garment</th>
-                  <th className="py-3 px-4">Category</th>
-                  <th className="py-3 px-4">Price (KES)</th>
-                  <th className="py-3 px-4">Price (USD)</th>
-                  <th className="py-3 px-4">Stock Status</th>
-                  <th className="py-3 px-4 text-right">Actions</th>
+                  <th className="py-3 px-3 sm:px-4">Garment</th>
+                  <th className="py-3 px-3 sm:px-4 text-right">Price</th>
+                  <th className="py-3 px-3 sm:px-4 text-center">Status</th>
+                  <th className="py-3 px-3 sm:px-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {products.slice(0, 6).map((item) => (
                   <tr key={item.id} className="hover:bg-slate-50/70 transition-colors">
-                    <td className="py-3 px-4">
+                    <td className="py-3 px-3 sm:px-4">
                       <div className="flex items-center space-x-3">
-                        <div className="relative w-11 h-14 rounded bg-slate-100 overflow-hidden flex-shrink-0 border border-slate-200">
+                        <div className="relative w-11 h-14 rounded bg-slate-100 overflow-hidden flex-shrink-0 border border-slate-200 shadow-sm">
                           <Image
                             src={item.images[0] || '/images/bespoke-placeholder.jpg'}
                             alt={item.name}
@@ -209,46 +207,41 @@ export default function AdminDashboardPage() {
                             className="object-cover"
                           />
                         </div>
-                        <div className="min-w-0">
-                          <p className="font-semibold text-brand-navy truncate max-w-xs sm:max-w-md">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-semibold text-brand-navy truncate text-xs sm:text-sm">
                             {item.name}
                           </p>
-                          <p className="text-[11px] text-slate-400 truncate max-w-xs">
-                            {item.fabricDetails}
+                          <p className="text-[10px] text-brand-gold font-medium truncate capitalize">
+                            {item.category.replace('-', ' ')}
                           </p>
                         </div>
                       </div>
                     </td>
 
-                    <td className="py-3 px-4">
-                      <span className="capitalize px-2 py-0.5 rounded bg-slate-100 font-medium text-[11px] text-slate-700">
-                        {item.category.replace('-', ' ')}
-                      </span>
+                    <td className="py-3 px-3 sm:px-4 text-right whitespace-nowrap">
+                      <p className="font-bold text-brand-navy text-xs sm:text-sm">
+                        KES {item.priceKes.toLocaleString()}
+                      </p>
+                      <p className="text-[10px] sm:text-[11px] text-slate-400 font-medium">
+                        ${item.priceUsd.toLocaleString()}
+                      </p>
                     </td>
 
-                    <td className="py-3 px-4 font-bold text-brand-navy">
-                      KES {item.priceKes.toLocaleString()}
-                    </td>
-
-                    <td className="py-3 px-4 text-slate-500 font-medium">
-                      ${item.priceUsd.toLocaleString()}
-                    </td>
-
-                    <td className="py-3 px-4">
+                    <td className="py-3 px-3 sm:px-4 text-center whitespace-nowrap">
                       {item.isInStock !== false ? (
-                        <span className="inline-flex items-center space-x-1 text-emerald-700 text-[11px] font-semibold bg-emerald-50 px-2 py-0.5 rounded">
-                          <CheckCircle2 className="w-3 h-3" />
+                        <span className="inline-flex items-center space-x-1 text-emerald-700 text-[10px] sm:text-[11px] font-semibold bg-emerald-50 px-2 py-0.5 rounded">
+                          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                           <span>In Stock</span>
                         </span>
                       ) : (
-                        <span className="inline-flex items-center space-x-1 text-red-700 text-[11px] font-semibold bg-red-50 px-2 py-0.5 rounded">
-                          <XCircle className="w-3 h-3" />
+                        <span className="inline-flex items-center space-x-1 text-red-700 text-[10px] sm:text-[11px] font-semibold bg-red-50 px-2 py-0.5 rounded">
+                          <XCircle className="w-3 h-3 text-red-600" />
                           <span>Out of Stock</span>
                         </span>
                       )}
                     </td>
 
-                    <td className="py-3 px-4 text-right">
+                    <td className="py-3 px-3 sm:px-4 text-right whitespace-nowrap">
                       <button
                         onClick={() => handleOpenEdit(item)}
                         className="px-3 py-1 bg-white border border-slate-300 hover:border-brand-gold text-brand-navy rounded font-semibold text-[11px] shadow-sm transition-colors"
