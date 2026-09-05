@@ -247,15 +247,15 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
         </div>
       )}
 
-      {/* 3. Main Content Column (Takes 100% of remaining width, never overlapped) */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
+      {/* 3. Main Content Column (Takes 100% of remaining width, strictly bounded) */}
+      <div className="flex-1 flex flex-col min-w-0 max-w-full overflow-x-hidden">
         {/* Top Control Bar */}
-        <header className="bg-brand-navy text-white px-4 sm:px-8 py-3 flex items-center justify-between border-b border-white/10 sticky top-0 z-10 shadow-sm">
-          <div className="flex items-center space-x-3">
+        <header className="bg-brand-navy text-white px-4 sm:px-6 py-3 flex items-center justify-between border-b border-white/10 sticky top-0 z-10 shadow-sm w-full">
+          <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
             {/* Hamburger Button on small screens */}
             <button
               onClick={() => setMobileNavOpen(true)}
-              className="lg:hidden p-2 rounded hover:bg-white/10 text-brand-gold transition-colors"
+              className="lg:hidden p-1.5 rounded hover:bg-white/10 text-brand-gold transition-colors flex-shrink-0"
               aria-label="Open navigation drawer"
             >
               <Menu className="w-5 h-5" />
@@ -294,7 +294,7 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 min-w-0 bg-slate-50">
+        <main className="flex-1 min-w-0 max-w-full overflow-x-hidden bg-slate-50">
           {children}
         </main>
       </div>
