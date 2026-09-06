@@ -74,11 +74,13 @@ export async function POST(req: NextRequest) {
         stockQuantity: 5,
         sku: `MM-${slug.substring(0, 10).toUpperCase()}-${sz}`,
       })),
-      detailsList: [
-        fabricDetails || 'Luxury European Cloth',
-        construction || 'Full Floating Canvas Construction',
-        'Handcrafted in Nairobi Atelier',
-      ],
+      detailsList: (body.detailsList && Array.isArray(body.detailsList) && body.detailsList.length > 0)
+        ? body.detailsList
+        : [
+            fabricDetails || 'Luxury European Cloth',
+            construction || 'Full Floating Canvas Construction',
+            'Handcrafted in Nairobi Atelier',
+          ],
     };
 
     const saved = await saveProduct(newProduct);

@@ -7,6 +7,11 @@ import {
   UploadCloud, 
   Trash2, 
   Sparkles, 
+  Wand2,
+  Loader2,
+  CheckCircle2,
+  ChevronDown,
+  ChevronUp,
   Plus, 
   Check, 
   AlertCircle,
@@ -63,6 +68,14 @@ export function ProductFormModal({
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Gemini AI Generation state
+  const [isGeneratingAi, setIsGeneratingAi] = useState(false);
+  const [aiSuccessMessage, setAiSuccessMessage] = useState<string | null>(null);
+  const [aiHint, setAiHint] = useState('');
+  const [showHintInput, setShowHintInput] = useState(false);
+  const [detailsList, setDetailsList] = useState<string[]>([]);
+  const [newDetailInput, setNewDetailInput] = useState('');
+
   useEffect(() => {
     if (productToEdit) {
       setName(productToEdit.name || '');
@@ -77,6 +90,10 @@ export function ProductFormModal({
       setImages(productToEdit.images || []);
       setIsInStock(productToEdit.isInStock !== undefined ? productToEdit.isInStock : true);
       setIsFeatured(Boolean(productToEdit.isFeatured));
+      setDetailsList(productToEdit.detailsList || []);
+      setAiSuccessMessage(null);
+      setAiHint('');
+      setShowHintInput(false);
       if (productToEdit.variants && productToEdit.variants.length > 0) {
         setSelectedSizes(productToEdit.variants.map((v) => v.size));
       }
@@ -95,6 +112,10 @@ export function ProductFormModal({
       setSelectedSizes(['38R', '40R', '42R', '44R']);
       setIsInStock(true);
       setIsFeatured(false);
+      setDetailsList([]);
+      setAiSuccessMessage(null);
+      setAiHint('');
+      setShowHintInput(false);
       setError(null);
     }
   }, [productToEdit, isOpen]);
@@ -198,6 +219,87 @@ export function ProductFormModal({
     return `${idx + 1}. Angle ${idx + 1}`;
   };
 
+  // Auto-Generate Garment Profile with Gemini AI
+  const handleGenerateWithAi = async () => {
+    if (images.length === 0 && !aiHint.trim()) {
+      setError('Please upload or provide at least one photo (or enter a style hint) so Gemini AI can analyze the garment.');
+      return;
+    }
+
+    setIsGeneratingAi(true);
+    setError(null);
+    setAiSuccessMessage(null);
+
+    try {
+      const res = await fetch('/api/admin/ai-generate-outfit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          images,
+          hint: aiHint.trim(),
+          categoryHint: category,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Gemini AI generation failed');
+      }
+
+      const p = data.product || data.outfit;
+      if (!p) {
+        throw new Error('AI returned an empty product profile');
+      }
+
+      if (p.name) {
+        setName(p.name);
+        if (!isEditing || !slug) {
+          setSlug(
+            (p.slug || p.name)
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/(^-|-$)/g, '')
+          );
+        }
+      }
+      if (p.tagline) setTagline(p.tagline);
+      if (p.description) setDescription(p.description);
+      if (p.category && CATEGORIES.some((c) => c.id === p.category)) {
+        setCategory(p.category);
+      }
+      if (p.fabricDetails) setFabricDetails(p.fabricDetails);
+      if (p.construction) setConstruction(p.construction);
+      const chosenPriceKes = p.priceKes || p.suggestedPriceKes;
+      if (chosenPriceKes) {
+        setPriceKes(chosenPriceKes);
+        setPriceUsd(p.priceUsd || p.suggestedPriceUsd || Math.round(Number(chosenPriceKes) / 129.5));
+      }
+      if (p.detailsList && Array.isArray(p.detailsList) && p.detailsList.length > 0) {
+        setDetailsList(p.detailsList);
+      }
+
+      setAiSuccessMessage(
+        '✨ Garment profile auto-crafted by Gemini AI! All fields have been populated for your review.'
+      );
+    } catch (err: any) {
+      console.error('Gemini AI generation error:', err);
+      setError(err.message || 'Gemini AI generation failed. Please check the uploaded images and try again.');
+    } finally {
+      setIsGeneratingAi(false);
+    }
+  };
+
+  const addDetailBullet = () => {
+    if (newDetailInput.trim()) {
+      setDetailsList([...detailsList, newDetailInput.trim()]);
+      setNewDetailInput('');
+    }
+  };
+
+  const removeDetailBullet = (idxToRemove: number) => {
+    setDetailsList(detailsList.filter((_, idx) => idx !== idxToRemove));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) {
@@ -230,6 +332,7 @@ export function ProductFormModal({
       sizes: selectedSizes,
       isInStock,
       isFeatured,
+      detailsList: detailsList.length > 0 ? detailsList : undefined,
     };
 
     try {
@@ -418,6 +521,94 @@ export function ProductFormModal({
             </div>
           </div>
 
+          {/* GEMINI AI SARTORIAL GENERATOR CARD */}
+          <div className="relative overflow-hidden rounded-xl border border-brand-gold/40 bg-gradient-to-br from-brand-navy via-slate-900 to-brand-navy text-white p-4 sm:p-5 shadow-lg">
+            <div className="absolute -top-12 -right-12 w-36 h-36 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="relative z-10 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-brand-gold/20 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+                    <Wand2 className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-sm sm:text-base font-bold text-brand-gold tracking-wide flex items-center space-x-1.5">
+                      <span>Gemini Sartorial Stylist</span>
+                      <span className="text-[10px] uppercase font-sans font-semibold tracking-widest px-2 py-0.5 rounded-full bg-brand-gold/20 text-brand-gold-light border border-brand-gold/30">
+                        AI Multimodal
+                      </span>
+                    </h4>
+                    <p className="text-[11px] text-slate-300">
+                      Analyzes photos to craft outfit title, category, mill details, internal canvas, editorial prose & suggested pricing.
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowHintInput((prev) => !prev)}
+                  className="self-start sm:self-auto text-[11px] text-brand-gold/80 hover:text-brand-gold flex items-center space-x-1 transition-colors underline-offset-4 hover:underline"
+                >
+                  <span>{showHintInput ? 'Hide style hint' : '+ Add optional style note / fabric mill'}</span>
+                  {showHintInput ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                </button>
+              </div>
+
+              {/* Optional Style Hint Input */}
+              {showHintInput && (
+                <div className="pt-1 animate-in fade-in duration-200">
+                  <input
+                    type="text"
+                    value={aiHint}
+                    onChange={(e) => setAiHint(e.target.value)}
+                    placeholder="e.g. Scabal Super 150s, 6x2 double breasted, peak lapels, evening dinner jacket..."
+                    className="w-full px-3 py-2 text-xs bg-black/40 border border-brand-gold/30 rounded text-slate-100 placeholder-slate-400 focus:outline-none focus:border-brand-gold"
+                  />
+                  <p className="text-[10px] text-slate-400 mt-1">
+                    Guide Gemini with specific tailoring cues, cloth mills, or occasion highlights (optional).
+                  </p>
+                </div>
+              )}
+
+              {/* Action Button */}
+              <button
+                type="button"
+                onClick={handleGenerateWithAi}
+                disabled={isGeneratingAi || uploading}
+                className="w-full py-3 px-4 bg-gradient-to-r from-brand-gold via-amber-400 to-brand-gold hover:from-amber-400 hover:to-brand-gold text-brand-navy rounded-lg font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-gold transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-60 disabled:cursor-not-allowed group"
+              >
+                {isGeneratingAi ? (
+                  <>
+                    <Loader2 className="w-4 h-4 text-brand-navy animate-spin" />
+                    <span>Gemini AI is analyzing silhouettes, lapels & crafting editorial...</span>
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-4 h-4 text-brand-navy group-hover:scale-110 transition-transform" />
+                    <span>✨ Auto-Generate Garment Details with Gemini AI</span>
+                  </>
+                )}
+              </button>
+
+              {/* Success Badge */}
+              {aiSuccessMessage && (
+                <div className="p-3 bg-emerald-950/80 border border-emerald-500/40 rounded-lg text-emerald-200 text-xs flex items-start justify-between space-x-2 animate-in fade-in duration-200">
+                  <div className="flex items-start space-x-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <span>{aiSuccessMessage}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setAiSuccessMessage(null)}
+                    className="text-emerald-400 hover:text-white text-xs p-0.5"
+                  >
+                    ✕
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
           {/* 2. BASIC INFO */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -509,6 +700,62 @@ export function ProductFormModal({
                 <option value="Soft Unstructured Tailoring">Soft Unstructured Tailoring</option>
                 <option value="Neapolitan Spalla Camicia">Neapolitan Spalla Camicia</option>
               </select>
+            </div>
+          </div>
+
+          {/* 3.5 CRAFTSMANSHIP & SARTORIAL HIGHLIGHTS */}
+          <div className="space-y-2">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
+              Key Craftsmanship Highlights & Details (Bullet Points)
+            </label>
+            <p className="text-[11px] text-slate-500">
+              Bullet points displayed on storefront product dossiers (auto-crafted by Gemini AI or editable manually).
+            </p>
+
+            {detailsList.length > 0 && (
+              <div className="space-y-1.5 p-3 bg-slate-50 rounded-lg border border-slate-200">
+                {detailsList.map((bullet, idx) => (
+                  <div key={idx} className="flex items-center justify-between text-xs text-slate-700 bg-white p-2 rounded border border-slate-200 shadow-sm">
+                    <span className="flex items-center space-x-2 pr-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0" />
+                      <span>{bullet}</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => removeDetailBullet(idx)}
+                      className="text-slate-400 hover:text-red-600 transition-colors p-1 flex-shrink-0"
+                      title="Remove highlight"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="flex space-x-2">
+              <input
+                type="text"
+                value={newDetailInput}
+                onChange={(e) => setNewDetailInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addDetailBullet();
+                  }
+                }}
+                placeholder="Add craft bullet (e.g. Milanese lapel buttonhole, Horn buttons engraved in England)"
+                className="flex-1 px-3 py-1.5 text-xs bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
+              />
+              <button
+                type="button"
+                onClick={addDetailBullet}
+                disabled={!newDetailInput.trim()}
+                className="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded disabled:opacity-40 transition-colors flex items-center space-x-1"
+              >
+                <Plus className="w-3 h-3" />
+                <span>Add Bullet</span>
+              </button>
             </div>
           </div>
 
