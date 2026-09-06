@@ -118,7 +118,11 @@ EXACT REQUIREMENTS:
   - If it is a 2-piece or 3-piece formal suit, select "suits".
   - If it is a sport coat, blazer, or casual jacket, select "jackets".
   - If it is a tuxedo, dinner suit, or black-tie attire, select "evening-dinner".
-- "name": An evocative, aristocratic title following the brand's naming convention (e.g. "The Sovereign Midnight Velvet Shawl Dinner Jacket", "The Biella Glen Check Three-Piece Worsted Suit", "The Royal Savoy Double-Breasted Cashmere Blazer").
+- "audience": MUST be one of: "modernman", "modernwoman", "modernchild".
+  - If tailored for gentlemen, output "modernman".
+  - If tailored for ladies / women (e.g. women's suit, tailored women's blazer, pantsuit), output "modernwoman".
+  - If tailored for children / juniors / boys / girls, output "modernchild".
+- "name": An evocative, aristocratic title following the brand's naming convention (e.g. "The Sovereign Midnight Velvet Shawl Dinner Jacket", "The Biella Glen Check Three-Piece Worsted Suit", "The Royal Savoy Double-Breasted Cashmere Blazer", "The Baroness Sculpted Wool Trouser Suit").
 - "tagline": A concise headline under 10 words describing the stance or cloth (e.g. "6x2 Button Stance in 320g British Cotton Velvet", "Hand-Drafted Two-Piece in Scabal Super 150s Worsted Wool").
 - "description": CRITICAL CONSTRAINT: Keep it brief, refined, and punchy — strictly 1 to 2 short sentences (maximum 35 to 50 words total). Do NOT output long paragraphs, filler, or walls of text. Focus cleanly on the silhouette, cloth essence, and occasion versatility.
 - "fabricDetails": Mill provenance, cloth weight, and composition (e.g., "Holland & Sherry Royal Emerald Cotton Velvet (320g/m)", "Loro Piana Tasmanian Super 150s Fine Merino & Cashmere (260g/m)", "Scabal Super 150s Midnight Navy Worsted Wool (270g/m)").
@@ -128,7 +132,7 @@ EXACT REQUIREMENTS:
 - "suggestedPriceUsd": Corresponding USD price (rounded, ~1 USD = 129.5 KES).
 - "suggestedSizes": Default sizing array (e.g. ["38R", "40R", "42R", "44R"]).
 
-Return ONLY a valid JSON object matching this schema. Keep description strictly to 1-2 short sentences. Do not wrap in markdown quotes if possible, or wrap in \`\`\`json.`;
+Return ONLY a valid JSON object matching this schema. Keep description strictly to 1-2 short sentences. Return pure raw JSON without markdown code fences.`;
 
     const userTextPrompt = `Please analyze the provided garment image(s)${hint ? ` with this additional curator guidance: "${hint}"` : ''} and output the complete luxury product specification in strict JSON format.`;
 
@@ -215,6 +219,17 @@ Return ONLY a valid JSON object matching this schema. Keep description strictly 
     else if (rawCat.includes('access')) normalizedCategory = 'accessories';
     else normalizedCategory = 'suits';
 
+    // Audience mapping fallback
+    let normalizedAudience: 'modernman' | 'modernwoman' | 'modernchild' = 'modernman';
+    const rawAud = (parsedResult.audience || '').toLowerCase();
+    if (rawAud.includes('woman') || rawAud.includes('wom') || rawAud.includes('lad') || rawAud.includes('female')) {
+      normalizedAudience = 'modernwoman';
+    } else if (rawAud.includes('child') || rawAud.includes('kid') || rawAud.includes('junior') || rawAud.includes('boy') || rawAud.includes('girl')) {
+      normalizedAudience = 'modernchild';
+    } else {
+      normalizedAudience = 'modernman';
+    }
+
     let rawDesc = stringifyVal(parsedResult.description, '').trim();
     if (rawDesc.includes('\n')) {
       rawDesc = rawDesc.split(/\r?\n/)[0].trim();
@@ -227,6 +242,7 @@ Return ONLY a valid JSON object matching this schema. Keep description strictly 
     const normalizedOutfit = {
       name: stringifyVal(parsedResult.name, 'The Modern Man Bespoke Masterwork'),
       category: normalizedCategory,
+      audience: normalizedAudience,
       tagline: stringifyVal(parsedResult.tagline, 'Handcrafted Full Canvas Tailoring in Nairobi'),
       description: rawDesc,
       fabricDetails: stringifyVal(parsedResult.fabricDetails, 'Super 150s Fine Worsted Wool (England)'),

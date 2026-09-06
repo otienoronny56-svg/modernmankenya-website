@@ -10,6 +10,8 @@ export interface ProductVariant {
   sku: string;
 }
 
+export type ProductAudience = 'modernman' | 'modernwoman' | 'modernchild';
+
 export interface Product {
   id: string;
   name: string;
@@ -17,6 +19,7 @@ export interface Product {
   tagline: string;
   description: string;
   category: 'suits' | 'jackets' | 'velvets' | 'evening-dinner' | 'fragrances' | 'accessories';
+  audience?: ProductAudience; // 'modernman' | 'modernwoman' | 'modernchild'
   fabricDetails: string;
   construction: string; // e.g. "Full Floating Canvas", "Unstructured Deconstructed"
   priceKes: number;

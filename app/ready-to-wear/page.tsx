@@ -15,12 +15,22 @@ import { ProductCardWithGallery } from '@/components/product/ProductCardWithGall
 function ReadyToWearContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || 'all';
+  const initialAudience = searchParams.get('audience') || 'all';
 
   const [products, setProducts] = useState<Product[]>(READY_TO_WEAR_PRODUCTS);
+  const [selectedAudience, setSelectedAudience] = useState<string>(initialAudience);
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedSize, setSelectedSize] = useState<string>('all');
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
+
+  // Sync if URL search params change
+  React.useEffect(() => {
+    const aud = searchParams.get('audience');
+    if (aud) {
+      setSelectedAudience(aud);
+    }
+  }, [searchParams]);
 
   // Dynamically fetch live products from admin API
   React.useEffect(() => {
@@ -39,8 +49,15 @@ function ReadyToWearContent() {
     };
   }, []);
 
+  const audiences = [
+    { id: 'all', label: 'All Collections' },
+    { id: 'modernman', label: 'Modernman Bespoke' },
+    { id: 'modernwoman', label: 'Modern Woman Bespoke' },
+    { id: 'modernchild', label: 'Modernchild Bespoke' },
+  ];
+
   const categories = [
-    { id: 'all', label: 'All Ready to Wear' },
+    { id: 'all', label: 'All Garments' },
     { id: 'suits', label: 'Suits' },
     { id: 'jackets', label: 'Blazers & Jackets' },
     { id: 'velvets', label: 'Velvet Smoking Jackets' },
@@ -51,9 +68,43 @@ function ReadyToWearContent() {
 
   const sizeOptions = ['all', '38R', '40R', '42R', '44R', '46L', '100ml Flacon', '8.5cm Width'];
 
+  const bannerInfo = useMemo(() => {
+    if (selectedAudience === 'modernwoman') {
+      return {
+        badge: 'Modern Woman Bespoke',
+        title: 'Couture Suiting & Structured Tailoring for Ladies',
+        desc: 'Sculpted for female authority, distinction, and grace. Hand-cut from English and Biella worsted cloths with bespoke anatomical drafting.',
+      };
+    }
+    if (selectedAudience === 'modernchild') {
+      return {
+        badge: 'Modernchild Bespoke',
+        title: 'Heirloom Sartorial Attire for Children',
+        desc: 'Exquisite bespoke tailoring scaled for young gentlemen and milestone celebrations. Crafted with adjustable growing ease and breathable comfort.',
+      };
+    }
+    if (selectedAudience === 'modernman') {
+      return {
+        badge: 'Modernman Bespoke',
+        title: 'The Gentlemen’s Ready to Wear Wardrobe',
+        desc: 'Cut to our exacting bespoke master silhouettes with full floating canvas chest pieces. Available for immediate white-glove dispatch in Nairobi or worldwide delivery.',
+      };
+    }
+    return {
+      badge: 'Immediate Sartorial Splendor',
+      title: 'The Ready to Wear Wardrobe',
+      desc: 'Cut to our exacting bespoke master silhouettes with full floating canvas chest pieces. Available for immediate white-glove dispatch in Nairobi or worldwide delivery.',
+    };
+  }, [selectedAudience]);
+
   // Multi-faceted filtering
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
+      // Audience / Division match
+      if (selectedAudience !== 'all') {
+        const prodAudience = product.audience || 'modernman';
+        if (prodAudience !== selectedAudience) return false;
+      }
       // Category match
       if (selectedCategory !== 'all' && product.category !== selectedCategory) {
         return false;
@@ -74,7 +125,7 @@ function ReadyToWearContent() {
       if (sortBy === 'price-desc') return b.priceKes - a.priceKes;
       return 0; // featured
     });
-  }, [products, selectedCategory, selectedSize, selectedPriceRange, sortBy]);
+  }, [products, selectedAudience, selectedCategory, selectedSize, selectedPriceRange, sortBy]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -82,17 +133,16 @@ function ReadyToWearContent() {
       {/* Banner */}
       <section className="bg-brand-navy py-10 sm:py-16 text-white border-b-2 border-brand-gold/30 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl space-y-2 sm:space-y-3">
+          <div className="max-w-3xl space-y-2 sm:space-y-3">
             <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center space-x-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Immediate Sartorial Splendor</span>
+              <span>{bannerInfo.badge}</span>
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight">
-              The Ready to Wear Wardrobe
+              {bannerInfo.title}
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-              Cut to our exacting bespoke master silhouettes with full floating canvas chest pieces. 
-              Available for immediate white-glove dispatch in Nairobi or worldwide delivery.
+              {bannerInfo.desc}
             </p>
           </div>
         </div>
@@ -101,6 +151,28 @@ function ReadyToWearContent() {
       {/* Main Content & Filters */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         
+        {/* Division Selector Tabs (Prominent at top) */}
+        <div className="mb-6 pb-4 border-b border-slate-200">
+          <div className="flex items-center space-x-3 overflow-x-auto pb-1 no-scrollbar">
+            {audiences.map((aud) => {
+              const isActive = selectedAudience === aud.id;
+              return (
+                <button
+                  key={aud.id}
+                  onClick={() => setSelectedAudience(aud.id)}
+                  className={`flex-shrink-0 px-4 sm:px-5 py-2 rounded font-bold uppercase tracking-wider text-xs transition-all duration-200 flex items-center space-x-1.5 ${
+                    isActive
+                      ? 'bg-brand-navy text-brand-gold border border-brand-gold shadow-md'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 border border-transparent'
+                  }`}
+                >
+                  <span>{aud.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Top Filter Bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 sm:pb-6 mb-6 sm:mb-8 border-b border-slate-200 gap-4">
           
@@ -112,7 +184,7 @@ function ReadyToWearContent() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`flex-shrink-0 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                   selectedCategory === cat.id
-                    ? 'bg-brand-navy text-white shadow-sm'
+                    ? 'bg-brand-gold text-brand-navy font-bold shadow-sm'
                     : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >

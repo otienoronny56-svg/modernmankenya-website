@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroSection } from '@/components/home/HeroSection';
+import { BespokeDivisionsBanner } from '@/components/home/BespokeDivisionsBanner';
 import { PillarsSection } from '@/components/home/PillarsSection';
 import { CollectionGrids } from '@/components/home/CollectionGrids';
 import { InteractiveCustomizerTeaser } from '@/components/home/InteractiveCustomizerTeaser';
@@ -13,10 +14,13 @@ export default function HomePage() {
       {/* 1. Editorial Hero with 3D Three.js Silk Canvas */}
       <HeroSection />
 
-      {/* 2. 3-Column Bespoke Pillars (Handcrafted Heritage, Millimetric Precision, European Cloths) */}
+      {/* 2. Bespoke Divisions: Modernman, Modern Woman, Modernchild */}
+      <BespokeDivisionsBanner />
+
+      {/* 3. 3-Column Bespoke Pillars (Handcrafted Heritage, Millimetric Precision, European Cloths) */}
       <PillarsSection />
 
-      {/* 3. Curated Collection Grids (Bespoke Suits, The Wedding Atelier, Ready to Wear) */}
+      {/* 4. Curated Collection Grids (Bespoke Suits, The Wedding Atelier, Ready to Wear) */}
       <CollectionGrids />
 
       {/* 4. Interactive Garment Customization Teaser (Lapels, Pockets, Linings, Cloth Swatches) */}

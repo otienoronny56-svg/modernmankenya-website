@@ -52,6 +52,9 @@ export async function POST(req: NextRequest) {
     const calculatedUsd = priceUsd ? Number(priceUsd) : Math.round(Number(priceKes) / 129.5);
 
     const availableSizes: string[] = sizes && sizes.length > 0 ? sizes : ['38R', '40R', '42R', '44R'];
+    const audience = (['modernman', 'modernwoman', 'modernchild'].includes(body.audience)) 
+      ? body.audience 
+      : 'modernman';
 
     const newProduct: Product = {
       id,
@@ -60,6 +63,7 @@ export async function POST(req: NextRequest) {
       tagline: tagline || '',
       description: description || '',
       category,
+      audience,
       fabricDetails: fabricDetails || 'Bespoke English & Italian Cloth',
       construction: construction || 'Full Floating Canvas',
       priceKes: Number(priceKes),

@@ -17,7 +17,7 @@ import {
   AlertCircle,
   Link as LinkIcon
 } from 'lucide-react';
-import type { Product } from '@/types';
+import type { Product, ProductAudience } from '@/types';
 
 interface ProductFormModalProps {
   isOpen: boolean;
@@ -51,6 +51,7 @@ export function ProductFormModal({
   const [tagline, setTagline] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('suits');
+  const [audience, setAudience] = useState<'modernman' | 'modernwoman' | 'modernchild'>('modernman');
   const [fabricDetails, setFabricDetails] = useState('');
   const [construction, setConstruction] = useState('Full Floating Canvas');
   const [priceKes, setPriceKes] = useState<number | string>(165000);
@@ -83,6 +84,7 @@ export function ProductFormModal({
       setTagline(productToEdit.tagline || '');
       setDescription(productToEdit.description || '');
       setCategory(productToEdit.category || 'suits');
+      setAudience(productToEdit.audience || 'modernman');
       setFabricDetails(productToEdit.fabricDetails || '');
       setConstruction(productToEdit.construction || 'Full Floating Canvas');
       setPriceKes(productToEdit.priceKes || 165000);
@@ -104,6 +106,7 @@ export function ProductFormModal({
       setTagline('');
       setDescription('');
       setCategory('suits');
+      setAudience('modernman');
       setFabricDetails('Super 150s Merino Wool (England)');
       setConstruction('Full Floating Canvas');
       setPriceKes(165000);
@@ -267,6 +270,9 @@ export function ProductFormModal({
       if (p.category && CATEGORIES.some((c) => c.id === p.category)) {
         setCategory(p.category);
       }
+      if (p.audience && ['modernman', 'modernwoman', 'modernchild'].includes(p.audience)) {
+        setAudience(p.audience);
+      }
       if (p.fabricDetails) setFabricDetails(p.fabricDetails);
       if (p.construction) setConstruction(p.construction);
       const chosenPriceKes = p.priceKes || p.suggestedPriceKes;
@@ -324,6 +330,7 @@ export function ProductFormModal({
       tagline,
       description,
       category,
+      audience,
       fabricDetails,
       construction,
       priceKes: Number(priceKes),
@@ -610,8 +617,8 @@ export function ProductFormModal({
           </div>
 
           {/* 2. BASIC INFO */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="sm:col-span-1">
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
                 Outfit Name <span className="text-red-500">*</span>
               </label>
@@ -620,9 +627,24 @@ export function ProductFormModal({
                 required
                 value={name}
                 onChange={(e) => handleNameChange(e.target.value)}
-                placeholder="e.g. The Sovereign Double-Breasted Cashmere Blazer"
+                placeholder="e.g. The Sovereign Cashmere Blazer"
                 className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
               />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
+                Bespoke Division <span className="text-red-500">*</span>
+              </label>
+              <select
+                value={audience}
+                onChange={(e) => setAudience(e.target.value as ProductAudience)}
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy font-medium"
+              >
+                <option value="modernman">Modernman Bespoke (Men)</option>
+                <option value="modernwoman">Modern Woman Bespoke (Ladies)</option>
+                <option value="modernchild">Modernchild Bespoke (Children)</option>
+              </select>
             </div>
 
             <div>
