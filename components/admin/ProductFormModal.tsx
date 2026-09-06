@@ -660,13 +660,13 @@ export function ProductFormModal({
           {/* Description */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-              Detailed Garment Description
+              Garment Description (Brief & Punchy)
             </label>
             <textarea
-              rows={3}
+              rows={2}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Describe the silhouette, lapels, canvas interior, styling notes, and occasion versatility..."
+              placeholder="Brief 1-2 sentence description (e.g. Tailored with clean lines and soft drape, crafted for effortless evening distinction.)"
               className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy leading-relaxed"
             />
           </div>

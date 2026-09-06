@@ -119,16 +119,16 @@ EXACT REQUIREMENTS:
   - If it is a sport coat, blazer, or casual jacket, select "jackets".
   - If it is a tuxedo, dinner suit, or black-tie attire, select "evening-dinner".
 - "name": An evocative, aristocratic title following the brand's naming convention (e.g. "The Sovereign Midnight Velvet Shawl Dinner Jacket", "The Biella Glen Check Three-Piece Worsted Suit", "The Royal Savoy Double-Breasted Cashmere Blazer").
-- "tagline": A concise, technically precise headline describing the button stance, cloth, or silhouette (e.g. "6x2 Button Stance in 320g British Cotton Velvet with Pure Silk Facings", "Hand-Drafted Two-Piece in Scabal Super 150s Worsted Wool").
-- "description": 2 to 3 paragraphs of evocative, authoritative luxury editorial prose. Detail the anatomical cut, lapel width and curve, shoulder pitch, internal canvas drape, styling notes (what shirt, tie, shoes, or occasion to pair with), and wearability in Nairobi or international capitals.
+- "tagline": A concise headline under 10 words describing the stance or cloth (e.g. "6x2 Button Stance in 320g British Cotton Velvet", "Hand-Drafted Two-Piece in Scabal Super 150s Worsted Wool").
+- "description": CRITICAL CONSTRAINT: Keep it brief, refined, and punchy — strictly 1 to 2 short sentences (maximum 35 to 50 words total). Do NOT output long paragraphs, filler, or walls of text. Focus cleanly on the silhouette, cloth essence, and occasion versatility.
 - "fabricDetails": Mill provenance, cloth weight, and composition (e.g., "Holland & Sherry Royal Emerald Cotton Velvet (320g/m)", "Loro Piana Tasmanian Super 150s Fine Merino & Cashmere (260g/m)", "Scabal Super 150s Midnight Navy Worsted Wool (270g/m)").
 - "construction": Internal craftsmanship architecture (e.g., "Full Floating Horsehair Canvas with Hand-Padded Lapels", "Half Canvas Soft Tailoring with Quilted Silk Interior").
-- "detailsList": An array of 4 to 6 detailed bullet points highlighting specific craftsmanship elements visible in the photo or tailored for this garment (e.g. "Hand-sewn Milanese lapel buttonhole in pure gimp silk", "Deep jetted pockets with matching silk facings", "Real horn / mother-of-pearl buttons with brand engraving", "Neapolitan barchetta chest pocket with subtle curve", "Made to individual anatomical measurements in our Nairobi Atelier").
+- "detailsList": An array of 3 to 5 concise bullet points (each under 10 words) highlighting specific craftsmanship elements visible in the photo or tailored for this garment (e.g. "Hand-sewn Milanese lapel buttonhole in pure silk", "Deep jetted pockets with matching silk facings", "Real horn buttons with brand engraving", "Made to measure in our Nairobi Atelier").
 - "suggestedPriceKes": Realistic luxury bespoke price in Kenyan Shillings (e.g. 125000 to 195000 depending on complexity).
 - "suggestedPriceUsd": Corresponding USD price (rounded, ~1 USD = 129.5 KES).
 - "suggestedSizes": Default sizing array (e.g. ["38R", "40R", "42R", "44R"]).
 
-Return ONLY a valid JSON object matching this schema. Do not wrap in markdown quotes if possible, or wrap in \`\`\`json.`;
+Return ONLY a valid JSON object matching this schema. Keep description strictly to 1-2 short sentences. Do not wrap in markdown quotes if possible, or wrap in \`\`\`json.`;
 
     const userTextPrompt = `Please analyze the provided garment image(s)${hint ? ` with this additional curator guidance: "${hint}"` : ''} and output the complete luxury product specification in strict JSON format.`;
 
@@ -215,11 +215,20 @@ Return ONLY a valid JSON object matching this schema. Do not wrap in markdown qu
     else if (rawCat.includes('access')) normalizedCategory = 'accessories';
     else normalizedCategory = 'suits';
 
+    let rawDesc = stringifyVal(parsedResult.description, '').trim();
+    if (rawDesc.includes('\n')) {
+      rawDesc = rawDesc.split(/\r?\n/)[0].trim();
+    }
+    const sentences = rawDesc.match(/[^.!?]+[.!?]+/g);
+    if (sentences && sentences.length > 2) {
+      rawDesc = sentences.slice(0, 2).join(' ').trim();
+    }
+
     const normalizedOutfit = {
       name: stringifyVal(parsedResult.name, 'The Modern Man Bespoke Masterwork'),
       category: normalizedCategory,
       tagline: stringifyVal(parsedResult.tagline, 'Handcrafted Full Canvas Tailoring in Nairobi'),
-      description: stringifyVal(parsedResult.description, ''),
+      description: rawDesc,
       fabricDetails: stringifyVal(parsedResult.fabricDetails, 'Super 150s Fine Worsted Wool (England)'),
       construction: stringifyVal(parsedResult.construction, 'Full Floating Horsehair Canvas'),
       detailsList: Array.isArray(parsedResult.detailsList) 
