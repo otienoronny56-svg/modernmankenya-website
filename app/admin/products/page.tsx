@@ -21,12 +21,11 @@ import { ProductFormModal } from '@/components/admin/ProductFormModal';
 
 const CATEGORIES = [
   { id: 'all', name: 'All Garments' },
-  { id: 'suits', name: 'Suits' },
+  { id: 'suits', name: 'Suits (Two & Three-Piece)' },
   { id: 'jackets', name: 'Blazers & Jackets' },
   { id: 'velvets', name: 'Velvet Jackets' },
-  { id: 'evening-dinner', name: 'Evening & Dinner' },
-  { id: 'fragrances', name: 'Fragrances' },
-  { id: 'accessories', name: 'Accessories' },
+  { id: 'evening-dinner', name: 'Tuxedos & Evening Wear' },
+  { id: 'accessories', name: 'Sartorial Accessories' },
 ];
 
 export default function AdminProductsPage() {

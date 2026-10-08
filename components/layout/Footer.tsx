@@ -132,67 +132,66 @@ export const Footer: React.FC = () => {
         {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 py-8 sm:py-12 text-xs border-b border-white/10">
           
-          {/* Bespoke Links */}
+          {/* What We Create */}
           <div className="space-y-2.5 sm:space-y-3">
             <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
-              Bespoke House
+              What We Create
             </h4>
             <ul className="space-y-2 text-slate-400">
-              <li><Link href="/bespoke/bespoke-tailoring" className="hover:text-white transition-colors">Bespoke Tailoring</Link></li>
-              <li><Link href="/bespoke/bespoke-suits" className="hover:text-white transition-colors">Bespoke Suits</Link></li>
-              <li><Link href="/bespoke/bespoke-casual-wear" className="hover:text-white transition-colors">Bespoke Casual Wear</Link></li>
-              <li><Link href="/bespoke/bespoke-evening-wear" className="hover:text-white transition-colors">Bespoke Evening Wear</Link></li>
-              <li><Link href="/bespoke/bespoke-shirts" className="hover:text-white transition-colors">Bespoke Shirts</Link></li>
-              <li><Link href="/bespoke/bespoke-waistcoats" className="hover:text-white transition-colors">Bespoke Waistcoats</Link></li>
-              <li><Link href="/bespoke/bespoke-womenswear" className="hover:text-white transition-colors">Bespoke Womenswear</Link></li>
-              <li><Link href="/bespoke/bespoke-for-children" className="hover:text-white transition-colors">Bespoke for Children</Link></li>
+              <li><Link href="/bespoke/bespoke-tailoring" className="hover:text-white transition-colors">Bespoke & Made-to-Measure</Link></li>
+              <li><Link href="/bespoke/bespoke-suits" className="hover:text-white transition-colors">Two-Piece & Three-Piece Suits</Link></li>
+              <li><Link href="/bespoke/bespoke-evening-wear" className="hover:text-white transition-colors">Tuxedos & Black-Tie Formalwear</Link></li>
+              <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Wedding & Groom's Tailoring</Link></li>
+              <li><Link href="/bespoke/corporate-wardrobes" className="hover:text-white transition-colors">Corporate & Executive Wardrobes</Link></li>
+              <li><Link href="/bespoke/bespoke-shirts" className="hover:text-white transition-colors">Custom Shirts & Separates</Link></li>
+              <li><Link href="/bespoke/bespoke-casual-wear" className="hover:text-white transition-colors">Traditional & Occasion Wear</Link></li>
+              <li><Link href="/bespoke/statement-jackets" className="hover:text-white transition-colors">Statement Jackets</Link></li>
             </ul>
           </div>
 
-          {/* Ready to Wear */}
+          {/* Occasions */}
           <div className="space-y-2.5 sm:space-y-3">
             <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
-              Ready to Wear
+              Occasions
             </h4>
             <ul className="space-y-2 text-slate-400">
-              <li><Link href="/ready-to-wear?category=suits" className="hover:text-white transition-colors">Suits</Link></li>
-              <li><Link href="/ready-to-wear?category=jackets" className="hover:text-white transition-colors">Tailored Blazers</Link></li>
-              <li><Link href="/ready-to-wear?category=velvets" className="hover:text-white transition-colors">Velvet Smoking Jackets</Link></li>
-              <li><Link href="/ready-to-wear?category=evening-dinner" className="hover:text-white transition-colors">Black Tie & Dinner Wear</Link></li>
-              <li><Link href="/ready-to-wear?category=fragrances" className="hover:text-white transition-colors">Extrait de Parfum</Link></li>
-              <li><Link href="/ready-to-wear?category=accessories" className="hover:text-white transition-colors">Grenadine Ties & Accessories</Link></li>
+              <li><Link href="/occasions/business-executive" className="hover:text-white transition-colors">Business & Executive</Link></li>
+              <li><Link href="/occasions/wedding-groom" className="hover:text-white transition-colors">Wedding & Groom</Link></li>
+              <li><Link href="/occasions/formal-eveningwear" className="hover:text-white transition-colors">Formal & Eveningwear</Link></li>
+              <li><Link href="/occasions/signature-occasion" className="hover:text-white transition-colors">Signature & Occasion Pieces</Link></li>
+              <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Groom & Party Commissions</Link></li>
+              <li><Link href="/book-appointment" className="hover:text-white transition-colors">Private Fittings</Link></li>
             </ul>
           </div>
 
-          {/* Services & Concierge */}
+          {/* The Experience & Concierge */}
           <div className="space-y-2.5 sm:space-y-3">
             <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
-              Concierge & Atelier
+              The Experience
             </h4>
             <ul className="space-y-2 text-slate-400">
-              <li><Link href="/about" className="hover:text-white transition-colors text-brand-gold font-medium">About Us & Artisans</Link></li>
-              <li><Link href="/book-appointment" className="hover:text-white transition-colors">Book Private Fitting</Link></li>
-              <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Wedding Commissions</Link></li>
-              <li><Link href="/services/alterations" className="hover:text-white transition-colors">Bespoke Alterations</Link></li>
-              <li><Link href="/services/gift-vouchers" className="hover:text-white transition-colors">Gift Vouchers</Link></li>
-              <li><Link href="/bespoke/the-craft" className="hover:text-white transition-colors">The Bespoke Master Method</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Atelier Visit & Contact</Link></li>
+              <li><Link href="/the-experience" className="hover:text-white transition-colors">The 5-Step Journey</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors text-brand-gold font-medium">About Modern Man Kenya</Link></li>
+              <li><Link href="/the-craft" className="hover:text-white transition-colors">Craftsmanship & Canvassing</Link></li>
+              <li><Link href="/why-us" className="hover:text-white transition-colors">Why Modern Man Kenya</Link></li>
+              <li><Link href="/book-appointment" className="hover:text-white transition-colors">Book Private Consultation</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Atelier Visit & Inquiries</Link></li>
             </ul>
           </div>
 
-          {/* Heritage & Standards */}
+          {/* Quality Standards */}
           <div className="space-y-2.5 sm:space-y-3">
             <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
-              The Standard
+              Quality Standards
             </h4>
             <ul className="space-y-2 text-slate-400">
-              <li><Link href="/about#the-team" className="hover:text-brand-gold transition-colors text-brand-gold/90 font-semibold">Meet The Tailors &rarr;</Link></li>
-              <li><span className="text-brand-gold font-semibold">Floating Canvas</span></li>
-              <li><span>Millimetric Cut</span></li>
-              <li><span>Dormeuil & Scabal</span></li>
-              <li><span>Lifetime Alteration</span></li>
-              <li><span>Nairobi Courier</span></li>
-              <li><span>Worldwide DHL</span></li>
+              <li><span className="text-brand-gold font-semibold">Pre-Delivery QC Checklist</span></li>
+              <li><span>Archived Measurement Profile</span></li>
+              <li><span>Standard Operating Procedures</span></li>
+              <li><span>Floating Canvas Construction</span></li>
+              <li><span>Hand-Finished Milanese Detailing</span></li>
+              <li><span>Kenyan Master Craftsmanship</span></li>
+              <li><span>Nairobi Atelier Consultations</span></li>
             </ul>
           </div>
         </div>

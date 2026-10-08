@@ -27,15 +27,14 @@ interface ProductFormModalProps {
 }
 
 const CATEGORIES = [
-  { id: 'suits', name: 'Suits' },
+  { id: 'suits', name: 'Suits (Two & Three-Piece)' },
   { id: 'jackets', name: 'Blazers & Jackets' },
   { id: 'velvets', name: 'Velvet Smoking Jackets' },
-  { id: 'evening-dinner', name: 'Evening & Dinner Wear' },
-  { id: 'fragrances', name: 'Fragrances' },
-  { id: 'accessories', name: 'Accessories' },
+  { id: 'evening-dinner', name: 'Tuxedos & Evening Wear' },
+  { id: 'accessories', name: 'Sartorial Accessories' },
 ];
 
-const STANDARD_SIZES = ['38R', '40R', '42R', '44R', '46L', '48L', '100ml Flacon', 'Standard'];
+const STANDARD_SIZES = ['38R', '40R', '42R', '44R', '46L', '48L', 'Standard'];
 
 export function ProductFormModal({
   isOpen,
@@ -641,9 +640,7 @@ export function ProductFormModal({
                 onChange={(e) => setAudience(e.target.value as ProductAudience)}
                 className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy font-medium"
               >
-                <option value="modernman">Modernman Bespoke (Men)</option>
-                <option value="modernwoman">Modern Woman Bespoke (Ladies)</option>
-                <option value="modernchild">Modernchild Bespoke (Children)</option>
+                <option value="modernman">Modern Man Kenya (Menswear)</option>
               </select>
             </div>
 

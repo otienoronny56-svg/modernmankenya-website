@@ -3,15 +3,15 @@ import type { Metadata } from 'next';
 import { AboutHero } from '@/components/about/AboutHero';
 import { BrandStorySection } from '@/components/about/BrandStorySection';
 import { AtelierPillars } from '@/components/about/AtelierPillars';
-import { TeamSection } from '@/components/about/TeamSection';
+import { ArtisanDisciplinesSection } from '@/components/about/ArtisanDisciplinesSection';
 import { AtelierExperienceSection } from '@/components/about/AtelierExperienceSection';
 
 export const metadata: Metadata = {
-  title: 'About Us & Master Artisans | Modern Man Kenya 254 Bespoke Atelier',
-  description: 'Discover the master craft ethos of Modern Man Kenya. Hand-drafted individual paper blocks, full floating horsehair canvas, rare European cloths, and our Nairobi bespoke tailoring team.',
+  title: 'About Us | Modern Man Kenya Bespoke Atelier Nairobi',
+  description: 'Where Fit Meets Character. Opulence • Simplicity • Class. Discover the bespoke tailoring philosophy, craftsmanship standards, and Nairobi atelier of Modern Man Kenya.',
   openGraph: {
-    title: 'About Us & Master Artisans | Modern Man Kenya',
-    description: 'Bespoke tailoring in Nairobi engineered with anatomical precision, floating canvas, and European mill provenance.',
+    title: 'About Modern Man Kenya | Where Fit Meets Character',
+    description: 'Bespoke menswear and custom tailoring in Nairobi. Opulence • Simplicity • Class.',
   },
 };
 
@@ -27,8 +27,8 @@ export default function AboutPage() {
       {/* 3. The 4 Master Pillars of the Atelier */}
       <AtelierPillars />
 
-      {/* 4. The Master Tailoring Artisans & Team */}
-      <TeamSection />
+      {/* 4. The Master Tailoring Disciplines & Operational Standards */}
+      <ArtisanDisciplinesSection />
 
       {/* 5. Nairobi Flagship Atelier Experience & Map Navigation */}
       <AtelierExperienceSection />

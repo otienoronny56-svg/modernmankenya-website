@@ -15,22 +15,12 @@ import { ProductCardWithGallery } from '@/components/product/ProductCardWithGall
 function ReadyToWearContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || 'all';
-  const initialAudience = searchParams.get('audience') || 'all';
 
   const [products, setProducts] = useState<Product[]>(READY_TO_WEAR_PRODUCTS);
-  const [selectedAudience, setSelectedAudience] = useState<string>(initialAudience);
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedSize, setSelectedSize] = useState<string>('all');
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
-
-  // Sync if URL search params change
-  React.useEffect(() => {
-    const aud = searchParams.get('audience');
-    if (aud) {
-      setSelectedAudience(aud);
-    }
-  }, [searchParams]);
 
   // Dynamically fetch live products from admin API
   React.useEffect(() => {
@@ -49,62 +39,26 @@ function ReadyToWearContent() {
     };
   }, []);
 
-  const audiences = [
-    { id: 'all', label: 'All Collections' },
-    { id: 'modernman', label: 'Modernman Bespoke' },
-    { id: 'modernwoman', label: 'Modern Woman Bespoke' },
-    { id: 'modernchild', label: 'Modernchild Bespoke' },
-  ];
-
   const categories = [
     { id: 'all', label: 'All Garments' },
-    { id: 'suits', label: 'Suits' },
-    { id: 'jackets', label: 'Blazers & Jackets' },
+    { id: 'suits', label: 'Suits (Two & Three-Piece)' },
+    { id: 'jackets', label: 'Tailored Blazers' },
     { id: 'velvets', label: 'Velvet Smoking Jackets' },
-    { id: 'evening-dinner', label: 'Evening & Dinner Wear' },
-    { id: 'fragrances', label: 'Fragrances' },
-    { id: 'accessories', label: 'Accessories' },
+    { id: 'evening-dinner', label: 'Tuxedos & Black Tie' },
+    { id: 'accessories', label: 'Sartorial Accessories' },
   ];
 
-  const sizeOptions = ['all', '38R', '40R', '42R', '44R', '46L', '100ml Flacon', '8.5cm Width'];
+  const sizeOptions = ['all', '38R', '40R', '42R', '44R', '46L'];
 
-  const bannerInfo = useMemo(() => {
-    if (selectedAudience === 'modernwoman') {
-      return {
-        badge: 'Modern Woman Bespoke',
-        title: 'Couture Suiting & Structured Tailoring for Ladies',
-        desc: 'Sculpted for female authority, distinction, and grace. Hand-cut from English and Biella worsted cloths with bespoke anatomical drafting.',
-      };
-    }
-    if (selectedAudience === 'modernchild') {
-      return {
-        badge: 'Modernchild Bespoke',
-        title: 'Heirloom Sartorial Attire for Children',
-        desc: 'Exquisite bespoke tailoring scaled for young gentlemen and milestone celebrations. Crafted with adjustable growing ease and breathable comfort.',
-      };
-    }
-    if (selectedAudience === 'modernman') {
-      return {
-        badge: 'Modernman Bespoke',
-        title: 'The Gentlemen’s Ready to Wear Wardrobe',
-        desc: 'Cut to our exacting bespoke master silhouettes with full floating canvas chest pieces. Available for immediate white-glove dispatch in Nairobi or worldwide delivery.',
-      };
-    }
-    return {
-      badge: 'Immediate Sartorial Splendor',
-      title: 'The Ready to Wear Wardrobe',
-      desc: 'Cut to our exacting bespoke master silhouettes with full floating canvas chest pieces. Available for immediate white-glove dispatch in Nairobi or worldwide delivery.',
-    };
-  }, [selectedAudience]);
+  const bannerInfo = {
+    badge: 'Modern Man Kenya • Menswear Wardrobe',
+    title: 'The Modern Man Sartorial Wardrobe',
+    desc: 'Engineered with floating canvas construction, anatomical contouring, and Kenyan craftsmanship. Available for private consultation fitting or direct acquisition in Nairobi.',
+  };
 
   // Multi-faceted filtering
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      // Audience / Division match
-      if (selectedAudience !== 'all') {
-        const prodAudience = product.audience || 'modernman';
-        if (prodAudience !== selectedAudience) return false;
-      }
       // Category match
       if (selectedCategory !== 'all' && product.category !== selectedCategory) {
         return false;
@@ -125,7 +79,7 @@ function ReadyToWearContent() {
       if (sortBy === 'price-desc') return b.priceKes - a.priceKes;
       return 0; // featured
     });
-  }, [products, selectedAudience, selectedCategory, selectedSize, selectedPriceRange, sortBy]);
+  }, [products, selectedCategory, selectedSize, selectedPriceRange, sortBy]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -151,27 +105,7 @@ function ReadyToWearContent() {
       {/* Main Content & Filters */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         
-        {/* Division Selector Tabs (Prominent at top) */}
-        <div className="mb-6 pb-4 border-b border-slate-200">
-          <div className="flex items-center space-x-3 overflow-x-auto pb-1 no-scrollbar">
-            {audiences.map((aud) => {
-              const isActive = selectedAudience === aud.id;
-              return (
-                <button
-                  key={aud.id}
-                  onClick={() => setSelectedAudience(aud.id)}
-                  className={`flex-shrink-0 px-4 sm:px-5 py-2 rounded font-bold uppercase tracking-wider text-xs transition-all duration-200 flex items-center space-x-1.5 ${
-                    isActive
-                      ? 'bg-brand-navy text-brand-gold border border-brand-gold shadow-md'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 border border-transparent'
-                  }`}
-                >
-                  <span>{aud.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+
 
         {/* Top Filter Bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 sm:pb-6 mb-6 sm:mb-8 border-b border-slate-200 gap-4">

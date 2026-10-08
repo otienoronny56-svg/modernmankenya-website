@@ -28,15 +28,15 @@ export const AboutHero: React.FC = () => {
         {/* Headline */}
         <div className="text-center max-w-4xl mx-auto space-y-5">
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-            The Architecture of Distinction.
+            Where Fit Meets Character.
           </h1>
           <p className="font-serif italic text-lg sm:text-2xl text-brand-gold font-light tracking-wide">
-            &quot;opulence • simplicity • class&quot;
+            &quot;Opulence • Simplicity • Class&quot;
           </p>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-            Modern Man Kenya was founded on an unyielding principle: that genuine bespoke tailoring 
-            is not an off-the-rack assembly, but an intimate anatomical sculpture engineered to honor 
-            the gentleman who commands it.
+            Modern Man Kenya is dedicated to crafting refined, tailored garments that reflect 
+            individual character, sophistication, and effortless confidence. Custom tailoring, 
+            bespoke menswear, and Kenyan craftsmanship on a global luxury tier.
           </p>
 
           {/* Quick Action CTAs */}
@@ -45,14 +45,14 @@ export const AboutHero: React.FC = () => {
               href="/book-appointment"
               className="w-full sm:w-auto px-8 py-3.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury text-xs sm:text-sm rounded transition-all shadow-gold flex items-center justify-center space-x-2"
             >
-              <span>Commission a Masterwork</span>
+              <span>Book Private Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="#the-team"
+              href="#craft-standards"
               className="w-full sm:w-auto px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white border border-brand-gold/30 hover:border-brand-gold text-xs sm:text-sm uppercase tracking-luxury font-semibold rounded transition-all flex items-center justify-center space-x-2"
             >
-              <span>Meet Our Master Artisans</span>
+              <span>Our Craftsmanship Standards</span>
               <Scissors className="w-4 h-4 text-brand-gold" />
             </a>
           </div>

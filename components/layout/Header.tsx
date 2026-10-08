@@ -49,31 +49,37 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   const totalCartCount = mounted ? getTotalCount() : 0;
 
   const bespokeLinks = [
-    { name: 'Bespoke Tailoring', href: '/bespoke/bespoke-tailoring', desc: 'The pure bespoke masterwork discipline' },
-    { name: 'Bespoke Suits', href: '/bespoke/bespoke-suits', desc: 'Two & three-piece masterworks' },
-    { name: 'Bespoke Casual Wear', href: '/bespoke/bespoke-casual-wear', desc: 'Safari jackets & elevated weekenders' },
-    { name: 'Bespoke Evening Wear', href: '/bespoke/bespoke-evening-wear', desc: 'Black tie, dinner suits & tuxedos' },
-    { name: 'Bespoke Shirts', href: '/bespoke/bespoke-shirts', desc: 'Sea Island & Egyptian Giza cottons' },
-    { name: 'Bespoke Waistcoats', href: '/bespoke/bespoke-waistcoats', desc: 'Horseshoe & double-breasted vests' },
-    { name: 'Bespoke Womenswear', href: '/bespoke/bespoke-womenswear', desc: 'Structured executive tailoring' },
-    { name: 'Bespoke for Children', href: '/bespoke/bespoke-for-children', desc: 'Heirloom milestone formal wear' },
+    { name: 'Bespoke & Made-to-Measure', href: '/bespoke/bespoke-tailoring', desc: 'Individually drafted anatomical masterwork' },
+    { name: 'Two-Piece & Three-Piece Suits', href: '/bespoke/bespoke-suits', desc: 'Executive & ceremonial suiting' },
+    { name: 'Tuxedos & Black-Tie Formalwear', href: '/bespoke/bespoke-evening-wear', desc: 'Satin & grosgrain lapel dinner suits' },
+    { name: 'Wedding & Groom Tailoring', href: '/bespoke/weddings', desc: 'Groom and groomsmen commissions' },
+    { name: 'Corporate & Executive Wardrobes', href: '/bespoke/corporate-wardrobes', desc: 'Tailored for boardroom presence' },
+    { name: 'Custom Shirts & Separates', href: '/bespoke/bespoke-shirts', desc: 'Curated Egyptian & Sea Island cottons' },
+    { name: 'Traditional & Occasion Wear', href: '/bespoke/bespoke-casual-wear', desc: 'Contemporary African & heritage silhouettes' },
+    { name: 'Statement Jackets', href: '/bespoke/statement-jackets', desc: 'Velvet, jacquard & gala evening wear' },
   ];
 
   const readyToWearLinks = [
-    { name: 'Suits', href: '/ready-to-wear?category=suits', desc: 'Full canvas business & lounge suits' },
-    { name: 'Jackets', href: '/ready-to-wear?category=jackets', desc: 'Cashmere & wool tailored blazers' },
-    { name: 'Velvets', href: '/ready-to-wear?category=velvets', desc: 'British cotton velvet smoking jackets' },
-    { name: 'Evening & Dinner Wear', href: '/ready-to-wear?category=evening-dinner', desc: 'Grosgrain tuxedos & gala attire' },
-    { name: 'Fragrances', href: '/ready-to-wear?category=fragrances', desc: 'Artisanal Extrait de Parfum' },
-    { name: 'Accessories', href: '/ready-to-wear?category=accessories', desc: 'Grenadine ties, cufflinks & pocket squares' },
+    { name: 'Suits (Two & Three-Piece)', href: '/ready-to-wear?category=suits', desc: 'Full floating canvas executive suiting' },
+    { name: 'Tailored Blazers & Jackets', href: '/ready-to-wear?category=jackets', desc: 'Pure cashmere & fine wool blazers' },
+    { name: 'Velvet Smoking Jackets', href: '/ready-to-wear?category=velvets', desc: 'British cotton velvet dinner jackets' },
+    { name: 'Tuxedos & Black Tie', href: '/ready-to-wear?category=evening-dinner', desc: 'Barathea wool & grosgrain dinner suits' },
+    { name: 'Sartorial Accessories', href: '/ready-to-wear?category=accessories', desc: 'Como grenadine silk neckties & pocket squares' },
   ];
 
-  const servicesLinks = [
-    { name: 'About Us & Artisans', href: '/about', desc: 'Our Nairobi atelier heritage & master team' },
-    { name: 'Weddings', href: '/bespoke/weddings', desc: 'Groom & bridal party bespoke sartorial care' },
-    { name: 'Alterations', href: '/services/alterations', desc: 'Master tailor refitting & garment surgery' },
-    { name: 'Gift Vouchers', href: '/services/gift-vouchers', desc: 'The gift of an artisanal fitting experience' },
-    { name: 'Contact Us', href: '/contact', desc: 'Visit our flagship atelier in Nairobi' },
+  const occasionLinks = [
+    { name: 'Business & Executive', href: '/occasions/business-executive', desc: 'Power suiting, boardrooms & global conferences' },
+    { name: 'Wedding & Groom', href: '/occasions/wedding-groom', desc: 'Bespoke groom ensembles & coordinated parties' },
+    { name: 'Formal & Eveningwear', href: '/occasions/formal-eveningwear', desc: 'Black-tie galas, state banquets & red carpets' },
+    { name: 'Signature & Occasions', href: '/occasions/signature-occasion', desc: 'Special milestones & personal statements' },
+  ];
+
+  const experienceLinks = [
+    { name: 'The Modern Man Experience', href: '/the-experience', desc: 'Our 5-step bespoke commissioning journey' },
+    { name: 'Quality & Craftsmanship', href: '/the-craft', desc: 'Floating canvas & multi-point QC standards' },
+    { name: 'Why Modern Man Kenya', href: '/why-us', desc: 'The 7 tenets of Kenyan sartorial mastery' },
+    { name: 'About The Atelier', href: '/about', desc: 'Our philosophy: Opulence • Simplicity • Class' },
+    { name: 'Book Consultation', href: '/book-appointment', desc: 'Private consultation in Nairobi' },
   ];
 
   return (
@@ -208,16 +214,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               </button>
 
               {activeDropdown === 'rtw' && (
-                <div className="absolute top-full left-0 w-[500px] bg-white rounded-lg shadow-luxury-hover border border-brand-gold/20 p-6 grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 w-[480px] bg-white rounded-lg shadow-luxury-hover border border-brand-gold/20 p-6 grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="col-span-2 pb-2 border-b border-slate-100 flex justify-between items-center">
                     <span className="font-serif text-xs uppercase tracking-luxury text-brand-gold font-bold">
                       The Ready-to-Wear Wardrobe
                     </span>
                     <Link
                       href="/ready-to-wear"
-                      className="text-xs text-brand-navy hover:underline"
+                      className="text-xs text-brand-navy hover:underline font-semibold"
                     >
-                      View Full Catalog &rarr;
+                      View Full Wardrobe &rarr;
                     </Link>
                   </div>
                   {readyToWearLinks.map((item) => (
@@ -238,25 +244,67 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </div>
 
-            {/* Services & Info Dropdown */}
+            {/* Occasions Dropdown */}
             <div
               className="relative py-2"
-              onMouseEnter={() => setActiveDropdown('services')}
+              onMouseEnter={() => setActiveDropdown('occasions')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="flex items-center space-x-1.5 hover:text-brand-gold transition-colors font-medium tracking-wide">
-                <span>Services & Info</span>
+                <span>Occasions</span>
                 <ChevronDown className="w-4 h-4 text-brand-gold" />
               </button>
 
-              {activeDropdown === 'services' && (
-                <div className="absolute top-full left-0 w-[380px] bg-white rounded-lg shadow-luxury-hover border border-brand-gold/20 p-5 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+              {activeDropdown === 'occasions' && (
+                <div className="absolute top-full left-0 w-[480px] bg-white rounded-lg shadow-luxury-hover border border-brand-gold/20 p-6 grid grid-cols-2 gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="col-span-2 pb-2 border-b border-slate-100 flex justify-between items-center">
+                    <span className="font-serif text-xs uppercase tracking-luxury text-brand-gold font-bold">
+                      Sartorial Occasions
+                    </span>
+                    <Link
+                      href="/occasions"
+                      className="text-xs text-brand-navy hover:underline"
+                    >
+                      View All Occasions &rarr;
+                    </Link>
+                  </div>
+                  {occasionLinks.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="p-2 rounded-md hover:bg-brand-canvas-alt transition-colors group/link"
+                    >
+                      <div className="font-serif text-sm font-semibold text-brand-navy group-hover/link:text-brand-gold transition-colors">
+                        {item.name}
+                      </div>
+                      <div className="text-[11px] text-brand-slate-muted leading-tight mt-0.5">
+                        {item.desc}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* The Experience & Quality Dropdown */}
+            <div
+              className="relative py-2"
+              onMouseEnter={() => setActiveDropdown('experience')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button className="flex items-center space-x-1.5 hover:text-brand-gold transition-colors font-medium tracking-wide">
+                <span>The Experience</span>
+                <ChevronDown className="w-4 h-4 text-brand-gold" />
+              </button>
+
+              {activeDropdown === 'experience' && (
+                <div className="absolute top-full left-0 w-[420px] bg-white rounded-lg shadow-luxury-hover border border-brand-gold/20 p-5 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="pb-2 border-b border-slate-100">
                     <span className="font-serif text-xs uppercase tracking-luxury text-brand-gold font-bold">
-                      Concierge & Services
+                      Craft & Standards
                     </span>
                   </div>
-                  {servicesLinks.map((item) => (
+                  {experienceLinks.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -278,14 +326,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               href="/about"
               className="hover:text-brand-gold transition-colors font-medium tracking-wide"
             >
-              About Us
-            </Link>
-
-            <Link
-              href="/bespoke/the-craft"
-              className="hover:text-brand-gold transition-colors font-medium tracking-wide"
-            >
-              The Bespoke Master Craft
+              About
             </Link>
           </nav>
 
@@ -342,11 +383,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Quick Action Top Bar in Drawer */}
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 text-xs">
               <a 
-                href="tel:+254700000254" 
+                href="tel:+254718923082" 
                 className="flex items-center space-x-2 text-brand-navy font-semibold hover:text-brand-gold transition-colors py-1"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-gold" />
-                <span>+254 700 000 254</span>
+                <span>+254 718 923082</span>
               </a>
 
               <div className="flex items-center space-x-1">
@@ -366,7 +407,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               </div>
             </div>
 
-            {/* About Us Direct Link */}
+            {/* About Direct Link */}
             <Link
               href="/about"
               className="flex items-center justify-between py-2.5 text-left border-b border-slate-100 group"
@@ -374,13 +415,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               <div className="flex items-center space-x-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
                 <span className="font-serif text-sm font-bold uppercase tracking-luxury text-brand-navy group-hover:text-brand-gold transition-colors">
-                  About Us & Artisans
+                  About Modern Man Kenya
                 </span>
               </div>
               <span className="text-xs text-brand-gold font-bold">&rarr;</span>
             </Link>
 
-            {/* Accordion 1: Bespoke House */}
+            {/* Accordion 1: What We Create */}
             <div className="border-b border-slate-100 pb-2">
               <button
                 onClick={() => setMobileSectionOpen(mobileSectionOpen === 'bespoke' ? null : 'bespoke')}
@@ -389,7 +430,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 <div className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
                   <span className="font-serif text-sm font-bold uppercase tracking-luxury text-brand-navy">
-                    Bespoke House
+                    What We Create
                   </span>
                 </div>
                 <ChevronDown className={`w-4 h-4 text-brand-gold transition-transform duration-200 ${mobileSectionOpen === 'bespoke' ? 'rotate-180' : ''}`} />
@@ -407,12 +448,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                       <span className="text-[10px] text-brand-slate-muted">&rarr;</span>
                     </Link>
                   ))}
-                  <Link
-                    href="/bespoke/the-craft"
-                    className="py-1.5 text-xs font-bold text-brand-gold hover:underline mt-1"
-                  >
-                    The Bespoke Master Craft &rarr;
-                  </Link>
                 </div>
               )}
             </div>
@@ -454,24 +489,55 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </div>
 
-            {/* Accordion 3: Concierge & Services */}
+            {/* Accordion 3: Sartorial Occasions */}
             <div className="border-b border-slate-100 pb-2">
               <button
-                onClick={() => setMobileSectionOpen(mobileSectionOpen === 'services' ? null : 'services')}
+                onClick={() => setMobileSectionOpen(mobileSectionOpen === 'occasions' ? null : 'occasions')}
                 className="w-full flex items-center justify-between py-2 text-left"
               >
                 <div className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
                   <span className="font-serif text-sm font-bold uppercase tracking-luxury text-brand-navy">
-                    Services & Atelier
+                    Occasions
                   </span>
                 </div>
-                <ChevronDown className={`w-4 h-4 text-brand-gold transition-transform duration-200 ${mobileSectionOpen === 'services' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 text-brand-gold transition-transform duration-200 ${mobileSectionOpen === 'occasions' ? 'rotate-180' : ''}`} />
               </button>
 
-              {mobileSectionOpen === 'services' && (
+              {mobileSectionOpen === 'occasions' && (
                 <div className="grid grid-cols-1 gap-1 pl-4 py-2 border-l border-brand-gold/30 animate-in fade-in duration-200">
-                  {servicesLinks.map((item) => (
+                  {occasionLinks.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="py-1.5 text-xs font-medium text-slate-700 hover:text-brand-gold transition-colors flex justify-between items-center"
+                    >
+                      <span>{item.name}</span>
+                      <span className="text-[10px] text-brand-slate-muted">&rarr;</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Accordion 3: The Experience & Quality */}
+            <div className="border-b border-slate-100 pb-2">
+              <button
+                onClick={() => setMobileSectionOpen(mobileSectionOpen === 'experience' ? null : 'experience')}
+                className="w-full flex items-center justify-between py-2 text-left"
+              >
+                <div className="flex items-center space-x-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+                  <span className="font-serif text-sm font-bold uppercase tracking-luxury text-brand-navy">
+                    The Experience & Standards
+                  </span>
+                </div>
+                <ChevronDown className={`w-4 h-4 text-brand-gold transition-transform duration-200 ${mobileSectionOpen === 'experience' ? 'rotate-180' : ''}`} />
+              </button>
+
+              {mobileSectionOpen === 'experience' && (
+                <div className="grid grid-cols-1 gap-1 pl-4 py-2 border-l border-brand-gold/30 animate-in fade-in duration-200">
+                  {experienceLinks.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
