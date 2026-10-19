@@ -11,16 +11,16 @@ export const WhyModernManSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20 space-y-3">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold flex items-center justify-center space-x-2">
             <Award className="w-4 h-4" />
-            <span>The Modern Man Distinction</span>
+            <span>Why Choose Us</span>
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
             Why Modern Man Kenya
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-slate-600 font-light leading-relaxed">
-            Seven pillars that define why discerning gentlemen choose our Nairobi atelier for their most significant garments.
+            Here is why gentlemen in Nairobi and across Kenya trust us with their suits.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export const WhyModernManSection: React.FC = () => {
           {WHY_MODERN_MAN.map((reason, idx) => (
             <div
               key={reason.title}
-              className={`p-6 rounded-lg border border-slate-200/80 hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-luxury ${
+              className={`p-6 rounded-xl border border-slate-200/90 hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl ${
                 idx === 6 ? 'sm:col-span-2 lg:col-span-3 xl:col-span-1 bg-brand-canvas-alt' : 'bg-white'
               }`}
             >
@@ -52,7 +52,7 @@ export const WhyModernManSection: React.FC = () => {
 
               <div className="mt-6 pt-3 border-t border-slate-100 flex items-center space-x-1.5 text-[11px] font-bold text-brand-navy">
                 <Check className="w-3.5 h-3.5 text-brand-gold" />
-                <span>Modern Man Hallmark</span>
+                <span>Our Standard</span>
               </div>
             </div>
           ))}
@@ -63,8 +63,8 @@ export const WhyModernManSection: React.FC = () => {
           <Quote className="w-10 h-10 text-brand-gold/25 mx-auto" />
           
           <div className="space-y-2">
-            <span className="text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold">
-              Our Enduring Commitment
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold">
+              Our Promise to You
             </span>
             <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-brand-navy leading-snug">
               The Modern Man Brand Promise
@@ -78,9 +78,9 @@ export const WhyModernManSection: React.FC = () => {
           <div className="pt-2">
             <Link
               href="/book-appointment"
-              className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-luxury text-brand-navy hover:text-brand-gold transition-colors"
+              className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors"
             >
-              <span>Book Your Fitting Experience in Nairobi</span>
+              <span>Book an Appointment in Nairobi</span>
               <ArrowRight className="w-4 h-4 text-brand-gold" />
             </Link>
           </div>

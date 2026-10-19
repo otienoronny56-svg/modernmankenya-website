@@ -17,17 +17,16 @@ export const CraftsmanshipSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2 sm:space-y-3">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2 sm:space-y-3">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold flex items-center justify-center space-x-2">
             <Scissors className="w-3.5 h-3.5" />
-            <span>Master Sartorial Standard</span>
+            <span>Tailoring Quality</span>
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold">
-            Craftsmanship & Construction
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
+            How We Build Your Suit
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-slate-600 font-light leading-relaxed">
-            Every Modern Man Kenya garment is constructed with an unyielding commitment to sartorial integrity, 
-            structural longevity, and human artisanal discipline.
+            Every suit is made with authentic floating canvas construction, careful hand stitching, and fine breathable fabrics.
           </p>
         </div>
 
@@ -38,11 +37,11 @@ export const CraftsmanshipSection: React.FC = () => {
             return (
               <div
                 key={pillar.title}
-                className="bg-brand-canvas-alt p-6 sm:p-8 rounded-lg border border-slate-200/80 hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-luxury"
+                className="bg-brand-canvas-alt p-6 sm:p-7 rounded-xl border border-slate-200/90 hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl"
               >
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-sm bg-brand-navy text-white group-hover:bg-brand-gold transition-colors flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-lg bg-brand-navy text-white group-hover:bg-brand-gold group-hover:text-brand-navy transition-colors flex items-center justify-center">
                       <Icon className="w-5 h-5 stroke-1.5" />
                     </div>
                     <span className="text-[10px] font-mono font-bold text-brand-gold">
@@ -50,7 +49,7 @@ export const CraftsmanshipSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-brand-navy group-hover:text-brand-gold transition-colors">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-brand-navy group-hover:text-brand-gold transition-colors">
                     {pillar.title}
                   </h3>
 
@@ -61,7 +60,7 @@ export const CraftsmanshipSection: React.FC = () => {
 
                 <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center space-x-1.5 text-[11px] font-bold text-brand-navy">
                   <CheckCircle2 className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>Verified Standard</span>
+                  <span>Quality Guaranteed</span>
                 </div>
               </div>
             );

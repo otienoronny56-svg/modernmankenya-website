@@ -2,6 +2,9 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
 import { NeedleThreadTransition } from '@/components/canvas/NeedleThreadTransition';
+import { ScissorsCutTransition } from '@/components/canvas/ScissorsCutTransition';
+import { MeasuringTapeTransition } from '@/components/canvas/MeasuringTapeTransition';
+import { ChalkSeamTransition } from '@/components/canvas/ChalkSeamTransition';
 import { WhatWeCreateSection } from '@/components/home/WhatWeCreateSection';
 import { OccasionsSection } from '@/components/home/OccasionsSection';
 import { ReadyToWearSection } from '@/components/home/ReadyToWearSection';
@@ -29,32 +32,53 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* 1. Hero: Where Fit Meets Character • Opulence • Simplicity • Class */}
+      {/* 1. Hero: Where Fit Meets Character */}
       <HeroSection />
 
-      {/* 2D Sartorial Golden Needle & Basting Thread Transition */}
+      {/* Transition 1: Golden Needle & Basting Thread */}
       <NeedleThreadTransition />
 
-      {/* 2. What We Create: 9 Tailoring Categories */}
+      {/* 2. What We Make: Clean Category Cards */}
       <WhatWeCreateSection />
 
-      {/* 4. Occasions: Business, Wedding, Formal, Signature */}
+      {/* Transition 2: Tailor's Shears / Scissors Cut */}
+      <ScissorsCutTransition />
+
+      {/* 3. Occasions: Suits for Every Event */}
       <OccasionsSection />
 
-      {/* 5. Ready-to-Wear Wardrobe: Immediate Acquisition Spotlight */}
+      {/* Transition 3: Tailor's Tape Measure */}
+      <MeasuringTapeTransition />
+
+      {/* 4. The Gallery: Custom Showcase */}
       <ReadyToWearSection />
 
-      {/* 6. The Modern Man Experience: 5-Step Process */}
+      {/* Transition 4: Tailor's Chalk Line Guide */}
+      <ChalkSeamTransition />
+
+      {/* 5. How We Tailor Your Suit: 5-Step Process */}
       <TheExperienceSection />
 
-      {/* 6. Craftsmanship & Construction: Floating Canvas & Hand Finishing */}
+      {/* Transition 5: Golden Needle & Basting Thread */}
+      <NeedleThreadTransition />
+
+      {/* 6. How We Build Your Suit: Craftsmanship & Canvas */}
       <CraftsmanshipSection />
 
-      {/* 7. Quality Standards & Operational Clarity: QC Checklist, SOPs, Archived Metrics */}
+      {/* Transition 6: Tailor's Shears Cut */}
+      <ScissorsCutTransition />
+
+      {/* 7. Our Quality Guarantee: Inspection Standards */}
       <QualityStandardsSection />
+
+      {/* Transition 7: Measuring Tape Precision */}
+      <MeasuringTapeTransition />
 
       {/* 8. Why Modern Man Kenya: 7 Reasons & Brand Promise */}
       <WhyModernManSection />
+
+      {/* Transition 8: Tailor's Chalk Seam */}
+      <ChalkSeamTransition />
 
       {/* 9. Nairobi Atelier Consultation & Contact */}
       <AtelierInvitation />

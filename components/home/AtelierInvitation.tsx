@@ -35,26 +35,24 @@ export const AtelierInvitation: React.FC = () => {
           {/* Right Invitation Content */}
           <div className="lg:col-span-6 p-6 sm:p-12 lg:p-14 flex flex-col justify-between">
             <div className="space-y-4">
-              <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center space-x-2">
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold flex items-center space-x-2">
                 <MapPin className="w-3.5 h-3.5" />
-                <span>By Appointment Only • Nairobi Atelier</span>
+                <span>Visit Our Nairobi Workshop</span>
               </span>
 
               <h3 className="font-serif text-2xl sm:text-4xl font-bold leading-tight">
-                An Exclusive Sanctuary of Tailoring
+                Book a Private Fitting in Nairobi
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                Step into a discreet private fitting experience in Nairobi. Explore fine imported cloths, 
-                discuss your silhouette and wardrobe requirements with our Master Tailor, and have your 
-                anatomical measurements captured with millimetric precision.
+                Come visit us for a private fitting. Feel our fine imported fabrics, discuss your style with our tailor, and have your measurements taken for a sharp, natural fit.
               </p>
 
               <div className="space-y-2.5 pt-2 text-xs text-slate-300">
                 <div className="flex items-center space-x-2.5">
                   <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />
                   <a href={`tel:${BRAND_PROFILE.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">
-                    Private Concierge: {BRAND_PROFILE.phone}
+                    Call or WhatsApp: {BRAND_PROFILE.phone}
                   </a>
                 </div>
                 <div className="flex items-center space-x-2.5">
@@ -65,7 +63,7 @@ export const AtelierInvitation: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2.5">
                   <ShieldCheck className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                  <span>Archived Client Measurement File with Every Commission</span>
+                  <span>Your measurements are saved for easy future reordering</span>
                 </div>
               </div>
             </div>
@@ -73,16 +71,16 @@ export const AtelierInvitation: React.FC = () => {
             <div className="pt-6 sm:pt-8 mt-6 border-t border-white/15 flex flex-col sm:flex-row gap-4 items-center">
               <Link
                 href="/book-appointment"
-                className="w-full sm:w-auto px-8 py-3.5 rounded bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury text-xs text-center transition-all shadow-gold flex items-center justify-center space-x-2"
+                className="w-full sm:w-auto px-8 py-3.5 rounded bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-wider text-xs text-center transition-all shadow-gold flex items-center justify-center space-x-2"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Reserve Consultation</span>
+                <span>Book an Appointment</span>
               </Link>
               <a
                 href={`tel:${BRAND_PROFILE.phone.replace(/\s+/g, '')}`}
-                className="w-full sm:w-auto text-center py-2 sm:py-0 text-xs font-bold uppercase tracking-luxury text-slate-300 hover:text-white flex items-center justify-center space-x-1.5"
+                className="w-full sm:w-auto text-center py-2 sm:py-0 text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center justify-center space-x-1.5"
               >
-                <span>Call Concierge: {BRAND_PROFILE.phone}</span>
+                <span>Call Us: {BRAND_PROFILE.phone}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-brand-gold" />
               </a>
             </div>

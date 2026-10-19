@@ -33,21 +33,21 @@ export const ReadyToWearSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 pb-6 border-b border-slate-200">
           <div className="space-y-2 max-w-2xl">
-            <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center space-x-2">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold flex items-center space-x-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Sartorial Portfolio</span>
+              <span>Our Work</span>
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
               The Gallery
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm md:text-base font-light leading-relaxed">
-              Explore our showcase of master made-to-measure garments and signature commissions crafted with floating canvas construction.
+              Take a look at some of the custom suits, tuxedos, and shirts we have tailored for our clients in Nairobi.
             </p>
           </div>
 
           <Link
             href="/gallery"
-            className="mt-4 md:mt-0 inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-luxury text-brand-navy hover:text-brand-gold transition-colors group"
+            className="mt-4 md:mt-0 inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors group"
           >
             <span>View Full Gallery</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-brand-gold" />
@@ -59,7 +59,7 @@ export const ReadyToWearSection: React.FC = () => {
           {products.map((item) => (
             <div
               key={item.id}
-              className="group bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-luxury hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Visual Image */}
@@ -74,14 +74,14 @@ export const ReadyToWearSection: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
                   {/* Craftsmanship Badge */}
-                  <div className="absolute top-3 left-3 bg-brand-navy/90 backdrop-blur-sm border border-brand-gold/30 text-brand-gold text-[9px] font-bold uppercase tracking-luxury px-2 py-0.5 rounded">
-                    Made to Measure
+                  <div className="absolute top-3 left-3 bg-brand-navy/90 backdrop-blur-sm border border-brand-gold/30 text-brand-gold text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                    Custom Tailored
                   </div>
                 </div>
 
                 {/* Details */}
                 <div className="p-4 sm:p-5 space-y-2">
-                  <p className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold">
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-brand-gold">
                     {item.category.replace('-', ' ')}
                   </p>
                   <h3 className="font-serif text-sm sm:text-base font-bold text-brand-navy group-hover:text-brand-gold transition-colors leading-snug line-clamp-1">
@@ -95,7 +95,7 @@ export const ReadyToWearSection: React.FC = () => {
 
               {/* Action */}
               <div className="p-4 sm:p-5 pt-0 border-t border-slate-100 flex items-center justify-between mt-2">
-                <span className="text-[11px] text-slate-400 font-light">Custom Commission</span>
+                <span className="text-[11px] text-slate-500 font-medium">Made to Order</span>
                 <Link
                   href="/book-appointment"
                   className="text-[11px] font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors flex items-center space-x-1"
@@ -109,13 +109,13 @@ export const ReadyToWearSection: React.FC = () => {
         </div>
 
         {/* Bottom Banner linking to Consultation */}
-        <div className="mt-12 p-6 sm:p-8 bg-brand-canvas-alt rounded-lg border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-6 sm:p-8 bg-brand-canvas-alt rounded-xl border border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="font-serif text-base sm:text-lg font-bold text-brand-navy">
-              Inspired by a design in our gallery?
+              Like what you see in our gallery?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 font-light">
-              Every garment is individually cut and crafted made-to-measure according to your chosen cloth, lining, and styling details.
+              Visit our Nairobi workshop or book a fitting to get started on your own custom suit.
             </p>
           </div>
 

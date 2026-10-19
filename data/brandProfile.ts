@@ -100,76 +100,76 @@ export const TAILORING_OCCASIONS: OccasionCategory[] = [
   {
     id: 'business-executive',
     title: 'Business & Executive',
-    subtitle: 'Boardroom Authority & Professional Wardrobes',
+    subtitle: 'Sharp Office & Boardroom Suits',
     description:
-      'Sharp, confident tailoring for boardrooms, leadership settings, client meetings and everyday professional wardrobes. Our approach focuses on clean lines, versatile colour palettes and refined details that communicate professionalism without sacrificing personal style.',
+      'Clean, comfortable suits made for meetings, daily office wear, and leadership presentations. Tailored to look sharp all day without feeling stiff.',
     image: '/images/MOK_7655.jpg',
-    focus: ['Clean architectural lines', 'Versatile classic palettes', 'Breathable all-day comfort', 'Leadership presence'],
+    focus: ['Clean sharp cut', 'Breathable fabrics', 'All-day comfort', 'Professional look'],
   },
   {
     id: 'wedding-groom',
     title: 'Wedding & Groom',
-    subtitle: 'Ceremony Elegance & Nuptial Distinction',
+    subtitle: 'Suits for Grooms & Groomsmen',
     description:
-      'Personalised wedding tailoring created around the groom, the ceremony and the overall wedding aesthetic. From timeless black-tie elegance to contemporary colour, texture and cultural influences, we create looks designed to make the occasion memorable.',
+      'Custom wedding suits made around your personal style, the wedding theme, and your groomsmen. Tailored so you look your best on your big day.',
     image: '/images/DSC04995.jpg',
-    focus: ['Custom groom palettes', 'Groomsmen coordination', 'Cultural & formal fusion', 'Photogenic drape'],
+    focus: ['Custom fit for groom', 'Matching groomsmen suits', 'Photogenic fabrics', 'Made for the big day'],
   },
   {
     id: 'formal-eveningwear',
     title: 'Formal & Eveningwear',
-    subtitle: 'Galas, Milestone Celebrations & Black Tie',
+    subtitle: 'Tuxedos & Gala Dinner Suits',
     description:
-      'Tuxedos, dinner suits and elevated evening pieces with considered lapels, refined shirting, polished accessories and sophisticated finishing. Designed for black-tie events, galas, celebrations and milestone occasions.',
+      'Tuxedos and dinner jackets with satin lapels and clean finishing. Perfect for black-tie galas, awards, and milestone celebrations.',
     image: '/images/MOK_2101.jpg',
-    focus: ['Satin & grosgrain lapels', 'Deep midnight & black tones', 'Impeccable dinner jackets', 'Commanding posture'],
+    focus: ['Satin lapels', 'Deep black & midnight blue', 'Classic dinner jacket cut', 'Confident posture'],
   },
   {
     id: 'signature-occasion',
     title: 'Signature & Occasion Pieces',
-    subtitle: 'Distinctive Character & Expressive Cloths',
+    subtitle: 'Custom Statement Looks',
     description:
-      'For clients who want something more distinctive, we develop statement garments through expressive fabrics, bold colour combinations, unique trims, contrasting textures and personalised design details.',
+      'Distinctive looks made with unique fabrics, bold colours, and personal styling for clients who want something special.',
     image: '/images/MOK_2142.jpg',
-    focus: ['Expressive textures & jacquards', 'Hand-selected contrast trims', 'Unique lapel silhouettes', 'Personal statement styling'],
+    focus: ['Rich textured fabrics', 'Custom collar & lapel details', 'Bold stylish colours', 'Unique personal style'],
   },
 ];
 
 export const THE_EXPERIENCE_STEPS = [
   {
     step: '01',
-    title: 'Personal Consultation',
-    subtitle: 'Aesthetic Discovery & Lifestyle Analysis',
+    title: 'Consultation',
+    subtitle: 'Understanding Your Needs',
     description:
-      'Every client begins with a personal consultation where we understand his preferred aesthetic, intended occasion, lifestyle and fit requirements.',
+      'We sit down to talk about what you need, your style, and the occasion you are dressing for.',
   },
   {
     step: '02',
-    title: 'Fabric & Design Direction',
-    subtitle: 'Cloth Selection According to Season & Drape',
+    title: 'Fabric & Design',
+    subtitle: 'Choosing Your Cloth & Style',
     description:
-      'We guide the client through fabric, colour, construction, silhouette and detailing choices to develop a garment that is distinctly his. Cloth is selected according to climate, occasion, drape, texture, and durability.',
+      'Choose your favourite fabric, lining, buttons, lapels, and pockets from our curated swatches.',
   },
   {
     step: '03',
-    title: 'Measurement & Proportion Mapping',
-    subtitle: 'Cut for Your Physical Anatomy',
+    title: 'Measurements',
+    subtitle: 'Fitting Your Body Shape',
     description:
-      'Measurements and proportions are carefully considered. Clothing is engineered around the individual wearer rather than a generic off-the-rack size chart.',
+      'We take exact measurements of your posture, shoulders, and chest so the suit fits you naturally.',
   },
   {
     step: '04',
-    title: 'Fitting & Architectural Refinements',
-    subtitle: 'Achieving Balance & Balance of Silhouette',
+    title: 'Fitting Session',
+    subtitle: 'Adjusting for Clean Fit',
     description:
-      'The garment is assessed through physical fittings, and refinements are made to achieve a clean, balanced silhouette, balanced shoulder line, and precise trouser break.',
+      'You try on the half-stitched suit. We adjust the seams until it drapes cleanly and feels comfortable.',
   },
   {
     step: '05',
-    title: 'Multi-Point Quality Control & Presentation',
-    subtitle: 'Flawless Finish Before Handover',
+    title: 'Final Handover',
+    subtitle: 'Inspected & Ready to Wear',
     description:
-      'Every garment undergoes our rigorous pre-delivery Quality Control Checklist, verifying seam tension, lapel roll, and finishing details before final presentation.',
+      'Your finished suit is pressed, checked for quality, and handed over ready for your big day or meeting.',
   },
 ];
 
@@ -240,38 +240,38 @@ export const OPERATIONAL_STANDARDS: OperationalStandard[] = [
 export const WHY_MODERN_MAN = [
   {
     number: '01',
-    title: 'Personalised Tailoring Rather Than Off-The-Rack',
-    description: 'Every piece is drafted around the individual rather than constrained to generic factory size charts.',
+    title: 'Custom Fit, Not Off-The-Rack',
+    description: 'Every suit is cut specifically for your body shape, height, and shoulders — never generic factory sizes.',
   },
   {
     number: '02',
-    title: 'Design Guidance from Consultation Through Final Fitting',
-    description: 'Professional sartorial advisory on cloth, silhouette, lapel proportions, and styling at every phase.',
+    title: 'Clear Tailoring Guidance',
+    description: 'We advise you on fabrics, lapels, and styling from day one until your final fitting.',
   },
   {
     number: '03',
-    title: 'Attention to Proportion, Silhouette & Finishing',
-    description: 'Equal focus placed on shoulder line, chest balance, sleeve length, collar placement, and trouser break.',
+    title: 'Attention to Every Detail',
+    description: 'We check shoulder lines, chest balance, sleeve length, and trouser break so everything sits right.',
   },
   {
     number: '04',
-    title: 'A Balance of Classic Tailoring & Contemporary Style',
-    description: 'Rooted in the timeless discipline of classic menswear, modernized with clean, contemporary silhouettes.',
+    title: 'Classic Meets Modern',
+    description: 'Timeless tailoring quality combined with fresh, modern cuts that suit today’s gentleman.',
   },
   {
     number: '05',
-    title: 'Garments Designed Around the Individual Client',
-    description: 'Shaped to reflect your personality, anatomical posture, daily lifestyle, and specific occasion.',
+    title: 'Designed Around You',
+    description: 'Every piece reflects your personal style, taste, and the event you are attending.',
   },
   {
     number: '06',
-    title: 'A Distinctly Kenyan Luxury Fashion Perspective',
-    description: 'Proudly rooted in Kenyan craftsmanship, delivering high-level sartorial elegance for African and global gentlemen.',
+    title: 'Proudly Kenyan',
+    description: 'Crafted right here in Nairobi with world-class quality for African and global gentlemen.',
   },
   {
     number: '07',
-    title: 'Tailoring Suitable for Professional, Formal & Special Occasions',
-    description: 'From boardroom leadership and galas to nuptials and personal statement pieces.',
+    title: 'Suits for Every Occasion',
+    description: 'From office meetings and black-tie galas to weddings and weekend events.',
   },
 ];
 
@@ -329,27 +329,27 @@ export const OPERATIONAL_QA = OPERATIONAL_STANDARDS;
 
 export const CRAFTSMANSHIP_PILLARS = [
   {
-    title: 'Canvas Construction',
+    title: 'Floating Canvas',
     icon: 'Layers',
     description:
-      'Floating horsehair and camel-hair canvas chest pieces that breathe and shape permanently to individual contours with zero stiff glue.',
+      'Natural horsehair canvas inside the chest that breathes and molds to your body over time, with zero stiff glue.',
   },
   {
     title: 'Hand-Finished Detailing',
     icon: 'Sparkles',
     description:
-      'Pick stitching along lapels, hand-set collars, fine silk buttonholes, and functional surgeon cuffs.',
+      'Clean hand stitching on lapels, collar edges, fine silk buttonholes, and functional cuffs.',
   },
   {
-    title: 'Precision Cutting',
+    title: 'Custom Pattern Cut',
     icon: 'Scissors',
     description:
-      'Every pattern is drafted from scratch per individual anatomy, shoulder pitch, and stance.',
+      'Every pattern is drawn from scratch to match your exact posture, chest, and shoulder slope.',
   },
   {
-    title: 'Curated Premium Cloth',
+    title: 'Carefully Selected Fabrics',
     icon: 'ShieldCheck',
     description:
-      'Selected fine wools, silks, linens, and performance blends curated according to climate, drape, and durability.',
+      'Quality fine wools, linens, and breathable fabrics chosen to keep you comfortable in Kenyan weather.',
   },
 ];

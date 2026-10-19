@@ -21,31 +21,31 @@ export const QualityStandardsSection: React.FC = () => {
   const pillars = [
     {
       icon: ClipboardCheck,
-      title: 'Pre-Delivery Quality Control Checklist',
-      subtitle: 'Zero-Defect Verification',
+      title: 'Pre-Delivery Inspection',
+      subtitle: 'Checked Before Handover',
       description:
-        'Every completed garment undergoes a rigorous multi-point inspection before client presentation: verifying millimetric chest/waist/length tolerances, collar snugness, lapel symmetry, seam strength, lining smoothness, and hand-press finish.',
+        'Every suit is thoroughly checked against our inspection list: shoulder fit, lapel symmetry, sleeve length, waist, and clean hand pressing.',
     },
     {
       icon: FileText,
-      title: 'Archived Client Record & Measurement Profile',
-      subtitle: 'Effortless Future Commissions',
+      title: 'Saved Measurement Profile',
+      subtitle: 'Easy Next Orders',
       description:
-        'Your comprehensive anatomical metrics, posture variables, fabric preferences, and order history are securely cataloged. Once established, subsequent suits, shirts, and separates can be commissioned seamlessly.',
+        'We keep your exact body measurements and style preferences on record. Ordering your next suit or shirt is as simple as a quick call.',
     },
     {
       icon: BookOpen,
-      title: 'Standard Operating Procedures (SOPs)',
-      subtitle: 'Consistent Master Precision',
+      title: 'Standard Workshop Rules',
+      subtitle: 'Consistent Quality',
       description:
-        'Every commission follows standardized procedural benchmarks — from incoming fabric flaw inspection and rest shrinking, to chalk drafting, canvas padding, and final presentation.',
+        'Every step follows strict rules — from steaming and cutting the cloth to shaping the canvas and pressing the final suit.',
     },
     {
       icon: Users,
-      title: 'Specialized Artisan Roles & Accountability',
-      subtitle: 'Individual Craft Ownership',
+      title: 'Specialist Tailors',
+      subtitle: 'Expert Hands',
       description:
-        'We enforce strict division of craftsmanship: Master Pattern Cutters draft and cut, Senior Coatmakers build the internal canvas architecture, and Dedicated Finishers sew buttonholes and hand press.',
+        'Our master cutters cut the patterns, coatmakers build the canvas chest, and finishers do the buttonholes and final hand pressing.',
     },
   ];
 
@@ -57,17 +57,16 @@ export const QualityStandardsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20 space-y-3">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold flex items-center justify-center space-x-2">
             <ShieldCheck className="w-4 h-4" />
-            <span>Operational Excellence & Precision</span>
+            <span>Quality Check</span>
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-            How We Guarantee Flawless Standards
+            Our Quality Guarantee
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-slate-300 font-light leading-relaxed">
-            Discipline behind the seams. We uphold rigorous operational protocols, archived measurement profiles, 
-            and pre-delivery checklists to ensure every Modern Man garment commands zero compromise.
+            We inspect every single stitch, seam, and button before your suit leaves our workshop.
           </p>
         </div>
 
@@ -78,11 +77,11 @@ export const QualityStandardsSection: React.FC = () => {
             return (
               <div
                 key={item.title}
-                className="bg-white/5 border border-white/10 hover:border-brand-gold/60 rounded-lg p-6 flex flex-col justify-between transition-all duration-300 hover:bg-white/10 group"
+                className="bg-white/5 border border-white/10 hover:border-brand-gold/60 rounded-xl p-6 flex flex-col justify-between transition-all duration-300 hover:bg-white/10 group"
               >
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded bg-brand-gold/20 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-navy transition-colors">
+                    <div className="w-12 h-12 rounded-lg bg-brand-gold/20 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-navy transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-[10px] font-mono text-brand-gold">0{idx + 1}</span>
@@ -103,7 +102,7 @@ export const QualityStandardsSection: React.FC = () => {
 
                 <div className="mt-6 pt-3 border-t border-white/10 flex items-center space-x-1.5 text-[11px] font-bold text-brand-gold">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Strict Atelier Protocol</span>
+                  <span>Verified Quality</span>
                 </div>
               </div>
             );
