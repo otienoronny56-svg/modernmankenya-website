@@ -2,88 +2,66 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Award, Check, Sparkles, ArrowRight, Quote } from 'lucide-react';
-import { WHY_MODERN_MAN, BRAND_PROFILE } from '@/data/brandProfile';
+import { Award, ArrowRight } from 'lucide-react';
+
+const REASONS = [
+  {
+    num: '01',
+    title: 'Custom Fit, Not Off-the-Rack',
+    text: 'Every suit is cut specifically for your body shape, height, and shoulders.',
+  },
+  {
+    num: '02',
+    title: 'Clear Style Guidance',
+    text: 'We help you choose the best fabrics, lapels, and colors for your event.',
+  },
+  {
+    num: '03',
+    title: 'Saved Measurements',
+    text: 'Your fit profile stays on file in Nairobi, making reordering simple.',
+  },
+  {
+    num: '04',
+    title: 'On-Time Handover',
+    text: 'Reliable timelines so your suit is ready well before your big day or meeting.',
+  },
+];
 
 export const WhyModernManSection: React.FC = () => {
   return (
-    <section id="why-us" className="py-16 sm:py-24 bg-white border-b border-slate-200/80 relative">
+    <section id="why-us" className="py-14 sm:py-20 bg-brand-canvas-alt border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold flex items-center justify-center space-x-2">
-            <Award className="w-4 h-4" />
-            <span>Why Choose Us</span>
+        {/* Simple Header */}
+        <div className="mb-10 sm:mb-14 text-center sm:text-left">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
+            Why Choose Us
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
             Why Modern Man Kenya
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-slate-600 font-light leading-relaxed">
-            Here is why gentlemen in Nairobi and across Kenya trust us with their suits.
-          </p>
         </div>
 
-        {/* 7 Reasons Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
-          {WHY_MODERN_MAN.map((reason, idx) => (
+        {/* 4 Clean Cards - 1 sentence each, light & crisp (not boring, not blue) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10">
+          {REASONS.map((r) => (
             <div
-              key={reason.title}
-              className={`p-6 rounded-xl border border-slate-200/90 hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl ${
-                idx === 6 ? 'sm:col-span-2 lg:col-span-3 xl:col-span-1 bg-brand-canvas-alt' : 'bg-white'
-              }`}
+              key={r.num}
+              className="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-serif text-2xl font-bold text-brand-gold/40 group-hover:text-brand-gold transition-colors">
-                    0{idx + 1}
-                  </span>
-                  <div className="w-2 h-2 rounded-full bg-brand-gold" />
-                </div>
-
-                <h3 className="font-serif text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors leading-snug">
-                  {reason.title}
+              <div>
+                <span className="font-mono text-2xl font-bold text-brand-gold block mb-3">
+                  {r.num}
+                </span>
+                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors mb-2">
+                  {r.title}
                 </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
-                  {reason.description}
+                <p className="text-xs text-slate-500 font-light leading-relaxed">
+                  {r.text}
                 </p>
-              </div>
-
-              <div className="mt-6 pt-3 border-t border-slate-100 flex items-center space-x-1.5 text-[11px] font-bold text-brand-navy">
-                <Check className="w-3.5 h-3.5 text-brand-gold" />
-                <span>Our Standard</span>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Brand Promise Editorial Box */}
-        <div className="bg-brand-canvas-alt border-2 border-brand-gold/30 rounded-xl p-8 sm:p-12 max-w-4xl mx-auto text-center space-y-6 relative overflow-hidden shadow-sm">
-          <Quote className="w-10 h-10 text-brand-gold/25 mx-auto" />
-          
-          <div className="space-y-2">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold">
-              Our Promise to You
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-brand-navy leading-snug">
-              The Modern Man Brand Promise
-            </h3>
-          </div>
-
-          <p className="font-serif text-base sm:text-xl text-brand-navy italic font-light leading-relaxed max-w-2xl mx-auto">
-            &ldquo;{BRAND_PROFILE.promise}&rdquo;
-          </p>
-
-          <div className="pt-2">
-            <Link
-              href="/book-appointment"
-              className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors"
-            >
-              <span>Book an Appointment in Nairobi</span>
-              <ArrowRight className="w-4 h-4 text-brand-gold" />
-            </Link>
-          </div>
         </div>
 
       </div>

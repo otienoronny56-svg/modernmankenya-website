@@ -10,7 +10,6 @@ import { OccasionsSection } from '@/components/home/OccasionsSection';
 import { ReadyToWearSection } from '@/components/home/ReadyToWearSection';
 import { TheExperienceSection } from '@/components/home/TheExperienceSection';
 import { CraftsmanshipSection } from '@/components/home/CraftsmanshipSection';
-import { QualityStandardsSection } from '@/components/home/QualityStandardsSection';
 import { WhyModernManSection } from '@/components/home/WhyModernManSection';
 import { AtelierInvitation } from '@/components/home/AtelierInvitation';
 
@@ -56,7 +55,7 @@ export default function HomePage() {
       {/* Transition 4: Tailor's Chalk Line Guide */}
       <ChalkSeamTransition />
 
-      {/* 5. How We Tailor Your Suit: 5-Step Process */}
+      {/* 5. How We Tailor Your Suit: 5 Simple Steps */}
       <TheExperienceSection />
 
       {/* Transition 5: Golden Needle & Basting Thread */}
@@ -68,19 +67,13 @@ export default function HomePage() {
       {/* Transition 6: Tailor's Shears Cut */}
       <ScissorsCutTransition />
 
-      {/* 7. Our Quality Guarantee: Inspection Standards */}
-      <QualityStandardsSection />
+      {/* 7. Why Modern Man Kenya: 4 Key Reasons */}
+      <WhyModernManSection />
 
       {/* Transition 7: Measuring Tape Precision */}
       <MeasuringTapeTransition />
 
-      {/* 8. Why Modern Man Kenya: 7 Reasons & Brand Promise */}
-      <WhyModernManSection />
-
-      {/* Transition 8: Tailor's Chalk Seam */}
-      <ChalkSeamTransition />
-
-      {/* 9. Nairobi Atelier Consultation & Contact */}
+      {/* 8. Nairobi Atelier Consultation & Contact */}
       <AtelierInvitation />
     </main>
   );

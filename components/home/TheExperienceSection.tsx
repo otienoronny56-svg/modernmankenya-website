@@ -2,84 +2,83 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Calendar, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
-import { EXPERIENCE_STEPS } from '@/data/brandProfile';
+import { Calendar, ArrowRight } from 'lucide-react';
+
+const STEPS = [
+  {
+    step: '01',
+    title: 'Consultation',
+    text: 'We talk about your style, your fit, and the occasion you are dressing for.',
+  },
+  {
+    step: '02',
+    title: 'Fabric & Style',
+    text: 'Choose your favourite fabric, lining, and lapels from our swatches.',
+  },
+  {
+    step: '03',
+    title: 'Measurements',
+    text: 'We take exact measurements of your posture, chest, and shoulders.',
+  },
+  {
+    step: '04',
+    title: 'The Fitting',
+    text: 'Try on the half-stitched suit. We adjust every seam until it fits right.',
+  },
+  {
+    step: '05',
+    title: 'Final Handover',
+    text: 'Your suit is hand-pressed, inspected for quality, and ready to wear.',
+  },
+];
 
 export const TheExperienceSection: React.FC = () => {
   return (
-    <section id="the-experience" className="py-16 sm:py-24 bg-brand-canvas-alt border-b border-slate-200/80 relative">
+    <section id="the-experience" className="py-14 sm:py-20 bg-brand-canvas-alt border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-2 sm:space-y-3">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-brand-gold font-bold flex items-center justify-center space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>How It Works</span>
+        {/* Simple Header */}
+        <div className="mb-10 sm:mb-14 text-center sm:text-left">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
+            How It Works
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
             How We Tailor Your Suit
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-slate-600 font-light leading-relaxed">
-            Getting your custom suit in Nairobi is simple and stress-free. Here is what happens from start to finish:
-          </p>
         </div>
 
-        {/* 5-Step Process Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
-          {EXPERIENCE_STEPS.map((step, idx) => (
+        {/* 5 Clean Step Cards - 1 sentence each, no clutter */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6 mb-12">
+          {STEPS.map((s) => (
             <div
-              key={step.step}
-              className="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group"
+              key={s.step}
+              className="bg-white p-5 sm:p-6 rounded-xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-serif text-3xl font-bold text-brand-gold/40 group-hover:text-brand-gold transition-colors">
-                    {step.step}
-                  </span>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                    Step 0{idx + 1}
-                  </span>
-                </div>
-
-                <h3 className="font-serif text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors leading-snug">
-                  {step.title}
+              <div>
+                <span className="font-mono text-2xl font-bold text-brand-gold block mb-3">
+                  {s.step}
+                </span>
+                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors mb-2">
+                  {s.title}
                 </h3>
-
-                <p className="text-[11px] font-bold uppercase tracking-wider text-brand-gold">
-                  {step.subtitle}
+                <p className="text-xs text-slate-500 font-light leading-relaxed">
+                  {s.text}
                 </p>
-
-                <p className="text-xs text-slate-600 font-light leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-
-              <div className="mt-6 pt-3 border-t border-slate-100 flex items-center space-x-1.5 text-[11px] font-bold text-brand-navy">
-                <CheckCircle2 className="w-3.5 h-3.5 text-brand-gold" />
-                <span>Modern Man Quality</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Reassurance & Appointment CTA */}
-        <div className="p-8 bg-white rounded-xl border border-slate-200/90 max-w-4xl mx-auto text-center space-y-4 shadow-sm">
-          <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy">
-            Ready to get your custom suit?
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 font-light max-w-2xl mx-auto leading-relaxed">
-            Book a visit to our Nairobi atelier. We will show you fabrics, take your measurements, and get your suit underway.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/book-appointment"
-              className="inline-flex items-center space-x-2.5 px-8 py-3.5 rounded bg-brand-navy hover:bg-brand-navy-light text-white font-bold uppercase tracking-wider text-xs transition-all shadow-md group"
-            >
-              <Calendar className="w-4 h-4 text-brand-gold" />
-              <span>Book an Appointment in Nairobi</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+        {/* Minimal Bottom CTA */}
+        <div className="text-center">
+          <Link
+            href="/book-appointment"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-lg bg-brand-navy hover:bg-brand-gold hover:text-brand-navy text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm group"
+          >
+            <Calendar className="w-4 h-4 text-brand-gold group-hover:text-brand-navy transition-colors" />
+            <span>Book a Fitting in Nairobi</span>
+            <ArrowRight className="w-3.5 h-3.5 ml-1" />
+          </Link>
         </div>
 
       </div>
