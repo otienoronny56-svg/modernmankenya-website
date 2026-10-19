@@ -61,29 +61,30 @@ export const HeroSection: React.FC = () => {
         })}
       </div>
 
-      {/* Layered Sartorial Glass Card - Lifts content into its own distinct, elegant layer */}
-      <div className="relative z-10 max-w-3xl mx-4 sm:mx-auto px-6 sm:px-10 py-10 sm:py-14 my-10 rounded-2xl bg-black/35 backdrop-blur-md border border-white/20 shadow-2xl text-center flex flex-col items-center">
+      {/* Hero Content - 100% Transparent, Ultra-Modern & Digital Layering */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
         
-        {/* Subtle House Monogram / Overline */}
-        <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-brand-gold font-bold mb-3 drop-shadow">
-          Opulence • Simplicity • Class
-        </p>
+        {/* Modern Pill Badge */}
+        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-brand-gold/60 bg-black/20 text-brand-gold text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] mb-6 shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
+          <span>Opulence • Simplicity • Class</span>
+        </div>
 
         {/* Primary Headline */}
-        <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15] mb-5 drop-shadow-md">
+        <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
           Where Fit Meets Character.
         </h1>
 
         {/* Single Concise Sentence */}
-        <p className="text-sm sm:text-base md:text-lg text-slate-100 font-normal max-w-xl leading-relaxed mb-8 drop-shadow">
+        <p className="text-base sm:text-lg md:text-xl text-white font-medium max-w-2xl leading-relaxed mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
           Handcrafted made-to-measure tailoring cut to your exact proportions and individual style in Nairobi.
         </p>
 
-        {/* Action Buttons: Book & Explore */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
+        {/* Action Buttons: Modern, Transparent & Crisp */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
           <Link
             href="/book-appointment"
-            className="w-full sm:w-auto px-6 py-3 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-wider text-xs rounded transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-gold"
+            className="w-full sm:w-auto px-7 py-3.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-wider text-xs rounded transition-all duration-200 flex items-center justify-center space-x-2 shadow-xl hover:shadow-gold"
           >
             <Calendar className="w-4 h-4" />
             <span>Book Appointment</span>
@@ -91,7 +92,7 @@ export const HeroSection: React.FC = () => {
 
           <a
             href="#creations"
-            className="w-full sm:w-auto px-6 py-3 bg-white/20 hover:bg-white/30 text-white border border-white/40 hover:border-brand-gold text-xs font-semibold uppercase tracking-wider rounded transition-all duration-200 flex items-center justify-center space-x-2 backdrop-blur-sm group"
+            className="w-full sm:w-auto px-7 py-3.5 bg-black/30 hover:bg-black/50 text-white border border-white/40 hover:border-brand-gold text-xs font-semibold uppercase tracking-wider rounded transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg group"
           >
             <span>Explore Creations</span>
             <ArrowRight className="w-4 h-4 text-brand-gold group-hover:translate-x-1 transition-transform" />
@@ -99,13 +100,13 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Slide Indicators */}
-        <div className="flex items-center space-x-2 mt-6">
+        <div className="flex items-center space-x-2.5 mt-10">
           {HERO_IMAGES.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                idx === currentSlide ? 'w-6 bg-brand-gold' : 'w-2 bg-white/40 hover:bg-white/70'
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                idx === currentSlide ? 'w-8 bg-brand-gold shadow' : 'w-2.5 bg-white/40 hover:bg-white/70'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
