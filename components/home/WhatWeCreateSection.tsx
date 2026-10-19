@@ -21,7 +21,7 @@ export const WhatWeCreateSection: React.FC = () => {
           </h2>
         </div>
 
-        {/* 6 Clean Category Cards (Clicking Takes You to Filtered Gallery) */}
+        {/* Category Cards (Clicking Takes You to Filtered Gallery) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {WHAT_WE_CREATE.map((item, idx) => (
             <Link
@@ -30,7 +30,7 @@ export const WhatWeCreateSection: React.FC = () => {
               className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
             >
               {/* Visual Garment Image */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-stone-900">
+              <div className="relative aspect-[1/1] w-full overflow-hidden bg-stone-900">
                 <Image
                   src={item.image}
                   alt={item.title}

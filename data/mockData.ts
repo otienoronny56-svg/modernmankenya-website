@@ -221,7 +221,7 @@ export const READY_TO_WEAR_PRODUCTS: Product[] = [
     slug: 'the-executive-egyptian-giza-cotton-custom-shirt',
     tagline: 'Hand-Drafted Spread Collar with Mother-of-Pearl Buttons',
     description: 'Precision-tailored from long-staple Egyptian Giza cotton. Featuring hand-sewn collar bands, split back yoke for natural shoulder movement, and genuine Australian mother-of-pearl buttons.',
-    category: 'jackets',
+    category: 'shirts',
     fabricDetails: '100% 2-Ply Long-Staple Egyptian Giza 87 Cotton (140/2 Weave).',
     construction: 'Single-Needle 22 Stitches Per Inch Tailored Construction',
     priceKes: 24500,

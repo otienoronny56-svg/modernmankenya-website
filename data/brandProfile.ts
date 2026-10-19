@@ -54,7 +54,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   },
   {
     id: 'tuxedos',
-    title: 'Tuxedos & Black Tie',
+    title: 'Tuxedos',
     image: '/images/MOK_2142.jpg',
     categoryParam: 'evening-dinner',
     badge: 'Formal Events',
@@ -69,7 +69,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'traditional-wear',
     title: 'Traditional Wear',
-    image: '/images/LKM_1745.jpg',
+    image: '/images/LKM_1607.jpg',
     categoryParam: 'traditional',
     badge: 'Heritage & Modernity',
   },
@@ -81,9 +81,16 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
     badge: 'African Sophistication',
   },
   {
-    id: 'cuban-senator-shirts',
-    title: 'Cuban & Senator Shirts',
-    image: '/images/LKM_1776.jpg',
+    id: 'senator-suits',
+    title: 'Senator Suits',
+    image: '/images/LKM_1600.jpg',
+    categoryParam: 'senator-suits',
+    badge: 'African Sartorial Elegance',
+  },
+  {
+    id: 'shirts',
+    title: 'Shirts',
+    image: '/images/MOK_2171.jpg',
     categoryParam: 'shirts',
     badge: 'Custom Collars & Fit',
   },

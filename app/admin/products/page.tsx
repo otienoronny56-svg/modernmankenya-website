@@ -22,11 +22,12 @@ import { ProductFormModal } from '@/components/admin/ProductFormModal';
 const CATEGORIES = [
   { id: 'all', name: 'All Garments' },
   { id: 'suits', name: '2 & 3-Piece Suits' },
-  { id: 'evening-dinner', name: 'Tuxedos & Black Tie' },
+  { id: 'evening-dinner', name: 'Tuxedos' },
   { id: 'smart-casual', name: 'Smart Casual & Blazers' },
   { id: 'traditional', name: 'Traditional Wear' },
   { id: 'kaftan-agbada', name: 'Kaftans & Agbada' },
-  { id: 'shirts', name: 'Cuban & Senator Shirts' },
+  { id: 'senator-suits', name: 'Senator Suits' },
+  { id: 'shirts', name: 'Shirts' },
   { id: 'accessories', name: 'Accessories' },
 ];
 

@@ -25,6 +25,7 @@ export interface Product {
     | 'evening-dinner'
     | 'traditional'
     | 'kaftan-agbada'
+    | 'senator-suits'
     | 'shirts'
     | 'smart-casual'
     | 'fragrances'
