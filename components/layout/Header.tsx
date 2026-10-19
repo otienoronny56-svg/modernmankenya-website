@@ -77,44 +77,44 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
   return (
     <>
-      {/* Main Luxury Header */}
+      {/* Main Luxury Header - Thinner, Minimalist & Subtle Grey-White Tone */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-luxury py-2.5 sm:py-3 border-b border-slate-200'
-            : 'bg-white py-3 sm:py-3.5 border-b border-slate-100'
+            ? 'bg-[#f4f4f5]/95 backdrop-blur-md shadow-sm py-1.5 sm:py-2 border-b border-slate-300/80'
+            : 'bg-[#f7f7f8] py-2 sm:py-2.5 border-b border-slate-200'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Brand Logo & Tagline */}
-          <Link href="/" className="flex items-center space-x-2.5 sm:space-x-3.5 group min-w-0">
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0">
+          <Link href="/" className="flex items-center space-x-2.5 sm:space-x-3 group min-w-0">
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
               <Image
                 src="/images/logo-emblem.png"
                 alt="Modern Man Kenya Logo"
                 fill
-                sizes="(max-width: 640px) 36px, 40px"
+                sizes="(max-width: 640px) 32px, 36px"
                 className="object-contain"
                 priority
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="font-serif text-sm sm:text-base lg:text-lg tracking-wider text-brand-navy font-bold leading-tight uppercase group-hover:text-brand-gold transition-colors truncate">
+              <span className="font-serif text-xs sm:text-sm lg:text-base tracking-wider text-brand-navy font-bold leading-tight uppercase group-hover:text-brand-gold transition-colors truncate">
                 Modern Man Kenya
               </span>
-              <span className="text-[8px] sm:text-[9px] tracking-[0.2em] text-brand-gold uppercase font-medium truncate">
+              <span className="text-[7.5px] sm:text-[8px] tracking-[0.2em] text-brand-gold uppercase font-medium truncate">
                 opulence • simplicity • class
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links - Clean, Uncongested & Minimal */}
-          <nav className="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-700">
+          {/* Desktop Navigation Links - Ultra-Clean, Minimal & Spacious */}
+          <nav className="hidden lg:flex items-center space-x-8 text-xs sm:text-sm font-medium text-slate-700">
             
             {/* Made to Measure Dropdown */}
             <div
-              className="relative py-2"
+              className="relative py-1"
               onMouseEnter={() => setActiveDropdown('mtm')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -140,7 +140,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
             {/* Gallery (Replaces Ready to Wear) */}
             <div
-              className="relative py-2"
+              className="relative py-1"
               onMouseEnter={() => setActiveDropdown('gallery')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -166,7 +166,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
             {/* Occasions Dropdown */}
             <div
-              className="relative py-2"
+              className="relative py-1"
               onMouseEnter={() => setActiveDropdown('occasions')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -189,13 +189,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 </div>
               )}
             </div>
-
-            <Link
-              href="/the-experience"
-              className="hover:text-brand-gold transition-colors font-medium"
-            >
-              The Experience
-            </Link>
           </nav>
 
           {/* Right Action Icons, Currency Selector & Compact Appointment CTA */}

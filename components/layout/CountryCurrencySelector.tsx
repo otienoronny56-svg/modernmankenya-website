@@ -74,20 +74,20 @@ export const CountryCurrencySelector: React.FC<CountryCurrencySelectorProps> = (
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center space-x-2 text-[11px] sm:text-xs font-medium tracking-wide uppercase transition-colors px-2 py-1 rounded focus:outline-none ${
+        className={`inline-flex items-center space-x-1.5 text-[11px] sm:text-xs font-medium tracking-wide transition-colors px-1.5 py-0.5 rounded focus:outline-none ${
           isDark
             ? 'text-slate-200 hover:text-white hover:bg-white/10'
-            : 'text-slate-700 hover:text-brand-navy hover:bg-slate-100'
+            : 'text-slate-700 hover:text-brand-navy hover:bg-slate-200/50'
         }`}
         aria-expanded={isOpen}
         aria-label="Select country and currency"
       >
-        <span className="text-base sm:text-lg leading-none">{selectedCountry.flag}</span>
-        <span className="font-semibold">{selectedCountry.name.toUpperCase()} ({selectedCountry.currencyLabel})</span>
+        <span className="text-sm leading-none inline-block">{selectedCountry.flag}</span>
+        <span className="font-semibold uppercase tracking-wider">{selectedCountry.name} ({selectedCountry.currencyLabel})</span>
         {isOpen ? (
-          <ChevronUp className="w-3.5 h-3.5 opacity-70" />
+          <ChevronUp className="w-3 h-3 opacity-70" />
         ) : (
-          <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+          <ChevronDown className="w-3 h-3 opacity-70" />
         )}
       </button>
 
