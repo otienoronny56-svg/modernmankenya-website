@@ -24,7 +24,7 @@ export const InteractiveCustomizerTeaser: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-24 bg-brand-navy text-white relative overflow-hidden border-y border-brand-gold/30">
+    <section className="py-12 sm:py-24 bg-[#121214] text-white relative overflow-hidden border-y border-brand-gold/30">
       {/* Background Sartorial Accents */}
       <div className="absolute inset-0 sartorial-pinstripe opacity-10 pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />

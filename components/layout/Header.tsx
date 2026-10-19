@@ -77,43 +77,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
   return (
     <>
-      {/* Top Announcement Strip */}
-      <div className="bg-brand-navy text-white text-[11px] tracking-wider uppercase py-2 px-3 sm:px-4 border-b border-brand-gold/20">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-3 sm:space-x-6 text-slate-300 truncate">
-            <span className="flex items-center space-x-1.5 truncate">
-              <MapPin className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
-              <span className="truncate">Nairobi Atelier</span>
-            </span>
-            <span className="text-brand-gold/40 hidden xs:inline">|</span>
-            <a href="tel:+254718923082" className="hidden sm:flex items-center space-x-1.5 hover:text-white transition-colors">
-              <Phone className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
-              <span>+254 718 923082</span>
-            </a>
-          </div>
-
-          <div className="flex items-center space-x-4 flex-shrink-0">
-            <span className="text-brand-gold hidden md:flex items-center space-x-1">
-              <Sparkles className="w-3 h-3" />
-              <span>Made to Measure Nairobi</span>
-            </span>
-
-            {/* Country & Currency Selector with Profile Icon (matching user screenshot) */}
-            <div className="flex items-center space-x-2 pl-3 border-l border-white/20">
-              <CountryCurrencySelector theme="dark" />
-              <Link 
-                href="/book-appointment" 
-                className="p-1 text-slate-300 hover:text-white transition-colors"
-                title="Appointments & Account"
-                aria-label="Account"
-              >
-                <User className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Luxury Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
@@ -233,17 +196,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             >
               The Experience
             </Link>
-
-            <Link
-              href="/about"
-              className="hover:text-brand-gold transition-colors font-medium"
-            >
-              About
-            </Link>
           </nav>
 
-          {/* Right Action Icons & Refined Compact Appointment CTA */}
-          <div className="flex items-center space-x-2 sm:space-x-3.5">
+          {/* Right Action Icons, Currency Selector & Compact Appointment CTA */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
             
             {/* Search Trigger */}
             <button
@@ -268,12 +224,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </button>
 
-            {/* Compact, Refined Appointment CTA Button */}
+            {/* Country & Currency Selector with Profile */}
+            <div className="hidden sm:flex items-center space-x-1 pl-2 border-l border-slate-200">
+              <CountryCurrencySelector theme="light" />
+              <Link 
+                href="/book-appointment" 
+                className="p-1.5 text-slate-600 hover:text-brand-navy transition-colors"
+                title="Appointments & Account"
+                aria-label="Account"
+              >
+                <User className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Sleek, Compact Appointment CTA Button */}
             <Link
               href="/book-appointment"
-              className="hidden sm:inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-semibold uppercase tracking-wider text-[11px] transition-all shadow-sm"
+              className="hidden sm:inline-flex items-center space-x-1 px-3 py-1.5 rounded-full border border-brand-gold bg-brand-gold/10 hover:bg-brand-gold hover:text-brand-navy text-brand-navy font-semibold uppercase tracking-wider text-[10px] transition-all"
             >
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3 h-3 text-brand-gold hover:text-brand-navy" />
               <span>Book Appointment</span>
             </Link>
 

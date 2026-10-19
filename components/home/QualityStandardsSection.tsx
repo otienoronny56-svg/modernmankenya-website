@@ -50,7 +50,7 @@ export const QualityStandardsSection: React.FC = () => {
   ];
 
   return (
-    <section id="quality-standards" className="py-16 sm:py-24 bg-brand-navy text-white relative overflow-hidden">
+    <section id="quality-standards" className="py-16 sm:py-24 bg-[#121214] text-white relative overflow-hidden">
       {/* Background Subtle Sartorial Pinstripe */}
       <div className="absolute inset-0 sartorial-pinstripe opacity-10 pointer-events-none" />
 

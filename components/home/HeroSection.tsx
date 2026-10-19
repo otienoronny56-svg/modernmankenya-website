@@ -7,20 +7,20 @@ import { ArrowRight, Calendar } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[88vh] bg-brand-navy flex items-center justify-center overflow-hidden">
-      {/* Background Image with Rich Editorial Lighting */}
+    <section className="relative min-h-[85vh] sm:min-h-[88vh] bg-[#101012] flex items-center justify-center overflow-hidden">
+      {/* Background Image with Warm Editorial Lighting */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/MOK_7660.jpg"
+          src="/images/MOK_2101.jpg"
           alt="Modern Man Kenya Made to Measure Tailoring"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-top opacity-40 filter contrast-105"
+          className="object-cover object-center opacity-45 filter contrast-105"
         />
-        {/* Cinematic Vignette & Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/80" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-brand-navy/40 to-brand-navy/90" />
+        {/* Warm Cinematic Vignette & Ambient Gradient - Comfortable to the Eye */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/60 to-[#101012]/75" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-950/15 via-[#101012]/60 to-[#101012]/95" />
       </div>
 
       {/* Hero Content - Clean, Uncongested & Minimal */}
@@ -37,7 +37,7 @@ export const HeroSection: React.FC = () => {
         </h1>
 
         {/* Single Concise Sentence */}
-        <p className="text-base sm:text-lg md:text-xl text-slate-300 font-light max-w-2xl leading-relaxed mb-10">
+        <p className="text-base sm:text-lg md:text-xl text-stone-300 font-light max-w-2xl leading-relaxed mb-10">
           Handcrafted made-to-measure tailoring cut to your exact proportions and individual style in Nairobi.
         </p>
 
