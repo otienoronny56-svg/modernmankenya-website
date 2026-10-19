@@ -11,16 +11,8 @@ const HERO_IMAGES = [
     alt: 'Bespoke Suit Craftsmanship Modern Man Kenya',
   },
   {
-    src: '/images/DSC04995.jpg',
-    alt: 'Precision Tailoring Modern Man Kenya',
-  },
-  {
     src: '/images/LKM_1607.jpg',
     alt: 'Handcrafted Sartorial Detail Modern Man Kenya',
-  },
-  {
-    src: '/images/MOK_7655.jpg',
-    alt: 'Signature Made to Measure Modern Man Kenya',
   },
 ];
 
@@ -41,8 +33,6 @@ export const HeroSection: React.FC = () => {
       <div className="absolute inset-0 z-0">
         {HERO_IMAGES.map((img, idx) => {
           const isActive = idx === currentSlide;
-          // 2nd (DSC04995) and 4th (MOK_7655) images are full-length portraits requiring object-contain/scaled fit to avoid truncation
-          const isPortraitFullFit = idx === 1 || idx === 3;
           return (
             <div
               key={img.src}
@@ -56,11 +46,7 @@ export const HeroSection: React.FC = () => {
                 fill
                 priority={idx === 0}
                 sizes="100vw"
-                className={
-                  isPortraitFullFit
-                    ? "object-contain object-center scale-95 sm:scale-90"
-                    : "object-cover object-top sm:object-[center_15%]"
-                }
+                className="object-cover object-top sm:object-[center_15%]"
               />
             </div>
           );
