@@ -404,7 +404,7 @@ export default function AdminTeamPage() {
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Describe their bespoke journey, training, and precision..."
+                  placeholder="Describe their tailoring journey, training, and precision..."
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
                   className="w-full p-2.5 border border-slate-300 rounded focus:border-brand-gold focus:outline-none"

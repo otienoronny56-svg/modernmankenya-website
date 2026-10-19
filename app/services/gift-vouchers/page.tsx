@@ -14,8 +14,8 @@ export default function GiftVouchersPage() {
   const voucherTiers = [
     { amount: 35000, label: 'The Sartorial Shirt Commission (2 Shirts)' },
     { amount: 95000, label: 'The Tailored Cashmere Blazer' },
-    { amount: 145000, label: 'The Bespoke Two-Piece Suit Experience' },
-    { amount: 220000, label: 'The Three-Piece Bespoke Masterwork' },
+    { amount: 145000, label: 'The Made-to-Measure Two-Piece Suit Experience' },
+    { amount: 220000, label: 'The Three-Piece Made-to-Measure Masterwork' },
   ];
 
   const handlePurchase = (e: React.FormEvent) => {
@@ -30,10 +30,10 @@ export default function GiftVouchersPage() {
         <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
           <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>The Gift of Bespoke Excellence</span>
+            <span>The Gift of Sartorial Excellence</span>
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl text-brand-navy font-bold">
-            Bespoke Gift Certificates
+            Sartorial Gift Certificates
           </h1>
           <p className="text-xs sm:text-sm text-brand-slate-muted">
             Bestow an unforgettable tailoring experience. Delivered in a wax-sealed gold-embossed presentation box or immediate digital certificate.
@@ -139,7 +139,7 @@ export default function GiftVouchersPage() {
               <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div className="flex items-center space-x-2 text-xs text-slate-500">
                   <ShieldCheck className="w-4 h-4 text-brand-gold" />
-                  <span>Valid for 24 months across all bespoke tailoring commissions</span>
+                  <span>Valid for 24 months across all made-to-measure tailoring commissions</span>
                 </div>
                 <button
                   type="submit"

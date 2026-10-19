@@ -20,7 +20,7 @@ export const AboutHero: React.FC = () => {
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/5 border border-brand-gold/30 backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
             <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold">
-              The Flagship Bespoke Atelier • Nairobi, Kenya
+              The Flagship Atelier • Nairobi, Kenya
             </span>
           </div>
         </div>
@@ -36,7 +36,7 @@ export const AboutHero: React.FC = () => {
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
             Modern Man Kenya is dedicated to crafting refined, tailored garments that reflect 
             individual character, sophistication, and effortless confidence. Custom tailoring, 
-            bespoke menswear, and Kenyan craftsmanship on a global luxury tier.
+            made-to-measure menswear, and Kenyan craftsmanship on a global luxury tier.
           </p>
 
           {/* Quick Action CTAs */}

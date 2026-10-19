@@ -29,17 +29,17 @@ export const BRAND_INFO = {
   name: 'Modern Man Kenya',
   tagline: 'Where Fit Meets Character',
   philosophy: 'Opulence • Simplicity • Class',
-  subheading: 'Custom Tailoring • Bespoke Menswear • Kenyan Craftsmanship',
+  subheading: 'Custom Tailoring • Made to Measure Menswear • Kenyan Craftsmanship',
   statement:
-    'Modern Man Kenya is a premium custom tailoring house creating bespoke and made-to-measure menswear for the modern gentleman. Based in Kenya, we combine contemporary design, refined tailoring and personalised service to create suits, tuxedos, shirts, wedding attire and statement pieces defined by exceptional fit and individual character.',
+    'Modern Man Kenya is a premium custom tailoring house creating made-to-measure menswear for the modern gentleman. Based in Kenya, we combine contemporary design, refined tailoring and personalised service to create suits, tuxedos, shirts, wedding attire and statement pieces defined by exceptional fit and individual character.',
   brandStatement:
-    'Modern Man Kenya is a premium custom tailoring house creating bespoke and made-to-measure menswear for the modern gentleman. Based in Kenya, we combine contemporary design, refined tailoring and personalised service to create suits, tuxedos, shirts, wedding attire and statement pieces defined by exceptional fit and individual character.',
+    'Modern Man Kenya is a premium custom tailoring house creating made-to-measure menswear for the modern gentleman. Based in Kenya, we combine contemporary design, refined tailoring and personalised service to create suits, tuxedos, shirts, wedding attire and statement pieces defined by exceptional fit and individual character.',
   brandOverview:
-    'Modern Man Kenya is a contemporary custom tailoring house based in Kenya, dedicated to creating refined menswear that combines impeccable fit, timeless style and modern sophistication. We specialise in made-to-measure and bespoke garments designed around the individual—his proportions, personality, lifestyle and occasion.',
+    'Modern Man Kenya is a contemporary custom tailoring house based in Kenya, dedicated to creating refined menswear that combines impeccable fit, timeless style and modern sophistication. We specialise in made-to-measure garments designed around the individual—his proportions, personality, lifestyle and occasion.',
   overviewContinuation:
     'From boardroom tailoring and elevated business attire to wedding suits, formalwear and statement pieces, Modern Man Kenya brings together thoughtful design, premium fabric selection and meticulous craftsmanship to create garments that look distinctive and feel personal.',
   positioning:
-    'Custom Tailoring • Bespoke Menswear • Kenyan Craftsmanship',
+    'Custom Tailoring • Made to Measure Menswear • Kenyan Craftsmanship',
   philosophyBody:
     'We believe great style begins with the right fit. A well-tailored garment should not simply follow fashion; it should express character, enhance confidence and remain relevant beyond a single season. Our approach is rooted in the balance between classic tailoring codes and contemporary menswear. Clean silhouettes, considered proportions, refined detailing and fabric-led design come together to create clothing that is polished without being predictable.',
   promise:
@@ -67,7 +67,7 @@ export const BRAND_PROFILE = BRAND_INFO;
 export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'bespoke-suits',
-    title: 'Bespoke & Made-to-Measure Suits',
+    title: 'Made-to-Measure Suits',
     description: 'Garments sculpted around individual anatomy and lifestyle, offering unmatched comfort, proportion, and personalized silhouette.',
     image: '/images/MOK_7655.jpg',
     badge: 'Core House Specialty',
@@ -110,7 +110,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'occasion-wear',
     title: 'Traditional & Contemporary Occasion Wear',
-    description: 'Culturally conscious luxury tailoring that fuses timeless Kenyan heritage with modern bespoke cutting techniques.',
+    description: 'Culturally conscious luxury tailoring that fuses timeless Kenyan heritage with modern precision cutting techniques.',
     image: '/images/LKM_1745.jpg',
     badge: 'Heritage & Modernity',
   },
@@ -126,7 +126,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
     title: 'Personalised Wardrobe & Styling Solutions',
     description: 'End-to-end wardrobe curation and style advisement tailored to your professional calendar, seasonal travel, and aesthetic goals.',
     image: '/images/MOK_2204.jpg',
-    badge: 'Bespoke Advisory',
+    badge: 'Tailored Advisory',
   },
 ];
 

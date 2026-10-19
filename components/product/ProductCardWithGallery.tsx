@@ -77,7 +77,7 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
       priceKes: product.priceKes,
       priceUsd: product.priceUsd,
       size,
-      color: product.variants[0]?.color || 'Bespoke',
+      color: product.variants[0]?.color || 'Made-to-Measure',
       image: images[0],
     });
     setAddedToast(true);

@@ -52,7 +52,7 @@ export const AtelierExperienceSection: React.FC = () => {
             The Flagship Atelier Experience
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm md:text-base font-light leading-relaxed">
-            A bespoke commission at Modern Man Kenya is more than an appointment; it is a personalized sartorial journey.
+            A made-to-measure commission at Modern Man Kenya is more than an appointment; it is a personalized sartorial journey.
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export const AtelierExperienceSection: React.FC = () => {
               </span>
 
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug">
-                Reserve Your Private Bespoke Session
+                Reserve Your Private Fitting Session
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">

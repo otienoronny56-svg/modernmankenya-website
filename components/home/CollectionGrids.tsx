@@ -8,7 +8,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 export const CollectionGrids: React.FC = () => {
   const collections = [
     {
-      title: 'Bespoke Suits',
+      title: 'Made to Measure Suits',
       subtitle: 'The Executive Wardrobe',
       description: 'Hand-cut two and three-piece suits in Super 140s–180s worsted wools with full floating canvas.',
       image: '/images/collections/bespoke-suits.jpg',
@@ -19,20 +19,20 @@ export const CollectionGrids: React.FC = () => {
     {
       title: 'The Wedding Atelier',
       subtitle: 'Groom & Bridal Party Commissions',
-      description: 'Ceremonial velvet dinner jackets, black tie tuxedos, and coordinated bespoke groomsmen ensembles.',
+      description: 'Ceremonial velvet dinner jackets, black tie tuxedos, and coordinated groomsmen ensembles.',
       image: '/images/collections/wedding-atelier.jpg',
       href: '/bespoke/weddings',
       badge: 'Celebrated Milestones',
       startingPrice: 'Dedicated Wedding Concierge',
     },
     {
-      title: 'Ready to Wear',
-      subtitle: 'Immediate Sartorial Splendor',
-      description: 'Handcrafted smoking jackets, pure cashmere blazers, Como grenadine ties, and artisanal fragrances.',
+      title: 'The Gallery',
+      subtitle: 'Sartorial Portfolio & Creations',
+      description: 'Handcrafted smoking jackets, pure cashmere blazers, Como grenadine ties, and artisanal garments.',
       image: '/images/collections/ready-to-wear.jpg',
-      href: '/ready-to-wear',
-      badge: 'Immediate Nairobi Dispatch',
-      startingPrice: 'Ready to Wear & Tailor',
+      href: '/gallery',
+      badge: 'Signature Creations',
+      startingPrice: 'Explore Portfolio',
     },
   ];
 

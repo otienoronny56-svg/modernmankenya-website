@@ -35,7 +35,7 @@ export const AboutTeaserSection: React.FC = () => {
               <ArrowRight className="w-3.5 h-3.5 text-brand-gold" />
             </Link>
             <Link
-              href="/bespoke/the-craft"
+              href="/the-craft"
               className="w-full sm:w-auto px-7 py-3.5 bg-white hover:bg-slate-50 text-brand-navy font-bold uppercase tracking-luxury text-xs rounded transition-all border border-slate-200 text-center"
             >
               <span>The Master Method</span>

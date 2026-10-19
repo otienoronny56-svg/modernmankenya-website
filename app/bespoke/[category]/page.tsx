@@ -24,9 +24,9 @@ export default function BespokeCategoryPage() {
   
   const categoryData = BESPOKE_CATEGORIES.find((c) => c.slug === rawCategory) || {
     slug: rawCategory || 'bespoke-tailoring',
-    title: rawCategory ? rawCategory.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'Bespoke Tailoring',
-    subtitle: 'Master Bespoke Discipline',
-    description: 'An individual cardboard pattern drafted from scratch exclusively for your anatomy. Sculpted with full floating canvas and hand-padded lapels.',
+    title: rawCategory ? rawCategory.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') : 'Made-to-Measure Tailoring',
+    subtitle: 'Master Made to Measure Discipline',
+    description: 'An individual pattern drafted from scratch exclusively for your anatomy. Sculpted with full floating canvas and hand-padded lapels.',
     image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=85',
     startingPriceKes: 145000,
     leadTime: '4 - 5 Weeks',
@@ -55,7 +55,7 @@ export default function BespokeCategoryPage() {
             <div className="flex items-center space-x-2 text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex-wrap">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
-              <span>Bespoke House</span>
+              <span>Made to Measure</span>
               <span>/</span>
               <span className="text-white">{categoryData.title}</span>
             </div>
@@ -262,7 +262,7 @@ export default function BespokeCategoryPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-serif text-xl font-bold text-brand-navy mb-1">
-                    Bespoke Silk Cupro Linings
+                    Sartorial Silk Cupro Linings
                   </h3>
                   <p className="text-xs text-brand-slate-muted">
                     Bemberg cupro silk linings that breathe naturally and impart private luxury.
@@ -305,7 +305,7 @@ export default function BespokeCategoryPage() {
             {/* Craftsmanship Standards Callouts */}
             <div className="p-6 bg-brand-canvas-alt rounded-lg border border-slate-200 space-y-3">
               <h4 className="font-serif text-sm font-bold text-brand-navy uppercase tracking-wider">
-                Master Bespoke Craftsmanship Guaranteed
+                Master Made to Measure Craftsmanship Guaranteed
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600">
                 <div className="flex items-center space-x-2">
@@ -314,7 +314,7 @@ export default function BespokeCategoryPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                  <span>Individual cardboard pattern drafted from scratch</span>
+                  <span>Individual pattern drafted from scratch</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="w-4 h-4 text-brand-gold flex-shrink-0" />
@@ -335,7 +335,7 @@ export default function BespokeCategoryPage() {
               
               <div>
                 <span className="text-[10px] uppercase tracking-luxury text-brand-gold font-bold">
-                  Bespoke Commission Summary
+                  Made to Measure Commission Summary
                 </span>
                 <h3 className="font-serif text-2xl font-bold mt-1">
                   {categoryData.title}

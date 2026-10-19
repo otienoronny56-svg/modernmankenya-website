@@ -8,7 +8,7 @@ import { WHAT_WE_CREATE } from '@/data/brandProfile';
 
 export const WhatWeCreateSection: React.FC = () => {
   return (
-    <section id="what-we-create" className="py-16 sm:py-24 bg-brand-canvas-alt border-b border-slate-200/80 relative">
+    <section id="creations" className="py-16 sm:py-24 bg-brand-canvas-alt border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

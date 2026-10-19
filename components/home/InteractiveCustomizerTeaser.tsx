@@ -38,7 +38,7 @@ export const InteractiveCustomizerTeaser: React.FC = () => {
             <span>Interactive Tailor Studio</span>
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-            Compose Your Bespoke Silhouette
+            Compose Your Custom Silhouette
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
             Test our sartorial variables in real time. Choose from world-class European cloths, 
@@ -234,7 +234,7 @@ export const InteractiveCustomizerTeaser: React.FC = () => {
                 href="/book-appointment"
                 className="flex-1 py-3.5 px-6 rounded-sm bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury text-xs text-center transition-all shadow-gold flex items-center justify-center space-x-2"
               >
-                <span>Commission This Bespoke Suit</span>
+                <span>Commission This Made to Measure Suit</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link

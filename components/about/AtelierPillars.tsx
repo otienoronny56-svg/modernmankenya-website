@@ -27,7 +27,7 @@ export const AtelierPillars: React.FC = () => {
       num: '04',
       icon: HeartHandshake,
       title: 'Lifetime Relining & Sartorial Care',
-      desc: 'Your bespoke garment is backed by lifetime tailoring care at our Nairobi Atelier. We adjust waistlines, refresh pressings, and reline linings as you evolve.',
+      desc: 'Your made-to-measure garment is backed by lifetime tailoring care at our Nairobi Atelier. We adjust waistlines, refresh pressings, and reline linings as you evolve.',
     },
   ];
 

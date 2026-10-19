@@ -29,7 +29,7 @@ export const BrandStorySection: React.FC = () => {
             </p>
 
             <p className="text-slate-600 leading-relaxed font-light text-sm sm:text-base">
-              Modern Man Kenya is a premier bespoke menswear and styling house based in Nairobi, Kenya. 
+              Modern Man Kenya is a premier made-to-measure menswear and styling house based in Nairobi, Kenya. 
               We are dedicated to crafting refined, tailored garments that reflect individual character, 
               sophistication, and effortless confidence.
             </p>
@@ -69,7 +69,7 @@ export const BrandStorySection: React.FC = () => {
             <div className="relative aspect-[4/5] w-full rounded-lg overflow-hidden shadow-luxury border-2 border-brand-gold/30">
               <Image
                 src="/images/MOK_7660.jpg"
-                alt="Modern Man Kenya Bespoke Tailoring Nairobi"
+                alt="Modern Man Kenya Made to Measure Tailoring Nairobi"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-top"

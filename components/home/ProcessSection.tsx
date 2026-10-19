@@ -17,7 +17,7 @@ export const ProcessSection: React.FC = () => {
             <span>The Modern Man Methodology</span>
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-brand-navy font-bold">
-            The Bespoke Journey
+            The Made to Measure Journey
           </h2>
           <p className="text-xs sm:text-sm text-brand-slate-muted font-light leading-relaxed">
             From initial sketch to final basting and handover in Nairobi, every commission 

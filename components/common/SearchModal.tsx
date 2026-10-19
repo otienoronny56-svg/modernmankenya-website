@@ -146,7 +146,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                   {filteredBespoke.length > 0 && (
                     <div>
                       <p className="text-xs uppercase tracking-luxury text-brand-gold font-bold mb-3">
-                        Bespoke Services ({filteredBespoke.length})
+                        Made to Measure Services ({filteredBespoke.length})
                       </p>
                       <div className="space-y-2">
                         {filteredBespoke.map((item) => (

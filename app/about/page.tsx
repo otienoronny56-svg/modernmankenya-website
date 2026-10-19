@@ -7,11 +7,11 @@ import { ArtisanDisciplinesSection } from '@/components/about/ArtisanDisciplines
 import { AtelierExperienceSection } from '@/components/about/AtelierExperienceSection';
 
 export const metadata: Metadata = {
-  title: 'About Us | Modern Man Kenya Bespoke Atelier Nairobi',
-  description: 'Where Fit Meets Character. Opulence • Simplicity • Class. Discover the bespoke tailoring philosophy, craftsmanship standards, and Nairobi atelier of Modern Man Kenya.',
+  title: 'About Us | Modern Man Kenya Made to Measure Atelier Nairobi',
+  description: 'Where Fit Meets Character. Opulence • Simplicity • Class. Discover the made-to-measure tailoring philosophy, craftsmanship standards, and Nairobi atelier of Modern Man Kenya.',
   openGraph: {
     title: 'About Modern Man Kenya | Where Fit Meets Character',
-    description: 'Bespoke menswear and custom tailoring in Nairobi. Opulence • Simplicity • Class.',
+    description: 'Made-to-measure menswear and custom tailoring in Nairobi. Opulence • Simplicity • Class.',
   },
 };
 

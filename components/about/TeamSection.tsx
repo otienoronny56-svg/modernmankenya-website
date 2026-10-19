@@ -64,7 +64,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm md:text-base font-light leading-relaxed">
               Every garment carrying the Modern Man Kenya insignia is guided by master cutters, 
-              senior coatmakers, and bespoke curators with decades of devoted craftsmanship in Nairobi.
+              senior coatmakers, and tailoring curators with decades of devoted craftsmanship in Nairobi.
             </p>
           </div>
 

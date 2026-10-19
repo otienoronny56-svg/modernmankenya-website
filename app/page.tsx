@@ -12,13 +12,13 @@ import { WhyModernManSection } from '@/components/home/WhyModernManSection';
 import { AtelierInvitation } from '@/components/home/AtelierInvitation';
 
 export const metadata: Metadata = {
-  title: 'Modern Man Kenya | Custom Tailoring & Bespoke Menswear Nairobi',
+  title: 'Modern Man Kenya | Custom Tailoring & Made to Measure Menswear Nairobi',
   description:
-    'Where Fit Meets Character. Opulence • Simplicity • Class. Premier custom tailoring and bespoke menswear crafted in Nairobi, Kenya with canvas construction and millimetric precision.',
+    'Where Fit Meets Character. Opulence • Simplicity • Class. Premier custom tailoring and made-to-measure menswear crafted in Nairobi, Kenya with canvas construction and millimetric precision.',
   openGraph: {
     title: 'Modern Man Kenya | Where Fit Meets Character',
     description:
-      'Premier bespoke menswear and custom tailoring in Nairobi. Opulence • Simplicity • Class.',
+      'Premier made-to-measure menswear and custom tailoring in Nairobi. Opulence • Simplicity • Class.',
     url: 'https://modernmankenya.com',
     siteName: 'Modern Man Kenya',
     locale: 'en_KE',

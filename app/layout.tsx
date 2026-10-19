@@ -23,12 +23,12 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Modern Man Kenya 254 | Bespoke Tailoring & Luxury Menswear House',
+  title: 'Modern Man Kenya 254 | Made to Measure Tailoring & Luxury Menswear House',
   description:
-    'Modern Man Kenya 254: Master bespoke tailoring house handcrafted in Nairobi with full floating canvas and millimetric precision. Opulence, simplicity, class.',
+    'Modern Man Kenya 254: Master made-to-measure tailoring house handcrafted in Nairobi with full floating canvas and millimetric precision. Opulence, simplicity, class.',
   keywords: [
     'Modern Man Kenya',
-    'Bespoke Tailoring Nairobi',
+    'Made to Measure Tailoring Nairobi',
     'Modern Man Kenya Tailoring',
     'Custom Suits Nairobi',
     'Luxury Menswear Kenya',

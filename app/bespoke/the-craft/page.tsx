@@ -16,11 +16,11 @@ export default function TheCraftPage() {
             <span>Modern Man Master Tailoring</span>
           </span>
           <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight mb-4">
-            The Anatomy of a Bespoke Suit
+            The Anatomy of a Made to Measure Suit
           </h1>
           <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
-            Why true bespoke cannot be replicated by factory machines. The art of horsehair canvas, 
-            hand-drawn cardboard patterns, and three fitting sessions in Nairobi.
+            Why master made-to-measure tailoring cannot be replicated by factory machines. The art of horsehair canvas, 
+            individual pattern drafting, and precise fitting sessions in Nairobi.
           </p>
         </div>
       </section>
@@ -70,8 +70,8 @@ export default function TheCraftPage() {
               Drafting the Cardboard Pattern
             </h2>
             <p className="text-sm text-slate-600 font-light leading-relaxed">
-              &quot;Made to Measure&quot; merely alters existing factory block sizes. True Bespoke begins with a blank sheet 
-              of brown paper. Our cutter translates your 35 anatomical measurements, asymmetrical shoulder slope, 
+              Our made-to-measure tailoring begins with an individual pattern drafted for your unique proportions. 
+              Our cutter translates your anatomical measurements, asymmetrical shoulder slope, 
               and neck stance into an individual pattern that belongs only to you and is cataloged indefinitely in our Nairobi archives.
             </p>
             <ul className="space-y-2 text-xs text-brand-slate font-medium pt-2">

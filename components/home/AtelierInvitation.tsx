@@ -16,7 +16,7 @@ export const AtelierInvitation: React.FC = () => {
           <div className="lg:col-span-6 relative min-h-[300px] sm:min-h-[400px] lg:min-h-[480px]">
             <Image
               src="/images/MOK_7655.jpg"
-              alt="Modern Man Kenya Bespoke Tailoring Nairobi"
+              alt="Modern Man Kenya Made to Measure Tailoring Nairobi"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-top"
@@ -26,7 +26,7 @@ export const AtelierInvitation: React.FC = () => {
             
             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-10 bg-black/60 backdrop-blur-md px-3 sm:px-4 py-2 rounded border border-brand-gold/30 text-xs">
               <span className="text-brand-gold font-bold uppercase tracking-luxury text-[10px] sm:text-xs block">
-                Flagship Bespoke Atelier
+                Flagship Atelier Nairobi
               </span>
               <p className="text-white text-[10px] sm:text-[11px]">Nairobi, Kenya</p>
             </div>

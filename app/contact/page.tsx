@@ -32,7 +32,7 @@ export default function ContactPage() {
 
   const phoneNumber = '+254 718 923082';
   const whatsappUrl = `https://wa.me/254718923082?text=${encodeURIComponent(
-    'Hello Modern Man Kenya, I would like to inquire about bespoke tailoring, partnerships, or supplies.'
+    'Hello Modern Man Kenya, I would like to inquire about made to measure tailoring, partnerships, or supplies.'
   )}`;
   const officialEmail = 'modernmanke254@gmail.com';
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
               Private Clients & Grooms
             </h3>
             <p className="text-xs text-slate-500 font-light leading-relaxed">
-              One-on-one appointments for bespoke two-piece and three-piece suits, tuxedos, and wedding party styling.
+              One-on-one appointments for made-to-measure two-piece and three-piece suits, tuxedos, and wedding party styling.
             </p>
             <Link
               href="/book-appointment"
@@ -153,7 +153,7 @@ export default function ContactPage() {
                   Modern Man Kenya 254
                 </h2>
                 <p className="text-xs text-slate-300 mt-2 font-light leading-relaxed">
-                  An exclusive sanctuary of master tailoring, providing bespoke and ready-to-wear excellence in Kenya.
+                  An exclusive sanctuary of master tailoring, providing made-to-measure tailoring and sartorial excellence in Kenya.
                 </p>
               </div>
 
@@ -267,7 +267,7 @@ export default function ContactPage() {
                     Send a Message to the Atelier
                   </h3>
                   <p className="text-xs text-slate-500 font-light">
-                    Whether you are commissioning a bespoke suit, representing a textile mill, or planning corporate uniforms.
+                    Whether you are commissioning a made-to-measure suit, representing a textile mill, or planning corporate uniforms.
                   </p>
                 </div>
 
@@ -281,7 +281,7 @@ export default function ContactPage() {
                     onChange={(e) => setInquiryType(e.target.value)}
                     className="w-full px-4 py-2.5 rounded border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brand-navy bg-white"
                   >
-                    <option value="bespoke">Private Bespoke Commission / Fitting</option>
+                    <option value="bespoke">Private Made to Measure Commission / Fitting</option>
                     <option value="wedding">Wedding Party & Groomsmen Consultation</option>
                     <option value="supply">Business Supply / Fabric Mill / Trimmings Partner</option>
                     <option value="corporate">Corporate Uniforms & Executive Wardrobes</option>

@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
       description: description || '',
       category,
       audience,
-      fabricDetails: fabricDetails || 'Bespoke English & Italian Cloth',
+      fabricDetails: fabricDetails || 'Fine English & Italian Cloth',
       construction: construction || 'Full Floating Canvas',
       priceKes: Number(priceKes),
       priceUsd: calculatedUsd,

@@ -89,7 +89,7 @@ export function GarmentZoomModal({
       priceKes: product.priceKes,
       priceUsd: product.priceUsd,
       size: selectedSize,
-      color: product.variants[0]?.color || 'Bespoke',
+      color: product.variants[0]?.color || 'Made-to-Measure',
       image: images[0],
     });
     setAddedToast(true);

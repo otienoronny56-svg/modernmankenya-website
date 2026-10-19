@@ -37,11 +37,11 @@ export default function AlterationsPage() {
             <span>Master Tailor Surgical Refinement</span>
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl text-brand-navy font-bold">
-            Bespoke Alterations & Remodeling
+            Master Alterations & Remodeling
           </h1>
           <p className="text-xs sm:text-sm text-brand-slate-muted">
-            Entrust your luxury wardrobe to artisans trained in supreme bespoke tailoring methods. 
-            We alter garments from Tom Ford, Brioni, Canali, and bespoke houses.
+            Entrust your luxury wardrobe to artisans trained in supreme made-to-measure tailoring methods. 
+            We alter garments from Tom Ford, Brioni, Canali, and master tailoring houses.
           </p>
         </div>
 

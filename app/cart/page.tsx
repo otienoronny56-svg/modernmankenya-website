@@ -98,20 +98,20 @@ export default function CartPage() {
             <ShoppingBag className="w-12 h-12 mx-auto text-slate-300 stroke-1" />
             <h2 className="font-serif text-xl font-bold text-brand-navy">Your wardrobe is empty</h2>
             <p className="text-xs text-brand-slate-muted max-w-sm mx-auto">
-              Discover our Ready-to-Wear garments or commission an individual bespoke suit.
+              Explore our Gallery or commission an individual made-to-measure suit.
             </p>
             <div className="pt-4 flex justify-center gap-4">
               <Link
-                href="/ready-to-wear"
+                href="/gallery"
                 className="px-6 py-3 bg-brand-navy hover:bg-brand-navy-light text-white text-xs font-bold uppercase tracking-luxury rounded transition-colors"
               >
-                Explore Ready to Wear
+                Explore Gallery
               </Link>
               <Link
                 href="/book-appointment"
                 className="px-6 py-3 border border-brand-navy text-brand-navy text-xs font-bold uppercase tracking-luxury rounded hover:bg-slate-50 transition-colors"
               >
-                Book Bespoke Fitting
+                Book Atelier Fitting
               </Link>
             </div>
           </div>

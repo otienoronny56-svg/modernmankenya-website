@@ -11,7 +11,7 @@ export const PillarsSection: React.FC = () => {
       subtitle: 'The Full Floating Canvas Discipline',
       description:
         'Unlike glued or fused commercial garments, every Modern Man suit features a floating horsehair canvas interior. Hand-padded by veteran artisans, it molds progressively to your natural posture over time, ensuring effortless breathability and drape in any climate.',
-      badge: 'Master Bespoke Standard',
+      badge: 'Master Sartorial Standard',
     },
     {
       icon: Ruler,
@@ -39,7 +39,7 @@ export const PillarsSection: React.FC = () => {
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
           <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>The Foundations of Bespoke</span>
+            <span>The Foundations of Made to Measure</span>
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl text-brand-navy font-bold tracking-tight">
             Three Uncompromising Pillars of Sartorial Mastery

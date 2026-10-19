@@ -29,7 +29,7 @@ function BookAppointmentContent() {
 
   // Form state
   const [fittingType, setFittingType] = useState<string>(
-    prefilledService ? `Bespoke Consultation: ${prefilledService}` : 'Initial Bespoke Consultation'
+    prefilledService ? `Made to Measure Consultation: ${prefilledService}` : 'Initial Made to Measure Consultation'
   );
   const [locationType, setLocationType] = useState<string>('Flagship Atelier Nairobi');
   const [selectedDate, setSelectedDate] = useState<string>('2026-09-10');
@@ -42,7 +42,7 @@ function BookAppointmentContent() {
 
   const fittingTypes = [
     {
-      title: 'Initial Bespoke Consultation',
+      title: 'Initial Made to Measure Consultation',
       duration: '60 Minutes',
       desc: 'First-time commission. Style profiling, anatomical measurement, and review of 4,000+ cloth swatches.',
     },
@@ -57,9 +57,9 @@ function BookAppointmentContent() {
       desc: 'Coordinated fitting for groom, best man, and groomsmen party in our private VIP lounge.',
     },
     {
-      title: 'Ready-to-Wear Alteration Fitting',
+      title: 'Tailoring & Alteration Fitting',
       duration: '30 Minutes',
-      desc: 'Millimetric fine-tuning of off-the-rack garments to achieve an immaculate bespoke taper.',
+      desc: 'Millimetric fine-tuning of garments to achieve an immaculate custom taper.',
     },
   ];
 
@@ -137,7 +137,7 @@ function BookAppointmentContent() {
             Book a Private Fitting
           </h1>
           <p className="text-xs sm:text-sm text-brand-slate-muted">
-            Select your preferred consultation discipline, date, and bespoke location in Nairobi.
+            Select your preferred consultation discipline, date, and atelier location in Nairobi.
           </p>
         </div>
 
@@ -271,7 +271,7 @@ function BookAppointmentContent() {
                   3. Choose Private Appointment Slot
                 </h2>
                 <p className="text-xs text-slate-500 mt-1">
-                  Select your fitting date on the bespoke calendar, then choose an executive consultation time.
+                  Select your fitting date on the appointment calendar, then choose an executive consultation time.
                 </p>
               </div>
 
@@ -332,7 +332,7 @@ function BookAppointmentContent() {
                           Duration
                         </span>
                         <p className="text-xs font-semibold text-slate-200">
-                          60 Min Bespoke
+                          60 Min Fitting
                         </p>
                       </div>
                     </div>

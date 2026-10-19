@@ -20,7 +20,7 @@ export const TheExperienceSection: React.FC = () => {
             The Modern Man Experience
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-slate-600 font-light leading-relaxed">
-            Crafting a bespoke garment is a collaborative journey. From first consultation to final delivery in Nairobi, 
+            Crafting a made-to-measure garment is a collaborative journey. From first consultation to final delivery in Nairobi, 
             every step is engineered for unhurried precision and sartorial clarity.
           </p>
         </div>

@@ -89,7 +89,7 @@ export const READY_TO_WEAR_PRODUCTS: Product[] = [
     id: 'rtw-01',
     name: 'The Mayfair Midnight Two-Piece Suit',
     slug: 'the-mayfair-midnight-two-piece-suit',
-    tagline: 'Bespoke Master Silhouette in Super 140s Wool',
+    tagline: 'Made to Measure Master Silhouette in Super 140s Wool',
     description: 'Masterfully tailored with a full floating canvas chest piece, roped shoulders, and handcrafted horn buttons. Designed for the discerning gentleman commanding high-level boardrooms and exclusive evenings in Nairobi and beyond.',
     category: 'suits',
     fabricDetails: 'Super 140s English Worsted Wool from Huddersfield Fine Worsteds (280g/m).',
@@ -217,8 +217,8 @@ export const READY_TO_WEAR_PRODUCTS: Product[] = [
   },
   {
     id: 'rtw-05',
-    name: 'The Executive Egyptian Giza Cotton Bespoke Shirt',
-    slug: 'the-executive-egyptian-giza-cotton-bespoke-shirt',
+    name: 'The Executive Egyptian Giza Cotton Custom Shirt',
+    slug: 'the-executive-egyptian-giza-cotton-custom-shirt',
     tagline: 'Hand-Drafted Spread Collar with Mother-of-Pearl Buttons',
     description: 'Precision-tailored from long-staple Egyptian Giza cotton. Featuring hand-sewn collar bands, split back yoke for natural shoulder movement, and genuine Australian mother-of-pearl buttons.',
     category: 'jackets',
@@ -312,7 +312,7 @@ export const READY_TO_WEAR_PRODUCTS: Product[] = [
     category: 'evening-dinner',
     audience: 'modernman',
     fabricDetails: 'Pure Wool Houndstooth Weave with Italian Black Cotton Velvet Facings.',
-    construction: 'Bespoke Sartorial Construction with Pure Silk Lining',
+    construction: 'Made to Measure Sartorial Construction with Pure Silk Lining',
     priceKes: 195000,
     priceUsd: 1510,
     images: [
@@ -337,7 +337,7 @@ export const READY_TO_WEAR_PRODUCTS: Product[] = [
 export const BESPOKE_CATEGORIES = [
   {
     slug: 'bespoke-tailoring',
-    title: 'Bespoke & Made-to-Measure Suits',
+    title: 'Made-to-Measure Suits',
     subtitle: 'The Core House Specialty',
     description: 'Individually drafted patterns cut exclusively for your anatomical proportions. Hand-cut and fitted across physical fitting sessions.',
     image: '/images/MOK_7655.jpg',
@@ -459,7 +459,7 @@ export const CLIENT_TESTIMONIALS = [
     city: 'Nairobi, Kenya',
   },
   {
-    quote: 'A rare sanctuary of true bespoke tailoring in East Africa. The attention to balance, drape, and cloth quality is extraordinary.',
+    quote: 'A rare sanctuary of true made-to-measure tailoring in East Africa. The attention to balance, drape, and cloth quality is extraordinary.',
     client: 'Marcus Vance',
     role: 'Managing Partner, Private Equity',
     city: 'London & Nairobi',

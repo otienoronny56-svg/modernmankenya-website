@@ -108,7 +108,7 @@ export async function POST(req: NextRequest) {
     }
 
     // 5. Formulate High-End Sartorial Prompt
-    const systemPrompt = `You are the Master Creative & Style Director at "Modern Man Kenya 254", an ultra-luxury bespoke tailoring house in Nairobi operating at Savile Row standards (Opulence, Simplicity, Class).
+    const systemPrompt = `You are the Master Creative & Style Director at "Modern Man Kenya 254", an ultra-luxury made-to-measure tailoring house in Nairobi operating at high sartorial standards (Opulence, Simplicity, Class).
 
 Your task is to analyze the provided garment photograph(s) (or styling concept hint) and generate complete, polished luxury menswear catalog metadata.
 
@@ -128,7 +128,7 @@ EXACT REQUIREMENTS:
 - "fabricDetails": Mill provenance, cloth weight, and composition (e.g., "Holland & Sherry Royal Emerald Cotton Velvet (320g/m)", "Loro Piana Tasmanian Super 150s Fine Merino & Cashmere (260g/m)", "Scabal Super 150s Midnight Navy Worsted Wool (270g/m)").
 - "construction": Internal craftsmanship architecture (e.g., "Full Floating Horsehair Canvas with Hand-Padded Lapels", "Half Canvas Soft Tailoring with Quilted Silk Interior").
 - "detailsList": An array of 3 to 5 concise bullet points (each under 10 words) highlighting specific craftsmanship elements visible in the photo or tailored for this garment (e.g. "Hand-sewn Milanese lapel buttonhole in pure silk", "Deep jetted pockets with matching silk facings", "Real horn buttons with brand engraving", "Made to measure in our Nairobi Atelier").
-- "suggestedPriceKes": Realistic luxury bespoke price in Kenyan Shillings (e.g. 125000 to 195000 depending on complexity).
+- "suggestedPriceKes": Realistic luxury made-to-measure price in Kenyan Shillings (e.g. 125000 to 195000 depending on complexity).
 - "suggestedPriceUsd": Corresponding USD price (rounded, ~1 USD = 129.5 KES).
 - "suggestedSizes": Default sizing array (e.g. ["38R", "40R", "42R", "44R"]).
 
@@ -240,7 +240,7 @@ Return ONLY a valid JSON object matching this schema. Keep description strictly 
     }
 
     const normalizedOutfit = {
-      name: stringifyVal(parsedResult.name, 'The Modern Man Bespoke Masterwork'),
+      name: stringifyVal(parsedResult.name, 'The Modern Man Sartorial Masterwork'),
       category: normalizedCategory,
       audience: normalizedAudience,
       tagline: stringifyVal(parsedResult.tagline, 'Handcrafted Full Canvas Tailoring in Nairobi'),

@@ -8,7 +8,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
     specialty: 'Anatomical Card Drafting & Shoulder Pitch Balance',
     experienceYears: 18,
     image: '/images/team/samuel-kibet.jpg',
-    bio: 'With nearly two decades of dedication to the craft of anatomical cutting, Samuel drafts every individual bespoke paper pattern from over 35 distinct physical body measurements. His precision ensures that each jacket drapes with zero tension while commanding natural authority.',
+    bio: 'With nearly two decades of dedication to the craft of anatomical cutting, Samuel drafts every individual made-to-measure paper pattern from over 35 distinct physical body measurements. His precision ensures that each jacket drapes with zero tension while commanding natural authority.',
     quote: 'A suit is not merely sewn; it is sculpted into the anatomical posture of the man who commands it.',
     favoriteCloth: 'Scabal Super 150s Midnight Worsted Wool',
     isLeadership: true,
@@ -17,7 +17,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'artisan-02',
     name: 'Anthony Otieno',
-    role: 'Creative & Bespoke Style Director',
+    role: 'Creative & Sartorial Style Director',
     specialty: 'Silhouette Architecture & Executive Wardrobe Curation',
     experienceYears: 12,
     image: '/images/team/anthony-otieno.jpg',
@@ -56,7 +56,7 @@ export const INITIAL_TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'artisan-05',
     name: 'Beatrice Achieng',
-    role: 'Head of Bespoke Alterations & Hand Finishing',
+    role: 'Head of Alterations & Hand Finishing',
     specialty: 'Hand-Sewn Milanese Buttonholes & Pick Stitching',
     experienceYears: 14,
     image: '/images/team/beatrice-achieng.jpg',

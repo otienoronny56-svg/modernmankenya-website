@@ -50,8 +50,8 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-xs sm:text-sm text-slate-300/90 leading-relaxed font-light max-w-md">
-              Established in Nairobi with an unyielding commitment to supreme bespoke tailoring artistry. 
-              We engineer bespoke two-piece and three-piece suits, velvet dinner jackets, and luxury garments 
+              Established in Nairobi with an unyielding commitment to supreme made-to-measure tailoring artistry. 
+              We engineer made-to-measure two-piece and three-piece suits, velvet dinner jackets, and luxury garments 
               with full floating canvas construction, individual hand-drafted patterns, and millimetric anatomical precision.
             </p>
 
@@ -138,10 +138,10 @@ export const Footer: React.FC = () => {
               What We Create
             </h4>
             <ul className="space-y-2 text-slate-400">
-              <li><Link href="/bespoke/bespoke-tailoring" className="hover:text-white transition-colors">Bespoke & Made-to-Measure</Link></li>
+              <li><Link href="/bespoke/bespoke-tailoring" className="hover:text-white transition-colors">Made-to-Measure Suiting</Link></li>
               <li><Link href="/bespoke/bespoke-suits" className="hover:text-white transition-colors">Two-Piece & Three-Piece Suits</Link></li>
               <li><Link href="/bespoke/bespoke-evening-wear" className="hover:text-white transition-colors">Tuxedos & Black-Tie Formalwear</Link></li>
-              <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Wedding & Groom's Tailoring</Link></li>
+              <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Wedding & Groom Tailoring</Link></li>
               <li><Link href="/bespoke/corporate-wardrobes" className="hover:text-white transition-colors">Corporate & Executive Wardrobes</Link></li>
               <li><Link href="/bespoke/bespoke-shirts" className="hover:text-white transition-colors">Custom Shirts & Separates</Link></li>
               <li><Link href="/bespoke/bespoke-casual-wear" className="hover:text-white transition-colors">Traditional & Occasion Wear</Link></li>
