@@ -27,11 +27,13 @@ interface ProductFormModalProps {
 }
 
 const CATEGORIES = [
-  { id: 'suits', name: 'Suits (Two & Three-Piece)' },
-  { id: 'jackets', name: 'Blazers & Jackets' },
-  { id: 'velvets', name: 'Velvet Smoking Jackets' },
-  { id: 'evening-dinner', name: 'Tuxedos & Evening Wear' },
-  { id: 'accessories', name: 'Sartorial Accessories' },
+  { id: 'suits', name: '2 & 3-Piece Suits' },
+  { id: 'evening-dinner', name: 'Tuxedos & Black Tie' },
+  { id: 'smart-casual', name: 'Smart Casual & Blazers' },
+  { id: 'traditional', name: 'Traditional Wear' },
+  { id: 'kaftan-agbada', name: 'Kaftans & Agbada' },
+  { id: 'shirts', name: 'Cuban & Senator Shirts' },
+  { id: 'accessories', name: 'Accessories' },
 ];
 
 const STANDARD_SIZES = ['38R', '40R', '42R', '44R', '46L', '48L', 'Standard'];

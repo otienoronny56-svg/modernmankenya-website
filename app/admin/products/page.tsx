@@ -21,11 +21,13 @@ import { ProductFormModal } from '@/components/admin/ProductFormModal';
 
 const CATEGORIES = [
   { id: 'all', name: 'All Garments' },
-  { id: 'suits', name: 'Suits (Two & Three-Piece)' },
-  { id: 'jackets', name: 'Blazers & Jackets' },
-  { id: 'velvets', name: 'Velvet Jackets' },
-  { id: 'evening-dinner', name: 'Tuxedos & Evening Wear' },
-  { id: 'accessories', name: 'Sartorial Accessories' },
+  { id: 'suits', name: '2 & 3-Piece Suits' },
+  { id: 'evening-dinner', name: 'Tuxedos & Black Tie' },
+  { id: 'smart-casual', name: 'Smart Casual & Blazers' },
+  { id: 'traditional', name: 'Traditional Wear' },
+  { id: 'kaftan-agbada', name: 'Kaftans & Agbada' },
+  { id: 'shirts', name: 'Cuban & Senator Shirts' },
+  { id: 'accessories', name: 'Accessories' },
 ];
 
 export default function AdminProductsPage() {

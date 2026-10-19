@@ -18,8 +18,18 @@ export interface Product {
   slug: string;
   tagline: string;
   description: string;
-  category: 'suits' | 'jackets' | 'velvets' | 'evening-dinner' | 'fragrances' | 'accessories';
-  audience?: ProductAudience; // 'modernman' | 'modernwoman' | 'modernchild'
+  category:
+    | 'suits'
+    | 'jackets'
+    | 'velvets'
+    | 'evening-dinner'
+    | 'traditional'
+    | 'kaftan-agbada'
+    | 'shirts'
+    | 'smart-casual'
+    | 'fragrances'
+    | 'accessories';
+  audience?: ProductAudience;
   fabricDetails: string;
   construction: string; // e.g. "Full Floating Canvas", "Unstructured Deconstructed"
   priceKes: number;

@@ -34,11 +34,13 @@ function GalleryContent() {
 
   const categories = [
     { id: 'all', label: 'All Creations' },
-    { id: 'suits', label: 'Executive & Ceremony Suits' },
-    { id: 'jackets', label: 'Tailored Blazers' },
-    { id: 'velvets', label: 'Velvet Dinner Jackets' },
+    { id: 'suits', label: '2 & 3-Piece Suits' },
     { id: 'evening-dinner', label: 'Tuxedos & Black Tie' },
-    { id: 'accessories', label: 'Handcrafted Accessories' },
+    { id: 'smart-casual', label: 'Smart Casual & Blazers' },
+    { id: 'traditional', label: 'Traditional Wear' },
+    { id: 'kaftan-agbada', label: 'Kaftans & Agbada' },
+    { id: 'shirts', label: 'Cuban & Senator Shirts' },
+    { id: 'accessories', label: 'Accessories' },
   ];
 
   const filteredProducts = useMemo(() => {

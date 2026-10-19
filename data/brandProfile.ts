@@ -1,9 +1,9 @@
 export interface BrandCreationItem {
   id: string;
   title: string;
-  description: string;
   image: string;
-  badge: string;
+  categoryParam: string;
+  badge?: string;
 }
 
 export interface OccasionCategory {
@@ -29,22 +29,9 @@ export const BRAND_INFO = {
   name: 'Modern Man Kenya',
   tagline: 'Where Fit Meets Character',
   philosophy: 'Opulence • Simplicity • Class',
-  subheading: 'Custom Tailoring • Made to Measure Menswear • Kenyan Craftsmanship',
   statement:
     'Modern Man Kenya is a premium custom tailoring house creating made-to-measure menswear for the modern gentleman. Based in Kenya, we combine contemporary design, refined tailoring and personalised service to create suits, tuxedos, shirts, wedding attire and statement pieces defined by exceptional fit and individual character.',
-  brandStatement:
-    'Modern Man Kenya is a premium custom tailoring house creating made-to-measure menswear for the modern gentleman. Based in Kenya, we combine contemporary design, refined tailoring and personalised service to create suits, tuxedos, shirts, wedding attire and statement pieces defined by exceptional fit and individual character.',
-  brandOverview:
-    'Modern Man Kenya is a contemporary custom tailoring house based in Kenya, dedicated to creating refined menswear that combines impeccable fit, timeless style and modern sophistication. We specialise in made-to-measure garments designed around the individual—his proportions, personality, lifestyle and occasion.',
-  overviewContinuation:
-    'From boardroom tailoring and elevated business attire to wedding suits, formalwear and statement pieces, Modern Man Kenya brings together thoughtful design, premium fabric selection and meticulous craftsmanship to create garments that look distinctive and feel personal.',
-  positioning:
-    'Custom Tailoring • Made to Measure Menswear • Kenyan Craftsmanship',
-  philosophyBody:
-    'We believe great style begins with the right fit. A well-tailored garment should not simply follow fashion; it should express character, enhance confidence and remain relevant beyond a single season. Our approach is rooted in the balance between classic tailoring codes and contemporary menswear. Clean silhouettes, considered proportions, refined detailing and fabric-led design come together to create clothing that is polished without being predictable.',
   promise:
-    'At Modern Man Kenya, we do more than make suits. We create tailored expressions of identity. Every garment is considered, fitted and finished to help the modern gentleman present himself with confidence, sophistication and authenticity.',
-  brandPromise:
     'At Modern Man Kenya, we do more than make suits. We create tailored expressions of identity. Every garment is considered, fitted and finished to help the modern gentleman present himself with confidence, sophistication and authenticity.',
   vision:
     'To establish Modern Man Kenya as a leading African custom tailoring house recognised for exceptional fit, contemporary menswear design, craftsmanship and a distinctive approach to personal style.',
@@ -53,80 +40,52 @@ export const BRAND_INFO = {
   phone: '+254 718 923082',
   email: 'modernmanke254@gmail.com',
   location: 'Nairobi, Kenya',
-  contact: {
-    phone: '+254 718 923082',
-    phoneFormatted: '+254 718 923082',
-    email: 'modernmanke254@gmail.com',
-    location: 'Nairobi, Kenya',
-    hours: 'Monday – Saturday: By Appointment',
-  },
 };
 
 export const BRAND_PROFILE = BRAND_INFO;
 
 export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
-    id: 'bespoke-suits',
-    title: 'Made-to-Measure Suits',
-    description: 'Garments sculpted around individual anatomy and lifestyle, offering unmatched comfort, proportion, and personalized silhouette.',
-    image: '/images/MOK_7655.jpg',
-    badge: 'Core House Specialty',
-  },
-  {
     id: 'two-three-piece',
-    title: 'Two-Piece & Three-Piece Suits',
-    description: 'Impeccably balanced lounge and executive suits, with optional custom horseshoe or single-breasted waistcoats for elevated formality.',
-    image: '/images/MOK_7660.jpg',
-    badge: 'Timeless Silhouette',
-  },
-  {
-    id: 'tuxedos-black-tie',
-    title: 'Tuxedos & Black-Tie Formalwear',
-    description: 'Elevated dinner jackets, satin or velvet lapels, formal trousers, and black-tie attire designed for red-carpet and milestone events.',
-    image: '/images/MOK_2101.jpg',
-    badge: 'Black-Tie Mastery',
-  },
-  {
-    id: 'wedding-groom',
-    title: 'Wedding Suits & Groom’s Tailoring',
-    description: 'Personalized wedding ensembles harmonized with ceremony aesthetics, ensuring the groom commands his landmark day with poise.',
-    image: '/images/DSC04995.jpg',
-    badge: 'Ceremonial Elegance',
-  },
-  {
-    id: 'corporate-wardrobe',
-    title: 'Corporate & Executive Wardrobes',
-    description: 'Sharp, confident tailoring curated for boardrooms, leadership summits, and professional presence without sacrificing personal flair.',
+    title: '2 & 3-Piece Suits',
     image: '/images/DSC04888.jpg',
-    badge: 'Leadership Attire',
+    categoryParam: 'suits',
+    badge: 'Executive & Ceremony',
   },
   {
-    id: 'custom-shirts',
-    title: 'Custom Shirts & Coordinated Separates',
-    description: 'Individually measured shirts with customized collar spread, cuff styles, and fabrics coordinated with tailored trousers and blazers.',
-    image: '/images/MOK_1920.jpg',
+    id: 'tuxedos',
+    title: 'Tuxedos & Black Tie',
+    image: '/images/MOK_2142.jpg',
+    categoryParam: 'evening-dinner',
+    badge: 'Formal Events',
+  },
+  {
+    id: 'smart-casual',
+    title: 'Smart Casual & Blazers',
+    image: '/images/Blazer.jpg',
+    categoryParam: 'smart-casual',
     badge: 'Tailored Separates',
   },
   {
-    id: 'occasion-wear',
-    title: 'Traditional & Contemporary Occasion Wear',
-    description: 'Culturally conscious luxury tailoring that fuses timeless Kenyan heritage with modern precision cutting techniques.',
+    id: 'traditional-wear',
+    title: 'Traditional Wear',
     image: '/images/LKM_1745.jpg',
+    categoryParam: 'traditional',
     badge: 'Heritage & Modernity',
   },
   {
-    id: 'statement-jackets',
-    title: 'Statement Jackets & Special-Event Tailoring',
-    description: 'Expressive textiles, textured velvets, distinctive trims, and courageous palettes for gentlemen who celebrate distinctiveness.',
-    image: '/images/MOK_2142.jpg',
-    badge: 'Signature Commissions',
+    id: 'kaftan-agbada',
+    title: 'Kaftans & Agbada',
+    image: '/images/LKM_1755.jpg',
+    categoryParam: 'kaftan-agbada',
+    badge: 'African Sophistication',
   },
   {
-    id: 'wardrobe-solutions',
-    title: 'Personalised Wardrobe & Styling Solutions',
-    description: 'End-to-end wardrobe curation and style advisement tailored to your professional calendar, seasonal travel, and aesthetic goals.',
-    image: '/images/MOK_2204.jpg',
-    badge: 'Tailored Advisory',
+    id: 'cuban-senator-shirts',
+    title: 'Cuban & Senator Shirts',
+    image: '/images/LKM_1776.jpg',
+    categoryParam: 'shirts',
+    badge: 'Custom Collars & Fit',
   },
 ];
 
