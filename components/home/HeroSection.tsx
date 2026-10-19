@@ -36,8 +36,8 @@ export const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[88vh] bg-[#101012] flex items-center justify-center overflow-hidden">
-      {/* Background Slideshow with Smooth Cross-fade */}
+    <section className="relative min-h-[85vh] sm:min-h-[88vh] bg-stone-900 flex items-center justify-center overflow-hidden">
+      {/* Background Slideshow - Full Brightness & Natural Photography */}
       <div className="absolute inset-0 z-0">
         {HERO_IMAGES.map((img, idx) => {
           const isActive = idx === currentSlide;
@@ -45,7 +45,7 @@ export const HeroSection: React.FC = () => {
             <div
               key={img.src}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isActive ? 'opacity-45' : 'opacity-0 pointer-events-none'
+                isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
               <Image
@@ -54,32 +54,28 @@ export const HeroSection: React.FC = () => {
                 fill
                 priority={idx === 0}
                 sizes="100vw"
-                className="object-cover object-center filter contrast-105"
+                className="object-cover object-center"
               />
             </div>
           );
         })}
-
-        {/* Warm Cinematic Vignette & Ambient Gradient - Comfortable to the Eye */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/60 to-[#101012]/75" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-950/15 via-[#101012]/60 to-[#101012]/95" />
       </div>
 
-      {/* Hero Content - Clean, Uncongested & Minimal */}
+      {/* Hero Content - Clean, Uncongested & Minimal with Text Shadow for Perfect Legibility */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
         
         {/* Subtle House Monogram / Overline */}
-        <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-brand-gold font-semibold mb-4">
+        <p className="text-[11px] sm:text-xs tracking-[0.3em] uppercase text-brand-gold font-bold mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
           Opulence • Simplicity • Class
         </p>
 
         {/* Primary Headline */}
-        <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
+        <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6 drop-shadow-[0_3px_12px_rgba(0,0,0,0.9)]">
           Where Fit Meets Character.
         </h1>
 
         {/* Single Concise Sentence */}
-        <p className="text-base sm:text-lg md:text-xl text-stone-300 font-light max-w-2xl leading-relaxed mb-10">
+        <p className="text-base sm:text-lg md:text-xl text-white font-medium max-w-2xl leading-relaxed mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
           Handcrafted made-to-measure tailoring cut to your exact proportions and individual style in Nairobi.
         </p>
 
