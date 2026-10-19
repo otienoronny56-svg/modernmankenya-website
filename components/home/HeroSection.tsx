@@ -1,23 +1,65 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Calendar } from 'lucide-react';
 
+const HERO_IMAGES = [
+  {
+    src: '/images/Bespoke Suit.jpg',
+    alt: 'Bespoke Suit Craftsmanship Modern Man Kenya',
+  },
+  {
+    src: '/images/DSC04995.jpg',
+    alt: 'Precision Tailoring Modern Man Kenya',
+  },
+  {
+    src: '/images/LKM_1607.jpg',
+    alt: 'Handcrafted Sartorial Detail Modern Man Kenya',
+  },
+  {
+    src: '/images/MOK_7655.jpg',
+    alt: 'Signature Made to Measure Modern Man Kenya',
+  },
+];
+
 export const HeroSection: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-[85vh] sm:min-h-[88vh] bg-[#101012] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Warm Editorial Lighting */}
+      {/* Background Slideshow with Smooth Cross-fade */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/MOK_2101.jpg"
-          alt="Modern Man Kenya Made to Measure Tailoring"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-45 filter contrast-105"
-        />
+        {HERO_IMAGES.map((img, idx) => {
+          const isActive = idx === currentSlide;
+          return (
+            <div
+              key={img.src}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? 'opacity-45' : 'opacity-0 pointer-events-none'
+              }`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                priority={idx === 0}
+                sizes="100vw"
+                className="object-cover object-center filter contrast-105"
+              />
+            </div>
+          );
+        })}
+
         {/* Warm Cinematic Vignette & Ambient Gradient - Comfortable to the Eye */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#101012] via-[#101012]/60 to-[#101012]/75" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-950/15 via-[#101012]/60 to-[#101012]/95" />
@@ -60,7 +102,22 @@ export const HeroSection: React.FC = () => {
           </a>
         </div>
 
+        {/* Slide Indicators */}
+        <div className="flex items-center space-x-2 mt-8">
+          {HERO_IMAGES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                idx === currentSlide ? 'w-6 bg-brand-gold' : 'w-2 bg-white/30 hover:bg-white/50'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );
 };
+
