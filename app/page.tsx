@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
-import { BrandOverviewSection } from '@/components/home/BrandOverviewSection';
 import { WhatWeCreateSection } from '@/components/home/WhatWeCreateSection';
 import { OccasionsSection } from '@/components/home/OccasionsSection';
 import { ReadyToWearSection } from '@/components/home/ReadyToWearSection';
@@ -32,10 +31,7 @@ export default function HomePage() {
       {/* 1. Hero: Where Fit Meets Character • Opulence • Simplicity • Class */}
       <HeroSection />
 
-      {/* 2. Brand Overview: Narrative, Vision, Mission & Core Values */}
-      <BrandOverviewSection />
-
-      {/* 3. What We Create: 9 Tailoring Categories */}
+      {/* 2. What We Create: 9 Tailoring Categories */}
       <WhatWeCreateSection />
 
       {/* 4. Occasions: Business, Wedding, Formal, Signature */}
