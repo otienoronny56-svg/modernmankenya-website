@@ -1,61 +1,41 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Clock, ArrowRight, Check, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink, ArrowRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
-    }
-  };
-
   return (
-    <footer className="bg-brand-navy text-slate-300 pt-10 sm:pt-16 pb-8 sm:pb-12 border-t-2 border-brand-gold/40 relative overflow-hidden">
-      {/* Subtle Background Pinstripe */}
-      <div className="absolute inset-0 sartorial-pinstripe opacity-10 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <footer className="bg-[#FAF8F5] text-stone-700 pt-12 sm:pt-16 pb-10 border-t border-brand-gold/30 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Heritage Story & Newsletter Strip */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 pb-10 sm:pb-14 border-b border-white/10">
+        {/* Main Minimalist Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-stone-200/80">
           
-          {/* Brand Col */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
+          {/* 1. Brand & Contact Information (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
             <Link href="/" className="inline-flex items-center space-x-3 group">
-              <div className="relative w-12 sm:w-14 h-12 sm:h-14 bg-white/10 p-1.5 rounded-full border border-brand-gold/30 flex-shrink-0">
+              <div className="relative w-11 h-11 bg-white p-1 rounded-full border border-brand-gold/40 shadow-xs flex-shrink-0">
                 <Image
                   src="/images/logo.png"
                   alt="Modern Man Kenya"
                   fill
-                  sizes="56px"
-                  className="object-contain p-1"
+                  sizes="44px"
+                  className="object-contain p-0.5"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-lg sm:text-xl tracking-wider text-white font-bold uppercase group-hover:text-brand-gold transition-colors">
+                <span className="font-serif text-lg tracking-wider text-stone-900 font-bold uppercase group-hover:text-brand-gold transition-colors">
                   Modern Man Kenya
                 </span>
-                <span className="text-[10px] sm:text-[11px] tracking-[0.25em] text-brand-gold uppercase font-semibold">
+                <span className="text-[10px] tracking-[0.25em] text-brand-gold uppercase font-semibold">
                   opulence • simplicity • class
                 </span>
               </div>
             </Link>
 
-            <p className="text-xs sm:text-sm text-slate-300/90 leading-relaxed font-light max-w-md">
-              Established in Nairobi with an unyielding commitment to supreme made-to-measure tailoring artistry. 
-              We engineer made-to-measure two-piece and three-piece suits, velvet dinner jackets, and luxury garments 
-              with full floating canvas construction, individual hand-drafted patterns, and millimetric anatomical precision.
-            </p>
-
-            <div className="space-y-2 text-xs text-slate-300">
+            <div className="space-y-2 text-xs text-stone-600 pt-1">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0" />
                 <a
@@ -68,144 +48,152 @@ export const Footer: React.FC = () => {
                   <ExternalLink className="w-3 h-3 text-brand-gold opacity-80" />
                 </a>
               </div>
+
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <a href="tel:+254718923082" className="hover:text-white transition-colors">
-                  Private Concierge: +254 718 923082
+                <a href="tel:+254718923082" className="hover:text-stone-900 transition-colors">
+                  +254 718 923082
                 </a>
               </div>
+
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <a href="mailto:modernmanke254@gmail.com" className="hover:text-white transition-colors">
-                  modernmanke254@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <span>Tue – Sat: 09:30 – 18:30 (Private Appointments Only)</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
+                  <a href="mailto:modernmankenya254@gmail.com" className="hover:text-stone-900 transition-colors">
+                    modernmankenya254@gmail.com
+                  </a>
+                  <span className="hidden sm:inline text-stone-300">•</span>
+                  <a href="mailto:info@modernmankenya.com" className="hover:text-stone-900 transition-colors">
+                    info@modernmankenya.com
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Newsletter / Sartorial Journal */}
-          <div className="lg:col-span-7 flex flex-col justify-center bg-white/5 p-5 sm:p-8 rounded-lg border border-brand-gold/20">
-            <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold mb-1">
-              Private Sartorial Gazette
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl text-white font-bold mb-2">
-              The Sartorial Journal
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300 mb-5 sm:mb-6 font-light max-w-lg">
-              Receive private invitations to seasonal trunk shows in Nairobi, rare British cloth arrivals from Scabal & Dormeuil, and sartorial style essays.
-            </p>
-
-            {subscribed ? (
-              <div className="flex items-center space-x-2 text-brand-gold text-xs sm:text-sm bg-brand-gold/10 p-4 rounded border border-brand-gold/30">
-                <Check className="w-5 h-5 flex-shrink-0" />
-                <span>You have been inducted into the Modern Man Private Gazette.</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
-                <div className="relative flex-grow">
-                  <Mail className="w-4 h-4 text-brand-gold absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your confidential email..."
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/10 border border-brand-gold/30 rounded px-4 py-3 pl-10 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-gold"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-6 py-3 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury text-xs rounded transition-all flex items-center justify-center space-x-2 shadow-gold"
-                >
-                  <span>Request Membership</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-
-        {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 py-8 sm:py-12 text-xs border-b border-white/10">
-          
-          {/* What We Create */}
-          <div className="space-y-2.5 sm:space-y-3">
-            <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
+          {/* 2. What We Create (3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
               What We Create
             </h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><Link href="/bespoke/bespoke-tailoring" className="hover:text-white transition-colors">Made-to-Measure Suiting</Link></li>
-              <li><Link href="/bespoke/bespoke-suits" className="hover:text-white transition-colors">Two-Piece & Three-Piece Suits</Link></li>
-              <li><Link href="/bespoke/bespoke-evening-wear" className="hover:text-white transition-colors">Tuxedos & Black-Tie Formalwear</Link></li>
-              <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Wedding & Groom Tailoring</Link></li>
-              <li><Link href="/bespoke/corporate-wardrobes" className="hover:text-white transition-colors">Corporate & Executive Wardrobes</Link></li>
-              <li><Link href="/bespoke/bespoke-shirts" className="hover:text-white transition-colors">Custom Shirts & Separates</Link></li>
-              <li><Link href="/bespoke/bespoke-casual-wear" className="hover:text-white transition-colors">Traditional & Occasion Wear</Link></li>
-              <li><Link href="/bespoke/statement-jackets" className="hover:text-white transition-colors">Statement Jackets</Link></li>
+            <ul className="space-y-2 text-xs text-stone-600">
+              <li>
+                <Link href="/gallery?category=suits" className="hover:text-brand-gold transition-colors">
+                  2 & 3-Piece Suits
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=evening-dinner" className="hover:text-brand-gold transition-colors">
+                  Tuxedos
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=smart-casual" className="hover:text-brand-gold transition-colors">
+                  Smart Casual & Blazers
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=traditional" className="hover:text-brand-gold transition-colors">
+                  Traditional Wear
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=kaftan-agbada" className="hover:text-brand-gold transition-colors">
+                  Kaftans & Agbada
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=senator-suits" className="hover:text-brand-gold transition-colors">
+                  Senator Suits
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=shirts" className="hover:text-brand-gold transition-colors">
+                  Shirts
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Occasions */}
-          <div className="space-y-2.5 sm:space-y-3">
-            <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
+          {/* 3. Occasions (2 cols) */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
               Occasions
             </h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><Link href="/occasions/business-executive" className="hover:text-white transition-colors">Business & Executive</Link></li>
-              <li><Link href="/occasions/wedding-groom" className="hover:text-white transition-colors">Wedding & Groom</Link></li>
-              <li><Link href="/occasions/formal-eveningwear" className="hover:text-white transition-colors">Formal & Eveningwear</Link></li>
-              <li><Link href="/occasions/signature-occasion" className="hover:text-white transition-colors">Signature & Occasion Pieces</Link></li>
-              <li><Link href="/bespoke/weddings" className="hover:text-white transition-colors">Groom & Party Commissions</Link></li>
-              <li><Link href="/book-appointment" className="hover:text-white transition-colors">Private Fittings</Link></li>
+            <ul className="space-y-2 text-xs text-stone-600">
+              <li>
+                <Link href="/book-appointment?occasion=business" className="hover:text-brand-gold transition-colors">
+                  Business & Executive
+                </Link>
+              </li>
+              <li>
+                <Link href="/book-appointment?occasion=wedding" className="hover:text-brand-gold transition-colors">
+                  Wedding & Groom
+                </Link>
+              </li>
+              <li>
+                <Link href="/book-appointment?occasion=formal" className="hover:text-brand-gold transition-colors">
+                  Formal & Eveningwear
+                </Link>
+              </li>
+              <li>
+                <Link href="/book-appointment?occasion=signature" className="hover:text-brand-gold transition-colors">
+                  Signature & African Wear
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* The Experience & Concierge */}
-          <div className="space-y-2.5 sm:space-y-3">
-            <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
-              The Experience
+          {/* 4. Client Services & Legal (2 cols) */}
+          <div className="lg:col-span-2 space-y-3">
+            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
+              Client Care
             </h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><Link href="/the-experience" className="hover:text-white transition-colors">The 5-Step Journey</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors text-brand-gold font-medium">About Modern Man Kenya</Link></li>
-              <li><Link href="/the-craft" className="hover:text-white transition-colors">Craftsmanship & Canvassing</Link></li>
-              <li><Link href="/why-us" className="hover:text-white transition-colors">Why Modern Man Kenya</Link></li>
-              <li><Link href="/book-appointment" className="hover:text-white transition-colors">Book Private Consultation</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Atelier Visit & Inquiries</Link></li>
+            <ul className="space-y-2 text-xs text-stone-600">
+              <li>
+                <Link href="/book-appointment" className="text-brand-gold font-semibold hover:underline flex items-center space-x-1">
+                  <span>Book a Fitting</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="hover:text-brand-gold transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-brand-gold transition-colors">
+                  Terms of Commission
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-brand-gold transition-colors">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Quality Standards */}
-          <div className="space-y-2.5 sm:space-y-3">
-            <h4 className="font-serif text-xs sm:text-sm uppercase tracking-luxury text-brand-gold font-bold">
-              Quality Standards
-            </h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><span className="text-brand-gold font-semibold">Pre-Delivery QC Checklist</span></li>
-              <li><span>Archived Measurement Profile</span></li>
-              <li><span>Standard Operating Procedures</span></li>
-              <li><span>Floating Canvas Construction</span></li>
-              <li><span>Hand-Finished Milanese Detailing</span></li>
-              <li><span>Kenyan Master Craftsmanship</span></li>
-              <li><span>Nairobi Atelier Consultations</span></li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-3 sm:gap-4 text-center md:text-left">
-          <p>© {new Date().getFullYear()} Modern Man Kenya 254. All rights reserved. &quot;opulence • simplicity • class&quot;</p>
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
-            <Link href="/privacy" className="hover:text-brand-gold transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-brand-gold transition-colors">Terms of Commission</Link>
-            <Link href="/admin" className="text-slate-400 hover:text-brand-gold transition-colors">Staff Portal</Link>
-            <Link href="/book-appointment" className="text-brand-gold hover:underline font-semibold">Book an Appointment &rarr;</Link>
+        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 gap-3 text-center sm:text-left">
+          <p>© {new Date().getFullYear()} Modern Man Kenya. All rights reserved.</p>
+          <div className="flex items-center space-x-4">
+            <Link href="/privacy" className="hover:text-stone-900 transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-stone-300">•</span>
+            <Link href="/terms" className="hover:text-stone-900 transition-colors">
+              Terms of Commission
+            </Link>
+            <span className="text-stone-300">•</span>
+            <Link href="/admin" className="hover:text-brand-gold transition-colors">
+              Staff
+            </Link>
           </div>
         </div>
+
       </div>
     </footer>
   );
