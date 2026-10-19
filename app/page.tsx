@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
+import { SartorialTransitionCanvas } from '@/components/canvas/SartorialTransitionCanvas';
 import { WhatWeCreateSection } from '@/components/home/WhatWeCreateSection';
 import { OccasionsSection } from '@/components/home/OccasionsSection';
 import { ReadyToWearSection } from '@/components/home/ReadyToWearSection';
@@ -30,6 +31,9 @@ export default function HomePage() {
     <main className="min-h-screen bg-white">
       {/* 1. Hero: Where Fit Meets Character • Opulence • Simplicity • Class */}
       <HeroSection />
+
+      {/* Modern 3D WebGL Sartorial Silk Wave Transition */}
+      <SartorialTransitionCanvas />
 
       {/* 2. What We Create: 9 Tailoring Categories */}
       <WhatWeCreateSection />
