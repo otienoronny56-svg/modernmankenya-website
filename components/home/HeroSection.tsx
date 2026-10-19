@@ -41,6 +41,8 @@ export const HeroSection: React.FC = () => {
       <div className="absolute inset-0 z-0">
         {HERO_IMAGES.map((img, idx) => {
           const isActive = idx === currentSlide;
+          // 3rd (LKM_1607) and 4th (MOK_7655) images are full-length portraits requiring object-contain/scaled fit to avoid truncation
+          const isPortraitFullFit = idx === 2 || idx === 3;
           return (
             <div
               key={img.src}
@@ -54,7 +56,11 @@ export const HeroSection: React.FC = () => {
                 fill
                 priority={idx === 0}
                 sizes="100vw"
-                className="object-cover object-top sm:object-[center_15%]"
+                className={
+                  isPortraitFullFit
+                    ? "object-contain object-center scale-95 sm:scale-90"
+                    : "object-cover object-top sm:object-[center_15%]"
+                }
               />
             </div>
           );
