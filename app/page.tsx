@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
+import { NeedleThreadTransition } from '@/components/canvas/NeedleThreadTransition';
 import { WhatWeCreateSection } from '@/components/home/WhatWeCreateSection';
 import { OccasionsSection } from '@/components/home/OccasionsSection';
 import { ReadyToWearSection } from '@/components/home/ReadyToWearSection';
@@ -30,6 +31,9 @@ export default function HomePage() {
     <main className="min-h-screen bg-white">
       {/* 1. Hero: Where Fit Meets Character • Opulence • Simplicity • Class */}
       <HeroSection />
+
+      {/* 2D Sartorial Golden Needle & Basting Thread Transition */}
+      <NeedleThreadTransition />
 
       {/* 2. What We Create: 9 Tailoring Categories */}
       <WhatWeCreateSection />
