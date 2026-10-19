@@ -8,19 +8,19 @@ import type { Currency } from '@/types';
 export interface CountryOption {
   code: string;
   name: string;
-  flag: string;
+  flagUrl: string;
   currency: Currency;
   currencyLabel: string;
 }
 
 export const COUNTRIES: CountryOption[] = [
-  { code: 'AU', name: 'Australia', flag: '🇦🇺', currency: 'KES', currencyLabel: 'KES KSh' },
-  { code: 'CA', name: 'Canada', flag: '🇨🇦', currency: 'USD', currencyLabel: 'KES KSh' },
-  { code: 'KE', name: 'Kenya', flag: '🇰🇪', currency: 'KES', currencyLabel: 'KES KSh' },
-  { code: 'QA', name: 'Qatar', flag: '🇶🇦', currency: 'USD', currencyLabel: 'KES KSh' },
-  { code: 'AE', name: 'United Arab Emirates', flag: '🇦🇪', currency: 'USD', currencyLabel: 'KES KSh' },
-  { code: 'GB', name: 'United Kingdom', flag: '🇬🇧', currency: 'GBP', currencyLabel: 'KES KSh' },
-  { code: 'US', name: 'United States', flag: '🇺🇸', currency: 'USD', currencyLabel: 'KES KSh' },
+  { code: 'AU', name: 'Australia', flagUrl: 'https://flagcdn.com/w40/au.png', currency: 'KES', currencyLabel: 'KES KSh' },
+  { code: 'CA', name: 'Canada', flagUrl: 'https://flagcdn.com/w40/ca.png', currency: 'USD', currencyLabel: 'KES KSh' },
+  { code: 'KE', name: 'Kenya', flagUrl: 'https://flagcdn.com/w40/ke.png', currency: 'KES', currencyLabel: 'KES KSh' },
+  { code: 'QA', name: 'Qatar', flagUrl: 'https://flagcdn.com/w40/qa.png', currency: 'USD', currencyLabel: 'KES KSh' },
+  { code: 'AE', name: 'United Arab Emirates', flagUrl: 'https://flagcdn.com/w40/ae.png', currency: 'USD', currencyLabel: 'KES KSh' },
+  { code: 'GB', name: 'United Kingdom', flagUrl: 'https://flagcdn.com/w40/gb.png', currency: 'GBP', currencyLabel: 'KES KSh' },
+  { code: 'US', name: 'United States', flagUrl: 'https://flagcdn.com/w40/us.png', currency: 'USD', currencyLabel: 'KES KSh' },
 ];
 
 interface CountryCurrencySelectorProps {
@@ -74,7 +74,7 @@ export const CountryCurrencySelector: React.FC<CountryCurrencySelectorProps> = (
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center space-x-1.5 text-[11px] sm:text-xs font-medium tracking-wide transition-colors px-1.5 py-0.5 rounded focus:outline-none ${
+        className={`inline-flex items-center space-x-2 text-[11px] sm:text-xs font-medium tracking-wide transition-colors px-1.5 py-0.5 rounded focus:outline-none ${
           isDark
             ? 'text-slate-200 hover:text-white hover:bg-white/10'
             : 'text-slate-700 hover:text-brand-navy hover:bg-slate-200/50'
@@ -82,7 +82,11 @@ export const CountryCurrencySelector: React.FC<CountryCurrencySelectorProps> = (
         aria-expanded={isOpen}
         aria-label="Select country and currency"
       >
-        <span className="text-sm leading-none inline-block">{selectedCountry.flag}</span>
+        <img
+          src={selectedCountry.flagUrl}
+          alt={`${selectedCountry.name} flag`}
+          className="w-5 h-3.5 object-cover rounded-xs shadow-xs inline-block"
+        />
         <span className="font-semibold uppercase tracking-wider">{selectedCountry.name} ({selectedCountry.currencyLabel})</span>
         {isOpen ? (
           <ChevronUp className="w-3 h-3 opacity-70" />
@@ -108,7 +112,11 @@ export const CountryCurrencySelector: React.FC<CountryCurrencySelectorProps> = (
                       : 'hover:bg-slate-50 text-slate-700 font-normal'
                   }`}
                 >
-                  <span className="text-lg leading-none">{country.flag}</span>
+                  <img
+                    src={country.flagUrl}
+                    alt={`${country.name} flag`}
+                    className="w-5 h-3.5 object-cover rounded-xs shadow-xs flex-shrink-0"
+                  />
                   <span className="flex-1 truncate">
                     {country.name} ({country.currencyLabel})
                   </span>
