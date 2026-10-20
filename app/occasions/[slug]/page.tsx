@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { OCCASIONS_DATA, ALL_OCCASIONS_LIST } from '@/data/occasionsData';
+import { OCCASIONS_DATA, ALL_OCCASIONS_LIST, OCCASION_SLUG_ALIASES, getOccasionBySlug } from '@/data/occasionsData';
 import { OccasionPageClient } from '@/components/occasions/OccasionPageClient';
 
 interface PageProps {
@@ -11,14 +11,14 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return ALL_OCCASIONS_LIST.map((occ) => ({
-    slug: occ.slug,
-  }));
+  const primarySlugs = ALL_OCCASIONS_LIST.map((occ) => ({ slug: occ.slug }));
+  const aliasSlugs = Object.keys(OCCASION_SLUG_ALIASES).map((slug) => ({ slug }));
+  return [...primarySlugs, ...aliasSlugs];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const occasion = OCCASIONS_DATA[slug];
+  const occasion = getOccasionBySlug(slug);
 
   if (!occasion) {
     return {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function OccasionDynamicPage({ params }: PageProps) {
   const { slug } = await params;
-  const occasion = OCCASIONS_DATA[slug];
+  const occasion = getOccasionBySlug(slug);
 
   if (!occasion) {
     notFound();

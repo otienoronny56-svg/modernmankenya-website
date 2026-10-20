@@ -1,615 +1,876 @@
+/**
+ * OCCASIONS DATA REGISTRY
+ * 
+ * 1. Executive wear
+ *    - Official suit
+ *    - Smart Casual
+ * 
+ * 2. Black Tie & Wedding
+ *    - Official
+ *    - Tuxedo
+ *    - Kaunda
+ * 
+ * 3. African wear
+ *    - Kaftan
+ *    - Agbada
+ *    - Tuxedo
+ *    - Safari / Kaunda suit
+ * 
+ * Simple English: 1 to 2 words per name, no complex British wording.
+ */
+
 export interface OccasionHighlight {
   src: string;
-  label: string; // 2 to 5 words
-  tag: string;   // 2 to 3 words
+  label: string; // 1 to 2 words (e.g. "Navy Suit", "Ivory Tuxedo")
+  tag: string;   // 1 to 2 words (e.g. "Official Suit", "Tuxedo")
+  subCategory: string;
   aspect?: 'square' | 'portrait' | 'landscape';
 }
 
-export interface OccasionPageData {
+export interface OccasionSubCategory {
+  id: string;
+  slug: string;
+  title: string;       // 1 to 3 words
+  description: string; // 1 to 3 words
+  heroImage: string;
+  count: number;
+}
+
+export interface OccasionCategoryData {
   id: string;
   slug: string;
   title: string;
   shortTitle: string;
   badge: string;
   heroImage: string;
-  tagline: string; // 2 to 5 words
-  heroPills: string[]; // 2 to 4 words each
+  tagline: string;
+  heroPills: string[];
+  craftSpecs: { label: string; value: string }[];
+  subCategories: OccasionSubCategory[];
   highlights: OccasionHighlight[];
   galleryImages: OccasionHighlight[];
-  craftSpecs: { label: string; value: string }[];
 }
 
-export const OCCASIONS_DATA: Record<string, OccasionPageData> = {
-  'business-executive': {
-    id: 'business-executive',
-    slug: 'business-executive',
-    title: 'Business & Executive',
-    shortTitle: 'Boardroom & Leadership',
-    badge: 'Executive Sartorial Mastery',
-    heroImage: '/images/more/WhatsApp Image 2026-10-19 at 4.17.15 PM.jpeg',
-    tagline: 'Commanding Authority & Flawless Balance',
+export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
+  // ==========================================
+  // 1. EXECUTIVE WEAR
+  // ==========================================
+  'executive-wear': {
+    id: 'executive-wear',
+    slug: 'executive-wear',
+    title: 'Executive Wear',
+    shortTitle: 'Executive',
+    badge: 'Executive',
+    heroImage: '/images/MOK_7655.jpg',
+    tagline: 'Office & Boardroom',
     heroPills: [
-      'Super 150s English Worsteds',
-      'Full Floating Horsehair Canvas',
-      'Millimetric Hand Drafting',
-      'All-Day Crease Resistance',
+      'Custom Fit',
+      'Pure Wool',
+      'Perfect Cut',
+      'Crease Free',
     ],
     craftSpecs: [
-      { label: 'Chest Construction', value: 'Full Floating Canvas' },
-      { label: 'Cloth Provenance', value: 'Scabal & Huddersfield 150s' },
-      { label: 'Handover Fittings', value: '3 Anatomical Sessions' },
+      { label: 'Style', value: 'Custom Made' },
+      { label: 'Fabric', value: 'Fine Wool' },
+      { label: 'Fittings', value: '3 Sessions' },
+    ],
+    subCategories: [
+      {
+        id: 'official-suit',
+        slug: 'official-suit',
+        title: 'Official Suit',
+        description: '2 & 3-Piece Suits',
+        heroImage: '/images/more/WhatsApp Image 2026-10-19 at 4.17.15 PM.jpeg',
+        count: 14,
+      },
+      {
+        id: 'smart-casual',
+        slug: 'smart-casual',
+        title: 'Smart Casual',
+        description: 'Blazers & Jackets',
+        heroImage: '/images/more/WhatsApp Image 2026-10-19 at 4.17.21 PM.jpeg',
+        count: 8,
+      },
     ],
     highlights: [
       {
         src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.12 PM.jpeg',
-        label: 'Navy Double-Breasted Horseshoe Waistcoat',
-        tag: 'Executive Three-Piece',
+        label: 'Navy 3-Piece',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
         aspect: 'portrait',
       },
       {
         src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.15 PM.jpeg',
-        label: 'Charcoal Micro-Weave Business Suit',
-        tag: 'Boardroom Essential',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg',
-        label: 'Charcoal Pinstripe Tie-Bar Commission',
-        tag: 'Classic Leadership',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM.jpeg',
-        label: 'Dark Navy Chalk-Stripe Wool',
-        tag: 'Power Silhouette',
+        label: 'Charcoal Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
         aspect: 'square',
       },
       {
         src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.21 PM.jpeg',
-        label: 'Sand Beige Crossover Waistcoat',
-        tag: 'Executive Daylight Suit',
+        label: 'Beige Blazer',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
         aspect: 'square',
       },
       {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.41.30 PM.jpeg',
-        label: 'Master Tailor Anatomical Measurement',
-        tag: 'Atelier Discipline',
-        aspect: 'landscape',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg',
+        label: 'Pinstripe Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
       },
-    ],
-    galleryImages: [
       {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.12 PM.jpeg',
-        label: 'Midnight Navy Horseshoe Waistcoat',
-        tag: 'Three-Piece Suiting',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.51.00 PM.jpeg',
+        label: 'Navy Blazer',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
         aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.15 PM.jpeg',
-        label: 'Charcoal Birdseye Two-Button Cut',
-        tag: 'Super 150s Wool',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.13 PM.jpeg',
-        label: 'Airforce Blue Wool-Linen Ensemble',
-        tag: 'Daytime Executive',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.24 PM.jpeg',
-        label: 'Charcoal Glen-Plaid Bespoke Cut',
-        tag: 'British Hacking Flap',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.19 PM.jpeg',
-        label: 'French Navy Two-Button Suit',
-        tag: 'Hand-Rolled Lapel',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg',
-        label: 'Executive Pinstripe Silver Accent',
-        tag: 'Double-Vented Silhouette',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM.jpeg',
-        label: 'Chalk-Stripe Worsted Peak Lapel',
-        tag: 'Bespoke Pattern Cut',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.21 PM.jpeg',
-        label: 'Sand Melange Crossover Waistcoat',
-        tag: 'Horn Button Detail',
-        aspect: 'square',
-      },
-      {
-        src: '/images/slide.jpeg',
-        label: 'French Cuff Surgeon Finishing',
-        tag: 'Functional Sleeve Cuffs',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.41.30 PM.jpeg',
-        label: 'Chest Pitch Calibration Session',
-        tag: '35 Measurements',
-        aspect: 'landscape',
       },
       {
         src: '/images/MOK_7655.jpg',
-        label: 'The Nairobi Boardroom Blue',
-        tag: 'Handcrafted Atelier Piece',
+        label: 'Blue Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'portrait',
+      },
+    ],
+    galleryImages: [
+      // Official Suit
+      {
+        src: '/images/MOK_7655.jpg',
+        label: 'Blue Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
         aspect: 'portrait',
       },
       {
         src: '/images/MOK_7660.jpg',
-        label: 'Double-Breasted Pinstripe Power Suit',
-        tag: 'Peak Lapel 4-Inch',
+        label: 'Pinstripe Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
         aspect: 'portrait',
       },
       {
         src: '/images/MOK_7662.jpg',
-        label: 'Classic Slate Three-Piece Suit',
-        tag: 'Floating Canvas Internal',
+        label: 'Grey 3-Piece',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
         aspect: 'portrait',
       },
       {
-        src: '/images/MOK_2198.jpg',
-        label: 'Royal Navy Peak Lapel Suit',
-        tag: 'Bespoke Executive Cut',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.15 PM.jpeg',
+        label: 'Charcoal Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.12 PM.jpeg',
+        label: 'Navy 3-Piece',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
         aspect: 'portrait',
       },
       {
-        src: '/images/Bespoke Suit.jpg',
-        label: 'Atelier Hand-Padding Detail',
-        tag: 'Sartorial Craftsmanship',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM.jpeg',
+        label: 'Navy Stripe',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg',
+        label: 'Classic Pinstripe',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM.jpeg',
+        label: 'Double Breasted',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.24 PM.jpeg',
+        label: 'Check Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.19 PM.jpeg',
+        label: 'Navy Suit',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM.jpeg',
+        label: 'Classic Navy',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.12 PM.jpeg',
+        label: 'Tailored Navy',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/slide.jpeg',
+        label: 'Sleeve Detail',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
         aspect: 'landscape',
       },
-    ],
-  },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.41.30 PM.jpeg',
+        label: 'Fitting Session',
+        tag: 'Official Suit',
+        subCategory: 'official-suit',
+        aspect: 'landscape',
+      },
 
-  'wedding-groom': {
-    id: 'wedding-groom',
-    slug: 'wedding-groom',
-    title: 'Wedding & Groom',
-    shortTitle: 'Groom & Bridal Party',
-    badge: 'Nuptial Distinction & Ceremony',
-    heroImage: '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg',
-    tagline: 'Celebrated Milestones & Nuptial Grandeur',
-    heroPills: [
-      'Groom & Groomsmen Coordinated Sets',
-      'Ceremonial Floating Canvas Drape',
-      'Ivory & Contrast Shawl Facings',
-      'Dedicated Bridal Tailoring Concierge',
-    ],
-    craftSpecs: [
-      { label: 'Entourage Coordination', value: 'Full Groomsmen Sets' },
-      { label: 'Cloth Selection', value: 'Barathea, Silk & Velvet' },
-      { label: 'Turnaround Timeline', value: '4 to 6 Weeks' },
-    ],
-    highlights: [
+      // Smart Casual
       {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg',
-        label: 'Ivory Double-Breasted Dinner Suit',
-        tag: 'Highland Wedding Commission',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg',
-        label: 'Cognac Groomsmen Party Ensemble',
-        tag: 'Coordinated Entourage',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.21 PM.jpeg',
+        label: 'Beige Blazer',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
         aspect: 'square',
       },
       {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM (1).jpeg',
-        label: 'Navy Three-Piece Aisle Entrance',
-        tag: 'Champagne Waistcoat Accents',
-        aspect: 'landscape',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.51.00 PM.jpeg',
+        label: 'Navy Blazer',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
+        aspect: 'portrait',
       },
       {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg',
-        label: 'Jacquard Dinner Jacket & Golden Cane',
-        tag: 'Monarch Ceremony Attire',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM (1).jpeg',
-        label: 'Beige Double-Breasted Groom Suit',
-        tag: 'Joyful Groomsmen Moment',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.13 PM.jpeg',
+        label: 'Blue Casual',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
         aspect: 'square',
       },
       {
-        src: '/images/tuxedo.jpeg',
-        label: 'Ivory Tuxedo & Silk Bowtie',
-        tag: 'Ceremonial Altar Look',
-        aspect: 'portrait',
-      },
-    ],
-    galleryImages: [
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg',
-        label: 'Ivory Double-Breasted Groom Silhouette',
-        tag: 'Outdoor Nuptials',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg',
-        label: 'Champagne Groom & Tobacco Groomsmen',
-        tag: 'Full Wedding Party',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (1).jpeg',
+        label: 'Royal Blazer',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
         aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.14 PM.jpeg',
-        label: 'Double-Breasted Tuxedo Room Fitting',
-        tag: 'Made to Measure Peak',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.26 PM.jpeg',
-        label: 'Bespoke Satin Lapel Adjustment',
-        tag: 'Editorial Black & White',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg',
-        label: 'Ceremonial White Jacquard Dinner Jacket',
-        tag: 'Golden Cane Accessory',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM (1).jpeg',
-        label: 'Navy & Gold Bridal Rose Petal Aisle',
-        tag: 'Outdoor Garden Wedding',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM (1).jpeg',
-        label: 'Groom Laughing in Tan Three-Piece',
-        tag: 'Groomsmen Bonding',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.47.54 PM.jpeg',
-        label: 'Tea Plantation Romance Portrait',
-        tag: 'Fine Wool Silhouette',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.47.59 PM.jpeg',
-        label: 'Ivory Jacket Black Trouser Stride',
-        tag: 'Contrasting Facings',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.51.08 PM.jpeg',
-        label: 'Groomsmen Champagne Toast Fitting',
-        tag: 'Celebratory Camaraderie',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/tuxedo.jpeg',
-        label: 'The Altar Statement Ivory Tuxedo',
-        tag: 'Black Shawl Satin Trim',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/DSC04995.jpg',
-        label: 'Classic Nuptial Three-Piece Suit',
-        tag: 'Horseshoe Vest Detail',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/DSC05022.jpg',
-        label: 'Groom & Bride Reception Walk',
-        tag: 'Sartorial Distinction',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM.jpeg',
-        label: 'Garden Reception Entourage Entrance',
-        tag: 'Bespoke Tailoring',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (2).jpeg',
-        label: 'French Blue Gold Lapel Flower',
-        tag: 'Boutonniere Finish',
-        aspect: 'square',
-      },
-    ],
-  },
-
-  'formal-eveningwear': {
-    id: 'formal-eveningwear',
-    slug: 'formal-eveningwear',
-    title: 'Formal & Black Tie',
-    shortTitle: 'Black Tie & Galas',
-    badge: 'Red Carpet & Black Tie',
-    heroImage: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg',
-    tagline: 'Black-Tie Distinction & Velvet Opulence',
-    heroPills: [
-      'Italian Silk Grosgrain Facings',
-      'Holland & Sherry Cotton Velvet',
-      'Barathea Light-Absorbing Wool',
-      'Horseshoe Silk Waistcoats',
-    ],
-    craftSpecs: [
-      { label: 'Lapel Facing', value: 'Pure Silk Grosgrain & Satin' },
-      { label: 'Tuxedo Trousers', value: 'Side Braid Silk Stripe' },
-      { label: 'Buttons', value: 'Hand-Covered Silk Satin' },
-    ],
-    highlights: [
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg',
-        label: 'Crimson Burgundy Velvet Dinner Jacket',
-        tag: 'Satin Peak Lapel',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.22 PM.jpeg',
-        label: 'Midnight Black Tie Horseshoe Ensemble',
-        tag: 'Black Tie Standard',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg',
-        label: 'Stone Ivory Double-Breasted Ascot Look',
-        tag: 'Gala Lounge Splendor',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM.jpeg',
-        label: 'Royal Navy Glen Check Waistcoat',
-        tag: 'Creative Black Tie',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg',
-        label: 'Navy Peak Jacket Burgundy Bowtie',
-        tag: 'Milestone Dinner Suit',
-        aspect: 'square',
-      },
-      {
-        src: '/images/tuxedo.jpeg',
-        label: 'Ivory Shawl Lapel Gala Tuxedo',
-        tag: 'Classic Evening Posture',
-        aspect: 'portrait',
-      },
-    ],
-    galleryImages: [
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg',
-        label: 'Crimson Royal Velvet Dinner Jacket',
-        tag: 'Heavyweight Velvet 320g',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.22 PM.jpeg',
-        label: 'The Definitive Black Tie Tuxedo',
-        tag: 'Barathea Cloth Weave',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg',
-        label: 'Ivory Double-Breasted Royal Cravat',
-        tag: 'Bespoke Ascot Ensemble',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM.jpeg',
-        label: 'Midnight Tuxedo Prince of Wales Vest',
-        tag: 'Micro-Dot Silk Bowtie',
-        aspect: 'square',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg',
-        label: 'Deep Navy Single-Button Tuxedo',
-        tag: 'Burgundy Paisley Silk',
-        aspect: 'square',
-      },
-      {
-        src: '/images/tuxedo.jpeg',
-        label: 'Contrast Black Shawl Ivory Dinner Coat',
-        tag: 'Altar & Red Carpet',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/MOK_2101.jpg',
-        label: 'Black Tie Satin Peak Jacket',
-        tag: 'Classic Black Tie',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/MOK_2204.jpg',
-        label: 'Ceremonial Houndstooth Dinner Ensemble',
-        tag: 'Horseshoe Waistcoat',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/MOK_2219.jpg',
-        label: 'Velvet Smoking Jacket in Motion',
-        tag: 'Opulence & Simplicity',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg',
-        label: 'White Jacquard Gala Walking Cane',
-        tag: 'Lion Head Gold Handle',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.14 PM.jpeg',
-        label: 'Architectural Ivory Evening Jacket',
-        tag: 'Double Monk Shoe Pair',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/Black.jpg',
-        label: 'Midnight Black Floating Canvas',
-        tag: 'Pure Barathea Wool',
-        aspect: 'landscape',
-      },
-    ],
-  },
-
-  'signature-occasion': {
-    id: 'signature-occasion',
-    slug: 'signature-occasion',
-    title: 'Signature & African Ceremonies',
-    shortTitle: 'Kaunda Suits & Heritage',
-    badge: 'Contemporary African Identity',
-    heroImage: '/images/kaunda suit.jpeg',
-    tagline: 'African Statesman Heritage & Cultural Pride',
-    heroPills: [
-      'Bespoke Kaunda & Senator Cuts',
-      'Ceremonial Ruracio & Dowry Wear',
-      'Hand-Finished Ankara Trim Accents',
-      'Structured Breathable Tropical Cloth',
-    ],
-    craftSpecs: [
-      { label: 'Garment Heritage', value: 'Kaunda, Senator & Traditional' },
-      { label: 'Ceremonial Options', value: 'Ruracio, Dowry & Milestone' },
-      { label: 'Craft Detailing', value: 'Ankara, Cowhide & Flywhisks' },
-    ],
-    highlights: [
-      {
-        src: '/images/kaunda suit.jpeg',
-        label: 'Asymmetrical Cream Kaunda Suit Couple',
-        tag: 'Signature African Elegance',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.24 PM.jpeg',
-        label: 'Groom & Groomsmen Flywhisk Entourage',
-        tag: 'Embroidered Senator Tunics',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg',
-        label: 'Ruracio Dowry Ceremonial Cane Dance',
-        tag: 'Beaded Cowhide Waistcoat',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.00 PM.jpeg',
-        label: 'Gold Ceremonial Cap & Coral Beads',
-        tag: 'Traditional Nuptial Vow',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM.jpeg',
-        label: 'White Senator Tunic Ankara Panel',
-        tag: 'African Modernity',
-        aspect: 'portrait',
       },
       {
         src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM.jpeg',
-        label: 'Crimson Scarlet Statement Blazer',
-        tag: 'Houndstooth Pocket Square',
-        aspect: 'square',
-      },
-    ],
-    galleryImages: [
-      {
-        src: '/images/kaunda suit.jpeg',
-        label: 'Asymmetric Mandarin Collar Kaunda Suit',
-        tag: 'Ceremonial Cream Fabric',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.24 PM.jpeg',
-        label: 'Senator Suits & Emerald Caps',
-        tag: 'Traditional Horsetail Flywhisks',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg',
-        label: 'Ruracio Procession Walking Canes',
-        tag: 'Celebratory Dance Stride',
-        aspect: 'landscape',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.00 PM.jpeg',
-        label: 'Embroidered Cap & African Coral Beads',
-        tag: 'Sacred Dowry Heritage',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM.jpeg',
-        label: 'Crisp White Tunic Ankara Panel Trim',
-        tag: 'Contemporary Senator Cut',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.49 PM.jpeg',
-        label: 'Groom with Carved Wooden Antelope Cane',
-        tag: 'Orange Velvet Cap Detail',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM.jpeg',
-        label: 'Scarlet Red Statement Jacket',
-        tag: 'Notch Lapel 3-Inch',
+        label: 'Red Blazer',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
         aspect: 'square',
       },
       {
         src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (2).jpeg',
-        label: 'Check Suit Nairobi Railway Steam Train',
-        tag: 'Urban Statement Tailoring',
+        label: 'Check Suit',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
+        aspect: 'square',
+      },
+      {
+        src: '/images/Blazer.jpg',
+        label: 'Double Breasted',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
+        aspect: 'landscape',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.56 PM.jpeg',
+        label: 'City Suit',
+        tag: 'Smart Casual',
+        subCategory: 'smart-casual',
+        aspect: 'portrait',
+      },
+    ],
+  },
+
+  // ==========================================
+  // 2. BLACK TIE & WEDDING
+  // ==========================================
+  'black-tie-wedding': {
+    id: 'black-tie-wedding',
+    slug: 'black-tie-wedding',
+    title: 'Black Tie & Wedding',
+    shortTitle: 'Wedding & Black Tie',
+    badge: 'Weddings',
+    heroImage: '/images/tuxedo.jpeg',
+    tagline: 'Weddings & Dinners',
+    heroPills: [
+      'Groom Sets',
+      'Groomsmen Sets',
+      'Silk Lapels',
+      'Velvet Suits',
+    ],
+    craftSpecs: [
+      { label: 'Event', value: 'Wedding & Gala' },
+      { label: 'Lapels', value: 'Silk Satin' },
+      { label: 'Lead Time', value: '4 Weeks' },
+    ],
+    subCategories: [
+      {
+        id: 'official',
+        slug: 'official',
+        title: 'Official',
+        description: 'Wedding Suits',
+        heroImage: '/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg',
+        count: 10,
+      },
+      {
+        id: 'tuxedo',
+        slug: 'tuxedo',
+        title: 'Tuxedo',
+        description: 'Dinner Jackets',
+        heroImage: '/images/tuxedo.jpeg',
+        count: 12,
+      },
+      {
+        id: 'kaunda',
+        slug: 'kaunda',
+        title: 'Kaunda',
+        description: 'Wedding Kaunda',
+        heroImage: '/images/kaunda suit.jpeg',
+        count: 6,
+      },
+    ],
+    highlights: [
+      {
+        src: '/images/tuxedo.jpeg',
+        label: 'Ivory Tuxedo',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
         aspect: 'portrait',
       },
       {
-        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.21 PM.jpeg',
-        label: 'Groomsmen Stride Across Savannah Grass',
-        tag: 'Emerald Velvet Caps',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg',
+        label: 'Groomsmen Suits',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg',
+        label: 'Burgundy Velvet',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+      {
+        src: '/images/kaunda suit.jpeg',
+        label: 'Cream Kaunda',
+        tag: 'Kaunda',
+        subCategory: 'kaunda',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM (1).jpeg',
+        label: 'Groom Suit',
+        tag: 'Official',
+        subCategory: 'official',
         aspect: 'landscape',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.22 PM.jpeg',
+        label: 'Black Tuxedo',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+    ],
+    galleryImages: [
+      // Official (Wedding)
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg',
+        label: 'Groomsmen Party',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM (1).jpeg',
+        label: 'Aisle Entrance',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'landscape',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM (1).jpeg',
+        label: 'Tan Suit',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.47.54 PM.jpeg',
+        label: 'Wedding Couple',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM.jpeg',
+        label: 'Wedding Party',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'landscape',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.52 PM (1).jpeg',
+        label: 'Groomsmen Lineup',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.52 PM.jpeg',
+        label: 'Garden Wedding',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'landscape',
+      },
+      {
+        src: '/images/DSC04995.jpg',
+        label: 'Groom 3-Piece',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC05022.jpg',
+        label: 'Reception Walk',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.51.08 PM.jpeg',
+        label: 'Toast Moment',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'portrait',
+      },
+
+      // Tuxedo
+      {
+        src: '/images/tuxedo.jpeg',
+        label: 'Ivory Tuxedo',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg',
+        label: 'Double Breasted',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.47.59 PM.jpeg',
+        label: 'Ivory Jacket',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg',
+        label: 'Burgundy Velvet',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.22 PM.jpeg',
+        label: 'Black Tuxedo',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg',
+        label: 'Navy Tuxedo',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg',
+        label: 'Cream Dinner',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM.jpeg',
+        label: 'Evening Vest',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+      {
+        src: '/images/MOK_2101.jpg',
+        label: 'Classic Tuxedo',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/MOK_2154.jpg',
+        label: 'Green Velvet',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/MOK_2219.jpg',
+        label: 'Velvet Smoking',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/MOK_2204.jpg',
+        label: 'Houndstooth Set',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+
+      // Kaunda (Wedding)
+      {
+        src: '/images/kaunda suit.jpeg',
+        label: 'Cream Kaunda',
+        tag: 'Kaunda',
+        subCategory: 'kaunda',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.24 PM.jpeg',
+        label: 'Wedding Entourage',
+        tag: 'Kaunda',
+        subCategory: 'kaunda',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.00 PM.jpeg',
+        label: 'Traditional Groom',
+        tag: 'Kaunda',
+        subCategory: 'kaunda',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.28 PM.jpeg',
+        label: 'Wedding Couple',
+        tag: 'Kaunda',
+        subCategory: 'kaunda',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg',
+        label: 'White Senator',
+        tag: 'Kaunda',
+        subCategory: 'kaunda',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.46 PM.jpeg',
+        label: 'Couple Portrait',
+        tag: 'Kaunda',
+        subCategory: 'kaunda',
+        aspect: 'portrait',
+      },
+    ],
+  },
+
+  // ==========================================
+  // 3. AFRICAN WEAR
+  // ==========================================
+  'african-wear': {
+    id: 'african-wear',
+    slug: 'african-wear',
+    title: 'African Wear',
+    shortTitle: 'African Wear',
+    badge: 'African Wear',
+    heroImage: '/images/kaunda suit.jpeg',
+    tagline: 'Traditional & Modern',
+    heroPills: [
+      'Custom Kaftans',
+      'Grand Agbada',
+      'African Tuxedos',
+      'Safari Suits',
+    ],
+    craftSpecs: [
+      { label: 'Heritage', value: 'African' },
+      { label: 'Occasions', value: 'Ruracio & Dowry' },
+      { label: 'Details', value: 'Ankara Trims' },
+    ],
+    subCategories: [
+      {
+        id: 'kaftan',
+        slug: 'kaftan',
+        title: 'Kaftan',
+        description: 'Simple & Elegant',
+        heroImage: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg',
+        count: 5,
+      },
+      {
+        id: 'agbada',
+        slug: 'agbada',
+        title: 'Agbada',
+        description: 'Grand Traditional',
+        heroImage: '/images/more/WhatsApp Image 2026-10-19 at 3.55.00 PM.jpeg',
+        count: 5,
+      },
+      {
+        id: 'tuxedo',
+        slug: 'tuxedo',
+        title: 'Tuxedo',
+        description: 'African Print',
+        heroImage: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg',
+        count: 5,
+      },
+      {
+        id: 'safari-kaunda-suit',
+        slug: 'safari-kaunda-suit',
+        title: 'Safari / Kaunda Suit',
+        description: 'Senator Suits',
+        heroImage: '/images/kaunda suit.jpeg',
+        count: 6,
+      },
+    ],
+    highlights: [
+      {
+        src: '/images/kaunda suit.jpeg',
+        label: 'Cream Kaunda',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg',
+        label: 'Jacquard Coat',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'landscape',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.00 PM.jpeg',
+        label: 'Gold Agbada',
+        tag: 'Agbada',
+        subCategory: 'agbada',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg',
+        label: 'White Kaftan',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg',
+        label: 'Ruracio Dance',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
+        aspect: 'landscape',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM.jpeg',
+        label: 'Ankara Senator',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
+        aspect: 'portrait',
+      },
+    ],
+    galleryImages: [
+      // Kaftan
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg',
+        label: 'White Kaftan',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (2).jpeg',
+        label: 'Pattern Kaftan',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.54.58 PM.jpeg',
+        label: 'Kaftan Group',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.56 PM.jpeg',
+        label: 'Dowry Kaftan',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.56.04 PM.jpeg',
+        label: 'Cream Kaftan',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
+
+      // Agbada
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.00 PM.jpeg',
+        label: 'Gold Agbada',
+        tag: 'Agbada',
+        subCategory: 'agbada',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.06 PM.jpeg',
+        label: 'Celebration Agbada',
+        tag: 'Agbada',
+        subCategory: 'agbada',
+        aspect: 'portrait',
       },
       {
         src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.34 PM.jpeg',
-        label: 'Traditional Entourage Outdoor Ceremony',
-        tag: 'Kenyan Bespoke Heritage',
+        label: 'Grand Agbada',
+        tag: 'Agbada',
+        subCategory: 'agbada',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.58 PM.jpeg',
+        label: 'Royal Agbada',
+        tag: 'Agbada',
+        subCategory: 'agbada',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.56.01 PM.jpeg',
+        label: 'Ceremony Agbada',
+        tag: 'Agbada',
+        subCategory: 'agbada',
+        aspect: 'portrait',
+      },
+
+      // Tuxedo (African / Jacquard)
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg',
+        label: 'Jacquard Coat',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
         aspect: 'landscape',
       },
       {
-        src: '/images/LKM_1600.jpg',
-        label: 'Senator Suit Handcrafted Embroidery',
-        tag: 'Artisanal Needlework',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.50.49 PM.jpeg',
+        label: 'Pattern Dinner',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
         aspect: 'portrait',
       },
       {
-        src: '/images/LKM_1607.jpg',
-        label: 'Traditional Pocket & Placket Detailing',
-        tag: 'Heritage & Modernity',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.55 PM.jpeg',
+        label: 'Ankara Jacket',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg',
+        label: 'Velvet Dinner',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg',
+        label: 'Paisley Dinner',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'square',
+      },
+
+      // Safari / Kaunda Suit
+      {
+        src: '/images/kaunda suit.jpeg',
+        label: 'Cream Kaunda',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
         aspect: 'portrait',
       },
       {
-        src: '/images/LKM_1745.jpg',
-        label: 'Contemporary African Occasion Garment',
-        tag: 'Bespoke Atelier Cut',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM.jpeg',
+        label: 'Ankara Kaunda',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
         aspect: 'portrait',
       },
       {
-        src: '/images/LKM_1755.jpg',
-        label: 'Kaftan & Agbada Sartorial Volume',
-        tag: 'African Sophistication',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg',
+        label: 'Traditional Vest',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
+        aspect: 'landscape',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.49 PM.jpeg',
+        label: 'Senator Suit',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
         aspect: 'portrait',
       },
       {
-        src: '/images/LKM_1793.jpg',
-        label: 'Nairobi Ceremony Attire in Texture',
-        tag: 'Natural Fiber Blend',
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.24 PM.jpeg',
+        label: 'Senator Group',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/more/WhatsApp Image 2026-10-19 at 3.55.38 PM.jpeg',
+        label: 'Dowry Suit',
+        tag: 'Safari / Kaunda suit',
+        subCategory: 'safari-kaunda-suit',
         aspect: 'portrait',
       },
     ],
   },
 };
 
-export const ALL_OCCASIONS_LIST = [
-  OCCASIONS_DATA['business-executive'],
-  OCCASIONS_DATA['wedding-groom'],
-  OCCASIONS_DATA['formal-eveningwear'],
-  OCCASIONS_DATA['signature-occasion'],
+// Aliases for backward compatibility
+export const OCCASION_SLUG_ALIASES: Record<string, string> = {
+  'business-executive': 'executive-wear',
+  'wedding-groom': 'black-tie-wedding',
+  'formal-eveningwear': 'black-tie-wedding',
+  'signature-occasion': 'african-wear',
+};
+
+export const ALL_OCCASIONS_LIST: OccasionCategoryData[] = [
+  OCCASIONS_DATA['executive-wear'],
+  OCCASIONS_DATA['black-tie-wedding'],
+  OCCASIONS_DATA['african-wear'],
 ];
+
+export function getOccasionBySlug(slug: string): OccasionCategoryData | undefined {
+  const direct = OCCASIONS_DATA[slug];
+  if (direct) return direct;
+  const targetSlug = OCCASION_SLUG_ALIASES[slug];
+  if (targetSlug) return OCCASIONS_DATA[targetSlug];
+  return undefined;
+}

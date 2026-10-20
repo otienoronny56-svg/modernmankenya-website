@@ -11,36 +11,33 @@ interface OccasionCard {
   image: string;
   href: string;
   badge: string;
+  sub: string;
 }
 
 const OCCASION_CARDS: OccasionCard[] = [
   {
-    id: 'business',
-    title: 'Business & Executive',
+    id: 'executive',
+    title: 'Executive Wear',
     image: '/images/MOK_7655.jpg',
-    href: '/occasions/business-executive',
-    badge: 'Boardroom',
+    href: '/occasions/executive-wear',
+    badge: 'Executive',
+    sub: 'Official Suit • Smart Casual',
   },
   {
     id: 'wedding',
-    title: 'Wedding & Groom',
-    image: '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg',
-    href: '/occasions/wedding-groom',
-    badge: 'Nuptials',
-  },
-  {
-    id: 'formal',
-    title: 'Formal & Black Tie',
+    title: 'Black Tie & Wedding',
     image: '/images/tuxedo.jpeg',
-    href: '/occasions/formal-eveningwear',
-    badge: 'Gala Evening',
+    href: '/occasions/black-tie-wedding',
+    badge: 'Weddings',
+    sub: 'Official • Tuxedo • Kaunda',
   },
   {
-    id: 'signature',
-    title: 'Signature & African Wear',
+    id: 'african',
+    title: 'African Wear',
     image: '/images/kaunda suit.jpeg',
-    href: '/occasions/signature-occasion',
-    badge: 'Kaunda Suits',
+    href: '/occasions/african-wear',
+    badge: 'African Wear',
+    sub: 'Kaftan • Agbada • Kaunda',
   },
 ];
 
@@ -53,7 +50,7 @@ export const OccasionsSection: React.FC = () => {
         <div className="mb-10 sm:mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
-              Tailored For Every Milestone
+              Tailored For You
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
               Suits for Every Occasion
@@ -63,13 +60,13 @@ export const OccasionsSection: React.FC = () => {
             href="/occasions"
             className="inline-flex items-center space-x-2 text-xs uppercase tracking-widest font-bold text-brand-navy hover:text-brand-gold transition-colors pb-1 border-b border-brand-gold/60"
           >
-            <span>Explore Lookbooks</span>
+            <span>Explore All</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* 4 Occasions Luxury Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {/* 3 Occasions Luxury Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {OCCASION_CARDS.map((item) => (
             <Link
               key={item.id}
@@ -77,10 +74,15 @@ export const OccasionsSection: React.FC = () => {
               className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
             >
               {/* 1. Title on Top of Image */}
-              <div className="px-5 py-4 bg-brand-canvas-alt border-b border-slate-200/80 flex items-center justify-between">
-                <h3 className="font-serif text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors">
-                  {item.title}
-                </h3>
+              <div className="px-5 py-3.5 bg-brand-canvas-alt border-b border-slate-200/80 flex items-center justify-between">
+                <div>
+                  <h3 className="font-serif text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors">
+                    {item.title}
+                  </h3>
+                  <span className="text-[11px] text-slate-500 font-medium block">
+                    {item.sub}
+                  </span>
+                </div>
               </div>
 
               {/* 2. Visual Photo */}

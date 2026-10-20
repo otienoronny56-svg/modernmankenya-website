@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
@@ -14,20 +14,30 @@ import {
   LayoutGrid, 
   Columns3, 
   Eye, 
-  Scissors
+  Scissors,
+  Filter
 } from 'lucide-react';
-import { OccasionPageData, ALL_OCCASIONS_LIST, OccasionHighlight } from '@/data/occasionsData';
+import { OccasionCategoryData, ALL_OCCASIONS_LIST, OccasionHighlight } from '@/data/occasionsData';
 
 interface OccasionPageClientProps {
-  data: OccasionPageData;
+  data: OccasionCategoryData;
 }
 
 export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) => {
+  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'editorial' | 'grid' | 'focus'>('editorial');
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
 
-  // Combine highlights and gallery for full interactive inspection
-  const allImages: OccasionHighlight[] = [...data.highlights, ...data.galleryImages];
+  // Combine highlights and gallery
+  const allImages: OccasionHighlight[] = useMemo(() => {
+    return [...data.highlights, ...data.galleryImages];
+  }, [data]);
+
+  // Filter by selected subcategory
+  const filteredImages = useMemo(() => {
+    if (selectedSubCategory === 'all') return allImages;
+    return allImages.filter(img => img.subCategory === selectedSubCategory);
+  }, [allImages, selectedSubCategory]);
 
   // Keyboard navigation for lightbox
   useEffect(() => {
@@ -35,15 +45,15 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
       if (activeImageIndex === null) return;
       if (e.key === 'Escape') setActiveImageIndex(null);
       if (e.key === 'ArrowRight') {
-        setActiveImageIndex((prev) => (prev !== null ? (prev + 1) % allImages.length : 0));
+        setActiveImageIndex((prev) => (prev !== null ? (prev + 1) % filteredImages.length : 0));
       }
       if (e.key === 'ArrowLeft') {
-        setActiveImageIndex((prev) => (prev !== null ? (prev - 1 + allImages.length) % allImages.length : 0));
+        setActiveImageIndex((prev) => (prev !== null ? (prev - 1 + filteredImages.length) % filteredImages.length : 0));
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeImageIndex, allImages.length]);
+  }, [activeImageIndex, filteredImages.length]);
 
   return (
     <div className="min-h-screen bg-[#fafafc] text-slate-900 selection:bg-brand-gold selection:text-brand-navy">
@@ -53,7 +63,7 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
         <div className="max-w-7xl mx-auto flex items-center justify-between overflow-x-auto no-scrollbar gap-2 sm:gap-4">
           <div className="flex items-center space-x-1 sm:space-x-2">
             <span className="text-[10px] uppercase tracking-[0.25em] text-brand-navy font-bold mr-2 hidden sm:inline-block">
-              Occasions:
+              Categories:
             </span>
             {ALL_OCCASIONS_LIST.map((occ) => {
               const isActive = occ.slug === data.slug;
@@ -159,14 +169,14 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
                 className="px-6 py-3 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-[0.15em] rounded transition-all duration-300 shadow-xl flex items-center space-x-2 hover:shadow-gold"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Book This Occasion</span>
+                <span>Book Fitting</span>
               </Link>
 
               <a
                 href="#curated-looks"
                 className="px-6 py-3 bg-white/15 hover:bg-white/25 text-white border border-white/30 text-xs font-bold uppercase tracking-[0.15em] rounded transition-all duration-300 flex items-center space-x-2 backdrop-blur-sm"
               >
-                <span>Explore Portfolios</span>
+                <span>Explore Looks</span>
                 <ArrowRight className="w-4 h-4 text-brand-gold" />
               </a>
             </div>
@@ -194,26 +204,68 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
         </div>
       </section>
 
-      {/* 4. CURATED HERO HIGHLIGHTS (WHITE CANVAS & CLEAN NAVY CARDS) */}
+      {/* 4. SUB-CATEGORIES SECTION - USER DEFINED FILTERS */}
       <section id="curated-looks" className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-8 sm:mb-12 border-b border-slate-200/90 pb-4">
-          <div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-brand-gold font-bold block mb-1">
-              Curated Lookbook
+        
+        {/* Header & Sub-Category Tab Filters */}
+        <div className="space-y-6 mb-10 pb-6 border-b border-slate-200/90">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.25em] text-brand-gold font-bold block mb-1">
+                Styles
+              </span>
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-brand-navy tracking-tight">
+                {data.title}
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-slate-500 font-medium">
+              {filteredImages.length} Looks
             </span>
-            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-brand-navy tracking-tight">
-              Signature Commissions
-            </h2>
           </div>
-          <span className="text-xs font-mono text-slate-500 font-medium">
-            {allImages.length} Editorial Frames
-          </span>
+
+          {/* Interactive Sub-Category Pill Selector */}
+          <div className="flex items-center space-x-2 overflow-x-auto pb-2 no-scrollbar">
+            <button
+              onClick={() => setSelectedSubCategory('all')}
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 whitespace-nowrap flex items-center space-x-1.5 ${
+                selectedSubCategory === 'all'
+                  ? 'bg-brand-navy text-white shadow-md'
+                  : 'bg-white text-slate-600 hover:text-brand-navy hover:bg-blue-50 border border-slate-200'
+              }`}
+            >
+              <span>All</span>
+              <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${selectedSubCategory === 'all' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                {allImages.length}
+              </span>
+            </button>
+
+            {data.subCategories.map((sub) => {
+              const isSelected = selectedSubCategory === sub.id;
+              const count = allImages.filter(img => img.subCategory === sub.id).length;
+              return (
+                <button
+                  key={sub.id}
+                  onClick={() => setSelectedSubCategory(sub.id)}
+                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 whitespace-nowrap flex items-center space-x-1.5 ${
+                    isSelected
+                      ? 'bg-brand-navy text-white shadow-md'
+                      : 'bg-white text-slate-600 hover:text-brand-navy hover:bg-blue-50 border border-slate-200'
+                  }`}
+                >
+                  <span>{sub.title}</span>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* VIEW MODE 1: EDITORIAL STAGGERED MASONRY */}
         {viewMode === 'editorial' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {allImages.map((img, idx) => {
+            {filteredImages.map((img, idx) => {
               const isLarge = idx % 5 === 0;
               return (
                 <div
@@ -267,7 +319,7 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
         {/* VIEW MODE 2: ATELIER GRID (COMPACT 3-4 COLUMNS) */}
         {viewMode === 'grid' && (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {allImages.map((img, idx) => (
+            {filteredImages.map((img, idx) => (
               <div
                 key={idx}
                 onClick={() => setActiveImageIndex(idx)}
@@ -301,7 +353,7 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
         {/* VIEW MODE 3: FULL FOCUS (LARGE SPREADS) */}
         {viewMode === 'focus' && (
           <div className="space-y-12 sm:space-y-16 max-w-5xl mx-auto">
-            {allImages.map((img, idx) => (
+            {filteredImages.map((img, idx) => (
               <div
                 key={idx}
                 onClick={() => setActiveImageIndex(idx)}
@@ -321,7 +373,7 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
                 <div className="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border-t border-slate-100">
                   <div>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-brand-gold font-bold block mb-1">
-                      {img.tag} • Frame 0{idx + 1}
+                      {img.tag} • Look 0{idx + 1}
                     </span>
                     <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy group-hover:text-brand-gold transition-colors">
                       {img.label}
@@ -350,15 +402,15 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
       <section className="bg-gradient-to-br from-brand-navy via-[#1B1464] to-[#0F0B3D] py-16 sm:py-24 border-t border-slate-200 text-center text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <span className="text-xs uppercase tracking-[0.3em] text-brand-gold font-bold block">
-            Private Atelier Consultation
+            Nairobi Atelier
           </span>
 
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
-            Tailored For {data.shortTitle}
+            Book Your Fitting
           </h2>
 
           <p className="font-serif text-blue-100/90 text-sm sm:text-base font-light">
-            One-on-one measurement and fabric curation at our Nairobi Atelier.
+            Custom made for your event and perfect fit.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -367,14 +419,14 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
               className="w-full sm:w-auto px-8 py-4 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-[0.2em] rounded transition-all duration-300 shadow-xl hover:shadow-gold flex items-center justify-center space-x-2"
             >
               <Calendar className="w-4 h-4" />
-              <span>Reserve Fitting Session</span>
+              <span>Book Fitting</span>
             </Link>
 
             <Link
               href="/occasions"
               className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold uppercase tracking-[0.2em] rounded transition-all duration-300 flex items-center justify-center space-x-2"
             >
-              <span>View All Occasions</span>
+              <span>All Occasions</span>
               <ArrowRight className="w-4 h-4 text-brand-gold" />
             </Link>
           </div>
@@ -391,10 +443,10 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
           <div className="w-full max-w-7xl flex items-center justify-between py-2 text-white z-20">
             <div className="flex items-center space-x-3">
               <span className="text-brand-gold text-xs font-mono font-bold">
-                {activeImageIndex + 1} / {allImages.length}
+                {activeImageIndex + 1} / {filteredImages.length}
               </span>
               <span className="text-blue-200 text-xs uppercase tracking-wider hidden sm:inline-block">
-                {allImages[activeImageIndex].tag}
+                {filteredImages[activeImageIndex].tag}
               </span>
             </div>
 
@@ -413,8 +465,8 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={allImages[activeImageIndex].src}
-              alt={allImages[activeImageIndex].label}
+              src={filteredImages[activeImageIndex].src}
+              alt={filteredImages[activeImageIndex].label}
               fill
               sizes="(max-width: 1024px) 100vw, 80vw"
               className="object-contain"
@@ -423,7 +475,7 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
 
             {/* Left Prev Arrow */}
             <button
-              onClick={() => setActiveImageIndex((prev) => (prev !== null ? (prev - 1 + allImages.length) % allImages.length : 0))}
+              onClick={() => setActiveImageIndex((prev) => (prev !== null ? (prev - 1 + filteredImages.length) % filteredImages.length : 0))}
               className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-brand-navy text-white flex items-center justify-center border border-white/20 transition-all shadow-xl"
               aria-label="Previous image"
             >
@@ -432,7 +484,7 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
 
             {/* Right Next Arrow */}
             <button
-              onClick={() => setActiveImageIndex((prev) => (prev !== null ? (prev + 1) % allImages.length : 0))}
+              onClick={() => setActiveImageIndex((prev) => (prev !== null ? (prev + 1) % filteredImages.length : 0))}
               className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-brand-navy text-white flex items-center justify-center border border-white/20 transition-all shadow-xl"
               aria-label="Next image"
             >
@@ -447,10 +499,10 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
           >
             <div className="text-left">
               <span className="text-[10px] text-brand-gold uppercase tracking-wider font-bold block">
-                {allImages[activeImageIndex].tag}
+                {filteredImages[activeImageIndex].tag}
               </span>
               <h4 className="font-serif text-sm sm:text-base font-bold text-white">
-                {allImages[activeImageIndex].label}
+                {filteredImages[activeImageIndex].label}
               </h4>
             </div>
 

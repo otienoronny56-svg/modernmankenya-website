@@ -124,23 +124,18 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/occasions/business-executive" className="hover:text-brand-gold transition-colors">
-                  Business & Executive
+                <Link href="/occasions/executive-wear" className="hover:text-brand-gold transition-colors">
+                  Executive Wear
                 </Link>
               </li>
               <li>
-                <Link href="/occasions/wedding-groom" className="hover:text-brand-gold transition-colors">
-                  Wedding & Groom
+                <Link href="/occasions/black-tie-wedding" className="hover:text-brand-gold transition-colors">
+                  Black Tie & Wedding
                 </Link>
               </li>
               <li>
-                <Link href="/occasions/formal-eveningwear" className="hover:text-brand-gold transition-colors">
-                  Formal & Black Tie
-                </Link>
-              </li>
-              <li>
-                <Link href="/occasions/signature-occasion" className="hover:text-brand-gold transition-colors">
-                  Signature & African Wear
+                <Link href="/occasions/african-wear" className="hover:text-brand-gold transition-colors">
+                  African Wear
                 </Link>
               </li>
             </ul>

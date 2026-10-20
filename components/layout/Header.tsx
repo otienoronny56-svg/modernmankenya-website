@@ -62,11 +62,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   ];
 
   const occasionLinks = [
-    { name: 'All Occasions Overview', href: '/occasions' },
-    { name: 'Business & Executive', href: '/occasions/business-executive' },
-    { name: 'Wedding & Groom', href: '/occasions/wedding-groom' },
-    { name: 'Formal & Black Tie', href: '/occasions/formal-eveningwear' },
-    { name: 'Signature Occasion', href: '/occasions/signature-occasion' },
+    { name: 'All Occasions', href: '/occasions' },
+    { name: 'Executive Wear', href: '/occasions/executive-wear' },
+    { name: 'Black Tie & Wedding', href: '/occasions/black-tie-wedding' },
+    { name: 'African Wear', href: '/occasions/african-wear' },
   ];
 
   return (
