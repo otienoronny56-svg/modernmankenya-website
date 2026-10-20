@@ -15,23 +15,20 @@ export const Footer: React.FC = () => {
           
           {/* 1. Brand & Contact Information (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            <Link href="/" className="inline-flex items-center space-x-3 group">
-              <div className="relative w-11 h-11 bg-white p-1 rounded-full border border-brand-gold/40 shadow-xs flex-shrink-0">
+            {/* Minimalist Brand Logo */}
+            <Link
+              href="/"
+              className="inline-block group focus:outline-hidden"
+              aria-label="Modern Man Kenya Home"
+            >
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo-emblem.png"
                   alt="Modern Man Kenya"
                   fill
-                  sizes="44px"
-                  className="object-contain p-0.5"
+                  sizes="(max-width: 640px) 48px, 56px"
+                  className="object-contain"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-lg tracking-wider text-stone-900 font-bold uppercase group-hover:text-brand-gold transition-colors">
-                  Modern Man Kenya
-                </span>
-                <span className="text-[10px] tracking-[0.25em] text-brand-gold uppercase font-semibold">
-                  opulence • simplicity • class
-                </span>
               </div>
             </Link>
 
