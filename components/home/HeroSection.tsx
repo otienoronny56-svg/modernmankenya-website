@@ -14,6 +14,10 @@ const HERO_IMAGES = [
     src: '/images/LKM_1607.jpg',
     alt: 'Handcrafted Sartorial Detail Modern Man Kenya',
   },
+  {
+    src: '/images/slide.jpeg',
+    alt: 'Sartorial French Cuff and Fine Tailoring Detail Modern Man Kenya',
+  },
 ];
 
 export const HeroSection: React.FC = () => {

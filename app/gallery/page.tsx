@@ -36,18 +36,23 @@ function GalleryContent() {
     { id: 'all', label: 'All Creations' },
     { id: 'suits', label: '2 & 3-Piece Suits' },
     { id: 'evening-dinner', label: 'Tuxedos' },
+    { id: 'kaunda-suits', label: 'Kaunda / Senator Suits' },
     { id: 'smart-casual', label: 'Smart Casual & Blazers' },
     { id: 'traditional', label: 'Traditional Wear' },
     { id: 'kaftan-agbada', label: 'Kaftans & Agbada' },
-    { id: 'senator-suits', label: 'Senator Suits' },
     { id: 'shirts', label: 'Shirts' },
     { id: 'accessories', label: 'Accessories' },
   ];
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      if (selectedCategory !== 'all' && product.category !== selectedCategory) {
-        return false;
+      if (selectedCategory !== 'all') {
+        if (selectedCategory === 'kaunda-suits' || selectedCategory === 'senator-suits') {
+          return product.category === 'kaunda-suits' || (product.category as string) === 'senator-suits';
+        }
+        if (product.category !== selectedCategory) {
+          return false;
+        }
       }
       return true;
     }).sort((a, b) => {

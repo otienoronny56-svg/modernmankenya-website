@@ -55,9 +55,16 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'tuxedos',
     title: 'Tuxedos',
-    image: '/images/MOK_2142.jpg',
+    image: '/images/tuxedo.jpeg',
     categoryParam: 'evening-dinner',
     badge: 'Formal Events',
+  },
+  {
+    id: 'kaunda-suits',
+    title: 'Kaunda Suits (Senator Suits)',
+    image: '/images/kaunda suit.jpeg',
+    categoryParam: 'kaunda-suits',
+    badge: 'African Sartorial Elegance',
   },
   {
     id: 'smart-casual',
@@ -79,13 +86,6 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
     image: '/images/LKM_1755.jpg',
     categoryParam: 'kaftan-agbada',
     badge: 'African Sophistication',
-  },
-  {
-    id: 'senator-suits',
-    title: 'Senator Suits',
-    image: '/images/LKM_1600.jpg',
-    categoryParam: 'senator-suits',
-    badge: 'African Sartorial Elegance',
   },
   {
     id: 'shirts',
@@ -121,7 +121,7 @@ export const TAILORING_OCCASIONS: OccasionCategory[] = [
     subtitle: 'Tuxedos & Gala Dinner Suits',
     description:
       'Tuxedos and dinner jackets with satin lapels and clean finishing. Perfect for black-tie galas, awards, and milestone celebrations.',
-    image: '/images/MOK_2101.jpg',
+    image: '/images/tuxedo.jpeg',
     focus: ['Satin lapels', 'Deep black & midnight blue', 'Classic dinner jacket cut', 'Confident posture'],
   },
   {

@@ -88,6 +88,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/gallery?category=kaunda-suits" className="hover:text-brand-gold transition-colors">
+                  Kaunda Suits (Senator Suits)
+                </Link>
+              </li>
+              <li>
                 <Link href="/gallery?category=smart-casual" className="hover:text-brand-gold transition-colors">
                   Smart Casual & Blazers
                 </Link>
@@ -103,11 +108,6 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=senator-suits" className="hover:text-brand-gold transition-colors">
-                  Senator Suits
-                </Link>
-              </li>
-              <li>
                 <Link href="/gallery?category=shirts" className="hover:text-brand-gold transition-colors">
                   Shirts
                 </Link>
@@ -118,26 +118,33 @@ export const Footer: React.FC = () => {
           {/* 3. Occasions (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
-              Occasions
+              <Link href="/occasions" className="hover:text-brand-gold transition-colors">
+                Occasions
+              </Link>
             </h4>
             <ul className="space-y-2 text-xs text-stone-600">
               <li>
-                <Link href="/book-appointment?occasion=business" className="hover:text-brand-gold transition-colors">
+                <Link href="/occasions" className="hover:text-brand-gold transition-colors text-brand-gold font-medium">
+                  All Occasions
+                </Link>
+              </li>
+              <li>
+                <Link href="/occasions/business-executive" className="hover:text-brand-gold transition-colors">
                   Business & Executive
                 </Link>
               </li>
               <li>
-                <Link href="/book-appointment?occasion=wedding" className="hover:text-brand-gold transition-colors">
+                <Link href="/occasions/wedding-groom" className="hover:text-brand-gold transition-colors">
                   Wedding & Groom
                 </Link>
               </li>
               <li>
-                <Link href="/book-appointment?occasion=formal" className="hover:text-brand-gold transition-colors">
-                  Formal & Eveningwear
+                <Link href="/occasions/formal-eveningwear" className="hover:text-brand-gold transition-colors">
+                  Formal & Black Tie
                 </Link>
               </li>
               <li>
-                <Link href="/book-appointment?occasion=signature" className="hover:text-brand-gold transition-colors">
+                <Link href="/occasions/signature-occasion" className="hover:text-brand-gold transition-colors">
                   Signature & African Wear
                 </Link>
               </li>

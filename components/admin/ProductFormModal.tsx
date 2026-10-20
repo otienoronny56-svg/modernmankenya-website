@@ -29,10 +29,10 @@ interface ProductFormModalProps {
 const CATEGORIES = [
   { id: 'suits', name: '2 & 3-Piece Suits' },
   { id: 'evening-dinner', name: 'Tuxedos' },
+  { id: 'kaunda-suits', name: 'Kaunda Suits (Senator Suits)' },
   { id: 'smart-casual', name: 'Smart Casual & Blazers' },
   { id: 'traditional', name: 'Traditional Wear' },
   { id: 'kaftan-agbada', name: 'Kaftans & Agbada' },
-  { id: 'senator-suits', name: 'Senator Suits' },
   { id: 'shirts', name: 'Shirts' },
   { id: 'accessories', name: 'Accessories' },
 ];

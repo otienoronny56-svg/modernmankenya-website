@@ -54,6 +54,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   const madeToMeasureLinks = [
     { name: 'Suits & Suiting', href: '/bespoke/bespoke-suits' },
     { name: 'Tuxedos & Eveningwear', href: '/bespoke/bespoke-evening-wear' },
+    { name: 'Kaunda & Safari Suits', href: '/bespoke/kaunda-suits' },
     { name: 'Weddings & Groom Ensembles', href: '/bespoke/weddings' },
     { name: 'Custom Shirts & Separates', href: '/bespoke/bespoke-shirts' },
     { name: 'Corporate & Executive', href: '/bespoke/corporate-wardrobes' },
@@ -63,12 +64,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   const galleryLinks = [
     { name: 'Full Portfolio Gallery', href: '/gallery' },
     { name: 'Executive Suiting', href: '/gallery?category=suits' },
+    { name: 'Tuxedos & Formal', href: '/gallery?category=evening-dinner' },
+    { name: 'Kaunda & African Suits', href: '/gallery?category=kaunda-suits' },
     { name: 'Tailored Blazers & Jackets', href: '/gallery?category=jackets' },
     { name: 'Velvet Dinner Jackets', href: '/gallery?category=velvets' },
     { name: 'Accessories & Details', href: '/gallery?category=accessories' },
   ];
 
   const occasionLinks = [
+    { name: 'All Occasions Overview', href: '/occasions' },
     { name: 'Business & Executive', href: '/occasions/business-executive' },
     { name: 'Wedding & Groom', href: '/occasions/wedding-groom' },
     { name: 'Formal & Black Tie', href: '/occasions/formal-eveningwear' },

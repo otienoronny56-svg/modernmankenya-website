@@ -26,6 +26,7 @@ export interface Product {
     | 'traditional'
     | 'kaftan-agbada'
     | 'senator-suits'
+    | 'kaunda-suits'
     | 'shirts'
     | 'smart-casual'
     | 'fragrances'
