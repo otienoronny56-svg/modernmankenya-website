@@ -58,18 +58,18 @@ export const ReadyToWearSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14">
           <div>
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
-              Our Work
+              Signature Collection
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
-              The Gallery
+              Ready to Wear
             </h2>
           </div>
 
           <Link
-            href="/gallery"
+            href="/ready-to-wear"
             className="mt-4 sm:mt-0 inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors group"
           >
-            <span>View Full Gallery</span>
+            <span>Explore All Pieces</span>
             <ArrowUpRight className="w-4 h-4 text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>

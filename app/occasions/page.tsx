@@ -214,10 +214,10 @@ export default function OccasionsHubPage() {
             </Link>
 
             <Link
-              href="/gallery"
+              href="/the-craft"
               className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs font-bold uppercase tracking-[0.2em] rounded transition-all duration-300 flex items-center justify-center space-x-2"
             >
-              <span>Explore Portfolio</span>
+              <span>Explore The Craft</span>
               <ArrowRight className="w-4 h-4 text-brand-gold" />
             </Link>
           </div>

@@ -61,16 +61,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
     { name: 'The Craftsmanship', href: '/the-craft' },
   ];
 
-  const galleryLinks = [
-    { name: 'Full Portfolio Gallery', href: '/gallery' },
-    { name: 'Executive Suiting', href: '/gallery?category=suits' },
-    { name: 'Tuxedos & Formal', href: '/gallery?category=evening-dinner' },
-    { name: 'Kaunda & African Suits', href: '/gallery?category=kaunda-suits' },
-    { name: 'Tailored Blazers & Jackets', href: '/gallery?category=jackets' },
-    { name: 'Velvet Dinner Jackets', href: '/gallery?category=velvets' },
-    { name: 'Accessories & Details', href: '/gallery?category=accessories' },
-  ];
-
   const occasionLinks = [
     { name: 'All Occasions Overview', href: '/occasions' },
     { name: 'Business & Executive', href: '/occasions/business-executive' },
@@ -159,48 +149,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </div>
 
-            {/* Gallery Dropdown */}
-            <div
-              className="relative py-2 group"
-              onMouseEnter={() => setActiveDropdown('gallery')}
-              onMouseLeave={() => setActiveDropdown(null)}
+            {/* The Craft Direct Link */}
+            <Link
+              href="/the-craft"
+              className="py-2 text-slate-700 hover:text-brand-navy hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm"
             >
-              <button 
-                className={`flex items-center space-x-1.5 transition-all duration-200 font-medium ${
-                  activeDropdown === 'gallery' ? 'text-brand-navy font-semibold' : 'hover:text-brand-gold'
-                }`}
-              >
-                <span>Gallery</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-brand-gold transition-transform duration-300 ${
-                  activeDropdown === 'gallery' ? 'rotate-180 text-brand-navy' : ''
-                }`} />
-              </button>
-
-              {activeDropdown === 'gallery' && (
-                <div className="absolute top-full left-0 w-60 pt-2 z-50">
-                  <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-slate-200/80 p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2">
-                    <div className="px-3 py-1.5 mb-1 border-b border-slate-100 flex items-center justify-between">
-                      <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-gold">Curated Archive</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-                    </div>
-                    {galleryLinks.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs text-slate-700 hover:text-brand-navy hover:bg-slate-100/80 transition-all duration-150 font-medium"
-                      >
-                        <span className="group-hover/item:translate-x-1 transition-transform duration-150">
-                          {item.name}
-                        </span>
-                        <span className="opacity-0 group-hover/item:opacity-100 text-brand-gold transition-opacity duration-150 text-[10px]">
-                          →
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+              The Craft
+            </Link>
 
             {/* Occasions Dropdown */}
             <div
@@ -340,30 +295,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </div>
 
-            {/* Accordion: Gallery */}
-            <div className="border-b border-slate-100 pb-2">
-              <button
-                onClick={() => setMobileSectionOpen(mobileSectionOpen === 'gallery' ? null : 'gallery')}
-                className="w-full flex items-center justify-between py-2 text-left font-semibold text-sm text-brand-navy"
-              >
-                <span>Gallery</span>
-                <ChevronDown className={`w-4 h-4 text-brand-gold transition-transform duration-200 ${mobileSectionOpen === 'gallery' ? 'rotate-180' : ''}`} />
-              </button>
-
-              {mobileSectionOpen === 'gallery' && (
-                <div className="pl-3 py-1 space-y-1.5 border-l-2 border-brand-gold/40">
-                  {galleryLinks.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="block py-1 text-xs text-slate-600 hover:text-brand-gold"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* The Craft Direct Link */}
+            <Link
+              href="/the-craft"
+              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100 hover:text-brand-gold"
+            >
+              The Craft
+            </Link>
 
             {/* Accordion: Occasions */}
             <div className="border-b border-slate-100 pb-2">

@@ -78,38 +78,33 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs text-stone-600">
               <li>
-                <Link href="/gallery?category=suits" className="hover:text-brand-gold transition-colors">
+                <Link href="/bespoke/bespoke-suits" className="hover:text-brand-gold transition-colors">
                   2 & 3-Piece Suits
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=evening-dinner" className="hover:text-brand-gold transition-colors">
-                  Tuxedos
+                <Link href="/bespoke/bespoke-evening-wear" className="hover:text-brand-gold transition-colors">
+                  Tuxedos & Eveningwear
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=kaunda-suits" className="hover:text-brand-gold transition-colors">
+                <Link href="/bespoke/kaunda-suits" className="hover:text-brand-gold transition-colors">
                   Kaunda Suits (Senator Suits)
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=smart-casual" className="hover:text-brand-gold transition-colors">
-                  Smart Casual & Blazers
+                <Link href="/bespoke/weddings" className="hover:text-brand-gold transition-colors">
+                  Weddings & Groom Ensembles
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=traditional" className="hover:text-brand-gold transition-colors">
-                  Traditional Wear
+                <Link href="/bespoke/bespoke-shirts" className="hover:text-brand-gold transition-colors">
+                  Custom Shirts & Separates
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=kaftan-agbada" className="hover:text-brand-gold transition-colors">
-                  Kaftans & Agbada
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery?category=shirts" className="hover:text-brand-gold transition-colors">
-                  Shirts
+                <Link href="/bespoke/corporate-wardrobes" className="hover:text-brand-gold transition-colors">
+                  Corporate & Executive
                 </Link>
               </li>
             </ul>

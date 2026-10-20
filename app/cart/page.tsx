@@ -102,10 +102,10 @@ export default function CartPage() {
             </p>
             <div className="pt-4 flex justify-center gap-4">
               <Link
-                href="/gallery"
+                href="/ready-to-wear"
                 className="px-6 py-3 bg-brand-navy hover:bg-brand-navy-light text-white text-xs font-bold uppercase tracking-luxury rounded transition-colors"
               >
-                Explore Gallery
+                Explore Collection
               </Link>
               <Link
                 href="/book-appointment"
