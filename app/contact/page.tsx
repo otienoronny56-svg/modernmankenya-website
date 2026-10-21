@@ -30,11 +30,11 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const phoneNumber = '+254 718 923082';
-  const whatsappUrl = `https://wa.me/254718923082?text=${encodeURIComponent(
+  const phoneNumber = '0114 122 510 / +254 114 122510';
+  const whatsappUrl = `https://wa.me/254114122510?text=${encodeURIComponent(
     'Hello Modern Man Kenya, I would like to inquire about made to measure tailoring, partnerships, or supplies.'
   )}`;
-  const officialEmail = 'modernmanke254@gmail.com';
+  const officialEmail = 'info@modernmanke.com';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     <p className="font-bold text-white uppercase tracking-wider text-[11px]">
                       Direct Telephone & WhatsApp
                     </p>
-                    <a href={`tel:+254718923082`} className="text-sm font-semibold text-brand-gold hover:underline block mt-0.5">
+                    <a href={`tel:+254114122510`} className="text-sm font-semibold text-brand-gold hover:underline block mt-0.5">
                       {phoneNumber}
                     </a>
                     <span className="text-[11px] text-slate-400">Calls & WhatsApp active 7 days a week</span>
@@ -191,7 +191,7 @@ export default function ContactPage() {
                     <p className="font-bold text-white uppercase tracking-wider text-[11px]">
                       Flagship Atelier Location
                     </p>
-                    <p className="text-slate-300 mt-0.5">Nairobi, Kenya</p>
+                    <p className="text-slate-300 mt-0.5">Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi</p>
                     <a 
                       href="https://maps.app.goo.gl/FV4B4XcDXLx5DWGj8"
                       target="_blank" 
@@ -327,7 +327,7 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       required
-                      placeholder="+254 718 923082"
+                      placeholder="0114 122 510"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full px-4 py-2.5 rounded border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brand-navy"

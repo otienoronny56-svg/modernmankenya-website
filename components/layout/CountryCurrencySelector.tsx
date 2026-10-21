@@ -14,13 +14,13 @@ export interface CountryOption {
 }
 
 export const COUNTRIES: CountryOption[] = [
-  { code: 'AU', name: 'Australia', flagUrl: 'https://flagcdn.com/w40/au.png', currency: 'KES', currencyLabel: 'KES KSh' },
-  { code: 'CA', name: 'Canada', flagUrl: 'https://flagcdn.com/w40/ca.png', currency: 'USD', currencyLabel: 'KES KSh' },
   { code: 'KE', name: 'Kenya', flagUrl: 'https://flagcdn.com/w40/ke.png', currency: 'KES', currencyLabel: 'KES KSh' },
-  { code: 'QA', name: 'Qatar', flagUrl: 'https://flagcdn.com/w40/qa.png', currency: 'USD', currencyLabel: 'KES KSh' },
-  { code: 'AE', name: 'United Arab Emirates', flagUrl: 'https://flagcdn.com/w40/ae.png', currency: 'USD', currencyLabel: 'KES KSh' },
-  { code: 'GB', name: 'United Kingdom', flagUrl: 'https://flagcdn.com/w40/gb.png', currency: 'GBP', currencyLabel: 'KES KSh' },
-  { code: 'US', name: 'United States', flagUrl: 'https://flagcdn.com/w40/us.png', currency: 'USD', currencyLabel: 'KES KSh' },
+  { code: 'US', name: 'United States', flagUrl: 'https://flagcdn.com/w40/us.png', currency: 'USD', currencyLabel: 'USD $' },
+  { code: 'GB', name: 'United Kingdom', flagUrl: 'https://flagcdn.com/w40/gb.png', currency: 'GBP', currencyLabel: 'GBP £' },
+  { code: 'CA', name: 'Canada', flagUrl: 'https://flagcdn.com/w40/ca.png', currency: 'USD', currencyLabel: 'USD $' },
+  { code: 'AE', name: 'United Arab Emirates', flagUrl: 'https://flagcdn.com/w40/ae.png', currency: 'USD', currencyLabel: 'USD $' },
+  { code: 'QA', name: 'Qatar', flagUrl: 'https://flagcdn.com/w40/qa.png', currency: 'USD', currencyLabel: 'USD $' },
+  { code: 'AU', name: 'Australia', flagUrl: 'https://flagcdn.com/w40/au.png', currency: 'USD', currencyLabel: 'USD $' },
 ];
 
 interface CountryCurrencySelectorProps {
@@ -33,11 +33,11 @@ export const CountryCurrencySelector: React.FC<CountryCurrencySelectorProps> = (
   theme = 'dark',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState<CountryOption>(COUNTRIES[2]); // Kenya default
   const { setCurrency, currency } = useCartStore();
+  const [selectedCountry, setSelectedCountry] = useState<CountryOption>(COUNTRIES[0]); // Kenya default
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Sync initial currency
+  // Sync initial and external currency changes
   useEffect(() => {
     const match = COUNTRIES.find((c) => c.currency === currency);
     if (match && selectedCountry.currency !== currency) {

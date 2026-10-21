@@ -15,55 +15,49 @@ export const Footer: React.FC = () => {
           
           {/* 1. Brand & Contact Information (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            {/* Minimalist Brand Logo */}
+            {/* Minimalist Brand Full Logo */}
             <Link
               href="/"
               className="inline-block group focus:outline-hidden"
               aria-label="Modern Man Kenya Home"
             >
-              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-36 h-28 sm:w-44 sm:h-32 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/images/logo-emblem.png"
-                  alt="Modern Man Kenya"
+                  src="/images/logo-full.png"
+                  alt="Modern Man Kenya - Opulence • Simplicity • Class"
                   fill
-                  sizes="(max-width: 640px) 48px, 56px"
+                  sizes="(max-width: 640px) 144px, 176px"
                   className="object-contain"
                 />
               </div>
             </Link>
 
             <div className="space-y-2 text-xs text-stone-600 pt-1">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0" />
+              <div className="flex items-start space-x-2">
+                <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
                 <a
                   href="https://maps.app.goo.gl/FV4B4XcDXLx5DWGj8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-brand-gold transition-colors inline-flex items-center space-x-1"
                 >
-                  <span>The Flagship Atelier, Nairobi, Kenya</span>
-                  <ExternalLink className="w-3 h-3 text-brand-gold opacity-80" />
+                  <span>Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi</span>
+                  <ExternalLink className="w-3 h-3 text-brand-gold opacity-80 flex-shrink-0" />
                 </a>
               </div>
 
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <a href="tel:+254718923082" className="hover:text-stone-900 transition-colors">
-                  +254 718 923082
+                <a href="tel:+254114122510" className="hover:text-stone-900 transition-colors">
+                  0114 122 510 / +254 114 122510
                 </a>
               </div>
 
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
-                  <a href="mailto:modernmankenya254@gmail.com" className="hover:text-stone-900 transition-colors">
-                    modernmankenya254@gmail.com
-                  </a>
-                  <span className="hidden sm:inline text-stone-300">•</span>
-                  <a href="mailto:info@modernmankenya.com" className="hover:text-stone-900 transition-colors">
-                    info@modernmankenya.com
-                  </a>
-                </div>
+                <a href="mailto:info@modernmanke.com" className="hover:text-stone-900 transition-colors">
+                  info@modernmanke.com
+                </a>
               </div>
             </div>
           </div>

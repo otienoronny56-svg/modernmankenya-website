@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import type { Product } from '@/types';
 import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 
 interface GarmentZoomModalProps {
   isOpen: boolean;
@@ -35,7 +36,7 @@ export function GarmentZoomModal({
   const [addedToast, setAddedToast] = useState(false);
 
   const imageContainerRef = useRef<HTMLDivElement>(null);
-  const { addItem } = useCartStore();
+  const { addItem, currency } = useCartStore();
 
   useEffect(() => {
     setActiveIndex(initialIndex);
@@ -216,11 +217,13 @@ export function GarmentZoomModal({
               </p>
               <div className="flex items-baseline space-x-3 mt-1">
                 <span className="font-serif font-bold text-2xl text-white">
-                  KES {product.priceKes.toLocaleString()}
+                  {formatCurrencyPrice(product.priceKes, currency, product.priceUsd)}
                 </span>
-                <span className="text-xs text-slate-400 font-semibold">
-                  (${product.priceUsd.toLocaleString()})
-                </span>
+                {currency !== 'KES' && (
+                  <span className="text-xs text-slate-400 font-semibold">
+                    (KES {product.priceKes.toLocaleString()})
+                  </span>
+                )}
               </div>
             </div>
 

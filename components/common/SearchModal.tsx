@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, X, ArrowRight, Sparkles } from 'lucide-react';
 import { READY_TO_WEAR_PRODUCTS, BESPOKE_CATEGORIES } from '@/data/mockData';
+import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -13,6 +15,7 @@ interface SearchModalProps {
 
 export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState('');
+  const { currency } = useCartStore();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -132,7 +135,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                               </p>
                               <p className="text-xs text-brand-slate-muted line-clamp-1">{product.fabricDetails}</p>
                               <p className="text-xs font-bold text-brand-navy mt-0.5">
-                                {new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(product.priceKes)}
+                                {formatCurrencyPrice(product.priceKes, currency, product.priceUsd)}
                               </p>
                             </div>
                             <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-brand-gold transition-colors" />
@@ -163,7 +166,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                               <p className="text-xs text-brand-slate-muted">{item.subtitle}</p>
                             </div>
                             <span className="text-xs text-brand-gold font-semibold flex items-center space-x-1">
-                              <span>From KES {item.startingPriceKes.toLocaleString()}</span>
+                              <span>From {formatCurrencyPrice(item.startingPriceKes, currency)}</span>
                               <ArrowRight className="w-3.5 h-3.5" />
                             </span>
                           </Link>

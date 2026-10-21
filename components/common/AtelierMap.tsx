@@ -91,7 +91,7 @@ export function AtelierMap({
               <p className="font-bold text-brand-navy uppercase tracking-wider text-[10px]">
                 Atelier Address
               </p>
-              <p className="text-slate-600 font-medium">Nairobi, Kenya</p>
+              <p className="text-slate-600 font-medium">Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi</p>
               <p className="text-[11px] text-slate-400">Valet & Executive Parking Available</p>
             </div>
           </div>
@@ -113,8 +113,8 @@ export function AtelierMap({
               <p className="font-bold text-brand-navy uppercase tracking-wider text-[10px]">
                 Concierge Assistance
               </p>
-              <a href="tel:+254718923082" className="text-slate-600 hover:text-brand-navy font-medium block">
-                +254 718 923082
+              <a href="tel:+254114122510" className="text-slate-600 hover:text-brand-navy font-medium block">
+                0114 122 510 / +254 114 122510
               </a>
               <a 
                 href={googleMapsUrl}

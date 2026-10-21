@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { X, Plus, Minus, Trash2, ShoppingBag, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 
 export const CartDrawer: React.FC = () => {
   const { 
@@ -20,11 +21,7 @@ export const CartDrawer: React.FC = () => {
   if (!isOpen) return null;
 
   const subtotalKes = getSubtotalKes();
-  const formattedSubtotal = new Intl.NumberFormat('en-KE', {
-    style: 'currency',
-    currency: 'KES',
-    maximumFractionDigits: 0,
-  }).format(subtotalKes);
+  const formattedSubtotal = formatCurrencyPrice(subtotalKes, currency);
 
   // White glove delivery threshold (KES 50,000)
   const freeShippingThreshold = 50000;
@@ -129,11 +126,7 @@ export const CartDrawer: React.FC = () => {
                         Size: <span className="font-semibold text-brand-slate">{item.size}</span>
                       </p>
                       <p className="font-semibold text-xs sm:text-sm text-brand-navy mt-1">
-                        {new Intl.NumberFormat('en-KE', {
-                          style: 'currency',
-                          currency: 'KES',
-                          maximumFractionDigits: 0,
-                        }).format(item.priceKes)}
+                        {formatCurrencyPrice(item.priceKes, currency, item.priceUsd)}
                       </p>
                     </div>
 

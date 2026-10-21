@@ -93,9 +93,9 @@ This project is optimized for deployment on [Vercel](https://vercel.com/):
 
 ## 🏛 Atelier Concierge & Contact
 
-- **Flagship Atelier**: Nairobi, Kenya
-- **Direct Telephone & WhatsApp**: +254 718 923082
-- **Official Email**: modernmanke254@gmail.com
+- **Flagship Atelier**: Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi
+- **Direct Telephone & WhatsApp**: 0114 122 510 / +254 114 122510
+- **Official Email**: info@modernmanke.com
 - **Hours**: Tuesday – Saturday: 09:30 – 18:30 (By Private Appointment Only)
 
 © 2026 Modern Man Kenya 254. All rights reserved.

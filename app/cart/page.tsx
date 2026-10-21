@@ -16,6 +16,7 @@ import {
   Sparkles 
 } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, clearCart, getSubtotalKes, currency } = useCartStore();
@@ -157,7 +158,7 @@ export default function CartPage() {
                             Size: <span className="font-semibold text-brand-navy">{item.size}</span>
                           </p>
                           <p className="text-xs font-bold text-brand-navy font-serif mt-1">
-                            {new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(item.priceKes)}
+                            {formatCurrencyPrice(item.priceKes, currency, item.priceUsd)}
                           </p>
                         </div>
                       </div>
@@ -181,7 +182,7 @@ export default function CartPage() {
                         </div>
 
                         <span className="font-serif text-sm font-bold text-brand-navy w-28 text-right">
-                          {new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(item.priceKes * item.quantity)}
+                          {formatCurrencyPrice(item.priceKes * item.quantity, currency, item.priceUsd * item.quantity)}
                         </span>
 
                         <button
@@ -219,7 +220,7 @@ export default function CartPage() {
                     className="rounded border-slate-300 text-brand-navy focus:ring-brand-gold"
                   />
                   <label htmlFor="giftWrap" className="text-xs font-semibold text-brand-navy cursor-pointer">
-                    Add Gold-Embossed Presentation Box & Wax-Sealed Handwritten Card (+ KES 3,500)
+                    Add Gold-Embossed Presentation Box & Wax-Sealed Handwritten Card (+ {formatCurrencyPrice(3500, currency)})
                   </label>
                 </div>
 
@@ -247,21 +248,21 @@ export default function CartPage() {
                   <div className="flex justify-between">
                     <span>Wardrobe Subtotal</span>
                     <span className="font-semibold text-brand-navy">
-                      {new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(subtotalKes)}
+                      {formatCurrencyPrice(subtotalKes, currency)}
                     </span>
                   </div>
 
                   <div className="flex justify-between">
                     <span>White-Glove Nairobi Delivery</span>
                     <span className="font-semibold text-brand-navy">
-                      {shippingCost === 0 ? 'Complimentary' : 'KES 2,500'}
+                      {shippingCost === 0 ? 'Complimentary' : formatCurrencyPrice(2500, currency)}
                     </span>
                   </div>
 
                   {giftWrap && (
                     <div className="flex justify-between">
                       <span>Gold Presentation Box</span>
-                      <span className="font-semibold text-brand-navy">KES 3,500</span>
+                      <span className="font-semibold text-brand-navy">{formatCurrencyPrice(3500, currency)}</span>
                     </div>
                   )}
 
@@ -273,7 +274,7 @@ export default function CartPage() {
                   <div className="pt-4 border-t border-slate-200 flex justify-between items-end">
                     <span className="font-bold text-sm text-brand-navy">Total Investment</span>
                     <span className="font-serif text-2xl font-bold text-brand-navy">
-                      {new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(totalKes)}
+                      {formatCurrencyPrice(totalKes, currency)}
                     </span>
                   </div>
                 </div>

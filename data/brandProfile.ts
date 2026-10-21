@@ -37,9 +37,9 @@ export const BRAND_INFO = {
     'To establish Modern Man Kenya as a leading African custom tailoring house recognised for exceptional fit, contemporary menswear design, craftsmanship and a distinctive approach to personal style.',
   mission:
     'To create exceptional tailored clothing that enables every client to look refined, feel confident and express his individuality—through personalised service, considered design and uncompromising attention to detail.',
-  phone: '+254 718 923082',
-  email: 'modernmanke254@gmail.com',
-  location: 'Nairobi, Kenya',
+  phone: '+254 114 122510',
+  email: 'info@modernmanke.com',
+  location: 'Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi',
 };
 
 export const BRAND_PROFILE = BRAND_INFO;

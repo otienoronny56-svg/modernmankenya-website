@@ -80,18 +80,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo - Minimalist & Spacious */}
+          {/* Brand Logo - Full Luxury Emblem & Wordmark */}
           <Link
             href="/"
-            className="flex items-center group flex-shrink-0 transition-transform duration-200 hover:opacity-95"
+            className="flex items-center group flex-shrink-0 transition-transform duration-200 hover:opacity-95 py-1"
             aria-label="Modern Man Kenya Home"
           >
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative h-12 w-16 sm:h-14 sm:w-20 md:h-16 md:w-24 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Image
-                src="/images/logo-emblem.png"
-                alt="Modern Man Kenya"
+                src="/images/logo-full.png"
+                alt="Modern Man Kenya - Opulence • Simplicity • Class"
                 fill
-                sizes="(max-width: 640px) 36px, 44px"
+                sizes="(max-width: 640px) 64px, 96px"
                 className="object-contain"
                 priority
               />

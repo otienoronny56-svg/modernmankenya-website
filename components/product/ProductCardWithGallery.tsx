@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import type { Product } from '@/types';
 import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 import { GarmentZoomModal } from './GarmentZoomModal';
 
 interface ProductCardWithGalleryProps {
@@ -35,9 +36,7 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
 
   // Multi-currency calculation
   const formattedPrice = () => {
-    if (currency === 'USD') return `$${product.priceUsd.toLocaleString()}`;
-    if (currency === 'GBP') return `£${Math.round(product.priceUsd * 0.79).toLocaleString()}`;
-    return `KES ${product.priceKes.toLocaleString()}`;
+    return formatCurrencyPrice(product.priceKes, currency, product.priceUsd);
   };
 
   // When hovering without having clicked arrows, show second angle
