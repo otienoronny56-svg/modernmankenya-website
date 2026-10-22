@@ -174,3 +174,13 @@
 | **Modern Man Logo FINAL** | `/images/Modern Man Logo FINAL.jpg` | square | /gallery |
 | **Sartorial Silhouette Model Spread** | `/images/_MG_3310.jpg` | portrait | /gallery, /lookbook |
 
+### Sartorial Shirting & Cutaway Collars (5 items)
+
+| Title (2-5 words) | Path | Aspect | Suggested Pages |
+| :--- | :--- | :--- | :--- |
+| **Modern Man Navy Bengal Stripe Shirt** | `/images/shirts/modernman-shirt-navy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Modern Man Sky Blue Pinpoint Shirt** | `/images/shirts/modernman-shirt-sky-blue-pinpoint.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Modern Man Lavender Pinpoint Shirt** | `/images/shirts/modernman-shirt-lavender-pinpoint.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Modern Man Burgundy Bengal Stripe Shirt** | `/images/shirts/modernman-shirt-burgundy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Modern Man Black Bengal Stripe Shirt** | `/images/shirts/modernman-shirt-black-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+
