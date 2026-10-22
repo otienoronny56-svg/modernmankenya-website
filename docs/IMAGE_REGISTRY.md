@@ -178,9 +178,59 @@
 
 | Title (2-5 words) | Path | Aspect | Suggested Pages |
 | :--- | :--- | :--- | :--- |
-| **Modern Man Navy Bengal Stripe Shirt** | `/images/shirts/modernman-shirt-navy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
-| **Modern Man Sky Blue Pinpoint Shirt** | `/images/shirts/modernman-shirt-sky-blue-pinpoint.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
-| **Modern Man Lavender Pinpoint Shirt** | `/images/shirts/modernman-shirt-lavender-pinpoint.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
-| **Modern Man Burgundy Bengal Stripe Shirt** | `/images/shirts/modernman-shirt-burgundy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
-| **Modern Man Black Bengal Stripe Shirt** | `/images/shirts/modernman-shirt-black-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Navy Bengal Stripe** | `/images/shirts/modernman-shirt-navy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Sky Blue Pinpoint** | `/images/shirts/modernman-shirt-sky-blue-pinpoint.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Lavender Pinpoint** | `/images/shirts/modernman-shirt-lavender-pinpoint.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Burgundy Bengal** | `/images/shirts/modernman-shirt-burgundy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+| **Black Bengal Stripe** | `/images/shirts/modernman-shirt-black-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery, /bespoke/bespoke-shirts |
+
+### Modern Kids & Junior Formalwear (10 items)
+
+| Title (1-2 words) | Path | Aspect | Suggested Pages |
+| :--- | :--- | :--- | :--- |
+| **White Tuxedo** | `/images/modern-kids-white-tuxedo.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **African Lavender** | `/images/modern-kids-african-lavender.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Young Statesman** | `/images/modern-kids-portrait-1.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **Modern Kid** | `/images/modern-kids-portrait-2.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **Page Boy** | `/images/modern-kids-portrait-3.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **Junior Classic** | `/images/modern-kids-portrait-4.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **Ceremony Tuxedo** | `/images/modern-kids-portrait-5.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **Atelier Youth** | `/images/modern-kids-portrait-6.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **Bespoke Page Boy** | `/images/modern-kids-portrait-7.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **Youth Elegance** | `/images/modern-kids-portrait-8.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+
+### Kaftans & Agbada Ensembles (14 items)
+
+| Title (1-2 words) | Path | Aspect | Suggested Pages |
+| :--- | :--- | :--- | :--- |
+| **Forest Kaftan** | `/images/kaftan-groomsmen-entourage-green.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Ceremonial Agbada** | `/images/kaftan-groomsmen-group-2.jpeg` | landscape | /gallery, /occasions/signature-occasion |
+| **Emerald Entourage** | `/images/kaftan-groomsmen-group-3.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Golden Embroidery** | `/images/kaftan-groomsmen-group-4.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Ivory Agbada** | `/images/WhatsApp Image 2026-10-21 at 10.47.43 AM.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Royal Purple** | `/images/WhatsApp Image 2026-10-21 at 10.47.44 AM (1).jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Bespoke Senator** | `/images/WhatsApp Image 2026-10-21 at 10.47.44 AM.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Onyx Kaftan** | `/images/WhatsApp Image 2026-10-21 at 10.47.46 AM.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Sage Tunic** | `/images/WhatsApp Image 2026-10-21 at 10.47.47 AM (1).jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Crimson Agbada** | `/images/WhatsApp Image 2026-10-21 at 10.47.47 AM (2).jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Azure Kaftan** | `/images/WhatsApp Image 2026-10-21 at 10.47.47 AM.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Champagne Kaftan** | `/images/WhatsApp Image 2026-10-21 at 10.47.48 AM.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Gold Filigree** | `/images/WhatsApp Image 2026-10-21 at 10.47.49 AM (1).jpeg` | portrait | /gallery, /occasions/signature-occasion |
+| **Monarch Agbada** | `/images/WhatsApp Image 2026-10-21 at 10.47.49 AM.jpeg` | portrait | /gallery, /occasions/signature-occasion |
+
+### Curated House Accessories (11 items)
+
+| Title (1-2 words) | Path | Aspect | Suggested Pages |
+| :--- | :--- | :--- | :--- |
+| **Official Shirt** | `/images/shirts/modernman-shirt-navy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery |
+| **Wing Tip** | `/images/tuxedo-black-tie-classic.jpeg` | portrait | /ready-to-wear, /gallery |
+| **Silk Tie** | `https://images.unsplash.com/photo-1589756823695-278bc923f962?auto=format&fit=crop&w=1200&q=85` | portrait | /ready-to-wear, /gallery |
+| **Velvet Bowtie** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg` | square | /ready-to-wear, /gallery |
+| **Onyx Cufflinks** | `/images/slide.jpeg` | landscape | /ready-to-wear, /gallery |
+| **Lapel Pin** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (2).jpeg` | square | /ready-to-wear, /gallery |
+| **Silk Cravat** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg` | portrait | /ready-to-wear, /gallery |
+| **Leather Suspenders** | `/images/bespoke-trousers-gurkha-side-adjusters.jpeg` | portrait | /ready-to-wear, /gallery |
+| **Dress Watch** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg` | square | /ready-to-wear, /gallery |
+| **Tie Bar** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg` | square | /ready-to-wear, /gallery |
+| **Master Fedora** | `/images/LKM_1607.jpg` | landscape | /ready-to-wear, /gallery |
 
