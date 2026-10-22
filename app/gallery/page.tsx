@@ -12,7 +12,7 @@ function GalleryContent() {
   const initialCategory = searchParams.get('category') || 'all';
 
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
-  const [accessorySubFilter, setAccessorySubFilter] = useState<'all' | 'shirts' | 'neckwear' | 'hardware' | 'leather-timepieces' | 'hats'>('all');
+  const [accessorySubFilter, setAccessorySubFilter] = useState<'all' | 'neckwear' | 'hardware' | 'leather-timepieces' | 'hats'>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Sync state if URL query param changes
@@ -42,20 +42,17 @@ function GalleryContent() {
 
       if (selectedCategory === 'accessories') {
         if (item.category !== 'accessories') return false;
-        if (accessorySubFilter === 'shirts') {
-          return item.id === 'acc-1' || item.id === 'acc-2';
-        }
         if (accessorySubFilter === 'neckwear') {
-          return item.id === 'acc-3' || item.id === 'acc-4' || item.id === 'acc-7';
+          return item.id === 'acc-1' || item.id === 'acc-2' || item.id === 'acc-5';
         }
         if (accessorySubFilter === 'hardware') {
-          return item.id === 'acc-5' || item.id === 'acc-6' || item.id === 'acc-10';
+          return item.id === 'acc-3' || item.id === 'acc-4' || item.id === 'acc-8';
         }
         if (accessorySubFilter === 'leather-timepieces') {
-          return item.id === 'acc-8' || item.id === 'acc-9';
+          return item.id === 'acc-6' || item.id === 'acc-7';
         }
         if (accessorySubFilter === 'hats') {
-          return item.id === 'acc-11';
+          return item.id === 'acc-9';
         }
         return true;
       }
@@ -165,12 +162,12 @@ function GalleryContent() {
                   Modern Man Kenya Accessories Collection
                 </h2>
                 <p className="text-xs text-slate-300 mt-1 max-w-2xl font-light">
-                  Handcrafted accoutrements engineered to complete bespoke tailoring: Official &amp; Wing Tip Shirts, Silk Ties, Bowties, Cufflinks &amp; Studs, Lapel Pins, Ascot Cravats, Belts &amp; Suspenders, Dress Watches, Tie Clips, and Master Hats.
+                  Handcrafted accoutrements engineered to complete bespoke tailoring: Silk Ties, Velvet Bowties, Onyx Cufflinks &amp; Studs, Lion Lapel Pins, Ascot Cravats, Leather Belts &amp; Suspenders, Dress Watches, Tie Bars, and Master Fedora Hats.
                 </p>
               </div>
               <div className="flex items-center space-x-2 self-start md:self-auto flex-shrink-0">
                 <span className="px-3 py-1 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 rounded-full text-xs font-semibold">
-                  11 House Accessories
+                  9 House Accessories
                 </span>
               </div>
             </div>
@@ -178,12 +175,11 @@ function GalleryContent() {
             {/* Sub-Pills Filter */}
             <div className="flex items-center space-x-2 overflow-x-auto pt-4 no-scrollbar">
               {[
-                { id: 'all', label: 'All 11 Accessories' },
-                { id: 'shirts', label: '1 & 2. Official & Wing Tip Shirts' },
-                { id: 'neckwear', label: '3, 4 & 7. Ties, Bowties & Cravat' },
-                { id: 'hardware', label: '5, 6 & 10. Cufflinks, Pins & Clips' },
-                { id: 'leather-timepieces', label: '8 & 9. Suspenders & Watch' },
-                { id: 'hats', label: '11. Master Hats' },
+                { id: 'all', label: 'All 9 Accessories' },
+                { id: 'neckwear', label: 'Ties, Bowties & Cravat' },
+                { id: 'hardware', label: 'Cufflinks, Pins & Tie Bars' },
+                { id: 'leather-timepieces', label: 'Belt, Suspenders & Watch' },
+                { id: 'hats', label: 'Master Fedora Hats' },
               ].map((sub) => (
                 <button
                   key={sub.id}

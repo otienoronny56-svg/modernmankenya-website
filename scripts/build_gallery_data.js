@@ -24,18 +24,16 @@ const items = [
   { id: 'shirt-8', title: 'Egyptian Giza', tag: 'Bespoke Cotton', category: 'shirts', image: '/images/MOK_1920.jpg', aspect: 'portrait' },
   { id: 'shirt-9', title: 'Spread Collar', tag: 'Pure Twill', category: 'shirts', image: '/images/DSC04888.jpg', aspect: 'landscape' },
 
-  // --- ACCESSORIES (11 Items) ---
-  { id: 'acc-1', title: 'Official Shirt', tag: 'Giza Cotton', category: 'accessories', image: '/images/shirts/modernman-shirt-navy-bengal-stripe.jpg', aspect: 'portrait' },
-  { id: 'acc-2', title: 'Wing Tip', tag: 'Black Tie', category: 'accessories', image: '/images/tuxedo-black-tie-classic.jpeg', aspect: 'portrait' },
-  { id: 'acc-3', title: 'Silk Tie', tag: 'Como Silk', category: 'accessories', image: 'https://images.unsplash.com/photo-1589756823695-278bc923f962?auto=format&fit=crop&w=1200&q=85', aspect: 'portrait' },
-  { id: 'acc-4', title: 'Velvet Bowtie', tag: 'Hand Tied', category: 'accessories', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg', aspect: 'square' },
-  { id: 'acc-5', title: 'Onyx Cufflinks', tag: 'Gold Hardware', category: 'accessories', image: '/images/slide.jpeg', aspect: 'landscape' },
-  { id: 'acc-6', title: 'Lapel Pin', tag: 'Lion Crest', category: 'accessories', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (2).jpeg', aspect: 'square' },
-  { id: 'acc-7', title: 'Silk Cravat', tag: 'Ascot Tie', category: 'accessories', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg', aspect: 'portrait' },
-  { id: 'acc-8', title: 'Calfskin Suspenders', tag: 'Hand Burnished', category: 'accessories', image: '/images/bespoke-trousers-gurkha-side-adjusters.jpeg', aspect: 'portrait' },
-  { id: 'acc-9', title: 'Dress Watch', tag: 'Sartorial Chrono', category: 'accessories', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg', aspect: 'square' },
-  { id: 'acc-10', title: 'Tie Bar', tag: '24K Engraved', category: 'accessories', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg', aspect: 'square' },
-  { id: 'acc-11', title: 'Master Fedora', tag: 'Australian Wool', category: 'accessories', image: '/images/LKM_1607.jpg', aspect: 'landscape' },
+  // --- CURATED ACCESSORIES (9 Items - Pure Accessories Only) ---
+  { id: 'acc-1', title: 'Silk Tie', tag: 'Pocket Square', category: 'accessories', image: '/images/accessories/modernman-tie-pocket-square.jpg', aspect: 'square' },
+  { id: 'acc-2', title: 'Velvet Bowtie', tag: 'Hand Tied', category: 'accessories', image: '/images/accessories/modernman-velvet-bowtie.jpg', aspect: 'square' },
+  { id: 'acc-3', title: 'Onyx Cufflinks', tag: '24K Gold', category: 'accessories', image: '/images/accessories/modernman-cufflinks-studs.jpg', aspect: 'square' },
+  { id: 'acc-4', title: 'Lion Lapel', tag: 'Brooch Pin', category: 'accessories', image: '/images/accessories/modernman-lapel-brooch-pins.jpg', aspect: 'square' },
+  { id: 'acc-5', title: 'Silk Cravat', tag: 'Ascot Tie', category: 'accessories', image: '/images/accessories/modernman-silk-cravat.jpg', aspect: 'square' },
+  { id: 'acc-6', title: 'Belt Suspenders', tag: 'Calfskin Leather', category: 'accessories', image: '/images/accessories/modernman-belt-suspenders.jpg', aspect: 'square' },
+  { id: 'acc-7', title: 'Dress Watch', tag: 'Alligator Strap', category: 'accessories', image: '/images/accessories/modernman-dress-watch.jpg', aspect: 'square' },
+  { id: 'acc-8', title: 'Gold Tie Bar', tag: 'Engraved Clip', category: 'accessories', image: '/images/accessories/modernman-tie-clips-bars.jpg', aspect: 'square' },
+  { id: 'acc-9', title: 'Master Fedora', tag: 'Wool Felt', category: 'accessories', image: '/images/accessories/modernman-master-fedora-hat.jpg', aspect: 'square' },
 
   // --- KAFTAN & AGBADA (14 Items) ---
   { id: 'kaftan-1', title: 'Forest Kaftan', tag: 'Groomsmen Entourage', category: 'kaftan-agbada', image: '/images/kaftan-groomsmen-entourage-green.jpeg', aspect: 'portrait' },

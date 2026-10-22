@@ -218,19 +218,18 @@
 | **Gold Filigree** | `/images/WhatsApp Image 2026-10-21 at 10.47.49 AM (1).jpeg` | portrait | /gallery, /occasions/signature-occasion |
 | **Monarch Agbada** | `/images/WhatsApp Image 2026-10-21 at 10.47.49 AM.jpeg` | portrait | /gallery, /occasions/signature-occasion |
 
-### Curated House Accessories (11 items)
+### Curated House Accessories (9 items)
 
 | Title (1-2 words) | Path | Aspect | Suggested Pages |
 | :--- | :--- | :--- | :--- |
-| **Official Shirt** | `/images/shirts/modernman-shirt-navy-bengal-stripe.jpg` | portrait | /ready-to-wear, /gallery |
-| **Wing Tip** | `/images/tuxedo-black-tie-classic.jpeg` | portrait | /ready-to-wear, /gallery |
-| **Silk Tie** | `https://images.unsplash.com/photo-1589756823695-278bc923f962?auto=format&fit=crop&w=1200&q=85` | portrait | /ready-to-wear, /gallery |
-| **Velvet Bowtie** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg` | square | /ready-to-wear, /gallery |
-| **Onyx Cufflinks** | `/images/slide.jpeg` | landscape | /ready-to-wear, /gallery |
-| **Lapel Pin** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (2).jpeg` | square | /ready-to-wear, /gallery |
-| **Silk Cravat** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg` | portrait | /ready-to-wear, /gallery |
-| **Leather Suspenders** | `/images/bespoke-trousers-gurkha-side-adjusters.jpeg` | portrait | /ready-to-wear, /gallery |
-| **Dress Watch** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg` | square | /ready-to-wear, /gallery |
-| **Tie Bar** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg` | square | /ready-to-wear, /gallery |
-| **Master Fedora** | `/images/LKM_1607.jpg` | landscape | /ready-to-wear, /gallery |
+| **Silk Tie** | `/images/accessories/modernman-tie-pocket-square.jpg` | square | /ready-to-wear, /gallery |
+| **Velvet Bowtie** | `/images/accessories/modernman-velvet-bowtie.jpg` | square | /ready-to-wear, /gallery |
+| **Onyx Cufflinks** | `/images/accessories/modernman-cufflinks-studs.jpg` | square | /ready-to-wear, /gallery |
+| **Lion Lapel** | `/images/accessories/modernman-lapel-brooch-pins.jpg` | square | /ready-to-wear, /gallery |
+| **Silk Cravat** | `/images/accessories/modernman-silk-cravat.jpg` | square | /ready-to-wear, /gallery |
+| **Belt Suspenders** | `/images/accessories/modernman-belt-suspenders.jpg` | square | /ready-to-wear, /gallery |
+| **Dress Watch** | `/images/accessories/modernman-dress-watch.jpg` | square | /ready-to-wear, /gallery |
+| **Gold Tie Bar** | `/images/accessories/modernman-tie-clips-bars.jpg` | square | /ready-to-wear, /gallery |
+| **Master Fedora** | `/images/accessories/modernman-master-fedora-hat.jpg` | square | /ready-to-wear, /gallery |
+
 
