@@ -38,8 +38,15 @@ export const BRAND_INFO = {
   mission:
     'To create exceptional tailored clothing that enables every client to look refined, feel confident and express his individuality—through personalised service, considered design and uncompromising attention to detail.',
   phone: '+254 114 122510',
+  phoneDisplay: '0114 122 510',
+  whatsappUrl: 'https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya%2C%20I%20would%20like%20to%20inquire%20about%20your%20suits%20and%20tailoring.',
   email: 'info@modernmanke.com',
   location: 'Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi',
+  social: {
+    instagram: 'https://www.instagram.com/modernmanke',
+    tiktok: 'https://www.tiktok.com/@modernmanke',
+    facebook: 'https://www.facebook.com/modernmanke',
+  },
 };
 
 export const BRAND_PROFILE = BRAND_INFO;

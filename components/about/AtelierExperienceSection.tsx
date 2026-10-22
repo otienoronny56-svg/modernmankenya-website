@@ -116,7 +116,7 @@ export const AtelierExperienceSection: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />
                   <a href="tel:+254114122510" className="hover:text-white transition-colors">
-                    Private Concierge: 0114 122 510 / +254 114 122510
+                    Call: 0114 122 510 / +254 114 122510
                   </a>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export const AtelierExperienceSection: React.FC = () => {
                   className="w-full py-3.5 px-6 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury text-xs rounded transition-all text-center flex items-center justify-center space-x-2 shadow-gold"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>Book Atelier Appointment &rarr;</span>
+                  <span>Book a Fitting Session &rarr;</span>
                 </Link>
               </div>
             </div>

@@ -211,8 +211,41 @@ export default function ContactPage() {
                       Consultation Hours
                     </p>
                     <p className="text-slate-300 mt-0.5">Tuesday – Saturday: 09:30 – 18:30</p>
-                    <p className="text-[11px] text-slate-400">Strictly by Private Appointment</p>
+                    <p className="text-[11px] text-slate-400">Walk-ins & Appointments Welcome</p>
                   </div>
+                </div>
+              </div>
+
+              {/* Social Channels */}
+              <div className="pt-2 border-t border-white/10">
+                <p className="font-bold text-white uppercase tracking-wider text-[11px] mb-2.5">
+                  Follow Modern Man Kenya
+                </p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href="https://www.instagram.com/modernmanke"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1.5 text-xs text-slate-200 hover:text-brand-gold transition-colors bg-white/10 px-3 py-1.5 rounded-full border border-white/15 hover:border-brand-gold/40"
+                  >
+                    <span>Instagram</span>
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@modernmanke"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1.5 text-xs text-slate-200 hover:text-brand-gold transition-colors bg-white/10 px-3 py-1.5 rounded-full border border-white/15 hover:border-brand-gold/40"
+                  >
+                    <span>TikTok</span>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/modernmanke"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1.5 text-xs text-slate-200 hover:text-brand-gold transition-colors bg-white/10 px-3 py-1.5 rounded-full border border-white/15 hover:border-brand-gold/40"
+                  >
+                    <span>Facebook</span>
+                  </a>
                 </div>
               </div>
             </div>

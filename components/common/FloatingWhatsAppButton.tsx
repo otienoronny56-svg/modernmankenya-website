@@ -6,7 +6,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const phoneNumber = '254114122510';
   const defaultMessage = encodeURIComponent(
-    'Hello Modern Man Kenya, I would like to inquire about your bespoke tailoring, ready-to-wear, and services.'
+    'Hello Modern Man Kenya, I would like to inquire about your suits and tailoring.'
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
@@ -23,7 +23,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
       >
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
         <span className="font-medium tracking-wide whitespace-nowrap">
-          Chat with Atelier Concierge
+          Chat on WhatsApp • 0114 122 510
         </span>
       </div>
 
@@ -36,7 +36,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
         onMouseLeave={() => setIsHovered(false)}
         className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 border-2 border-white/80"
         aria-label="Chat with Modern Man Kenya on WhatsApp (0114 122 510)"
-        title="WhatsApp Concierge: 0114 122 510"
+        title="Chat on WhatsApp • 0114 122 510"
       >
         {/* Subtle Pulse Ring */}
         <span className="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none duration-1000" />
