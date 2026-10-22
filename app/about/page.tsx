@@ -7,11 +7,11 @@ import { ArtisanDisciplinesSection } from '@/components/about/ArtisanDisciplines
 import { AtelierExperienceSection } from '@/components/about/AtelierExperienceSection';
 
 export const metadata: Metadata = {
-  title: 'About Us | Modern Man Kenya Made to Measure Atelier Nairobi',
-  description: 'Where Fit Meets Character. Opulence • Simplicity • Class. Discover the made-to-measure tailoring philosophy, craftsmanship standards, and Nairobi atelier of Modern Man Kenya.',
+  title: 'About Modern Man Kenya | Our Genesis & Philosophy | Est. 2020',
+  description: 'Wear the confidence. Own the moment. Established in 2020. At Modern Man Kenya, we believe every man deserves an attire that reflects his personality, celebrates his individuality, and brings out his best.',
   openGraph: {
-    title: 'About Modern Man Kenya | Where Fit Meets Character',
-    description: 'Made-to-measure menswear and custom tailoring in Nairobi. Opulence • Simplicity • Class.',
+    title: 'About Modern Man KE | Who is the Modern Man?',
+    description: 'Wear the confidence. Own the moment. Bespoke custom tailoring and made-to-measure menswear in Nairobi. Established in 2020.',
   },
 };
 

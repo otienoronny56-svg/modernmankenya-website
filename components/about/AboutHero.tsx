@@ -20,7 +20,7 @@ export const AboutHero: React.FC = () => {
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/5 border border-brand-gold/30 backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
             <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold">
-              The Flagship Atelier • Nairobi, Kenya
+              About Modern Man KE • Nairobi, Kenya • Est. 2020
             </span>
           </div>
         </div>
@@ -28,15 +28,15 @@ export const AboutHero: React.FC = () => {
         {/* Headline */}
         <div className="text-center max-w-4xl mx-auto space-y-5">
           <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-            Where Fit Meets Character.
+            Wear the confidence. Own the moment.
           </h1>
           <p className="font-serif italic text-lg sm:text-2xl text-brand-gold font-light tracking-wide">
-            &quot;Opulence • Simplicity • Class&quot;
+            &quot;Style without compromise. Comfort without limits. A fit that speaks your language.&quot;
           </p>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-            Modern Man Kenya is dedicated to crafting refined, tailored garments that reflect 
-            individual character, sophistication, and effortless confidence. Custom tailoring, 
-            made-to-measure menswear, and Kenyan craftsmanship on a global luxury tier.
+            Established in 2020, Modern Man is dedicated to crafting bespoke attire that reflects personality, 
+            celebrates individuality, and brings out your best. Constantly evolving and innovating to meet the 
+            demands of the discerning Modern Man.
           </p>
 
           {/* Quick Action CTAs */}
@@ -62,10 +62,10 @@ export const AboutHero: React.FC = () => {
         <div className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 border-t border-white/10 pt-10">
           <div className="p-4 rounded bg-white/5 border border-brand-gold/15 text-center">
             <div className="font-serif text-2xl sm:text-3xl font-bold text-brand-gold mb-1">
-              35+
+              Est. 2020
             </div>
             <div className="text-[11px] sm:text-xs uppercase tracking-luxury text-slate-300 font-medium">
-              Anatomical Measurements
+              Our Genesis &amp; Atelier
             </div>
           </div>
 

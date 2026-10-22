@@ -27,12 +27,16 @@ export interface OperationalStandard {
 
 export const BRAND_INFO = {
   name: 'Modern Man Kenya',
-  tagline: 'Where Fit Meets Character',
+  established: '2020',
+  tagline: 'Wear the confidence. Own the moment.',
+  motto: 'Wear the confidence. Own the moment.',
   philosophy: 'Opulence • Simplicity • Class',
   statement:
-    'Modern Man Kenya is a premium custom tailoring house creating made-to-measure menswear for the modern gentleman. Based in Kenya, we combine contemporary design, refined tailoring and personalised service to create suits, tuxedos, shirts, wedding attire and statement pieces defined by exceptional fit and individual character.',
+    'At Modern Man, we believe every man deserves an attire that reflects his personality, celebrates his individuality, and brings out his best. Established in 2020, we are constantly evolving & innovating to meet the Modern Man demands.',
+  whoIsModernMan:
+    "He is ambitious, confident, and unapologetically himself. He doesn't just want to wear a suit—he wants to own the room, turn heads, and feel as good as he looks. He wants style without compromise, comfort without limits, and a fit that speaks his language.",
   promise:
-    'At Modern Man Kenya, we do more than make suits. We create tailored expressions of identity. Every garment is considered, fitted and finished to help the modern gentleman present himself with confidence, sophistication and authenticity.',
+    'Wear the confidence. Own the moment. Every garment is considered, fitted and finished to celebrate individuality and help the modern gentleman present himself with confidence, sophistication and authenticity.',
   vision:
     'To establish Modern Man Kenya as a leading African custom tailoring house recognised for exceptional fit, contemporary menswear design, craftsmanship and a distinctive approach to personal style.',
   mission:
