@@ -107,6 +107,13 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
     badge: 'Young Gentlemen & Page Boys',
   },
   {
+    id: 'modern-women',
+    title: 'Modern Women',
+    image: '/images/DSC09261.jpg.jpeg',
+    categoryParam: 'modern-women',
+    badge: 'Couture Gowns & Bridal',
+  },
+  {
     id: 'shirts',
     title: 'Shirts',
     image: '/images/MOK_2171.jpg',

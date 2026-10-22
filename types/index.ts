@@ -30,6 +30,7 @@ export interface Product {
     | 'shirts'
     | 'smart-casual'
     | 'modern-kids'
+    | 'modern-women'
     | 'fragrances'
     | 'accessories';
   audience?: ProductAudience;

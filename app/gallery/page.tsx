@@ -32,6 +32,7 @@ function GalleryContent() {
     { id: 'traditional', label: 'Traditional Wear' },
     { id: 'kaftan-agbada', label: 'Kaftans & Agbada' },
     { id: 'modern-kids', label: 'Modern Kids' },
+    { id: 'modern-women', label: 'Modern Women' },
     { id: 'shirts', label: 'Shirts' },
     { id: 'accessories', label: 'Accessories' },
   ];

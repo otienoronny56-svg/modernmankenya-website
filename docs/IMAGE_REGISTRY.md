@@ -211,6 +211,19 @@
 | **Bespoke Page Boy** | `/images/modern-kids-portrait-7.jpeg` | portrait | /gallery, /occasions/wedding-groom |
 | **Youth Elegance** | `/images/modern-kids-portrait-8.jpeg` | portrait | /gallery, /occasions/wedding-groom |
 
+### Modern Women & Haute Couture (8 items)
+
+| Title (1-2 words) | Path | Aspect | Suggested Pages |
+| :--- | :--- | :--- | :--- |
+| **Crimson Couture** | `/images/DSC09261.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
+| **Velvet Silhouette** | `/images/DSC09282.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
+| **Couture Bodice** | `/images/DSC09284.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
+| **Navy Brocade** | `/images/DSC_2606.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/african-wear |
+| **Gold Regalia** | `/images/traditional-wedding-ruracio-groom-gold-bride.jpeg` | portrait | /gallery?category=modern-women, /occasions/african-wear |
+| **Ivory Nuptial** | `/images/wedding-groom-ivory-gold-embroidered-bride.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
+| **Bridal Walk** | `/images/DSC05022.jpg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
+| **Bridal Party** | `/images/DSC04947.jpg` | landscape | /gallery?category=modern-women, /occasions/black-tie-wedding |
+
 ### Kaftans & Agbada Ensembles (14 items)
 
 | Title (1-2 words) | Path | Aspect | Suggested Pages |

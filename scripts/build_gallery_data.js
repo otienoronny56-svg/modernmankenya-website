@@ -13,6 +13,16 @@ const items = [
   { id: 'kid-9', title: 'Bespoke Youth', tag: 'Celebration Cut', category: 'modern-kids', image: '/images/modern-kids-portrait-7.jpeg', aspect: 'portrait' },
   { id: 'kid-10', title: 'Youth Elegance', tag: 'Made to Measure', category: 'modern-kids', image: '/images/modern-kids-portrait-8.jpeg', aspect: 'portrait' },
 
+  // --- MODERN WOMEN (8 Items) ---
+  { id: 'women-1', title: 'Crimson Couture', tag: 'Gala Gown', category: 'modern-women', image: '/images/DSC09261.jpg.jpeg', aspect: 'portrait' },
+  { id: 'women-2', title: 'Velvet Silhouette', tag: 'Evening Elegance', category: 'modern-women', image: '/images/DSC09282.jpg.jpeg', aspect: 'portrait' },
+  { id: 'women-3', title: 'Couture Bodice', tag: 'Bespoke Finish', category: 'modern-women', image: '/images/DSC09284.jpg.jpeg', aspect: 'portrait' },
+  { id: 'women-4', title: 'Navy Brocade', tag: 'Evening Beading', category: 'modern-women', image: '/images/DSC_2606.jpg.jpeg', aspect: 'portrait' },
+  { id: 'women-5', title: 'Gold Regalia', tag: 'Traditional Bride', category: 'modern-women', image: '/images/traditional-wedding-ruracio-groom-gold-bride.jpeg', aspect: 'portrait' },
+  { id: 'women-6', title: 'Ivory Nuptial', tag: 'Bridal Couture', category: 'modern-women', image: '/images/wedding-groom-ivory-gold-embroidered-bride.jpeg', aspect: 'portrait' },
+  { id: 'women-7', title: 'Bridal Walk', tag: 'Nuptial Gown', category: 'modern-women', image: '/images/DSC05022.jpg', aspect: 'portrait' },
+  { id: 'women-8', title: 'Bridal Party', tag: 'Garden Procession', category: 'modern-women', image: '/images/DSC04947.jpg', aspect: 'landscape' },
+
   // --- SHIRTS (5 Pure Luxury Shirt Items) ---
   { id: 'shirt-1', title: 'Navy Bengal', tag: 'Cutaway Collar', category: 'shirts', image: '/images/shirts/modernman-shirt-navy-bengal-stripe.jpg', aspect: 'portrait' },
   { id: 'shirt-2', title: 'Sky Blue', tag: 'Contrast Collar', category: 'shirts', image: '/images/shirts/modernman-shirt-sky-blue-pinpoint.jpg', aspect: 'portrait' },
@@ -183,6 +193,7 @@ export interface GalleryItem {
     | 'traditional'
     | 'kaftan-agbada'
     | 'modern-kids'
+    | 'modern-women'
     | 'shirts'
     | 'accessories';
   image: string;
