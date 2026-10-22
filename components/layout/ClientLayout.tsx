@@ -8,6 +8,8 @@ import { CartDrawer } from '@/components/cart/CartDrawer';
 import { SearchModal } from '@/components/common/SearchModal';
 import { FloatingWhatsAppButton } from '@/components/common/FloatingWhatsAppButton';
 
+import { AuthProvider } from '@/lib/auth/AuthContext';
+
 export const ClientLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
@@ -19,13 +21,13 @@ export const ClientLayout: React.FC<{ children: React.ReactNode }> = ({ children
   }
 
   return (
-    <>
+    <AuthProvider>
       <Header onOpenSearch={() => setSearchOpen(true)} />
       {children}
       <Footer />
       <CartDrawer />
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
       <FloatingWhatsAppButton />
-    </>
+    </AuthProvider>
   );
 };

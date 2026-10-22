@@ -410,7 +410,7 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         slug: 'tuxedo',
         title: 'Tuxedo',
         description: 'Dinner Jackets',
-        heroImage: '/images/tuxedo-black-tie-classic.jpeg',
+        heroImage: '/images/MOK_2204.jpg',
         count: 16,
       },
       {

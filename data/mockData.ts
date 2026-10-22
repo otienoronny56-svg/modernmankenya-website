@@ -194,6 +194,7 @@ export const READY_TO_WEAR_PRODUCTS: Product[] = [
     priceKes: 185000,
     priceUsd: 1430,
     images: [
+      '/images/MOK_2204.jpg',
       '/images/tuxedo-black-tie-classic.jpeg',
       '/images/wedding-groom-white-tuxedo-groomsmen-beige.jpeg',
       '/images/tuxedo-sky-blue-wedding.jpeg',

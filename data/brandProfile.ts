@@ -62,7 +62,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'tuxedos',
     title: 'Tuxedos',
-    image: '/images/tuxedo-black-tie-classic.jpeg',
+    image: '/images/MOK_2204.jpg',
     categoryParam: 'evening-dinner',
     badge: 'Formal Events',
   },
@@ -135,7 +135,7 @@ export const TAILORING_OCCASIONS: OccasionCategory[] = [
     subtitle: 'Tuxedos & Gala Dinner Suits',
     description:
       'Tuxedos and dinner jackets with satin lapels and clean finishing. Perfect for black-tie galas, awards, and milestone celebrations.',
-    image: '/images/tuxedo-black-tie-classic.jpeg',
+    image: '/images/MOK_2204.jpg',
     focus: ['Satin lapels', 'Deep black & midnight blue', 'Classic dinner jacket cut', 'Confident posture'],
   },
   {
