@@ -14,6 +14,7 @@ function GalleryContent() {
 
   const [products, setProducts] = useState<Product[]>(READY_TO_WEAR_PRODUCTS);
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
+  const [accessorySubFilter, setAccessorySubFilter] = useState<'all' | 'shirts' | 'neckwear' | 'hardware' | 'leather-timepieces' | 'hats'>('all');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
 
   React.useEffect(() => {
@@ -51,6 +52,31 @@ function GalleryContent() {
         if (selectedCategory === 'kaunda-suits' || selectedCategory === 'senator-suits') {
           return product.category === 'kaunda-suits' || (product.category as string) === 'senator-suits';
         }
+        if (selectedCategory === 'shirts') {
+          return product.category === 'shirts' || product.slug.includes('shirt') || product.name.toLowerCase().includes('shirt');
+        }
+        if (selectedCategory === 'accessories') {
+          if (product.category !== 'accessories') return false;
+          if (accessorySubFilter === 'shirts') {
+            return product.name.toLowerCase().includes('shirt');
+          }
+          if (accessorySubFilter === 'neckwear') {
+            const n = product.name.toLowerCase();
+            return n.includes('tie') || n.includes('bowtie') || n.includes('cravat');
+          }
+          if (accessorySubFilter === 'hardware') {
+            const n = product.name.toLowerCase();
+            return n.includes('cufflink') || n.includes('lapel') || n.includes('brooch') || n.includes('clip');
+          }
+          if (accessorySubFilter === 'leather-timepieces') {
+            const n = product.name.toLowerCase();
+            return n.includes('belt') || n.includes('suspender') || n.includes('watch');
+          }
+          if (accessorySubFilter === 'hats') {
+            return product.name.toLowerCase().includes('hat');
+          }
+          return true;
+        }
         if (product.category !== selectedCategory) {
           return false;
         }
@@ -61,7 +87,7 @@ function GalleryContent() {
       if (sortBy === 'price-desc') return b.priceKes - a.priceKes;
       return 0;
     });
-  }, [products, selectedCategory, sortBy]);
+  }, [products, selectedCategory, accessorySubFilter, sortBy]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -91,7 +117,10 @@ function GalleryContent() {
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  setAccessorySubFilter('all');
+                }}
                 className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                   selectedCategory === cat.id
                     ? 'bg-brand-gold text-brand-navy font-bold shadow-sm'
@@ -116,6 +145,55 @@ function GalleryContent() {
             </select>
           </div>
         </div>
+
+        {/* Curated Accessories Header & Sub-filter (when Accessories tab is active) */}
+        {selectedCategory === 'accessories' && (
+          <div className="mb-8 p-5 sm:p-6 bg-gradient-to-r from-stone-900 via-brand-navy to-stone-900 text-white rounded-xl border border-brand-gold/30 shadow-lg">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-brand-gold font-bold flex items-center space-x-1.5 mb-1">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                  <span>Curated Atelier Accoutrements</span>
+                </span>
+                <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                  Modern Man Kenya Accessories Collection
+                </h2>
+                <p className="text-xs text-slate-300 mt-1 max-w-2xl font-light">
+                  Handcrafted accoutrements engineered to complete bespoke tailoring: Official &amp; Wing Tip Shirts, Silk Ties, Bowties, Cufflinks &amp; Studs, Lapel Pins, Ascot Cravats, Belts &amp; Suspenders, Dress Watches, Tie Clips, and Master Hats.
+                </p>
+              </div>
+              <div className="flex items-center space-x-2 self-start md:self-auto flex-shrink-0">
+                <span className="px-3 py-1 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 rounded-full text-xs font-semibold">
+                  11 House Accessories
+                </span>
+              </div>
+            </div>
+
+            {/* Quick Filter Sub-Pills */}
+            <div className="flex items-center space-x-2 overflow-x-auto pt-4 no-scrollbar">
+              {[
+                { id: 'all', label: 'All 11 Accessories' },
+                { id: 'shirts', label: '1 & 2. Official & Wing Tip Shirts' },
+                { id: 'neckwear', label: '3, 4 & 7. Ties, Bowties & Cravat' },
+                { id: 'hardware', label: '5, 6 & 10. Cufflinks, Pins & Clips' },
+                { id: 'leather-timepieces', label: '8 & 9. Belts & Watch' },
+                { id: 'hats', label: '11. Master Hats' },
+              ].map((sub) => (
+                <button
+                  key={sub.id}
+                  onClick={() => setAccessorySubFilter(sub.id as any)}
+                  className={`flex-shrink-0 px-3 py-1 rounded-full text-[11px] font-semibold transition-all ${
+                    accessorySubFilter === sub.id
+                      ? 'bg-brand-gold text-brand-navy font-bold shadow-sm'
+                      : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white'
+                  }`}
+                >
+                  {sub.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Gallery Cards Grid */}
         {filteredProducts.length === 0 ? (

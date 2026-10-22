@@ -63,7 +63,7 @@ export async function getMergedProducts(): Promise<Product[]> {
 
       if (!error && data && data.length > 0) {
         // Map Supabase DB rows to Product interface
-        return data.map((row: any) => ({
+        const dbProducts: Product[] = data.map((row: any) => ({
           id: row.id,
           name: row.name,
           slug: row.slug,
@@ -89,6 +89,17 @@ export async function getMergedProducts(): Promise<Product[]> {
             'Made to measure in Nairobi Atelier',
           ],
         }));
+
+        // Base products deduplication: ensure all catalog items (including all 11 accessories)
+        // are always present even when DB has items
+        const dbSlugs = new Set(dbProducts.map((p) => p.slug));
+        const mergedList = [...dbProducts];
+        for (const base of READY_TO_WEAR_PRODUCTS) {
+          if (!dbSlugs.has(base.slug)) {
+            mergedList.push(base);
+          }
+        }
+        return mergedList;
       }
     } catch (err) {
       console.warn('Supabase fetch failed, falling back to local store:', err);

@@ -5,18 +5,27 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Calendar } from 'lucide-react';
 
-const HERO_IMAGES = [
+interface HeroSlide {
+  src: string;
+  alt: string;
+  objectPosition?: string;
+}
+
+const HERO_IMAGES: HeroSlide[] = [
   {
     src: '/images/Bespoke Suit.jpg',
     alt: 'Bespoke Suit Craftsmanship Modern Man Kenya',
+    objectPosition: 'object-top sm:object-[center_15%]',
   },
   {
     src: '/images/LKM_1607.jpg',
     alt: 'Handcrafted Sartorial Detail Modern Man Kenya',
+    objectPosition: 'object-top sm:object-[center_15%]',
   },
   {
-    src: '/images/slide.jpeg',
-    alt: 'Sartorial French Cuff and Fine Tailoring Detail Modern Man Kenya',
+    src: '/images/DSC06885.jpg.jpeg',
+    alt: 'Modern Man Kenya Made to Measure Wedding & Tuxedo Celebration',
+    objectPosition: 'object-top sm:object-[center_20%]',
   },
 ];
 
@@ -50,7 +59,7 @@ export const HeroSection: React.FC = () => {
                 fill
                 priority={idx === 0}
                 sizes="100vw"
-                className="object-cover object-top sm:object-[center_15%]"
+                className={`object-cover ${img.objectPosition || 'object-top sm:object-[center_15%]'}`}
               />
             </div>
           );
