@@ -145,38 +145,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "shirt-6",
-    "title": "Wing Tip",
-    "tag": "Marcella Piqué",
-    "category": "shirts",
-    "image": "/images/tuxedo-black-tie-classic.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "shirt-7",
-    "title": "French Cuffs",
-    "tag": "Tailored Sleeves",
-    "category": "shirts",
-    "image": "/images/slide.jpeg",
-    "aspect": "landscape"
-  },
-  {
-    "id": "shirt-8",
-    "title": "Egyptian Giza",
-    "tag": "Bespoke Cotton",
-    "category": "shirts",
-    "image": "/images/MOK_1920.jpg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "shirt-9",
-    "title": "Spread Collar",
-    "tag": "Pure Twill",
-    "category": "shirts",
-    "image": "/images/DSC04888.jpg",
-    "aspect": "landscape"
-  },
-  {
     "id": "acc-1",
     "title": "Silk Tie",
     "tag": "Pocket Square",
@@ -543,14 +511,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "traditional",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg",
     "aspect": "landscape"
-  },
-  {
-    "id": "trad-16",
-    "title": "Walking Canes",
-    "tag": "Dowry Entourage",
-    "category": "traditional",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.55 PM.jpeg",
-    "aspect": "portrait"
   },
   {
     "id": "trad-17",
@@ -1086,14 +1046,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "tag": "Smart Casual",
     "category": "smart-casual",
     "image": "/images/smart-casual-beige-blazer-parking.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "sc-3",
-    "title": "Patch Pocket",
-    "tag": "Navy Hopsack",
-    "category": "smart-casual",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.51.00 PM.jpeg",
     "aspect": "portrait"
   },
   {

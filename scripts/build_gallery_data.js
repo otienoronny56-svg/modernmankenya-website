@@ -13,16 +13,12 @@ const items = [
   { id: 'kid-9', title: 'Bespoke Youth', tag: 'Celebration Cut', category: 'modern-kids', image: '/images/modern-kids-portrait-7.jpeg', aspect: 'portrait' },
   { id: 'kid-10', title: 'Youth Elegance', tag: 'Made to Measure', category: 'modern-kids', image: '/images/modern-kids-portrait-8.jpeg', aspect: 'portrait' },
 
-  // --- SHIRTS (9 Items) ---
+  // --- SHIRTS (5 Pure Luxury Shirt Items) ---
   { id: 'shirt-1', title: 'Navy Bengal', tag: 'Cutaway Collar', category: 'shirts', image: '/images/shirts/modernman-shirt-navy-bengal-stripe.jpg', aspect: 'portrait' },
   { id: 'shirt-2', title: 'Sky Blue', tag: 'Contrast Collar', category: 'shirts', image: '/images/shirts/modernman-shirt-sky-blue-pinpoint.jpg', aspect: 'portrait' },
   { id: 'shirt-3', title: 'Lavender Pinpoint', tag: 'Pastel Poplin', category: 'shirts', image: '/images/shirts/modernman-shirt-lavender-pinpoint.jpg', aspect: 'portrait' },
   { id: 'shirt-4', title: 'Burgundy Bengal', tag: 'Crimson Stripe', category: 'shirts', image: '/images/shirts/modernman-shirt-burgundy-bengal-stripe.jpg', aspect: 'portrait' },
   { id: 'shirt-5', title: 'Black Bengal', tag: 'Monochrome Stripe', category: 'shirts', image: '/images/shirts/modernman-shirt-black-bengal-stripe.jpg', aspect: 'portrait' },
-  { id: 'shirt-6', title: 'Wing Tip', tag: 'Marcella Piqué', category: 'shirts', image: '/images/tuxedo-black-tie-classic.jpeg', aspect: 'portrait' },
-  { id: 'shirt-7', title: 'French Cuffs', tag: 'Tailored Sleeves', category: 'shirts', image: '/images/slide.jpeg', aspect: 'landscape' },
-  { id: 'shirt-8', title: 'Egyptian Giza', tag: 'Bespoke Cotton', category: 'shirts', image: '/images/MOK_1920.jpg', aspect: 'portrait' },
-  { id: 'shirt-9', title: 'Spread Collar', tag: 'Pure Twill', category: 'shirts', image: '/images/DSC04888.jpg', aspect: 'landscape' },
 
   // --- CURATED ACCESSORIES (9 Items - Pure Accessories Only) ---
   { id: 'acc-1', title: 'Silk Tie', tag: 'Pocket Square', category: 'accessories', image: '/images/accessories/modernman-tie-pocket-square.jpg', aspect: 'square' },
@@ -77,7 +73,6 @@ const items = [
   { id: 'trad-13', title: 'Garden Walk', tag: 'Procession Walk', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.48 PM.jpeg', aspect: 'portrait' },
   { id: 'trad-14', title: 'Antelope Cane', tag: 'Velvet Cap', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.49 PM.jpeg', aspect: 'portrait' },
   { id: 'trad-15', title: 'Cowhide Vest', tag: 'Beaded Regalia', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg', aspect: 'landscape' },
-  { id: 'trad-16', title: 'Walking Canes', tag: 'Dowry Entourage', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.55 PM.jpeg', aspect: 'portrait' },
   { id: 'trad-17', title: 'Sartorial Pride', tag: 'Cultural Elders', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.56 PM.jpeg', aspect: 'landscape' },
   { id: 'trad-18', title: 'Entrance March', tag: 'Groom March', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.57 PM.jpeg', aspect: 'landscape' },
 
@@ -148,10 +143,9 @@ const items = [
   { id: 'suit-42', title: 'Gold Tie Bar', tag: 'Pinstripe Accent', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg', aspect: 'square' },
   { id: 'suit-43', title: 'Ticket Pocket', tag: 'Double Breasted', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM.jpeg', aspect: 'landscape' },
 
-  // --- SMART CASUAL & BLAZERS (5 Items) ---
+  // --- SMART CASUAL & BLAZERS (4 Items) ---
   { id: 'sc-1', title: 'Tailored Blazer', tag: 'Double Breasted', category: 'smart-casual', image: '/images/Blazer.jpg', aspect: 'landscape' },
   { id: 'sc-2', title: 'Beige Blazer', tag: 'Smart Casual', category: 'smart-casual', image: '/images/smart-casual-beige-blazer-parking.jpeg', aspect: 'portrait' },
-  { id: 'sc-3', title: 'Patch Pocket', tag: 'Navy Hopsack', category: 'smart-casual', image: '/images/more/WhatsApp Image 2026-10-19 at 3.51.00 PM.jpeg', aspect: 'portrait' },
   { id: 'sc-4', title: 'Royal Blazer', tag: 'Gold Buttons', category: 'smart-casual', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (1).jpeg', aspect: 'square' },
   { id: 'sc-5', title: 'Scarlet Blazer', tag: 'Statement Coat', category: 'smart-casual', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM.jpeg', aspect: 'square' },
 ];

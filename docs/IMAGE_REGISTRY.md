@@ -16,7 +16,7 @@
 
 ## Category Breakdown
 
-### Kaunda Suits & African Senator Ensembles (24 items)
+### Kaunda Suits & African Senator Ensembles (23 items)
 
 | Title (2-5 words) | Path | Aspect | Suggested Pages |
 | :--- | :--- | :--- | :--- |
@@ -33,7 +33,6 @@
 | **Garden Procession Cultural Walk** | `/images/more/WhatsApp Image 2026-10-19 at 3.55.48 PM.jpeg` | portrait | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
 | **Carved Antelope Cane & Velvet Cap** | `/images/more/WhatsApp Image 2026-10-19 at 3.55.49 PM.jpeg` | portrait | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
 | **Ruracio Cowhide Beaded Vest Dance** | `/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg` | landscape | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
-| **Dowry Procession Walking Canes** | `/images/more/WhatsApp Image 2026-10-19 at 3.55.55 PM.jpeg` | portrait | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
 | **Dowry Gathering Sartorial Pride** | `/images/more/WhatsApp Image 2026-10-19 at 3.55.56 PM.jpeg` | landscape | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
 | **Traditional Groom Entrance March** | `/images/more/WhatsApp Image 2026-10-19 at 3.55.57 PM.jpeg` | landscape | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
 | **Cultural Wedding Grand Gateway** | `/images/more/WhatsApp Image 2026-10-19 at 3.55.58 PM.jpeg` | portrait | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
@@ -128,12 +127,11 @@
 | **Stone Ivory Double Breasted Ascot** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg` | portrait | /gallery, /occasions/formal-eveningwear, /bespoke/bespoke-evening-wear |
 | **Crimson Burgundy Velvet Dinner Jacket** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg` | square | /gallery, /occasions/formal-eveningwear, /bespoke/bespoke-evening-wear |
 
-### Tailored Blazers & Statement Separates (4 items)
+### Tailored Blazers & Statement Separates (3 items)
 
 | Title (2-5 words) | Path | Aspect | Suggested Pages |
 | :--- | :--- | :--- | :--- |
 | **Tailored Double Breasted Blazer** | `/images/Blazer.jpg` | landscape | /ready-to-wear, /gallery |
-| **Bespoke Navy Patch Pocket Blazer** | `/images/more/WhatsApp Image 2026-10-19 at 3.51.00 PM.jpeg` | portrait | /gallery, /ready-to-wear |
 | **Royal Blue Double Breasted Blazer** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (1).jpeg` | square | /gallery, /ready-to-wear |
 | **Crimson Scarlet Statement Blazer** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM.jpeg` | square | /gallery, /ready-to-wear |
 
