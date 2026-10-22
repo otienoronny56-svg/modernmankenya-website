@@ -43,6 +43,7 @@
 | **White Senator Tunic Ankara Panel** | `/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM.jpeg` | portrait | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
 | **African Ankara Accent Pocket Square** | `/images/more/WhatsApp Image 2026-10-19 at 4.16.55 PM.jpeg` | portrait | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
 | **Check Suit Historic Locomotive Stride** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (2).jpeg` | portrait | /gallery, /occasions/signature-occasion, /bespoke/kaunda-suits |
+| **Navy Brocade Floral Kaftan** | `/images/DSC_2606.jpg.jpeg` | portrait | /gallery, /occasions/african-wear, /bespoke/kaunda-suits |
 
 ### Business & Boardroom Executive Suiting (23 items)
 
@@ -72,7 +73,7 @@
 | **Executive Pinstripe Tie Bar Accent** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg` | square | /gallery, /occasions/business-executive, /bespoke/corporate-wardrobes |
 | **Navy Double Breasted Ticket Pocket** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM.jpeg` | landscape | /gallery, /occasions/business-executive, /bespoke/corporate-wardrobes |
 
-### Weddings & Groom Entourage Ensembles (25 items)
+### Weddings & Groom Entourage Ensembles (26 items)
 
 | Title (2-5 words) | Path | Aspect | Suggested Pages |
 | :--- | :--- | :--- | :--- |
@@ -101,8 +102,9 @@
 | **Cognac Groomsmen & Champagne Groom** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg` | square | /gallery, /occasions/wedding-groom, /bespoke/weddings |
 | **French Blue Gold Flower Lapel** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (2).jpeg` | square | /gallery, /occasions/wedding-groom, /bespoke/weddings |
 | **Tan Double Breasted Groom Laughter** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM (1).jpeg` | square | /gallery, /occasions/wedding-groom, /bespoke/weddings |
+| **Cognac Terracotta Groomsmen Entourage** | `/images/DSC_0865-1.jpg.jpeg` | landscape | /gallery, /occasions/black-tie-wedding, /bespoke/weddings |
 
-### Formal Eveningwear & Black Tie Tuxedos (20 items)
+### Formal Eveningwear & Black Tie Tuxedos (32 items)
 
 | Title (2-5 words) | Path | Aspect | Suggested Pages |
 | :--- | :--- | :--- | :--- |
@@ -126,6 +128,18 @@
 | **Midnight Single Button Burgundy Bow** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (1).jpeg` | square | /gallery, /occasions/formal-eveningwear, /bespoke/bespoke-evening-wear |
 | **Stone Ivory Double Breasted Ascot** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM (1).jpeg` | portrait | /gallery, /occasions/formal-eveningwear, /bespoke/bespoke-evening-wear |
 | **Crimson Burgundy Velvet Dinner Jacket** | `/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg` | square | /gallery, /occasions/formal-eveningwear, /bespoke/bespoke-evening-wear |
+| **Gala Tuxedo Scarlet Lapel** | `/images/DSC09202.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Grand Entrance Mahogany Doors** | `/images/DSC09216.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Sartorial Stride Lion Cane** | `/images/DSC09233.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Lapel Craft Ruby Brooch** | `/images/DSC09238.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Regal Poise Marble Colonnade** | `/images/DSC09241.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Crimson Couture Gala Gown** | `/images/DSC09261.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Velvet Silhouette Colonnade Portrait** | `/images/DSC09282.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Couture Bodice Gold Accents** | `/images/DSC09284.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Embroidered Shawl Dinner Jacket** | `/images/IMG-142.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Midnight Sovereign White Tuxedo** | `/images/IMG-143.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Double Breasted Jacquard Waistcoat** | `/images/IMG-145.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
+| **Jacquard Draped Evening Luxury** | `/images/IMG-146.jpg.jpeg` | portrait | /gallery, /occasions/black-tie-wedding, /bespoke/bespoke-evening-wear |
 
 ### Tailored Blazers & Statement Separates (3 items)
 

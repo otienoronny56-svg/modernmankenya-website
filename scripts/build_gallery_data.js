@@ -75,8 +75,9 @@ const items = [
   { id: 'trad-15', title: 'Cowhide Vest', tag: 'Beaded Regalia', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg', aspect: 'landscape' },
   { id: 'trad-17', title: 'Sartorial Pride', tag: 'Cultural Elders', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.56 PM.jpeg', aspect: 'landscape' },
   { id: 'trad-18', title: 'Entrance March', tag: 'Groom March', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.57 PM.jpeg', aspect: 'landscape' },
+  { id: 'trad-19', title: 'Navy Brocade', tag: 'Bespoke Kaftan', category: 'traditional', image: '/images/DSC_2606.jpg.jpeg', aspect: 'portrait' },
 
-  // --- TUXEDOS & EVENINGWEAR (20 Items) ---
+  // --- TUXEDOS & EVENINGWEAR (32 Items) ---
   { id: 'tux-1', title: 'Ivory Shawl', tag: 'Altar Tuxedo', category: 'evening-dinner', image: '/images/tuxedo.jpeg', aspect: 'portrait' },
   { id: 'tux-2', title: 'Black Barathea', tag: 'Floating Canvas', category: 'evening-dinner', image: '/images/Black.jpg', aspect: 'landscape' },
   { id: 'tux-3', title: 'Studio Profile', tag: 'Black Tie', category: 'evening-dinner', image: '/images/MOK_1920.jpg', aspect: 'portrait' },
@@ -97,8 +98,20 @@ const items = [
   { id: 'tux-18', title: 'Jacquard Coat', tag: 'Golden Cane', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg', aspect: 'landscape' },
   { id: 'tux-19', title: 'Monarch Jacquard', tag: 'Royal Barathea', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.49 PM.jpeg', aspect: 'landscape' },
   { id: 'tux-20', title: 'Crimson Velvet', tag: 'Silk Lapel', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg', aspect: 'square' },
+  { id: 'tux-21', title: 'Gala Tuxedo', tag: 'Scarlet Lapel', category: 'evening-dinner', image: '/images/DSC09202.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-22', title: 'Grand Entrance', tag: 'Evening Wear', category: 'evening-dinner', image: '/images/DSC09216.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-23', title: 'Sartorial Stride', tag: 'Black Tie', category: 'evening-dinner', image: '/images/DSC09233.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-24', title: 'Lapel Craft', tag: 'Sartorial Detail', category: 'evening-dinner', image: '/images/DSC09238.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-25', title: 'Regal Poise', tag: 'Bespoke Tuxedo', category: 'evening-dinner', image: '/images/DSC09241.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-26', title: 'Crimson Couture', tag: 'Gala Gown', category: 'evening-dinner', image: '/images/DSC09261.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-27', title: 'Velvet Silhouette', tag: 'Evening Elegance', category: 'evening-dinner', image: '/images/DSC09282.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-28', title: 'Couture Bodice', tag: 'Bespoke Finish', category: 'evening-dinner', image: '/images/DSC09284.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-29', title: 'Embroidered Shawl', tag: 'Dinner Jacket', category: 'evening-dinner', image: '/images/IMG-142.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-30', title: 'Midnight Sovereign', tag: 'White Tuxedo', category: 'evening-dinner', image: '/images/IMG-143.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-31', title: 'Double Vest', tag: 'Groom Waistcoat', category: 'evening-dinner', image: '/images/IMG-145.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-32', title: 'Jacquard Draped', tag: 'Evening Luxury', category: 'evening-dinner', image: '/images/IMG-146.jpg.jpeg', aspect: 'portrait' },
 
-  // --- SUITS: 2 & 3-PIECE SUITS (43 Items) ---
+  // --- SUITS: 2 & 3-PIECE SUITS (44 Items) ---
   { id: 'suit-1', title: 'Royal Blue', tag: 'Nairobi Boardroom', category: 'suits', image: '/images/MOK_7655.jpg', aspect: 'portrait' },
   { id: 'suit-2', title: 'Double Breasted', tag: 'Chalkstripe Worsted', category: 'suits', image: '/images/MOK_7660.jpg', aspect: 'portrait' },
   { id: 'suit-3', title: 'Slate Three-Piece', tag: 'Executive Vest', category: 'suits', image: '/images/MOK_7662.jpg', aspect: 'portrait' },
@@ -142,6 +155,7 @@ const items = [
   { id: 'suit-41', title: 'Chalk Stripe', tag: 'Dark Worsted', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.25 PM.jpeg', aspect: 'square' },
   { id: 'suit-42', title: 'Gold Tie Bar', tag: 'Pinstripe Accent', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM (1).jpeg', aspect: 'square' },
   { id: 'suit-43', title: 'Ticket Pocket', tag: 'Double Breasted', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM.jpeg', aspect: 'landscape' },
+  { id: 'suit-44', title: 'Cognac Groomsmen', tag: 'Wedding Entourage', category: 'suits', image: '/images/DSC_0865-1.jpg.jpeg', aspect: 'landscape' },
 
   // --- SMART CASUAL & BLAZERS (4 Items) ---
   { id: 'sc-1', title: 'Tailored Blazer', tag: 'Double Breasted', category: 'smart-casual', image: '/images/Blazer.jpg', aspect: 'landscape' },

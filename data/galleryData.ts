@@ -529,6 +529,14 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "landscape"
   },
   {
+    "id": "trad-19",
+    "title": "Navy Brocade",
+    "tag": "Bespoke Kaftan",
+    "category": "traditional",
+    "image": "/images/DSC_2606.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
     "id": "tux-1",
     "title": "Ivory Shawl",
     "tag": "Altar Tuxedo",
@@ -687,6 +695,102 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "evening-dinner",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg",
     "aspect": "square"
+  },
+  {
+    "id": "tux-21",
+    "title": "Gala Tuxedo",
+    "tag": "Scarlet Lapel",
+    "category": "evening-dinner",
+    "image": "/images/DSC09202.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-22",
+    "title": "Grand Entrance",
+    "tag": "Evening Wear",
+    "category": "evening-dinner",
+    "image": "/images/DSC09216.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-23",
+    "title": "Sartorial Stride",
+    "tag": "Black Tie",
+    "category": "evening-dinner",
+    "image": "/images/DSC09233.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-24",
+    "title": "Lapel Craft",
+    "tag": "Sartorial Detail",
+    "category": "evening-dinner",
+    "image": "/images/DSC09238.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-25",
+    "title": "Regal Poise",
+    "tag": "Bespoke Tuxedo",
+    "category": "evening-dinner",
+    "image": "/images/DSC09241.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-26",
+    "title": "Crimson Couture",
+    "tag": "Gala Gown",
+    "category": "evening-dinner",
+    "image": "/images/DSC09261.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-27",
+    "title": "Velvet Silhouette",
+    "tag": "Evening Elegance",
+    "category": "evening-dinner",
+    "image": "/images/DSC09282.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-28",
+    "title": "Couture Bodice",
+    "tag": "Bespoke Finish",
+    "category": "evening-dinner",
+    "image": "/images/DSC09284.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-29",
+    "title": "Embroidered Shawl",
+    "tag": "Dinner Jacket",
+    "category": "evening-dinner",
+    "image": "/images/IMG-142.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-30",
+    "title": "Midnight Sovereign",
+    "tag": "White Tuxedo",
+    "category": "evening-dinner",
+    "image": "/images/IMG-143.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-31",
+    "title": "Double Vest",
+    "tag": "Groom Waistcoat",
+    "category": "evening-dinner",
+    "image": "/images/IMG-145.jpg.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-32",
+    "title": "Jacquard Draped",
+    "tag": "Evening Luxury",
+    "category": "evening-dinner",
+    "image": "/images/IMG-146.jpg.jpeg",
+    "aspect": "portrait"
   },
   {
     "id": "suit-1",
@@ -1030,6 +1134,14 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "tag": "Double Breasted",
     "category": "suits",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.26 PM.jpeg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "suit-44",
+    "title": "Cognac Groomsmen",
+    "tag": "Wedding Entourage",
+    "category": "suits",
+    "image": "/images/DSC_0865-1.jpg.jpeg",
     "aspect": "landscape"
   },
   {

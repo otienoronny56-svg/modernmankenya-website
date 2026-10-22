@@ -403,15 +403,15 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         title: 'Official',
         description: 'Wedding Suits',
         heroImage: '/images/wedding-groom-white-tuxedo-groomsmen-beige.jpeg',
-        count: 14,
+        count: 15,
       },
       {
         id: 'tuxedo',
         slug: 'tuxedo',
         title: 'Tuxedo',
         description: 'Dinner Jackets',
-        heroImage: '/images/MOK_2204.jpg',
-        count: 16,
+        heroImage: '/images/DSC09233.jpg.jpeg',
+        count: 28,
       },
       {
         id: 'kaunda',
@@ -423,6 +423,27 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
       },
     ],
     highlights: [
+      {
+        src: '/images/DSC09233.jpg.jpeg',
+        label: 'Sartorial Stride',
+        tag: 'Black Tie',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/IMG-142.jpg.jpeg',
+        label: 'Embroidered Shawl',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC_0865-1.jpg.jpeg',
+        label: 'Cognac Groomsmen',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'landscape',
+      },
       {
         src: '/images/wedding-groom-white-tuxedo-groomsmen-beige.jpeg',
         label: 'White Tuxedo Groom',
@@ -468,6 +489,13 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
     ],
     galleryImages: [
       // Official (Wedding)
+      {
+        src: '/images/DSC_0865-1.jpg.jpeg',
+        label: 'Cognac Groomsmen',
+        tag: 'Official',
+        subCategory: 'official',
+        aspect: 'landscape',
+      },
       {
         src: '/images/wedding-groom-white-tuxedo-groomsmen-beige.jpeg',
         label: 'Groom & Groomsmen Party',
@@ -694,6 +722,90 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         subCategory: 'tuxedo',
         aspect: 'portrait',
       },
+      {
+        src: '/images/DSC09202.jpg.jpeg',
+        label: 'Gala Tuxedo',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC09216.jpg.jpeg',
+        label: 'Grand Entrance',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC09233.jpg.jpeg',
+        label: 'Sartorial Stride',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC09238.jpg.jpeg',
+        label: 'Lapel Craft',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC09241.jpg.jpeg',
+        label: 'Regal Poise',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC09261.jpg.jpeg',
+        label: 'Crimson Couture',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC09282.jpg.jpeg',
+        label: 'Velvet Silhouette',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/DSC09284.jpg.jpeg',
+        label: 'Couture Bodice',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/IMG-142.jpg.jpeg',
+        label: 'Embroidered Shawl',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/IMG-143.jpg.jpeg',
+        label: 'Midnight Sovereign',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/IMG-145.jpg.jpeg',
+        label: 'Double Vest',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/IMG-146.jpg.jpeg',
+        label: 'Jacquard Draped',
+        tag: 'Tuxedo',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
 
       // Kaunda (Wedding)
       {
@@ -770,7 +882,7 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         title: 'Kaftan',
         description: 'Simple & Elegant',
         heroImage: '/images/kaftan-groomsmen-entourage-green.jpeg',
-        count: 12,
+        count: 13,
       },
       {
         id: 'agbada',
@@ -798,6 +910,13 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
       },
     ],
     highlights: [
+      {
+        src: '/images/DSC_2606.jpg.jpeg',
+        label: 'Navy Brocade',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
       {
         src: '/images/agbada-navy-copper-embroidery.jpeg',
         label: 'Navy Agbada',
@@ -843,6 +962,13 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
     ],
     galleryImages: [
       // Kaftan
+      {
+        src: '/images/DSC_2606.jpg.jpeg',
+        label: 'Navy Brocade Kaftan',
+        tag: 'Kaftan',
+        subCategory: 'kaftan',
+        aspect: 'portrait',
+      },
       {
         src: '/images/kaftan-groomsmen-entourage-green.jpeg',
         label: 'Emerald Kaftan Entourage',
