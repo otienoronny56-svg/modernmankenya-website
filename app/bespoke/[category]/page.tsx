@@ -16,11 +16,14 @@ import {
 } from 'lucide-react';
 import { BESPOKE_CATEGORIES, FABRIC_OPTIONS, LINING_OPTIONS } from '@/data/mockData';
 import { useBespokeStore } from '@/store/bespokeStore';
+import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 import type { LapelStyle, PocketStyle, ButtonConfiguration } from '@/types';
 
 export default function BespokeCategoryPage() {
   const params = useParams();
   const rawCategory = params?.category as string;
+  const { currency } = useCartStore();
   
   const categoryData = BESPOKE_CATEGORIES.find((c) => c.slug === rawCategory) || {
     slug: rawCategory || 'bespoke-tailoring',
@@ -377,11 +380,7 @@ export default function BespokeCategoryPage() {
                     Estimated Atelier Total
                   </span>
                   <p className="font-serif text-3xl font-bold text-brand-gold">
-                    {new Intl.NumberFormat('en-KE', {
-                      style: 'currency',
-                      currency: 'KES',
-                      maximumFractionDigits: 0,
-                    }).format(config.fabric.priceKes)}
+                    {formatCurrencyPrice(config.fabric.priceKes, currency)}
                   </p>
                 </div>
               </div>

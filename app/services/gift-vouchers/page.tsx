@@ -3,8 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Gift, Check, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 
 export default function GiftVouchersPage() {
+  const { currency } = useCartStore();
   const [selectedAmount, setSelectedAmount] = useState<number>(145000);
   const [recipientName, setRecipientName] = useState('');
   const [recipientEmail, setRecipientEmail] = useState('');
@@ -79,7 +82,7 @@ export default function GiftVouchersPage() {
                       }`}
                     >
                       <span className="font-serif text-base font-bold text-brand-navy block">
-                        KES {tier.amount.toLocaleString()}
+                        {formatCurrencyPrice(tier.amount, currency)}
                       </span>
                       <span className="text-xs text-brand-slate-muted mt-0.5 block">
                         {tier.label}

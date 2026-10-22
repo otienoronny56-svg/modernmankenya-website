@@ -26,7 +26,7 @@ const OCCASION_CARDS: OccasionCard[] = [
   {
     id: 'wedding',
     title: 'Black Tie & Wedding',
-    image: '/images/tuxedo.jpeg',
+    image: '/images/wedding-groom-white-tuxedo-groomsmen-beige.jpeg',
     href: '/occasions/black-tie-wedding',
     badge: 'Weddings',
     sub: 'Official • Tuxedo • Kaunda',
@@ -34,7 +34,7 @@ const OCCASION_CARDS: OccasionCard[] = [
   {
     id: 'african',
     title: 'African Wear',
-    image: '/images/kaunda suit.jpeg',
+    image: '/images/agbada-navy-copper-embroidery.jpeg',
     href: '/occasions/african-wear',
     badge: 'African Wear',
     sub: 'Kaftan • Agbada • Kaunda',

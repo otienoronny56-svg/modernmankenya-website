@@ -29,6 +29,7 @@ export interface Product {
     | 'kaunda-suits'
     | 'shirts'
     | 'smart-casual'
+    | 'modern-kids'
     | 'fragrances'
     | 'accessories';
   audience?: ProductAudience;

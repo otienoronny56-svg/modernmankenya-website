@@ -40,6 +40,7 @@ function GalleryContent() {
     { id: 'smart-casual', label: 'Smart Casual & Blazers' },
     { id: 'traditional', label: 'Traditional Wear' },
     { id: 'kaftan-agbada', label: 'Kaftans & Agbada' },
+    { id: 'modern-kids', label: 'Modern Kids' },
     { id: 'shirts', label: 'Shirts' },
     { id: 'accessories', label: 'Accessories' },
   ];

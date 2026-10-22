@@ -5,11 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Sparkles, ArrowRight, Check, SlidersHorizontal } from 'lucide-react';
 import { useBespokeStore } from '@/store/bespokeStore';
+import { useCartStore } from '@/store/cartStore';
+import { formatCurrencyPrice } from '@/lib/currency';
 import { FABRIC_OPTIONS, LINING_OPTIONS } from '@/data/mockData';
 import type { LapelStyle, PocketStyle } from '@/types';
 
 export const InteractiveCustomizerTeaser: React.FC = () => {
   const { config, setFabric, setLapel, setPockets, setLining } = useBespokeStore();
+  const { currency } = useCartStore();
 
   const lapelOptions: { id: LapelStyle; title: string; desc: string }[] = [
     { id: 'Peak', title: 'Peak Lapel (4.0")', desc: 'Commanding V-taper for formal & double-breasted jackets' },
@@ -206,7 +209,7 @@ export const InteractiveCustomizerTeaser: React.FC = () => {
                 <div className="text-right">
                   <p className="text-[10px] text-slate-400 uppercase">Estimated Commission</p>
                   <p className="font-serif text-xl font-bold text-brand-gold">
-                    {new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', maximumFractionDigits: 0 }).format(config.estimatedPriceKes)}
+                    {formatCurrencyPrice(config.estimatedPriceKes, currency)}
                   </p>
                 </div>
               </div>

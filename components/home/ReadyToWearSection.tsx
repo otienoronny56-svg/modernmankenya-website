@@ -27,7 +27,7 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
     id: 'double-breasted-blazer',
     name: 'Modern Double-Breasted Tailoring',
     category: 'Blazers',
-    image: '/images/DSC04947.jpg',
+    image: '/images/double-breasted-suit-navy.jpeg',
     badge: 'Tailored Separates',
     href: '/gallery?category=smart-casual',
   },

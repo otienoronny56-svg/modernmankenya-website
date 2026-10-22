@@ -48,44 +48,51 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'two-three-piece',
     title: '2 & 3-Piece Suits',
-    image: '/images/DSC04888.jpg',
+    image: '/images/three-piece-suit-blue.jpeg',
     categoryParam: 'suits',
     badge: 'Executive & Ceremony',
   },
   {
     id: 'tuxedos',
     title: 'Tuxedos',
-    image: '/images/tuxedo.jpeg',
+    image: '/images/tuxedo-black-tie-classic.jpeg',
     categoryParam: 'evening-dinner',
     badge: 'Formal Events',
   },
   {
     id: 'kaunda-suits',
     title: 'Kaunda Suits (Senator Suits)',
-    image: '/images/kaunda suit.jpeg',
+    image: '/images/kaunda-safari-purple-suit-1.jpeg',
     categoryParam: 'kaunda-suits',
     badge: 'African Sartorial Elegance',
   },
   {
     id: 'smart-casual',
     title: 'Smart Casual & Blazers',
-    image: '/images/Blazer.jpg',
+    image: '/images/smart-casual-beige-blazer-parking.jpeg',
     categoryParam: 'smart-casual',
     badge: 'Tailored Separates',
   },
   {
     id: 'traditional-wear',
     title: 'Traditional Wear',
-    image: '/images/LKM_1607.jpg',
+    image: '/images/traditional-wedding-ruracio-groom-dance.jpeg',
     categoryParam: 'traditional',
     badge: 'Heritage & Modernity',
   },
   {
     id: 'kaftan-agbada',
     title: 'Kaftans & Agbada',
-    image: '/images/LKM_1755.jpg',
+    image: '/images/agbada-navy-copper-embroidery.jpeg',
     categoryParam: 'kaftan-agbada',
     badge: 'African Sophistication',
+  },
+  {
+    id: 'modern-kids',
+    title: 'Modern Kids',
+    image: '/images/modern-kids-white-tuxedo.jpeg',
+    categoryParam: 'modern-kids',
+    badge: 'Young Gentlemen & Page Boys',
   },
   {
     id: 'shirts',
@@ -112,7 +119,7 @@ export const TAILORING_OCCASIONS: OccasionCategory[] = [
     subtitle: 'Suits for Grooms & Groomsmen',
     description:
       'Custom wedding suits made around your personal style, the wedding theme, and your groomsmen. Tailored so you look your best on your big day.',
-    image: '/images/DSC04995.jpg',
+    image: '/images/wedding-groom-white-tuxedo-groomsmen-beige.jpeg',
     focus: ['Custom fit for groom', 'Matching groomsmen suits', 'Photogenic fabrics', 'Made for the big day'],
   },
   {
@@ -121,7 +128,7 @@ export const TAILORING_OCCASIONS: OccasionCategory[] = [
     subtitle: 'Tuxedos & Gala Dinner Suits',
     description:
       'Tuxedos and dinner jackets with satin lapels and clean finishing. Perfect for black-tie galas, awards, and milestone celebrations.',
-    image: '/images/tuxedo.jpeg',
+    image: '/images/tuxedo-black-tie-classic.jpeg',
     focus: ['Satin lapels', 'Deep black & midnight blue', 'Classic dinner jacket cut', 'Confident posture'],
   },
   {
