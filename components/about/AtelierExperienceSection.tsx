@@ -104,7 +104,7 @@ export const AtelierExperienceSection: React.FC = () => {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                Step into our Nairobi Atelier for a one-on-one consultation with our Master Tailor. 
+                Step into our humble Atelier for a one-on-one consultation with our Master Tailor. 
                 Whether for an executive wardrobe or wedding party, your sartorial legacy begins here.
               </p>
 
