@@ -198,6 +198,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 </div>
               )}
             </div>
+
+            {/* About Direct Link */}
+            <Link
+              href="/about"
+              className="py-2 text-slate-700 hover:text-brand-navy hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm"
+            >
+              About
+            </Link>
           </nav>
 
           {/* Right Action Icons, Currency Selector & Compact Appointment CTA */}
@@ -226,108 +234,37 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </button>
 
-            {/* Country & Currency Selector with Profile */}
-            <div className="hidden sm:flex items-center space-x-1 pl-2 border-l border-slate-200 relative">
+            {/* Country & Currency Selector */}
+            <div className="hidden md:flex items-center pl-2 border-l border-slate-200">
               <CountryCurrencySelector theme="light" />
-
-              {/* Dynamic User Profile / Login Dropdown */}
-              <div 
-                className="relative"
-                onMouseEnter={() => setUserDropdownOpen(true)}
-                onMouseLeave={() => setUserDropdownOpen(false)}
-              >
-                {user ? (
-                  <Link
-                    href="/account"
-                    className="flex items-center space-x-1 p-1 rounded-full hover:bg-slate-100 transition-colors"
-                    title={`Account: ${profile?.fullName || user.email}`}
-                  >
-                    <div className="w-6 h-6 rounded-full bg-brand-navy text-brand-gold text-[10px] font-bold flex items-center justify-center border border-brand-gold/40 shadow-xs">
-                      {profile?.fullName
-                        ? profile.fullName
-                            .split(' ')
-                            .map((n) => n[0])
-                            .slice(0, 2)
-                            .join('')
-                            .toUpperCase()
-                        : 'MM'}
-                    </div>
-                  </Link>
-                ) : (
-                  <Link 
-                    href="/login" 
-                    className="p-1.5 text-slate-600 hover:text-brand-navy transition-colors flex items-center"
-                    title="Sign In / Create Account"
-                    aria-label="Client Account"
-                  >
-                    <User className="w-4 h-4" />
-                  </Link>
-                )}
-
-                {/* Dropdown Menu */}
-                {userDropdownOpen && (
-                  <div className="absolute top-full right-0 w-52 pt-2 z-50">
-                    <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-slate-200/80 p-2 transform origin-top animate-in fade-in zoom-in-95 text-xs">
-                      {user ? (
-                        <>
-                          <div className="px-3 py-2 border-b border-slate-100">
-                            <p className="font-semibold text-brand-navy truncate">
-                              {profile?.fullName || 'Distinguished Patron'}
-                            </p>
-                            <p className="text-[10px] text-slate-400 truncate">{user.email}</p>
-                          </div>
-                          <Link
-                            href="/account"
-                            onClick={() => setUserDropdownOpen(false)}
-                            className="block px-3 py-2 text-slate-700 hover:text-brand-navy hover:bg-slate-50 rounded-lg transition-colors font-medium"
-                          >
-                            My Account Dashboard
-                          </Link>
-                          <Link
-                            href="/account"
-                            onClick={() => setUserDropdownOpen(false)}
-                            className="block px-3 py-2 text-slate-700 hover:text-brand-navy hover:bg-slate-50 rounded-lg transition-colors font-medium"
-                          >
-                            Fitting Sessions
-                          </Link>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setUserDropdownOpen(false);
-                              signOut();
-                            }}
-                            className="w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors flex items-center space-x-1.5 mt-1 border-t border-slate-100 font-medium cursor-pointer"
-                          >
-                            <LogOut className="w-3.5 h-3.5" />
-                            <span>Sign Out</span>
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <div className="px-3 py-1.5 text-[10px] uppercase font-bold text-brand-gold tracking-wider border-b border-slate-100">
-                            Client Sanctuary
-                          </div>
-                          <Link
-                            href="/login"
-                            onClick={() => setUserDropdownOpen(false)}
-                            className="block px-3 py-2 text-slate-700 hover:text-brand-navy hover:bg-slate-50 rounded-lg transition-colors font-semibold"
-                          >
-                            Sign In
-                          </Link>
-                          <Link
-                            href="/login?mode=signup"
-                            onClick={() => setUserDropdownOpen(false)}
-                            className="block px-3 py-2 text-brand-gold hover:text-brand-navy hover:bg-slate-50 rounded-lg transition-colors font-semibold"
-                          >
-                            Create Account
-                          </Link>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
             </div>
+
+            {/* Clear, Visible Log In / Sign In Button (Top Right) */}
+            {user ? (
+              <div className="flex items-center space-x-2 pl-2 border-l border-slate-200">
+                <span className="text-xs font-semibold text-brand-navy hidden md:inline truncate max-w-[120px]">
+                  Hi, {profile?.fullName?.split(' ')[0] || 'Member'}
+                </span>
+                <button
+                  type="button"
+                  onClick={signOut}
+                  className="px-2.5 py-1 text-xs text-stone-500 hover:text-red-600 transition-colors cursor-pointer font-medium hover:underline flex items-center space-x-1"
+                  title="Sign Out"
+                >
+                  <LogOut className="w-3.5 h-3.5 text-stone-400" />
+                  <span>Log Out</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy bg-stone-100 hover:bg-brand-navy hover:text-brand-gold transition-all border border-stone-200 shadow-xs hover:border-brand-gold/40"
+                title="Log In / Sign In"
+              >
+                <User className="w-3.5 h-3.5 text-brand-gold" />
+                <span>Log In</span>
+              </Link>
+            )}
 
             {/* Sleek, Compact Appointment CTA Button */}
             <Link
@@ -431,42 +368,48 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               About
             </Link>
 
+            <Link
+              href="/reviews"
+              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100"
+            >
+              Client Reviews
+            </Link>
+
+            <Link
+              href="/journal"
+              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100"
+            >
+              The Journal
+            </Link>
+
             {/* Mobile Account Section */}
-            <div className="border-b border-slate-100 py-2">
+            <div className="border-b border-slate-100 py-2.5">
               {user ? (
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between text-xs font-semibold text-brand-navy">
-                    <span>{profile?.fullName || 'Distinguished Patron'}</span>
-                    <button
-                      type="button"
-                      onClick={signOut}
-                      className="text-red-500 hover:text-red-700 text-xs flex items-center space-x-1 cursor-pointer"
-                    >
-                      <LogOut className="w-3.5 h-3.5" />
-                      <span>Sign Out</span>
-                    </button>
-                  </div>
-                  <Link
-                    href="/account"
-                    className="block text-xs font-semibold text-brand-gold hover:underline"
+                <div className="flex items-center justify-between text-xs font-semibold text-brand-navy">
+                  <span>Hi, {profile?.fullName || user.email}</span>
+                  <button
+                    type="button"
+                    onClick={signOut}
+                    className="text-stone-500 hover:text-red-600 text-xs flex items-center space-x-1 cursor-pointer font-medium"
                   >
-                    View Account & Fittings &rarr;
-                  </Link>
+                    <LogOut className="w-3.5 h-3.5 text-stone-400" />
+                    <span>Log Out</span>
+                  </button>
                 </div>
               ) : (
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <Link
                     href="/login"
-                    className="flex items-center space-x-2 text-brand-navy hover:text-brand-gold py-1"
+                    className="flex items-center space-x-1.5 text-brand-navy hover:text-brand-gold py-1"
                   >
                     <User className="w-4 h-4 text-brand-gold" />
-                    <span>Sign In</span>
+                    <span>Log In</span>
                   </Link>
                   <Link
                     href="/login?mode=signup"
                     className="text-brand-gold hover:underline py-1"
                   >
-                    Create Account &rarr;
+                    Join / Register &rarr;
                   </Link>
                 </div>
               )}

@@ -35,7 +35,7 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
     id: 'african-ceremony-wear',
     name: 'Contemporary African Occasion Wear',
     category: 'Traditional',
-    image: '/images/LKM_1793.jpg',
+    image: '/images/agbada-navy-copper-embroidery.jpeg',
     badge: 'African Luxury',
     href: '/gallery?category=traditional',
   },
@@ -83,7 +83,7 @@ export const ReadyToWearSection: React.FC = () => {
               className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
             >
               {/* Visual Garment Image with Unique Client Photo */}
-              <div className="relative aspect-[1/1] w-full overflow-hidden bg-stone-900">
+              <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden bg-stone-900">
                 <Image
                   src={item.image}
                   alt={item.name}

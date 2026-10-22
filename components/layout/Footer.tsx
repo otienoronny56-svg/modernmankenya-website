@@ -132,6 +132,20 @@ export const Footer: React.FC = () => {
                       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
                   </a>
+
+                  {/* X (formerly Twitter) */}
+                  <a
+                    href="https://x.com/modernmanke"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-black hover:border-stone-400 hover:bg-stone-50 flex items-center justify-center transition-all shadow-xs group"
+                    title="Follow Modern Man Kenya on X (@modernmanke)"
+                    aria-label="Modern Man X Profile"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-currentColor transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -210,13 +224,33 @@ export const Footer: React.FC = () => {
           {/* 4. Client Services & Legal (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
-              Client Care
+              The Maison
             </h4>
             <ul className="space-y-2 text-xs text-stone-600">
+              <li>
+                <Link href="/about" className="hover:text-brand-gold transition-colors font-medium">
+                  About Modern Man
+                </Link>
+              </li>
+              <li>
+                <Link href="/reviews" className="hover:text-brand-gold transition-colors font-medium">
+                  Client Reviews
+                </Link>
+              </li>
+              <li>
+                <Link href="/journal" className="hover:text-brand-gold transition-colors font-medium">
+                  Sartorial Journal
+                </Link>
+              </li>
               <li>
                 <Link href="/book-appointment" className="text-brand-gold font-semibold hover:underline flex items-center space-x-1">
                   <span>Book a Fitting</span>
                   <ArrowRight className="w-3 h-3" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-brand-gold transition-colors">
+                  Contact & Concierge
                 </Link>
               </li>
               <li>
@@ -227,11 +261,6 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/terms" className="hover:text-brand-gold transition-colors">
                   Terms of Commission
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-brand-gold transition-colors">
-                  Contact Us
                 </Link>
               </li>
             </ul>

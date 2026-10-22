@@ -246,6 +246,14 @@ export default function ContactPage() {
                   >
                     <span>Facebook</span>
                   </a>
+                  <a
+                    href="https://x.com/modernmanke"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1.5 text-xs text-slate-200 hover:text-brand-gold transition-colors bg-white/10 px-3 py-1.5 rounded-full border border-white/15 hover:border-brand-gold/40"
+                  >
+                    <span>X (Twitter)</span>
+                  </a>
                 </div>
               </div>
             </div>

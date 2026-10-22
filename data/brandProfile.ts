@@ -46,6 +46,7 @@ export const BRAND_INFO = {
     instagram: 'https://www.instagram.com/modernmanke',
     tiktok: 'https://www.tiktok.com/@modernmanke',
     facebook: 'https://www.facebook.com/modernmanke',
+    x: 'https://x.com/modernmanke',
   },
 };
 

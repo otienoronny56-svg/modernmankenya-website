@@ -45,14 +45,14 @@ export const CraftsmanshipSection: React.FC = () => {
         {/* Visual Split: Authentic Tailoring Photo + 4 Punchy Points */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Real Workshop Craft Image */}
-          <div className="lg:col-span-5 relative aspect-[4/3] sm:aspect-[1/1] rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+          {/* Real Workshop Craft Image - Uncropped Portrait View */}
+          <div className="lg:col-span-5 relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-stone-900">
             <Image
               src="/images/_MG_3310.jpg"
               alt="Tailoring craftsmanship at Modern Man Kenya"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-center"
+              className="object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             <div className="absolute bottom-4 left-4 bg-brand-gold text-brand-navy text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow">

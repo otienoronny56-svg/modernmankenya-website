@@ -30,7 +30,7 @@ export const WhatWeCreateSection: React.FC = () => {
               className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
             >
               {/* Visual Garment Image */}
-              <div className="relative aspect-[1/1] w-full overflow-hidden bg-stone-900">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-stone-900">
                 <Image
                   src={item.image}
                   alt={item.title}

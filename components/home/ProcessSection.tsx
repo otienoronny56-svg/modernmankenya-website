@@ -95,8 +95,8 @@ export const ProcessSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Direct CTA to Book Appointment */}
-          <div className="mt-10 sm:mt-16 text-center">
+          {/* Direct CTA to Book Appointment & View All Reviews */}
+          <div className="mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/book-appointment"
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 sm:space-x-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-sm bg-brand-navy hover:bg-brand-navy-light text-white font-bold uppercase tracking-luxury text-xs transition-all shadow-md group"
@@ -104,6 +104,14 @@ export const ProcessSection: React.FC = () => {
               <Calendar className="w-4 h-4 text-brand-gold" />
               <span>Schedule Private Fitting Session</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link
+              href="/reviews"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-sm border border-brand-gold/60 text-brand-navy hover:bg-white text-xs font-bold uppercase tracking-luxury transition-all shadow-xs"
+            >
+              <span>Read All Verified Reviews</span>
+              <ArrowRight className="w-4 h-4 text-brand-gold" />
             </Link>
           </div>
         </div>

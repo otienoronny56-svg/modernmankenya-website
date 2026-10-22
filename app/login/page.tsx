@@ -25,7 +25,7 @@ function LoginForm() {
   const { user, signInWithGoogle, signInWithEmail, signUpWithEmail, resetPasswordForEmail } = useAuth();
 
   const initialMode = searchParams.get('mode') === 'signup' ? 'signup' : 'signin';
-  const redirectTarget = searchParams.get('redirect') || '/account';
+  const redirectTarget = searchParams.get('redirect') || '/';
 
   const [mode, setMode] = useState<'signin' | 'signup'>(initialMode);
   const [showPassword, setShowPassword] = useState(false);

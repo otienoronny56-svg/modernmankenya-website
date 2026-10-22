@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase/client';
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  const next = searchParams.get('next') || '/account';
+  const next = searchParams.get('next') || '/';
 
   if (code) {
     try {
@@ -18,6 +18,6 @@ export async function GET(request: Request) {
     }
   }
 
-  // Fallback to account or login page with notice
-  return NextResponse.redirect(`${origin}/account`);
+  // Fallback to homepage
+  return NextResponse.redirect(`${origin}/`);
 }
