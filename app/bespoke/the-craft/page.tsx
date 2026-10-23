@@ -93,8 +93,8 @@ export default function TheCraftPage() {
       number: '06',
       title: 'Your Pattern is Saved',
       tagline: 'Order new suits anytime without remeasuring',
-      image: '/images/traditional-bespoke-cream-groomsmen-cane.jpeg',
-      alt: 'Tailored by Modern Man signature sleeve detailing',
+      image: '/images/WhatsApp Image 2026-10-21 at 10.46.27 AM.jpeg',
+      alt: 'Bespoke tailoring precision fit and custom paper pattern archived in Nairobi',
       description:
         'Once your first suit is complete and you love the fit, we save your exact measurements and pattern in our system. When you want a new navy blazer, fresh trousers, or a suit for an upcoming wedding, you just pick your fabric and style. We cut and tailor it right away without you having to start from zero.',
       highlights: [

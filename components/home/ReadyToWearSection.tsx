@@ -40,10 +40,10 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
     href: '/gallery?category=traditional',
   },
   {
-    id: 'charcoal-three-piece',
-    name: 'Classic Charcoal 3-Piece Suit',
+    id: 'dove-grey-three-piece',
+    name: 'Dove Grey 3-Piece Contrast Suit',
     category: 'Suits',
-    image: '/images/MOK_7662.jpg',
+    image: '/images/WhatsApp Image 2026-10-23 at 5.40.24 PM.jpeg',
     badge: '3-Piece Tailoring',
     href: '/gallery?category=suits',
   },

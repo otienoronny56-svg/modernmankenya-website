@@ -95,7 +95,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'kaftan-agbada',
     title: 'Kaftans & Agbada',
-    image: '/images/WhatsApp Image 2026-10-21 at 10.48.42 AM.jpeg',
+    image: '/images/LKM_2052.jpg',
     categoryParam: 'kaftan-agbada',
     badge: 'African Sophistication',
   },

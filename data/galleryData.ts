@@ -1323,5 +1323,21 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "traditional",
     "image": "/images/370A8789.jpg",
     "aspect": "portrait"
+  },
+  {
+    "id": "agbada-2052",
+    "title": "Ceremonial Agbada",
+    "tag": "African Luxury",
+    "category": "kaftan-agbada",
+    "image": "/images/LKM_2052.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "suit-dove-grey-contrast",
+    "title": "Dove Grey Three-Piece",
+    "tag": "Contrast Waistcoat",
+    "category": "suits",
+    "image": "/images/WhatsApp Image 2026-10-23 at 5.40.24 PM.jpeg",
+    "aspect": "portrait"
   }
 ];
