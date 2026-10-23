@@ -34,7 +34,7 @@ const OCCASION_CARDS: OccasionCard[] = [
   {
     id: 'african',
     title: 'African Wear',
-    image: '/images/kaftan-groomsmen-entourage-green.jpeg',
+    image: '/images/WhatsApp Image 2026-10-21 at 10.48.42 AM.jpeg',
     href: '/occasions/african-wear',
     badge: 'African Wear',
     sub: 'Kaftan • Agbada • Kaunda',

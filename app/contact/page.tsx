@@ -69,7 +69,7 @@ export default function ContactPage() {
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brand-navy text-brand-gold text-[10px] sm:text-xs uppercase tracking-luxury font-bold">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Modern Man Kenya 254 • Private Concierge</span>
+            <span>Modern Man Kenya 254 • Client Care</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-5xl font-bold text-brand-navy">
             Contact & Partnerships
@@ -290,7 +290,7 @@ export default function ContactPage() {
                   Inquiry Transmitted Successfully
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto font-light">
-                  Thank you. Our atelier management and style concierge will respond directly to your inquiry within 4 hours.
+                  Thank you. Our atelier management and team will respond directly to your inquiry within 4 hours.
                 </p>
                 <div className="pt-4">
                   <button
@@ -327,7 +327,7 @@ export default function ContactPage() {
                     <option value="supply">Business Supply / Fabric Mill / Trimmings Partner</option>
                     <option value="corporate">Corporate Uniforms & Executive Wardrobes</option>
                     <option value="partnership">Brand Collaboration & Media Inquiry</option>
-                    <option value="general">General Concierge Question</option>
+                    <option value="general">General Question</option>
                   </select>
                 </div>
 

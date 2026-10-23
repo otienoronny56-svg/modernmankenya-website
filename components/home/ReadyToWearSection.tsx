@@ -35,7 +35,7 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
     id: 'african-ceremony-wear',
     name: 'Contemporary African Occasion Wear',
     category: 'Traditional',
-    image: '/images/kaftan-groomsmen-entourage-green.jpeg',
+    image: '/images/WhatsApp Image 2026-10-21 at 10.48.42 AM.jpeg',
     badge: 'African Luxury',
     href: '/gallery?category=traditional',
   },

@@ -250,7 +250,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-brand-gold transition-colors">
-                  Contact & Concierge
+                  Contact Us
                 </Link>
               </li>
               <li>

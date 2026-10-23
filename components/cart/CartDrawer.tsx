@@ -185,7 +185,7 @@ export const CartDrawer: React.FC = () => {
 
               <div className="pt-2 flex items-center justify-center space-x-2 text-[11px] text-slate-500">
                 <ShieldCheck className="w-4 h-4 text-brand-gold" />
-                <span>Encrypted Sartorial Concierge Transaction</span>
+                <span>Encrypted Sartorial Checkout</span>
               </div>
             </div>
           )}

@@ -848,7 +848,7 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
     title: 'African Wear',
     shortTitle: 'African Wear',
     badge: 'African Wear',
-    heroImage: '/images/agbada-navy-copper-embroidery.jpeg',
+    heroImage: '/images/WhatsApp Image 2026-10-21 at 10.48.42 AM.jpeg',
     tagline: 'Traditional & Modern',
     heroPills: [
       'Custom Kaftans',

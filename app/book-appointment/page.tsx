@@ -131,7 +131,7 @@ function BookAppointmentContent() {
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
           <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Private Sartorial Concierge</span>
+            <span>Private Sartorial Service</span>
           </span>
           <h1 className="font-serif text-2xl sm:text-4xl text-brand-navy font-bold">
             Book a Private Fitting
@@ -303,7 +303,7 @@ function BookAppointmentContent() {
                         <span>Private Fitting Pass</span>
                       </span>
                       <span className="bg-brand-gold text-brand-navy px-2 py-0.5 rounded text-[9px] font-extrabold tracking-wider">
-                        VIP CONCIERGE
+                        VIP SERVICE
                       </span>
                     </div>
 
@@ -595,7 +595,7 @@ function BookAppointmentContent() {
 
               <div className="pt-4 flex items-center justify-center space-x-2 text-[11px] text-slate-400">
                 <ShieldCheck className="w-4 h-4 text-brand-gold" />
-                <span>A concierge SMS and calendar invitation have been dispatched to {clientPhone}</span>
+                <span>A confirmation SMS and calendar invitation have been dispatched to {clientPhone}</span>
               </div>
             </div>
           )}
@@ -608,7 +608,7 @@ function BookAppointmentContent() {
 
 export default function BookAppointmentPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-brand-navy">Preparing Appointment Concierge...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-brand-navy">Preparing Appointment Booking...</div>}>
       <BookAppointmentContent />
     </Suspense>
   );

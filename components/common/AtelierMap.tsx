@@ -111,7 +111,7 @@ export function AtelierMap({
             <ShieldCheck className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-brand-navy uppercase tracking-wider text-[10px]">
-                Concierge Assistance
+                Customer Assistance
               </p>
               <a href="tel:+254718923082" className="text-slate-600 hover:text-brand-navy font-medium block">
                 +254 718 923 082 / 0718 923 082

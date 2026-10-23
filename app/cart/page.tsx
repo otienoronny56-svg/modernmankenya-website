@@ -48,7 +48,7 @@ export default function CartPage() {
 
           <div className="space-y-2">
             <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold">
-              Order Dispatched to Tailoring Concierge
+              Order Dispatched to Tailoring Team
             </span>
             <h1 className="font-serif text-3xl font-bold text-brand-navy">
               Thank You for Your Patronage
@@ -62,7 +62,7 @@ export default function CartPage() {
           </div>
 
           <p className="text-xs text-brand-slate-muted max-w-md mx-auto">
-            Our Nairobi concierge will reach out within 2 hours to confirm delivery schedule, 
+            Our Nairobi team will reach out within 2 hours to confirm delivery schedule, 
             final basting dates, or complimentary garment bag preferences.
           </p>
 

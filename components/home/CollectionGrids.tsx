@@ -23,7 +23,7 @@ export const CollectionGrids: React.FC = () => {
       image: '/images/collections/wedding-atelier.jpg',
       href: '/bespoke/weddings',
       badge: 'Celebrated Milestones',
-      startingPrice: 'Dedicated Wedding Concierge',
+      startingPrice: 'Personal Wedding Service',
     },
     {
       title: 'The Gallery',

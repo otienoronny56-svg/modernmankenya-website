@@ -95,7 +95,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'kaftan-agbada',
     title: 'Kaftans & Agbada',
-    image: '/images/kaftan-groomsmen-entourage-green.jpeg',
+    image: '/images/WhatsApp Image 2026-10-21 at 10.48.42 AM.jpeg',
     categoryParam: 'kaftan-agbada',
     badge: 'African Sophistication',
   },
@@ -109,7 +109,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'modern-women',
     title: 'Modern Woman',
-    image: '/images/MOK_1281.jpg.jpeg',
+    image: '/images/women-suit-sage-green-2.jpeg',
     categoryParam: 'modern-women',
     badge: "Bespoke Women's Suiting",
   },

@@ -125,7 +125,7 @@ export default function TermsPage() {
                 Client Relations & Feedback
               </span>
               <h3 className="font-serif text-2xl font-bold">
-                Direct Management Concierge
+                Direct Management Support
               </h3>
               <p className="text-sm text-slate-300 max-w-xl">
                 For feedback, complaints, or direct queries regarding your commission, our atelier management is available to assist you.

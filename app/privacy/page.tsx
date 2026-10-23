@@ -125,7 +125,7 @@ export default function PrivacyPolicyPage() {
                   Access & Updating Your Records
                 </h2>
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  You have the right to request access to your measurement profile, update your contact details, or request deletion of your account at any time. Simply notify our atelier concierge at <a href={`mailto:${BRAND_PROFILE.email}`} className="text-brand-gold underline font-semibold">{BRAND_PROFILE.email}</a>.
+                  You have the right to request access to your measurement profile, update your contact details, or request deletion of your account at any time. Simply notify our client care team at <a href={`mailto:${BRAND_PROFILE.email}`} className="text-brand-gold underline font-semibold">{BRAND_PROFILE.email}</a>.
                 </p>
               </div>
             </div>

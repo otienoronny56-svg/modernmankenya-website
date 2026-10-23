@@ -112,7 +112,7 @@ export default function ReturnsPage() {
                 Have a Question About Your Fitting?
               </span>
               <h3 className="font-serif text-2xl font-bold">
-                Atelier Concierge & Feedback
+                Client Care & Feedback
               </h3>
               <p className="text-sm text-slate-300 max-w-xl">
                 Our management is available to coordinate appointment timings, fitting adjustments, and delivery updates.
