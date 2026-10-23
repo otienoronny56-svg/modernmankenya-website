@@ -4,8 +4,8 @@ import { Metadata } from 'next';
 import { ShieldCheck, Clock, CheckCircle2, Phone, AlertCircle, FileText, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service & Bespoke Commission | Modern Man Kenya',
-  description: 'Official Terms of Service and Bespoke Commission Policy for Modern Man Kenya Nairobi Atelier.',
+  title: 'Terms of Commission | Modern Man Kenya',
+  description: 'Official Terms of Commission and Atelier Policy for Modern Man Kenya Nairobi Atelier.',
 };
 
 export default function TermsPage() {
@@ -20,10 +20,10 @@ export default function TermsPage() {
             <span>Official Atelier Policy</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brand-navy tracking-tight">
-            Terms of Service
+            Terms of Commission
           </h1>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Transparent, professional guidelines governing all bespoke commissions, ready-to-wear orders, and atelier services at Modern Man Kenya.
+            Transparent, professional guidelines governing all bespoke tailoring commissions, deposits, fitting adjustments, and atelier collections at Modern Man Kenya.
           </p>
         </div>
 

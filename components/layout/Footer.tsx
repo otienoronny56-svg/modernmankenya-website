@@ -285,6 +285,10 @@ export const Footer: React.FC = () => {
               Terms of Commission
             </Link>
             <span className="text-stone-300">•</span>
+            <Link href="/returns" className="hover:text-stone-900 transition-colors">
+              Returns & Fitting
+            </Link>
+            <span className="text-stone-300">•</span>
             <Link href="/admin" className="hover:text-brand-gold transition-colors">
               Staff
             </Link>
