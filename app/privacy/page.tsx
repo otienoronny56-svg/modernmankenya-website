@@ -42,7 +42,7 @@ export default function PrivacyPolicyPage() {
                   Information We Collect
                 </h2>
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                  When you schedule an appointment, consult our master tailors, or commission a bespoke suit, we collect:
+                  When you schedule an appointment, consult our master tailors, or commission made to measure tailoring, we collect:
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-600 pt-2">
                   <li className="flex items-center space-x-2">

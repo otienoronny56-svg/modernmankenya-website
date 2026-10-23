@@ -7,7 +7,7 @@ import { Mail, Phone, MapPin, ExternalLink, ArrowRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#FAF8F5] text-stone-700 pt-12 sm:pt-16 pb-10 border-t border-brand-gold/30 relative">
+    <footer className="bg-[#FAF8F5] text-stone-700 pt-12 sm:pt-16 pb-16 sm:pb-24 border-t border-brand-gold/30 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Minimalist Grid */}
@@ -218,6 +218,16 @@ export const Footer: React.FC = () => {
                   African Wear
                 </Link>
               </li>
+              <li>
+                <Link href="/gallery?category=smart-casual" className="hover:text-brand-gold transition-colors">
+                  Smart Casual & Blazers
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=kaftan-agbada" className="hover:text-brand-gold transition-colors">
+                  Kaftans & Agbada
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -276,20 +286,20 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 gap-3 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Modern Man Kenya. All rights reserved.</p>
-          <div className="flex items-center space-x-4">
-            <Link href="/privacy" className="hover:text-stone-900 transition-colors">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-2 sm:pr-24 lg:pr-28 relative z-10">
+            <Link href="/privacy" className="hover:text-brand-navy hover:underline transition-colors py-1">
               Privacy Policy
             </Link>
-            <span className="text-stone-300">•</span>
-            <Link href="/terms" className="hover:text-stone-900 transition-colors">
+            <span className="text-stone-300 select-none">•</span>
+            <Link href="/terms" className="hover:text-brand-navy hover:underline transition-colors py-1">
               Terms and Conditions
             </Link>
-            <span className="text-stone-300">•</span>
-            <Link href="/returns" className="hover:text-stone-900 transition-colors">
+            <span className="text-stone-300 select-none">•</span>
+            <Link href="/returns" className="hover:text-brand-navy hover:underline transition-colors py-1">
               Returns & Fitting
             </Link>
-            <span className="text-stone-300">•</span>
-            <Link href="/admin" className="hover:text-brand-gold transition-colors">
+            <span className="text-stone-300 select-none">•</span>
+            <Link href="/admin" className="hover:text-brand-gold transition-colors py-1">
               Staff
             </Link>
           </div>

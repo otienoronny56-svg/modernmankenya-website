@@ -11,7 +11,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center group">
+    <div className="fixed bottom-6 right-6 z-50 flex items-center group pointer-events-none">
       
       {/* Tooltip on Hover (Desktop) */}
       <div
@@ -34,7 +34,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
         rel="noopener noreferrer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 border-2 border-white/80"
+        className="pointer-events-auto relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 border-2 border-white/80"
         aria-label="Chat with Modern Man Kenya on WhatsApp (0114 122 510)"
         title="Chat on WhatsApp • 0114 122 510"
       >

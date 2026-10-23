@@ -70,6 +70,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
     { name: 'Executive Wear', href: '/occasions/executive-wear' },
     { name: 'Black Tie & Wedding', href: '/occasions/black-tie-wedding' },
     { name: 'African Wear', href: '/occasions/african-wear' },
+    { name: 'Smart Casual & Blazers', href: '/gallery?category=smart-casual' },
+    { name: 'Kaftans & Agbada', href: '/gallery?category=kaftan-agbada' },
   ];
 
   return (
