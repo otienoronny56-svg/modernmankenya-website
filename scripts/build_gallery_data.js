@@ -1,27 +1,132 @@
 const fs = require('fs');
 
 const items = [
-  // --- MODERN KIDS (10 Items) ---
-  { id: 'kid-1', title: 'White Tuxedo', tag: 'Junior Tuxedo', category: 'modern-kids', image: '/images/modern-kids-white-tuxedo.jpeg', aspect: 'portrait' },
-  { id: 'kid-2', title: 'African Lavender', tag: 'Traditional Youth', category: 'modern-kids', image: '/images/modern-kids-african-lavender.jpeg', aspect: 'portrait' },
-  { id: 'kid-3', title: 'Young Statesman', tag: 'Bespoke Junior', category: 'modern-kids', image: '/images/modern-kids-portrait-1.jpeg', aspect: 'portrait' },
-  { id: 'kid-4', title: 'Modern Kid', tag: 'Junior Tailoring', category: 'modern-kids', image: '/images/modern-kids-portrait-2.jpeg', aspect: 'portrait' },
-  { id: 'kid-5', title: 'Page Boy', tag: 'Wedding Entourage', category: 'modern-kids', image: '/images/modern-kids-portrait-3.jpeg', aspect: 'portrait' },
-  { id: 'kid-6', title: 'Junior Classic', tag: 'Tailored Separates', category: 'modern-kids', image: '/images/modern-kids-portrait-4.jpeg', aspect: 'portrait' },
-  { id: 'kid-7', title: 'Ceremony Tuxedo', tag: 'Black Tie', category: 'modern-kids', image: '/images/modern-kids-portrait-5.jpeg', aspect: 'portrait' },
-  { id: 'kid-8', title: 'Atelier Youth', tag: 'Handcrafted Suit', category: 'modern-kids', image: '/images/modern-kids-portrait-6.jpeg', aspect: 'portrait' },
-  { id: 'kid-9', title: 'Bespoke Youth', tag: 'Celebration Cut', category: 'modern-kids', image: '/images/modern-kids-portrait-7.jpeg', aspect: 'portrait' },
-  { id: 'kid-10', title: 'Youth Elegance', tag: 'Made to Measure', category: 'modern-kids', image: '/images/modern-kids-portrait-8.jpeg', aspect: 'portrait' },
+  // --- MODERN KIDS (6 Grouped Bespoke Ensembles, 10 Images Total) ---
+  // Same outfit & same person are classified together in one card with image gallery
+  { 
+    id: 'kid-1', 
+    title: 'African Lavender', 
+    tag: 'Traditional Cut', 
+    category: 'modern-kids', 
+    image: '/images/modern-kids-african-lavender.jpeg', 
+    images: [
+      '/images/modern-kids-african-lavender.jpeg', 
+      '/images/modern-kids-portrait-1.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'kid-2', 
+    title: 'Little Aviator', 
+    tag: 'Captain Uniform', 
+    category: 'modern-kids', 
+    image: '/images/modern-kids-portrait-2.jpeg', 
+    images: [
+      '/images/modern-kids-portrait-2.jpeg', 
+      '/images/modern-kids-portrait-3.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'kid-3', 
+    title: 'Ceremonial Agbada', 
+    tag: 'Heritage Robe', 
+    category: 'modern-kids', 
+    image: '/images/modern-kids-portrait-4.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'kid-4', 
+    title: 'White Tuxedo', 
+    tag: 'Junior Tuxedo', 
+    category: 'modern-kids', 
+    image: '/images/modern-kids-white-tuxedo.jpeg', 
+    images: [
+      '/images/modern-kids-white-tuxedo.jpeg', 
+      '/images/modern-kids-portrait-5.jpeg', 
+      '/images/modern-kids-portrait-6.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'kid-5', 
+    title: 'Bespoke Youth', 
+    tag: 'Officer Uniform', 
+    category: 'modern-kids', 
+    image: '/images/modern-kids-portrait-7.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'kid-6', 
+    title: 'African Monarch', 
+    tag: 'African Prince', 
+    category: 'modern-kids', 
+    image: '/images/modern-kids-portrait-8.jpeg', 
+    aspect: 'portrait' 
+  },
 
-  // --- MODERN WOMEN (8 Items) ---
-  { id: 'women-1', title: 'Crimson Couture', tag: 'Gala Gown', category: 'modern-women', image: '/images/DSC09261.jpg.jpeg', aspect: 'portrait' },
-  { id: 'women-2', title: 'Velvet Silhouette', tag: 'Evening Elegance', category: 'modern-women', image: '/images/DSC09282.jpg.jpeg', aspect: 'portrait' },
-  { id: 'women-3', title: 'Couture Bodice', tag: 'Bespoke Finish', category: 'modern-women', image: '/images/DSC09284.jpg.jpeg', aspect: 'portrait' },
-  { id: 'women-4', title: 'Navy Brocade', tag: 'Evening Beading', category: 'modern-women', image: '/images/DSC_2606.jpg.jpeg', aspect: 'portrait' },
-  { id: 'women-5', title: 'Gold Regalia', tag: 'Traditional Bride', category: 'modern-women', image: '/images/traditional-wedding-ruracio-groom-gold-bride.jpeg', aspect: 'portrait' },
-  { id: 'women-6', title: 'Ivory Nuptial', tag: 'Bridal Couture', category: 'modern-women', image: '/images/wedding-groom-ivory-gold-embroidered-bride.jpeg', aspect: 'portrait' },
-  { id: 'women-7', title: 'Bridal Walk', tag: 'Nuptial Gown', category: 'modern-women', image: '/images/DSC05022.jpg', aspect: 'portrait' },
-  { id: 'women-8', title: 'Bridal Party', tag: 'Garden Procession', category: 'modern-women', image: '/images/DSC04947.jpg', aspect: 'landscape' },
+  // --- MODERN WOMEN (7 Bespoke Tailored Ensembles, 9 Images Total - Pure Suiting, Zero Dresses) ---
+  {
+    id: 'women-1',
+    title: 'Sage Green',
+    tag: 'Trouser Suit',
+    category: 'modern-women',
+    image: '/images/women-suit-sage-green-1.jpeg',
+    images: [
+      '/images/women-suit-sage-green-1.jpeg',
+      '/images/women-suit-sage-green-2.jpeg',
+      '/images/women-suit-sage-green-3.jpeg'
+    ],
+    aspect: 'portrait'
+  },
+  {
+    id: 'women-2',
+    title: 'Emerald Green',
+    tag: 'Executive Suit',
+    category: 'modern-women',
+    image: '/images/women-suit-emerald-green.jpeg',
+    aspect: 'portrait'
+  },
+  {
+    id: 'women-3',
+    title: 'Pinstripe Three-Piece',
+    tag: 'Waistcoat Suit',
+    category: 'modern-women',
+    image: '/images/women-suit-pinstripe-three-piece.jpeg',
+    aspect: 'portrait'
+  },
+  {
+    id: 'women-4',
+    title: 'Nuptial Harmony',
+    tag: 'Matching Waistcoat',
+    category: 'modern-women',
+    image: '/images/women-suit-nuptial-couple.jpeg',
+    aspect: 'portrait'
+  },
+  {
+    id: 'women-5',
+    title: 'Royal Blue',
+    tag: 'Skirt Suit',
+    category: 'modern-women',
+    image: '/images/women-suit-royal-blue-skirt.jpeg',
+    aspect: 'portrait'
+  },
+  {
+    id: 'women-6',
+    title: 'Horseshoe Grey',
+    tag: 'Double-Breasted Vest',
+    category: 'modern-women',
+    image: '/images/women-suit-grey-horseshoe-vest.jpeg',
+    aspect: 'portrait'
+  },
+  {
+    id: 'women-7',
+    title: 'Tangerine Orange',
+    tag: 'Statement Suit',
+    category: 'modern-women',
+    image: '/images/women-suit-tangerine-pant.jpeg',
+    aspect: 'portrait'
+  },
 
   // --- SHIRTS (5 Pure Luxury Shirt Items) ---
   { id: 'shirt-1', title: 'Navy Bengal', tag: 'Cutaway Collar', category: 'shirts', image: '/images/shirts/modernman-shirt-navy-bengal-stripe.jpg', aspect: 'portrait' },
@@ -87,7 +192,8 @@ const items = [
   { id: 'trad-18', title: 'Entrance March', tag: 'Groom March', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.57 PM.jpeg', aspect: 'landscape' },
   { id: 'trad-19', title: 'Navy Brocade', tag: 'Bespoke Kaftan', category: 'traditional', image: '/images/DSC_2606.jpg.jpeg', aspect: 'portrait' },
 
-  // --- TUXEDOS & EVENINGWEAR (32 Items) ---
+  // --- TUXEDOS & EVENINGWEAR (30 Items - Pure Tuxedos & Dinner Suits, Zero Dresses) ---
+  { id: 'tux-cover', title: 'Scarlet Lapel', tag: 'Bespoke Tuxedo', category: 'evening-dinner', image: '/images/DSC09238.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-1', title: 'Ivory Shawl', tag: 'Altar Tuxedo', category: 'evening-dinner', image: '/images/tuxedo.jpeg', aspect: 'portrait' },
   { id: 'tux-2', title: 'Black Barathea', tag: 'Floating Canvas', category: 'evening-dinner', image: '/images/Black.jpg', aspect: 'landscape' },
   { id: 'tux-3', title: 'Studio Profile', tag: 'Black Tie', category: 'evening-dinner', image: '/images/MOK_1920.jpg', aspect: 'portrait' },
@@ -111,11 +217,7 @@ const items = [
   { id: 'tux-21', title: 'Gala Tuxedo', tag: 'Scarlet Lapel', category: 'evening-dinner', image: '/images/DSC09202.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-22', title: 'Grand Entrance', tag: 'Evening Wear', category: 'evening-dinner', image: '/images/DSC09216.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-23', title: 'Sartorial Stride', tag: 'Black Tie', category: 'evening-dinner', image: '/images/DSC09233.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-24', title: 'Lapel Craft', tag: 'Sartorial Detail', category: 'evening-dinner', image: '/images/DSC09238.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-25', title: 'Regal Poise', tag: 'Bespoke Tuxedo', category: 'evening-dinner', image: '/images/DSC09241.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-26', title: 'Crimson Couture', tag: 'Gala Gown', category: 'evening-dinner', image: '/images/DSC09261.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-27', title: 'Velvet Silhouette', tag: 'Evening Elegance', category: 'evening-dinner', image: '/images/DSC09282.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-28', title: 'Couture Bodice', tag: 'Bespoke Finish', category: 'evening-dinner', image: '/images/DSC09284.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-29', title: 'Embroidered Shawl', tag: 'Dinner Jacket', category: 'evening-dinner', image: '/images/IMG-142.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-30', title: 'Midnight Sovereign', tag: 'White Tuxedo', category: 'evening-dinner', image: '/images/IMG-143.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-31', title: 'Double Vest', tag: 'Groom Waistcoat', category: 'evening-dinner', image: '/images/IMG-145.jpg.jpeg', aspect: 'portrait' },
@@ -178,7 +280,7 @@ const header = `/**
  * Modern Man Kenya - Sartorial Gallery Visual Dataset
  * 
  * Auto-generated individual gallery items from IMAGE_REGISTRY and workspace assets.
- * Zero pricing, concise 1-2 word descriptions, individual visual cards for smooth scrolling.
+ * Zero pricing, concise 1-2 word descriptions, multi-image carousel support for same outfit / same person.
  */
 
 export interface GalleryItem {
@@ -197,6 +299,7 @@ export interface GalleryItem {
     | 'shirts'
     | 'accessories';
   image: string;
+  images?: string[];
   aspect?: 'portrait' | 'landscape' | 'square';
 }
 

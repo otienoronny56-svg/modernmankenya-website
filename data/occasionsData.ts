@@ -410,7 +410,7 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         slug: 'tuxedo',
         title: 'Tuxedo',
         description: 'Dinner Jackets',
-        heroImage: '/images/DSC09233.jpg.jpeg',
+        heroImage: '/images/DSC09238.jpg.jpeg',
         count: 28,
       },
       {
@@ -758,22 +758,8 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         aspect: 'portrait',
       },
       {
-        src: '/images/DSC09261.jpg.jpeg',
-        label: 'Crimson Couture',
-        tag: 'Tuxedo',
-        subCategory: 'tuxedo',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/DSC09282.jpg.jpeg',
-        label: 'Velvet Silhouette',
-        tag: 'Tuxedo',
-        subCategory: 'tuxedo',
-        aspect: 'portrait',
-      },
-      {
-        src: '/images/DSC09284.jpg.jpeg',
-        label: 'Couture Bodice',
+        src: '/images/DSC09238.jpg.jpeg',
+        label: 'Scarlet Lapel Tuxedo',
         tag: 'Tuxedo',
         subCategory: 'tuxedo',
         aspect: 'portrait',

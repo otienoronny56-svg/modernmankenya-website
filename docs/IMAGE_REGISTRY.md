@@ -200,29 +200,26 @@
 
 | Title (1-2 words) | Path | Aspect | Suggested Pages |
 | :--- | :--- | :--- | :--- |
-| **White Tuxedo** | `/images/modern-kids-white-tuxedo.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **African Lavender** | `/images/modern-kids-african-lavender.jpeg` | portrait | /gallery, /occasions/signature-occasion |
-| **Young Statesman** | `/images/modern-kids-portrait-1.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **Modern Kid** | `/images/modern-kids-portrait-2.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **Page Boy** | `/images/modern-kids-portrait-3.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **Junior Classic** | `/images/modern-kids-portrait-4.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **Ceremony Tuxedo** | `/images/modern-kids-portrait-5.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **Atelier Youth** | `/images/modern-kids-portrait-6.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **Bespoke Page Boy** | `/images/modern-kids-portrait-7.jpeg` | portrait | /gallery, /occasions/wedding-groom |
-| **Youth Elegance** | `/images/modern-kids-portrait-8.jpeg` | portrait | /gallery, /occasions/wedding-groom |
+| **African Lavender** | `/images/modern-kids-african-lavender.jpeg`, `/images/modern-kids-portrait-1.jpeg` | portrait | /gallery?category=modern-kids |
+| **Little Aviator** | `/images/modern-kids-portrait-2.jpeg`, `/images/modern-kids-portrait-3.jpeg` | portrait | /gallery?category=modern-kids |
+| **Ceremonial Agbada** | `/images/modern-kids-portrait-4.jpeg` | portrait | /gallery?category=modern-kids |
+| **White Tuxedo** | `/images/modern-kids-white-tuxedo.jpeg`, `/images/modern-kids-portrait-5.jpeg`, `/images/modern-kids-portrait-6.jpeg` | portrait | /gallery?category=modern-kids |
+| **Bespoke Youth (Cover)** | `/images/modern-kids-portrait-7.jpeg` | portrait | /gallery?category=modern-kids, / (What We Make Cover) |
+| **African Monarch** | `/images/modern-kids-portrait-8.jpeg` | portrait | /gallery?category=modern-kids |
 
-### Modern Women & Haute Couture (8 items)
+### Modern Women Bespoke Suiting (9 items, Pure Tailored Suiting — Zero Dresses)
 
-| Title (1-2 words) | Path | Aspect | Suggested Pages |
-| :--- | :--- | :--- | :--- |
-| **Crimson Couture** | `/images/DSC09261.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
-| **Velvet Silhouette** | `/images/DSC09282.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
-| **Couture Bodice** | `/images/DSC09284.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
-| **Navy Brocade** | `/images/DSC_2606.jpg.jpeg` | portrait | /gallery?category=modern-women, /occasions/african-wear |
-| **Gold Regalia** | `/images/traditional-wedding-ruracio-groom-gold-bride.jpeg` | portrait | /gallery?category=modern-women, /occasions/african-wear |
-| **Ivory Nuptial** | `/images/wedding-groom-ivory-gold-embroidered-bride.jpeg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
-| **Bridal Walk** | `/images/DSC05022.jpg` | portrait | /gallery?category=modern-women, /occasions/black-tie-wedding |
-| **Bridal Party** | `/images/DSC04947.jpg` | landscape | /gallery?category=modern-women, /occasions/black-tie-wedding |
+| Title (1-2 words) | Clean Path | Source File | Aspect | Classification |
+| :--- | :--- | :--- | :--- | :--- |
+| **Sage Green (Cover)** | `/images/women-suit-sage-green-1.jpeg` | `MOK_1281.jpg.jpeg` | portrait | Standing leaning on armchair, bespoke flared trousers |
+| **Sage Green (Pose 2)** | `/images/women-suit-sage-green-2.jpeg` | `WhatsApp Image 2026-10-23 at 10.33.50 AM.jpeg` | portrait | Seated on high chair, arms crossed |
+| **Sage Green (Pose 3)** | `/images/women-suit-sage-green-3.jpeg` | `WhatsApp Image 2026-10-23 at 10.33.50 AM (1).jpeg` | portrait | Seated on high chair, hands clasped close-up |
+| **Emerald Green** | `/images/women-suit-emerald-green.jpeg` | `WhatsApp Image 2026-10-23 at 10.33.51 AM.jpeg` | portrait | Seated on stairs, dark forest green trouser suit, heels |
+| **Pinstripe Three-Piece** | `/images/women-suit-pinstripe-three-piece.jpeg` | `WhatsApp Image 2026-10-23 at 10.33.51 AM (1).jpeg` | portrait | Royal blue pinstripe 3-piece, ivory waistcoat, bow tie |
+| **Nuptial Harmony** | `/images/women-suit-nuptial-couple.jpeg` | `WhatsApp Image 2026-10-23 at 10.33.51 AM (2).jpeg` | landscape | Couple matching ivory waistcoats & pinstripe trousers |
+| **Royal Blue** | `/images/women-suit-royal-blue-skirt.jpeg` | `WhatsApp Image 2026-10-23 at 10.34.25 AM.jpeg` | portrait | 3-piece skirt suit with double-breasted vest |
+| **Horseshoe Grey** | `/images/women-suit-grey-horseshoe-vest.jpeg` | `WhatsApp Image 2026-10-23 at 10.34.25 AM (1).jpeg` | portrait | Horseshoe double-breasted vest & pencil skirt |
+| **Tangerine Orange** | `/images/women-suit-tangerine-pant.jpeg` | `WhatsApp Image 2026-10-23 at 10.34.59 AM.jpeg` | portrait | Vibrant orange tailored pant suit, stilettos |
 
 ### Kaftans & Agbada Ensembles (14 items)
 

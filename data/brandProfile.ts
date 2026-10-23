@@ -67,7 +67,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'tuxedos',
     title: 'Tuxedos',
-    image: '/images/MOK_2204.jpg',
+    image: '/images/DSC09238.jpg.jpeg',
     categoryParam: 'evening-dinner',
     badge: 'Formal Events',
   },
@@ -102,16 +102,16 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'modern-kids',
     title: 'Modern Kids',
-    image: '/images/modern-kids-white-tuxedo.jpeg',
+    image: '/images/modern-kids-portrait-7.jpeg',
     categoryParam: 'modern-kids',
     badge: 'Young Gentlemen & Page Boys',
   },
   {
     id: 'modern-women',
     title: 'Modern Women',
-    image: '/images/DSC09261.jpg.jpeg',
+    image: '/images/MOK_1281.jpg.jpeg',
     categoryParam: 'modern-women',
-    badge: 'Couture Gowns & Bridal',
+    badge: "Bespoke Women's Suiting",
   },
   {
     id: 'shirts',

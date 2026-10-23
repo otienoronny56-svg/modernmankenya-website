@@ -7,6 +7,122 @@ import Link from 'next/link';
 import { Sparkles, Calendar, Maximize2, ChevronLeft, ChevronRight, X, ArrowRight } from 'lucide-react';
 import { SARTORIAL_GALLERY_ITEMS, GalleryItem } from '@/data/galleryData';
 
+interface GalleryCardProps {
+  item: GalleryItem;
+  onOpenLightbox: (selectedImage: string) => void;
+}
+
+const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpenLightbox }) => {
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const images = item.images && item.images.length > 0 ? item.images : [item.image];
+  const hasMultipleImages = images.length > 1;
+  const activeImage = images[currentImgIndex] || item.image;
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImgIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentImgIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+  };
+
+  return (
+    <div
+      onClick={() => onOpenLightbox(activeImage)}
+      className="group relative bg-white rounded-lg border border-slate-200/90 hover:border-brand-gold/60 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col"
+    >
+      {/* Image Container */}
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100 select-none">
+        <Image
+          src={activeImage}
+          alt={`${item.title} - angle ${currentImgIndex + 1}`}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+          loading="lazy"
+        />
+
+        {/* Gradient Overlay on Hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+        {/* Top Floating Badge: 1-2 Word Tag */}
+        <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
+          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-black/60 backdrop-blur-sm text-brand-gold border border-brand-gold/30 shadow-sm">
+            {item.tag}
+          </span>
+        </div>
+
+        {/* Zoom Indicator Icon on Hover */}
+        <div className="absolute top-2.5 right-2.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <span className="w-7 h-7 rounded-full bg-brand-gold/90 text-brand-navy flex items-center justify-center shadow-md">
+            <Maximize2 className="w-3.5 h-3.5" />
+          </span>
+        </div>
+
+        {/* In-Card Carousel Left & Right Arrows (When Multiple Angles Exist) */}
+        {hasMultipleImages && (
+          <>
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous photo angle"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/70 hover:bg-brand-gold text-white hover:text-brand-navy flex items-center justify-center shadow-lg border border-white/20 transition-all opacity-85 hover:opacity-100 active:scale-95"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next photo angle"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/70 hover:bg-brand-gold text-white hover:text-brand-navy flex items-center justify-center shadow-lg border border-white/20 transition-all opacity-85 hover:opacity-100 active:scale-95"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+
+            {/* Position Indicator Dots */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex items-center space-x-1.5 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/20">
+              {images.map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentImgIndex(dotIdx);
+                  }}
+                  className={`rounded-full transition-all ${
+                    dotIdx === currentImgIndex
+                      ? 'w-2 h-2 bg-brand-gold ring-1 ring-brand-gold/60'
+                      : 'w-1.5 h-1.5 bg-white/50 hover:bg-white'
+                  }`}
+                  aria-label={`Jump to photo ${dotIdx + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* Card Caption: Crisp 1-2 Word Title with NO PRICING */}
+      <div className="p-3 sm:p-3.5 flex items-center justify-between bg-white border-t border-slate-100">
+        <div className="min-w-0 pr-2">
+          <h3 className="font-serif text-xs sm:text-sm font-bold text-brand-navy group-hover:text-brand-gold transition-colors truncate">
+            {item.title}
+          </h3>
+          <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium tracking-wide truncate mt-0.5">
+            {item.tag} {hasMultipleImages && <span className="text-brand-gold font-bold ml-1">({currentImgIndex + 1}/{images.length})</span>}
+          </p>
+        </div>
+        <span className="text-slate-300 group-hover:text-brand-gold transition-colors flex-shrink-0">
+          <ArrowRight className="w-3.5 h-3.5" />
+        </span>
+      </div>
+    </div>
+  );
+};
+
 function GalleryContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get('category') || 'all';
@@ -14,6 +130,7 @@ function GalleryContent() {
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [accessorySubFilter, setAccessorySubFilter] = useState<'all' | 'neckwear' | 'hardware' | 'leather-timepieces' | 'hats'>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState<number>(0);
 
   // Sync state if URL query param changes
   useEffect(() => {
@@ -64,19 +181,39 @@ function GalleryContent() {
 
   // Lightbox navigation helpers
   const activeLightboxItem = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;
+  const activeLightboxImages = useMemo(() => {
+    if (!activeLightboxItem) return [];
+    return activeLightboxItem.images && activeLightboxItem.images.length > 0 
+      ? activeLightboxItem.images 
+      : [activeLightboxItem.image];
+  }, [activeLightboxItem]);
+
+  const handleOpenLightbox = (itemIndex: number, selectedImgSrc?: string) => {
+    setLightboxIndex(itemIndex);
+    const item = filteredItems[itemIndex];
+    if (item && item.images && selectedImgSrc) {
+      const foundIdx = item.images.indexOf(selectedImgSrc);
+      setLightboxImageIndex(foundIdx >= 0 ? foundIdx : 0);
+    } else {
+      setLightboxImageIndex(0);
+    }
+  };
 
   const handlePrev = useCallback(() => {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) => (prev! > 0 ? prev! - 1 : filteredItems.length - 1));
+    setLightboxImageIndex(0);
   }, [lightboxIndex, filteredItems.length]);
 
   const handleNext = useCallback(() => {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) => (prev! < filteredItems.length - 1 ? prev! + 1 : 0));
+    setLightboxImageIndex(0);
   }, [lightboxIndex, filteredItems.length]);
 
   const handleClose = useCallback(() => {
     setLightboxIndex(null);
+    setLightboxImageIndex(0);
   }, []);
 
   // Keyboard navigation for Lightbox
@@ -108,7 +245,7 @@ function GalleryContent() {
               The Sartorial Gallery
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-              Explore our master commissions and made-to-measure tailoring portfolio. Every single garment is handcrafted with floating horsehair canvas and sculpted to distinct human anatomy.
+              Explore our master commissions and bespoke tailoring portfolio. Every single garment is handcrafted with floating horsehair canvas and sculpted to distinct human anatomy.
             </p>
           </div>
         </div>
@@ -145,7 +282,7 @@ function GalleryContent() {
           <div className="flex items-center space-x-2 text-xs text-slate-500 font-medium self-start md:self-auto flex-shrink-0">
             <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
             <span>
-              Showing <strong className="text-brand-navy font-bold">{filteredItems.length}</strong> creations
+              Showing <strong className="text-brand-navy font-bold">{filteredItems.length}</strong> bespoke creations
             </span>
           </div>
         </div>
@@ -159,41 +296,34 @@ function GalleryContent() {
                   <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
                   <span>Curated Atelier Accoutrements</span>
                 </span>
-                <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                  Modern Man Kenya Accessories Collection
-                </h2>
-                <p className="text-xs text-slate-300 mt-1 max-w-2xl font-light">
-                  Handcrafted accoutrements engineered to complete bespoke tailoring: Silk Ties, Velvet Bowties, Onyx Cufflinks &amp; Studs, Lion Lapel Pins, Ascot Cravats, Leather Belts &amp; Suspenders, Dress Watches, Tie Bars, and Master Fedora Hats.
+                <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">Bespoke Accessories</h2>
+                <p className="text-xs text-slate-300 font-light max-w-xl mt-1">
+                  Pure sartorial accoutrements hand-matched to your suiting cloth, ties, and lapels.
                 </p>
               </div>
-              <div className="flex items-center space-x-2 self-start md:self-auto flex-shrink-0">
-                <span className="px-3 py-1 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 rounded-full text-xs font-semibold">
-                  9 House Accessories
-                </span>
-              </div>
-            </div>
 
-            {/* Sub-Pills Filter */}
-            <div className="flex items-center space-x-2 overflow-x-auto pt-4 no-scrollbar">
-              {[
-                { id: 'all', label: 'All 9 Accessories' },
-                { id: 'neckwear', label: 'Ties, Bowties & Cravat' },
-                { id: 'hardware', label: 'Cufflinks, Pins & Tie Bars' },
-                { id: 'leather-timepieces', label: 'Belt, Suspenders & Watch' },
-                { id: 'hats', label: 'Master Fedora Hats' },
-              ].map((sub) => (
-                <button
-                  key={sub.id}
-                  onClick={() => setAccessorySubFilter(sub.id as any)}
-                  className={`flex-shrink-0 px-3 py-1 rounded-full text-[11px] font-semibold transition-all ${
-                    accessorySubFilter === sub.id
-                      ? 'bg-brand-gold text-brand-navy font-bold shadow-sm'
-                      : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white'
-                  }`}
-                >
-                  {sub.label}
-                </button>
-              ))}
+              {/* Sub-filter chips */}
+              <div className="flex items-center space-x-2 overflow-x-auto pb-1 no-scrollbar">
+                {[
+                  { id: 'all', label: 'All (9)' },
+                  { id: 'neckwear', label: 'Ties & Bowties' },
+                  { id: 'hardware', label: 'Cufflinks & Pins' },
+                  { id: 'leather-timepieces', label: 'Leather & Watches' },
+                  { id: 'hats', label: 'Fedora Hats' },
+                ].map((sub) => (
+                  <button
+                    key={sub.id}
+                    onClick={() => setAccessorySubFilter(sub.id as any)}
+                    className={`px-3 py-1.5 rounded-md text-[11px] font-semibold transition-all whitespace-nowrap ${
+                      accessorySubFilter === sub.id
+                        ? 'bg-brand-gold text-brand-navy font-bold shadow'
+                        : 'bg-white/10 hover:bg-white/20 text-white'
+                    }`}
+                  >
+                    {sub.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
@@ -215,55 +345,11 @@ function GalleryContent() {
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {filteredItems.map((item, index) => (
-              <div
+              <GalleryCard
                 key={item.id}
-                onClick={() => setLightboxIndex(index)}
-                className="group relative bg-white rounded-lg border border-slate-200/90 hover:border-brand-gold/60 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col"
-              >
-                {/* Image Container */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    loading="lazy"
-                  />
-
-                  {/* Gradient Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* Top Floating Badge: 1-2 Word Tag */}
-                  <div className="absolute top-2.5 left-2.5 z-10">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-black/60 backdrop-blur-sm text-brand-gold border border-brand-gold/30 shadow-sm">
-                      {item.tag}
-                    </span>
-                  </div>
-
-                  {/* Zoom Indicator Icon on Hover */}
-                  <div className="absolute top-2.5 right-2.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="w-7 h-7 rounded-full bg-brand-gold/90 text-brand-navy flex items-center justify-center shadow-md">
-                      <Maximize2 className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Caption: Crisp 1-2 Word Title with NO PRICING */}
-                <div className="p-3 sm:p-3.5 flex items-center justify-between bg-white border-t border-slate-100">
-                  <div className="min-w-0 pr-2">
-                    <h3 className="font-serif text-xs sm:text-sm font-bold text-brand-navy group-hover:text-brand-gold transition-colors truncate">
-                      {item.title}
-                    </h3>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium tracking-wide truncate mt-0.5">
-                      {item.tag}
-                    </p>
-                  </div>
-                  <span className="text-slate-300 group-hover:text-brand-gold transition-colors flex-shrink-0">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </div>
+                item={item}
+                onOpenLightbox={(selectedImg) => handleOpenLightbox(index, selectedImg)}
+              />
             ))}
           </div>
         )}
@@ -322,7 +408,7 @@ function GalleryContent() {
             className="relative flex-1 flex items-center justify-center my-3 max-w-5xl w-full mx-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Prev Button */}
+            {/* Prev Button (Between Creations) */}
             <button
               onClick={handlePrev}
               className="absolute left-2 sm:-left-12 z-20 p-2.5 rounded-full bg-black/60 hover:bg-brand-gold text-white hover:text-brand-navy transition-all border border-white/20"
@@ -334,7 +420,7 @@ function GalleryContent() {
             {/* Active Image */}
             <div className="relative w-full h-[65vh] sm:h-[72vh] max-w-3xl flex items-center justify-center">
               <Image
-                src={activeLightboxItem.image}
+                src={activeLightboxImages[lightboxImageIndex] || activeLightboxItem.image}
                 alt={activeLightboxItem.title}
                 fill
                 className="object-contain drop-shadow-2xl"
@@ -342,7 +428,7 @@ function GalleryContent() {
               />
             </div>
 
-            {/* Next Button */}
+            {/* Next Button (Between Creations) */}
             <button
               onClick={handleNext}
               className="absolute right-2 sm:-right-12 z-20 p-2.5 rounded-full bg-black/60 hover:bg-brand-gold text-white hover:text-brand-navy transition-all border border-white/20"
@@ -352,14 +438,37 @@ function GalleryContent() {
             </button>
           </div>
 
-          {/* Bottom Bar: Action Buttons & Counter */}
+          {/* Bottom Bar: Multi-Angle Selector, Action Buttons & Counter */}
           <div
             className="flex flex-col sm:flex-row items-center justify-between text-white max-w-6xl w-full mx-auto pt-3 border-t border-white/10 gap-3"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="text-xs text-slate-400 font-mono">
-              {lightboxIndex! + 1} / {filteredItems.length}
-            </span>
+            <div className="flex items-center space-x-3">
+              <span className="text-xs text-slate-400 font-mono">
+                {lightboxIndex! + 1} / {filteredItems.length}
+              </span>
+
+              {/* Angle thumbnails if creation has multiple images */}
+              {activeLightboxImages.length > 1 && (
+                <div className="flex items-center space-x-1.5 ml-3 pl-3 border-l border-white/20">
+                  <span className="text-[10px] text-brand-gold uppercase tracking-wider font-semibold mr-1">Angles:</span>
+                  {activeLightboxImages.map((imgSrc, imgIdx) => (
+                    <button
+                      key={imgIdx}
+                      onClick={() => setLightboxImageIndex(imgIdx)}
+                      className={`relative w-9 h-9 rounded overflow-hidden border transition-all ${
+                        lightboxImageIndex === imgIdx
+                          ? 'border-brand-gold ring-2 ring-brand-gold/60 scale-105'
+                          : 'border-white/20 opacity-60 hover:opacity-100'
+                      }`}
+                      aria-label={`View angle ${imgIdx + 1}`}
+                    >
+                      <Image src={imgSrc} alt={`Angle ${imgIdx + 1}`} fill className="object-cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <div className="flex items-center space-x-3">
               <Link

@@ -943,7 +943,7 @@ export const BESPOKE_CATEGORIES = [
     title: 'Tuxedos & Black-Tie Formalwear',
     subtitle: 'Galas, Red Carpets & Milestone Evenings',
     description: 'Tuxedos, dinner suits, and elevated evening pieces with considered lapels, refined shirting, and sophisticated finishing.',
-    image: '/images/tuxedo.jpeg',
+    image: '/images/DSC09238.jpg.jpeg',
     startingPriceKes: 175000,
     leadTime: '4 - 5 Weeks',
   },
