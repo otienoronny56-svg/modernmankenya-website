@@ -115,8 +115,8 @@ export const AtelierExperienceSection: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                  <a href="tel:+254114122510" className="hover:text-white transition-colors">
-                    Call: 0114 122 510 / +254 114 122510
+                  <a href="tel:+254718923082" className="hover:text-white transition-colors">
+                    Call: +254 718 923 082
                   </a>
                 </div>
               </div>

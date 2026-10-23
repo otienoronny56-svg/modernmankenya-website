@@ -19,7 +19,7 @@ export const AtelierInvitation: React.FC = () => {
               alt="Modern Man Kenya Made to Measure Tailoring Nairobi"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-top"
+              className="object-cover object-bottom"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-stone-900 lg:block hidden" />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent lg:hidden block" />

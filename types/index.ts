@@ -1,6 +1,6 @@
 // Modern Man Kenya 254 - Core Type Definitions
 
-export type Currency = 'KES' | 'USD' | 'GBP';
+export type Currency = 'KES' | 'USD' | 'GBP' | 'EUR';
 
 export interface ProductVariant {
   id: string;

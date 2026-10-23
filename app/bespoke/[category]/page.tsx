@@ -31,8 +31,8 @@ export default function BespokeCategoryPage() {
     subtitle: 'Master Made to Measure Discipline',
     description: 'An individual pattern drafted from scratch exclusively for your anatomy. Sculpted with full floating canvas and hand-padded lapels.',
     image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=85',
-    startingPriceKes: 145000,
-    leadTime: '4 - 5 Weeks',
+    startingPriceKes: 20000,
+    leadTime: '2 - 3 Weeks',
   };
 
   const { config, setFabric, setLapel, setPockets, setButtons, setLining } = useBespokeStore();
@@ -77,7 +77,7 @@ export default function BespokeCategoryPage() {
               <div className="bg-white/10 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded border border-white/15 backdrop-blur-sm">
                 <span className="text-slate-400 block text-[9px] sm:text-[10px] uppercase">Starting Investment</span>
                 <span className="font-bold text-brand-gold text-xs sm:text-sm">
-                  KES {categoryData.startingPriceKes.toLocaleString()}
+                  {formatCurrencyPrice(categoryData.startingPriceKes, currency)}
                 </span>
               </div>
               <div className="bg-white/10 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded border border-white/15 backdrop-blur-sm">
@@ -106,7 +106,7 @@ export default function BespokeCategoryPage() {
                     : 'border-transparent text-slate-400 hover:text-brand-navy'
                 }`}
               >
-                1. Cloth & Mill Swatches
+                1. Type of Fabric
               </button>
               <button
                 onClick={() => setActiveTab('structure')}
@@ -202,9 +202,11 @@ export default function BespokeCategoryPage() {
                             : 'bg-slate-50 text-brand-slate border-slate-200 hover:border-slate-300'
                         }`}
                       >
-                        <span className="font-serif text-sm block">{lapel} Lapel</span>
+                        <span className="font-serif text-sm block">
+                          {lapel === 'Peak' ? 'Peak Lapel (Pointed)' : lapel === 'Notch' ? 'Notch Lapel (Normal)' : 'Shawl Lapel (Rolling Collar)'}
+                        </span>
                         <span className="text-[10px] opacity-75 mt-1 block">
-                          {lapel === 'Peak' ? '4.0" Broad Cut' : lapel === 'Notch' ? '3.25" Balanced' : '2.75" Curved'}
+                          {lapel === 'Peak' ? '2.75" Pointed' : lapel === 'Notch' ? '2.5" Normal' : '2.75" Rolling'}
                         </span>
                       </button>
                     ))}
@@ -321,7 +323,7 @@ export default function BespokeCategoryPage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                  <span>Hand-sewn milanese buttonholes in silk gimp</span>
+                  <span>Hand-stitched lapel buttonholes</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="w-4 h-4 text-brand-gold flex-shrink-0" />

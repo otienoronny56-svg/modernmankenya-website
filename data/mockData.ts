@@ -2,6 +2,16 @@ import type { FabricOption, LiningOption, Product, LapelStyle, PocketStyle, Butt
 
 export const FABRIC_OPTIONS: FabricOption[] = [
   {
+    id: 'house-essential-wool',
+    name: 'Modern Man House Essential Wool',
+    mill: 'Signature Atelier Selection (Nairobi)',
+    composition: 'Tailored Poly-Wool Suiting Twill',
+    weight: '280g/m (All-Season)',
+    colorHex: '#1E293B',
+    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80',
+    priceKes: 20000,
+  },
+  {
     id: 'scabal-navy-150',
     name: 'Scabal Super 150s Midnight Navy',
     mill: 'Scabal (Huddersfield, England)',
@@ -926,8 +936,8 @@ export const BESPOKE_CATEGORIES = [
     subtitle: 'The Core House Specialty',
     description: 'Individually drafted patterns cut exclusively for your anatomical proportions. Hand-cut and fitted across physical fitting sessions.',
     image: '/images/MOK_7655.jpg',
-    startingPriceKes: 145000,
-    leadTime: '4 - 6 Weeks (Physical Fittings)',
+    startingPriceKes: 20000,
+    leadTime: '2 - 3 Weeks (Physical Fittings)',
   },
   {
     slug: 'bespoke-suits',
@@ -935,8 +945,8 @@ export const BESPOKE_CATEGORIES = [
     subtitle: 'Lounge, Executive & Ceremonial Suites',
     description: 'Impeccably balanced silhouettes crafted from the finest cloths. Available with optional custom horseshoe or single-breasted waistcoats.',
     image: '/images/MOK_7660.jpg',
-    startingPriceKes: 145000,
-    leadTime: '4 Weeks',
+    startingPriceKes: 20000,
+    leadTime: '2 - 3 Weeks',
   },
   {
     slug: 'bespoke-evening-wear',

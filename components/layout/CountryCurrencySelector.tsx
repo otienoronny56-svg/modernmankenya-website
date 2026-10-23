@@ -14,7 +14,8 @@ export interface CountryOption {
 }
 
 export const COUNTRIES: CountryOption[] = [
-  { code: 'KE', name: 'Kenya', flagUrl: 'https://flagcdn.com/w40/ke.png', currency: 'KES', currencyLabel: 'KES KSh' },
+  { code: 'KE', name: 'Kenya', flagUrl: 'https://flagcdn.com/w40/ke.png', currency: 'KES', currencyLabel: 'KSh' },
+  { code: 'EU', name: 'Europe', flagUrl: 'https://flagcdn.com/w40/eu.png', currency: 'EUR', currencyLabel: 'EUR €' },
   { code: 'US', name: 'United States', flagUrl: 'https://flagcdn.com/w40/us.png', currency: 'USD', currencyLabel: 'USD $' },
   { code: 'GB', name: 'United Kingdom', flagUrl: 'https://flagcdn.com/w40/gb.png', currency: 'GBP', currencyLabel: 'GBP £' },
   { code: 'CA', name: 'Canada', flagUrl: 'https://flagcdn.com/w40/ca.png', currency: 'USD', currencyLabel: 'USD $' },

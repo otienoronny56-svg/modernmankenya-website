@@ -28,7 +28,7 @@ const initialConfig: BespokeConfiguration = {
   monogramColor: '#A88A00',
   monogramFont: 'Classic Serif',
   specialNotes: '',
-  estimatedPriceKes: 165000,
+  estimatedPriceKes: 20000,
 };
 
 export const useBespokeStore = create<BespokeState>((set) => ({

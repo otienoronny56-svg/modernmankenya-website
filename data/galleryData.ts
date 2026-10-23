@@ -122,7 +122,7 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "tag": "Matching Waistcoat",
     "category": "modern-women",
     "image": "/images/women-suit-nuptial-couple.jpeg",
-    "aspect": "portrait"
+    "aspect": "landscape"
   },
   {
     "id": "women-5",
@@ -150,6 +150,14 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     "id": "shirt-1",
+    "title": "White Tuxedo",
+    "tag": "Pleated Studs",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-white-tuxedo-pleated.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-2",
     "title": "Navy Bengal",
     "tag": "Cutaway Collar",
     "category": "shirts",
@@ -157,7 +165,7 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "shirt-2",
+    "id": "shirt-3",
     "title": "Sky Blue",
     "tag": "Contrast Collar",
     "category": "shirts",
@@ -165,7 +173,7 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "shirt-3",
+    "id": "shirt-4",
     "title": "Lavender Pinpoint",
     "tag": "Pastel Poplin",
     "category": "shirts",
@@ -173,7 +181,71 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "shirt-4",
+    "id": "shirt-5",
+    "title": "Sky Block Stripe",
+    "tag": "Spread Collar",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-sky-block-stripe.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-6",
+    "title": "Navy Block Stripe",
+    "tag": "Executive Stripe",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-navy-block-stripe.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-7",
+    "title": "Royal Pinstripe",
+    "tag": "White Club Collar",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-royal-pinstripe-white-collar.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-8",
+    "title": "Blue Gingham",
+    "tag": "Club Collar",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-blue-gingham-club.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-9",
+    "title": "Crimson Stripe",
+    "tag": "French Cuff",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-crimson-block-stripe.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-10",
+    "title": "Black Stripe",
+    "tag": "Monochrome Spread",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-black-block-stripe.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-11",
+    "title": "Royal Bengal",
+    "tag": "Bold Stripe",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-royal-bengal-stripe.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-12",
+    "title": "Micro Check",
+    "tag": "Business Twill",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-blue-microcheck.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-13",
     "title": "Burgundy Bengal",
     "tag": "Crimson Stripe",
     "category": "shirts",
@@ -181,11 +253,43 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "shirt-5",
+    "id": "shirt-14",
+    "title": "Red Blue Check",
+    "tag": "Smart Twill",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-red-blue-check.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-15",
+    "title": "Sky Contrast Tab",
+    "tag": "Tab Collar",
+    "category": "shirts",
+    "image": "/images/shirts/modernman-shirt-sky-contrast-tab.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-16",
     "title": "Black Bengal",
     "tag": "Monochrome Stripe",
     "category": "shirts",
     "image": "/images/shirts/modernman-shirt-black-bengal-stripe.jpg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-17",
+    "title": "Luxury Stack",
+    "tag": "Five Shirt Set",
+    "category": "shirts",
+    "image": "/images/shirts/WhatsApp Image 2026-10-23 at 12.36.03 PM (1).jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "shirt-18",
+    "title": "Chambray Placket",
+    "tag": "Tailored Placket",
+    "category": "shirts",
+    "image": "/images/shirts/WhatsApp Image 2026-10-23 at 12.36.00 PM.jpeg",
     "aspect": "portrait"
   },
   {

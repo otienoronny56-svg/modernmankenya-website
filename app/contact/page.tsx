@@ -30,7 +30,7 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const phoneNumber = '0114 122 510 / +254 114 122510';
+  const phoneNumber = '+254 718 923 082 / 0718 923 082';
   const whatsappUrl = `https://wa.me/254114122510?text=${encodeURIComponent(
     'Hello Modern Man Kenya, I would like to inquire about made to measure tailoring, partnerships, or supplies.'
   )}`;
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     <p className="font-bold text-white uppercase tracking-wider text-[11px]">
                       Direct Telephone & WhatsApp
                     </p>
-                    <a href={`tel:+254114122510`} className="text-sm font-semibold text-brand-gold hover:underline block mt-0.5">
+                    <a href={`tel:+254718923082`} className="text-sm font-semibold text-brand-gold hover:underline block mt-0.5">
                       {phoneNumber}
                     </a>
                     <span className="text-[11px] text-slate-400">Calls & WhatsApp active 7 days a week</span>

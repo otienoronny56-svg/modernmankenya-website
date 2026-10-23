@@ -41,8 +41,8 @@ export const BRAND_INFO = {
     'To establish Modern Man Kenya as a leading African custom tailoring house recognised for exceptional fit, contemporary menswear design, craftsmanship and a distinctive approach to personal style.',
   mission:
     'To create exceptional tailored clothing that enables every client to look refined, feel confident and express his individuality—through personalised service, considered design and uncompromising attention to detail.',
-  phone: '+254 114 122510',
-  phoneDisplay: '0114 122 510',
+  phone: '+254 718 923082',
+  phoneDisplay: '+254 718 923 082',
   whatsappUrl: 'https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya%2C%20I%20would%20like%20to%20inquire%20about%20your%20suits%20and%20tailoring.',
   email: 'info@modernmanke.com',
   location: 'Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi',
@@ -108,7 +108,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   },
   {
     id: 'modern-women',
-    title: 'Modern Women',
+    title: 'Modern Woman',
     image: '/images/MOK_1281.jpg.jpeg',
     categoryParam: 'modern-women',
     badge: "Bespoke Women's Suiting",

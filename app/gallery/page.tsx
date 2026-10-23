@@ -40,7 +40,11 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpenLightbox }) => {
           alt={`${item.title} - angle ${currentImgIndex + 1}`}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+          className={`group-hover:scale-105 transition-transform duration-500 ease-out ${
+            activeImage.includes('nuptial') || activeImage.includes('women-suit') || item.category === 'modern-women'
+              ? 'object-cover object-top'
+              : 'object-cover'
+          }`}
           loading="lazy"
         />
 
@@ -149,7 +153,7 @@ function GalleryContent() {
     { id: 'traditional', label: 'Traditional Wear' },
     { id: 'kaftan-agbada', label: 'Kaftans & Agbada' },
     { id: 'modern-kids', label: 'Modern Kids' },
-    { id: 'modern-women', label: 'Modern Women' },
+    { id: 'modern-women', label: 'Modern Woman' },
     { id: 'shirts', label: 'Shirts' },
     { id: 'accessories', label: 'Accessories' },
   ];

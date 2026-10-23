@@ -8,6 +8,7 @@ import type { Currency } from '@/types';
 export const EXCHANGE_RATES = {
   USD_PER_KES: 1 / 129.5, // ~129.5 KES per 1 USD
   GBP_PER_USD: 0.79,      // ~0.79 GBP per 1 USD
+  EUR_PER_USD: 0.92,      // ~0.92 EUR per 1 USD
 };
 
 export function getCurrencySymbol(currency: Currency = 'KES'): string {
@@ -16,9 +17,11 @@ export function getCurrencySymbol(currency: Currency = 'KES'): string {
       return '$';
     case 'GBP':
       return '£';
+    case 'EUR':
+      return '€';
     case 'KES':
     default:
-      return 'KES ';
+      return 'KSh ';
   }
 }
 
@@ -40,6 +43,9 @@ export function convertFromKes(
   if (targetCurrency === 'GBP') {
     return Math.round(usd * EXCHANGE_RATES.GBP_PER_USD);
   }
+  if (targetCurrency === 'EUR') {
+    return Math.round(usd * EXCHANGE_RATES.EUR_PER_USD);
+  }
   return priceKes;
 }
 
@@ -56,5 +62,8 @@ export function formatCurrencyPrice(
   if (currency === 'GBP') {
     return `£${amount.toLocaleString()}`;
   }
-  return `KES ${amount.toLocaleString()}`;
+  if (currency === 'EUR') {
+    return `€${amount.toLocaleString()}`;
+  }
+  return `KSh ${amount.toLocaleString()}`;
 }

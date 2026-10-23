@@ -60,7 +60,7 @@ export const CartDrawer: React.FC = () => {
             <div className="flex justify-between text-xs font-semibold text-brand-slate mb-1.5">
               <span>White-Glove Nairobi Delivery</span>
               <span className="text-brand-gold">
-                {subtotalKes >= freeShippingThreshold ? 'Complimentary' : 'KES 50,000 Threshold'}
+                {subtotalKes >= freeShippingThreshold ? 'Complimentary' : 'KSh 50,000 Threshold'}
               </span>
             </div>
             <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
