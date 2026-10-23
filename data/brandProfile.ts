@@ -38,7 +38,7 @@ export const BRAND_INFO = {
   promise:
     'Wear the confidence. Own the moment. Every garment is considered, fitted and finished to celebrate individuality and help the modern gentleman present himself with confidence, sophistication and authenticity.',
   vision:
-    'To establish Modern Man Kenya as a leading African custom tailoring house recognised for exceptional fit, contemporary menswear design, craftsmanship and a distinctive approach to personal style.',
+    'To establish a leading African custom tailoring house recognised for exceptional fit, contemporary menswear design, craftsmanship and a distinctive approach to personal style.',
   mission:
     'To create exceptional tailored clothing that enables every client to look refined, feel confident and express his individuality—through personalised service, considered design and uncompromising attention to detail.',
   phone: '+254 718 923082',
