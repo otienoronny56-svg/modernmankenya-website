@@ -1315,5 +1315,13 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "smart-casual",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM.jpeg",
     "aspect": "square"
+  },
+  {
+    "id": "trad-370a",
+    "title": "Contemporary African Ensembles",
+    "tag": "African Luxury",
+    "category": "traditional",
+    "image": "/images/370A8789.jpg",
+    "aspect": "portrait"
   }
 ];

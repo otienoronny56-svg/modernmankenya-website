@@ -589,7 +589,7 @@ function BookAppointmentContent() {
                   href="/ready-to-wear"
                   className="px-6 py-3 border border-brand-navy text-brand-navy hover:bg-slate-50 text-xs font-bold uppercase tracking-luxury rounded transition-colors"
                 >
-                  Explore Ready to Wear
+                  Explore The Collection
                 </Link>
               </div>
 

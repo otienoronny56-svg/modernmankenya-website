@@ -89,7 +89,7 @@ export const CartDrawer: React.FC = () => {
                   onClick={() => toggleCart(false)}
                   className="px-6 py-2.5 rounded-sm bg-brand-navy text-white hover:bg-brand-navy-light text-xs font-bold uppercase tracking-luxury transition-colors"
                 >
-                  Explore Ready to Wear
+                  Explore The Collection
                 </Link>
               </div>
             ) : (

@@ -35,7 +35,7 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
     id: 'african-ceremony-wear',
     name: 'Contemporary African Occasion Wear',
     category: 'Traditional',
-    image: '/images/WhatsApp Image 2026-10-21 at 10.48.42 AM.jpeg',
+    image: '/images/370A8789.jpg',
     badge: 'African Luxury',
     href: '/gallery?category=traditional',
   },
@@ -61,7 +61,7 @@ export const ReadyToWearSection: React.FC = () => {
               Signature Collection
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
-              Ready to Wear
+              Curated Ensembles
             </h2>
           </div>
 
@@ -69,7 +69,7 @@ export const ReadyToWearSection: React.FC = () => {
             href="/ready-to-wear"
             className="mt-4 sm:mt-0 inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors group"
           >
-            <span>Explore All Pieces</span>
+            <span>Explore The Collection</span>
             <ArrowUpRight className="w-4 h-4 text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>

@@ -23,9 +23,9 @@ const HERO_IMAGES: HeroSlide[] = [
     objectPosition: 'object-top sm:object-[center_15%]',
   },
   {
-    src: '/images/DSC06885.jpg.jpeg',
-    alt: 'Modern Man Kenya Made to Measure Wedding & Tuxedo Celebration',
-    objectPosition: 'object-top sm:object-[center_20%]',
+    src: '/images/Jackson Mwangi Photography-117.jpg.jpeg',
+    alt: 'Modern Man Kenya Made to Measure Wedding & Groomsmen Celebration',
+    objectPosition: 'object-center sm:object-[center_20%]',
   },
 ];
 
