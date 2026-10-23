@@ -129,7 +129,7 @@ export const TAILORING_OCCASIONS: OccasionCategory[] = [
     subtitle: 'Sharp Office & Boardroom Suits',
     description:
       'Clean, comfortable suits made for meetings, daily office wear, and leadership presentations. Tailored to look sharp all day without feeling stiff.',
-    image: '/images/MOK_7655.jpg',
+    image: '/images/MOK_7716.jpg',
     focus: ['Clean sharp cut', 'Breathable fabrics', 'All-day comfort', 'Professional look'],
   },
   {

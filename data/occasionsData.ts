@@ -61,7 +61,7 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
     title: 'Executive Wear',
     shortTitle: 'Executive',
     badge: 'Executive',
-    heroImage: '/images/MOK_7655.jpg',
+    heroImage: '/images/MOK_7716.jpg',
     tagline: 'Office & Boardroom',
     heroPills: [
       'Custom Fit',

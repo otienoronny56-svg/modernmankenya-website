@@ -18,7 +18,7 @@ const OCCASION_CARDS: OccasionCard[] = [
   {
     id: 'executive',
     title: 'Executive Wear',
-    image: '/images/MOK_7655.jpg',
+    image: '/images/MOK_7716.jpg',
     href: '/occasions/executive-wear',
     badge: 'Executive',
     sub: 'Official Suit • Smart Casual',
