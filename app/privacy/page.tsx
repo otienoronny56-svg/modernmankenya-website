@@ -137,7 +137,7 @@ export default function PrivacyPolicyPage() {
         <div className="mt-12 bg-brand-navy text-white rounded-2xl p-8 sm:p-10 shadow-xl border border-brand-gold/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-1">
             <h3 className="font-serif text-xl sm:text-2xl font-bold">
-              Review Our Terms of Commission
+              Review Our Terms and Conditions
             </h3>
             <p className="text-xs sm:text-sm text-slate-300">
               Read our full policies on deposits, fitting adjustments, and delivery timelines.
@@ -148,7 +148,7 @@ export default function PrivacyPolicyPage() {
               href="/terms"
               className="inline-flex items-center space-x-2 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider transition-all"
             >
-              <span>Terms of Commission</span>
+              <span>Terms and Conditions</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link

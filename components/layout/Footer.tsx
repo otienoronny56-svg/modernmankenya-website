@@ -260,7 +260,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/terms" className="hover:text-brand-gold transition-colors">
-                  Terms of Commission
+                  Terms and Conditions
                 </Link>
               </li>
               <li>
@@ -282,7 +282,7 @@ export const Footer: React.FC = () => {
             </Link>
             <span className="text-stone-300">•</span>
             <Link href="/terms" className="hover:text-stone-900 transition-colors">
-              Terms of Commission
+              Terms and Conditions
             </Link>
             <span className="text-stone-300">•</span>
             <Link href="/returns" className="hover:text-stone-900 transition-colors">

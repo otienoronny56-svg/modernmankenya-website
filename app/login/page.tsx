@@ -458,7 +458,7 @@ function LoginForm() {
           <p>
             By continuing, you agree to our{' '}
             <Link href="/terms" className="text-stone-700 hover:text-brand-gold underline">
-              Terms of Commission
+              Terms and Conditions
             </Link>{' '}
             and{' '}
             <Link href="/privacy" className="text-stone-700 hover:text-brand-gold underline">

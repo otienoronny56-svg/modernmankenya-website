@@ -917,6 +917,22 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
+    "id": "tux-33",
+    "title": "White Damask",
+    "tag": "Mirror Reflection",
+    "category": "evening-dinner",
+    "image": "/images/tuxedo-white-damask-mirror.jpeg",
+    "aspect": "portrait"
+  },
+  {
+    "id": "tux-34",
+    "title": "Groomsmen Joy",
+    "tag": "Midnight Horseshoe",
+    "category": "evening-dinner",
+    "image": "/images/groomsmen-prep-horseshoe-vest.jpeg",
+    "aspect": "portrait"
+  },
+  {
     "id": "suit-1",
     "title": "Royal Blue",
     "tag": "Nairobi Boardroom",

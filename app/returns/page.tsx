@@ -131,7 +131,7 @@ export default function ReturnsPage() {
                 className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/20 transition-colors text-sm whitespace-nowrap"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Terms of Commission</span>
+                <span>Terms and Conditions</span>
               </Link>
             </div>
           </div>

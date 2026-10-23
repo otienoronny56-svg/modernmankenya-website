@@ -424,6 +424,20 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
     ],
     highlights: [
       {
+        src: '/images/tuxedo-white-damask-mirror.jpeg',
+        label: 'White Damask Tuxedo',
+        tag: 'Black Tie',
+        subCategory: 'tuxedo',
+        aspect: 'portrait',
+      },
+      {
+        src: '/images/groomsmen-prep-horseshoe-vest.jpeg',
+        label: 'Groomsmen Horseshoe Vest',
+        tag: 'Groom',
+        subCategory: 'wedding',
+        aspect: 'portrait',
+      },
+      {
         src: '/images/DSC09233.jpg.jpeg',
         label: 'Sartorial Stride',
         tag: 'Black Tie',

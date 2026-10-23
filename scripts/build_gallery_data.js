@@ -235,6 +235,8 @@ const items = [
   { id: 'tux-30', title: 'Midnight Sovereign', tag: 'White Tuxedo', category: 'evening-dinner', image: '/images/IMG-143.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-31', title: 'Double Vest', tag: 'Groom Waistcoat', category: 'evening-dinner', image: '/images/IMG-145.jpg.jpeg', aspect: 'portrait' },
   { id: 'tux-32', title: 'Jacquard Draped', tag: 'Evening Luxury', category: 'evening-dinner', image: '/images/IMG-146.jpg.jpeg', aspect: 'portrait' },
+  { id: 'tux-33', title: 'White Damask', tag: 'Mirror Reflection', category: 'evening-dinner', image: '/images/tuxedo-white-damask-mirror.jpeg', aspect: 'portrait' },
+  { id: 'tux-34', title: 'Groomsmen Joy', tag: 'Midnight Horseshoe', category: 'evening-dinner', image: '/images/groomsmen-prep-horseshoe-vest.jpeg', aspect: 'portrait' },
 
   // --- SUITS: 2 & 3-PIECE SUITS (44 Items) ---
   { id: 'suit-1', title: 'Royal Blue', tag: 'Nairobi Boardroom', category: 'suits', image: '/images/MOK_7655.jpg', aspect: 'portrait' },
