@@ -7,28 +7,33 @@ import {
   Sparkles, 
   ShoppingBag, 
   Search, 
-  Filter, 
   Truck, 
   ShieldCheck, 
   CreditCard, 
   MessageCircle, 
   ArrowRight,
   SlidersHorizontal,
-  Layers
+  Scissors
 } from 'lucide-react';
 import type { Product } from '@/types';
 import { READY_TO_WEAR_PRODUCTS } from '@/data/mockData';
 import { ProductCardWithGallery } from '@/components/product/ProductCardWithGallery';
 import { useCartStore } from '@/store/cartStore';
 
-const CATEGORIES = [
-  { id: 'all', label: 'All Garments & Accoutrements' },
+const MAIN_TABS = [
+  { id: 'all', label: 'All Ready-to-Wear' },
   { id: 'shirts', label: 'Luxury Shirts' },
   { id: 'accessories', label: 'Artisanal Accessories' },
-  { id: 'suits', label: '2 & 3-Piece Suits' },
-  { id: 'evening-dinner', label: 'Tuxedos' },
-  { id: 'kaunda-suits', label: 'Kaunda / Senator Suits' },
-  { id: 'smart-casual', label: 'Smart Casual & Blazers' },
+];
+
+const ACCESSORY_SUBTABS = [
+  { id: 'all-acc', label: 'All Accessories' },
+  { id: 'neckwear', label: 'Ties & Bowties' },
+  { id: 'cufflinks', label: 'Cufflinks & Hardware' },
+  { id: 'lapel-pins', label: 'Lapel Pins & Brooches' },
+  { id: 'cravats', label: 'Cravats & Ascots' },
+  { id: 'belts-suspenders', label: 'Belts & Suspenders' },
+  { id: 'watches', label: 'Dress Watches' },
 ];
 
 function ReadyToWearShopContent() {
@@ -36,7 +41,10 @@ function ReadyToWearShopContent() {
   const initialCat = searchParams.get('category') || 'all';
 
   const [products, setProducts] = useState<Product[]>(READY_TO_WEAR_PRODUCTS);
-  const [selectedCategory, setSelectedCategory] = useState<string>(initialCat);
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    initialCat === 'shirts' || initialCat === 'accessories' ? initialCat : 'all'
+  );
+  const [accessorySubFilter, setAccessorySubFilter] = useState('all-acc');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +55,7 @@ function ReadyToWearShopContent() {
   // Sync category param if URL changes
   useEffect(() => {
     const cat = searchParams.get('category');
-    if (cat) {
+    if (cat === 'shirts' || cat === 'accessories' || cat === 'all') {
       setSelectedCategory(cat);
     }
   }, [searchParams]);
@@ -73,25 +81,51 @@ function ReadyToWearShopContent() {
     fetchLatest();
   }, []);
 
-  // Filter and sort products
+  // Filter products: STRICTLY only shirts and accessories (Suits are Made to Measure)
   const filteredProducts = useMemo(() => {
     return products
       .filter((p) => {
-        // Category filter
-        if (selectedCategory !== 'all') {
-          if (selectedCategory === 'shirts') {
-            const isShirt = 
-              p.category === 'shirts' || 
-              p.name.toLowerCase().includes('shirt') || 
-              p.slug.includes('shirt');
-            if (!isShirt) return false;
-          } else if (selectedCategory === 'accessories') {
-            const isAcc = p.category === 'accessories' && !p.slug.includes('shirt');
-            if (!isAcc) return false;
-          } else if (selectedCategory === 'suits') {
-            if (p.category !== 'suits') return false;
-          } else {
-            if (p.category !== selectedCategory) return false;
+        const isShirt = 
+          p.category === 'shirts' || 
+          p.name.toLowerCase().includes('shirt') || 
+          p.slug.includes('shirt');
+        
+        const isAccessory = 
+          p.category === 'accessories' && !p.slug.includes('shirt');
+
+        // Strictly exclude suits, tuxedos, kaunda suits, etc.
+        if (!isShirt && !isAccessory) {
+          return false;
+        }
+
+        // Top category tab filter
+        if (selectedCategory === 'shirts' && !isShirt) {
+          return false;
+        }
+        if (selectedCategory === 'accessories' && !isAccessory) {
+          return false;
+        }
+
+        // Accessory Subfilter
+        if ((selectedCategory === 'accessories' || selectedCategory === 'all') && isAccessory) {
+          if (accessorySubFilter === 'neckwear') {
+            const isNeckwear = p.slug.includes('tie') || p.slug.includes('bowtie');
+            if (!isNeckwear) return false;
+          } else if (accessorySubFilter === 'cufflinks') {
+            const isCuff = p.slug.includes('cuff') || p.slug.includes('hardware');
+            if (!isCuff) return false;
+          } else if (accessorySubFilter === 'lapel-pins') {
+            const isPin = p.slug.includes('pin') || p.slug.includes('brooch');
+            if (!isPin) return false;
+          } else if (accessorySubFilter === 'cravats') {
+            const isCravat = p.slug.includes('cravat') || p.slug.includes('ascot');
+            if (!isCravat) return false;
+          } else if (accessorySubFilter === 'belts-suspenders') {
+            const isBelt = p.slug.includes('belt') || p.slug.includes('suspender');
+            if (!isBelt) return false;
+          } else if (accessorySubFilter === 'watches') {
+            const isWatch = p.slug.includes('watch') || p.slug.includes('hat');
+            if (!isWatch) return false;
           }
         }
 
@@ -112,7 +146,7 @@ function ReadyToWearShopContent() {
         if (sortBy === 'price-desc') return b.priceKes - a.priceKes;
         return (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0);
       });
-  }, [products, selectedCategory, searchQuery, sortBy]);
+  }, [products, selectedCategory, accessorySubFilter, searchQuery, sortBy]);
 
   return (
     <div className="min-h-screen bg-brand-canvas text-brand-navy">
@@ -124,20 +158,20 @@ function ReadyToWearShopContent() {
             <div className="flex items-center space-x-2 text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex-wrap">
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
-              <span className="text-white">Shop Ready-to-Wear</span>
+              <span className="text-white">Ready-to-Wear</span>
               {selectedCategory !== 'all' && (
                 <>
                   <span>/</span>
-                  <span className="text-brand-gold capitalize">{selectedCategory.replace('-', ' ')}</span>
+                  <span className="text-brand-gold capitalize">{selectedCategory}</span>
                 </>
               )}
             </div>
 
             <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white">
-              Shirts, Accessories & Ready-to-Wear
+              Ready-to-Wear: Shirts & Accessories
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
-              Precision-tailored Egyptian cotton shirts, pure Como silk neckwear, handcrafted hardware, and ready-to-wear ensembles sculpted with floating canvas in our Nairobi atelier. Available for instant checkout and delivery.
+              Precision-tailored Egyptian cotton shirts and artisanal accessories available for immediate order, M-Pesa Buy Goods checkout, and same-day Nairobi courier dispatch.
             </p>
 
             {/* Value Guarantees Banner */}
@@ -166,27 +200,77 @@ function ReadyToWearShopContent() {
       {/* Main Shopping Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         
-        {/* Category Pills & Interactive Filters */}
+        {/* Made-to-Measure Distinction Alert Banner */}
+        <div className="mb-8 p-4 sm:p-5 bg-stone-900 text-white rounded-xl border border-brand-gold/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+          <div className="space-y-1">
+            <span className="text-[10px] uppercase tracking-widest text-brand-gold font-bold flex items-center space-x-1.5">
+              <Scissors className="w-3.5 h-3.5 text-brand-gold" />
+              <span>Sartorial Principle</span>
+            </span>
+            <p className="text-xs sm:text-sm font-serif font-bold text-white">
+              Suits, Tuxedos, and Kaunda Suits are exclusively Made to Measure.
+            </p>
+            <p className="text-[11px] text-slate-300 font-light max-w-2xl">
+              To guarantee immaculate drape and fit, all full 2 & 3-piece suits are individually drafted from scratch to your anatomy. Ready-to-wear is curated strictly for dress shirts and fine accessories.
+            </p>
+          </div>
+          <Link
+            href="/bespoke/bespoke-suits"
+            className="px-4 py-2 bg-brand-gold hover:bg-brand-gold-light text-brand-navy text-xs font-bold uppercase tracking-wider rounded transition-all whitespace-nowrap self-start md:self-auto flex items-center space-x-1.5 shadow"
+          >
+            <span>Explore Made to Measure</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        {/* Primary Tabs: All, Shirts, Accessories */}
         <div className="space-y-4 mb-8">
-          {/* Category Pills (Horizontal Scroll on Mobile) */}
-          <div className="flex items-center space-x-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible no-scrollbar">
-            {CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.id;
+          <div className="flex items-center space-x-2 border-b border-slate-200 pb-3">
+            {MAIN_TABS.map((tab) => {
+              const isActive = selectedCategory === tab.id;
               return (
                 <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
+                  key={tab.id}
+                  onClick={() => {
+                    setSelectedCategory(tab.id);
+                    setAccessorySubFilter('all-acc');
+                  }}
+                  className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-200 ${
                     isActive
-                      ? 'bg-brand-gold text-brand-navy font-bold shadow-md ring-2 ring-brand-gold/50'
-                      : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-brand-navy'
+                      ? 'bg-brand-navy text-brand-gold shadow-md ring-2 ring-brand-gold/50'
+                      : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
                   }`}
                 >
-                  {cat.label}
+                  {tab.label}
                 </button>
               );
             })}
           </div>
+
+          {/* Sub-tabs for Accessories */}
+          {(selectedCategory === 'accessories' || selectedCategory === 'all') && (
+            <div className="flex items-center space-x-2 overflow-x-auto pb-2 no-scrollbar">
+              <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider flex-shrink-0 mr-1 hidden sm:inline">
+                Category:
+              </span>
+              {ACCESSORY_SUBTABS.map((sub) => {
+                const isSubActive = accessorySubFilter === sub.id;
+                return (
+                  <button
+                    key={sub.id}
+                    onClick={() => setAccessorySubFilter(sub.id)}
+                    className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-all ${
+                      isSubActive
+                        ? 'bg-brand-gold text-brand-navy font-bold shadow-sm'
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
+                    }`}
+                  >
+                    {sub.label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           {/* Search, Sort, and Results Count Bar */}
           <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3">
@@ -197,7 +281,7 @@ function ReadyToWearShopContent() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search shirts, cufflinks, ties, bowties, suits..."
+                placeholder="Search shirts, cufflinks, ties, bowties, cravats..."
                 className="w-full pl-9 pr-4 py-2 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
               />
             </div>
@@ -205,7 +289,7 @@ function ReadyToWearShopContent() {
             {/* Sort & Counter */}
             <div className="flex items-center justify-between sm:justify-end space-x-3 text-xs">
               <span className="text-slate-500 font-medium">
-                Showing <strong className="text-brand-navy">{filteredProducts.length}</strong> items
+                Showing <strong className="text-brand-navy">{filteredProducts.length}</strong> ready-to-order items
               </span>
 
               <div className="flex items-center space-x-2">
@@ -235,6 +319,7 @@ function ReadyToWearShopContent() {
             <button
               onClick={() => {
                 setSelectedCategory('all');
+                setAccessorySubFilter('all-acc');
                 setSearchQuery('');
               }}
               className="px-5 py-2.5 bg-brand-navy text-white text-xs font-bold uppercase tracking-wider rounded-md hover:bg-brand-gold hover:text-brand-navy transition-all shadow"
@@ -274,10 +359,10 @@ function ReadyToWearShopContent() {
               <span>Looking for Custom Bespoke Tailoring?</span>
             </span>
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy">
-              Crafted Exclusively to Your Anatomical Dimensions
+              Suits & Ensembles Drafted to Your Anatomy
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-light max-w-xl">
-              Prefer an individual pattern drafted from scratch? Book a personal measurement consultation at our Nairobi atelier or have master clothiers visit your residence.
+              2 & 3-piece suits, tuxedos, and Kaunda suits are crafted strictly by measurement. Book a personal measurement session at our Nairobi atelier or arrange a private residence visit.
             </p>
           </div>
           <Link
