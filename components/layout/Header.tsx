@@ -159,17 +159,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               The Craft
             </Link>
 
-            {/* Shirts & Accessories Direct Shop Link */}
-            <Link
-              href="/ready-to-wear"
-              className="py-2 text-slate-700 hover:text-brand-navy hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm flex items-center space-x-1"
-            >
-              <span>Shirts & Accessories</span>
-              <span className="bg-brand-gold/20 text-brand-navy text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">
-                Shop
-              </span>
-            </Link>
-
             {/* Occasions Dropdown */}
             <div
               className="relative py-2 group"
@@ -343,19 +332,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               The Craft
             </Link>
 
-            {/* Shirts & Accessories Shop Direct Link */}
-            <Link
-              href="/ready-to-wear"
-              className="flex items-center justify-between py-2 text-sm font-semibold text-brand-navy border-b border-slate-100 hover:text-brand-gold"
-            >
-              <div className="flex items-center space-x-2">
-                <ShoppingBag className="w-4 h-4 text-brand-gold" />
-                <span>Shirts & Accessories (Shop)</span>
-              </div>
-              <span className="text-[10px] bg-brand-gold text-brand-navy font-bold px-1.5 py-0.5 rounded uppercase">
-                Shop Now
-              </span>
-            </Link>
+
 
             {/* Accordion: Occasions */}
             <div className="border-b border-slate-100 pb-2">
