@@ -106,8 +106,8 @@ function ReadyToWearShopContent() {
           return false;
         }
 
-        // Accessory Subfilter
-        if ((selectedCategory === 'accessories' || selectedCategory === 'all') && isAccessory) {
+        // Accessory Subfilter (when viewing accessories)
+        if (selectedCategory === 'accessories') {
           if (accessorySubFilter === 'neckwear') {
             const isNeckwear = p.slug.includes('tie') || p.slug.includes('bowtie');
             if (!isNeckwear) return false;
@@ -247,8 +247,8 @@ function ReadyToWearShopContent() {
             })}
           </div>
 
-          {/* Sub-tabs for Accessories */}
-          {(selectedCategory === 'accessories' || selectedCategory === 'all') && (
+          {/* Sub-tabs for Accessories (visible when Accessories is active) */}
+          {selectedCategory === 'accessories' && (
             <div className="flex items-center space-x-2 overflow-x-auto pb-2 no-scrollbar">
               <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider flex-shrink-0 mr-1 hidden sm:inline">
                 Category:
