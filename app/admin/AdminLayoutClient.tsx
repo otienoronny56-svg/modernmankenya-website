@@ -13,7 +13,8 @@ import {
   Sparkles, 
   Menu, 
   X,
-  ShieldCheck
+  ShieldCheck,
+  Receipt
 } from 'lucide-react';
 
 interface AdminLayoutClientProps {
@@ -51,7 +52,13 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
       active: pathname === '/admin',
     },
     {
-      name: 'Ready-to-Wear Outfits',
+      name: 'Orders & Revenue',
+      href: '/admin/orders',
+      icon: Receipt,
+      active: pathname.startsWith('/admin/orders'),
+    },
+    {
+      name: 'Products & Pricing',
       href: '/admin/products',
       icon: ShoppingBag,
       active: pathname.startsWith('/admin/products'),

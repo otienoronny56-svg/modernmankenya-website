@@ -169,15 +169,32 @@ export const CartDrawer: React.FC = () => {
                 <Link
                   href="/cart"
                   onClick={() => toggleCart(false)}
-                  className="w-full flex items-center justify-center space-x-2 py-3 bg-brand-navy hover:bg-brand-navy-light text-white font-bold uppercase tracking-luxury text-xs rounded transition-all shadow-md"
+                  className="w-full flex items-center justify-center space-x-2 py-3.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-luxury text-xs rounded-xl transition-all shadow-md"
                 >
-                  <span>Review Wardrobe & Checkout</span>
-                  <ArrowRight className="w-4 h-4 text-brand-gold" />
+                  <span>Express Checkout & Delivery</span>
+                  <ArrowRight className="w-4 h-4 text-brand-navy" />
                 </Link>
+
+                {(() => {
+                  const itemSummary = items
+                    .map((i) => `• ${i.quantity}x ${i.name} (Size: ${i.size || 'Standard'})`)
+                    .join('%0A');
+                  const waText = `Hello%20Modern%20Man%20Kenya,%20I%20would%20like%20to%20order:%0A${itemSummary}%0A%0AEstimated%20Total:%20${formattedSubtotal}%0APlease%20confirm%20delivery.`;
+                  return (
+                    <a
+                      href={`https://wa.me/254114122510?text=${waText}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center space-x-2 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-wider text-xs rounded-xl transition-colors shadow-xs"
+                    >
+                      <span>Order Directly on WhatsApp</span>
+                    </a>
+                  );
+                })()}
 
                 <button
                   onClick={() => toggleCart(false)}
-                  className="w-full py-2.5 text-center text-xs text-brand-slate-muted hover:text-brand-navy font-semibold transition-colors"
+                  className="w-full py-2 text-center text-xs text-brand-slate-muted hover:text-brand-navy font-semibold transition-colors"
                 >
                   Continue Browsing
                 </button>
