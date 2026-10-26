@@ -16,7 +16,8 @@ import {
   CheckCircle2, 
   ShoppingBag,
   Loader2,
-  Lock
+  Lock,
+  AlertCircle
 } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { useAuth } from '@/lib/auth/AuthContext';
@@ -37,19 +38,52 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
   const [deliveryLocation, setDeliveryLocation] = useState('');
   const [notes, setNotes] = useState('');
 
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+  const [googleNotice, setGoogleNotice] = useState<string | null>(null);
+
   const [submitting, setSubmitting] = useState(false);
   const [submittedOrder, setSubmittedOrder] = useState<any>(null);
   const [copiedTill, setCopiedTill] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  // Auto-fill from authenticated user profile
+  // Auto-fill from authenticated user profile or metadata
   useEffect(() => {
     if (profile) {
       if (profile.fullName && !customerName) setCustomerName(profile.fullName);
       if (profile.email && !customerEmail) setCustomerEmail(profile.email);
       if (profile.phone && !customerPhone) setCustomerPhone(profile.phone);
+    } else if (user) {
+      const metaName = (user.user_metadata as any)?.full_name || (user.user_metadata as any)?.name;
+      if (metaName && !customerName) setCustomerName(metaName);
+      if (user.email && !customerEmail) setCustomerEmail(user.email);
     }
-  }, [profile]);
+  }, [profile, user]);
+
+  const handleGoogleSignIn = async () => {
+    setIsGoogleLoading(true);
+    setGoogleNotice(null);
+    try {
+      const { error } = await signInWithGoogle('/cart');
+      if (error) {
+        setGoogleNotice(
+          error.message ||
+            'Google Sign-In is not currently enabled in Supabase Auth. You can use Auto-Fill Demo or checkout directly below!'
+        );
+      }
+    } catch (err: any) {
+      setGoogleNotice(err.message || 'Unable to connect to Google sign-in.');
+    } finally {
+      setIsGoogleLoading(false);
+    }
+  };
+
+  const handleQuickGuestFill = () => {
+    setCustomerName('David Mwangi');
+    setCustomerEmail('david.mwangi@example.com');
+    setCustomerPhone('+254 712 345 678');
+    setDeliveryLocation('Wood Avenue, Kilimani, Nairobi');
+    setGoogleNotice(null);
+  };
 
   const subtotalKes = getSubtotalKes();
   const freeShippingThreshold = 50000;
@@ -267,36 +301,89 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
           </span>
         </div>
       ) : (
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-          <div>
-            <span className="font-bold text-brand-navy block">Have an account or Google profile?</span>
-            <span className="text-slate-500 text-[11px]">1-click auto-fill your name & contact details</span>
+        <div className="space-y-2.5">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+            <div>
+              <span className="font-bold text-brand-navy block">Have an account or Google profile?</span>
+              <span className="text-slate-500 text-[11px]">1-click auto-fill your name & contact details</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={handleGoogleSignIn}
+                type="button"
+                disabled={isGoogleLoading}
+                className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-800 rounded border border-slate-300 font-bold flex items-center justify-center space-x-2 shadow-xs transition-colors whitespace-nowrap disabled:opacity-60"
+              >
+                {isGoogleLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-brand-gold" />
+                    <span>Connecting...</span>
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+                      <path
+                        fill="#4285F4"
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+                      />
+                      <path
+                        fill="#EA4335"
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                      />
+                    </svg>
+                    <span>Continue with Google</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={handleQuickGuestFill}
+                className="px-3 py-2 bg-slate-200/80 hover:bg-slate-300 text-slate-700 rounded text-xs font-semibold transition-colors flex items-center space-x-1"
+                title="Populate test address and details instantly"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                <span>Auto-Fill Demo</span>
+              </button>
+            </div>
           </div>
-          <button
-            onClick={() => signInWithGoogle('/cart')}
-            type="button"
-            className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-800 rounded border border-slate-300 font-bold flex items-center justify-center space-x-2 shadow-xs transition-colors whitespace-nowrap"
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24">
-              <path
-                fill="#4285F4"
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-              />
-              <path
-                fill="#34A853"
-                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-              />
-              <path
-                fill="#FBBC05"
-                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-              />
-              <path
-                fill="#EA4335"
-                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-              />
-            </svg>
-            <span>Continue with Google</span>
-          </button>
+
+          {/* Helpful alert if Google is not enabled yet in Supabase Auth */}
+          {googleNotice && (
+            <div className="bg-amber-50/90 border border-amber-300 text-amber-900 rounded-xl p-3.5 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs animate-fadeIn">
+              <div className="flex items-start space-x-2.5">
+                <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <p className="font-bold text-amber-950">Google Sign-In Notice</p>
+                  <p className="text-[11px] text-amber-800 leading-relaxed">{googleNotice}</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-2 self-end sm:self-auto flex-shrink-0">
+                <button
+                  type="button"
+                  onClick={handleQuickGuestFill}
+                  className="px-3 py-1.5 bg-amber-700 hover:bg-amber-800 text-white rounded text-[11px] font-bold shadow-xs transition-colors"
+                >
+                  Auto-Fill Form
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setGoogleNotice(null)}
+                  className="px-2 py-1 text-amber-800 hover:text-amber-950 text-[11px] underline"
+                >
+                  Dismiss
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

@@ -84,8 +84,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signInWithGoogle = async (customRedirect?: string) => {
     try {
       const origin = typeof window !== 'undefined' ? window.location.origin : '';
-      const redirectUrl = customRedirect || `${origin}/auth/callback`;
-      
+      let nextTarget = '/';
+      if (customRedirect) {
+        if (customRedirect.startsWith('/')) {
+          nextTarget = customRedirect;
+        } else {
+          try {
+            const parsed = new URL(customRedirect, origin);
+            nextTarget = parsed.searchParams.get('next') || parsed.pathname || '/';
+          } catch {
+            nextTarget = customRedirect;
+          }
+        }
+      }
+
+      // Check pre-flight via API to ensure Google is enabled before redirecting
+      try {
+        const res = await fetch(`/api/auth/google-sign-in?next=${encodeURIComponent(nextTarget)}`);
+        const info = await res.json();
+        if (info.enabled && info.url) {
+          if (typeof window !== 'undefined') {
+            window.location.href = info.url;
+          }
+          return { error: null };
+        } else {
+          return {
+            error: {
+              name: 'AuthApiError',
+              message: info.message || 'Google sign-in is not currently enabled in Supabase Auth.',
+              status: 400,
+            } as AuthError,
+          };
+        }
+      } catch (apiErr) {
+        console.warn('API preflight error, attempting standard OAuth redirect:', apiErr);
+      }
+
+      // Fallback to standard Supabase client OAuth with full redirect URL
+      const redirectUrl = customRedirect?.startsWith('http')
+        ? customRedirect
+        : `${origin}/auth/callback?next=${encodeURIComponent(nextTarget)}`;
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
