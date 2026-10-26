@@ -27,23 +27,13 @@ interface ProductFormModalProps {
 }
 
 const CATEGORIES = [
-  { id: 'accessories', name: 'Accessories (Ties, Cufflinks, Belts, Lapel Pins, Watches)' },
-  { id: 'shirts', name: 'Shirts (Tailored Ready-to-Wear)' },
-  { id: 'suits', name: '2 & 3-Piece Suits (Made to Measure)' },
-  { id: 'evening-dinner', name: 'Tuxedos & Dinner Jackets' },
-  { id: 'kaunda-suits', name: 'Kaunda Suits (Senator Suits)' },
-  { id: 'smart-casual', name: 'Smart Casual & Blazers' },
-  { id: 'traditional', name: 'Traditional & Kaftans' },
+  { id: 'accessories', name: 'Accessories (Ties, Cufflinks, Belts, Pins, Watches)' },
+  { id: 'shirts', name: 'Tailored Ready-to-Wear Shirts' },
 ];
 
 const CATEGORY_SIZE_PRESETS: Record<string, string[]> = {
   accessories: ['One Size', 'Standard Set', 'Adjustable', '32-34 (M)', '36-38 (L)', '40-42 (XL)', '40mm Dial', '42mm Dial'],
   shirts: ['15.0" (38cm)', '15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', '17.0" (43cm)', 'S', 'M', 'L', 'XL', 'XXL'],
-  suits: ['36R', '38R', '40R', '42R', '44R', '46L', '48L', 'Custom Measure'],
-  'evening-dinner': ['38R', '40R', '42R', '44R', '46L', '48L', 'Custom Measure'],
-  'kaunda-suits': ['38R', '40R', '42R', '44R', '46L', '48L', 'Custom Measure'],
-  'smart-casual': ['38R', '40R', '42R', '44R', 'S', 'M', 'L', 'XL'],
-  traditional: ['38R', '40R', '42R', '44R', 'M', 'L', 'XL', 'XXL'],
 };
 
 const CATEGORY_DEFAULTS: Record<string, {
@@ -66,13 +56,6 @@ const CATEGORY_DEFAULTS: Record<string, {
     priceKes: 14500,
     priceUsd: 115,
     selectedSizes: ['15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', 'M', 'L', 'XL'],
-  },
-  suits: {
-    fabricDetails: 'Super 140s English Worsted Wool (England)',
-    construction: 'Full Floating Horsehair Canvas Construction',
-    priceKes: 145000,
-    priceUsd: 1120,
-    selectedSizes: ['38R', '40R', '42R', '44R'],
   },
 };
 
@@ -433,10 +416,10 @@ export function ProductFormModal({
             <Sparkles className="w-5 h-5 text-brand-gold" />
             <div>
               <h3 className="font-serif text-lg font-bold">
-                {isEditing ? 'Edit Ready-to-Wear Outfit' : 'Publish New Ready-to-Wear Outfit'}
+                {isEditing ? 'Edit Shop Product' : 'Add New Ready-to-Wear Product'}
               </h3>
               <p className="text-[11px] text-slate-300">
-                Uploaded photography and pricing reflect directly on the storefront.
+                Directly published to Ready-to-Wear shop for online customer ordering (Accessories & Shirts).
               </p>
             </div>
           </div>
@@ -674,14 +657,14 @@ export function ProductFormModal({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="sm:col-span-1">
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-                Outfit Name <span className="text-red-500">*</span>
+                Product Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
                 required
                 value={name}
                 onChange={(e) => handleNameChange(e.target.value)}
-                placeholder="e.g. The Sovereign Cashmere Blazer"
+                placeholder="e.g. Silk Grenadine Necktie or Egyptian Giza Cotton Shirt"
                 className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
               />
             </div>
@@ -1044,7 +1027,7 @@ export function ProductFormModal({
             ) : (
               <>
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                <span>{isEditing ? 'Save Changes' : 'Publish Outfit'}</span>
+                <span>{isEditing ? 'Save Changes' : 'Publish Product'}</span>
               </>
             )}
           </button>

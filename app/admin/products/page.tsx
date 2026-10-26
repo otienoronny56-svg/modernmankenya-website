@@ -20,14 +20,14 @@ import type { Product } from '@/types';
 import { ProductFormModal } from '@/components/admin/ProductFormModal';
 
 const CATEGORIES = [
-  { id: 'all', name: 'All Items' },
+  { id: 'all', name: 'All Shop Items' },
   { id: 'accessories', name: 'Accessories' },
   { id: 'shirts', name: 'Shirts' },
-  { id: 'suits', name: '2 & 3-Piece Suits' },
-  { id: 'evening-dinner', name: 'Tuxedos' },
-  { id: 'kaunda-suits', name: 'Kaunda Suits' },
-  { id: 'smart-casual', name: 'Smart Casual' },
-  { id: 'traditional', name: 'Traditional' },
+  { id: 'neckwear', name: 'Ties & Bowties' },
+  { id: 'cufflinks', name: 'Cufflinks & Hardware' },
+  { id: 'lapel-pins', name: 'Lapel Pins' },
+  { id: 'belts', name: 'Belts & Suspenders' },
+  { id: 'watches', name: 'Dress Watches' },
 ];
 
 export default function AdminProductsPage() {
@@ -60,8 +60,31 @@ export default function AdminProductsPage() {
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      if (selectedCategory !== 'all' && p.category !== selectedCategory) {
+      if (selectedCategory === 'accessories' && p.category !== 'accessories') {
         return false;
+      }
+      if (selectedCategory === 'shirts' && p.category !== 'shirts') {
+        return false;
+      }
+      if (selectedCategory === 'neckwear') {
+        const isNeck = p.category === 'accessories' && (p.slug.includes('tie') || p.slug.includes('bowtie') || p.name.toLowerCase().includes('tie'));
+        if (!isNeck) return false;
+      }
+      if (selectedCategory === 'cufflinks') {
+        const isCuff = p.category === 'accessories' && (p.slug.includes('cuff') || p.slug.includes('hardware') || p.name.toLowerCase().includes('cuff'));
+        if (!isCuff) return false;
+      }
+      if (selectedCategory === 'lapel-pins') {
+        const isPin = p.category === 'accessories' && (p.slug.includes('pin') || p.slug.includes('brooch') || p.name.toLowerCase().includes('pin'));
+        if (!isPin) return false;
+      }
+      if (selectedCategory === 'belts') {
+        const isBelt = p.category === 'accessories' && (p.slug.includes('belt') || p.slug.includes('suspender') || p.name.toLowerCase().includes('belt'));
+        if (!isBelt) return false;
+      }
+      if (selectedCategory === 'watches') {
+        const isWatch = p.category === 'accessories' && (p.slug.includes('watch') || p.name.toLowerCase().includes('watch'));
+        if (!isWatch) return false;
       }
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
@@ -136,10 +159,10 @@ export default function AdminProductsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-slate-200">
         <div className="min-w-0">
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
-            Ready-to-Wear Outfits Catalogue
+            Ready-to-Wear Shop Inventory (Accessories & Shirts)
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Upload garment photography, change prices, and update silhouettes in real time.
+            Manage your e-commerce shop items, prices, and stock for direct customer ordering.
           </p>
         </div>
 
@@ -158,7 +181,7 @@ export default function AdminProductsPage() {
             className="px-4 py-2.5 bg-brand-navy hover:bg-brand-navy-dark text-white rounded font-bold uppercase tracking-luxury text-xs transition-all shadow-md hover:shadow-lg flex items-center space-x-2"
           >
             <PlusCircle className="w-4 h-4 text-brand-gold" />
-            <span>Publish New Outfit</span>
+            <span>Add New Product</span>
           </button>
         </div>
       </div>
@@ -172,7 +195,7 @@ export default function AdminProductsPage() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search by outfit name, cloth mill, or keyword..."
+            placeholder="Search accessories, shirts, silk, brass, or keywords..."
             className="w-full pl-9 pr-3.5 py-2 text-xs bg-slate-50 border border-slate-200 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
           />
         </div>
@@ -200,20 +223,20 @@ export default function AdminProductsPage() {
         {loading ? (
           <div className="p-16 text-center text-slate-400">
             <div className="w-8 h-8 border-2 border-brand-navy/30 border-t-brand-navy rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-xs">Loading outfits from inventory...</p>
+            <p className="text-xs">Loading items from inventory...</p>
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="p-16 text-center text-slate-500 space-y-3">
             <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto" />
-            <p className="text-sm font-semibold text-slate-700">No matching outfits found</p>
+            <p className="text-sm font-semibold text-slate-700">No shop products added yet</p>
             <p className="text-xs text-slate-400">
-              Try adjusting your search query or publish a new ready-to-wear outfit.
+              Your Ready-to-Wear catalogue is currently clear. Click below to add your first accessory or tailored shirt.
             </p>
             <button
               onClick={handleOpenAdd}
               className="px-4 py-2 bg-brand-navy text-white text-xs font-bold uppercase rounded shadow mt-2"
             >
-              Publish Outfit
+              Add New Product
             </button>
           </div>
         ) : (

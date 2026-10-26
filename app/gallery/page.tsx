@@ -139,6 +139,9 @@ function GalleryContent() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number>(0);
 
+  const [liveProducts, setLiveProducts] = useState<Product[]>([]);
+  const [lookbookItems, setLookbookItems] = useState<GalleryItem[]>(SARTORIAL_GALLERY_ITEMS);
+
   // Sync state if URL query param changes
   useEffect(() => {
     const categoryParam = searchParams.get('category');
@@ -146,6 +149,27 @@ function GalleryContent() {
       setSelectedCategory(categoryParam);
     }
   }, [searchParams]);
+
+  // Fetch live products & custom lookbook items
+  useEffect(() => {
+    fetch('/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.products && Array.isArray(data.products)) {
+          setLiveProducts(data.products);
+        }
+      })
+      .catch((err) => console.warn('Gallery products load error:', err));
+
+    fetch('/api/admin/lookbook')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.items && Array.isArray(data.items)) {
+          setLookbookItems(data.items);
+        }
+      })
+      .catch((err) => console.warn('Gallery lookbook load error:', err));
+  }, []);
 
   const categories = [
     { id: 'all', label: 'All Creations' },
@@ -165,12 +189,12 @@ function GalleryContent() {
 
   const ecommerceProducts: Product[] = useMemo(() => {
     if (selectedCategory === 'shirts') {
-      return READY_TO_WEAR_PRODUCTS.filter(
+      return liveProducts.filter(
         (p) => p.category === 'shirts' || p.name.toLowerCase().includes('shirt') || p.slug.includes('shirt')
       );
     }
     if (selectedCategory === 'accessories') {
-      let list = READY_TO_WEAR_PRODUCTS.filter((p) => p.category === 'accessories' && !p.slug.includes('shirt'));
+      let list = liveProducts.filter((p) => p.category === 'accessories' && !p.slug.includes('shirt'));
       if (accessorySubFilter === 'neckwear') {
         list = list.filter((p) => p.slug.includes('tie') || p.slug.includes('cravat') || p.slug.includes('bowtie'));
       } else if (accessorySubFilter === 'hardware') {
@@ -181,10 +205,10 @@ function GalleryContent() {
       return list;
     }
     return [];
-  }, [selectedCategory, accessorySubFilter]);
+  }, [liveProducts, selectedCategory, accessorySubFilter]);
 
   const filteredItems = useMemo(() => {
-    return SARTORIAL_GALLERY_ITEMS.filter((item) => {
+    return lookbookItems.filter((item) => {
       if (selectedCategory === 'all') return true;
 
       if (selectedCategory === 'accessories') {
