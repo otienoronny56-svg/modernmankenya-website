@@ -224,7 +224,7 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
             </p>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">
                 Investment
@@ -234,13 +234,34 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
               </span>
             </div>
 
-            <button
-              onClick={() => setIsQuickAddOpen(true)}
-              className="px-3.5 sm:px-4 py-2 bg-brand-navy hover:bg-brand-navy-dark text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded transition-colors flex items-center space-x-1.5 shadow-sm"
-            >
-              <ShoppingBag className="w-3.5 h-3.5 text-brand-gold" />
-              <span>{addedToast ? 'Added!' : 'Add to Bag'}</span>
-            </button>
+            <div className="flex items-center space-x-1.5 self-end sm:self-auto">
+              <a
+                href={`https://wa.me/254114122510?text=${encodeURIComponent(
+                  `Hello Modern Man Kenya, I would like to order: ${product.name} (KES ${product.priceKes.toLocaleString()}).`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded transition-colors text-xs font-bold border border-emerald-200"
+                title="Order directly via WhatsApp"
+              >
+                <span className="text-xs">💬 WhatsApp</span>
+              </a>
+
+              <button
+                onClick={() => {
+                  if (product.variants && product.variants.length > 1) {
+                    setIsQuickAddOpen(true);
+                  } else {
+                    const singleSize = product.variants?.[0]?.size || 'Standard';
+                    handleQuickAddSubmit(singleSize);
+                  }
+                }}
+                className="px-3.5 sm:px-4 py-2 bg-brand-navy hover:bg-brand-navy-dark text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded transition-colors flex items-center space-x-1.5 shadow-sm active:scale-95"
+              >
+                <ShoppingBag className="w-3.5 h-3.5 text-brand-gold" />
+                <span>{addedToast ? 'Added ✓' : 'Add to Bag'}</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

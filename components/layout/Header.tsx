@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
     { name: 'Tuxedos & Eveningwear', href: '/bespoke/bespoke-evening-wear' },
     { name: 'Kaunda & Safari Suits', href: '/bespoke/kaunda-suits' },
     { name: 'Weddings & Groom Ensembles', href: '/bespoke/weddings' },
-    { name: 'Custom Shirts & Separates', href: '/bespoke/bespoke-shirts' },
+    { name: 'Shirts & Accessories (Shop)', href: '/ready-to-wear' },
     { name: 'Corporate & Executive', href: '/bespoke/corporate-wardrobes' },
     { name: 'The Craftsmanship', href: '/the-craft' },
   ];
@@ -71,6 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
     { name: 'Black Tie & Wedding', href: '/occasions/black-tie-wedding' },
     { name: 'African Wear', href: '/occasions/african-wear' },
     { name: 'Smart Casual & Blazers', href: '/gallery?category=smart-casual' },
+    { name: 'Shirts & Accessories Shop', href: '/ready-to-wear?category=accessories' },
     { name: 'Kaftans & Agbada', href: '/gallery?category=kaftan-agbada' },
   ];
 
@@ -156,6 +157,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               className="py-2 text-slate-700 hover:text-brand-navy hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm"
             >
               The Craft
+            </Link>
+
+            {/* Shirts & Accessories Direct Shop Link */}
+            <Link
+              href="/ready-to-wear"
+              className="py-2 text-slate-700 hover:text-brand-navy hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm flex items-center space-x-1"
+            >
+              <span>Shirts & Accessories</span>
+              <span className="bg-brand-gold/20 text-brand-navy text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">
+                Shop
+              </span>
             </Link>
 
             {/* Occasions Dropdown */}
@@ -329,6 +341,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100 hover:text-brand-gold"
             >
               The Craft
+            </Link>
+
+            {/* Shirts & Accessories Shop Direct Link */}
+            <Link
+              href="/ready-to-wear"
+              className="flex items-center justify-between py-2 text-sm font-semibold text-brand-navy border-b border-slate-100 hover:text-brand-gold"
+            >
+              <div className="flex items-center space-x-2">
+                <ShoppingBag className="w-4 h-4 text-brand-gold" />
+                <span>Shirts & Accessories (Shop)</span>
+              </div>
+              <span className="text-[10px] bg-brand-gold text-brand-navy font-bold px-1.5 py-0.5 rounded uppercase">
+                Shop Now
+              </span>
             </Link>
 
             {/* Accordion: Occasions */}

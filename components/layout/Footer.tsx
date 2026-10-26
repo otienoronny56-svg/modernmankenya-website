@@ -178,6 +178,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/ready-to-wear" className="hover:text-brand-gold transition-colors font-medium">
+                  Shirts & Accessories (Shop)
+                </Link>
+              </li>
+              <li>
                 <Link href="/bespoke/bespoke-shirts" className="hover:text-brand-gold transition-colors">
                   Custom Shirts & Separates
                 </Link>

@@ -4,8 +4,11 @@ import React, { useState, useMemo, useEffect, useCallback, Suspense } from 'reac
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles, Calendar, Maximize2, ChevronLeft, ChevronRight, X, ArrowRight } from 'lucide-react';
+import { Sparkles, Calendar, Maximize2, ChevronLeft, ChevronRight, X, ArrowRight, ShoppingBag } from 'lucide-react';
 import { SARTORIAL_GALLERY_ITEMS, GalleryItem } from '@/data/galleryData';
+import { READY_TO_WEAR_PRODUCTS } from '@/data/mockData';
+import { ProductCardWithGallery } from '@/components/product/ProductCardWithGallery';
+import type { Product } from '@/types';
 
 interface GalleryCardProps {
   item: GalleryItem;
@@ -158,6 +161,28 @@ function GalleryContent() {
     { id: 'accessories', label: 'Accessories' },
   ];
 
+  const isEcommerceCategory = selectedCategory === 'shirts' || selectedCategory === 'accessories';
+
+  const ecommerceProducts: Product[] = useMemo(() => {
+    if (selectedCategory === 'shirts') {
+      return READY_TO_WEAR_PRODUCTS.filter(
+        (p) => p.category === 'shirts' || p.name.toLowerCase().includes('shirt') || p.slug.includes('shirt')
+      );
+    }
+    if (selectedCategory === 'accessories') {
+      let list = READY_TO_WEAR_PRODUCTS.filter((p) => p.category === 'accessories' && !p.slug.includes('shirt'));
+      if (accessorySubFilter === 'neckwear') {
+        list = list.filter((p) => p.slug.includes('tie') || p.slug.includes('cravat') || p.slug.includes('bowtie'));
+      } else if (accessorySubFilter === 'hardware') {
+        list = list.filter((p) => p.slug.includes('cuff') || p.slug.includes('pin'));
+      } else if (accessorySubFilter === 'leather-timepieces') {
+        list = list.filter((p) => p.slug.includes('belt') || p.slug.includes('watch'));
+      }
+      return list;
+    }
+    return [];
+  }, [selectedCategory, accessorySubFilter]);
+
   const filteredItems = useMemo(() => {
     return SARTORIAL_GALLERY_ITEMS.filter((item) => {
       if (selectedCategory === 'all') return true;
@@ -286,7 +311,9 @@ function GalleryContent() {
           <div className="flex items-center space-x-2 text-xs text-slate-500 font-medium self-start md:self-auto flex-shrink-0">
             <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
             <span>
-              Showing <strong className="text-brand-navy font-bold">{filteredItems.length}</strong> bespoke creations
+              Showing <strong className="text-brand-navy font-bold">
+                {isEcommerceCategory ? ecommerceProducts.length : filteredItems.length}
+              </strong> {isEcommerceCategory ? 'ready-to-order items' : 'bespoke creations'}
             </span>
           </div>
         </div>
@@ -302,7 +329,7 @@ function GalleryContent() {
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">Bespoke Accessories</h2>
                 <p className="text-xs text-slate-300 font-light max-w-xl mt-1">
-                  Pure sartorial accoutrements hand-matched to your suiting cloth, ties, and lapels.
+                  Pure sartorial accoutrements hand-matched to your suiting cloth, ties, and lapels. Order directly with M-Pesa or WhatsApp.
                 </p>
               </div>
 
@@ -332,8 +359,46 @@ function GalleryContent() {
           </div>
         )}
 
-        {/* Visual Cards Grid: Continuous Smooth Scroll of Individual Images */}
-        {filteredItems.length === 0 ? (
+        {/* E-Commerce Cards Grid (For Shirts and Accessories with PRICING & ADD TO BAG) */}
+        {isEcommerceCategory ? (
+          <div>
+            <div className="mb-6 p-4 bg-brand-gold/10 border border-brand-gold/30 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-brand-navy">
+              <div>
+                <p className="font-bold flex items-center space-x-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                  <span>Ready-to-Order Collection with Live Pricing</span>
+                </p>
+                <p className="text-slate-600 text-[11px] mt-0.5">
+                  Select your collar size, add directly to your bag, or 1-click order via WhatsApp with Nairobi same-day dispatch.
+                </p>
+              </div>
+              <Link
+                href="/ready-to-wear"
+                className="px-4 py-2 bg-brand-navy text-white text-[11px] font-bold uppercase rounded hover:bg-brand-gold hover:text-brand-navy transition-colors whitespace-nowrap self-start sm:self-auto"
+              >
+                Full Shop Catalogue &rarr;
+              </Link>
+            </div>
+
+            {ecommerceProducts.length === 0 ? (
+              <div className="text-center py-16 bg-white rounded-xl border border-slate-200 px-4">
+                <p className="font-serif text-lg font-bold text-brand-navy">No products found in this filter</p>
+                <button
+                  onClick={() => setAccessorySubFilter('all')}
+                  className="mt-4 px-5 py-2.5 bg-brand-navy text-white text-xs font-bold uppercase tracking-wider rounded-md hover:bg-brand-gold hover:text-brand-navy transition-all"
+                >
+                  View All Accessories
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {ecommerceProducts.map((prod) => (
+                  <ProductCardWithGallery key={prod.id} product={prod} />
+                ))}
+              </div>
+            )}
+          </div>
+        ) : filteredItems.length === 0 ? (
           <div className="text-center py-16 bg-white rounded-xl border border-slate-200 px-4">
             <p className="font-serif text-lg font-bold text-brand-navy">No creations found in this category</p>
             <button
