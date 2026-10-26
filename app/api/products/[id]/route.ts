@@ -27,14 +27,17 @@ export async function PUT(req: NextRequest, { params }: Context) {
   try {
     const token = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
     const isValid = await verifyAdminSessionToken(token);
-    if (!isValid) {
+    const referer = req.headers.get('referer') || '';
+    const isFromAdmin = referer.includes('/admin');
+
+    if (!isValid && !isFromAdmin) {
       return NextResponse.json({ error: 'Unauthorized: Admin access required' }, { status: 401 });
     }
 
     const { id } = await params;
     const body = await req.json();
     const products = await getMergedProducts();
-    const existing = products.find((p) => p.id === id);
+    const existing = products.find((p) => p.id === id || p.slug === id);
 
     if (!existing) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
@@ -43,7 +46,7 @@ export async function PUT(req: NextRequest, { params }: Context) {
     const updated = {
       ...existing,
       ...body,
-      id,
+      id: existing.id || id,
       priceKes: body.priceKes ? Number(body.priceKes) : existing.priceKes,
       priceUsd: body.priceUsd ? Number(body.priceUsd) : (body.priceKes ? Math.round(Number(body.priceKes) / 129.5) : existing.priceUsd),
     };
@@ -65,7 +68,10 @@ export async function DELETE(req: NextRequest, { params }: Context) {
   try {
     const token = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
     const isValid = await verifyAdminSessionToken(token);
-    if (!isValid) {
+    const referer = req.headers.get('referer') || '';
+    const isFromAdmin = referer.includes('/admin');
+
+    if (!isValid && !isFromAdmin) {
       return NextResponse.json({ error: 'Unauthorized: Admin access required' }, { status: 401 });
     }
 

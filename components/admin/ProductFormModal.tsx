@@ -27,17 +27,54 @@ interface ProductFormModalProps {
 }
 
 const CATEGORIES = [
-  { id: 'suits', name: '2 & 3-Piece Suits' },
-  { id: 'evening-dinner', name: 'Tuxedos' },
+  { id: 'accessories', name: 'Accessories (Ties, Cufflinks, Belts, Lapel Pins, Watches)' },
+  { id: 'shirts', name: 'Shirts (Tailored Ready-to-Wear)' },
+  { id: 'suits', name: '2 & 3-Piece Suits (Made to Measure)' },
+  { id: 'evening-dinner', name: 'Tuxedos & Dinner Jackets' },
   { id: 'kaunda-suits', name: 'Kaunda Suits (Senator Suits)' },
   { id: 'smart-casual', name: 'Smart Casual & Blazers' },
-  { id: 'traditional', name: 'Traditional Wear' },
-  { id: 'kaftan-agbada', name: 'Kaftans & Agbada' },
-  { id: 'shirts', name: 'Shirts' },
-  { id: 'accessories', name: 'Accessories' },
+  { id: 'traditional', name: 'Traditional & Kaftans' },
 ];
 
-const STANDARD_SIZES = ['38R', '40R', '42R', '44R', '46L', '48L', 'Standard'];
+const CATEGORY_SIZE_PRESETS: Record<string, string[]> = {
+  accessories: ['One Size', 'Standard Set', 'Adjustable', '32-34 (M)', '36-38 (L)', '40-42 (XL)', '40mm Dial', '42mm Dial'],
+  shirts: ['15.0" (38cm)', '15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', '17.0" (43cm)', 'S', 'M', 'L', 'XL', 'XXL'],
+  suits: ['36R', '38R', '40R', '42R', '44R', '46L', '48L', 'Custom Measure'],
+  'evening-dinner': ['38R', '40R', '42R', '44R', '46L', '48L', 'Custom Measure'],
+  'kaunda-suits': ['38R', '40R', '42R', '44R', '46L', '48L', 'Custom Measure'],
+  'smart-casual': ['38R', '40R', '42R', '44R', 'S', 'M', 'L', 'XL'],
+  traditional: ['38R', '40R', '42R', '44R', 'M', 'L', 'XL', 'XXL'],
+};
+
+const CATEGORY_DEFAULTS: Record<string, {
+  fabricDetails: string;
+  construction: string;
+  priceKes: number | string;
+  priceUsd: number | string;
+  selectedSizes: string[];
+}> = {
+  accessories: {
+    fabricDetails: 'Pure Jacquard Silk / Solid Polished Brass',
+    construction: 'Artisanal Hand-finished detailing with presentation gift box',
+    priceKes: 4500,
+    priceUsd: 35,
+    selectedSizes: ['One Size'],
+  },
+  shirts: {
+    fabricDetails: '100% Egyptian Giza Cotton (120/2 Two-Ply Weave)',
+    construction: 'Single-needle tailor stitching with mother-of-pearl buttons',
+    priceKes: 14500,
+    priceUsd: 115,
+    selectedSizes: ['15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', 'M', 'L', 'XL'],
+  },
+  suits: {
+    fabricDetails: 'Super 140s English Worsted Wool (England)',
+    construction: 'Full Floating Horsehair Canvas Construction',
+    priceKes: 145000,
+    priceUsd: 1120,
+    selectedSizes: ['38R', '40R', '42R', '44R'],
+  },
+};
 
 export function ProductFormModal({
   isOpen,
@@ -52,14 +89,14 @@ export function ProductFormModal({
   const [slug, setSlug] = useState('');
   const [tagline, setTagline] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('suits');
+  const [category, setCategory] = useState('accessories');
   const [audience, setAudience] = useState<'modernman' | 'modernwoman' | 'modernchild'>('modernman');
   const [fabricDetails, setFabricDetails] = useState('');
-  const [construction, setConstruction] = useState('Full Floating Canvas');
-  const [priceKes, setPriceKes] = useState<number | string>(165000);
-  const [priceUsd, setPriceUsd] = useState<number | string>(1275);
+  const [construction, setConstruction] = useState('Artisanal Hand-finished detailing with presentation gift box');
+  const [priceKes, setPriceKes] = useState<number | string>(4500);
+  const [priceUsd, setPriceUsd] = useState<number | string>(35);
   const [images, setImages] = useState<string[]>([]);
-  const [selectedSizes, setSelectedSizes] = useState<string[]>(['38R', '40R', '42R', '44R']);
+  const [selectedSizes, setSelectedSizes] = useState<string[]>(['One Size']);
   const [customSizeInput, setCustomSizeInput] = useState('');
   const [isInStock, setIsInStock] = useState(true);
   const [isFeatured, setIsFeatured] = useState(false);
@@ -85,12 +122,12 @@ export function ProductFormModal({
       setSlug(productToEdit.slug || '');
       setTagline(productToEdit.tagline || '');
       setDescription(productToEdit.description || '');
-      setCategory(productToEdit.category || 'suits');
+      setCategory(productToEdit.category || 'accessories');
       setAudience(productToEdit.audience || 'modernman');
       setFabricDetails(productToEdit.fabricDetails || '');
-      setConstruction(productToEdit.construction || 'Full Floating Canvas');
-      setPriceKes(productToEdit.priceKes || 165000);
-      setPriceUsd(productToEdit.priceUsd || 1275);
+      setConstruction(productToEdit.construction || 'Artisanal Hand-finished detailing with presentation gift box');
+      setPriceKes(productToEdit.priceKes || 4500);
+      setPriceUsd(productToEdit.priceUsd || 35);
       setImages(productToEdit.images || []);
       setIsInStock(productToEdit.isInStock !== undefined ? productToEdit.isInStock : true);
       setIsFeatured(Boolean(productToEdit.isFeatured));
@@ -100,21 +137,24 @@ export function ProductFormModal({
       setShowHintInput(false);
       if (productToEdit.variants && productToEdit.variants.length > 0) {
         setSelectedSizes(productToEdit.variants.map((v) => v.size));
+      } else {
+        const catPresets = CATEGORY_SIZE_PRESETS[productToEdit.category || 'accessories'] || ['One Size'];
+        setSelectedSizes([catPresets[0]]);
       }
     } else {
-      // Reset form
+      // Reset form to clean accessories default
       setName('');
       setSlug('');
       setTagline('');
       setDescription('');
-      setCategory('suits');
+      setCategory('accessories');
       setAudience('modernman');
-      setFabricDetails('Super 150s Merino Wool (England)');
-      setConstruction('Full Floating Canvas');
-      setPriceKes(165000);
-      setPriceUsd(1275);
+      setFabricDetails('Pure Jacquard Silk / Solid Polished Brass');
+      setConstruction('Artisanal Hand-finished detailing with presentation gift box');
+      setPriceKes(4500);
+      setPriceUsd(35);
       setImages([]);
-      setSelectedSizes(['38R', '40R', '42R', '44R']);
+      setSelectedSizes(['One Size']);
       setIsInStock(true);
       setIsFeatured(false);
       setDetailsList([]);
@@ -143,6 +183,18 @@ export function ProductFormModal({
     setPriceKes(val);
     // 1 USD ~ 129.5 KES
     setPriceUsd(Math.round(num / 129.5));
+  };
+
+  const handleCategoryChange = (newCat: string) => {
+    setCategory(newCat);
+    const defaults = CATEGORY_DEFAULTS[newCat];
+    if (!isEditing && defaults) {
+      setFabricDetails(defaults.fabricDetails);
+      setConstruction(defaults.construction);
+      setPriceKes(defaults.priceKes);
+      setPriceUsd(defaults.priceUsd);
+      setSelectedSizes(defaults.selectedSizes);
+    }
   };
 
   const toggleSize = (sz: string) => {
@@ -653,8 +705,8 @@ export function ProductFormModal({
               </label>
               <select
                 value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
+                onChange={(e) => handleCategoryChange(e.target.value)}
+                className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy font-semibold"
               >
                 {CATEGORIES.map((cat) => (
                   <option key={cat.id} value={cat.id}>
@@ -665,6 +717,48 @@ export function ProductFormModal({
             </div>
           </div>
 
+          {/* Quick Subcategory Pills for Accessories */}
+          {category === 'accessories' && (
+            <div className="p-3 bg-amber-50/60 border border-amber-200/80 rounded-lg space-y-2">
+              <span className="block text-[11px] font-bold uppercase tracking-wider text-amber-900">
+                ⚡ Quick Fill Accessory Type (Click to Auto-Configure):
+              </span>
+              <div className="flex flex-wrap items-center gap-1.5">
+                {[
+                  { label: 'Silk Necktie', tag: 'Pure Jacquard Silk Necktie', fab: '100% Woven Jacquard Silk (Hand-rolled)', price: 4500 },
+                  { label: 'Bow Tie & Square Set', tag: 'Silk Bow Tie & Matching Pocket Square Set', fab: '100% Pure Silk & Microfiber', price: 5500 },
+                  { label: 'Cufflinks & Hardware', tag: 'Artisanal Rhodium & Brass Cufflinks', fab: 'Solid Polished Brass & Rhodium Plate', price: 4000 },
+                  { label: 'Lapel Pin / Boutonnière', tag: 'Handcrafted Boutonnière Lapel Pin', fab: 'Polished Brass & Enamel Finish', price: 3000 },
+                  { label: 'Leather Belt', tag: 'Full-Grain Italian Leather Dress Belt', fab: 'Full-Grain Vegetable Tanned Leather', price: 6500 },
+                  { label: 'Cravat / Ascot', tag: 'Regal Silk Ascot & Cravat Ensemble', fab: 'Pure Mulberry Silk', price: 6000 },
+                  { label: 'Luxury Dress Watch', tag: 'Sartorial Minimalist Dress Watch', fab: '316L Stainless Steel & Sapphire Glass', price: 18500 },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    type="button"
+                    onClick={() => {
+                      if (!name) setName(`Modern Man ${item.label}`);
+                      setTagline(item.tag);
+                      setFabricDetails(item.fab);
+                      setPriceKes(item.price);
+                      setPriceUsd(Math.round(item.price / 129.5));
+                      if (!detailsList.length) {
+                        setDetailsList([
+                          item.fab,
+                          'Artisanal Hand-finished detailing with presentation gift box',
+                          'Signature Modern Man Nairobi packaging included',
+                        ]);
+                      }
+                    }}
+                    className="px-2.5 py-1 bg-white hover:bg-brand-navy hover:text-brand-gold text-slate-700 rounded text-xs font-semibold border border-amber-300 shadow-sm transition-all"
+                  >
+                    + {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Tagline */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
@@ -674,7 +768,7 @@ export function ProductFormModal({
               type="text"
               value={tagline}
               onChange={(e) => setTagline(e.target.value)}
-              placeholder="e.g. 6x2 Stance in Loro Piana Pure Cashmere"
+              placeholder={category === 'accessories' ? 'e.g. Pure Jacquard Silk Necktie with Hand-rolled Edges' : 'e.g. 6x2 Stance in Loro Piana Pure Cashmere'}
               className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
             />
           </div>
@@ -682,13 +776,13 @@ export function ProductFormModal({
           {/* Description */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-              Garment Description (Brief & Punchy)
+              Garment / Product Description (Brief & Punchy)
             </label>
             <textarea
               rows={2}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Brief 1-2 sentence description (e.g. Tailored with clean lines and soft drape, crafted for effortless evening distinction.)"
+              placeholder={category === 'accessories' ? 'Brief description (e.g. Handcrafted from lustrous Italian silk with a substantial drape, perfect for black-tie galas and boardroom confidence.)' : 'Brief 1-2 sentence description (e.g. Tailored with clean lines and soft drape, crafted for effortless evening distinction.)'}
               className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy leading-relaxed"
             />
           </div>
@@ -697,31 +791,39 @@ export function ProductFormModal({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-                Fabric Details & Mill
+                Material / Fabric Details
               </label>
               <input
                 type="text"
                 value={fabricDetails}
                 onChange={(e) => setFabricDetails(e.target.value)}
-                placeholder="e.g. Scabal Super 150s Pure Merino Wool"
+                placeholder={category === 'accessories' ? 'e.g. 100% Woven Jacquard Silk or Solid Brass' : 'e.g. Scabal Super 150s Pure Merino Wool'}
                 className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
               />
             </div>
 
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-                Internal Construction
+                Construction & Craftsmanship Finish
               </label>
-              <select
+              <input
+                type="text"
+                list="construction-options"
                 value={construction}
                 onChange={(e) => setConstruction(e.target.value)}
+                placeholder="e.g. Artisanal Hand-finished detailing with presentation gift box"
                 className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
-              >
-                <option value="Full Floating Canvas">Full Floating Canvas (Horsehair)</option>
-                <option value="Half Canvas Sartorial">Half Canvas Sartorial</option>
-                <option value="Soft Unstructured Tailoring">Soft Unstructured Tailoring</option>
-                <option value="Neapolitan Spalla Camicia">Neapolitan Spalla Camicia</option>
-              </select>
+              />
+              <datalist id="construction-options">
+                <option value="Artisanal Hand-finished detailing with presentation gift box" />
+                <option value="Hand-rolled edges with pure silk thread finish" />
+                <option value="Precision rhodium & solid brass jewelry casting" />
+                <option value="Full-grain leather with hand-burnished edge finish" />
+                <option value="Single-needle French seam stitching with mother-of-pearl buttons" />
+                <option value="Full Floating Canvas (Horsehair interior)" />
+                <option value="Half Canvas Sartorial" />
+                <option value="Soft Unstructured Tailoring" />
+              </datalist>
             </div>
           </div>
 
@@ -806,7 +908,7 @@ export function ProductFormModal({
                     step="500"
                     value={priceKes}
                     onChange={(e) => handlePriceKesChange(e.target.value)}
-                    placeholder="165000"
+                    placeholder={category === 'accessories' ? '4500' : '14500'}
                     className="w-full pl-12 pr-3 py-2 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-gold font-bold text-brand-navy"
                   />
                 </div>
@@ -825,7 +927,7 @@ export function ProductFormModal({
                     min="0"
                     value={priceUsd}
                     onChange={(e) => setPriceUsd(e.target.value)}
-                    placeholder="1275"
+                    placeholder={category === 'accessories' ? '35' : '115'}
                     className="w-full pl-8 pr-3 py-2 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-gold font-semibold text-brand-navy"
                   />
                 </div>
@@ -835,11 +937,23 @@ export function ProductFormModal({
 
           {/* 5. SIZES AVAILABLE */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">
-              Available Sizes
-            </label>
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
+                Available Sizes ({category === 'accessories' ? 'Accessories' : category === 'shirts' ? 'Tailored Shirts' : 'Suits'})
+              </label>
+              <button
+                type="button"
+                onClick={() => {
+                  const def = CATEGORY_DEFAULTS[category]?.selectedSizes || ['One Size'];
+                  setSelectedSizes(def);
+                }}
+                className="text-[11px] text-brand-gold hover:underline font-semibold"
+              >
+                Reset to {category === 'accessories' ? 'Accessories' : category} standard sizes
+              </button>
+            </div>
             <div className="flex flex-wrap gap-2 mb-2">
-              {STANDARD_SIZES.map((sz) => {
+              {(CATEGORY_SIZE_PRESETS[category] || CATEGORY_SIZE_PRESETS.accessories).map((sz) => {
                 const isSelected = selectedSizes.includes(sz);
                 return (
                   <button
@@ -865,8 +979,8 @@ export function ProductFormModal({
                 type="text"
                 value={customSizeInput}
                 onChange={(e) => setCustomSizeInput(e.target.value)}
-                placeholder="Add custom size (e.g. 50R, XL, 50ml)"
-                className="w-56 px-3 py-1 text-xs bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none"
+                placeholder="Add custom size (e.g. One Size, 40mm, XL, 34W)"
+                className="w-64 px-3 py-1 text-xs bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none"
               />
               <button
                 type="button"
@@ -874,7 +988,7 @@ export function ProductFormModal({
                 className="px-3 py-1 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold rounded flex items-center space-x-1"
               >
                 <Plus className="w-3 h-3" />
-                <span>Add</span>
+                <span>Add Size</span>
               </button>
             </div>
           </div>

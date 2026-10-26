@@ -20,15 +20,14 @@ import type { Product } from '@/types';
 import { ProductFormModal } from '@/components/admin/ProductFormModal';
 
 const CATEGORIES = [
-  { id: 'all', name: 'All Garments' },
+  { id: 'all', name: 'All Items' },
+  { id: 'accessories', name: 'Accessories' },
+  { id: 'shirts', name: 'Shirts' },
   { id: 'suits', name: '2 & 3-Piece Suits' },
   { id: 'evening-dinner', name: 'Tuxedos' },
-  { id: 'kaunda-suits', name: 'Kaunda Suits (Senator Suits)' },
-  { id: 'smart-casual', name: 'Smart Casual & Blazers' },
-  { id: 'traditional', name: 'Traditional Wear' },
-  { id: 'kaftan-agbada', name: 'Kaftans & Agbada' },
-  { id: 'shirts', name: 'Shirts' },
-  { id: 'accessories', name: 'Accessories' },
+  { id: 'kaunda-suits', name: 'Kaunda Suits' },
+  { id: 'smart-casual', name: 'Smart Casual' },
+  { id: 'traditional', name: 'Traditional' },
 ];
 
 export default function AdminProductsPage() {
@@ -99,25 +98,33 @@ export default function AdminProductsPage() {
             p.id === product.id ? { ...p, isInStock: newStockStatus } : p
           )
         );
+      } else {
+        const data = await res.json().catch(() => ({}));
+        alert(data.error || 'Failed to update stock status.');
       }
     } catch (err) {
       console.error('Error updating stock status:', err);
+      alert('Network error while updating stock status.');
     }
   };
 
   const handleDelete = async (id: string, name: string) => {
-    if (!confirm(`Are you sure you want to remove "${name}" from the catalogue?`)) {
+    if (!confirm(`Are you sure you want to permanently delete "${name}" from the catalogue?`)) {
       return;
     }
 
     setDeletingId(id);
     try {
       const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
+      const data = await res.json().catch(() => ({}));
       if (res.ok) {
-        setProducts((prev) => prev.filter((p) => p.id !== id));
+        setProducts((prev) => prev.filter((p) => p.id !== id && p.slug !== id));
+      } else {
+        alert(data.error || 'Failed to delete product. Please try again.');
       }
     } catch (err) {
       console.error('Error deleting product:', err);
+      alert('Network error while deleting product.');
     } finally {
       setDeletingId(null);
     }
