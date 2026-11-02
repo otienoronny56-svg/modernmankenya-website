@@ -85,7 +85,7 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
                   Modern Man Kenya
                 </span>
                 <span className="text-xs font-serif font-bold text-white block">
-                  Atelier AI Stylist
+                  AI Personal Stylist
                 </span>
               </div>
             </div>
@@ -103,36 +103,36 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
           <div className="space-y-2.5">
             <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold text-[10px] font-bold uppercase tracking-wider">
               <Sparkles className="w-3 h-3 text-brand-gold animate-pulse" />
-              <span>In The Atelier Cutting Room</span>
+              <span>Coming Very Soon</span>
             </div>
 
             <h3 className="font-serif text-lg font-bold text-white tracking-tight">
-              Crafting Pure Elegance
+              Something Special Is Coming
             </h3>
 
             <p className="text-xs text-slate-300 leading-relaxed">
-              True bespoke excellence cannot be rushed. Our AI Sartorial Stylist is currently being tailored on millimetric drape analysis, Savile Row cuts, and our exclusive English &amp; Italian fabric vaults.
+              We are putting the final touches on our smart AI Stylist. Soon, you will be able to get instant suit recommendations, match fabrics, and check your size right here on the website.
             </p>
 
             <p className="text-xs text-brand-gold/90 font-medium italic pt-0.5">
-              "Arriving shortly to curate your bespoke silhouette with millimetric precision."
+              "Great style takes care and patience. We will be ready for you shortly."
             </p>
           </div>
 
           {/* Divider */}
           <div className="border-t border-white/10 pt-3 space-y-2">
             <p className="text-[11px] text-slate-400">
-              Need immediate advice or ready to commission a piece?
+              Need quick suit advice or ready to order today?
             </p>
 
             <a
-              href="https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya%2C%20I%20would%20like%20to%20consult%20with%20a%20Master%20Tailor."
+              href="https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya%2C%20I%20would%20like%20to%20inquire%20about%20a%20suit."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-brand-gold to-amber-300 hover:from-amber-300 hover:to-brand-gold text-brand-navy font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-md cursor-pointer"
             >
               <MessageSquare className="w-3.5 h-3.5 text-brand-navy fill-brand-navy" />
-              <span>Speak with Master Tailor</span>
+              <span>Chat with Our Tailor on WhatsApp</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -157,7 +157,7 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
               Modern Man AI Stylist
             </span>
             <span className="text-[9px] text-slate-300 font-medium tracking-normal leading-tight">
-              Bespoke Styling, Fabrics &amp; Sizing
+              Suit Advice, Fabrics &amp; Sizing
             </span>
           </div>
         </div>
