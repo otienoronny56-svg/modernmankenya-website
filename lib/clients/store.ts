@@ -238,9 +238,9 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
               ankleOpening: null,
               crotchRise: null,
             },
-            approvalStatus: 'approved',
-            accountStatus: 'approved',
-            tailorNotes: 'Registered user account.',
+            approvalStatus: 'pending_review',
+            accountStatus: u.email.toLowerCase() === 'admin@modernmankenya.com' ? 'approved' : 'pending_approval',
+            tailorNotes: 'Registered user account. Awaiting Atelier Admin access approval.',
             updatedAt: u.updated_at || new Date().toISOString(),
             createdAt: u.created_at || new Date().toISOString(),
           };
@@ -256,7 +256,7 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
 }
 
 export async function getClientProfile(emailOrId: string): Promise<ClientMeasurementProfile | null> {
-  const clients = readLocalClients();
+  const clients = await getAllClients();
   const lower = emailOrId.toLowerCase().trim();
   const match = clients.find(
     (c) => c.email.toLowerCase() === lower || c.id === emailOrId || (c.phone && c.phone.replace(/\s+/g, '') === lower)

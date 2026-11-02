@@ -33,6 +33,8 @@ export default function AdminClientsPage() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [approvingId, setApprovingId] = useState<string | null>(null);
+  const [approvingAccountId, setApprovingAccountId] = useState<string | null>(null);
+  const [accountFilter, setAccountFilter] = useState<'all' | 'pending' | 'approved'>('all');
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   // Add Order Modal State
@@ -114,6 +116,55 @@ export default function AdminClientsPage() {
     }
   };
 
+  const handleApproveAccount = async (client: ClientMeasurementProfile) => {
+    setApprovingAccountId(client.id);
+    try {
+      const res = await fetch('/api/admin/clients', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'approve_account',
+          email: client.email,
+          approvedBy: 'Atelier Director',
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setClients((prev) =>
+          prev.map((c) => (c.email === client.email ? { ...c, accountStatus: 'approved' } : c))
+        );
+      }
+    } catch (err) {
+      console.error('Error approving client account:', err);
+    } finally {
+      setApprovingAccountId(null);
+    }
+  };
+
+  const handleRevokeAccount = async (client: ClientMeasurementProfile) => {
+    if (!confirm(`Suspend account access for ${client.fullName}? They will see the verification notice upon visiting.`)) return;
+    try {
+      const res = await fetch('/api/admin/clients', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'reject_account',
+          email: client.email,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setClients((prev) =>
+          prev.map((c) => (c.email === client.email ? { ...c, accountStatus: 'pending_approval' } : c))
+        );
+      }
+    } catch (err) {
+      console.error('Error rejecting client account:', err);
+    }
+  };
+
   const handleUpdateOrderStatus = async (orderId: string, fulfillment_status: StoredOrder['fulfillment_status']) => {
     try {
       setAllOrders((prev) =>
@@ -179,20 +230,25 @@ export default function AdminClientsPage() {
     }
   };
 
-  const filteredClients = clients.filter((c) => {
-    const q = searchQuery.toLowerCase();
-    return (
-      c.fullName.toLowerCase().includes(q) ||
-      c.email.toLowerCase().includes(q) ||
-      (c.phone && c.phone.includes(q)) ||
-      (c.savedDelivery?.town && c.savedDelivery.town.toLowerCase().includes(q))
-    );
-  });
-
   const totalClients = clients.length;
+  const pendingAccountsCount = clients.filter((c) => c.accountStatus === 'pending_approval').length;
   const approvedMeasurementsCount = clients.filter((c) => c.approvalStatus === 'approved').length;
   const totalOrdersCount = allOrders.length;
   const activeOrdersCount = allOrders.filter((o) => o.fulfillment_status !== 'delivered' && o.fulfillment_status !== 'cancelled').length;
+
+  const filteredClients = clients.filter((c) => {
+    const q = searchQuery.toLowerCase();
+    const matchesSearch =
+      c.fullName.toLowerCase().includes(q) ||
+      c.email.toLowerCase().includes(q) ||
+      (c.phone && c.phone.includes(q)) ||
+      (c.savedDelivery?.town && c.savedDelivery.town.toLowerCase().includes(q));
+
+    if (!matchesSearch) return false;
+    if (accountFilter === 'pending') return c.accountStatus === 'pending_approval';
+    if (accountFilter === 'approved') return c.accountStatus !== 'pending_approval';
+    return true;
+  });
 
   return (
     <div className="p-4 sm:p-8 max-w-7xl mx-auto w-full space-y-8">
@@ -207,7 +263,7 @@ export default function AdminClientsPage() {
             Members & Order Management
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            View registered clients, update order statuses, add new orders directly, and approve anatomical measurements.
+            Approve client accounts, update order fulfillment, add new orders directly, and verify anatomical measurements.
           </p>
         </div>
 
@@ -230,20 +286,31 @@ export default function AdminClientsPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
           <div className="flex items-center justify-between text-xs font-bold uppercase text-slate-500">
-            <span>Registered Clients</span>
+            <span>Registered Members</span>
             <Users className="w-4 h-4 text-brand-navy" />
           </div>
           <div className="mt-3 text-2xl font-bold text-brand-navy font-mono">{totalClients}</div>
-          <div className="text-[11px] text-slate-500 mt-1">Active client accounts</div>
+          <div className="text-[11px] text-slate-500 mt-1">Total client directory</div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-blue-200 bg-blue-50/20 shadow-sm">
-          <div className="flex items-center justify-between text-xs font-bold uppercase text-blue-800">
-            <span>Active Commissions</span>
-            <Clock className="w-4 h-4 text-blue-600" />
+        <div className={`p-5 rounded-xl border shadow-sm transition-all ${
+          pendingAccountsCount > 0 
+            ? 'bg-amber-50/80 border-amber-300' 
+            : 'bg-white border-slate-200'
+        }`}>
+          <div className="flex items-center justify-between text-xs font-bold uppercase text-amber-900">
+            <span>Pending Approvals</span>
+            <Clock className="w-4 h-4 text-amber-600" />
           </div>
-          <div className="mt-3 text-2xl font-bold text-blue-900 font-mono">{activeOrdersCount}</div>
-          <div className="text-[11px] text-blue-700 mt-1 font-semibold">Orders in crafting or dispatch</div>
+          <div className="mt-3 text-2xl font-bold text-amber-950 font-mono flex items-center space-x-2">
+            <span>{pendingAccountsCount}</span>
+            {pendingAccountsCount > 0 && (
+              <span className="text-[11px] font-sans font-bold px-2 py-0.5 rounded-full bg-amber-200 text-amber-900 animate-pulse">
+                Needs Review
+              </span>
+            )}
+          </div>
+          <div className="text-[11px] text-amber-800 mt-1">New accounts awaiting activation</div>
         </div>
 
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
@@ -265,16 +332,58 @@ export default function AdminClientsPage() {
         </div>
       </div>
 
-      {/* Search Input */}
-      <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center">
-        <Search className="w-4 h-4 text-slate-400 mr-2.5 flex-shrink-0" />
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search by client name, email, phone number, or delivery town..."
-          className="w-full text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none"
-        />
+      {/* Search & Filter Controls */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex items-center flex-1">
+          <Search className="w-4 h-4 text-slate-400 mr-2.5 flex-shrink-0" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search by client name, email, phone number, or delivery town..."
+            className="w-full text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none"
+          />
+        </div>
+
+        <div className="flex items-center space-x-1.5 bg-white p-1 rounded-xl border border-slate-200 shadow-sm">
+          <button
+            onClick={() => setAccountFilter('all')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              accountFilter === 'all'
+                ? 'bg-brand-navy text-white shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            All ({totalClients})
+          </button>
+          <button
+            onClick={() => setAccountFilter('pending')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1 cursor-pointer ${
+              accountFilter === 'pending'
+                ? 'bg-amber-600 text-white shadow-xs'
+                : 'text-amber-800 hover:bg-amber-50'
+            }`}
+          >
+            <span>Pending</span>
+            {pendingAccountsCount > 0 && (
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
+                accountFilter === 'pending' ? 'bg-white text-amber-900' : 'bg-amber-200 text-amber-900'
+              }`}>
+                {pendingAccountsCount}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => setAccountFilter('approved')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              accountFilter === 'approved'
+                ? 'bg-emerald-600 text-white shadow-xs'
+                : 'text-emerald-800 hover:bg-emerald-50'
+            }`}
+          >
+            Approved ({totalClients - pendingAccountsCount})
+          </button>
+        </div>
       </div>
 
       {/* Clients List */}
@@ -315,9 +424,18 @@ export default function AdminClientsPage() {
                       </span>
                       <span
                         className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${
+                          client.accountStatus === 'pending_approval'
+                            ? 'bg-amber-100 text-amber-900 border border-amber-300 animate-pulse'
+                            : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                        }`}
+                      >
+                        {client.accountStatus === 'pending_approval' ? 'Account: Pending Approval' : 'Account: Approved'}
+                      </span>
+                      <span
+                        className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${
                           isApproved
                             ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                            : 'bg-amber-50 text-amber-800 border border-amber-200'
+                            : 'bg-slate-100 text-slate-600 border border-slate-200'
                         }`}
                       >
                         {isApproved ? 'Measurements Approved' : 'Measurements Pending'}
@@ -356,6 +474,26 @@ export default function AdminClientsPage() {
 
                   {/* Actions */}
                   <div className="flex flex-wrap items-center gap-2 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+                    {client.accountStatus === 'pending_approval' ? (
+                      <button
+                        onClick={() => handleApproveAccount(client)}
+                        disabled={approvingAccountId === client.id}
+                        className="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center space-x-1.5 cursor-pointer"
+                        title="Grant client access to their dashboard"
+                      >
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span>{approvingAccountId === client.id ? 'Approving...' : 'Approve Account Access'}</span>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleRevokeAccount(client)}
+                        className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-amber-50 text-slate-500 hover:text-amber-800 text-xs font-medium transition-colors cursor-pointer"
+                        title="Suspend client dashboard access"
+                      >
+                        <span>Suspend Access</span>
+                      </button>
+                    )}
+
                     <button
                       onClick={() => setAddOrderModalClient(client)}
                       className="px-3.5 py-1.5 rounded-lg bg-brand-navy hover:bg-slate-900 text-brand-gold text-xs font-bold transition-all shadow-xs flex items-center space-x-1.5 cursor-pointer"
@@ -369,7 +507,7 @@ export default function AdminClientsPage() {
                       <button
                         onClick={() => handleApproveMeasurements(client)}
                         disabled={approvingId === client.id}
-                        className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center space-x-1 cursor-pointer"
+                        className="px-3 py-1.5 rounded-lg bg-brand-navy/90 hover:bg-brand-navy text-brand-gold text-xs font-bold transition-all shadow-xs flex items-center space-x-1 cursor-pointer"
                       >
                         <CheckCircle2 className="w-3.5 h-3.5" />
                         <span>{approvingId === client.id ? 'Approving...' : 'Approve Measurements'}</span>

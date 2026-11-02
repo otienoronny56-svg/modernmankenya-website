@@ -85,34 +85,41 @@ export default function ClientDashboardPage() {
     if (user?.email) {
       const email = user.email;
 
-      // 1. Fetch Client Profile & Measurements
+      // 1. Fetch Client Profile & Measurements (and poll to detect admin approval)
+      const fetchProfileData = () => {
+        fetch(`/api/client/profile?email=${encodeURIComponent(email)}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.profile) {
+              const p: ClientMeasurementProfile = data.profile;
+              setClientData(p);
+              setFullName(p.fullName || profile?.fullName || '');
+              setPhone(p.phone || profile?.phone || '');
+              setDeliveryTown(p.savedDelivery?.town || 'Nairobi');
+              setDeliveryStreet(p.savedDelivery?.streetAddress || '');
+              setDeliveryNotes(p.savedDelivery?.deliveryNotes || '');
+
+              setFitStyle(p.preferences?.fitStyle || 'contemporary_tailored');
+              setShoulderSlope(p.preferences?.shoulderSlope || 'normal');
+              setLapelPreference(p.preferences?.lapelPreference || 'peak_lapel');
+              setJacketVents(p.preferences?.jacketVents || 'double_side_vents');
+              setTrouserBreak(p.preferences?.trouserBreak || 'slight_break');
+              setMonogramInitials(p.preferences?.monogramInitials || '');
+              setStyleNotes(p.preferences?.notes || '');
+
+              setMeasurementUnit(p.measurements?.unit || 'inches');
+              setMeasurements(p.measurements || {});
+            }
+          })
+          .catch((err) => console.error('Error fetching client profile:', err))
+          .finally(() => setLoadingProfile(false));
+      };
+
       setLoadingProfile(true);
-      fetch(`/api/client/profile?email=${encodeURIComponent(email)}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.profile) {
-            const p: ClientMeasurementProfile = data.profile;
-            setClientData(p);
-            setFullName(p.fullName || profile?.fullName || '');
-            setPhone(p.phone || profile?.phone || '');
-            setDeliveryTown(p.savedDelivery?.town || 'Nairobi');
-            setDeliveryStreet(p.savedDelivery?.streetAddress || '');
-            setDeliveryNotes(p.savedDelivery?.deliveryNotes || '');
+      fetchProfileData();
 
-            setFitStyle(p.preferences?.fitStyle || 'contemporary_tailored');
-            setShoulderSlope(p.preferences?.shoulderSlope || 'normal');
-            setLapelPreference(p.preferences?.lapelPreference || 'peak_lapel');
-            setJacketVents(p.preferences?.jacketVents || 'double_side_vents');
-            setTrouserBreak(p.preferences?.trouserBreak || 'slight_break');
-            setMonogramInitials(p.preferences?.monogramInitials || '');
-            setStyleNotes(p.preferences?.notes || '');
-
-            setMeasurementUnit(p.measurements?.unit || 'inches');
-            setMeasurements(p.measurements || {});
-          }
-        })
-        .catch((err) => console.error('Error fetching client profile:', err))
-        .finally(() => setLoadingProfile(false));
+      // Poll profile every 3.5s to automatically unlock the dashboard once the admin approves
+      const profilePoll = setInterval(fetchProfileData, 3500);
 
       // 2. Fetch Client Orders & Setup Real-time Supabase Sync
       const fetchClientOrders = () => {
@@ -158,6 +165,7 @@ export default function ClientDashboardPage() {
       return () => {
         supabase.removeChannel(liveChannel);
         clearInterval(pollInterval);
+        clearInterval(profilePoll);
       };
     }
   }, [user, profile, authLoading]);
@@ -384,6 +392,76 @@ export default function ClientDashboardPage() {
               <span>Create Client Account</span>
             </Link>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  // If Logged In but Account is Pending Admin Approval
+  const isPendingApproval = clientData && clientData.accountStatus === 'pending_approval';
+
+  if (isPendingApproval) {
+    return (
+      <div className="min-h-screen bg-[#FDFBF7] py-16 sm:py-24 px-4 sm:px-6">
+        <div className="max-w-xl mx-auto bg-white rounded-3xl shadow-xl border border-brand-gold/40 p-8 sm:p-12 text-center space-y-6">
+          <div className="relative mx-auto w-20 h-20 rounded-full bg-brand-navy flex items-center justify-center text-brand-gold shadow-lg border border-brand-gold/40">
+            <Clock className="w-10 h-10 animate-pulse text-brand-gold" />
+            <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-amber-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold">
+              !
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-3.5 py-1 rounded-full inline-block">
+              Security Protocol • Verification Required
+            </span>
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
+              Account Pending Approval
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Welcome to Modern Man Kenya, <strong className="text-brand-navy">{fullName || user?.email}</strong>. Your account has been registered and is currently awaiting activation by our Atelier Administrator.
+            </p>
+          </div>
+
+          <div className="bg-amber-50/70 border border-amber-200/90 rounded-2xl p-5 text-left space-y-3">
+            <div className="flex items-center space-x-2 text-xs font-bold text-amber-950 uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 text-amber-600" />
+              <span>Bespoke Privacy & Security Protocol</span>
+            </div>
+            <p className="text-xs text-amber-900/90 leading-relaxed">
+              To protect sartorial measurement blueprints, orders, and tailoring records, new accounts are individually reviewed by our team before granting access to the client dashboard.
+            </p>
+            <div className="flex items-center space-x-2 text-[11px] text-amber-800 font-semibold pt-1 border-t border-amber-200/60">
+              <RefreshCw className="w-3.5 h-3.5 animate-spin text-amber-600" />
+              <span>Live status: Checking approval automatically in real-time...</span>
+            </div>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href={`https://wa.me/254700000000?text=${encodeURIComponent(
+                `Hello Modern Man Kenya atelier team, I have registered my account (${user?.email}) and would like to request account approval.`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-sm"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Fast-Track via WhatsApp</span>
+            </a>
+
+            <button
+              onClick={() => signOut()}
+              className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Sign Out</span>
+            </button>
+          </div>
+
+          <p className="text-[11px] text-slate-400">
+            Registered as <span className="font-mono text-slate-600">{user?.email}</span>
+          </p>
         </div>
       </div>
     );
