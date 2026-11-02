@@ -61,11 +61,11 @@ export const MemberVisitPrompt: React.FC = () => {
       <button
         onClick={handleReopen}
         className="fixed bottom-6 left-6 z-40 px-3.5 py-2 rounded-full bg-brand-navy/95 backdrop-blur-md text-brand-gold border border-brand-gold/60 shadow-luxury flex items-center space-x-2 hover:bg-slate-900 hover:scale-105 transition-all text-xs font-bold cursor-pointer animate-in fade-in slide-in-from-bottom-2"
-        title="Open Atelier Member Prompt"
+        title="Open Client Portal"
       >
         <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-pulse" />
         <span className="tracking-wide">
-          {user ? 'My Client Dashboard' : 'Atelier Member Access'}
+          {user ? 'My Client Dashboard' : 'Client Sign In'}
         </span>
       </button>
     );
@@ -73,7 +73,7 @@ export const MemberVisitPrompt: React.FC = () => {
 
   // Expanded Tiny Luxury Prompt Card
   return (
-    <div className="fixed bottom-20 sm:bottom-6 left-4 sm:left-6 z-40 max-w-[340px] sm:max-w-[370px] w-full animate-in fade-in slide-in-from-bottom-4 duration-300">
+    <div className="fixed bottom-20 sm:bottom-6 left-4 sm:left-6 z-40 max-w-[320px] sm:max-w-[350px] w-full animate-in fade-in slide-in-from-bottom-4 duration-300">
       <div className="relative bg-[#0A1128]/95 backdrop-blur-xl rounded-2xl border border-brand-gold/70 shadow-2xl p-4 text-white space-y-3">
         
         {/* Subtle Gold Shimmer Top Bar */}
@@ -90,7 +90,7 @@ export const MemberVisitPrompt: React.FC = () => {
               )}
             </div>
             <span className="text-[10px] font-bold uppercase tracking-luxury text-brand-gold">
-              {user ? 'Atelier Patron' : 'Modern Man Atelier'}
+              {user ? 'Client Account' : 'Modern Man Kenya'}
             </span>
           </div>
 
@@ -107,7 +107,7 @@ export const MemberVisitPrompt: React.FC = () => {
         {user ? (
           <div className="space-y-3">
             <p className="text-xs text-slate-200 leading-relaxed">
-              Welcome back, <strong className="text-brand-gold">{profile?.fullName?.split(' ')[0] || 'Sir'}</strong>. Would you like to access your <strong>Client Dashboard</strong> to review previous orders, active statuses, or check your 35-point bespoke measurements?
+              Welcome back, <strong className="text-brand-gold">{profile?.fullName?.split(' ')[0] || 'Sir'}</strong>. Would you like to view your <strong>dashboard</strong> to check your orders and saved measurements?
             </p>
 
             <div className="flex items-center space-x-2 pt-1">
@@ -123,7 +123,7 @@ export const MemberVisitPrompt: React.FC = () => {
 
               <button
                 onClick={handleDismiss}
-                className="py-2 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs font-semibold transition-colors"
+                className="py-2 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs font-semibold transition-colors cursor-pointer"
               >
                 Later
               </button>
@@ -131,18 +131,10 @@ export const MemberVisitPrompt: React.FC = () => {
           </div>
         ) : (
           /* Content for New / Guest Visitor */
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             <p className="text-xs text-slate-200 leading-relaxed">
-              Welcome to <strong>Modern Man Kenya</strong>. Would you like to sign in as a bespoke member to access your private measurement blueprint and orders?
+              Welcome to <strong>Modern Man Kenya</strong>. Would you like to sign in to your client account to track orders and save your measurements?
             </p>
-
-            {/* Strict Security Policy Notice */}
-            <div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[10.5px] text-amber-200/90 flex items-start space-x-1.5">
-              <Lock className="w-3 h-3 text-brand-gold flex-shrink-0 mt-0.5" />
-              <span>
-                <strong>Strict Atelier Security:</strong> New client accounts are activated only upon administrator verification.
-              </span>
-            </div>
 
             <div className="flex items-center space-x-2 pt-1">
               <Link
@@ -150,13 +142,13 @@ export const MemberVisitPrompt: React.FC = () => {
                 onClick={handleDismiss}
                 className="flex-1 py-2 px-3 rounded-xl bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-1.5 shadow-sm"
               >
-                <span>Sign In as Member</span>
+                <span>Sign In / Register</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
               </Link>
 
               <button
                 onClick={handleDismiss}
-                className="py-2 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs font-semibold transition-colors"
+                className="py-2 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 text-xs font-semibold transition-colors cursor-pointer"
               >
                 Browse Store
               </button>

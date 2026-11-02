@@ -31,6 +31,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth/AuthContext';
 import { formatCurrencyPrice } from '@/lib/currency';
+import { supabase } from '@/lib/supabase/client';
 import type { StoredOrder } from '@/app/api/orders/route';
 import type { ClientMeasurementProfile } from '@/lib/clients/store';
 
@@ -113,17 +114,38 @@ export default function ClientDashboardPage() {
         .catch((err) => console.error('Error fetching client profile:', err))
         .finally(() => setLoadingProfile(false));
 
-      // 2. Fetch Client Orders
+      // 2. Fetch Client Orders & Setup Real-time Supabase Sync
+      const fetchClientOrders = () => {
+        fetch(`/api/orders?email=${encodeURIComponent(email)}`)
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.orders) {
+              setOrders(data.orders);
+            }
+          })
+          .catch((err) => console.error('Error fetching client orders:', err))
+          .finally(() => setLoadingOrders(false));
+      };
+
       setLoadingOrders(true);
-      fetch(`/api/orders?email=${encodeURIComponent(email)}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.orders) {
-            setOrders(data.orders);
+      fetchClientOrders();
+
+      // Realtime listener on Supabase 'orders' table
+      const liveChannel = supabase
+        .channel(`client-orders-live-${email}`)
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'orders' },
+          () => {
+            fetchClientOrders();
           }
-        })
-        .catch((err) => console.error('Error fetching client orders:', err))
-        .finally(() => setLoadingOrders(false));
+        )
+        .subscribe();
+
+      // Background poll interval (every 4s) to guarantee real-time updates
+      const pollInterval = setInterval(() => {
+        fetchClientOrders();
+      }, 4000);
 
       // 3. Fetch 2FA Status
       fetch(`/api/auth/2fa?email=${encodeURIComponent(email)}&action=status`)
@@ -132,6 +154,11 @@ export default function ClientDashboardPage() {
           setTwoFactorStatus({ enabled: Boolean(data.enabled), method: data.method });
         })
         .catch((err) => console.error('Error fetching 2FA status:', err));
+
+      return () => {
+        supabase.removeChannel(liveChannel);
+        clearInterval(pollInterval);
+      };
     }
   }, [user, profile, authLoading]);
 
@@ -356,58 +383,6 @@ export default function ClientDashboardPage() {
             >
               <span>Create Client Account</span>
             </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Strict Security: Require Admin Approval before granting dashboard access
-  if (clientData?.accountStatus === 'pending_approval') {
-    return (
-      <div className="min-h-screen bg-brand-canvas-alt py-16 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-xl border border-amber-300 p-8 sm:p-10 text-center space-y-6 animate-in fade-in">
-          <div className="w-16 h-16 rounded-full bg-amber-50 text-amber-700 border border-amber-300 flex items-center justify-center mx-auto shadow-sm">
-            <Lock className="w-8 h-8 text-amber-700" />
-          </div>
-
-          <div className="space-y-2">
-            <span className="text-[10px] uppercase font-bold tracking-luxury text-amber-800 bg-amber-100 px-3 py-1 rounded-full inline-block">
-              Strict Atelier Security Protocol
-            </span>
-            <h1 className="font-serif text-3xl font-bold text-brand-navy">
-              Account Pending Admin Approval
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto">
-              Modern Man Kenya operates under strict sartorial discretion. Your member account is currently under review by our atelier administration. Access to your anatomical measurements and orders will be activated immediately upon admin approval.
-            </p>
-          </div>
-
-          <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs space-y-1.5 text-left">
-            <div className="text-slate-500">Member Account:</div>
-            <div className="font-mono font-bold text-brand-navy text-sm break-all">{user.email}</div>
-            <div className="flex items-center space-x-1.5 text-amber-700 font-semibold pt-1">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-              <span>Status: Awaiting Atelier Administrator Signoff</span>
-            </div>
-          </div>
-
-          <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={`https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya,%20my%20account%20(${encodeURIComponent(user.email || '')})%20is%20awaiting%20admin%20approval.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center space-x-2"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Inquire with Concierge</span>
-            </a>
-            <button
-              onClick={signOut}
-              className="px-6 py-3 border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center cursor-pointer"
-            >
-              <span>Sign Out</span>
-            </button>
           </div>
         </div>
       </div>

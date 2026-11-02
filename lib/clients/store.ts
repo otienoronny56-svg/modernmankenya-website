@@ -192,7 +192,67 @@ function writeLocalClients(clients: ClientMeasurementProfile[]) {
 }
 
 export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
-  return readLocalClients();
+  const localClients = readLocalClients();
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers();
+    if (!error && data?.users) {
+      for (const u of data.users) {
+        if (!u.email) continue;
+        const exists = localClients.some((c) => c.email.toLowerCase() === u.email?.toLowerCase());
+        if (!exists) {
+          const meta = u.user_metadata || {};
+          const newProfile: ClientMeasurementProfile = {
+            id: u.id,
+            email: u.email,
+            fullName: meta.full_name || meta.name || u.email.split('@')[0],
+            phone: meta.phone || u.phone || '',
+            savedDelivery: { town: 'Nairobi', streetAddress: '', deliveryNotes: '' },
+            preferences: {
+              fitStyle: 'contemporary_tailored',
+              shoulderSlope: 'normal',
+              lapelPreference: 'peak_lapel',
+              jacketVents: 'double_side_vents',
+              trouserBreak: 'slight_break',
+            },
+            measurements: {
+              unit: 'inches',
+              chest: null,
+              waistStomach: null,
+              hipsSeat: null,
+              shoulderWidth: null,
+              halfBack: null,
+              jacketLength: null,
+              sleeveLengthLeft: null,
+              sleeveLengthRight: null,
+              neckCollar: null,
+              bicep: null,
+              wrist: null,
+              trouserWaist: null,
+              trouserSeat: null,
+              trouserOutseam: null,
+              trouserInseam: null,
+              thigh: null,
+              knee: null,
+              ankleOpening: null,
+              crotchRise: null,
+            },
+            approvalStatus: 'approved',
+            accountStatus: 'approved',
+            tailorNotes: 'Registered user account.',
+            updatedAt: u.updated_at || new Date().toISOString(),
+            createdAt: u.created_at || new Date().toISOString(),
+          };
+          localClients.unshift(newProfile);
+        }
+      }
+      writeLocalClients(localClients);
+    }
+  } catch (err) {
+    console.warn('Could not sync Supabase Auth users to clients:', err);
+  }
+  return localClients;
 }
 
 export async function getClientProfile(emailOrId: string): Promise<ClientMeasurementProfile | null> {

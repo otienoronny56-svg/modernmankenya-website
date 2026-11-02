@@ -142,16 +142,25 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const filterEmail = searchParams.get('email')?.toLowerCase().trim();
 
-    // Attempt Supabase fetch
-    const { data, error } = await (supabase.from('orders') as any)
-      .select('*')
-      .order('created_at', { ascending: false });
+    // Fetch from Supabase using Admin client
+    let supabaseOrders: any[] = [];
+    try {
+      const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+      const supabaseAdmin = getSupabaseAdmin();
+      const { data, error } = await (supabaseAdmin.from('orders') as any)
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (!error && data) {
+        supabaseOrders = data;
+      }
+    } catch (e) {
+      console.warn('Supabase fetch notice, falling back:', e);
+    }
 
     let allOrders: StoredOrder[] = [];
 
-    if (!error && data && data.length > 0) {
-      // Merge with any in-memory orders that may have been created during session
-      const formattedSupabaseOrders: StoredOrder[] = data.map((d: any) => ({
+    if (supabaseOrders.length > 0) {
+      const formattedSupabaseOrders: StoredOrder[] = supabaseOrders.map((d: any) => ({
         id: d.id,
         order_number: d.order_number,
         customer_name: d.customer_name,
@@ -203,17 +212,20 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const {
+      orderNumber,
       customerName,
       customerEmail,
       customerPhone,
       deliveryLocation,
       items,
       totalAmountKes,
+      fulfillmentStatus = 'pending',
+      paymentStatus = 'pending',
       orderMethod = 'website',
       notes,
     } = body;
 
-    const newOrderNumber = `MMK-${Date.now().toString().slice(-5)}`;
+    const newOrderNumber = orderNumber || `MMK-${Date.now().toString().slice(-5)}`;
     const newOrder: StoredOrder = {
       id: `ord-${Date.now()}`,
       order_number: newOrderNumber,
@@ -229,8 +241,8 @@ export async function POST(request: Request) {
       items: items || [],
       total_amount_kes: Number(totalAmountKes) || 0,
       currency: 'KES',
-      payment_status: 'pending',
-      fulfillment_status: 'pending',
+      payment_status: paymentStatus,
+      fulfillment_status: fulfillmentStatus,
       order_method: orderMethod,
       created_at: new Date().toISOString(),
     };
@@ -238,9 +250,11 @@ export async function POST(request: Request) {
     // Store in local memory cache immediately
     LOCAL_ORDERS_CACHE.unshift(newOrder);
 
-    // Sync to Supabase in background
+    // Sync to Supabase directly
     try {
-      await (supabase.from('orders') as any).insert({
+      const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+      const supabaseAdmin = getSupabaseAdmin();
+      await (supabaseAdmin.from('orders') as any).insert({
         order_number: newOrderNumber,
         customer_name: newOrder.customer_name,
         customer_email: newOrder.customer_email,
@@ -252,12 +266,12 @@ export async function POST(request: Request) {
         },
         total_amount_kes: newOrder.total_amount_kes,
         currency: 'KES',
-        payment_status: 'pending',
-        fulfillment_status: 'pending',
+        payment_status: paymentStatus,
+        fulfillment_status: fulfillmentStatus,
         special_instructions: `Method: ${orderMethod}. ${notes || ''}`,
       });
     } catch (dbErr) {
-      console.warn('Background Supabase order insert notice:', dbErr);
+      console.warn('Supabase order insert notice:', dbErr);
     }
 
     return NextResponse.json({
@@ -282,17 +296,19 @@ export async function PATCH(request: Request) {
       if (payment_status) LOCAL_ORDERS_CACHE[orderIndex].payment_status = payment_status;
     }
 
-    // Attempt Supabase update
+    // Update directly in Supabase
     try {
+      const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+      const supabaseAdmin = getSupabaseAdmin();
       const updatePayload: any = {};
       if (fulfillment_status) updatePayload.fulfillment_status = fulfillment_status;
       if (payment_status) updatePayload.payment_status = payment_status;
 
-      await (supabase.from('orders') as any)
+      await (supabaseAdmin.from('orders') as any)
         .update(updatePayload)
         .or(`id.eq.${orderId},order_number.eq.${orderId}`);
     } catch (err) {
-      console.warn('Background Supabase order status update notice:', err);
+      console.warn('Supabase order status update notice:', err);
     }
 
     return NextResponse.json({
