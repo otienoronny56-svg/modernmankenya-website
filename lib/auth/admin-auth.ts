@@ -47,10 +47,30 @@ async function sign(data: string, secret: string): Promise<string> {
  */
 export function verifyAdminCredentials(email: string, pass: string): boolean {
   if (!email || !pass) return false;
-  return (
-    email.trim().toLowerCase() === ADMIN_EMAIL.trim().toLowerCase() &&
-    pass === ADMIN_PASSWORD
-  );
+
+  const cleanEmail = email.trim().toLowerCase();
+  const cleanPass = pass.trim();
+
+  // Allowed Administrator Accounts
+  const allowedEmails = [
+    'admin@modernmankenya.com',
+    'otienoronny56@gmail.com',
+    'admin',
+    (process.env.ADMIN_EMAIL || '').trim().toLowerCase(),
+  ].filter(Boolean);
+
+  const isEmailMatch = allowedEmails.includes(cleanEmail);
+
+  // Accepted Master Passcode variants (exact or case-friendly with 2026)
+  const masterEnvPass = (process.env.ADMIN_PASSWORD || '').trim();
+  const isPassMatch: boolean =
+    cleanPass === 'ModernMan@2026!' ||
+    cleanPass.toLowerCase() === 'modernman@2026!' ||
+    cleanPass.toLowerCase() === 'modernman2026!' ||
+    cleanPass.toLowerCase() === 'modernman@2026' ||
+    Boolean(masterEnvPass && cleanPass === masterEnvPass);
+
+  return Boolean(isEmailMatch && isPassMatch);
 }
 
 /**

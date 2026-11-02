@@ -13,12 +13,12 @@ export const FloatingWhatsAppButton: React.FC = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center group pointer-events-none">
       
-      {/* Tooltip on Hover (Desktop) */}
+      {/* Tooltip on Hover (Desktop) - positioned cleanly directly above WhatsApp button */}
       <div
-        className={`hidden md:flex items-center space-x-2 mr-3 px-3.5 py-2 bg-brand-navy text-white text-xs rounded-full shadow-luxury border border-brand-gold/40 transition-all duration-300 pointer-events-none ${
+        className={`hidden md:flex items-center space-x-2 absolute bottom-18 sm:bottom-20 right-0 px-3.5 py-2 bg-brand-navy text-white text-xs rounded-full shadow-luxury border border-brand-gold/40 transition-all duration-300 pointer-events-none whitespace-nowrap ${
           isHovered
-            ? 'opacity-100 translate-x-0'
-            : 'opacity-0 translate-x-2'
+            ? 'opacity-100 translate-y-0 scale-100'
+            : 'opacity-0 translate-y-2 scale-95'
         }`}
       >
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />

@@ -40,13 +40,13 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
   const isTooltipVisible = isHovered || showTeaser;
 
   return (
-    <div className="fixed bottom-[92px] sm:bottom-[102px] right-6 z-50 flex items-center group pointer-events-none">
-      {/* Luxury Tooltip / Teaser Badge (Glides out to the left) */}
+    <div className="fixed bottom-6 right-[86px] sm:right-[100px] z-50 flex items-center group pointer-events-none">
+      {/* Luxury Tooltip / Teaser Badge (Floats cleanly directly above the AI button) */}
       <div
-        className={`hidden sm:flex items-center space-x-2 mr-3 px-3.5 py-2 rounded-full bg-gradient-to-r from-brand-navy-dark via-brand-navy to-[#0F1E3D] text-white border border-brand-gold/70 shadow-2xl transition-all duration-300 pointer-events-none ${
+        className={`hidden sm:flex items-center space-x-2 absolute bottom-18 sm:bottom-20 right-0 px-3.5 py-2 rounded-full bg-gradient-to-r from-brand-navy-dark via-brand-navy to-[#0F1E3D] text-white border border-brand-gold/70 shadow-2xl transition-all duration-300 pointer-events-none whitespace-nowrap ${
           isTooltipVisible
-            ? 'opacity-100 translate-x-0 scale-100'
-            : 'opacity-0 translate-x-3 scale-95 pointer-events-none'
+            ? 'opacity-100 translate-y-0 scale-100'
+            : 'opacity-0 translate-y-2 scale-95 pointer-events-none'
         }`}
       >
         <div className="w-5 h-5 rounded-full bg-brand-gold/20 flex items-center justify-center border border-brand-gold/50 flex-shrink-0">

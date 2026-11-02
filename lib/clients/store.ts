@@ -238,9 +238,9 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
               ankleOpening: null,
               crotchRise: null,
             },
-            approvalStatus: 'pending_review',
-            accountStatus: u.email.toLowerCase() === 'admin@modernmankenya.com' ? 'approved' : 'pending_approval',
-            tailorNotes: 'Registered user account. Awaiting Atelier Admin access approval.',
+            approvalStatus: (u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com') ? 'approved' : 'pending_review',
+            accountStatus: (u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com') ? 'approved' : 'pending_approval',
+            tailorNotes: (u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com') ? 'Administrator Account' : 'Registered user account. Awaiting Atelier Admin access approval.',
             updatedAt: u.updated_at || new Date().toISOString(),
             createdAt: u.created_at || new Date().toISOString(),
           };
