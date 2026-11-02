@@ -40,7 +40,7 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
   const isTooltipVisible = isHovered || showTeaser;
 
   return (
-    <div className="fixed bottom-23 sm:bottom-25 right-6 z-50 flex items-center group pointer-events-none">
+    <div className="fixed bottom-[92px] sm:bottom-[102px] right-6 z-50 flex items-center group pointer-events-none">
       {/* Luxury Tooltip / Teaser Badge (Glides out to the left) */}
       <div
         className={`hidden sm:flex items-center space-x-2 mr-3 px-3.5 py-2 rounded-full bg-gradient-to-r from-brand-navy-dark via-brand-navy to-[#0F1E3D] text-white border border-brand-gold/70 shadow-2xl transition-all duration-300 pointer-events-none ${
@@ -67,7 +67,7 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
         onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="pointer-events-auto relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#0F1D3D] via-[#0A1226] to-[#040814] text-brand-gold flex items-center justify-center border-2 border-brand-gold shadow-[0_0_20px_rgba(212,175,55,0.45)] hover:shadow-[0_0_28px_rgba(212,175,55,0.7)] transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer group/btn"
+        className="pointer-events-auto relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#0F1D3D] via-[#0A1226] to-[#040814] text-brand-gold flex items-center justify-center border-2 border-brand-gold shadow-[0_0_20px_rgba(212,175,55,0.45)] hover:shadow-[0_0_28px_rgba(212,175,55,0.7)] transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer group/btn"
         aria-label="Open Modern Man AI Stylist"
         title="Modern Man AI Stylist"
       >
@@ -78,12 +78,12 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-gold/20 via-transparent to-amber-200/25 pointer-events-none" />
 
         {/* Brand Crest Emblem */}
-        <div className="relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform duration-300 group-hover/btn:scale-105">
+        <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center transition-transform duration-300 group-hover/btn:scale-105">
           <Image
             src="/images/logo-emblem.png"
             alt="Modern Man AI Emblem"
-            width={32}
-            height={32}
+            width={36}
+            height={36}
             className="object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
             priority
           />
@@ -95,7 +95,7 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
         </div>
 
         {/* Tiny "AI" Luxury Pill Badge (Top of Medallion) */}
-        <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 px-1.5 py-0.2 rounded-full bg-brand-gold text-brand-navy text-[8px] font-black tracking-widest uppercase shadow-sm border border-brand-navy/60">
+        <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded-full bg-brand-gold text-brand-navy text-[8px] font-black tracking-widest uppercase shadow-sm border border-brand-navy/60">
           AI
         </div>
       </button>
