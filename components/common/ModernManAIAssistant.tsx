@@ -13,7 +13,6 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [showTeaser, setShowTeaser] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null);
 
   // Show a gentle teaser tooltip on initial page load after 2.5s, then hide after 6s
   useEffect(() => {
@@ -31,27 +30,12 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
     };
   }, []);
 
-  // Close when clicking outside the popover
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
-
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (onOpenChat) {
       onOpenChat();
     } else {
-      setIsOpen(!isOpen);
+      setIsOpen((prev) => !prev);
     }
   };
 
@@ -59,11 +43,20 @@ export const ModernManAIAssistant: React.FC<ModernManAIAssistantProps> = ({ onOp
 
   return (
     <>
+      {/* Mobile & Desktop Backdrop (Tapping anywhere outside closes the card cleanly) */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] animate-in fade-in duration-200 cursor-pointer"
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Soothing "Coming Soon" Atelier Popover Card */}
       {isOpen && (
         <div
-          ref={modalRef}
-          className="fixed bottom-22 sm:bottom-24 right-4 sm:right-6 z-50 max-w-[340px] sm:max-w-[380px] w-[calc(100vw-2rem)] bg-[#0A1226]/95 backdrop-blur-xl rounded-3xl border border-brand-gold/60 shadow-2xl p-6 text-white space-y-4 animate-in fade-in zoom-in-95 slide-in-from-bottom-4 duration-300"
+          className="fixed bottom-[88px] sm:bottom-[96px] right-3 sm:right-6 z-50 max-w-[350px] sm:max-w-[380px] w-[calc(100vw-1.5rem)] bg-[#0A1226]/95 backdrop-blur-xl rounded-3xl border border-brand-gold/60 shadow-2xl p-5 sm:p-6 text-white space-y-4 animate-in fade-in zoom-in-95 slide-in-from-bottom-4 duration-300 pointer-events-auto"
+          onClick={(e) => e.stopPropagation()}
         >
           {/* Top Subtle Gold Accent Line */}
           <div className="absolute -top-[1px] left-10 right-10 h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
