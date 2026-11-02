@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { SearchModal } from '@/components/common/SearchModal';
 import { FloatingWhatsAppButton } from '@/components/common/FloatingWhatsAppButton';
+import { ModernManAIAssistant } from '@/components/common/ModernManAIAssistant';
 import { MemberVisitPrompt } from '@/components/common/MemberVisitPrompt';
 
 import { AuthProvider } from '@/lib/auth/AuthContext';
@@ -29,6 +30,7 @@ export const ClientLayout: React.FC<{ children: React.ReactNode }> = ({ children
       <CartDrawer />
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
       <FloatingWhatsAppButton />
+      <ModernManAIAssistant />
       <MemberVisitPrompt />
     </AuthProvider>
   );
