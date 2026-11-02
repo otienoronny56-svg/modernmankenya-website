@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server';
-import { getAllClients, approveClientMeasurements, upsertClientProfile } from '@/lib/clients/store';
+import { 
+  getAllClients, 
+  approveClientMeasurements, 
+  approveClientAccount, 
+  rejectClientAccount, 
+  upsertClientProfile 
+} from '@/lib/clients/store';
 
 export async function GET() {
   try {
@@ -31,6 +37,22 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'Client profile not found' }, { status: 404 });
       }
       return NextResponse.json({ success: true, profile: approved, message: 'Measurements approved successfully' });
+    }
+
+    if (action === 'approve_account') {
+      const approved = await approveClientAccount(identifier, approvedBy || 'Atelier Director');
+      if (!approved) {
+        return NextResponse.json({ error: 'Client profile not found' }, { status: 404 });
+      }
+      return NextResponse.json({ success: true, profile: approved, message: 'Client account access granted & approved!' });
+    }
+
+    if (action === 'reject_account') {
+      const rejected = await rejectClientAccount(identifier);
+      if (!rejected) {
+        return NextResponse.json({ error: 'Client profile not found' }, { status: 404 });
+      }
+      return NextResponse.json({ success: true, profile: rejected, message: 'Client account access rejected' });
     }
 
     if (profileData) {

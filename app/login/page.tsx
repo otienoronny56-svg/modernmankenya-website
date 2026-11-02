@@ -15,7 +15,8 @@ import {
   CheckCircle2, 
   AlertCircle, 
   Sparkles,
-  ShieldCheck
+  ShieldCheck,
+  MessageSquare
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth/AuthContext';
 
@@ -40,6 +41,10 @@ function LoginForm() {
   const [twoFactorCode, setTwoFactorCode] = useState('');
   const [verifying2FA, setVerifying2FA] = useState(false);
 
+  // Strict Security: Admin Approval States
+  const [isPendingApproval, setIsPendingApproval] = useState(false);
+  const [pendingApprovalEmail, setPendingApprovalEmail] = useState('');
+
   // Form Fields
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -49,16 +54,26 @@ function LoginForm() {
   const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
 
-  // If already logged in, check 2FA before redirecting
+  // If already logged in, check Admin Approval and 2FA before redirecting
   useEffect(() => {
-    if (user && !requires2FA) {
-      const check2FA = async () => {
+    if (user && !requires2FA && !isPendingApproval) {
+      const checkAccess = async () => {
         try {
           const userEmail = user.email || '';
           if (!userEmail) {
             router.push(redirectTarget);
             return;
           }
+
+          // Strict Security Check: Verify Admin Account Approval
+          const profileRes = await fetch(`/api/client/profile?email=${encodeURIComponent(userEmail)}`);
+          const profileData = await profileRes.json();
+          if (profileData.profile && profileData.profile.accountStatus === 'pending_approval') {
+            setPendingApprovalEmail(userEmail);
+            setIsPendingApproval(true);
+            return;
+          }
+
           const res = await fetch(`/api/auth/2fa?email=${encodeURIComponent(userEmail)}&action=status`);
           const data = await res.json();
           if (data.enabled) {
@@ -74,9 +89,9 @@ function LoginForm() {
           router.push(redirectTarget);
         }
       };
-      check2FA();
+      checkAccess();
     }
-  }, [user, router, redirectTarget, requires2FA]);
+  }, [user, router, redirectTarget, requires2FA, isPendingApproval]);
 
   // Handle Google Sign In
   const handleGoogleSignIn = async () => {
@@ -131,15 +146,22 @@ function LoginForm() {
         return;
       }
 
-      if (newUser && !newUser.confirmed_at && newUser.identities?.length === 0) {
-        setSuccessMsg('Account created! Please check your email to verify your address.');
-      } else {
-        setSuccessMsg('Account created successfully! Welcome to Modern Man Kenya.');
-        setTimeout(() => {
-          router.push(redirectTarget);
-        }, 1200);
-      }
+      // Strict Security Protocol: New accounts require admin approval
+      await fetch('/api/client/profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          fullName,
+          phone: phoneNumber,
+          accountStatus: 'pending_approval',
+        }),
+      }).catch(() => {});
+
+      setPendingApprovalEmail(email);
+      setIsPendingApproval(true);
       setLoading(false);
+      return;
 
     } else {
       // Sign In
@@ -151,6 +173,20 @@ function LoginForm() {
         );
         setLoading(false);
         return;
+      }
+
+      // Strict Security: Check if client account is approved by admin
+      try {
+        const profileRes = await fetch(`/api/client/profile?email=${encodeURIComponent(email)}`);
+        const profileData = await profileRes.json();
+        if (profileData.profile && profileData.profile.accountStatus === 'pending_approval') {
+          setPendingApprovalEmail(email);
+          setIsPendingApproval(true);
+          setLoading(false);
+          return;
+        }
+      } catch (err) {
+        console.warn('Profile approval check notice:', err);
       }
 
       // Check if user has Two-Factor Authentication (2FA) enabled
@@ -272,7 +308,56 @@ function LoginForm() {
         </div>
 
         {/* Main Card */}
-        {requires2FA ? (
+        {isPendingApproval ? (
+          <div className="bg-white rounded-2xl shadow-luxury border border-amber-300 p-6 sm:p-8 space-y-6 animate-in fade-in">
+            <div className="text-center space-y-2">
+              <div className="w-14 h-14 rounded-full bg-amber-50 text-amber-700 border border-amber-300 flex items-center justify-center mx-auto shadow-sm">
+                <Lock className="w-7 h-7 text-amber-700" />
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-luxury text-amber-800 bg-amber-100 px-3 py-0.5 rounded-full inline-block">
+                Strict Atelier Security
+              </span>
+              <h2 className="font-serif text-2xl font-bold text-brand-navy">
+                Access Pending Admin Approval
+              </h2>
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-sm mx-auto">
+                Modern Man Kenya adheres to strict bespoke security. Your client account has been registered and is currently awaiting administrator verification before access to the client dashboard and measurements archive is granted.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs space-y-1.5">
+              <div className="text-stone-500 font-medium">Registered Client Account:</div>
+              <div className="font-mono font-bold text-brand-navy text-sm break-all">{pendingApprovalEmail}</div>
+              <div className="flex items-center space-x-1.5 text-amber-700 font-semibold pt-1">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                <span>Status: Awaiting Atelier Admin Verification</span>
+              </div>
+            </div>
+
+            <div className="space-y-2.5">
+              <a
+                href={`https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya,%20I%20have%20registered%20for%20a%20client%20account%20(${encodeURIComponent(pendingApprovalEmail)})%20and%20would%20like%20to%20request%20access%20approval.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-sm"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Contact Atelier Concierge on WhatsApp</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={async () => {
+                  setIsPendingApproval(false);
+                  await signOut();
+                }}
+                className="w-full py-2.5 px-4 rounded-xl border border-stone-300 text-stone-600 hover:bg-stone-50 font-bold text-xs transition-colors cursor-pointer"
+              >
+                Sign Out & Return to Store
+              </button>
+            </div>
+          </div>
+        ) : requires2FA ? (
           <div className="bg-white rounded-2xl shadow-luxury border border-stone-200/80 p-6 sm:p-8 space-y-6">
             <div className="text-center space-y-2">
               <div className="w-12 h-12 rounded-full bg-brand-gold/15 text-brand-gold border border-brand-gold/40 flex items-center justify-center mx-auto">

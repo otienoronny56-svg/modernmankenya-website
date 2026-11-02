@@ -46,6 +46,10 @@ export interface ClientMeasurementProfile {
   approvedBy?: string;
   approvedAt?: string;
   tailorNotes?: string;
+  // Account Access Approval (Strict Security: Requires Admin Approval for New Clients)
+  accountStatus: 'approved' | 'pending_approval' | 'rejected';
+  accountApprovedBy?: string;
+  accountApprovedAt?: string;
   // 2FA Security fields
   twoFactorEnabled?: boolean;
   twoFactorSecret?: string;
@@ -102,6 +106,9 @@ const INITIAL_CLIENTS: ClientMeasurementProfile[] = [
     approvalStatus: 'approved',
     approvedBy: 'Samuel M. (Master Cutter)',
     approvedAt: new Date(Date.now() - 86400000 * 14).toISOString(),
+    accountStatus: 'approved',
+    accountApprovedBy: 'Atelier Director',
+    accountApprovedAt: new Date(Date.now() - 86400000 * 14).toISOString(),
     tailorNotes: 'Right shoulder sits 0.25" lower. Armholes calibrated for natural ergonomic reach.',
     updatedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
     createdAt: new Date(Date.now() - 86400000 * 30).toISOString(),
@@ -148,6 +155,9 @@ const INITIAL_CLIENTS: ClientMeasurementProfile[] = [
       crotchRise: 10.75,
     },
     approvalStatus: 'pending_review',
+    accountStatus: 'approved',
+    accountApprovedBy: 'Atelier Director',
+    accountApprovedAt: new Date(Date.now() - 86400000 * 10).toISOString(),
     tailorNotes: 'Awaiting in-person basted fitting calibration on Tubman Road.',
     updatedAt: new Date(Date.now() - 86400000 * 1).toISOString(),
     createdAt: new Date(Date.now() - 86400000 * 10).toISOString(),
@@ -238,7 +248,8 @@ export async function getClientProfile(emailOrId: string): Promise<ClientMeasure
         crotchRise: null,
       },
       approvalStatus: 'pending_review',
-      tailorNotes: 'New client profile. Book an atelier fitting or enter self-measurements.',
+      accountStatus: 'pending_approval',
+      tailorNotes: 'New client profile. Awaiting Atelier Admin access approval.',
       updatedAt: new Date().toISOString(),
       createdAt: new Date().toISOString(),
     };
@@ -323,7 +334,10 @@ export async function upsertClientProfile(
       approvalStatus: data.approvalStatus || 'pending_review',
       approvedBy: data.approvedBy,
       approvedAt: data.approvedAt,
-      tailorNotes: data.tailorNotes || 'Profile registered. Ready for Master Cutter calibration.',
+      accountStatus: data.accountStatus || 'pending_approval',
+      accountApprovedBy: data.accountApprovedBy,
+      accountApprovedAt: data.accountApprovedAt,
+      tailorNotes: data.tailorNotes || 'Profile registered. Awaiting Atelier Admin access approval.',
       updatedAt: now,
       createdAt: now,
     };
@@ -331,6 +345,41 @@ export async function upsertClientProfile(
     writeLocalClients(clients);
     return newProfile;
   }
+}
+
+export async function approveClientAccount(
+  emailOrId: string,
+  approvedBy = 'Atelier Administrator'
+): Promise<ClientMeasurementProfile | null> {
+  const clients = readLocalClients();
+  const lower = emailOrId.toLowerCase().trim();
+  const index = clients.findIndex((c) => c.email.toLowerCase() === lower || c.id === emailOrId);
+
+  if (index === -1) return null;
+
+  clients[index].accountStatus = 'approved';
+  clients[index].accountApprovedBy = approvedBy;
+  clients[index].accountApprovedAt = new Date().toISOString();
+  clients[index].updatedAt = new Date().toISOString();
+
+  writeLocalClients(clients);
+  return clients[index];
+}
+
+export async function rejectClientAccount(
+  emailOrId: string
+): Promise<ClientMeasurementProfile | null> {
+  const clients = readLocalClients();
+  const lower = emailOrId.toLowerCase().trim();
+  const index = clients.findIndex((c) => c.email.toLowerCase() === lower || c.id === emailOrId);
+
+  if (index === -1) return null;
+
+  clients[index].accountStatus = 'rejected';
+  clients[index].updatedAt = new Date().toISOString();
+
+  writeLocalClients(clients);
+  return clients[index];
 }
 
 export async function approveClientMeasurements(
