@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Lock, Mail, Eye, EyeOff, Sparkles, Shield, ArrowRight, AlertCircle } from 'lucide-react';
+import { Lock, Mail, Eye, EyeOff, Shield, ArrowRight, AlertCircle } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('admin@modernmankenya.com');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -99,9 +99,10 @@ export default function AdminLoginPage() {
                 <input
                   type="email"
                   required
+                  autoComplete="username"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@modernmankenya.com"
+                  placeholder="Enter administrator email"
                   className="w-full pl-9 pr-3.5 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold transition-colors text-brand-navy"
                 />
               </div>
@@ -116,9 +117,10 @@ export default function AdminLoginPage() {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
+                  autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter passcode"
+                  placeholder="Enter password"
                   className="w-full pl-9 pr-10 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold transition-colors text-brand-navy"
                 />
                 <button
@@ -128,17 +130,6 @@ export default function AdminLoginPage() {
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
-              </div>
-            </div>
-
-            {/* Quick Helper Credentials Note */}
-            <div className="p-3 bg-amber-50/70 border border-amber-200/80 rounded text-[11px] text-amber-900 flex items-start space-x-2">
-              <Sparkles className="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-0.5" />
-              <div>
-                <span className="font-semibold">Initial Master Passcode:</span>{' '}
-                <code className="bg-amber-100 px-1 py-0.5 rounded text-brand-navy font-mono font-bold">
-                  ModernMan@2026!
-                </code>
               </div>
             </div>
 

@@ -64,7 +64,7 @@ const STORAGE_FILE = path.join(process.cwd(), 'data', 'custom_clients.json');
 const INITIAL_CLIENTS: ClientMeasurementProfile[] = [
   {
     id: 'client-seed-01',
-    email: 'david.mwangi@gmail.com',
+    email: 'david.mwangi@example.com',
     fullName: 'David Mwangi',
     phone: '+254 722 458 910',
     savedDelivery: {
@@ -115,13 +115,13 @@ const INITIAL_CLIENTS: ClientMeasurementProfile[] = [
   },
   {
     id: 'client-seed-02',
-    email: 'kevin.otieno@gmail.com',
-    fullName: 'Kevin Otieno',
+    email: 'brian.mutua@example.com',
+    fullName: 'Brian Mutua',
     phone: '+254 711 893 224',
     savedDelivery: {
       town: 'Westlands, Nairobi',
       streetAddress: 'Parklands Road, Sovereign Suites',
-      deliveryNotes: 'Leave with concierge if after 5 PM.',
+      deliveryNotes: 'Leave with reception if after 5 PM.',
     },
     preferences: {
       fitStyle: 'slim_bespoke',
@@ -129,7 +129,7 @@ const INITIAL_CLIENTS: ClientMeasurementProfile[] = [
       lapelPreference: 'shawl_collar',
       jacketVents: 'double_side_vents',
       trouserBreak: 'no_break',
-      monogramInitials: 'K.O.',
+      monogramInitials: 'B.M.',
       notes: 'Black-tie and evening dinner wear focus.',
     },
     measurements: {

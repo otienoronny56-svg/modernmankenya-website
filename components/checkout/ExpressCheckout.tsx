@@ -464,7 +464,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
             type="email"
             value={customerEmail}
             onChange={(e) => setCustomerEmail(e.target.value)}
-            placeholder="e.g. david@gmail.com"
+            placeholder="e.g. client@example.com"
             className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
           />
         </div>
