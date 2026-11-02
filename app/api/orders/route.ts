@@ -137,12 +137,17 @@ let LOCAL_ORDERS_CACHE: StoredOrder[] = [
   },
 ];
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const filterEmail = searchParams.get('email')?.toLowerCase().trim();
+
     // Attempt Supabase fetch
     const { data, error } = await (supabase.from('orders') as any)
       .select('*')
       .order('created_at', { ascending: false });
+
+    let allOrders: StoredOrder[] = [];
 
     if (!error && data && data.length > 0) {
       // Merge with any in-memory orders that may have been created during session
@@ -164,21 +169,34 @@ export async function GET() {
       }));
 
       // Combine unique by order_number
-      const allOrders = [...formattedSupabaseOrders];
+      allOrders = [...formattedSupabaseOrders];
       LOCAL_ORDERS_CACHE.forEach((localOrd) => {
         if (!allOrders.some((o) => o.order_number === localOrd.order_number)) {
           allOrders.push(localOrd);
         }
       });
-
-      return computeAnalyticsAndRespond(allOrders);
+    } else {
+      allOrders = [...LOCAL_ORDERS_CACHE];
     }
+
+    // If client email filter is provided, return this client's orders
+    if (filterEmail) {
+      const clientOrders = allOrders.filter(
+        (o) =>
+          o.customer_email.toLowerCase().trim() === filterEmail ||
+          (o.customer_phone && o.customer_phone.replace(/\s+/g, '') === filterEmail.replace(/\s+/g, ''))
+      );
+      return NextResponse.json({
+        success: true,
+        orders: clientOrders,
+      });
+    }
+
+    return computeAnalyticsAndRespond(allOrders);
   } catch (err) {
     console.warn('Supabase orders fetch notice, utilizing resilient cache:', err);
+    return computeAnalyticsAndRespond(LOCAL_ORDERS_CACHE);
   }
-
-  // Fallback to local cache
-  return computeAnalyticsAndRespond(LOCAL_ORDERS_CACHE);
 }
 
 export async function POST(request: Request) {

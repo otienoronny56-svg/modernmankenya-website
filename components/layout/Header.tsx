@@ -244,18 +244,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
             {/* Clear, Visible Log In / Sign In Button (Top Right) */}
             {user ? (
-              <div className="flex items-center space-x-2 pl-2 border-l border-slate-200">
-                <span className="text-xs font-semibold text-brand-navy hidden md:inline truncate max-w-[120px]">
-                  Hi, {profile?.fullName?.split(' ')[0] || 'Member'}
-                </span>
+              <div className="flex items-center space-x-1.5 sm:space-x-2 pl-2 border-l border-slate-200">
+                <Link
+                  href="/account"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy bg-brand-gold/15 hover:bg-brand-navy hover:text-brand-gold transition-all border border-brand-gold/40 shadow-xs group"
+                  title="Client Dashboard & Measurements"
+                >
+                  <User className="w-3.5 h-3.5 text-brand-navy group-hover:text-brand-gold transition-colors" />
+                  <span className="truncate max-w-[100px] sm:max-w-[120px]">
+                    {profile?.fullName?.split(' ')[0] || 'Dashboard'}
+                  </span>
+                </Link>
                 <button
                   type="button"
                   onClick={signOut}
-                  className="px-2.5 py-1 text-xs text-stone-500 hover:text-red-600 transition-colors cursor-pointer font-medium hover:underline flex items-center space-x-1"
+                  className="px-2 py-1 text-xs text-stone-500 hover:text-red-600 transition-colors cursor-pointer font-medium hover:underline flex items-center space-x-1"
                   title="Sign Out"
                 >
                   <LogOut className="w-3.5 h-3.5 text-stone-400" />
-                  <span>Log Out</span>
+                  <span className="hidden xl:inline">Log Out</span>
                 </button>
               </div>
             ) : (
@@ -390,16 +397,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Mobile Account Section */}
             <div className="border-b border-slate-100 py-2.5">
               {user ? (
-                <div className="flex items-center justify-between text-xs font-semibold text-brand-navy">
-                  <span>Hi, {profile?.fullName || user.email}</span>
-                  <button
-                    type="button"
-                    onClick={signOut}
-                    className="text-stone-500 hover:text-red-600 text-xs flex items-center space-x-1 cursor-pointer font-medium"
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs font-semibold text-brand-navy">
+                    <span>Hi, {profile?.fullName || user.email}</span>
+                    <button
+                      type="button"
+                      onClick={signOut}
+                      className="text-stone-500 hover:text-red-600 text-xs flex items-center space-x-1 cursor-pointer font-medium"
+                    >
+                      <LogOut className="w-3.5 h-3.5 text-stone-400" />
+                      <span>Log Out</span>
+                    </button>
+                  </div>
+                  <Link
+                    href="/account"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center space-x-2 w-full py-2 px-3 rounded-lg bg-brand-navy text-brand-gold text-xs font-bold hover:bg-slate-900 transition-colors shadow-xs"
                   >
-                    <LogOut className="w-3.5 h-3.5 text-stone-400" />
-                    <span>Log Out</span>
-                  </button>
+                    <User className="w-3.5 h-3.5 text-brand-gold" />
+                    <span>Client Dashboard & Measurements</span>
+                  </Link>
                 </div>
               ) : (
                 <div className="flex items-center justify-between text-xs font-semibold">

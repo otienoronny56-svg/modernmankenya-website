@@ -341,6 +341,31 @@ export default function AdminOrdersPage() {
                       <span className="capitalize">{order.payment_status}</span>
                     </button>
 
+                    {/* One-Click Admin Approval Button */}
+                    {order.fulfillment_status === 'pending' ? (
+                      <button
+                        type="button"
+                        onClick={() => handleUpdateStatus(order.id, 'confirmed')}
+                        disabled={updatingId === order.id}
+                        className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-bold transition-all flex items-center space-x-1 shadow-xs cursor-pointer"
+                        title="Approve and confirm this bespoke order"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        <span>Approve Order</span>
+                      </button>
+                    ) : order.fulfillment_status === 'confirmed' ? (
+                      <button
+                        type="button"
+                        onClick={() => handleUpdateStatus(order.id, 'dispatched')}
+                        disabled={updatingId === order.id}
+                        className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-xs font-bold transition-all flex items-center space-x-1 shadow-xs cursor-pointer"
+                        title="Mark order as dispatched"
+                      >
+                        <Truck className="w-3.5 h-3.5" />
+                        <span>Dispatch</span>
+                      </button>
+                    ) : null}
+
                     {/* Fulfillment Status Selector */}
                     <select
                       value={order.fulfillment_status}

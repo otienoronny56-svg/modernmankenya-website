@@ -22,10 +22,10 @@ import { useAuth } from '@/lib/auth/AuthContext';
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user, signInWithGoogle, signInWithEmail, signUpWithEmail, resetPasswordForEmail } = useAuth();
+  const { user, signOut, signInWithGoogle, signInWithEmail, signUpWithEmail, resetPasswordForEmail } = useAuth();
 
   const initialMode = searchParams.get('mode') === 'signup' ? 'signup' : 'signin';
-  const redirectTarget = searchParams.get('redirect') || '/';
+  const redirectTarget = searchParams.get('redirect') || '/account';
 
   const [mode, setMode] = useState<'signin' | 'signup'>(initialMode);
   const [showPassword, setShowPassword] = useState(false);
@@ -33,6 +33,12 @@ function LoginForm() {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
+
+  // 2FA Authentication States
+  const [requires2FA, setRequires2FA] = useState(false);
+  const [pending2FAEmail, setPending2FAEmail] = useState('');
+  const [twoFactorCode, setTwoFactorCode] = useState('');
+  const [verifying2FA, setVerifying2FA] = useState(false);
 
   // Form Fields
   const [fullName, setFullName] = useState('');
@@ -43,12 +49,34 @@ function LoginForm() {
   const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
 
-  // If already logged in, redirect to account
+  // If already logged in, check 2FA before redirecting
   useEffect(() => {
-    if (user) {
-      router.push(redirectTarget);
+    if (user && !requires2FA) {
+      const check2FA = async () => {
+        try {
+          const userEmail = user.email || '';
+          if (!userEmail) {
+            router.push(redirectTarget);
+            return;
+          }
+          const res = await fetch(`/api/auth/2fa?email=${encodeURIComponent(userEmail)}&action=status`);
+          const data = await res.json();
+          if (data.enabled) {
+            const isVerified = typeof window !== 'undefined' && sessionStorage.getItem(`mmk_2fa_verified_${userEmail}`);
+            if (!isVerified) {
+              setPending2FAEmail(userEmail);
+              setRequires2FA(true);
+              return;
+            }
+          }
+          router.push(redirectTarget);
+        } catch {
+          router.push(redirectTarget);
+        }
+      };
+      check2FA();
     }
-  }, [user, router, redirectTarget]);
+  }, [user, router, redirectTarget, requires2FA]);
 
   // Handle Google Sign In
   const handleGoogleSignIn = async () => {
@@ -125,11 +153,73 @@ function LoginForm() {
         return;
       }
 
-      setSuccessMsg('Signed in successfully. Redirecting...');
+      // Check if user has Two-Factor Authentication (2FA) enabled
+      try {
+        const res = await fetch(`/api/auth/2fa?email=${encodeURIComponent(email)}&action=status`);
+        const data = await res.json();
+        if (data.enabled) {
+          setPending2FAEmail(email);
+          setRequires2FA(true);
+          setSuccessMsg(null);
+          setLoading(false);
+          return;
+        }
+      } catch (err) {
+        console.warn('2FA verification check notice:', err);
+      }
+
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem(`mmk_2fa_verified_${email}`, 'true');
+      }
+
+      setSuccessMsg('Signed in successfully. Redirecting to your atelier portal...');
       setTimeout(() => {
         router.push(redirectTarget);
       }, 800);
       setLoading(false);
+    }
+  };
+
+  // Handle Two-Factor Code Verification
+  const handleVerify2FA = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!twoFactorCode.trim()) {
+      setErrorMsg('Please enter your 6-digit authentication code or backup recovery code.');
+      return;
+    }
+    setVerifying2FA(true);
+    setErrorMsg(null);
+
+    try {
+      const res = await fetch('/api/auth/2fa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'verify-login',
+          email: pending2FAEmail,
+          token: twoFactorCode.trim(),
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setErrorMsg(data.error || 'Invalid 2FA code. Please check your authenticator app.');
+        setVerifying2FA(false);
+        return;
+      }
+
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem(`mmk_2fa_verified_${pending2FAEmail}`, 'true');
+      }
+
+      setSuccessMsg('Two-Factor Authentication verified. Accessing atelier portal...');
+      setTimeout(() => {
+        router.push(redirectTarget);
+      }, 600);
+    } catch (err: any) {
+      setErrorMsg(err.message || 'Verification error occurred.');
+    } finally {
+      setVerifying2FA(false);
     }
   };
 
@@ -182,6 +272,83 @@ function LoginForm() {
         </div>
 
         {/* Main Card */}
+        {requires2FA ? (
+          <div className="bg-white rounded-2xl shadow-luxury border border-stone-200/80 p-6 sm:p-8 space-y-6">
+            <div className="text-center space-y-2">
+              <div className="w-12 h-12 rounded-full bg-brand-gold/15 text-brand-gold border border-brand-gold/40 flex items-center justify-center mx-auto">
+                <ShieldCheck className="w-6 h-6 text-brand-navy" />
+              </div>
+              <h2 className="font-serif text-xl font-bold text-brand-navy">
+                Two-Factor Security Verification
+              </h2>
+              <p className="text-xs text-stone-600">
+                Enter the 6-digit code from your authenticator app (Google Authenticator, Microsoft Authenticator, 1Password) or an emergency backup code.
+              </p>
+            </div>
+
+            {errorMsg && (
+              <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-start space-x-2 animate-in fade-in">
+                <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                <span>{errorMsg}</span>
+              </div>
+            )}
+
+            {successMsg && (
+              <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-start space-x-2 animate-in fade-in">
+                <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-emerald-600" />
+                <span>{successMsg}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleVerify2FA} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-stone-700 mb-1.5 text-center">
+                  6-Digit Authentication Code or Backup Code
+                </label>
+                <input
+                  type="text"
+                  maxLength={12}
+                  placeholder="000 000"
+                  autoFocus
+                  value={twoFactorCode}
+                  onChange={(e) => setTwoFactorCode(e.target.value)}
+                  className="w-full text-center text-xl sm:text-2xl font-mono tracking-widest px-4 py-3 bg-stone-50 border border-stone-300 rounded-xl focus:outline-hidden focus:border-brand-navy focus:bg-white transition-all text-brand-navy font-bold"
+                />
+                <p className="text-[11px] text-stone-400 text-center mt-1.5">
+                  Securing measurements & delivery data for {pending2FAEmail}
+                </p>
+              </div>
+
+              <button
+                type="submit"
+                disabled={verifying2FA}
+                className="w-full py-3 px-4 rounded-xl bg-brand-navy hover:bg-brand-navy-light text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-sm disabled:opacity-60"
+              >
+                {verifying2FA ? (
+                  <span>Verifying Code...</span>
+                ) : (
+                  <>
+                    <span>Verify & Continue</span>
+                    <ArrowRight className="w-4 h-4 text-brand-gold" />
+                  </>
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={async () => {
+                  setRequires2FA(false);
+                  setTwoFactorCode('');
+                  setErrorMsg(null);
+                  await signOut();
+                }}
+                className="w-full text-center text-xs text-stone-500 hover:text-stone-800 underline transition-colors pt-2"
+              >
+                Cancel & Sign in with a different account
+              </button>
+            </form>
+          </div>
+        ) : (
         <div className="bg-white rounded-2xl shadow-luxury border border-stone-200/80 p-6 sm:p-8 space-y-6">
           
           {/* Mode Switcher Tabs */}
@@ -448,6 +615,7 @@ function LoginForm() {
           )}
 
         </div>
+        )}
 
         {/* Security & Support Note */}
         <div className="text-center space-y-2 text-xs text-stone-500">

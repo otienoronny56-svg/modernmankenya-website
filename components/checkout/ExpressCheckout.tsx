@@ -45,8 +45,9 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
   const [submittedOrder, setSubmittedOrder] = useState<any>(null);
   const [copiedTill, setCopiedTill] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [hasSavedMeasurements, setHasSavedMeasurements] = useState(false);
 
-  // Auto-fill from authenticated user profile or metadata
+  // Auto-fill from authenticated user profile or saved client blueprint
   useEffect(() => {
     if (profile) {
       if (profile.fullName && !customerName) setCustomerName(profile.fullName);
@@ -56,6 +57,33 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
       const metaName = (user.user_metadata as any)?.full_name || (user.user_metadata as any)?.name;
       if (metaName && !customerName) setCustomerName(metaName);
       if (user.email && !customerEmail) setCustomerEmail(user.email);
+    }
+
+    // Load saved delivery coordinates & measurements from client store
+    const emailToFetch = profile?.email || user?.email;
+    if (emailToFetch) {
+      fetch(`/api/client/profile?email=${encodeURIComponent(emailToFetch)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.profile) {
+            const p = data.profile;
+            if (p.fullName && !customerName) setCustomerName(p.fullName);
+            if (p.phone && !customerPhone) setCustomerPhone(p.phone);
+            if (p.savedDelivery?.town && !deliveryLocation) {
+              const fullLoc = p.savedDelivery.streetAddress
+                ? `${p.savedDelivery.town} (${p.savedDelivery.streetAddress})`
+                : p.savedDelivery.town;
+              setDeliveryLocation(fullLoc);
+            }
+            if (p.savedDelivery?.deliveryNotes && !notes) {
+              setNotes(p.savedDelivery.deliveryNotes);
+            }
+            if (p.approvalStatus === 'approved' || (p.measurements && p.measurements.chest)) {
+              setHasSavedMeasurements(true);
+            }
+          }
+        })
+        .catch(() => {});
     }
   }, [profile, user]);
 
@@ -148,6 +176,20 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
       setSubmittedOrder(order);
       clearCart();
       if (onSuccess) onSuccess(order.order_number);
+
+      // Persist delivery coordinates & profile for subsequent orders
+      if (customerEmail) {
+        fetch('/api/client/profile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: customerEmail,
+            fullName: customerName,
+            phone: customerPhone,
+            savedDelivery: { town: deliveryLocation, deliveryNotes: notes },
+          }),
+        }).catch(() => {});
+      }
 
       // If WhatsApp method selected, open WhatsApp directly with pre-formatted payload
       if (orderMethod === 'whatsapp') {
@@ -284,21 +326,30 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
 
       {/* Google Sign-in Banner / Auto-fill notice */}
       {user ? (
-        <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-3.5 flex items-center justify-between text-xs">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs uppercase">
-              {profile?.fullName?.charAt(0) || user.email?.charAt(0) || 'M'}
+        <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-3.5 space-y-2 text-xs">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs uppercase">
+                {profile?.fullName?.charAt(0) || user.email?.charAt(0) || 'M'}
+              </div>
+              <div>
+                <span className="font-bold text-emerald-950 block">
+                  Signed in as {profile?.fullName || user.email}
+                </span>
+                <span className="text-emerald-700 text-[11px]">Saved delivery info & contact auto-applied</span>
+              </div>
             </div>
-            <div>
-              <span className="font-bold text-emerald-950 block">
-                Signed in as {profile?.fullName || user.email}
-              </span>
-              <span className="text-emerald-700 text-[11px]">Contact details auto-filled below</span>
-            </div>
+            <span className="text-[10px] uppercase font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
+              Verified
+            </span>
           </div>
-          <span className="text-[10px] uppercase font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
-            Verified
-          </span>
+
+          {hasSavedMeasurements && (
+            <div className="pt-2 border-t border-emerald-200/60 flex items-center space-x-1.5 text-[11px] text-emerald-900 font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
+              <span>Saved Bespoke Measurements Attached (Master Tailor Approved)</span>
+            </div>
+          )}
         </div>
       ) : (
         <div className="space-y-2.5">

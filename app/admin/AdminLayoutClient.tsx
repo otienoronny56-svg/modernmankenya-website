@@ -15,7 +15,8 @@ import {
   X,
   ShieldCheck,
   Receipt,
-  Camera
+  Camera,
+  Ruler
 } from 'lucide-react';
 
 interface AdminLayoutClientProps {
@@ -57,6 +58,12 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
       href: '/admin/orders',
       icon: Receipt,
       active: pathname.startsWith('/admin/orders'),
+    },
+    {
+      name: 'Clients & Measurements',
+      href: '/admin/clients',
+      icon: Ruler,
+      active: pathname.startsWith('/admin/clients'),
     },
     {
       name: 'Shop (Shirts & Accessories)',
