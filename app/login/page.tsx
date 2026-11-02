@@ -464,7 +464,7 @@ function LoginForm() {
           </div>
 
           {/* 2. Email Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} autoComplete="off" className="space-y-4">
             
             {/* Full Name (Sign Up only) */}
             {mode === 'signup' && (
@@ -477,6 +477,7 @@ function LoginForm() {
                   <input
                     type="text"
                     required
+                    autoComplete="off"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="e.g. David Mwangi"
@@ -496,6 +497,7 @@ function LoginForm() {
                 <input
                   type="email"
                   required
+                  autoComplete="off"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@example.com"
