@@ -48,8 +48,9 @@ export async function middleware(req: NextRequest) {
     if (isValid) {
       return NextResponse.redirect(new URL('/admin', req.url));
     }
-    // Cloak and serve the admin login interface
-    return NextResponse.rewrite(new URL('/admin/login', req.url));
+    const loginUrl = new URL('/admin/login', req.url);
+    loginUrl.searchParams.set('portal', 'atelier');
+    return NextResponse.redirect(loginUrl);
   }
 
   // 4. Admin Portal Access & Bot Cloaking
@@ -57,25 +58,26 @@ export async function middleware(req: NextRequest) {
     const token = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
     const isValid = await verifyAdminSessionToken(token);
 
-    // If an internet bot or unauthenticated stranger directly probes /admin/login
     if (pathname === '/admin/login') {
       if (isValid) {
         return NextResponse.redirect(new URL('/admin', req.url));
       }
-      // If visited directly without session or preview bypass, cloak with coming-soon
-      if (LAUNCH_CONFIG.isPrelaunch) {
-        const previewCookie = req.cookies.get(LAUNCH_CONFIG.cookieName)?.value;
-        const hasPreview = previewCookie?.toLowerCase() === LAUNCH_CONFIG.previewPasscode.toLowerCase();
-        if (!hasPreview) {
-          return NextResponse.rewrite(new URL('/coming-soon', req.url));
-        }
+      // Allow login form if accessed via secret portal or in preview mode
+      const isViaSecretPortal = searchParams.get('portal') === 'atelier';
+      const previewCookie = req.cookies.get(LAUNCH_CONFIG.cookieName)?.value;
+      const hasPreview = previewCookie?.toLowerCase() === LAUNCH_CONFIG.previewPasscode.toLowerCase();
+
+      if (isViaSecretPortal || hasPreview || !LAUNCH_CONFIG.isPrelaunch) {
+        return NextResponse.next();
       }
-      return NextResponse.next();
+
+      // If a bot or stranger directly probes /admin/login, cloak it with coming-soon
+      return NextResponse.rewrite(new URL('/coming-soon', req.url));
     }
 
     // Direct access to /admin dashboards requires valid token
     if (!isValid) {
-      return NextResponse.redirect(new URL(LAUNCH_CONFIG.isPrelaunch ? '/coming-soon' : '/atelier-portal', req.url));
+      return NextResponse.rewrite(new URL('/coming-soon', req.url));
     }
     return NextResponse.next();
   }
