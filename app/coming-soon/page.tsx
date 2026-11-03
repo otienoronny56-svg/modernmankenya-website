@@ -21,7 +21,7 @@ export default function PreLaunchPage() {
     seconds: 0,
   });
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
 
   // Registration state
   const [contact, setContact] = useState('');
@@ -33,10 +33,12 @@ export default function PreLaunchPage() {
   useEffect(() => {
     setMounted(true);
 
-    // Retrieve saved theme preference
+    // Retrieve saved theme preference (defaulting to white mode)
     const savedTheme = localStorage.getItem('mm_prelaunch_theme') as 'dark' | 'light';
-    if (savedTheme) {
+    if (savedTheme === 'dark' || savedTheme === 'light') {
       setTheme(savedTheme);
+    } else {
+      setTheme('light');
     }
 
     // Check if redirected from Google OAuth

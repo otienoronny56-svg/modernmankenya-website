@@ -34,7 +34,7 @@ export const ClientLayout: React.FC<ClientLayoutProps> = ({ children, hasBypass 
   const isPrelaunchLocked = LAUNCH_CONFIG.isPrelaunch && !hasBypass;
 
   if (isComingSoon || isPrelaunchLocked) {
-    return <main className="min-h-screen bg-[#0A0B10]">{children}</main>;
+    return <main className="h-screen max-h-screen w-screen overflow-hidden">{children}</main>;
   }
 
   return (
