@@ -52,23 +52,18 @@ flowchart TD
 
 You and your team do **NOT** need slow localhost. You can test directly on your phones, tablets, and computers on Vercel with any of these 3 methods:
 
-### Method 1: Secret URL Link (Fastest for sharing)
+### How to Test the Complete Website (Owner & VIP Preview)
+No staff links are shown publicly on any page or footer. You access preview testing via:
+
+#### Method 1: Secret URL Bypass (Recommended)
 Open this link in any browser:
 ```
-https://modernmanke.com/?preview=modernman2026
+https://www.modernmanke.com/?preview=modernman2026
 ```
-*(Also works on `https://modernmankenya-website.vercel.app/?preview=modernman2026`)*
+*(Sets the secure 30-day preview cookie and instantly unlocks all 53 pages)*
 
-The system automatically validates the passcode, sets a secure 30-day cookie (`mm_launch_preview_access`), and unlocks the complete website.
-
-### Method 2: Discreet Staff Entrance
-1. Open `https://modernmanke.com` (which shows the countdown screen).
-2. Scroll to the bottom footer and click **"Staff Entrance"** (next to the lock icon).
-3. Type the passcode: `modernman2026` and click **Unlock Full Website**.
-4. The page immediately reloads into the live website.
-
-### Method 3: Admin Portal
-Logging into the admin dashboard at `/admin/login` automatically grants you full preview access across the entire site.
+#### Method 2: Direct Admin Portal
+Type `/admin/login` directly into your browser's URL bar. Logging in grants immediate access to the full site and admin management.
 
 ---
 

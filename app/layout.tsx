@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import { Playfair_Display, Plus_Jakarta_Sans, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import { ClientLayout } from '@/components/layout/ClientLayout';
+import { LAUNCH_CONFIG } from '@/lib/config/launch';
+import { ADMIN_COOKIE_NAME } from '@/lib/auth/admin-auth';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -40,11 +43,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  let hasBypass = false;
+  if (LAUNCH_CONFIG.isPrelaunch) {
+    const cookieStore = await cookies();
+    hasBypass =
+      cookieStore.get(LAUNCH_CONFIG.cookieName)?.value === LAUNCH_CONFIG.previewPasscode ||
+      Boolean(cookieStore.get(ADMIN_COOKIE_NAME)?.value);
+  }
+
   return (
     <html
       lang="en"
@@ -75,7 +86,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white text-brand-slate antialiased selection:bg-brand-gold selection:text-brand-navy">
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout hasBypass={hasBypass}>{children}</ClientLayout>
       </body>
     </html>
   );

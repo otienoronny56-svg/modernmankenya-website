@@ -13,12 +13,13 @@ export const MemberVisitPrompt: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [minimized, setMinimized] = useState(false);
 
-  // Do not show on auth pages or admin pages
+  // Do not show on auth pages, admin pages, or coming-soon
   const isAuthOrAdmin =
     pathname?.startsWith('/login') ||
     pathname?.startsWith('/signup') ||
     pathname?.startsWith('/account') ||
-    pathname?.startsWith('/admin');
+    pathname?.startsWith('/admin') ||
+    pathname === '/coming-soon';
 
   useEffect(() => {
     if (isAuthOrAdmin || loading) {

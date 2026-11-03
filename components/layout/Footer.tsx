@@ -288,11 +288,6 @@ export const Footer: React.FC = () => {
                   Fitting & Returns Policy
                 </Link>
               </li>
-              <li>
-                <Link href="/admin" className="hover:text-brand-gold transition-colors text-stone-500">
-                  Staff Portal
-                </Link>
-              </li>
             </ul>
           </div>
 
