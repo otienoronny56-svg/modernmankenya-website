@@ -23,7 +23,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // 2. VIP Secret Passcode in URL (e.g. https://modernmanke.com/?preview=modernman2026)
+  // 2. VIP Secret Passcode in URL (e.g. https://www.modernmanke.com/?preview=modernman2026)
   const previewQuery = searchParams.get('preview')?.trim().toLowerCase();
   if (previewQuery && previewQuery === LAUNCH_CONFIG.previewPasscode.toLowerCase()) {
     const cleanUrl = req.nextUrl.clone();
@@ -36,41 +36,56 @@ export async function middleware(req: NextRequest) {
       path: '/',
       maxAge: 60 * 60 * 24 * 30, // 30 days
       sameSite: 'lax',
-      httpOnly: false, // Allows the client PreviewModeBanner to detect active preview
+      httpOnly: false,
     });
     return res;
   }
 
-  // 3. Admin Portal Access & Authentication
+  // 3. Option B: Secret Custom Admin Portal (/atelier-portal)
+  if (pathname === '/atelier-portal' || pathname === '/atelier-control') {
+    const token = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
+    const isValid = await verifyAdminSessionToken(token);
+    if (isValid) {
+      return NextResponse.redirect(new URL('/admin', req.url));
+    }
+    // Cloak and serve the admin login interface
+    return NextResponse.rewrite(new URL('/admin/login', req.url));
+  }
+
+  // 4. Admin Portal Access & Bot Cloaking
   if (pathname.startsWith('/admin')) {
+    const token = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
+    const isValid = await verifyAdminSessionToken(token);
+
+    // If an internet bot or unauthenticated stranger directly probes /admin/login
     if (pathname === '/admin/login') {
-      const token = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
-      const isValid = await verifyAdminSessionToken(token);
       if (isValid) {
         return NextResponse.redirect(new URL('/admin', req.url));
+      }
+      // If visited directly without session or preview bypass, cloak with coming-soon
+      if (LAUNCH_CONFIG.isPrelaunch) {
+        const previewCookie = req.cookies.get(LAUNCH_CONFIG.cookieName)?.value;
+        const hasPreview = previewCookie?.toLowerCase() === LAUNCH_CONFIG.previewPasscode.toLowerCase();
+        if (!hasPreview) {
+          return NextResponse.rewrite(new URL('/coming-soon', req.url));
+        }
       }
       return NextResponse.next();
     }
 
-    const token = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
-    const isValid = await verifyAdminSessionToken(token);
-
+    // Direct access to /admin dashboards requires valid token
     if (!isValid) {
-      const loginUrl = new URL('/admin/login', req.url);
-      loginUrl.searchParams.set('from', pathname);
-      return NextResponse.redirect(loginUrl);
+      return NextResponse.redirect(new URL(LAUNCH_CONFIG.isPrelaunch ? '/coming-soon' : '/atelier-portal', req.url));
     }
     return NextResponse.next();
   }
 
-  // 4. Pre-Launch Holding Mode
+  // 5. Pre-Launch Holding Mode
   if (LAUNCH_CONFIG.isPrelaunch) {
-    // Direct visits to /coming-soon are allowed
     if (pathname === '/coming-soon') {
       return NextResponse.next();
     }
 
-    // Check if user has VIP bypass cookie OR an active admin session
     const previewCookie = req.cookies.get(LAUNCH_CONFIG.cookieName)?.value;
     const adminToken = req.cookies.get(ADMIN_COOKIE_NAME)?.value;
 
@@ -78,7 +93,6 @@ export async function middleware(req: NextRequest) {
       previewCookie?.toLowerCase() === LAUNCH_CONFIG.previewPasscode.toLowerCase() ||
       Boolean(adminToken);
 
-    // If no VIP bypass, rewrite all public page requests to the holding screen
     if (!hasBypassAccess) {
       return NextResponse.rewrite(new URL('/coming-soon', req.url));
     }
@@ -89,12 +103,6 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
     '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 };

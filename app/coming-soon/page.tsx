@@ -33,7 +33,7 @@ export default function PreLaunchPage() {
   useEffect(() => {
     setMounted(true);
 
-    // Retrieve saved theme preference (defaulting to white mode)
+    // Retrieve saved theme preference (default to white mode)
     const savedTheme = localStorage.getItem('mm_prelaunch_theme') as 'dark' | 'light';
     if (savedTheme === 'dark' || savedTheme === 'light') {
       setTheme(savedTheme);
@@ -49,7 +49,7 @@ export default function PreLaunchPage() {
       }
     }
 
-    // Countdown calculation
+    // Live Countdown calculation
     const calculateTimeLeft = (): TimeLeft => {
       const targetDate = new Date(LAUNCH_CONFIG.launchDate).getTime();
       const now = new Date().getTime();
@@ -123,11 +123,11 @@ export default function PreLaunchPage() {
       });
 
       if (error) {
-        setSubmitError('Google sign-in is pending configuration. Please enter your email above.');
+        setSubmitError('Google sign-in is pending configuration. Please enter your email below.');
         setIsGoogleLoading(false);
       }
     } catch (err) {
-      setSubmitError('Unable to connect to Google. Please enter your email above.');
+      setSubmitError('Unable to connect to Google. Please enter your email below.');
       setIsGoogleLoading(false);
     }
   };
@@ -140,7 +140,7 @@ export default function PreLaunchPage() {
 
   return (
     <div
-      className={`h-screen max-h-screen w-screen overflow-hidden flex flex-col justify-between items-center px-4 py-4 sm:py-6 transition-colors duration-300 font-sans select-none overscroll-none ${
+      className={`h-[100dvh] max-h-[100dvh] w-screen overflow-hidden flex flex-col justify-between items-center px-3.5 py-3 sm:px-6 sm:py-5 transition-colors duration-300 font-sans select-none overscroll-none ${
         isLight
           ? 'bg-[#FAF9F6] text-slate-900'
           : 'bg-[#0A0B10] text-white'
@@ -148,16 +148,16 @@ export default function PreLaunchPage() {
     >
       {/* Subtle atmospheric radial glow */}
       <div
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none transition-opacity duration-500 ${
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[500px] h-[380px] sm:h-[500px] rounded-full blur-3xl pointer-events-none transition-opacity duration-500 ${
           isLight ? 'bg-amber-100/40 opacity-70' : 'bg-[#1B1464]/25 opacity-100'
         }`}
       />
 
-      {/* Top Bar with Light/Dark Theme Switcher */}
-      <header className="w-full max-w-md flex justify-end items-center relative z-10 flex-shrink-0">
+      {/* Top Header: Sleek Theme Switcher */}
+      <header className="w-full max-w-sm sm:max-w-md flex justify-end items-center relative z-10 flex-shrink-0">
         <button
           onClick={toggleTheme}
-          className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all shadow-xs cursor-pointer border ${
+          className={`flex items-center space-x-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold transition-all shadow-xs cursor-pointer border ${
             isLight
               ? 'bg-white border-slate-200 text-slate-700 hover:text-brand-navy hover:border-brand-gold/50'
               : 'bg-white/5 border-white/10 text-slate-300 hover:text-brand-gold hover:border-brand-gold/50'
@@ -166,30 +166,30 @@ export default function PreLaunchPage() {
         >
           {isLight ? (
             <>
-              <Moon className="w-3.5 h-3.5 text-brand-navy" />
+              <Moon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-navy" />
               <span>Dark Mode</span>
             </>
           ) : (
             <>
-              <Sun className="w-3.5 h-3.5 text-brand-gold" />
+              <Sun className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-gold" />
               <span>White Mode</span>
             </>
           )}
         </button>
       </header>
 
-      {/* Centerpiece Content: Strictly contained, no vertical scroll */}
-      <main className="relative z-10 max-w-sm sm:max-w-md w-full text-center space-y-3 sm:space-y-4 my-auto flex-shrink-0">
+      {/* Main Centerpiece Content: Fully Proportioned for Mobile & Desktop */}
+      <main className="relative z-10 max-w-[340px] sm:max-w-md w-full text-center space-y-2.5 sm:space-y-4 my-auto flex-shrink-0">
         {/* Official Modern Man Logo */}
         <div className="flex justify-center">
-          <div className="relative w-48 sm:w-56 h-16 sm:h-20">
+          <div className="relative w-40 sm:w-52 h-14 sm:h-18">
             <Image
               src="/images/logo-full.png"
               alt="Modern Man Kenya"
               fill
               className={`object-contain transition-all duration-300 ${
                 isLight
-                  ? 'filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)]'
+                  ? 'filter drop-shadow-[0_2px_6px_rgba(0,0,0,0.12)]'
                   : 'filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]'
               }`}
               priority
@@ -199,14 +199,14 @@ export default function PreLaunchPage() {
 
         {/* Clean Headline & Subtitle */}
         <div className="space-y-0.5">
-          <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-gold block">
+          <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.25em] uppercase text-brand-gold block">
             Digital Atelier Launch
           </span>
-          <h1 className="font-serif text-xl sm:text-2xl font-bold tracking-tight">
+          <h1 className="font-serif text-lg sm:text-2xl font-bold tracking-tight leading-tight">
             Opening November 17, 2026
           </h1>
           <p
-            className={`text-xs ${
+            className={`text-[11px] sm:text-xs ${
               isLight ? 'text-slate-600' : 'text-slate-400'
             }`}
           >
@@ -215,7 +215,7 @@ export default function PreLaunchPage() {
         </div>
 
         {/* Clean 4-Card Luxury Countdown Timer */}
-        <div className="grid grid-cols-4 gap-2 pt-0.5 max-w-xs sm:max-w-sm mx-auto">
+        <div className="grid grid-cols-4 gap-1.5 sm:gap-2.5 max-w-[300px] sm:max-w-sm mx-auto pt-0.5">
           {[
             { label: 'Days', value: mounted ? timeLeft.days : 14 },
             { label: 'Hours', value: mounted ? timeLeft.hours : 0 },
@@ -224,13 +224,13 @@ export default function PreLaunchPage() {
           ].map((item, idx) => (
             <div
               key={idx}
-              className={`rounded-xl p-2 sm:p-2.5 flex flex-col items-center justify-center border transition-colors shadow-sm ${
+              className={`rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 flex flex-col items-center justify-center border transition-colors shadow-xs ${
                 isLight
                   ? 'bg-white border-brand-gold/30 shadow-[0_2px_8px_rgba(0,0,0,0.04)]'
                   : 'bg-[#12131C] border-brand-gold/30'
               }`}
             >
-              <span className="font-serif text-xl sm:text-2xl font-bold text-brand-gold tabular-nums leading-none">
+              <span className="font-serif text-lg sm:text-2xl font-bold text-brand-gold tabular-nums leading-none">
                 {String(item.value).padStart(2, '0')}
               </span>
               <span
@@ -245,17 +245,17 @@ export default function PreLaunchPage() {
         </div>
 
         {/* Registration Actions (Google OAuth + Email/Phone + WhatsApp) */}
-        <div className="space-y-2 pt-1 max-w-xs sm:max-w-sm mx-auto">
+        <div className="space-y-1.5 sm:space-y-2 pt-0.5 max-w-[300px] sm:max-w-sm mx-auto">
           {submitSuccess ? (
             <div
-              className={`p-3 rounded-xl border text-xs flex items-center justify-center space-x-2 animate-in fade-in ${
+              className={`p-2.5 sm:p-3 rounded-xl border text-xs flex items-center justify-center space-x-2 animate-in fade-in ${
                 isLight
                   ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
                   : 'bg-emerald-950/80 border-emerald-500/50 text-emerald-200'
               }`}
             >
               <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-              <span className="font-medium">
+              <span className="font-medium text-[11px] sm:text-xs">
                 You’re on the VIP list. We will notify you on launch day!
               </span>
             </div>
@@ -266,16 +266,16 @@ export default function PreLaunchPage() {
                 type="button"
                 onClick={handleGoogleRegister}
                 disabled={isGoogleLoading || isSubmitting}
-                className={`w-full py-2.5 px-3.5 rounded-lg border font-semibold text-xs flex items-center justify-center space-x-2.5 transition-all shadow-xs cursor-pointer disabled:opacity-50 active:scale-[0.99] ${
+                className={`w-full py-2 sm:py-2.5 px-3 rounded-lg border font-semibold text-[11px] sm:text-xs flex items-center justify-center space-x-2 transition-all shadow-xs cursor-pointer disabled:opacity-50 active:scale-[0.99] ${
                   isLight
                     ? 'bg-white hover:bg-slate-50 border-slate-300 text-slate-800'
                     : 'bg-[#12131C] hover:bg-[#181926] border-white/15 text-white'
                 }`}
               >
                 {isGoogleLoading ? (
-                  <div className="w-4 h-4 border-2 border-brand-gold border-t-transparent rounded-full animate-spin" />
+                  <div className="w-3.5 h-3.5 border-2 border-brand-gold border-t-transparent rounded-full animate-spin" />
                 ) : (
-                  <svg className="w-4 h-4" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24">
                     <path
                       fill="#4285F4"
                       d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"
@@ -300,14 +300,14 @@ export default function PreLaunchPage() {
               </button>
 
               {/* Minimal Divider */}
-              <div className="relative flex items-center justify-center my-1">
+              <div className="relative flex items-center justify-center my-0.5">
                 <div
                   className={`border-t w-full ${
                     isLight ? 'border-slate-200' : 'border-white/10'
                   }`}
                 />
                 <span
-                  className={`px-2 text-[9px] uppercase tracking-wider font-semibold ${
+                  className={`px-2 text-[8px] sm:text-[9px] uppercase tracking-wider font-semibold ${
                     isLight ? 'bg-[#FAF9F6] text-slate-400' : 'bg-[#0A0B10] text-slate-500'
                   }`}
                 >
@@ -323,7 +323,7 @@ export default function PreLaunchPage() {
                   placeholder="Enter phone or email..."
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs focus:outline-none focus:border-brand-gold transition-colors ${
+                  className={`flex-1 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg text-[11px] sm:text-xs focus:outline-none focus:border-brand-gold transition-colors ${
                     isLight
                       ? 'bg-white border border-slate-300 text-slate-900 placeholder-slate-400'
                       : 'bg-white/5 border border-white/15 text-white placeholder-slate-500'
@@ -332,7 +332,7 @@ export default function PreLaunchPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-3.5 py-2 rounded-lg bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-1 shadow-sm disabled:opacity-50 cursor-pointer whitespace-nowrap"
+                  className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-1 shadow-xs disabled:opacity-50 cursor-pointer whitespace-nowrap"
                 >
                   <Mail className="w-3 h-3" />
                   <span>{isSubmitting ? '...' : 'Register'}</span>
@@ -342,7 +342,7 @@ export default function PreLaunchPage() {
           )}
 
           {submitError && (
-            <p className="text-rose-500 text-[11px] text-center">{submitError}</p>
+            <p className="text-rose-500 text-[10px] sm:text-[11px] text-center">{submitError}</p>
           )}
 
           {/* Option 3: WhatsApp Consultation */}
@@ -350,7 +350,7 @@ export default function PreLaunchPage() {
             href={whatsappInquiryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-2.5 px-3.5 rounded-lg bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-sm cursor-pointer"
+            className="w-full py-2 sm:py-2.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-xs cursor-pointer"
           >
             <MessageSquare className="w-3.5 h-3.5 fill-white" />
             <span>Chat on WhatsApp</span>
@@ -359,9 +359,9 @@ export default function PreLaunchPage() {
       </main>
 
       {/* Verified Official Location & Copyright (Bottom, Single Line) */}
-      <footer className="w-full max-w-md text-center text-xs space-y-0.5 flex-shrink-0 relative z-10 pt-2">
+      <footer className="w-full max-w-sm sm:max-w-md text-center text-xs space-y-0.5 flex-shrink-0 relative z-10 pt-1 pb-0.5">
         <div
-          className={`flex items-center justify-center space-x-1 text-[11px] font-medium ${
+          className={`flex items-center justify-center space-x-1 text-[10px] sm:text-[11px] font-medium ${
             isLight ? 'text-slate-600' : 'text-slate-400'
           }`}
         >
@@ -371,8 +371,8 @@ export default function PreLaunchPage() {
           </span>
         </div>
         <div
-          className={`text-[9px] ${
-            isLight ? 'text-slate-600' : 'text-slate-600'
+          className={`text-[8px] sm:text-[9px] ${
+            isLight ? 'text-slate-500' : 'text-slate-500'
           }`}
         >
           &copy; {new Date().getFullYear()} Modern Man Kenya. Opulence • Simplicity • Class.

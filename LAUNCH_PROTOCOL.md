@@ -62,8 +62,13 @@ https://www.modernmanke.com/?preview=modernman2026
 ```
 *(Sets the secure 30-day preview cookie and instantly unlocks all 53 pages)*
 
-#### Method 2: Direct Admin Portal
-Type `/admin/login` directly into your browser's URL bar. Logging in grants immediate access to the full site and admin management.
+#### Method 2: Secret Atelier Admin Portal
+Visit:
+```
+https://www.modernmanke.com/atelier-portal
+```
+*(Option B Secret URL: Direct visits to `/admin` or `/admin/login` are completely cloaked to bots and strangers).*
+Logging in grants full admin management and preview access.
 
 ---
 
