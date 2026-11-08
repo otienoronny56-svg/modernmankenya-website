@@ -138,8 +138,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
               {activeDropdown === 'occasions' && (
                 <div className="absolute top-full left-0 w-56 pt-2 z-50">
-                  <div className="bg-white/98 dark:bg-[#1E202B] backdrop-blur-xl rounded-xl shadow-2xl border border-slate-200/90 dark:border-slate-700/90 p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2">
-                    <div className="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
+                  <div className={`backdrop-blur-xl rounded-xl shadow-2xl border p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2 ${
+                    theme === 'dark'
+                      ? 'bg-[#1E202B] text-slate-200 border-slate-700/90 shadow-black/60'
+                      : 'bg-white/98 text-slate-700 border-slate-200/90 shadow-slate-300/40'
+                  }`}>
+                    <div className={`px-3 py-1.5 mb-1 border-b flex items-center justify-between ${
+                      theme === 'dark' ? 'border-slate-700/60' : 'border-slate-100'
+                    }`}>
                       <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-gold">Curated Dress Codes</span>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
                     </div>
@@ -147,7 +153,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-100/90 dark:hover:bg-slate-800/90 transition-all duration-150 font-medium"
+                        className={`group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
+                          theme === 'dark'
+                            ? 'text-slate-200 hover:text-brand-gold hover:bg-slate-800/90'
+                            : 'text-slate-700 hover:text-brand-navy hover:bg-slate-100/90'
+                        }`}
                       >
                         <span className="group-hover/item:translate-x-1 transition-transform duration-150">
                           {item.name}
@@ -305,7 +315,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Gallery Direct Link */}
             <Link
               href="/gallery"
-              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100 hover:text-brand-gold"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold dark:hover:text-brand-gold"
             >
               Gallery
             </Link>
@@ -313,18 +323,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* The Craft Direct Link */}
             <Link
               href="/the-craft"
-              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100 hover:text-brand-gold"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold dark:hover:text-brand-gold"
             >
               The Craft
             </Link>
 
-
-
             {/* Accordion: Occasions */}
-            <div className="border-b border-slate-100 pb-2">
+            <div className="border-b border-slate-100 dark:border-stone-800 pb-2">
               <button
                 onClick={() => setMobileSectionOpen(mobileSectionOpen === 'occasions' ? null : 'occasions')}
-                className="w-full flex items-center justify-between py-2 text-left font-semibold text-sm text-brand-navy"
+                className="w-full flex items-center justify-between py-2 text-left font-semibold text-sm text-brand-navy dark:text-slate-100"
               >
                 <span>Occasions</span>
                 <ChevronDown className={`w-4 h-4 text-brand-gold transition-transform duration-200 ${mobileSectionOpen === 'occasions' ? 'rotate-180' : ''}`} />
@@ -336,7 +344,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="block py-1 text-xs text-slate-600 hover:text-brand-gold"
+                      className="block py-1 text-xs text-slate-600 dark:text-slate-300 hover:text-brand-gold dark:hover:text-brand-gold"
                     >
                       {item.name}
                     </Link>
@@ -347,28 +355,28 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
             <Link
               href="/the-experience"
-              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
             >
               The Experience
             </Link>
 
             <Link
               href="/about"
-              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
             >
               About
             </Link>
 
             <Link
               href="/reviews"
-              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
             >
               Client Reviews
             </Link>
 
             <Link
               href="/journal"
-              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
             >
               The Journal
             </Link>

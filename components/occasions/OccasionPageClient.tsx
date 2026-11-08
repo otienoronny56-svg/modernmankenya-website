@@ -15,7 +15,8 @@ import {
   Columns3, 
   Eye, 
   Scissors,
-  Filter
+  Filter,
+  ZoomIn
 } from 'lucide-react';
 import { OccasionCategoryData, ALL_OCCASIONS_LIST, OccasionHighlight } from '@/data/occasionsData';
 
@@ -27,6 +28,25 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'editorial' | 'grid' | 'focus'>('editorial');
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+  const [isInspectActive, setIsInspectActive] = useState<boolean>(false);
+  const [inspectPos, setInspectPos] = useState<{ x: number; y: number }>({ x: 50, y: 50 });
+
+  const handleInspectMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isInspectActive) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+    setInspectPos({ x, y });
+  };
+
+  const handleInspectTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isInspectActive || !e.touches[0]) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const touch = e.touches[0];
+    const x = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((touch.clientY - rect.top) / rect.height) * 100));
+    setInspectPos({ x, y });
+  };
 
   // Combine highlights and gallery
   const allImages: OccasionHighlight[] = useMemo(() => {
@@ -461,22 +481,70 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
 
           {/* Main Visual Display */}
           <div 
-            className="relative w-full max-w-5xl h-[70vh] sm:h-[76vh] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
+            className={`relative w-full max-w-5xl h-[70vh] sm:h-[76vh] flex items-center justify-center rounded-lg overflow-hidden select-none ${
+              isInspectActive ? 'cursor-crosshair' : 'cursor-zoom-in'
+            }`}
+            onClick={() => setIsInspectActive((prev) => !prev)}
+            onMouseMove={handleInspectMouseMove}
+            onTouchMove={handleInspectTouchMove}
           >
             <Image
               src={filteredImages[activeImageIndex].src}
               alt={filteredImages[activeImageIndex].label}
               fill
               sizes="(max-width: 1024px) 100vw, 80vw"
-              className="object-contain"
+              className={`object-contain transition-opacity duration-200 ${
+                isInspectActive ? 'opacity-90' : 'opacity-100'
+              }`}
               priority
             />
 
+            {/* Live 2.8x Magnifier Loupe Overlay */}
+            {isInspectActive && (
+              <div
+                className="absolute inset-0 z-20 pointer-events-none rounded-lg"
+                style={{
+                  backgroundImage: `url(${filteredImages[activeImageIndex].src})`,
+                  backgroundPosition: `${inspectPos.x}% ${inspectPos.y}%`,
+                  backgroundSize: '280%',
+                  boxShadow: 'inset 0 0 50px rgba(0,0,0,0.7)',
+                }}
+              />
+            )}
+
+            {/* Floating Inspect Toggle Button on the Image */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsInspectActive((prev) => !prev);
+              }}
+              className={`absolute top-3 right-3 sm:top-4 sm:right-4 z-30 px-3.5 py-2 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-wider transition-all shadow-xl flex items-center space-x-2 border ${
+                isInspectActive
+                  ? 'bg-brand-gold text-brand-navy border-brand-gold ring-2 ring-brand-gold/50 scale-105'
+                  : 'bg-brand-navy/90 hover:bg-brand-navy text-white hover:text-brand-gold border-white/25 hover:border-brand-gold shadow-lg'
+              }`}
+              title={isInspectActive ? "Exit Inspect Mode" : "Inspect Fabric & Tailoring (2.8x Zoom)"}
+            >
+              <ZoomIn className={`w-3.5 h-3.5 ${isInspectActive ? 'text-brand-navy animate-pulse' : 'text-brand-gold'}`} />
+              <span>{isInspectActive ? 'Exit Inspect' : 'Inspect Details'}</span>
+            </button>
+
+            {/* Floating Guidance Badge */}
+            {isInspectActive && (
+              <div className="absolute bottom-3 inset-x-0 mx-auto w-fit z-30 pointer-events-none bg-brand-navy/95 border border-brand-gold/50 text-brand-gold text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-2xl backdrop-blur-md flex items-center space-x-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-spin" />
+                <span>2.8× Magnification • Move cursor to inspect details</span>
+              </div>
+            )}
+
             {/* Left Prev Arrow */}
             <button
-              onClick={() => setActiveImageIndex((prev) => (prev !== null ? (prev - 1 + filteredImages.length) % filteredImages.length : 0))}
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-brand-navy text-white flex items-center justify-center border border-white/20 transition-all shadow-xl"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsInspectActive(false);
+                setActiveImageIndex((prev) => (prev !== null ? (prev - 1 + filteredImages.length) % filteredImages.length : 0));
+              }}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-brand-navy text-white flex items-center justify-center border border-white/20 transition-all shadow-xl"
               aria-label="Previous image"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -484,8 +552,12 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
 
             {/* Right Next Arrow */}
             <button
-              onClick={() => setActiveImageIndex((prev) => (prev !== null ? (prev + 1) % filteredImages.length : 0))}
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-brand-navy text-white flex items-center justify-center border border-white/20 transition-all shadow-xl"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsInspectActive(false);
+                setActiveImageIndex((prev) => (prev !== null ? (prev + 1) % filteredImages.length : 0));
+              }}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/60 hover:bg-brand-gold hover:text-brand-navy text-white flex items-center justify-center border border-white/20 transition-all shadow-xl"
               aria-label="Next image"
             >
               <ChevronRight className="w-6 h-6" />
@@ -506,13 +578,29 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
               </h4>
             </div>
 
-            <Link
-              href={`/book-appointment?occasion=${data.slug}`}
-              className="px-5 py-2 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-wider rounded transition-all flex items-center space-x-1.5 whitespace-nowrap"
-            >
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Book This Look</span>
-            </Link>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <button
+                type="button"
+                onClick={() => setIsInspectActive((prev) => !prev)}
+                className={`px-3 py-2 rounded text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-1.5 border shadow-sm ${
+                  isInspectActive
+                    ? 'bg-brand-gold text-brand-navy border-brand-gold'
+                    : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-brand-gold'
+                }`}
+                title="Inspect fabric texture & stitching at 2.8x magnification"
+              >
+                <ZoomIn className={`w-3.5 h-3.5 ${isInspectActive ? 'text-brand-navy' : 'text-brand-gold'}`} />
+                <span>{isInspectActive ? 'Exit Inspect' : 'Inspect'}</span>
+              </button>
+
+              <Link
+                href={`/book-appointment?occasion=${data.slug}`}
+                className="px-5 py-2 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-wider rounded transition-all flex items-center space-x-1.5 whitespace-nowrap shadow-md"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Book This Look</span>
+              </Link>
+            </div>
           </div>
 
         </div>

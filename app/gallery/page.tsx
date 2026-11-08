@@ -649,17 +649,30 @@ function GalleryContent() {
               )}
             </div>
 
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <button
+                type="button"
+                onClick={() => setIsInspectActive((prev) => !prev)}
+                className={`px-3 sm:px-4 py-2.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-1.5 border shadow-sm ${
+                  isInspectActive
+                    ? 'bg-brand-gold text-brand-navy border-brand-gold ring-2 ring-brand-gold/60'
+                    : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:border-brand-gold'
+                }`}
+                title="Inspect fabric texture & stitching at 2.8x magnification"
+              >
+                <ZoomIn className={`w-3.5 h-3.5 ${isInspectActive ? 'text-brand-navy' : 'text-brand-gold'}`} />
+                <span>{isInspectActive ? 'Exit Inspect' : 'Inspect Details'}</span>
+              </button>
               <Link
                 href={`/book-appointment?ref=${activeLightboxItem.id}&title=${encodeURIComponent(activeLightboxItem.title)}`}
-                className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-wider text-xs rounded-md transition-all shadow-md flex items-center space-x-2"
+                className="px-4 sm:px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-wider text-xs rounded-md transition-all shadow-md flex items-center space-x-2"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Commission This Look</span>
               </Link>
               <button
                 onClick={handleClose}
-                className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-md transition-all"
+                className="px-3 sm:px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-md transition-all"
               >
                 Back to Gallery
               </button>
