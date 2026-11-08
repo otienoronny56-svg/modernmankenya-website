@@ -458,39 +458,30 @@ Please reach out directly to our Master Tailor via WhatsApp: [Chat on WhatsApp](
           onClick={() => setIsOpen((prev) => !prev)}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className={`pointer-events-auto relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#0F1D3D] via-[#0A1226] to-[#040814] text-brand-gold flex items-center justify-center border-2 border-brand-gold shadow-[0_0_20px_rgba(212,175,55,0.45)] hover:shadow-[0_0_28px_rgba(212,175,55,0.7)] transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer group/btn ${
-            isOpen ? 'ring-2 ring-brand-gold ring-offset-2 ring-offset-brand-navy scale-105' : ''
+          className={`pointer-events-auto relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#0F1E3D] via-[#0A1329] to-[#050A14] text-brand-gold flex items-center justify-center border-2 border-brand-gold shadow-[0_4px_20px_rgba(0,0,0,0.5),0_0_15px_rgba(212,175,55,0.35)] hover:shadow-[0_6px_25px_rgba(212,175,55,0.65)] transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer group/btn ${
+            isOpen ? 'ring-2 ring-brand-gold/60 ring-offset-2 ring-offset-brand-navy' : ''
           }`}
-          aria-label="Open Modern Man AI Stylist"
-          title="Modern Man AI Stylist"
+          aria-label={isOpen ? "Close Modern Man AI Stylist" : "Open Modern Man AI Stylist"}
+          title={isOpen ? "Close AI Stylist" : "Modern Man AI Stylist"}
         >
-          {/* Breathing Outer Gold Ring */}
-          <span className="absolute -inset-1 rounded-full bg-brand-gold/30 animate-ping pointer-events-none opacity-60 duration-1000" />
+          {/* Subtle Ambient Gold Glow */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-gold/15 via-transparent to-amber-200/20 pointer-events-none" />
 
-          {/* Ambient Subtle Gold Radial Shimmer */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-gold/20 via-transparent to-amber-200/25 pointer-events-none" />
-
-          {/* Brand Crest Emblem */}
-          <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center transition-transform duration-300 group-hover/btn:scale-105">
-            <Image
-              src="/images/logo-emblem.png"
-              alt="Modern Man AI Emblem"
-              width={36}
-              height={36}
-              className="object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-              priority
-            />
+          {/* Icon: Crisp Luxury Sparkles when closed, Close X when open */}
+          <div className="relative flex items-center justify-center transition-transform duration-200">
+            {isOpen ? (
+              <X className="w-6 h-6 sm:w-7 sm:h-7 text-brand-gold transition-transform duration-200" />
+            ) : (
+              <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 text-brand-gold transition-transform duration-300 group-hover/btn:scale-110" />
+            )}
           </div>
 
-          {/* Floating AI Sparkle Badge */}
-          <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-tr from-amber-400 to-brand-gold text-brand-navy flex items-center justify-center shadow-md border-2 border-[#0A1226]">
-            <Sparkles className="w-2.5 h-2.5 text-brand-navy fill-brand-navy animate-pulse" />
-          </div>
-
-          {/* Tiny "AI" Luxury Pill Badge */}
-          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded-full bg-brand-gold text-brand-navy text-[8px] font-black tracking-widest uppercase shadow-sm border border-brand-navy/60">
-            AI
-          </div>
+          {/* Minimalist, Clean "AI" Status Pill (Top-Right) */}
+          {!isOpen && (
+            <span className="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full bg-brand-gold text-brand-navy text-[9px] font-black tracking-wider uppercase shadow-md border-2 border-[#0A1329]">
+              AI
+            </span>
+          )}
         </button>
       </div>
     </>

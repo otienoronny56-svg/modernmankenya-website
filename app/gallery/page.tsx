@@ -250,7 +250,7 @@ function GalleryContent() {
 
       return item.category === selectedCategory;
     });
-  }, [selectedCategory, accessorySubFilter]);
+  }, [selectedCategory, accessorySubFilter, lookbookItems]);
 
   // Lightbox navigation helpers
   const activeLightboxItem = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;

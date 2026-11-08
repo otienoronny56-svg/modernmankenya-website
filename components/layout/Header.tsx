@@ -99,13 +99,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
           </Link>
 
           {/* Desktop Navigation Links - Ultra-Clean, Minimal & Spacious */}
-          <nav className="hidden lg:flex items-center space-x-8 text-xs sm:text-sm font-medium text-slate-700">
+          <nav className="hidden lg:flex items-center space-x-8 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">
             
             {/* Gallery Direct Link */}
             <Link
               href="/gallery"
               className={`py-2 transition-colors font-medium text-xs sm:text-sm ${
-                pathname === '/gallery' ? 'text-brand-navy font-semibold' : 'text-slate-700 hover:text-brand-gold'
+                pathname === '/gallery' 
+                  ? 'text-brand-navy dark:text-brand-gold font-semibold' 
+                  : 'text-slate-700 dark:text-slate-200 hover:text-brand-gold dark:hover:text-brand-gold'
               }`}
             >
               Gallery
@@ -114,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* The Craft Direct Link */}
             <Link
               href="/the-craft"
-              className="py-2 text-slate-700 hover:text-brand-navy hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm"
+              className="py-2 text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm"
             >
               The Craft
             </Link>
@@ -127,25 +129,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             >
               <button 
                 className={`flex items-center space-x-1.5 transition-all duration-200 font-medium ${
-                  activeDropdown === 'occasions' ? 'text-brand-navy font-semibold' : 'hover:text-brand-gold'
+                  activeDropdown === 'occasions' 
+                    ? 'text-brand-navy dark:text-brand-gold font-semibold' 
+                    : 'text-slate-700 dark:text-slate-200 hover:text-brand-gold'
                 }`}
               >
                 <span>Occasions</span>
                 <ChevronDown className={`w-3.5 h-3.5 text-brand-gold transition-transform duration-300 ${
-                  activeDropdown === 'occasions' ? 'rotate-180 text-brand-navy' : ''
+                  activeDropdown === 'occasions' ? 'rotate-180 text-brand-navy dark:text-brand-gold' : ''
                 }`} />
               </button>
 
               {activeDropdown === 'occasions' && (
                 <div className="absolute top-full left-0 w-56 pt-2 z-50">
-                  <div className={`backdrop-blur-xl rounded-xl shadow-2xl border p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2 ${
-                    theme === 'dark'
-                      ? 'bg-[#1E202B] text-slate-200 border-slate-700/90 shadow-black/60'
-                      : 'bg-white/98 text-slate-700 border-slate-200/90 shadow-slate-300/40'
-                  }`}>
-                    <div className={`px-3 py-1.5 mb-1 border-b flex items-center justify-between ${
-                      theme === 'dark' ? 'border-slate-700/60' : 'border-slate-100'
-                    }`}>
+                  <div className="backdrop-blur-xl rounded-xl shadow-2xl border p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2 bg-white/98 dark:bg-[#181D2A] text-slate-700 dark:text-slate-200 border-slate-200/90 dark:border-slate-700/80 shadow-slate-300/40 dark:shadow-black/70">
+                    <div className="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
                       <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-gold">Curated Dress Codes</span>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
                     </div>
@@ -153,11 +151,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 ${
-                          theme === 'dark'
-                            ? 'text-slate-200 hover:text-brand-gold hover:bg-slate-800/90'
-                            : 'text-slate-700 hover:text-brand-navy hover:bg-slate-100/90'
-                        }`}
+                        className="group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-100/90 dark:hover:bg-slate-800/90"
                       >
                         <span className="group-hover/item:translate-x-1 transition-transform duration-150">
                           {item.name}
@@ -175,7 +169,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* About Direct Link */}
             <Link
               href="/about"
-              className="py-2 text-slate-700 hover:text-brand-navy hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm"
+              className="py-2 text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-gold transition-colors font-medium text-xs sm:text-sm"
             >
               About
             </Link>
@@ -252,7 +246,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             ) : (
               <Link
                 href="/login"
-                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy bg-stone-100 hover:bg-brand-navy hover:text-brand-gold transition-all border border-stone-200 shadow-xs hover:border-brand-gold/40"
+                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy dark:text-brand-gold bg-stone-100 dark:bg-slate-800/80 hover:bg-brand-navy hover:text-brand-gold dark:hover:bg-brand-gold dark:hover:text-brand-navy transition-all border border-stone-200 dark:border-slate-700 shadow-xs hover:border-brand-gold/40"
                 title="Log In / Sign In"
               >
                 <User className="w-3.5 h-3.5 text-brand-gold" />
@@ -263,7 +257,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Sleek, Compact Appointment CTA Button */}
             <Link
               href="/book-appointment"
-              className="hidden sm:inline-flex items-center space-x-1 px-3 py-1.5 rounded-full border border-brand-gold bg-brand-gold/10 hover:bg-brand-gold hover:text-brand-navy text-brand-navy font-semibold uppercase tracking-wider text-[10px] transition-all"
+              className="hidden sm:inline-flex items-center space-x-1 px-3 py-1.5 rounded-full border border-brand-gold bg-brand-gold/10 hover:bg-brand-gold hover:text-brand-navy text-brand-navy dark:text-brand-gold font-semibold uppercase tracking-wider text-[10px] transition-all"
             >
               <Calendar className="w-3 h-3 text-brand-gold hover:text-brand-navy" />
               <span>Book Appointment</span>
@@ -272,7 +266,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Mobile Hamburger Menu */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-1.5 text-slate-700 hover:text-brand-navy transition-colors"
+              className="lg:hidden p-1.5 text-slate-700 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-gold transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-brand-gold" /> : <Menu className="w-5 h-5" />}

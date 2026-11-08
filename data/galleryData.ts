@@ -509,38 +509,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "kaunda-5",
-    "title": "Embroidered Placket",
-    "tag": "Senator Tunic",
-    "category": "kaunda-suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (2).jpeg",
-    "aspect": "landscape"
-  },
-  {
-    "id": "kaunda-6",
-    "title": "Minimalist Ivory",
-    "tag": "Mandarin Collar",
-    "category": "kaunda-suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg",
-    "aspect": "landscape"
-  },
-  {
-    "id": "kaunda-7",
-    "title": "Ankara Accent",
-    "tag": "Heritage Pocket",
-    "category": "kaunda-suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.55 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "kaunda-8",
-    "title": "Check Kaunda",
-    "tag": "Historic Stride",
-    "category": "kaunda-suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (2).jpeg",
-    "aspect": "portrait"
-  },
-  {
     "id": "trad-1",
     "title": "Ruracio Dance",
     "tag": "Joyful Entourage",
@@ -1285,6 +1253,30 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "landscape"
   },
   {
+    "id": "suit-45",
+    "title": "Nuptial Harmony",
+    "tag": "Three-Piece Suit",
+    "category": "suits",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (2).jpeg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "suit-46",
+    "title": "Groomsman Ensemble",
+    "tag": "Ivory & Navy",
+    "category": "suits",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "suit-47",
+    "title": "Locomotive Stride",
+    "tag": "Check Suiting",
+    "category": "suits",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (2).jpeg",
+    "aspect": "portrait"
+  },
+  {
     "id": "sc-1",
     "title": "Tailored Blazer",
     "tag": "Double Breasted",
@@ -1317,27 +1309,11 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "square"
   },
   {
-    "id": "trad-370a",
-    "title": "Contemporary African Ensembles",
-    "tag": "African Luxury",
-    "category": "traditional",
-    "image": "/images/370A8789.jpg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "agbada-2052",
-    "title": "Ceremonial Agbada",
-    "tag": "African Luxury",
-    "category": "kaftan-agbada",
-    "image": "/images/LKM_2052.jpg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-dove-grey-contrast",
-    "title": "Dove Grey Three-Piece",
-    "tag": "Contrast Waistcoat",
-    "category": "suits",
-    "image": "/images/WhatsApp Image 2026-10-23 at 5.40.24 PM.jpeg",
+    "id": "sc-6",
+    "title": "Tailored Overcoat",
+    "tag": "Ankara Accent",
+    "category": "smart-casual",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.55 PM.jpeg",
     "aspect": "portrait"
   }
 ];
