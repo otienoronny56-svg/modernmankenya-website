@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { trackWhatsAppClick } from '@/lib/analytics/gtag';
 
 export const FloatingWhatsAppButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -9,6 +10,10 @@ export const FloatingWhatsAppButton: React.FC = () => {
     'Hello Modern Man Kenya, I would like to inquire about your suits and tailoring.'
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
+
+  const handleClick = () => {
+    trackWhatsAppClick('floating_button', 'General Inquiry');
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center group pointer-events-none">
@@ -32,6 +37,7 @@ export const FloatingWhatsAppButton: React.FC = () => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="pointer-events-auto relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 border-2 border-white/80"

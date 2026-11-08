@@ -33,6 +33,7 @@ import { useAuth } from '@/lib/auth/AuthContext';
 import { formatCurrencyPrice } from '@/lib/currency';
 import { supabase } from '@/lib/supabase/client';
 import { AccountAIStylistSection } from '@/components/account/AccountAIStylistSection';
+import { trackMeasurementSave } from '@/lib/analytics/gtag';
 import type { StoredOrder } from '@/app/api/orders/route';
 import type { ClientMeasurementProfile } from '@/lib/clients/store';
 
@@ -216,6 +217,7 @@ export default function ClientDashboardPage() {
       }
 
       setClientData(data.profile);
+      trackMeasurementSave(measurementUnit);
       setSaveSuccess('Sartorial blueprint & delivery info saved successfully! These details will auto-apply to all subsequent orders.');
       setTimeout(() => setSaveSuccess(null), 6000);
     } catch (err: any) {

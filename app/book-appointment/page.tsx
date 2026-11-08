@@ -17,6 +17,7 @@ import {
 import { supabase } from '@/lib/supabase/client';
 import { LuxuryCalendarPicker } from '@/components/booking/LuxuryCalendarPicker';
 import { AtelierMap } from '@/components/common/AtelierMap';
+import { trackAppointmentBooking } from '@/lib/analytics/gtag';
 
 function BookAppointmentContent() {
   const searchParams = useSearchParams();
@@ -113,6 +114,11 @@ function BookAppointmentContent() {
       
       const referenceId = data?.id || `MMK-${Math.floor(100000 + Math.random() * 900000)}`;
       setConfirmedBookingId(referenceId);
+      trackAppointmentBooking({
+        fittingType,
+        date: selectedDateDisplay,
+        location: locationType,
+      });
       setStep(5); // Confirmation screen
     } catch (err) {
       console.error(err);

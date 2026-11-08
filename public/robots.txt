@@ -1,0 +1,29 @@
+# Robots.txt for Modern Man Kenya
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account/
+Disallow: /dashboard/
+Disallow: /cart/
+Disallow: /_next/
+Disallow: /coming-soon
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account/
+Disallow: /dashboard/
+Disallow: /cart/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /account/
+Disallow: /dashboard/
+Disallow: /cart/
+
+Sitemap: https://www.modernmanke.com/sitemap.xml
+Host: https://www.modernmanke.com
