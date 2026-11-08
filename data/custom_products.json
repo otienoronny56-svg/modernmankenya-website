@@ -3432,5 +3432,3105 @@
       "Precision Automatic Mechanical Movement • 50M Water Resistance",
       "Hand-assembled • Nairobi Atelier"
     ]
+  },
+  {
+    "id": "3ee836f2-eb26-468d-9a1a-cd57e55288b8",
+    "name": "Elysium",
+    "slug": "watch-elysium-101",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Elysium luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-elysium-101.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-elysium-101-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ELYSIUM-101"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "02a2ebad-90fd-44e3-8085-82625c6aba99",
+    "name": "Kronos",
+    "slug": "watch-kronos-103",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Kronos luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-kronos-103.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-kronos-103-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-KRONOS-103"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "2db048b2-6cca-411f-a451-fef638e50db8",
+    "name": "Valhalla",
+    "slug": "watch-valhalla-102",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Valhalla luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-valhalla-102.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-valhalla-102-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-VALHALLA-102"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "99d6d29c-1352-405e-a429-ed56f4185e04",
+    "name": "Excalibur",
+    "slug": "watch-excalibur-105",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Excalibur luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-excalibur-105.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-excalibur-105-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-EXCALIBUR-105"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "23d9baba-0815-46b8-a5b1-f873ad95095e",
+    "name": "Chronarch",
+    "slug": "watch-chronarch-104",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Chronarch luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-chronarch-104.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-chronarch-104-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CHRONARCH-104"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "849b3da4-16d5-4e7c-88e2-355b2b161909",
+    "name": "Centaur",
+    "slug": "watch-centaur-107",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Centaur luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-centaur-107.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-centaur-107-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CENTAUR-107"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "770c037c-a574-4101-9b5c-1679c9a29806",
+    "name": "Cerberus",
+    "slug": "watch-cerberus-109",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Cerberus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-cerberus-109.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-cerberus-109-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CERBERUS-109"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "15ac29f6-7a6b-4d0b-8e3c-cd38179c0eed",
+    "name": "Paladin",
+    "slug": "watch-paladin-106",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Paladin luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-paladin-106.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-paladin-106-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-PALADIN-106"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "bafc6bc3-a56c-43ee-8e6e-a04db3987eb2",
+    "name": "Hyperion",
+    "slug": "watch-hyperion-110",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Hyperion luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-hyperion-110.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-hyperion-110-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-HYPERION-110"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "0c4e538c-af31-4c47-a377-7a72d10ae28f",
+    "name": "Minotaur",
+    "slug": "watch-minotaur-108",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Minotaur luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-minotaur-108.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-minotaur-108-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-MINOTAUR-108"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "2ab590e6-9719-4fcb-9de3-5ce3bdb86901",
+    "name": "Prometheus",
+    "slug": "watch-prometheus-111",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Prometheus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-prometheus-111.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-prometheus-111-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-PROMETHEUS-111"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "bbf1c8be-6b76-41b8-adfe-694d502ac39c",
+    "name": "Icarus",
+    "slug": "watch-icarus-112",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Icarus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-icarus-112.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-icarus-112-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ICARUS-112"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "2888e3c7-6ca5-45b1-9c2f-177b00b900b5",
+    "name": "Daedalus",
+    "slug": "watch-daedalus-113",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Daedalus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-daedalus-113.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-daedalus-113-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-DAEDALUS-113"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "ee6c9587-b284-4fdc-b3c1-aa697a764143",
+    "name": "Achilles",
+    "slug": "watch-achilles-114",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Achilles luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-achilles-114.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-achilles-114-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ACHILLES-114"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "193e73c2-6962-46fe-a8bc-674dd6566e14",
+    "name": "Hector",
+    "slug": "watch-hector-115",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Hector luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-hector-115.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-hector-115-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-HECTOR-115"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "8833e038-d5b0-4dcc-b366-5073200a2ea8",
+    "name": "Odysseus",
+    "slug": "watch-odysseus-116",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Odysseus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-odysseus-116.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-odysseus-116-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ODYSSEUS-116"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "1cf06781-e63d-454c-abb9-bda202b27294",
+    "name": "Theseus",
+    "slug": "watch-theseus-118",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Theseus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-theseus-118.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-theseus-118-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-THESEUS-118"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "6354a840-ef28-4ea3-b95c-48286ea5ce34",
+    "name": "Perseus",
+    "slug": "watch-perseus-117",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Perseus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-perseus-117.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-perseus-117-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-PERSEUS-117"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "08266279-f5e2-4cad-a312-faa7537ea50e",
+    "name": "Leonidas",
+    "slug": "watch-leonidas-120",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Leonidas luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-leonidas-120.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-leonidas-120-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-LEONIDAS-120"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "bc2dc698-e493-4086-8290-1388d0a6befe",
+    "name": "Jason",
+    "slug": "watch-jason-119",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Jason luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-jason-119.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-jason-119-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-JASON-119"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "f99d04e5-0d1f-4729-8a8e-e28ffa6c137a",
+    "name": "Sparta",
+    "slug": "watch-sparta-121",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Sparta luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-sparta-121.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-sparta-121-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SPARTA-121"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "4b7d03c2-3ca5-45fb-9b51-27974236de7a",
+    "name": "Athens",
+    "slug": "watch-athens-122",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Athens luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-athens-122.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-athens-122-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ATHENS-122"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "c3ddf553-dba4-4688-abbe-9923f0ebe9a2",
+    "name": "Corinth",
+    "slug": "watch-corinth-123",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Corinth luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-corinth-123.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-corinth-123-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CORINTH-123"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "67456fe8-96b3-4401-bd9c-d1e9c288a998",
+    "name": "Delphi",
+    "slug": "watch-delphi-124",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Delphi luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-delphi-124.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-delphi-124-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-DELPHI-124"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "3ba77628-55d8-4643-895a-3f1185bcebe9",
+    "name": "Olympia",
+    "slug": "watch-olympia-125",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Olympia luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-olympia-125.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-olympia-125-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-OLYMPIA-125"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "9234651b-8ec3-419e-b1ea-f2dd1a4843f2",
+    "name": "Arcadia",
+    "slug": "watch-arcadia-126",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Arcadia luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-arcadia-126.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-arcadia-126-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ARCADIA-126"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "d2ad57ce-af44-4b73-a973-803544bc6e99",
+    "name": "Macedonia",
+    "slug": "watch-macedonia-127",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Macedonia luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-macedonia-127.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-macedonia-127-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-MACEDONIA-127"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "956e2fec-7dc7-4121-b3ea-f868bc614bb8",
+    "name": "Thrace",
+    "slug": "watch-thrace-128",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Thrace luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-thrace-128.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-thrace-128-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-THRACE-128"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "efa55b2c-4d16-404f-85ad-b50be35ca2f3",
+    "name": "Rhodes",
+    "slug": "watch-rhodes-129",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Rhodes luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-rhodes-129.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-rhodes-129-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-RHODES-129"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "d63d91d3-c31b-4a0e-8153-b0170bc1dafb",
+    "name": "Marathon",
+    "slug": "watch-marathon-130",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Marathon luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-marathon-130.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-marathon-130-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-MARATHON-130"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "bfa05745-94d5-4105-89af-c6edeed5a792",
+    "name": "Thermopylae",
+    "slug": "watch-thermopylae-131",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Thermopylae luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-thermopylae-131.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-thermopylae-131-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-THERMOPYLAE-131"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "34d88abe-cc00-4607-a583-dda562017510",
+    "name": "Salamis",
+    "slug": "watch-salamis-132",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Salamis luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-salamis-132.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-salamis-132-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SALAMIS-132"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "55a38c8d-e208-4b47-aa59-0b01f85c5154",
+    "name": "Plataea",
+    "slug": "watch-plataea-133",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Plataea luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-plataea-133.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-plataea-133-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-PLATAEA-133"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "f35c9218-efb7-428a-829e-d38b5c33652b",
+    "name": "Byzantium",
+    "slug": "watch-byzantium-134",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Byzantium luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-byzantium-134.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-byzantium-134-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-BYZANTIUM-134"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "b75f465e-a007-4d94-9cf4-c3b6460d28ae",
+    "name": "Carthage",
+    "slug": "watch-carthage-136",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Carthage luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-carthage-136.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-carthage-136-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CARTHAGE-136"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "157e73ed-8beb-460b-8e17-1351fb4e4035",
+    "name": "Alexandria",
+    "slug": "watch-alexandria-135",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Alexandria luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-alexandria-135.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-alexandria-135-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ALEXANDRIA-135"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "f7df6783-9398-46e4-8676-2760d2650d4d",
+    "name": "Ravenna",
+    "slug": "watch-ravenna-137",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Ravenna luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-ravenna-137.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-ravenna-137-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-RAVENNA-137"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "7e55c1e1-a068-4512-9e49-d295c70019f4",
+    "name": "Venice",
+    "slug": "watch-venice-138",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Venice luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-venice-138.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-venice-138-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-VENICE-138"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "ba4cf1a1-760b-4043-9707-e312fbcbdded",
+    "name": "Florence",
+    "slug": "watch-florence-139",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Florence luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-florence-139.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-florence-139-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-FLORENCE-139"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "07f8e54a-dce7-4d10-b52a-aa0e264dee76",
+    "name": "Milan",
+    "slug": "watch-milan-141",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Milan luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-milan-141.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-milan-141-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-MILAN-141"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "d140d9b6-52b7-49c7-a97f-295ea8848c8d",
+    "name": "Verona",
+    "slug": "watch-verona-140",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Verona luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-verona-140.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-verona-140-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-VERONA-140"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "180996c3-9a85-4a34-9a0d-6e4a2f0f8d31",
+    "name": "Genoa",
+    "slug": "watch-genoa-142",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Genoa luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-genoa-142.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-genoa-142-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-GENOA-142"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "d9f93ee7-9a57-4c04-8d1f-e9ccf1854cb9",
+    "name": "Palermo",
+    "slug": "watch-palermo-144",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Palermo luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-palermo-144.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-palermo-144-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-PALERMO-144"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "06538474-2f75-4362-8665-8f85a5ec99a1",
+    "name": "Amalfi",
+    "slug": "watch-amalfi-143",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Amalfi luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-amalfi-143.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-amalfi-143-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-AMALFI-143"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "3ea7cc7e-19cb-4183-beff-66e4364407e3",
+    "name": "Napoli",
+    "slug": "watch-napoli-146",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Napoli luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-napoli-146.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-napoli-146-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-NAPOLI-146"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "3b025261-4ee7-430e-a6a2-9db3e2e668fa",
+    "name": "Syracuse",
+    "slug": "watch-syracuse-145",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Syracuse luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-syracuse-145.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-syracuse-145-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SYRACUSE-145"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "cd2ac8ef-e475-43fc-a17b-65b1a79015ef",
+    "name": "Pompeii",
+    "slug": "watch-pompeii-147",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Pompeii luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-pompeii-147.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-pompeii-147-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-POMPEII-147"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "08e0162b-cc9b-4f8b-9217-f2f32a3129f0",
+    "name": "Sartor",
+    "slug": "watch-sartor-149",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Sartor luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-sartor-149.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-sartor-149-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SARTOR-149"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "4af5b376-aa17-4951-bf20-64ebf27a9857",
+    "name": "Torino",
+    "slug": "watch-torino-148",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Torino luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-torino-148.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-torino-148-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-TORINO-148"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "f6b940f1-95ef-4ab4-9a9d-4eb3396fd8db",
+    "name": "Sartorio",
+    "slug": "watch-sartorio-150",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Sartorio luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-sartorio-150.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-sartorio-150-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SARTORIO-150"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "06d07e6f-2fa0-4d62-bfdf-80e5c67fb857",
+    "name": "Imperator",
+    "slug": "watch-imperator-152",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Imperator luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-imperator-152.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-imperator-152-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-IMPERATOR-152"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "6b560c97-18d3-4b68-a823-7ec40320267e",
+    "name": "Regalis",
+    "slug": "watch-regalis-151",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Regalis luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-regalis-151.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-regalis-151-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-REGALIS-151"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "f89fda42-7442-43dc-bd49-4f85c5f85231",
+    "name": "Tiberius",
+    "slug": "watch-tiberius-154",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Tiberius luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-tiberius-154.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-tiberius-154-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-TIBERIUS-154"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "42377520-ec22-4be0-b765-1d8d4d9a969f",
+    "name": "Augustus",
+    "slug": "watch-augustus-153",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Augustus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-augustus-153.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-augustus-153-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-AUGUSTUS-153"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "75f3bbe6-76ca-42bf-8775-ba52b8137ca7",
+    "name": "Claudius",
+    "slug": "watch-claudius-155",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Claudius luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-claudius-155.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-claudius-155-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CLAUDIUS-155"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "e6ca7c7b-e7d1-4b03-9280-95d264b12a03",
+    "name": "Trajan",
+    "slug": "watch-trajan-157",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Trajan luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-trajan-157.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-trajan-157-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-TRAJAN-157"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "39c792d6-bc00-46b6-af5d-f25a064fe2e4",
+    "name": "Aurelian",
+    "slug": "watch-aurelian-156",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Aurelian luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-aurelian-156.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-aurelian-156-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-AURELIAN-156"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "4664b669-291d-4b1d-961e-def01e0e1d9c",
+    "name": "Hadrian",
+    "slug": "watch-hadrian-158",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Hadrian luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-hadrian-158.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-hadrian-158-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-HADRIAN-158"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "40332849-062d-403c-98de-2469c1ecd7f5",
+    "name": "Starlight",
+    "slug": "watch-starlight-161",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Starlight luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-starlight-161.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-starlight-161-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-STARLIGHT-161"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "801cb8db-71e6-44ec-89cc-d4975feffc0c",
+    "name": "Aurelius",
+    "slug": "watch-aurelius-160",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Aurelius luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-aurelius-160.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-aurelius-160-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-AURELIUS-160"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "40683e95-3001-445d-b23a-cd6fec963a1a",
+    "name": "Antoninus",
+    "slug": "watch-antoninus-159",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Antoninus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-antoninus-159.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-antoninus-159-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ANTONINUS-159"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "a7420025-f973-4736-9b31-46c957f32c94",
+    "name": "Moonphase",
+    "slug": "watch-moonphase-162",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Moonphase luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-moonphase-162.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-moonphase-162-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-MOONPHASE-162"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "fb39b1f6-837e-45d2-88e3-168d80cb6dbb",
+    "name": "Celestial",
+    "slug": "watch-celestial-164",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Celestial luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-celestial-164.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-celestial-164-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CELESTIAL-164"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "1d647633-9353-4d36-b23f-1ad5fb1367d3",
+    "name": "Solar",
+    "slug": "watch-solar-163",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Solar luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-solar-163.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-solar-163-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SOLAR-163"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "59eb2e94-1db0-45ba-b0f3-1b2d55cf75c8",
+    "name": "Nebula",
+    "slug": "watch-nebula-166",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Nebula luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-nebula-166.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-nebula-166-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-NEBULA-166"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "6ec10591-8993-4e33-a9b8-00763d61daa7",
+    "name": "Galaxy",
+    "slug": "watch-galaxy-165",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Galaxy luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-galaxy-165.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-galaxy-165-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-GALAXY-165"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "66b6e597-73be-44c1-a7aa-4bd5f6b5d0b0",
+    "name": "Cosmos",
+    "slug": "watch-cosmos-167",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Cosmos luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-cosmos-167.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-cosmos-167-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-COSMOS-167"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "20379da4-cd9a-44bb-ab41-fdc84d88db90",
+    "name": "Pulsar",
+    "slug": "watch-pulsar-168",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Pulsar luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-pulsar-168.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-pulsar-168-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-PULSAR-168"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "9cffc13a-99dc-4874-af72-f9b60ecbc47c",
+    "name": "Supernova",
+    "slug": "watch-supernova-170",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Supernova luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-supernova-170.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-supernova-170-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SUPERNOVA-170"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "8bd2a159-42ce-476a-92c9-444fa74876ef",
+    "name": "Quasar",
+    "slug": "watch-quasar-169",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Quasar luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-quasar-169.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-quasar-169-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-QUASAR-169"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "194d3d68-675b-47ef-9a8d-a51cbcbf2b90",
+    "name": "Meteor",
+    "slug": "watch-meteor-172",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Meteor luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-meteor-172.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-meteor-172-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-METEOR-172"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "4504070f-407f-46f2-bce7-a268753169f0",
+    "name": "Comet",
+    "slug": "watch-comet-171",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Comet luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-comet-171.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-comet-171-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-COMET-171"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "ddac078d-4d5a-4ef0-90d6-d1a2f716fe19",
+    "name": "Asteroid",
+    "slug": "watch-asteroid-173",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Asteroid luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-asteroid-173.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-asteroid-173-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ASTEROID-173"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "105ff92c-cecb-41d8-bbdb-68e916acafc4",
+    "name": "Aurora",
+    "slug": "watch-aurora-174",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Aurora luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-aurora-174.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-aurora-174-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-AURORA-174"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "fc4ddec6-18e3-4439-bcd0-6059b77ed97c",
+    "name": "Borealis",
+    "slug": "watch-borealis-175",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Borealis luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-borealis-175.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-borealis-175-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-BOREALIS-175"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "6d7d38bf-08a0-4279-9682-606d778c7e15",
+    "name": "Canopus",
+    "slug": "watch-canopus-177",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Canopus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-canopus-177.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-canopus-177-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CANOPUS-177"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "78f89187-2872-4c6b-970e-8a75427a7049",
+    "name": "Australis",
+    "slug": "watch-australis-176",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Australis luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-australis-176.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-australis-176-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-AUSTRALIS-176"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "ffe8ae4d-20d3-4b5c-8bc3-25d99192b9a9",
+    "name": "Fomalhaut",
+    "slug": "watch-fomalhaut-178",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Fomalhaut luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-fomalhaut-178.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-fomalhaut-178-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-FOMALHAUT-178"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "e7f1d959-b6ca-4c64-a6e7-f3de30a86a2a",
+    "name": "Deneb",
+    "slug": "watch-deneb-180",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Deneb luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-deneb-180.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-deneb-180-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-DENEB-180"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "36116226-584c-4c89-811b-ae6fde0cc2ee",
+    "name": "Regulus",
+    "slug": "watch-regulus-179",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Regulus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-regulus-179.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-regulus-179-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-REGULUS-179"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "21119a4e-7ed7-45f9-83bc-fa9b25cfa707",
+    "name": "Altair",
+    "slug": "watch-altair-181",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Altair luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-altair-181.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-altair-181-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ALTAIR-181"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "29675c8d-257c-4f99-9579-c93da0658527",
+    "name": "Vega",
+    "slug": "watch-vega-182",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Vega luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-vega-182.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-vega-182-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-VEGA-182"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "c8ae88e7-a65a-40f0-90d0-bcdac3168ab4",
+    "name": "Sirius",
+    "slug": "watch-sirius-183",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Sirius luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-sirius-183.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-sirius-183-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SIRIUS-183"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "cea4cdb7-83ec-407d-9a19-757401d5f397",
+    "name": "Polaris",
+    "slug": "watch-polaris-184",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Polaris luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-polaris-184.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-polaris-184-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-POLARIS-184"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "0ba0a32d-dff1-4672-a534-70f2c82956bf",
+    "name": "Arcturus",
+    "slug": "watch-arcturus-185",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Arcturus luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-arcturus-185.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-arcturus-185-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ARCTURUS-185"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "275cf983-f4a3-4430-91ea-7e8317b18ce4",
+    "name": "Capella",
+    "slug": "watch-capella-186",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Capella luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-capella-186.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-capella-186-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CAPELLA-186"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "2d3ec2c3-5c42-427f-94a4-bc2d3362c9ad",
+    "name": "Procyon",
+    "slug": "watch-procyon-187",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Procyon luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-procyon-187.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-procyon-187-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-PROCYON-187"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "3bbe5b09-4325-4a2e-8740-924e44ebcec7",
+    "name": "Betelgeuse",
+    "slug": "watch-betelgeuse-188",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Betelgeuse luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-betelgeuse-188.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-betelgeuse-188-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-BETELGEUSE-188"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "64a17b7c-0ba6-48ff-a455-65c4c0a798fb",
+    "name": "Aldebaran",
+    "slug": "watch-aldebaran-189",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Aldebaran luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-aldebaran-189.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-aldebaran-189-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ALDEBARAN-189"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "bcdb1d26-c0a0-4646-ad3d-e07c36fe20b5",
+    "name": "Spica",
+    "slug": "watch-spica-191",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Spica luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-spica-191.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-spica-191-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SPICA-191"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "c51c6757-1624-4d15-ae7a-0ed79e471d06",
+    "name": "Antares",
+    "slug": "watch-antares-190",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Antares luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-antares-190.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-antares-190-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ANTARES-190"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "d7a02c46-bf22-4ae4-8933-47302fcc92f0",
+    "name": "Castor",
+    "slug": "watch-castor-192",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Castor luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-castor-192.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-castor-192-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CASTOR-192"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "e83ebe3a-75f9-468a-bf50-a73cb509dda3",
+    "name": "Pollux",
+    "slug": "watch-pollux-193",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Pollux luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-pollux-193.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-pollux-193-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-POLLUX-193"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "f6dac9d3-25c2-4345-8313-cae2e062270c",
+    "name": "Rigel",
+    "slug": "watch-rigel-194",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Rigel luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-rigel-194.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-rigel-194-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-RIGEL-194"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "af85f312-8bd5-4c14-b956-104d60a530ac",
+    "name": "Centurion",
+    "slug": "watch-centurion-195",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Centurion luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-centurion-195.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-centurion-195-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-CENTURION-195"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "11572821-9b2e-43c9-9da6-641bd0134c23",
+    "name": "Vanguard",
+    "slug": "watch-vanguard-196",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Vanguard luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-vanguard-196.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-vanguard-196-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-VANGUARD-196"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "c424104e-46de-42fb-9cd4-71e49aca78da",
+    "name": "Apex",
+    "slug": "watch-apex-197",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Apex luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-apex-197.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-apex-197-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-APEX-197"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "722a821b-f0d0-458a-9cd7-38578ffb0058",
+    "name": "Summit",
+    "slug": "watch-summit-198",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Summit luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-summit-198.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-summit-198-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-SUMMIT-198"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "fb0526ad-7937-4e8a-8168-7a21d47c2d12",
+    "name": "Orbit",
+    "slug": "watch-orbit-199",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Orbit luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-orbit-199.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-orbit-199-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-ORBIT-199"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
+  },
+  {
+    "id": "fabdd702-e413-4d01-b8e1-58cf2849ee6c",
+    "name": "Titanium",
+    "slug": "watch-titanium-200",
+    "tagline": "Luxury Timepiece • Made to Measure",
+    "description": "Handcrafted Titanium luxury timepiece. Engineered with precision mechanical movement, scratch-resistant sapphire crystal glass, and bespoke finishing. Edit details, price, and specs anytime in your admin dashboard.",
+    "category": "accessories",
+    "fabricDetails": "316L Stainless Steel & Double-Domed Sapphire Crystal",
+    "construction": "Precision Automatic Mechanical Movement • 50M Water Resistance",
+    "priceKes": 24500,
+    "priceUsd": 190,
+    "images": [
+      "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-titanium-200.webp"
+    ],
+    "isFeatured": false,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-watch-titanium-200-1",
+        "size": "Standard (40mm)",
+        "color": "Stainless Steel",
+        "stockQuantity": 5,
+        "sku": "MM-WATCH-TITANIUM-200"
+      }
+    ],
+    "detailsList": [
+      "316L Stainless Steel & Double-Domed Sapphire Crystal",
+      "Precision Automatic Mechanical Movement • 50M Water Resistance",
+      "Hand-assembled • Nairobi Atelier"
+    ]
   }
 ]

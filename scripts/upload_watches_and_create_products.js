@@ -26,18 +26,18 @@ if (!url || !key) {
 const supabase = createClient(url, key);
 const WATCHES_DIR = path.join(process.cwd(), 'watches upload');
 
-// 100 Distinct Luxury One-Word Watch Names
-const LUXURY_NAMES = [
-  'Chronos', 'Nautilus', 'Sovereign', 'Vantage', 'Royale', 'Meridian', 'Eclipse', 'Heritage', 'Presage', 'Legacy',
-  'Zenith', 'Monaco', 'Imperium', 'Calatrava', 'Astral', 'Horizon', 'Vanguard', 'Dynasty', 'Apex', 'Summit',
-  'Orbit', 'Titanium', 'Obsidian', 'Sapphire', 'Aureus', 'Solstice', 'Prestige', 'Paragon', 'Maestro', 'Tempest',
-  'Spectre', 'Navigator', 'Equinox', 'Centurion', 'Viceroy', 'Chronograph', 'Stellar', 'Odyssey', 'Carrera', 'Daytona',
-  'Speedmaster', 'Seamaster', 'Submariner', 'Aquaracer', 'Constellation', 'Radiomir', 'Luminor', 'Tank', 'Santos', 'Ballon',
-  'Overseas', 'Tradition', 'Classique', 'Octo', 'Defy', 'Pilot', 'Ingenieur', 'Portofino', 'Portugieser', 'BigBang',
-  'Fusion', 'Classic', 'Falcon', 'Eagle', 'Hawk', 'Condor', 'Phoenix', 'Griffin', 'Pegasus', 'Titan',
-  'Atlas', 'Orion', 'Apollo', 'Hermes', 'Zeus', 'Poseidon', 'Ares', 'Vulcan', 'Jupiter', 'Neptune',
-  'Mercury', 'Mars', 'Saturn', 'Pluto', 'Sirius', 'Vega', 'Polaris', 'Castor', 'Pollux', 'Rigel',
-  'Betelgeuse', 'Aldebaran', 'Antares', 'Spica', 'Regulus', 'Arcturus', 'Capella', 'Altair', 'Deneb', 'Procyon'
+// Extended list of luxury one-word watch names for batch 2
+const EXTENDED_NAMES = [
+  'Elysium', 'Valhalla', 'Kronos', 'Chronarch', 'Excalibur', 'Paladin', 'Centaur', 'Minotaur', 'Cerberus', 'Hyperion',
+  'Prometheus', 'Icarus', 'Daedalus', 'Achilles', 'Hector', 'Odysseus', 'Perseus', 'Theseus', 'Jason', 'Leonidas',
+  'Sparta', 'Athens', 'Corinth', 'Delphi', 'Olympia', 'Arcadia', 'Macedonia', 'Thrace', 'Rhodes', 'Marathon',
+  'Thermopylae', 'Salamis', 'Plataea', 'Byzantium', 'Alexandria', 'Carthage', 'Ravenna', 'Venice', 'Florence', 'Verona',
+  'Milan', 'Genoa', 'Amalfi', 'Palermo', 'Syracuse', 'Napoli', 'Pompeii', 'Torino', 'Sartor', 'Sartorio',
+  'Regalis', 'Imperator', 'Augustus', 'Tiberius', 'Claudius', 'Aurelian', 'Trajan', 'Hadrian', 'Antoninus', 'Aurelius',
+  'Starlight', 'Moonphase', 'Solar', 'Celestial', 'Galaxy', 'Nebula', 'Cosmos', 'Pulsar', 'Quasar', 'Supernova',
+  'Comet', 'Meteor', 'Asteroid', 'Aurora', 'Borealis', 'Australis', 'Canopus', 'Fomalhaut', 'Regulus', 'Deneb',
+  'Altair', 'Vega', 'Sirius', 'Polaris', 'Arcturus', 'Capella', 'Procyon', 'Betelgeuse', 'Aldebaran', 'Antares',
+  'Spica', 'Castor', 'Pollux', 'Rigel', 'Centurion', 'Vanguard', 'Apex', 'Summit', 'Orbit', 'Titanium'
 ];
 
 async function main() {
@@ -51,12 +51,27 @@ async function main() {
     .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
     .sort();
 
-  console.log(`Starting bulk import of ${imageFiles.length} watch images...`);
+  if (imageFiles.length === 0) {
+    console.log('No image files found in "watches upload" yet.');
+    console.log('Drop your new batch of watch images into "watches upload" and run again.');
+    return;
+  }
+
+  // Determine starting index from existing database/summary
+  let startIndex = 100;
+  const summaryPath = path.join(process.cwd(), 'scripts', 'watches_import_summary.json');
+  if (fs.existsSync(summaryPath)) {
+    try {
+      const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+      startIndex = summary.total || 100;
+    } catch (e) {}
+  }
+
+  console.log(`Starting bulk import of ${imageFiles.length} watch images (starting at index ${startIndex + 1})...`);
 
   const createdProducts = [];
   const errors = [];
 
-  // Concurrency pool helper
   const CONCURRENCY = 5;
   let currentIndex = 0;
 
@@ -65,8 +80,9 @@ async function main() {
       const idx = currentIndex++;
       const file = imageFiles[idx];
       const filePath = path.join(WATCHES_DIR, file);
-      const name = LUXURY_NAMES[idx] || `Chronograph-${idx + 1}`;
-      const slug = `watch-${name.toLowerCase()}-${String(idx + 1).padStart(2, '0')}`;
+      const watchNumber = startIndex + idx + 1;
+      const name = EXTENDED_NAMES[idx] || `Timepiece-${watchNumber}`;
+      const slug = `watch-${name.toLowerCase()}-${String(watchNumber).padStart(2, '0')}`;
       const targetFileName = `watches/${slug}.webp`;
 
       try {
@@ -76,7 +92,7 @@ async function main() {
           .webp({ quality: 85 })
           .toBuffer();
 
-        // Step B: Upload to Supabase Storage bucket 'product-images'
+        // Step B: Upload to Supabase Storage
         const { error: storageError } = await supabase.storage
           .from('product-images')
           .upload(targetFileName, optimizedBuffer, {
@@ -106,7 +122,7 @@ async function main() {
           price_kes: 24500,
           price_usd: 190,
           images: [publicUrl],
-          is_featured: idx < 6, // feature the first 6
+          is_featured: false,
           is_in_stock: true,
           updated_at: new Date().toISOString(),
         };
@@ -138,7 +154,6 @@ async function main() {
     }
   }
 
-  // Run workers concurrently
   const workers = Array.from({ length: CONCURRENCY }, (_, i) => worker(i + 1));
   await Promise.all(workers);
 
@@ -146,7 +161,7 @@ async function main() {
   console.log(`IMPORT COMPLETE: ${createdProducts.length} watches added, ${errors.length} errors.`);
   console.log('=======================================');
 
-  // Also update local custom_products.json so fallback store is in sync
+  // Update local custom_products.json fallback
   try {
     const customJsonPath = path.join(process.cwd(), 'data', 'custom_products.json');
     let existingCustom = [];
@@ -170,7 +185,7 @@ async function main() {
         priceKes: cp.priceKes,
         priceUsd: 190,
         images: [cp.imageUrl],
-        isFeatured: cp.isFeatured ?? false,
+        isFeatured: false,
         isInStock: true,
         variants: [
           { id: `v-${cp.slug}-1`, size: 'Standard (40mm)', color: 'Stainless Steel', stockQuantity: 5, sku: `MM-${cp.slug.toUpperCase()}` },
@@ -184,19 +199,20 @@ async function main() {
     }
 
     fs.writeFileSync(customJsonPath, JSON.stringify(Array.from(localMap.values()), null, 2), 'utf8');
-    console.log(`Synchronized ${createdProducts.length} items to local fallback store (data/custom_products.json).`);
+    console.log(`Synchronized items to local fallback store.`);
   } catch (err) {
     console.warn('Could not sync to local JSON:', err.message);
   }
 
-  // Save full manifest
+  // Update summary
+  let totalAll = startIndex + createdProducts.length;
   fs.writeFileSync(
-    path.join(process.cwd(), 'scripts', 'watches_import_summary.json'),
-    JSON.stringify({ total: createdProducts.length, createdProducts, errors }, null, 2),
+    summaryPath,
+    JSON.stringify({ total: totalAll, lastBatch: createdProducts, errors }, null, 2),
     'utf8'
   );
 
-  // If all succeeded with 0 errors, delete the watches upload folder as requested
+  // If all succeeded with 0 errors, delete the watches upload folder
   if (createdProducts.length > 0 && errors.length === 0) {
     console.log('\nCleaning up "watches upload" folder as requested...');
     for (const f of imageFiles) {
