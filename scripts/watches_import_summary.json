@@ -1,0 +1,706 @@
+{
+  "total": 100,
+  "createdProducts": [
+    {
+      "id": "d221df3d-ce81-4017-a27e-b09e2ef1919d",
+      "name": "Vantage",
+      "slug": "watch-vantage-04",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-vantage-04.webp"
+    },
+    {
+      "id": "f39d7546-85a6-484a-b405-50dd7bd2b811",
+      "name": "Sovereign",
+      "slug": "watch-sovereign-03",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-sovereign-03.webp"
+    },
+    {
+      "id": "586e1838-47f1-4369-a483-5adcdab4350c",
+      "name": "Chronos",
+      "slug": "watch-chronos-01",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-chronos-01.webp"
+    },
+    {
+      "id": "1d1fbf6b-eb58-483c-b533-0921a0c623f0",
+      "name": "Royale",
+      "slug": "watch-royale-05",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-royale-05.webp"
+    },
+    {
+      "id": "e9ec7610-504f-4f0c-9a23-7344f785bbcb",
+      "name": "Nautilus",
+      "slug": "watch-nautilus-02",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-nautilus-02.webp"
+    },
+    {
+      "id": "44b56dae-cc31-4532-a5fa-bec3febdf3a6",
+      "name": "Eclipse",
+      "slug": "watch-eclipse-07",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-eclipse-07.webp"
+    },
+    {
+      "id": "bdd18d74-d2ce-4290-a9d9-73033a368ef4",
+      "name": "Presage",
+      "slug": "watch-presage-09",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-presage-09.webp"
+    },
+    {
+      "id": "8b3eefd2-d6f1-433c-9769-282fb2c08d2c",
+      "name": "Meridian",
+      "slug": "watch-meridian-06",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-meridian-06.webp"
+    },
+    {
+      "id": "dd419c92-4841-4406-a4eb-780d8237844a",
+      "name": "Legacy",
+      "slug": "watch-legacy-10",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-legacy-10.webp"
+    },
+    {
+      "id": "943692e8-6ed4-4361-abdd-92f9dad1b9f9",
+      "name": "Heritage",
+      "slug": "watch-heritage-08",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-heritage-08.webp"
+    },
+    {
+      "id": "4a7480bf-86b5-4bff-b0c5-daa44609b26a",
+      "name": "Imperium",
+      "slug": "watch-imperium-13",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-imperium-13.webp"
+    },
+    {
+      "id": "4d4c0f35-2cc2-4b8a-b2be-20d2d44c363f",
+      "name": "Zenith",
+      "slug": "watch-zenith-11",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-zenith-11.webp"
+    },
+    {
+      "id": "a93f7556-d052-437b-b2f9-f003ac36b344",
+      "name": "Calatrava",
+      "slug": "watch-calatrava-14",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-calatrava-14.webp"
+    },
+    {
+      "id": "b39f93ba-53c0-4bf2-b42d-ef766e1d50b2",
+      "name": "Astral",
+      "slug": "watch-astral-15",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-astral-15.webp"
+    },
+    {
+      "id": "021b0d78-d8bf-4515-b621-c4b5a51e8e18",
+      "name": "Monaco",
+      "slug": "watch-monaco-12",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-monaco-12.webp"
+    },
+    {
+      "id": "0d68dfd5-3c36-429a-89b6-4b3a06c7beb1",
+      "name": "Horizon",
+      "slug": "watch-horizon-16",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-horizon-16.webp"
+    },
+    {
+      "id": "cd1751a8-43be-43d9-aac7-47664ffc6dc4",
+      "name": "Summit",
+      "slug": "watch-summit-20",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-summit-20.webp"
+    },
+    {
+      "id": "fab56503-8040-4d57-8448-de4494c605cf",
+      "name": "Vanguard",
+      "slug": "watch-vanguard-17",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-vanguard-17.webp"
+    },
+    {
+      "id": "c31bfaf4-534c-4e67-89e0-a4ee8f84b5ee",
+      "name": "Dynasty",
+      "slug": "watch-dynasty-18",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-dynasty-18.webp"
+    },
+    {
+      "id": "f0d49f3a-0c86-4c10-bb20-256f02cb59df",
+      "name": "Apex",
+      "slug": "watch-apex-19",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-apex-19.webp"
+    },
+    {
+      "id": "be60da53-38da-4930-9619-c3c433c65cad",
+      "name": "Orbit",
+      "slug": "watch-orbit-21",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-orbit-21.webp"
+    },
+    {
+      "id": "4daa2a08-5c6d-4aef-addc-33d466082c3b",
+      "name": "Titanium",
+      "slug": "watch-titanium-22",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-titanium-22.webp"
+    },
+    {
+      "id": "54788d50-0f8a-4855-b89c-ab9479811467",
+      "name": "Obsidian",
+      "slug": "watch-obsidian-23",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-obsidian-23.webp"
+    },
+    {
+      "id": "37e8fb11-8570-432e-9e6d-10cdae0a984b",
+      "name": "Prestige",
+      "slug": "watch-prestige-27",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-prestige-27.webp"
+    },
+    {
+      "id": "6d463fc1-f26f-49f5-bba9-2867662f39f0",
+      "name": "Sapphire",
+      "slug": "watch-sapphire-24",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-sapphire-24.webp"
+    },
+    {
+      "id": "26645afa-72e3-47a6-9088-c363d2d802aa",
+      "name": "Aureus",
+      "slug": "watch-aureus-25",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-aureus-25.webp"
+    },
+    {
+      "id": "ea445c57-c3dd-4eb8-b3b9-b44ce0624a2a",
+      "name": "Solstice",
+      "slug": "watch-solstice-26",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-solstice-26.webp"
+    },
+    {
+      "id": "296bbed0-7c75-4468-baca-259519019294",
+      "name": "Paragon",
+      "slug": "watch-paragon-28",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-paragon-28.webp"
+    },
+    {
+      "id": "6550d110-e3bd-4fde-ac5b-282f53d4651f",
+      "name": "Tempest",
+      "slug": "watch-tempest-30",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-tempest-30.webp"
+    },
+    {
+      "id": "e5e40b63-2d57-47a9-9ce6-0550e067b85f",
+      "name": "Maestro",
+      "slug": "watch-maestro-29",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-maestro-29.webp"
+    },
+    {
+      "id": "cbc441ac-5986-408e-861b-4837fd992440",
+      "name": "Spectre",
+      "slug": "watch-spectre-31",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-spectre-31.webp"
+    },
+    {
+      "id": "f14209c0-96ca-448e-9320-d3097dd37a70",
+      "name": "Navigator",
+      "slug": "watch-navigator-32",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-navigator-32.webp"
+    },
+    {
+      "id": "36372eb7-7ab2-442f-813e-932d47734a54",
+      "name": "Equinox",
+      "slug": "watch-equinox-33",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-equinox-33.webp"
+    },
+    {
+      "id": "f4a5cbc0-776c-4fa2-9d82-1f31b51c3847",
+      "name": "Centurion",
+      "slug": "watch-centurion-34",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-centurion-34.webp"
+    },
+    {
+      "id": "ba7380d7-694d-487d-b720-6c6b986fcc66",
+      "name": "Viceroy",
+      "slug": "watch-viceroy-35",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-viceroy-35.webp"
+    },
+    {
+      "id": "e96a7aed-9a63-4d13-96e1-9b33125ada00",
+      "name": "Chronograph",
+      "slug": "watch-chronograph-36",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-chronograph-36.webp"
+    },
+    {
+      "id": "c50ac021-8ea2-444d-b2f5-eb85ae354b45",
+      "name": "Stellar",
+      "slug": "watch-stellar-37",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-stellar-37.webp"
+    },
+    {
+      "id": "67175b28-34e8-449d-a6c8-b45f8a42d0e5",
+      "name": "Odyssey",
+      "slug": "watch-odyssey-38",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-odyssey-38.webp"
+    },
+    {
+      "id": "eb65fe77-6be1-4b70-b8ab-883b21cad2b0",
+      "name": "Carrera",
+      "slug": "watch-carrera-39",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-carrera-39.webp"
+    },
+    {
+      "id": "bc63fd40-692b-490d-b946-d307bb2a255b",
+      "name": "Daytona",
+      "slug": "watch-daytona-40",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-daytona-40.webp"
+    },
+    {
+      "id": "3e410396-623d-4b8c-9abd-9ce85773cf0d",
+      "name": "Speedmaster",
+      "slug": "watch-speedmaster-41",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-speedmaster-41.webp"
+    },
+    {
+      "id": "a104503e-93ad-4ac5-92ec-8e254a536499",
+      "name": "Seamaster",
+      "slug": "watch-seamaster-42",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-seamaster-42.webp"
+    },
+    {
+      "id": "aeb11069-f805-423f-b56e-db5794ca601c",
+      "name": "Submariner",
+      "slug": "watch-submariner-43",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-submariner-43.webp"
+    },
+    {
+      "id": "196b59ae-cbab-46aa-8a57-3a3d65a4a173",
+      "name": "Constellation",
+      "slug": "watch-constellation-45",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-constellation-45.webp"
+    },
+    {
+      "id": "97ba1ef0-7af4-4673-ad9b-91f025b20239",
+      "name": "Aquaracer",
+      "slug": "watch-aquaracer-44",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-aquaracer-44.webp"
+    },
+    {
+      "id": "d732003f-0eba-4d72-bfa5-30579accd091",
+      "name": "Radiomir",
+      "slug": "watch-radiomir-46",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-radiomir-46.webp"
+    },
+    {
+      "id": "f6992ae3-92a3-4576-9028-4403bda70f99",
+      "name": "Luminor",
+      "slug": "watch-luminor-47",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-luminor-47.webp"
+    },
+    {
+      "id": "9396fd7b-6781-4b3d-9941-d05ec5e5574b",
+      "name": "Tank",
+      "slug": "watch-tank-48",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-tank-48.webp"
+    },
+    {
+      "id": "bfbc72c5-ca4f-4044-9fda-f33ecf888b2d",
+      "name": "Santos",
+      "slug": "watch-santos-49",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-santos-49.webp"
+    },
+    {
+      "id": "09ac7e77-8c62-4555-b2cf-c8dad5065f8b",
+      "name": "Ballon",
+      "slug": "watch-ballon-50",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-ballon-50.webp"
+    },
+    {
+      "id": "f81d2ad3-b98d-4b98-91ce-0778c83ecbcb",
+      "name": "Overseas",
+      "slug": "watch-overseas-51",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-overseas-51.webp"
+    },
+    {
+      "id": "02133bfb-2515-4272-80c1-26dc85978c83",
+      "name": "Classique",
+      "slug": "watch-classique-53",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-classique-53.webp"
+    },
+    {
+      "id": "105a4d6d-0059-4f8f-857b-ef9673ca7c65",
+      "name": "Tradition",
+      "slug": "watch-tradition-52",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-tradition-52.webp"
+    },
+    {
+      "id": "84606523-d808-4d85-bf52-39d26adb316e",
+      "name": "Octo",
+      "slug": "watch-octo-54",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-octo-54.webp"
+    },
+    {
+      "id": "10c6e8ab-57b1-4efd-a062-017e192c6de0",
+      "name": "Defy",
+      "slug": "watch-defy-55",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-defy-55.webp"
+    },
+    {
+      "id": "cd23878e-4403-4d16-a535-5e944c107f1a",
+      "name": "Pilot",
+      "slug": "watch-pilot-56",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-pilot-56.webp"
+    },
+    {
+      "id": "abe3806b-de78-4a60-ac92-1c3b2be241e3",
+      "name": "Ingenieur",
+      "slug": "watch-ingenieur-57",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-ingenieur-57.webp"
+    },
+    {
+      "id": "31f8d378-787e-432e-9bde-b538fcc903cd",
+      "name": "Portofino",
+      "slug": "watch-portofino-58",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-portofino-58.webp"
+    },
+    {
+      "id": "83dea9ab-2a3d-40b9-a52d-f4de0c5fea1f",
+      "name": "Portugieser",
+      "slug": "watch-portugieser-59",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-portugieser-59.webp"
+    },
+    {
+      "id": "c51d29a6-f46a-450d-b948-25b872d7cb3c",
+      "name": "BigBang",
+      "slug": "watch-bigbang-60",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-bigbang-60.webp"
+    },
+    {
+      "id": "4e292b26-5e82-40e0-812a-f88a3395949f",
+      "name": "Fusion",
+      "slug": "watch-fusion-61",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-fusion-61.webp"
+    },
+    {
+      "id": "ed16ae0e-4107-4cea-89f1-1ff268856b64",
+      "name": "Classic",
+      "slug": "watch-classic-62",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-classic-62.webp"
+    },
+    {
+      "id": "ec8eb249-ec34-4bdc-ade8-ba12fbb914e0",
+      "name": "Falcon",
+      "slug": "watch-falcon-63",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-falcon-63.webp"
+    },
+    {
+      "id": "7b79f832-4540-4716-a5a2-d0068701826d",
+      "name": "Eagle",
+      "slug": "watch-eagle-64",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-eagle-64.webp"
+    },
+    {
+      "id": "6bf9046a-e8f4-49f4-8c2f-57d02d3db778",
+      "name": "Condor",
+      "slug": "watch-condor-66",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-condor-66.webp"
+    },
+    {
+      "id": "6399e07b-0322-4cdf-bb0b-e52c01e967ef",
+      "name": "Hawk",
+      "slug": "watch-hawk-65",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-hawk-65.webp"
+    },
+    {
+      "id": "5fad4f45-f100-45cc-8698-87b4914ac4dd",
+      "name": "Phoenix",
+      "slug": "watch-phoenix-67",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-phoenix-67.webp"
+    },
+    {
+      "id": "572dcde0-5afd-4aaf-94e0-637da7afd111",
+      "name": "Griffin",
+      "slug": "watch-griffin-68",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-griffin-68.webp"
+    },
+    {
+      "id": "fb648bd8-6414-4d69-bf17-871561e27e5a",
+      "name": "Titan",
+      "slug": "watch-titan-70",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-titan-70.webp"
+    },
+    {
+      "id": "adf18510-4da4-4df6-82af-a9a0510cb7bb",
+      "name": "Atlas",
+      "slug": "watch-atlas-71",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-atlas-71.webp"
+    },
+    {
+      "id": "e9fd0394-5959-41ff-be77-1343927aed53",
+      "name": "Pegasus",
+      "slug": "watch-pegasus-69",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-pegasus-69.webp"
+    },
+    {
+      "id": "a81bbeca-88ed-4dec-bf2f-06ab07972867",
+      "name": "Orion",
+      "slug": "watch-orion-72",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-orion-72.webp"
+    },
+    {
+      "id": "10d6f99b-7fc5-4e9b-8771-c62180f8139e",
+      "name": "Apollo",
+      "slug": "watch-apollo-73",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-apollo-73.webp"
+    },
+    {
+      "id": "bfefa52c-a8b3-485e-b957-94b4df9f0c79",
+      "name": "Poseidon",
+      "slug": "watch-poseidon-76",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-poseidon-76.webp"
+    },
+    {
+      "id": "5310332e-d8c9-463b-9d3e-2b20c595a2bf",
+      "name": "Hermes",
+      "slug": "watch-hermes-74",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-hermes-74.webp"
+    },
+    {
+      "id": "198544b0-1d5d-4f1f-9d6f-48b9030f44ed",
+      "name": "Zeus",
+      "slug": "watch-zeus-75",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-zeus-75.webp"
+    },
+    {
+      "id": "14cdaa1f-41b2-4154-ad63-25feacb15858",
+      "name": "Ares",
+      "slug": "watch-ares-77",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-ares-77.webp"
+    },
+    {
+      "id": "adebd078-2c35-4be2-9b29-d6f2cd33ce2d",
+      "name": "Vulcan",
+      "slug": "watch-vulcan-78",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-vulcan-78.webp"
+    },
+    {
+      "id": "ae6db33d-5c79-42d3-9e14-3ce08edb0067",
+      "name": "Jupiter",
+      "slug": "watch-jupiter-79",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-jupiter-79.webp"
+    },
+    {
+      "id": "a394d13e-5b18-4995-878b-b0d9fa784e11",
+      "name": "Mercury",
+      "slug": "watch-mercury-81",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-mercury-81.webp"
+    },
+    {
+      "id": "5cc90d6e-0521-4cad-aa61-3091e0f7a4c3",
+      "name": "Neptune",
+      "slug": "watch-neptune-80",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-neptune-80.webp"
+    },
+    {
+      "id": "f1bc150f-033e-4b92-9437-3674627085ef",
+      "name": "Mars",
+      "slug": "watch-mars-82",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-mars-82.webp"
+    },
+    {
+      "id": "dfa2232a-63a1-4f22-b58e-4802468eeaba",
+      "name": "Saturn",
+      "slug": "watch-saturn-83",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-saturn-83.webp"
+    },
+    {
+      "id": "e4527145-6ee3-4e63-86c7-a4bfca2cfe3b",
+      "name": "Sirius",
+      "slug": "watch-sirius-85",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-sirius-85.webp"
+    },
+    {
+      "id": "4e0ba899-130f-44b4-9b32-481ff7d81f58",
+      "name": "Vega",
+      "slug": "watch-vega-86",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-vega-86.webp"
+    },
+    {
+      "id": "1fbe88b1-2e0e-4958-872e-16bf693e2651",
+      "name": "Polaris",
+      "slug": "watch-polaris-87",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-polaris-87.webp"
+    },
+    {
+      "id": "58a86900-2410-4eaf-9989-17b23ef2a1e4",
+      "name": "Castor",
+      "slug": "watch-castor-88",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-castor-88.webp"
+    },
+    {
+      "id": "da6f2049-2820-4b69-9f73-1ad607e08691",
+      "name": "Rigel",
+      "slug": "watch-rigel-90",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-rigel-90.webp"
+    },
+    {
+      "id": "cf9aced1-2033-4b43-8d6d-e8694928ef44",
+      "name": "Pollux",
+      "slug": "watch-pollux-89",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-pollux-89.webp"
+    },
+    {
+      "id": "f68e7a9a-b2d2-47e6-a5ba-11b338f97e00",
+      "name": "Pluto",
+      "slug": "watch-pluto-84",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-pluto-84.webp"
+    },
+    {
+      "id": "f7108d32-3949-43a5-8100-934e3a446b4c",
+      "name": "Aldebaran",
+      "slug": "watch-aldebaran-92",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-aldebaran-92.webp"
+    },
+    {
+      "id": "bb2105f8-fb92-4247-9990-ce3cecbced35",
+      "name": "Antares",
+      "slug": "watch-antares-93",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-antares-93.webp"
+    },
+    {
+      "id": "f0f1e276-0f17-4459-8b70-77787463671d",
+      "name": "Regulus",
+      "slug": "watch-regulus-95",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-regulus-95.webp"
+    },
+    {
+      "id": "2ce3c7f3-83db-44b3-91b4-20bcaf974a3b",
+      "name": "Spica",
+      "slug": "watch-spica-94",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-spica-94.webp"
+    },
+    {
+      "id": "74d0ef28-b7ae-45cd-93f1-66cd164e0c53",
+      "name": "Betelgeuse",
+      "slug": "watch-betelgeuse-91",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-betelgeuse-91.webp"
+    },
+    {
+      "id": "b867c0fd-616a-4377-b7bd-49643d23946a",
+      "name": "Capella",
+      "slug": "watch-capella-97",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-capella-97.webp"
+    },
+    {
+      "id": "d82b74e0-1b51-4ddf-b879-3ae0398ea047",
+      "name": "Arcturus",
+      "slug": "watch-arcturus-96",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-arcturus-96.webp"
+    },
+    {
+      "id": "7aa7242e-7f29-44fb-ac6e-4b74ab3fb3e5",
+      "name": "Altair",
+      "slug": "watch-altair-98",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-altair-98.webp"
+    },
+    {
+      "id": "811044ee-902a-45eb-9f6b-8656686887b5",
+      "name": "Procyon",
+      "slug": "watch-procyon-100",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-procyon-100.webp"
+    },
+    {
+      "id": "7e51e609-cfc7-4b58-a0ba-6667dc0aa74f",
+      "name": "Deneb",
+      "slug": "watch-deneb-99",
+      "priceKes": 24500,
+      "imageUrl": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-deneb-99.webp"
+    }
+  ],
+  "errors": []
+}

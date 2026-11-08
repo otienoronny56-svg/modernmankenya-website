@@ -1144,3 +1144,4 @@ for html_file, png_name in posters:
         print(f"Rendered {png_name} successfully: {size_kb:.1f} KB")
     else:
         print(f"Failed to render {png_name}: {res.stderr}")
+
