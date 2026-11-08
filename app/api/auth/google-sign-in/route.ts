@@ -1,10 +1,27 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase/client';
 
+function getCanonicalOrigin(request: Request): string {
+  const host = request.headers.get('x-forwarded-host') || request.headers.get('host');
+  const proto = request.headers.get('x-forwarded-proto') || 'https';
+  if (host && !host.includes('localhost') && !host.includes('127.0.0.1')) {
+    if (host.includes('vercel.app')) {
+      return 'https://www.modernmanke.com';
+    }
+    return `${proto}://${host}`;
+  }
+  const url = new URL(request.url);
+  if (url.origin.includes('vercel.app')) {
+    return 'https://www.modernmanke.com';
+  }
+  return url.origin;
+}
+
 export async function GET(request: Request) {
   try {
-    const { searchParams, origin } = new URL(request.url);
-    const next = searchParams.get('next') || '/';
+    const { searchParams } = new URL(request.url);
+    const origin = getCanonicalOrigin(request);
+    const next = searchParams.get('next') || '/account';
 
     const redirectUrl = `${origin}/auth/callback?next=${encodeURIComponent(next)}`;
 

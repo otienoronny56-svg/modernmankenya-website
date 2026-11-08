@@ -5,6 +5,13 @@ import { LAUNCH_CONFIG } from './lib/config/launch';
 export async function middleware(req: NextRequest) {
   const { pathname, searchParams } = req.nextUrl;
 
+  // 0. Domain Canonicalization: Redirect legacy *.vercel.app domain to primary production domain
+  const hostname = req.headers.get('x-forwarded-host') || req.headers.get('host') || '';
+  if (hostname.includes('modernmankenya-website.vercel.app')) {
+    const canonicalTarget = new URL(req.nextUrl.pathname + req.nextUrl.search, 'https://www.modernmanke.com');
+    return NextResponse.redirect(canonicalTarget, 308);
+  }
+
   // 1. Static assets, API routes, and files pass through untouched
   if (
     pathname.startsWith('/_next') ||

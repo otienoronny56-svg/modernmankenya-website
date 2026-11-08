@@ -83,15 +83,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signInWithGoogle = async (customRedirect?: string) => {
     try {
-      const origin = typeof window !== 'undefined' ? window.location.origin : '';
-      let nextTarget = '/';
+      const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.modernmanke.com';
+      const actualOrigin = origin.includes('vercel.app') ? 'https://www.modernmanke.com' : origin;
+      let nextTarget = '/account';
       if (customRedirect) {
         if (customRedirect.startsWith('/')) {
           nextTarget = customRedirect;
         } else {
           try {
-            const parsed = new URL(customRedirect, origin);
-            nextTarget = parsed.searchParams.get('next') || parsed.pathname || '/';
+            const parsed = new URL(customRedirect, actualOrigin);
+            nextTarget = parsed.searchParams.get('next') || parsed.pathname || '/account';
           } catch {
             nextTarget = customRedirect;
           }
@@ -107,7 +108,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             window.location.href = info.url;
           }
           return { error: null };
-        } else {
+        } else if (info.enabled === false && info.error === 'GOOGLE_NOT_ENABLED') {
           return {
             error: {
               name: 'AuthApiError',
@@ -120,12 +121,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         console.warn('API preflight error, attempting standard OAuth redirect:', apiErr);
       }
 
-      // Fallback to standard Supabase client OAuth with full redirect URL
+      // Fallback to standard Supabase client OAuth with full redirect URL pointing to canonical origin
       const redirectUrl = customRedirect?.startsWith('http')
         ? customRedirect
-        : `${origin}/auth/callback?next=${encodeURIComponent(nextTarget)}`;
+        : `${actualOrigin}/auth/callback?next=${encodeURIComponent(nextTarget)}`;
 
-      const { error } = await supabase.auth.signInWithOAuth({
+      const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
           redirectTo: redirectUrl,
@@ -135,6 +136,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           },
         },
       });
+
+      if (data?.url && typeof window !== 'undefined') {
+        window.location.href = data.url;
+      }
+
       return { error };
     } catch (err: any) {
       return { error: err as AuthError };
