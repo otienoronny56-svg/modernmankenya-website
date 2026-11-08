@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, useCallback, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles, Calendar, Maximize2, ChevronLeft, ChevronRight, X, ArrowRight, ShoppingBag } from 'lucide-react';
+import { Sparkles, Calendar, Maximize2, ChevronLeft, ChevronRight, X, ArrowRight, ShoppingBag, ZoomIn, ZoomOut } from 'lucide-react';
 import { SARTORIAL_GALLERY_ITEMS, GalleryItem } from '@/data/galleryData';
 import { READY_TO_WEAR_PRODUCTS } from '@/data/mockData';
 import { ProductCardWithGallery } from '@/components/product/ProductCardWithGallery';
@@ -138,6 +138,26 @@ function GalleryContent() {
   const [accessorySubFilter, setAccessorySubFilter] = useState<'all' | 'neckwear' | 'hardware' | 'leather-timepieces' | 'hats'>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number>(0);
+  const [isInspectActive, setIsInspectActive] = useState<boolean>(false);
+  const [inspectPos, setInspectPos] = useState<{ x: number; y: number }>({ x: 50, y: 50 });
+  const inspectContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleInspectMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!inspectContainerRef.current) return;
+    const rect = inspectContainerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+    setInspectPos({ x, y });
+  };
+
+  const handleInspectTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!inspectContainerRef.current || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const rect = inspectContainerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((touch.clientY - rect.top) / rect.height) * 100));
+    setInspectPos({ x, y });
+  };
 
   const [liveProducts, setLiveProducts] = useState<Product[]>([]);
   const [lookbookItems, setLookbookItems] = useState<GalleryItem[]>(SARTORIAL_GALLERY_ITEMS);
@@ -256,17 +276,20 @@ function GalleryContent() {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) => (prev! > 0 ? prev! - 1 : filteredItems.length - 1));
     setLightboxImageIndex(0);
+    setIsInspectActive(false);
   }, [lightboxIndex, filteredItems.length]);
 
   const handleNext = useCallback(() => {
     if (lightboxIndex === null) return;
     setLightboxIndex((prev) => (prev! < filteredItems.length - 1 ? prev! + 1 : 0));
     setLightboxImageIndex(0);
+    setIsInspectActive(false);
   }, [lightboxIndex, filteredItems.length]);
 
   const handleClose = useCallback(() => {
     setLightboxIndex(null);
     setLightboxImageIndex(0);
+    setIsInspectActive(false);
   }, []);
 
   // Keyboard navigation for Lightbox
@@ -487,13 +510,28 @@ function GalleryContent() {
                 {activeLightboxItem.title}
               </h2>
             </div>
-            <button
-              onClick={handleClose}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-              aria-label="Close fullscreen view"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setIsInspectActive((prev) => !prev)}
+                className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center space-x-1.5 border transition-all ${
+                  isInspectActive
+                    ? 'bg-brand-gold text-brand-navy border-brand-gold shadow-md ring-2 ring-brand-gold/40'
+                    : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:text-brand-gold'
+                }`}
+                title={isInspectActive ? "Exit Magnifier" : "Inspect Fabric Details (2.8x Zoom)"}
+              >
+                <ZoomIn className={`w-3.5 h-3.5 ${isInspectActive ? 'animate-pulse text-brand-navy' : 'text-brand-gold'}`} />
+                <span className="hidden xs:inline">{isInspectActive ? 'Inspecting' : 'Inspect'}</span>
+              </button>
+
+              <button
+                onClick={handleClose}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="Close fullscreen view"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           {/* Central Image with Navigation */}
@@ -510,15 +548,63 @@ function GalleryContent() {
               <ChevronLeft className="w-6 h-6" />
             </button>
 
-            {/* Active Image */}
-            <div className="relative w-full h-[65vh] sm:h-[72vh] max-w-3xl flex items-center justify-center">
+            {/* Active Image with Inspect Magnifier */}
+            <div 
+              ref={inspectContainerRef}
+              onMouseMove={handleInspectMouseMove}
+              onTouchMove={handleInspectTouchMove}
+              onClick={() => setIsInspectActive((prev) => !prev)}
+              className={`relative w-full h-[65vh] sm:h-[72vh] max-w-3xl flex items-center justify-center rounded-lg overflow-hidden select-none ${
+                isInspectActive ? 'cursor-crosshair' : 'cursor-zoom-in'
+              }`}
+            >
               <Image
                 src={activeLightboxImages[lightboxImageIndex] || activeLightboxItem.image}
                 alt={activeLightboxItem.title}
                 fill
-                className="object-contain drop-shadow-2xl"
+                className={`object-contain drop-shadow-2xl transition-opacity duration-200 ${
+                  isInspectActive ? 'opacity-90' : 'opacity-100'
+                }`}
                 priority
               />
+
+              {/* Live 2.8x Magnifier Loupe Overlay */}
+              {isInspectActive && (
+                <div
+                  className="absolute inset-0 z-20 pointer-events-none rounded-lg"
+                  style={{
+                    backgroundImage: `url(${activeLightboxImages[lightboxImageIndex] || activeLightboxItem.image})`,
+                    backgroundPosition: `${inspectPos.x}% ${inspectPos.y}%`,
+                    backgroundSize: '280%',
+                    boxShadow: 'inset 0 0 50px rgba(0,0,0,0.7)',
+                  }}
+                />
+              )}
+
+              {/* Floating Inspect Toggle Button on the Image */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsInspectActive((prev) => !prev);
+                }}
+                className={`absolute top-3 right-3 sm:top-4 sm:right-4 z-30 px-3.5 py-2 rounded-full backdrop-blur-md text-xs font-bold uppercase tracking-wider transition-all shadow-xl flex items-center space-x-2 border ${
+                  isInspectActive
+                    ? 'bg-brand-gold text-brand-navy border-brand-gold ring-2 ring-brand-gold/50 scale-105'
+                    : 'bg-brand-navy/90 hover:bg-brand-navy text-white hover:text-brand-gold border-white/25 hover:border-brand-gold shadow-lg'
+                }`}
+                title={isInspectActive ? "Exit Inspect Mode" : "Inspect Fabric & Tailoring (2.8x Zoom)"}
+              >
+                <ZoomIn className={`w-3.5 h-3.5 ${isInspectActive ? 'text-brand-navy animate-pulse' : 'text-brand-gold'}`} />
+                <span>{isInspectActive ? 'Exit Inspect' : 'Inspect Details'}</span>
+              </button>
+
+              {/* Floating Guidance Badge */}
+              {isInspectActive && (
+                <div className="absolute bottom-3 inset-x-0 mx-auto w-fit z-30 pointer-events-none bg-brand-navy/95 border border-brand-gold/50 text-brand-gold text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-2xl backdrop-blur-md flex items-center space-x-1.5 animate-fadeIn">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-spin" />
+                  <span>2.8× Magnification • Move cursor to inspect details</span>
+                </div>
+              )}
             </div>
 
             {/* Next Button (Between Creations) */}
