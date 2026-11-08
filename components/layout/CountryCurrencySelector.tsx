@@ -98,8 +98,8 @@ export const CountryCurrencySelector: React.FC<CountryCurrencySelectorProps> = (
 
       {/* Dropdown Menu Modal / Card */}
       {isOpen && (
-        <div className="absolute right-0 mt-1.5 w-64 sm:w-72 bg-white text-slate-800 rounded-md shadow-2xl border border-slate-200 py-1.5 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="max-h-72 overflow-y-auto divide-y divide-slate-100">
+        <div className="absolute right-0 mt-1.5 w-64 sm:w-72 bg-white dark:bg-[#1E202B] text-slate-800 dark:text-slate-200 rounded-md shadow-2xl border border-slate-200 dark:border-slate-700 py-1.5 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+          <div className="max-h-72 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700/60">
             {COUNTRIES.map((country) => {
               const isSelected = selectedCountry.code === country.code;
               return (
@@ -109,8 +109,8 @@ export const CountryCurrencySelector: React.FC<CountryCurrencySelectorProps> = (
                   onClick={() => handleSelect(country)}
                   className={`w-full text-left px-4 py-2.5 flex items-center space-x-3 text-xs sm:text-sm transition-colors ${
                     isSelected
-                      ? 'bg-brand-canvas-alt font-bold text-brand-navy'
-                      : 'hover:bg-slate-50 text-slate-700 font-normal'
+                      ? 'bg-slate-100 dark:bg-slate-800 font-bold text-brand-navy dark:text-brand-gold'
+                      : 'hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-300 font-normal'
                   }`}
                 >
                   <img

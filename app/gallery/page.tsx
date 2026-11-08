@@ -34,10 +34,10 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpenLightbox }) => {
   return (
     <div
       onClick={() => onOpenLightbox(activeImage)}
-      className="group relative bg-white rounded-lg border border-slate-200/90 hover:border-brand-gold/60 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col"
+      className="group relative bg-white dark:bg-[#1A1C28] rounded-lg border border-slate-200/90 dark:border-slate-800/80 hover:border-brand-gold/60 dark:hover:border-brand-gold/60 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col"
     >
       {/* Image Container */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100 select-none">
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100 dark:bg-[#141520] select-none">
         <Image
           src={activeImage}
           alt={`${item.title} - angle ${currentImgIndex + 1}`}
@@ -113,16 +113,16 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpenLightbox }) => {
       </div>
 
       {/* Card Caption: Crisp 1-2 Word Title with NO PRICING */}
-      <div className="p-3 sm:p-3.5 flex items-center justify-between bg-white border-t border-slate-100">
+      <div className="p-3 sm:p-3.5 flex items-center justify-between bg-white dark:bg-[#1A1C28] border-t border-slate-100 dark:border-slate-800">
         <div className="min-w-0 pr-2">
-          <h3 className="font-serif text-xs sm:text-sm font-bold text-brand-navy group-hover:text-brand-gold transition-colors truncate">
+          <h3 className="font-serif text-xs sm:text-sm font-bold text-brand-navy dark:text-slate-100 group-hover:text-brand-gold transition-colors truncate">
             {item.title}
           </h3>
-          <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium tracking-wide truncate mt-0.5">
+          <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide truncate mt-0.5">
             {item.tag} {hasMultipleImages && <span className="text-brand-gold font-bold ml-1">({currentImgIndex + 1}/{images.length})</span>}
           </p>
         </div>
-        <span className="text-slate-300 group-hover:text-brand-gold transition-colors flex-shrink-0">
+        <span className="text-slate-300 dark:text-slate-600 group-hover:text-brand-gold transition-colors flex-shrink-0">
           <ArrowRight className="w-3.5 h-3.5" />
         </span>
       </div>
@@ -307,7 +307,7 @@ function GalleryContent() {
   }, [lightboxIndex, handleClose, handlePrev, handleNext]);
 
   return (
-    <div className="min-h-screen bg-brand-canvas text-brand-navy">
+    <div className="min-h-screen bg-[#fafafc] dark:bg-[#12131C] text-brand-navy dark:text-slate-100 transition-colors duration-200">
       {/* Editorial Header Banner */}
       <section className="bg-brand-navy py-12 sm:py-16 text-white border-b-2 border-brand-gold/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-radial-vignette opacity-40 pointer-events-none" />
@@ -330,7 +330,7 @@ function GalleryContent() {
       {/* Main Content Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Category Navigation Bar */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 mb-8 border-b border-slate-200 gap-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 mb-8 border-b border-slate-200 dark:border-slate-800 gap-4">
           <div className="flex items-center space-x-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible no-scrollbar">
             {categories.map((cat) => {
               const isActive = selectedCategory === cat.id;
@@ -345,7 +345,7 @@ function GalleryContent() {
                   className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 ${
                     isActive
                       ? 'bg-brand-gold text-brand-navy font-bold shadow-md ring-2 ring-brand-gold/50'
-                      : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-brand-navy'
+                      : 'bg-white dark:bg-[#1E202B] border border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-brand-navy dark:hover:text-brand-gold'
                   }`}
                 >
                   {cat.label}
@@ -355,10 +355,10 @@ function GalleryContent() {
           </div>
 
           {/* Creation Count Indicator */}
-          <div className="flex items-center space-x-2 text-xs text-slate-500 font-medium self-start md:self-auto flex-shrink-0">
+          <div className="flex items-center space-x-2 text-xs text-slate-500 dark:text-slate-400 font-medium self-start md:self-auto flex-shrink-0">
             <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
             <span>
-              Showing <strong className="text-brand-navy font-bold">
+              Showing <strong className="text-brand-navy dark:text-slate-100 font-bold">
                 {isEcommerceCategory ? ecommerceProducts.length : filteredItems.length}
               </strong> {isEcommerceCategory ? 'ready-to-order items' : 'bespoke creations'}
             </span>
@@ -471,11 +471,11 @@ function GalleryContent() {
         )}
 
         {/* Bottom Consultation CTA */}
-        <div className="mt-16 p-8 bg-white rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-sm">
+        <div className="mt-16 p-8 bg-white dark:bg-[#1A1C28] rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-sm">
           <div className="space-y-1">
             <span className="text-[11px] uppercase tracking-wider text-brand-gold font-bold">Bespoke Atelier</span>
-            <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy">Commission a Made-to-Measure Garment</h3>
-            <p className="text-xs sm:text-sm text-slate-600 font-light max-w-xl">
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy dark:text-slate-100">Commission a Made-to-Measure Garment</h3>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-light max-w-xl">
               Book a personal fitting consultation in our atelier to select fabrics, lapels, internal canvassing, and monogram embroidery.
             </p>
           </div>

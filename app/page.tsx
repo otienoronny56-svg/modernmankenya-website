@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-[#12131A] text-brand-slate dark:text-slate-100 transition-colors duration-200">
       {/* 1. Hero: Where Fit Meets Character */}
       <HeroSection />
 

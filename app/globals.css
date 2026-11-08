@@ -103,44 +103,69 @@
 /* =========================================================================
    LUXURY DARK MODE ELEVATIONS (Toggled via html.dark)
    Preserves 100% of default Light Mode when .dark is not present.
+   Uses rich dark tones & sophisticated shades of graphite/slate grey.
    ========================================================================= */
 html.dark {
   color-scheme: dark;
-  background-color: #0A0A0F;
+  background-color: #12131A;
   color: #F1F5F9;
 }
 
 html.dark body {
-  background-color: #0A0A0F;
+  background-color: #12131A;
   color: #F1F5F9;
 }
 
-/* Surfaces & Containers */
-html.dark .bg-white {
-  background-color: #12121A !important;
-}
-
+/* Page Canvas & Section Backgrounds (Shades of Dark Slate / Charcoal) */
+html.dark .bg-brand-canvas,
 html.dark .bg-brand-canvas-alt,
+html.dark .bg-brand-canvas-warm,
 html.dark .bg-\[\#fafafc\],
 html.dark .bg-\[\#f8fafc\],
 html.dark .bg-\[\#FAF8F5\],
-html.dark .bg-\[\#FAF9F6\] {
-  background-color: #0A0A0F !important;
+html.dark .bg-\[\#FAF9F6\],
+html.dark .bg-\[\#f7f7f8\],
+html.dark .bg-\[\#f4f4f5\] {
+  background-color: #12131A !important;
 }
 
+/* Primary Card Surfaces (Graphite Slate Grey) */
+html.dark .bg-white {
+  background-color: #1A1C27 !important;
+}
+
+/* Secondary Panels, Trays & In-card Sections (Medium Charcoal Grey) */
 html.dark .bg-slate-50,
 html.dark .bg-stone-50 {
-  background-color: #161622 !important;
+  background-color: #1E202C !important;
 }
 
 html.dark .bg-slate-100,
 html.dark .bg-stone-100 {
-  background-color: #1C1C2A !important;
+  background-color: #242736 !important;
 }
 
-/* Typography in Dark Mode */
+html.dark .hover\:bg-slate-50:hover,
+html.dark .hover\:bg-slate-100:hover,
+html.dark .hover\:bg-slate-100\/80:hover {
+  background-color: #2A2E3F !important;
+}
+
+/* Dropdown Menus, Flyouts & Modals */
+html.dark .bg-white\/95,
+html.dark .bg-white\/98,
+html.dark .bg-white\/90 {
+  background-color: #1E202B !important;
+}
+
+html.dark .shadow-2xl,
+html.dark .shadow-xl {
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Typography in Dark Mode (High-Legibility Silvers, Pearls & Ivories) */
 html.dark .text-brand-navy {
-  color: #F1F5F9 !important;
+  color: #F8FAFC !important;
 }
 
 html.dark .text-slate-900,
@@ -149,7 +174,7 @@ html.dark .text-slate-700,
 html.dark .text-stone-900,
 html.dark .text-stone-800,
 html.dark .text-stone-700 {
-  color: #F1F5F9 !important;
+  color: #E2E8F0 !important;
 }
 
 html.dark .text-slate-600,
@@ -159,7 +184,7 @@ html.dark .text-stone-500 {
   color: #94A3B8 !important;
 }
 
-/* Borders */
+/* Borders in Dark Mode (Subtle Architectural Grey Lines) */
 html.dark .border-slate-200,
 html.dark .border-slate-200\/80,
 html.dark .border-slate-200\/90,
@@ -168,13 +193,13 @@ html.dark .border-slate-100,
 html.dark .border-stone-200,
 html.dark .border-stone-300,
 html.dark .border-stone-100 {
-  border-color: rgba(255, 255, 255, 0.09) !important;
+  border-color: #2A2E3D !important;
 }
 
 /* Header & Dropdowns */
 html.dark header {
-  background-color: rgba(14, 14, 21, 0.96) !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(18, 19, 27, 0.96) !important;
+  border-color: #262938 !important;
 }
 
 html.dark header nav a,
@@ -187,9 +212,9 @@ html.dark header nav button:hover {
   color: #D4AF37 !important;
 }
 
-/* Footer in Dark Mode */
+/* Footer in Dark Mode (Deep Charcoal Grey with Warm Gold Border) */
 html.dark footer {
-  background-color: #07070B !important;
+  background-color: #0E0F15 !important;
   border-color: rgba(168, 138, 0, 0.3) !important;
 }
 
@@ -200,4 +225,5 @@ html.dark footer a {
 html.dark footer a:hover {
   color: #D4AF37 !important;
 }
+
 

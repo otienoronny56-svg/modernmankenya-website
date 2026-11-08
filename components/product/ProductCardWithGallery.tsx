@@ -90,10 +90,10 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
       <div 
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group bg-white rounded-lg border border-slate-200 overflow-hidden shadow-luxury hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+        className="group bg-white dark:bg-[#1A1C28] rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden shadow-luxury hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
       >
         {/* ================= PHOTO & MULTI-ANGLE CAROUSEL AREA ================= */}
-        <div className="relative h-[320px] sm:h-[380px] bg-slate-100 overflow-hidden select-none">
+        <div className="relative h-[320px] sm:h-[380px] bg-slate-100 dark:bg-[#141520] overflow-hidden select-none">
           {/* Main Image with smooth fade on change */}
           <Link href={`/ready-to-wear/${product.slug}`} className="block relative w-full h-full cursor-pointer">
             <Image
@@ -217,17 +217,17 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
             </div>
 
             <Link href={`/ready-to-wear/${product.slug}`} className="block">
-              <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold-dark transition-colors line-clamp-1 hover:underline">
+              <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy dark:text-slate-100 group-hover:text-brand-gold-dark dark:group-hover:text-brand-gold transition-colors line-clamp-1 hover:underline">
                 {product.name}
               </h3>
             </Link>
 
-            <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
               {product.description}
             </p>
           </div>
 
-          <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">
                 Investment

@@ -149,7 +149,7 @@ function ReadyToWearShopContent() {
   }, [products, selectedCategory, accessorySubFilter, searchQuery, sortBy]);
 
   return (
-    <div className="min-h-screen bg-brand-canvas text-brand-navy">
+    <div className="min-h-screen bg-[#fafafc] dark:bg-[#12131C] text-brand-navy dark:text-slate-100 transition-colors duration-200">
       {/* Editorial Hero Header */}
       <section className="bg-brand-navy py-12 sm:py-16 text-white border-b-2 border-brand-gold/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-radial-vignette opacity-40 pointer-events-none" />

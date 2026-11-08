@@ -31,10 +31,10 @@ export const MeasuringTapeTransition: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-12 sm:h-14 bg-gradient-to-b from-white via-stone-50 to-brand-canvas-alt overflow-hidden flex items-center select-none border-y border-slate-200/60"
+      className="relative w-full h-12 sm:h-14 bg-gradient-to-b from-white via-stone-50 to-brand-canvas-alt dark:from-[#141520] dark:via-[#181926] dark:to-[#141520] overflow-hidden flex items-center select-none border-y border-slate-200/60 dark:border-slate-800"
     >
       {/* 1. Underlying Tailor Guide Seam */}
-      <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-slate-200" />
+      <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-slate-200 dark:bg-slate-700/60" />
 
       {/* 2. Unrolling Yellow/Gold Tailor's Tape Measure */}
       <div

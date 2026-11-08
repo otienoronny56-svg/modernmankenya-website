@@ -138,8 +138,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
               {activeDropdown === 'occasions' && (
                 <div className="absolute top-full left-0 w-56 pt-2 z-50">
-                  <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-slate-200/80 p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2">
-                    <div className="px-3 py-1.5 mb-1 border-b border-slate-100 flex items-center justify-between">
+                  <div className="bg-white/98 dark:bg-[#1E202B] backdrop-blur-xl rounded-xl shadow-2xl border border-slate-200/90 dark:border-slate-700/90 p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2">
+                    <div className="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
                       <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-gold">Curated Dress Codes</span>
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
                     </div>
@@ -147,7 +147,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs text-slate-700 hover:text-brand-navy hover:bg-slate-100/80 transition-all duration-150 font-medium"
+                        className="group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-100/90 dark:hover:bg-slate-800/90 transition-all duration-150 font-medium"
                       >
                         <span className="group-hover/item:translate-x-1 transition-transform duration-150">
                           {item.name}

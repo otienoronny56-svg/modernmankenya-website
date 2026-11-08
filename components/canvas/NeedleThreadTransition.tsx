@@ -34,7 +34,7 @@ export const NeedleThreadTransition: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-12 sm:h-14 bg-gradient-to-b from-stone-900 via-stone-800 to-brand-canvas-alt overflow-hidden flex items-center select-none"
+      className="relative w-full h-12 sm:h-14 bg-gradient-to-b from-stone-900 via-stone-800 to-brand-canvas-alt dark:to-[#141520] overflow-hidden flex items-center select-none"
     >
       {/* 1. Subtle Background Seam Guide Line */}
       <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[1px] bg-slate-700/40" />
