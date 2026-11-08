@@ -15,10 +15,13 @@ import {
   MapPin,
   Phone,
   User,
-  LogOut
+  LogOut,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { useAuth } from '@/lib/auth/AuthContext';
+import { useTheme } from '@/lib/theme/ThemeContext';
 import { CountryCurrencySelector } from './CountryCurrencySelector';
 
 interface HeaderProps {
@@ -36,6 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
   const pathname = usePathname();
   const { toggleCart, getTotalCount } = useCartStore();
   const { user, profile, signOut } = useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -70,8 +74,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#f4f4f5]/95 backdrop-blur-md shadow-sm py-1.5 sm:py-2 border-b border-slate-300/80'
-            : 'bg-[#f7f7f8] py-2 sm:py-2.5 border-b border-slate-200'
+            ? 'bg-[#f4f4f5]/95 dark:bg-[#0e0e15]/95 backdrop-blur-md shadow-sm py-1.5 sm:py-2 border-b border-slate-300/80 dark:border-stone-800'
+            : 'bg-[#f7f7f8] dark:bg-[#0b0b10] py-2 sm:py-2.5 border-b border-slate-200 dark:border-stone-800'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -193,9 +197,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               )}
             </button>
 
+            {/* Theme Toggle (Light / Dark Mode) */}
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 text-slate-600 hover:text-brand-gold dark:text-slate-300 dark:hover:text-brand-gold transition-colors focus:outline-none"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label="Toggle Light and Dark Mode"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-brand-gold" />
+              ) : (
+                <Moon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-slate-600 hover:text-brand-navy" />
+              )}
+            </button>
+
             {/* Country & Currency Selector */}
-            <div className="hidden md:flex items-center pl-2 border-l border-slate-200">
-              <CountryCurrencySelector theme="light" />
+            <div className="hidden md:flex items-center pl-2 border-l border-slate-200 dark:border-stone-800">
+              <CountryCurrencySelector theme={theme} />
             </div>
 
             {/* Clear, Visible Log In / Sign In Button (Top Right) */}
@@ -254,12 +272,34 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-200">
+          <div className="lg:hidden border-t border-slate-200 dark:border-stone-800 bg-white dark:bg-[#0e0e15] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-200">
             
             {/* Country Selector in Mobile */}
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-stone-800">
               <span className="text-xs text-slate-500 font-medium">Select Region &amp; Currency:</span>
-              <CountryCurrencySelector theme="light" />
+              <CountryCurrencySelector theme={theme} />
+            </div>
+
+            {/* Appearance / Theme Selector in Mobile */}
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-stone-800">
+              <span className="text-xs text-slate-500 font-medium">Appearance:</span>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-brand-navy dark:text-brand-gold border border-slate-200 dark:border-stone-700 transition-colors"
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <Sun className="w-3.5 h-3.5 text-brand-gold" />
+                    <span>Light Mode</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-3.5 h-3.5 text-slate-700" />
+                    <span>Dark Mode</span>
+                  </>
+                )}
+              </button>
             </div>
 
             {/* Gallery Direct Link */}

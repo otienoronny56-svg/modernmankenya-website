@@ -59,12 +59,23 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${playfair.variable} ${plusJakarta.variable} ${cormorant.variable}`}
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              (function() {
+                try {
+                  var t = localStorage.getItem('mm_theme');
+                  if (t === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
               if (typeof window !== 'undefined') {
                 if ('serviceWorker' in navigator) {
                   navigator.serviceWorker.getRegistrations().then(function(registrations) {
@@ -85,7 +96,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-white text-brand-slate antialiased selection:bg-brand-gold selection:text-brand-navy">
+      <body className="min-h-screen bg-white dark:bg-[#0A0A0F] text-brand-slate dark:text-slate-100 antialiased selection:bg-brand-gold selection:text-brand-navy">
         <ClientLayout hasBypass={hasBypass}>{children}</ClientLayout>
       </body>
     </html>

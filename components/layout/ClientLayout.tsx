@@ -11,6 +11,7 @@ import { ModernManAIAssistant } from '@/components/common/ModernManAIAssistant';
 import { MemberVisitPrompt } from '@/components/common/MemberVisitPrompt';
 import { PreviewModeBanner } from '@/components/prelaunch/PreviewModeBanner';
 import { AuthProvider } from '@/lib/auth/AuthContext';
+import { ThemeProvider } from '@/lib/theme/ThemeContext';
 import { LAUNCH_CONFIG } from '@/lib/config/launch';
 
 interface ClientLayoutProps {
@@ -38,16 +39,18 @@ export const ClientLayout: React.FC<ClientLayoutProps> = ({ children, hasBypass 
   }
 
   return (
-    <AuthProvider>
-      <Header onOpenSearch={() => setSearchOpen(true)} />
-      {children}
-      <Footer />
-      <CartDrawer />
-      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
-      <FloatingWhatsAppButton />
-      <ModernManAIAssistant />
-      <MemberVisitPrompt />
-      <PreviewModeBanner />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <Header onOpenSearch={() => setSearchOpen(true)} />
+        {children}
+        <Footer />
+        <CartDrawer />
+        <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+        <FloatingWhatsAppButton />
+        <ModernManAIAssistant />
+        <MemberVisitPrompt />
+        <PreviewModeBanner />
+      </AuthProvider>
+    </ThemeProvider>
   );
 };
