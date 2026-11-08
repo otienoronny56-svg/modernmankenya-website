@@ -32,6 +32,7 @@ import {
 import { useAuth } from '@/lib/auth/AuthContext';
 import { formatCurrencyPrice } from '@/lib/currency';
 import { supabase } from '@/lib/supabase/client';
+import { AccountAIStylistSection } from '@/components/account/AccountAIStylistSection';
 import type { StoredOrder } from '@/app/api/orders/route';
 import type { ClientMeasurementProfile } from '@/lib/clients/store';
 
@@ -39,7 +40,7 @@ export default function ClientDashboardPage() {
   const router = useRouter();
   const { user, profile, loading: authLoading, signOut } = useAuth();
 
-  const [activeTab, setActiveTab] = useState<'orders' | 'measurements' | 'saved_info' | 'security'>('orders');
+  const [activeTab, setActiveTab] = useState<'orders' | 'measurements' | 'saved_info' | 'ai_stylist' | 'security'>('orders');
   const [clientData, setClientData] = useState<ClientMeasurementProfile | null>(null);
   const [orders, setOrders] = useState<StoredOrder[]>([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
@@ -579,6 +580,17 @@ export default function ClientDashboardPage() {
           >
             <MapPin className="w-4 h-4" />
             <span>Delivery & Subsequent Orders</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('ai_stylist')}
+            className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 ${activeTab === 'ai_stylist'
+                ? 'bg-brand-navy text-brand-gold shadow-sm'
+                : 'text-slate-600 hover:text-brand-navy hover:bg-slate-50'
+              }`}
+          >
+            <Sparkles className="w-4 h-4 text-brand-gold animate-pulse" />
+            <span>AI Sartorial Stylist</span>
           </button>
 
           <button
@@ -1370,6 +1382,11 @@ export default function ClientDashboardPage() {
               </div>
             )}
           </div>
+        )}
+
+        {/* TAB 5: AI SARTORIAL STYLIST */}
+        {activeTab === 'ai_stylist' && (
+          <AccountAIStylistSection clientName={profile?.fullName || ''} />
         )}
 
       </div>

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   Sparkles, 
   Send, 
@@ -135,6 +136,7 @@ function FormattedMessageText({ text }: { text: string }) {
 }
 
 export const ModernManAIAssistant: React.FC = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState('');
@@ -238,6 +240,11 @@ Please reach out directly to our Master Tailor via WhatsApp: [Chat on WhatsApp](
   };
 
   const isTooltipVisible = (isHovered || showTeaser) && !isOpen;
+
+  // The AI Stylist is exclusively active inside the client dashboard (/account)
+  if (!pathname?.startsWith('/account')) {
+    return null;
+  }
 
   return (
     <>
