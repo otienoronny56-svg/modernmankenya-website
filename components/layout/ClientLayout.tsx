@@ -8,7 +8,6 @@ import { CartDrawer } from '@/components/cart/CartDrawer';
 import { SearchModal } from '@/components/common/SearchModal';
 import { FloatingWhatsAppButton } from '@/components/common/FloatingWhatsAppButton';
 import { ModernManAIAssistant } from '@/components/common/ModernManAIAssistant';
-import { MemberVisitPrompt } from '@/components/common/MemberVisitPrompt';
 import { PreviewModeBanner } from '@/components/prelaunch/PreviewModeBanner';
 import { AuthProvider } from '@/lib/auth/AuthContext';
 import { ThemeProvider } from '@/lib/theme/ThemeContext';
@@ -48,7 +47,6 @@ export const ClientLayout: React.FC<ClientLayoutProps> = ({ children, hasBypass 
         <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
         <FloatingWhatsAppButton />
         <ModernManAIAssistant />
-        <MemberVisitPrompt />
         <PreviewModeBanner />
       </AuthProvider>
     </ThemeProvider>
