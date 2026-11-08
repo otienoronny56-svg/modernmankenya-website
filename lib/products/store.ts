@@ -271,3 +271,12 @@ export async function deleteProduct(id: string): Promise<boolean> {
 
   return true;
 }
+
+/**
+ * Fetches a single product by its slug or ID
+ */
+export async function getProductBySlug(slug: string): Promise<Product | null> {
+  const all = await getMergedProducts();
+  const match = all.find((p) => p.slug === slug || p.id === slug);
+  return match || null;
+}

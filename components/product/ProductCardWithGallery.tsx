@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -94,7 +95,7 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
         {/* ================= PHOTO & MULTI-ANGLE CAROUSEL AREA ================= */}
         <div className="relative h-[320px] sm:h-[380px] bg-slate-100 overflow-hidden select-none">
           {/* Main Image with smooth fade on change */}
-          <div className="relative w-full h-full">
+          <Link href={`/ready-to-wear/${product.slug}`} className="block relative w-full h-full cursor-pointer">
             <Image
               src={images[displayedIndex]}
               alt={`${product.name} view ${displayedIndex + 1}`}
@@ -102,7 +103,7 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transition-all duration-500 group-hover:scale-105"
             />
-          </div>
+          </Link>
 
           {/* Canvas Construction Badge */}
           <div className="absolute top-3 left-3 z-10">
@@ -215,9 +216,11 @@ export function ProductCardWithGallery({ product }: ProductCardWithGalleryProps)
               </span>
             </div>
 
-            <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold-dark transition-colors line-clamp-1">
-              {product.name}
-            </h3>
+            <Link href={`/ready-to-wear/${product.slug}`} className="block">
+              <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold-dark transition-colors line-clamp-1 hover:underline">
+                {product.name}
+              </h3>
+            </Link>
 
             <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
               {product.description}
