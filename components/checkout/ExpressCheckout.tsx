@@ -23,6 +23,7 @@ import { useCartStore } from '@/store/cartStore';
 import { useAuth } from '@/lib/auth/AuthContext';
 import { formatCurrencyPrice } from '@/lib/currency';
 import { MpesaStkModal } from '@/components/checkout/MpesaStkModal';
+import { PaymentBadges } from '@/components/common/PaymentBadges';
 import type { CartItem } from '@/types';
 
 interface ExpressCheckoutProps {
@@ -607,6 +608,11 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
         <div className="text-right text-[11px] text-slate-500">
           <span>Delivery: {shippingCost === 0 ? 'Complimentary' : 'KES 2,500'}</span>
         </div>
+      </div>
+
+      {/* Trust & Payment Method Logos */}
+      <div className="bg-slate-50/80 p-3 rounded-xl border border-slate-200/80">
+        <PaymentBadges variant="checkout" showLabel={true} />
       </div>
 
       {/* Dual 1-Click Order Buttons */}
