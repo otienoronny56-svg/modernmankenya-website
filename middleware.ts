@@ -12,14 +12,18 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(canonicalTarget, 308);
   }
 
-  // 1. Static assets, API routes, and files pass through untouched
+  // 1. Static assets, API routes, verification files, and sitemaps pass through untouched
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/images') ||
+    pathname.startsWith('/google') ||
     pathname === '/favicon.ico' ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
+    pathname.endsWith('.html') ||
+    pathname.endsWith('.txt') ||
+    pathname.endsWith('.xml') ||
     pathname.endsWith('.png') ||
     pathname.endsWith('.jpg') ||
     pathname.endsWith('.jpeg') ||
@@ -28,6 +32,15 @@ export async function middleware(req: NextRequest) {
     pathname.endsWith('.ico')
   ) {
     return NextResponse.next();
+  }
+
+  // 1b. Allow official search engine crawlers (Googlebot, Bingbot, Google-Site-Verification) to index public pages
+  const userAgent = req.headers.get('user-agent') || '';
+  const isSearchBot = /Googlebot|Google-Site-Verification|bingbot|Baiduspider|YandexBot/i.test(userAgent);
+  if (isSearchBot) {
+    if (!pathname.startsWith('/admin') && !pathname.startsWith('/account') && !pathname.startsWith('/api')) {
+      return NextResponse.next();
+    }
   }
 
   // 2. VIP Secret Passcode in URL (e.g. https://www.modernmanke.com/?preview=modernman2026)
