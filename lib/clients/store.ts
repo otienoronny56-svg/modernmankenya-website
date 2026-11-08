@@ -22,6 +22,7 @@ export interface ClientMeasurementProfile {
   };
   measurements: {
     unit: 'inches' | 'cm';
+    // 1. Jacket & Blazer
     chest: number | null;
     waistStomach: number | null;
     hipsSeat: number | null;
@@ -33,6 +34,7 @@ export interface ClientMeasurementProfile {
     neckCollar: number | null;
     bicep: number | null;
     wrist: number | null;
+    // 2. Trousers & Pants
     trouserWaist: number | null;
     trouserSeat: number | null;
     trouserOutseam: number | null;
@@ -41,6 +43,27 @@ export interface ClientMeasurementProfile {
     knee: number | null;
     ankleOpening: number | null;
     crotchRise: number | null;
+    // 3. Waistcoat & Vest
+    vestChest?: number | null;
+    vestWaist?: number | null;
+    vestFrontLength?: number | null;
+    vestBackLength?: number | null;
+    // 4. Dress Shirts & Senator / Kaunda Tunics
+    shirtCollar?: number | null;
+    shirtChest?: number | null;
+    shirtWaist?: number | null;
+    shirtSleeve?: number | null;
+    shirtLength?: number | null;
+    shirtCuff?: number | null;
+    // 5. Shoes & Footwear
+    shoeSizeEu?: number | string | null;
+    shoeSizeUk?: number | string | null;
+    footLength?: number | null;
+    footWidth?: string | null;
+    // 6. Hats & Master Fedoras
+    headCircumference?: number | null;
+    hatSize?: string | null;
+    [key: string]: any;
   };
   approvalStatus: 'approved' | 'pending_review' | 'needs_update';
   approvedBy?: string;
@@ -102,6 +125,26 @@ const INITIAL_CLIENTS: ClientMeasurementProfile[] = [
       knee: 17.5,
       ankleOpening: 15.0,
       crotchRise: 10.5,
+      // Waistcoat
+      vestChest: 40.0,
+      vestWaist: 34.0,
+      vestFrontLength: 25.5,
+      vestBackLength: 21.0,
+      // Shirt & Tunic
+      shirtCollar: 16.0,
+      shirtChest: 41.5,
+      shirtWaist: 35.0,
+      shirtSleeve: 34.5,
+      shirtLength: 31.0,
+      shirtCuff: 8.5,
+      // Shoes & Footwear
+      shoeSizeEu: 42,
+      shoeSizeUk: 8,
+      footLength: 10.5,
+      footWidth: 'Standard (D)',
+      // Hats & Headwear
+      headCircumference: 58,
+      hatSize: 'Medium (57-58 cm)',
     },
     approvalStatus: 'approved',
     approvedBy: 'Samuel M. (Master Cutter)',

@@ -137,6 +137,12 @@ function FormattedMessageText({ text }: { text: string }) {
 
 export const ModernManAIAssistant: React.FC = () => {
   const pathname = usePathname();
+
+  // Strictly restrict AI Assistant exclusively to authenticated client dashboard
+  if (pathname !== '/account') {
+    return null;
+  }
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState('');

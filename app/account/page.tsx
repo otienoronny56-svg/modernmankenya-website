@@ -68,6 +68,7 @@ export default function ClientDashboardPage() {
   // Editable Measurements
   const [measurementUnit, setMeasurementUnit] = useState<'inches' | 'cm'>('inches');
   const [measurements, setMeasurements] = useState<Record<string, any>>({});
+  const [selectedGarmentCategory, setSelectedGarmentCategory] = useState<'all' | 'jacket' | 'trousers' | 'waistcoat' | 'shirt' | 'shoes' | 'headwear'>('all');
 
   // 2FA Security State
   const [twoFactorStatus, setTwoFactorStatus] = useState<{ enabled: boolean; method?: string }>({ enabled: false });
@@ -893,98 +894,416 @@ export default function ClientDashboardPage() {
               </div>
             )}
 
-            {/* Measurement Grid */}
-            <div className="space-y-6">
-              {/* 1. Upper Body / Jacket */}
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy border-b border-slate-100 pb-1 flex items-center space-x-2">
-                  <span>Jacket & Upper Body Anatomical Points</span>
-                  <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
-                </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                  {[
-                    { key: 'chest', label: 'Full Chest Circumference' },
-                    { key: 'waistStomach', label: 'Stomach / Waist' },
-                    { key: 'hipsSeat', label: 'Hips / Seat' },
-                    { key: 'shoulderWidth', label: 'Shoulder Width (Back)' },
-                    { key: 'halfBack', label: 'Half Back' },
-                    { key: 'jacketLength', label: 'Jacket Length' },
-                    { key: 'sleeveLengthLeft', label: 'Left Sleeve' },
-                    { key: 'sleeveLengthRight', label: 'Right Sleeve' },
-                    { key: 'neckCollar', label: 'Collar / Neck' },
-                    { key: 'bicep', label: 'Bicep Circumference' },
-                    { key: 'wrist', label: 'Wrist Circumference' },
-                  ].map((field) => (
-                    <div key={field.key} className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
-                        {field.label}
-                      </label>
-                      <div className="relative">
-                        <input
-                          type="number"
-                          step="0.25"
-                          placeholder="—"
-                          value={measurements[field.key] ?? ''}
-                          onChange={(e) =>
-                            setMeasurements((prev) => ({
-                              ...prev,
-                              [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
-                            }))
-                          }
-                          className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
-                        />
-                        <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
-                          {measurementUnit}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Garment Categorization Filter Bar */}
+            <div className="flex items-center space-x-2 overflow-x-auto pb-1 no-scrollbar border-b border-slate-100">
+              {[
+                { id: 'all', label: 'All Garments', icon: '✨' },
+                { id: 'jacket', label: 'Jacket & Blazer', icon: '🧥' },
+                { id: 'trousers', label: 'Trousers & Pants', icon: '👖' },
+                { id: 'waistcoat', label: 'Waistcoat / Vest', icon: '🦺' },
+                { id: 'shirt', label: 'Dress Shirts & Tunics', icon: '👔' },
+                { id: 'shoes', label: 'Shoes & Footwear', icon: '👞' },
+                { id: 'headwear', label: 'Hats & Master Fedoras', icon: '🎩' },
+              ].map((g) => (
+                <button
+                  key={g.id}
+                  type="button"
+                  onClick={() => setSelectedGarmentCategory(g.id as any)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 cursor-pointer ${
+                    selectedGarmentCategory === g.id
+                      ? 'bg-brand-navy text-brand-gold shadow-xs scale-105'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <span>{g.icon}</span>
+                  <span>{g.label}</span>
+                </button>
+              ))}
+            </div>
 
-              {/* 2. Lower Body / Trousers */}
-              <div className="space-y-3 pt-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy border-b border-slate-100 pb-1 flex items-center space-x-2">
-                  <span>Trouser & Lower Body Points</span>
-                  <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
-                </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                  {[
-                    { key: 'trouserWaist', label: 'Trouser Waistband' },
-                    { key: 'trouserSeat', label: 'Trouser Seat / Hips' },
-                    { key: 'trouserOutseam', label: 'Outseam (Total Length)' },
-                    { key: 'trouserInseam', label: 'Inseam (Inside Leg)' },
-                    { key: 'thigh', label: 'Thigh Circumference' },
-                    { key: 'knee', label: 'Knee Width' },
-                    { key: 'ankleOpening', label: 'Ankle / Cuff Opening' },
-                    { key: 'crotchRise', label: 'Total Rise' },
-                  ].map((field) => (
-                    <div key={field.key} className="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+            {/* Measurement Grid Organized Per Garment */}
+            <div className="space-y-8">
+              {/* 1. UPPER BODY / JACKET & BLAZER */}
+              {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'jacket') && (
+                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
+                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                        <span className="text-base">🧥</span>
+                        <span>Jacket & Blazer Anatomical Points</span>
+                        <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-500">Cut for suit jackets, blazers, dinner jackets, and tuxedos.</p>
+                    </div>
+                    <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Jacket</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 pt-1">
+                    {[
+                      { key: 'chest', label: 'Full Chest Circumference' },
+                      { key: 'waistStomach', label: 'Stomach / Waist' },
+                      { key: 'hipsSeat', label: 'Hips / Seat' },
+                      { key: 'shoulderWidth', label: 'Shoulder Width (Back)' },
+                      { key: 'halfBack', label: 'Half Back' },
+                      { key: 'jacketLength', label: 'Jacket Length' },
+                      { key: 'sleeveLengthLeft', label: 'Left Sleeve' },
+                      { key: 'sleeveLengthRight', label: 'Right Sleeve' },
+                      { key: 'neckCollar', label: 'Collar / Neck' },
+                      { key: 'bicep', label: 'Bicep Circumference' },
+                      { key: 'wrist', label: 'Wrist Circumference' },
+                    ].map((field) => (
+                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                          {field.label}
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.25"
+                            placeholder="—"
+                            value={measurements[field.key] ?? ''}
+                            onChange={(e) =>
+                              setMeasurements((prev) => ({
+                                ...prev,
+                                [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
+                              }))
+                            }
+                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                          />
+                          <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
+                            {measurementUnit}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 2. LOWER BODY / TROUSERS & PANTS */}
+              {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'trousers') && (
+                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
+                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                        <span className="text-base">👖</span>
+                        <span>Trouser & Lower Body Points</span>
+                        <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-500">Dimensions for tailored trousers, chinos, and tuxedo pants.</p>
+                    </div>
+                    <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Trousers</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 pt-1">
+                    {[
+                      { key: 'trouserWaist', label: 'Trouser Waistband' },
+                      { key: 'trouserSeat', label: 'Trouser Seat / Hips' },
+                      { key: 'trouserOutseam', label: 'Outseam (Total Length)' },
+                      { key: 'trouserInseam', label: 'Inseam (Inside Leg)' },
+                      { key: 'thigh', label: 'Thigh Circumference' },
+                      { key: 'knee', label: 'Knee Width' },
+                      { key: 'ankleOpening', label: 'Ankle / Cuff Opening' },
+                      { key: 'crotchRise', label: 'Total Rise' },
+                    ].map((field) => (
+                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                          {field.label}
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.25"
+                            placeholder="—"
+                            value={measurements[field.key] ?? ''}
+                            onChange={(e) =>
+                              setMeasurements((prev) => ({
+                                ...prev,
+                                [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
+                              }))
+                            }
+                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                          />
+                          <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
+                            {measurementUnit}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 3. WAISTCOAT & VEST */}
+              {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'waistcoat') && (
+                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
+                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                        <span className="text-base">🦺</span>
+                        <span>Waistcoat & Vest Points</span>
+                        <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-500">Cut for 3-piece wedding vests, horseshoe waistcoats, and double-breasted vests.</p>
+                    </div>
+                    <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Waistcoat</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-1">
+                    {[
+                      { key: 'vestChest', label: 'Vest Chest Circumference' },
+                      { key: 'vestWaist', label: 'Vest Waist' },
+                      { key: 'vestFrontLength', label: 'Front Point Length' },
+                      { key: 'vestBackLength', label: 'Center Back Length' },
+                    ].map((field) => (
+                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                          {field.label}
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.25"
+                            placeholder="—"
+                            value={measurements[field.key] ?? ''}
+                            onChange={(e) =>
+                              setMeasurements((prev) => ({
+                                ...prev,
+                                [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
+                              }))
+                            }
+                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                          />
+                          <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
+                            {measurementUnit}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 4. DRESS SHIRTS & TUNICS */}
+              {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'shirt') && (
+                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
+                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                        <span className="text-base">👔</span>
+                        <span>Dress Shirts & Kaunda / Senator Tunics</span>
+                        <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-500">Dimensions for tailored formal shirts, tuxedo shirts, and African kaftan tunics.</p>
+                    </div>
+                    <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Shirts</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 pt-1">
+                    {[
+                      { key: 'shirtCollar', label: 'Collar / Neck Size' },
+                      { key: 'shirtChest', label: 'Shirt Chest' },
+                      { key: 'shirtWaist', label: 'Shirt Waist' },
+                      { key: 'shirtSleeve', label: 'Sleeve Length' },
+                      { key: 'shirtLength', label: 'Shirt / Tunic Length' },
+                      { key: 'shirtCuff', label: 'Cuff Circumference' },
+                    ].map((field) => (
+                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                          {field.label}
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            step="0.25"
+                            placeholder="—"
+                            value={measurements[field.key] ?? ''}
+                            onChange={(e) =>
+                              setMeasurements((prev) => ({
+                                ...prev,
+                                [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
+                              }))
+                            }
+                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                          />
+                          <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
+                            {measurementUnit}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 5. SHOES & FOOTWEAR */}
+              {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'shoes') && (
+                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
+                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                        <span className="text-base">👞</span>
+                        <span>Shoes & Handcrafted Footwear</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-500">Shoe sizing for handcrafted leather oxfords, loafers, monk straps, and Chelsea boots.</p>
+                    </div>
+                    <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Footwear</span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-1">
+                    {/* EU Shoe Size */}
+                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
                       <label className="block text-[11px] font-semibold text-slate-600 mb-1">
-                        {field.label}
+                        EU Shoe Size (Kenya Std)
+                      </label>
+                      <select
+                        value={measurements.shoeSizeEu ?? ''}
+                        onChange={(e) =>
+                          setMeasurements((prev) => ({
+                            ...prev,
+                            shoeSizeEu: e.target.value === '' ? null : e.target.value,
+                          }))
+                        }
+                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                      >
+                        <option value="">Select EU Size</option>
+                        {[38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48].map((sz) => (
+                          <option key={sz} value={sz}>
+                            EU {sz}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* UK / US Shoe Size */}
+                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        UK / US Size
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. UK 8 / US 9"
+                        value={measurements.shoeSizeUk ?? ''}
+                        onChange={(e) =>
+                          setMeasurements((prev) => ({
+                            ...prev,
+                            shoeSizeUk: e.target.value,
+                          }))
+                        }
+                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                      />
+                    </div>
+
+                    {/* Foot Length */}
+                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        Foot Length (Heel to Toe)
                       </label>
                       <div className="relative">
                         <input
                           type="number"
                           step="0.25"
                           placeholder="—"
-                          value={measurements[field.key] ?? ''}
+                          value={measurements.footLength ?? ''}
                           onChange={(e) =>
                             setMeasurements((prev) => ({
                               ...prev,
-                              [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
+                              footLength: e.target.value === '' ? null : parseFloat(e.target.value),
                             }))
                           }
-                          className="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                          className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
                         />
                         <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
                           {measurementUnit}
                         </span>
                       </div>
                     </div>
-                  ))}
+
+                    {/* Foot Width */}
+                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        Foot Width / Fitting
+                      </label>
+                      <select
+                        value={measurements.footWidth ?? 'Standard (D)'}
+                        onChange={(e) =>
+                          setMeasurements((prev) => ({
+                            ...prev,
+                            footWidth: e.target.value,
+                          }))
+                        }
+                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                      >
+                        <option value="Standard (D)">Standard Width (D)</option>
+                        <option value="Wide (EE)">Wide Fit (EE)</option>
+                        <option value="Extra Wide (EEE)">Extra Wide Fit (EEE)</option>
+                        <option value="Narrow (C)">Narrow Fit (C)</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {/* 6. HATS & MASTER FEDORAS */}
+              {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'headwear') && (
+                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
+                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                        <span className="text-base">🎩</span>
+                        <span>Hats & Master Fedoras</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-500">Millinery measurements for 100% Australian wool felt fedoras and ceremonial caps.</p>
+                    </div>
+                    <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Hats</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1">
+                    {/* Head Circumference */}
+                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        Head Circumference (Above Ears & Forehead)
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="number"
+                          step="0.5"
+                          placeholder="e.g. 58"
+                          value={measurements.headCircumference ?? ''}
+                          onChange={(e) =>
+                            setMeasurements((prev) => ({
+                              ...prev,
+                              headCircumference: e.target.value === '' ? null : parseFloat(e.target.value),
+                            }))
+                          }
+                          className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                        />
+                        <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
+                          {measurementUnit === 'cm' ? 'cm' : 'inches'}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Fedora Hat Size */}
+                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        Hat Size Range
+                      </label>
+                      <select
+                        value={measurements.hatSize ?? ''}
+                        onChange={(e) =>
+                          setMeasurements((prev) => ({
+                            ...prev,
+                            hatSize: e.target.value,
+                          }))
+                        }
+                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                      >
+                        <option value="">Select Hat Size</option>
+                        <option value="Small (55-56 cm)">Small (55–56 cm)</option>
+                        <option value="Medium (57-58 cm)">Medium (57–58 cm) - Most Common</option>
+                        <option value="Large (59-60 cm)">Large (59–60 cm)</option>
+                        <option value="XL (61-62 cm)">Extra Large (61–62 cm)</option>
+                        <option value="XXL (63 cm+)">XXL (63 cm+)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Save Button */}

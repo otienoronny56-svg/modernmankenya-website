@@ -602,40 +602,177 @@ export default function AdminClientsPage() {
                       )}
                     </div>
 
-                    {/* Measurements Matrix */}
-                    <div className="space-y-3 pt-2">
+                    {/* Measurements Matrix Categorized Per Garment */}
+                    <div className="space-y-4 pt-2">
                       <div className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center justify-between border-b border-slate-200/80 pb-2">
-                        <span>Anatomical Blueprint ({client.measurements?.unit || 'inches'})</span>
+                        <span>Anatomical Blueprint & Garment Sizing ({client.measurements?.unit || 'inches'})</span>
                         <span className="text-[11px] text-slate-500 font-normal">
-                          Saved measurements profile
+                          Client profile per-garment records
                         </span>
                       </div>
 
-                      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2.5 text-xs">
-                        {[
-                          { label: 'Chest', val: client.measurements?.chest },
-                          { label: 'Waist / Stomach', val: client.measurements?.waistStomach },
-                          { label: 'Hips / Seat', val: client.measurements?.hipsSeat },
-                          { label: 'Shoulders', val: client.measurements?.shoulderWidth },
-                          { label: 'Half Back', val: client.measurements?.halfBack },
-                          { label: 'Jacket Length', val: client.measurements?.jacketLength },
-                          { label: 'Left Sleeve', val: client.measurements?.sleeveLengthLeft },
-                          { label: 'Right Sleeve', val: client.measurements?.sleeveLengthRight },
-                          { label: 'Collar / Neck', val: client.measurements?.neckCollar },
-                          { label: 'Bicep', val: client.measurements?.bicep },
-                          { label: 'Trouser Waist', val: client.measurements?.trouserWaist },
-                          { label: 'Trouser Inseam', val: client.measurements?.trouserInseam },
-                          { label: 'Trouser Outseam', val: client.measurements?.trouserOutseam },
-                          { label: 'Thigh', val: client.measurements?.thigh },
-                          { label: 'Ankle Opening', val: client.measurements?.ankleOpening },
-                        ].map((m, idx) => (
-                          <div key={idx} className="bg-white p-2.5 rounded-lg border border-slate-200/80">
-                            <span className="text-[10px] text-slate-400 uppercase font-semibold block">{m.label}</span>
-                            <span className="font-mono font-bold text-brand-navy text-sm">
-                              {m.val ? `${m.val}"` : '—'}
-                            </span>
+                      {/* 1. Jacket & Blazer */}
+                      <div className="space-y-1.5">
+                        <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                          <span>🧥</span>
+                          <span>Jacket & Blazer</span>
+                        </span>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2 text-xs">
+                          {[
+                            { label: 'Chest', val: client.measurements?.chest },
+                            { label: 'Waist / Stomach', val: client.measurements?.waistStomach },
+                            { label: 'Hips / Seat', val: client.measurements?.hipsSeat },
+                            { label: 'Shoulders', val: client.measurements?.shoulderWidth },
+                            { label: 'Half Back', val: client.measurements?.halfBack },
+                            { label: 'Jacket Length', val: client.measurements?.jacketLength },
+                            { label: 'Left Sleeve', val: client.measurements?.sleeveLengthLeft },
+                            { label: 'Right Sleeve', val: client.measurements?.sleeveLengthRight },
+                            { label: 'Collar / Neck', val: client.measurements?.neckCollar },
+                            { label: 'Bicep', val: client.measurements?.bicep },
+                            { label: 'Wrist', val: client.measurements?.wrist },
+                          ].map((m, idx) => (
+                            <div key={idx} className="bg-white p-2 rounded-lg border border-slate-200/80">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">{m.label}</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {m.val ? `${m.val}${client.measurements?.unit === 'cm' ? 'cm' : '"'}` : '—'}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 2. Trousers & Pants */}
+                      <div className="space-y-1.5">
+                        <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                          <span>👖</span>
+                          <span>Trousers & Pants</span>
+                        </span>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2 text-xs">
+                          {[
+                            { label: 'Trouser Waist', val: client.measurements?.trouserWaist },
+                            { label: 'Trouser Seat', val: client.measurements?.trouserSeat },
+                            { label: 'Outseam', val: client.measurements?.trouserOutseam },
+                            { label: 'Inseam', val: client.measurements?.trouserInseam },
+                            { label: 'Crotch Rise', val: client.measurements?.crotchRise },
+                            { label: 'Thigh', val: client.measurements?.thigh },
+                            { label: 'Knee', val: client.measurements?.knee },
+                            { label: 'Ankle Opening', val: client.measurements?.ankleOpening },
+                          ].map((m, idx) => (
+                            <div key={idx} className="bg-white p-2 rounded-lg border border-slate-200/80">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">{m.label}</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {m.val ? `${m.val}${client.measurements?.unit === 'cm' ? 'cm' : '"'}` : '—'}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 3. Waistcoat & Vest */}
+                      <div className="space-y-1.5">
+                        <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                          <span>🦺</span>
+                          <span>Waistcoat / Vest</span>
+                        </span>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                          {[
+                            { label: 'Vest Chest', val: client.measurements?.vestChest },
+                            { label: 'Vest Waist', val: client.measurements?.vestWaist },
+                            { label: 'Front Point Length', val: client.measurements?.vestFrontLength },
+                            { label: 'Back Length', val: client.measurements?.vestBackLength },
+                          ].map((m, idx) => (
+                            <div key={idx} className="bg-white p-2 rounded-lg border border-slate-200/80">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">{m.label}</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {m.val ? `${m.val}${client.measurements?.unit === 'cm' ? 'cm' : '"'}` : '—'}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 4. Shirts & Senator / Kaunda Tunics */}
+                      <div className="space-y-1.5">
+                        <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                          <span>👔</span>
+                          <span>Shirts & Tunics</span>
+                        </span>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs">
+                          {[
+                            { label: 'Shirt Collar', val: client.measurements?.shirtCollar },
+                            { label: 'Shirt Chest', val: client.measurements?.shirtChest },
+                            { label: 'Shirt Waist', val: client.measurements?.shirtWaist },
+                            { label: 'Shirt Sleeve', val: client.measurements?.shirtSleeve },
+                            { label: 'Shirt Length', val: client.measurements?.shirtLength },
+                            { label: 'Shirt Cuff', val: client.measurements?.shirtCuff },
+                          ].map((m, idx) => (
+                            <div key={idx} className="bg-white p-2 rounded-lg border border-slate-200/80">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">{m.label}</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {m.val ? `${m.val}${client.measurements?.unit === 'cm' ? 'cm' : '"'}` : '—'}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 5. Shoes & Hats */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                        {/* Shoes & Footwear */}
+                        <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200/80 space-y-1.5">
+                          <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                            <span>👞</span>
+                            <span>Shoes & Footwear</span>
+                          </span>
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                            <div className="bg-white p-2 rounded border border-slate-200">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">EU Size</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {client.measurements?.shoeSizeEu ? `EU ${client.measurements.shoeSizeEu}` : '—'}
+                              </span>
+                            </div>
+                            <div className="bg-white p-2 rounded border border-slate-200">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">UK Size</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {client.measurements?.shoeSizeUk ? `UK ${client.measurements.shoeSizeUk}` : '—'}
+                              </span>
+                            </div>
+                            <div className="bg-white p-2 rounded border border-slate-200">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">Foot Length</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {client.measurements?.footLength ? `${client.measurements.footLength}"` : '—'}
+                              </span>
+                            </div>
+                            <div className="bg-white p-2 rounded border border-slate-200">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">Width Fitting</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs truncate">
+                                {client.measurements?.footWidth || '—'}
+                              </span>
+                            </div>
                           </div>
-                        ))}
+                        </div>
+
+                        {/* Hats & Headwear */}
+                        <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200/80 space-y-1.5">
+                          <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                            <span>🎩</span>
+                            <span>Hats & Headwear</span>
+                          </span>
+                          <div className="grid grid-cols-2 gap-2 text-xs">
+                            <div className="bg-white p-2 rounded border border-slate-200">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">Head Circumference</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs">
+                                {client.measurements?.headCircumference ? `${client.measurements.headCircumference} cm` : '—'}
+                              </span>
+                            </div>
+                            <div className="bg-white p-2 rounded border border-slate-200">
+                              <span className="text-[10px] text-slate-400 uppercase font-semibold block">Hat Size</span>
+                              <span className="font-mono font-bold text-brand-navy text-xs truncate">
+                                {client.measurements?.hatSize || '—'}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
