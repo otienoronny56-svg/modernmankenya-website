@@ -24,22 +24,26 @@ interface ChatMessage {
 const INITIAL_MESSAGE: ChatMessage = {
   id: 'welcome',
   role: 'model',
-  content: `Welcome to **Modern Man Kenya**. I am your personal Sartorial Stylist & Atelier Concierge.
+  content: `Welcome to **Modern Man Kenya**. I am your personal Made to Measure Stylist & Atelier Concierge in Nairobi.
 
 I can assist you with:
-• **Our 3 Suit Tiers** (Standard 18k–25k, Premium 30k–45k, Executive 50k–200k)
-• **Signature Fabrics** (Luxury Jacquard, 100% Merino Wool, Wool Blends, Safari Cottons)
-• **Occasion Outfits** (Weddings, Boardroom Power Suiting, Black-Tie Galas)
-• **Booking a Private Fitting** at our Nairobi Atelier
+• **Men's Made to Measure Suits**: Standard (18k–25k, 1 wk), Premium (30k–45k, 2 wks), Executive (50k–200k, 3–4 wks)
+• **Adult Wedding Tuxedos**: Ivory dinner jackets, black tie shawl collars, velvet & 3D luxury jacquards
+• **Modern Woman**: Made to measure women's power pant suits, 3-piece waistcoat suits & executive skirt sets
+• **Modern Kids**: Page boy wedding suits, junior tuxedos & father-and-son matching sets
+• **Luxury Accessories**: Onyx cufflinks, 24K gold tie clips, silk cravats, bowties, suspenders & fedoras
+• **Atelier Appointments**: Book a private fitting with our master tailors
 
-How can I elevate your style today?`,
+How may I assist your style today?`,
   timestamp: new Date(),
 };
 
 const SUGGESTIONS = [
-  'What are your 3 suit tiers & prices?',
-  'Recommend a suit for a wedding groom',
-  'What is the difference between Jacquard and Pure Wool?',
+  'Wedding tuxedos & groom styling',
+  'What are your 3 Made to Measure suit tiers?',
+  "Tell me about women's power suits",
+  "Do you make children's & page boy suits?",
+  'Which cufflinks & accessories do you have?',
   'How do I book a private fitting in Nairobi?',
 ];
 
