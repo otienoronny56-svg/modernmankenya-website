@@ -11,6 +11,7 @@ import { ReadyToWearSection } from '@/components/home/ReadyToWearSection';
 import { TheExperienceSection } from '@/components/home/TheExperienceSection';
 import { CraftsmanshipSection } from '@/components/home/CraftsmanshipSection';
 import { WhyModernManSection } from '@/components/home/WhyModernManSection';
+import { MadeToMeasureOccasionSection } from '@/components/home/MadeToMeasureOccasionSection';
 import { AtelierInvitation } from '@/components/home/AtelierInvitation';
 
 export const metadata: Metadata = {
@@ -73,7 +74,10 @@ export default function HomePage() {
       {/* Transition 7: Measuring Tape Precision */}
       <MeasuringTapeTransition />
 
-      {/* 8. Nairobi Atelier Consultation & Contact */}
+      {/* 8. Made to Measure: Tailor Your Fit for Any Occasion */}
+      <MadeToMeasureOccasionSection />
+
+      {/* 9. Nairobi Atelier Consultation & Contact */}
       <AtelierInvitation />
     </main>
   );

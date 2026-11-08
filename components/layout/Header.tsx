@@ -54,17 +54,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
   const totalCartCount = mounted ? getTotalCount() : 0;
 
-  // Streamlined, concise links with minimal wording
-  const madeToMeasureLinks = [
-    { name: 'Suits & Suiting', href: '/bespoke/bespoke-suits' },
-    { name: 'Tuxedos & Eveningwear', href: '/bespoke/bespoke-evening-wear' },
-    { name: 'Kaunda & Safari Suits', href: '/bespoke/kaunda-suits' },
-    { name: 'Weddings & Groom Ensembles', href: '/bespoke/weddings' },
-    { name: 'Shirts & Accessories (Shop)', href: '/ready-to-wear' },
-    { name: 'Corporate & Executive', href: '/bespoke/corporate-wardrobes' },
-    { name: 'The Craftsmanship', href: '/the-craft' },
-  ];
-
   const occasionLinks = [
     { name: 'All Occasions', href: '/occasions' },
     { name: 'Executive Wear', href: '/occasions/executive-wear' },
@@ -108,48 +97,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
           {/* Desktop Navigation Links - Ultra-Clean, Minimal & Spacious */}
           <nav className="hidden lg:flex items-center space-x-8 text-xs sm:text-sm font-medium text-slate-700">
             
-            {/* Made to Measure Dropdown */}
-            <div
-              className="relative py-2 group"
-              onMouseEnter={() => setActiveDropdown('mtm')}
-              onMouseLeave={() => setActiveDropdown(null)}
+            {/* Gallery Direct Link */}
+            <Link
+              href="/gallery"
+              className={`py-2 transition-colors font-medium text-xs sm:text-sm ${
+                pathname === '/gallery' ? 'text-brand-navy font-semibold' : 'text-slate-700 hover:text-brand-gold'
+              }`}
             >
-              <button 
-                className={`flex items-center space-x-1.5 transition-all duration-200 font-medium ${
-                  activeDropdown === 'mtm' ? 'text-brand-navy font-semibold' : 'hover:text-brand-gold'
-                }`}
-              >
-                <span>Made to Measure</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-brand-gold transition-transform duration-300 ${
-                  activeDropdown === 'mtm' ? 'rotate-180 text-brand-navy' : ''
-                }`} />
-              </button>
-
-              {activeDropdown === 'mtm' && (
-                <div className="absolute top-full left-0 w-64 pt-2 z-50">
-                  <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-slate-200/80 p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2">
-                    <div className="px-3 py-1.5 mb-1 border-b border-slate-100 flex items-center justify-between">
-                      <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-gold">Bespoke Tailoring</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-                    </div>
-                    {madeToMeasureLinks.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs text-slate-700 hover:text-brand-navy hover:bg-slate-100/80 transition-all duration-150 font-medium"
-                      >
-                        <span className="group-hover/item:translate-x-1 transition-transform duration-150">
-                          {item.name}
-                        </span>
-                        <span className="opacity-0 group-hover/item:opacity-100 text-brand-gold transition-opacity duration-150 text-[10px]">
-                          →
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+              Gallery
+            </Link>
 
             {/* The Craft Direct Link */}
             <Link
@@ -306,30 +262,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               <CountryCurrencySelector theme="light" />
             </div>
 
-            {/* Accordion: Made to Measure */}
-            <div className="border-b border-slate-100 pb-2">
-              <button
-                onClick={() => setMobileSectionOpen(mobileSectionOpen === 'mtm' ? null : 'mtm')}
-                className="w-full flex items-center justify-between py-2 text-left font-semibold text-sm text-brand-navy"
-              >
-                <span>Made to Measure</span>
-                <ChevronDown className={`w-4 h-4 text-brand-gold transition-transform duration-200 ${mobileSectionOpen === 'mtm' ? 'rotate-180' : ''}`} />
-              </button>
-
-              {mobileSectionOpen === 'mtm' && (
-                <div className="pl-3 py-1 space-y-1.5 border-l-2 border-brand-gold/40">
-                  {madeToMeasureLinks.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="block py-1 text-xs text-slate-600 hover:text-brand-gold"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* Gallery Direct Link */}
+            <Link
+              href="/gallery"
+              className="block py-2 text-sm font-semibold text-brand-navy border-b border-slate-100 hover:text-brand-gold"
+            >
+              Gallery
+            </Link>
 
             {/* The Craft Direct Link */}
             <Link
