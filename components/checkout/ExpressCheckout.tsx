@@ -22,6 +22,7 @@ import {
 import { useCartStore } from '@/store/cartStore';
 import { useAuth } from '@/lib/auth/AuthContext';
 import { formatCurrencyPrice } from '@/lib/currency';
+import { MpesaStkModal } from '@/components/checkout/MpesaStkModal';
 import type { CartItem } from '@/types';
 
 interface ExpressCheckoutProps {
@@ -46,6 +47,10 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
   const [copiedTill, setCopiedTill] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [hasSavedMeasurements, setHasSavedMeasurements] = useState(false);
+
+  // M-Pesa STK Push state
+  const [stkModalOpen, setStkModalOpen] = useState(false);
+  const [pendingOrderForStk, setPendingOrderForStk] = useState<any>(null);
 
   // Auto-fill from authenticated user profile or saved client blueprint
   useEffect(() => {
@@ -173,9 +178,6 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
       }
 
       const order = data.order;
-      setSubmittedOrder(order);
-      clearCart();
-      if (onSuccess) onSuccess(order.order_number);
 
       // Persist delivery coordinates & profile for subsequent orders
       if (customerEmail) {
@@ -191,8 +193,19 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
         }).catch(() => {});
       }
 
+      // If website checkout, trigger Lipa Na M-Pesa STK Push prompt on user's phone!
+      if (orderMethod === 'website') {
+        setPendingOrderForStk(order);
+        setStkModalOpen(true);
+        return;
+      }
+
       // If WhatsApp method selected, open WhatsApp directly with pre-formatted payload
       if (orderMethod === 'whatsapp') {
+        setSubmittedOrder(order);
+        clearCart();
+        if (onSuccess) onSuccess(order.order_number);
+
         const itemLines = formattedItems
           .map((i) => `• ${i.quantity}x ${i.name} (Size: ${i.size || 'Standard'}) - KES ${(i.priceKes * i.quantity).toLocaleString()}`)
           .join('\n');
@@ -211,9 +224,31 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
   };
 
   const handleCopyTill = () => {
-    navigator.clipboard.writeText('8234500');
+    navigator.clipboard.writeText('174379');
     setCopiedTill(true);
     setTimeout(() => setCopiedTill(false), 2500);
+  };
+
+  const handleStkSuccess = (receipt: string) => {
+    if (pendingOrderForStk) {
+      setSubmittedOrder({
+        ...pendingOrderForStk,
+        payment_status: 'paid',
+        mpesa_receipt: receipt,
+      });
+      clearCart();
+      setStkModalOpen(false);
+      if (onSuccess) onSuccess(pendingOrderForStk.order_number);
+    }
+  };
+
+  const handleFallbackToTill = () => {
+    if (pendingOrderForStk) {
+      setSubmittedOrder(pendingOrderForStk);
+      clearCart();
+      setStkModalOpen(false);
+      if (onSuccess) onSuccess(pendingOrderForStk.order_number);
+    }
   };
 
   // Order Confirmed Screen
@@ -247,41 +282,73 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
         </div>
 
         {/* M-Pesa Settlement Instructions Box */}
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-left space-y-3">
-          <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
-            <span className="font-bold text-xs uppercase tracking-wider text-brand-navy flex items-center space-x-1.5">
-              <span>M-Pesa Payment Settlement</span>
-            </span>
-            <span className="text-xs font-mono font-bold text-brand-navy">
-              KES {submittedOrder.total_amount_kes.toLocaleString()}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 text-xs">
-            <div className="bg-white p-3 rounded border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Buy Goods Till No.</span>
-              <div className="flex items-center justify-between mt-1">
-                <span className="font-mono font-bold text-sm text-brand-navy">8234500</span>
-                <button
-                  onClick={handleCopyTill}
-                  className="text-xs text-brand-gold hover:text-brand-navy font-semibold flex items-center space-x-1"
-                >
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>{copiedTill ? 'Copied' : 'Copy'}</span>
-                </button>
-              </div>
-              <span className="text-[10px] text-slate-400 block mt-0.5">Modern Man Kenya</span>
-            </div>
-
-            <div className="bg-white p-3 rounded border border-slate-200">
-              <span className="text-[10px] uppercase font-bold text-slate-400 block">Delivery Destination</span>
-              <span className="font-bold text-xs text-slate-800 block mt-1 truncate">
-                {submittedOrder.delivery_location}
+        {submittedOrder.payment_status === 'paid' ? (
+          <div className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5 text-left space-y-3">
+            <div className="flex items-center justify-between border-b border-emerald-200/80 pb-2">
+              <span className="font-bold text-xs uppercase tracking-wider text-emerald-800 dark:text-emerald-300 flex items-center space-x-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#00A651]" />
+                <span>M-Pesa Payment Received & Verified</span>
               </span>
-              <span className="text-[10px] text-emerald-600 font-semibold block mt-0.5">Rider Scheduled</span>
+              <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-300">
+                KES {submittedOrder.total_amount_kes.toLocaleString()}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 text-xs">
+              <div className="bg-white dark:bg-slate-900 p-3 rounded border border-emerald-200/60 dark:border-slate-800">
+                <span className="text-[10px] uppercase font-bold text-slate-400 block">Safaricom Receipt</span>
+                <span className="font-mono font-bold text-sm text-[#00A651] block mt-0.5">
+                  {submittedOrder.mpesa_receipt || 'Verified by Daraja'}
+                </span>
+                <span className="text-[10px] text-emerald-600 font-semibold block mt-0.5">Settled Online</span>
+              </div>
+
+              <div className="bg-white dark:bg-slate-900 p-3 rounded border border-emerald-200/60 dark:border-slate-800">
+                <span className="text-[10px] uppercase font-bold text-slate-400 block">Delivery Destination</span>
+                <span className="font-bold text-xs text-slate-800 dark:text-slate-100 block mt-1 truncate">
+                  {submittedOrder.delivery_location}
+                </span>
+                <span className="text-[10px] text-emerald-600 font-semibold block mt-0.5">Atelier Rider Assigned</span>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-left space-y-3">
+            <div className="flex items-center justify-between border-b border-slate-200/80 pb-2">
+              <span className="font-bold text-xs uppercase tracking-wider text-brand-navy flex items-center space-x-1.5">
+                <span>M-Pesa Payment Settlement</span>
+              </span>
+              <span className="text-xs font-mono font-bold text-brand-navy">
+                KES {submittedOrder.total_amount_kes.toLocaleString()}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 text-xs">
+              <div className="bg-white p-3 rounded border border-slate-200">
+                <span className="text-[10px] uppercase font-bold text-slate-400 block">Paybill / Shortcode</span>
+                <div className="flex items-center justify-between mt-1">
+                  <span className="font-mono font-bold text-sm text-brand-navy">174379</span>
+                  <button
+                    onClick={handleCopyTill}
+                    className="text-xs text-brand-gold hover:text-brand-navy font-semibold flex items-center space-x-1"
+                  >
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>{copiedTill ? 'Copied' : 'Copy'}</span>
+                  </button>
+                </div>
+                <span className="text-[10px] text-slate-400 block mt-0.5">Modern Man Kenya</span>
+              </div>
+
+              <div className="bg-white p-3 rounded border border-slate-200">
+                <span className="text-[10px] uppercase font-bold text-slate-400 block">Delivery Destination</span>
+                <span className="font-bold text-xs text-slate-800 block mt-1 truncate">
+                  {submittedOrder.delivery_location}
+                </span>
+                <span className="text-[10px] text-emerald-600 font-semibold block mt-0.5">Rider Scheduled</span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Quick Follow-up Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
@@ -582,6 +649,19 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
           <span>Atelier Quality Guarantee</span>
         </span>
       </div>
+
+      {/* M-Pesa STK Push Instant PIN Modal */}
+      {pendingOrderForStk && (
+        <MpesaStkModal
+          isOpen={stkModalOpen}
+          onClose={() => setStkModalOpen(false)}
+          phone={customerPhone}
+          amountKes={pendingOrderForStk.total_amount_kes}
+          orderNumber={pendingOrderForStk.order_number}
+          onPaymentSuccess={handleStkSuccess}
+          onFallbackToManualTill={handleFallbackToTill}
+        />
+      )}
     </div>
   );
 };

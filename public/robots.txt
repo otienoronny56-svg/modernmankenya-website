@@ -27,3 +27,4 @@ Disallow: /cart/
 
 Sitemap: https://www.modernmanke.com/sitemap.xml
 Host: https://www.modernmanke.com
+

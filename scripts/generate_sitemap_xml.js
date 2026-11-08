@@ -96,3 +96,4 @@ ${allUrls
 const outputPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
 fs.writeFileSync(outputPath, xml, 'utf8');
 console.log(`Generated public/sitemap.xml with ${allUrls.length} verified URLs.`);
+
