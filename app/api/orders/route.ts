@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase/client';
+import { dispatchOrderEmails } from '@/lib/email';
 
 export interface OrderItem {
   id: string;
@@ -273,6 +274,19 @@ export async function POST(request: Request) {
     } catch (dbErr) {
       console.warn('Supabase order insert notice:', dbErr);
     }
+
+    // Dispatch automated transactional emails (Customer Confirmation & Admin Alert)
+    dispatchOrderEmails({
+      orderNumber: newOrderNumber,
+      customerName: newOrder.customer_name,
+      customerEmail: newOrder.customer_email,
+      customerPhone: newOrder.customer_phone,
+      deliveryLocation: newOrder.delivery_location,
+      items: newOrder.items,
+      totalAmountKes: newOrder.total_amount_kes,
+      paymentStatus: newOrder.payment_status,
+      notes: notes || '',
+    }).catch((emailErr) => console.error('Order email dispatch notice:', emailErr));
 
     return NextResponse.json({
       success: true,
