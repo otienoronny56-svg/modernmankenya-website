@@ -28,7 +28,7 @@ interface ProductFormModalProps {
 
 const CATEGORIES = [
   { id: 'accessories', name: 'Accessories (Ties, Cufflinks, Belts, Pins, Watches)' },
-  { id: 'fragrances', name: 'Haute Parfumerie & Fragrances' },
+  { id: 'fragrances', name: 'Luxury Fragrances & Perfumes' },
   { id: 'shirts', name: 'Tailored Ready-to-Wear Shirts' },
 ];
 
@@ -720,7 +720,7 @@ export function ProductFormModal({
                   { label: 'Silk Necktie', tag: 'Pure Jacquard Silk Necktie', fab: '100% Woven Jacquard Silk (Hand-rolled)', price: 4500 },
                   { label: 'Bow Tie & Square Set', tag: 'Silk Bow Tie & Matching Pocket Square Set', fab: '100% Pure Silk & Microfiber', price: 5500 },
                   { label: 'Cufflinks & Hardware', tag: 'Artisanal Rhodium & Brass Cufflinks', fab: 'Solid Polished Brass & Rhodium Plate', price: 4000 },
-                  { label: 'Haute Fragrance / Parfum', tag: 'Extrait de Parfum Artisanal Blend (100ml)', fab: 'Pure Precious Essential Oils & Oud Wood', price: 18500 },
+                  { label: 'Luxury Fragrance / Perfume', tag: 'Bespoke Luxury Perfume (100ml)', fab: 'Pure Precious Essential Oils & Natural Notes', price: 18500 },
                   { label: 'Lapel Pin / Boutonnière', tag: 'Handcrafted Boutonnière Lapel Pin', fab: 'Polished Brass & Enamel Finish', price: 3000 },
                   { label: 'Leather Belt', tag: 'Full-Grain Italian Leather Dress Belt', fab: 'Full-Grain Vegetable Tanned Leather', price: 6500 },
                   { label: 'Cravat / Ascot', tag: 'Regal Silk Ascot & Cravat Ensemble', fab: 'Pure Mulberry Silk', price: 6000 },

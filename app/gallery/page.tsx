@@ -216,7 +216,7 @@ function GalleryContent() {
     if (selectedCategory === 'accessories') {
       let list = liveProducts.filter((p) => (p.category === 'accessories' || p.category === 'fragrances') && !p.slug.includes('shirt'));
       if (accessorySubFilter === 'fragrances') {
-        list = list.filter((p) => p.category === 'fragrances' || p.slug.includes('parfum') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver'));
+        list = list.filter((p) => p.category === 'fragrances' || p.slug.includes('parfum') || p.slug.includes('perfume') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver'));
       } else if (accessorySubFilter === 'neckwear') {
         list = list.filter((p) => p.slug.includes('tie') || p.slug.includes('cravat') || p.slug.includes('bowtie'));
       } else if (accessorySubFilter === 'hardware') {
@@ -386,7 +386,7 @@ function GalleryContent() {
               <div className="flex items-center space-x-2 overflow-x-auto pb-1 no-scrollbar">
                 {[
                   { id: 'all', label: 'All' },
-                  { id: 'fragrances', label: 'Haute Fragrances' },
+                  { id: 'fragrances', label: 'Fragrances & Perfumes' },
                   { id: 'neckwear', label: 'Ties & Bowties' },
                   { id: 'hardware', label: 'Cufflinks & Pins' },
                   { id: 'leather-timepieces', label: 'Leather & Watches' },

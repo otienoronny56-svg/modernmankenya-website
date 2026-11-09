@@ -24,12 +24,12 @@ const MAIN_TABS = [
   { id: 'all', label: 'All Ready-to-Wear' },
   { id: 'shirts', label: 'Luxury Shirts' },
   { id: 'accessories', label: 'Artisanal Accessories' },
-  { id: 'fragrances', label: 'Haute Fragrances' },
+  { id: 'fragrances', label: 'Fragrances & Perfumes' },
 ];
 
 const ACCESSORY_SUBTABS = [
   { id: 'all-acc', label: 'All Accessories' },
-  { id: 'fragrances', label: 'Fragrances & Parfums' },
+  { id: 'fragrances', label: 'Fragrances & Perfumes' },
   { id: 'neckwear', label: 'Ties & Bowties' },
   { id: 'cufflinks', label: 'Cufflinks & Hardware' },
   { id: 'lapel-pins', label: 'Lapel Pins & Brooches' },
@@ -94,7 +94,7 @@ function ReadyToWearShopContent() {
         
         const isFragrance =
           p.category === 'fragrances' ||
-          (p.category === 'accessories' && (p.slug.includes('parfum') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver') || p.name.toLowerCase().includes('fragrance') || p.name.toLowerCase().includes('parfum') || p.name.toLowerCase().includes('oud')));
+          (p.category === 'accessories' && (p.slug.includes('parfum') || p.slug.includes('perfume') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver') || p.name.toLowerCase().includes('fragrance') || p.name.toLowerCase().includes('perfume') || p.name.toLowerCase().includes('parfum') || p.name.toLowerCase().includes('oud')));
 
         const isAccessory = 
           (p.category === 'accessories' || isFragrance) && !p.slug.includes('shirt');

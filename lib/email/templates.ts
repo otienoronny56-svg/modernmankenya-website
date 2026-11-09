@@ -51,7 +51,7 @@ const headerHtml = `
       MODERN MAN KENYA
     </h1>
     <div style="color: #94a3b8; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px;">
-      Bespoke Sartorial & Haute Parfumerie
+      Bespoke Sartorial & Luxury Perfumes
     </div>
   </div>
 `;

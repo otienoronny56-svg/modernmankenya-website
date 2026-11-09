@@ -22,7 +22,7 @@ import { ProductFormModal } from '@/components/admin/ProductFormModal';
 const CATEGORIES = [
   { id: 'all', name: 'All Shop Items' },
   { id: 'accessories', name: 'Accessories' },
-  { id: 'fragrances', name: 'Fragrances & Parfums' },
+  { id: 'fragrances', name: 'Fragrances & Perfumes' },
   { id: 'shirts', name: 'Shirts' },
   { id: 'neckwear', name: 'Ties & Bowties' },
   { id: 'cufflinks', name: 'Cufflinks & Hardware' },
@@ -65,7 +65,7 @@ export default function AdminProductsPage() {
         return false;
       }
       if (selectedCategory === 'fragrances') {
-        const isFrag = p.category === 'fragrances' || (p.category === 'accessories' && (p.slug.includes('parfum') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver') || p.name.toLowerCase().includes('fragrance') || p.name.toLowerCase().includes('parfum') || p.name.toLowerCase().includes('oud')));
+        const isFrag = p.category === 'fragrances' || (p.category === 'accessories' && (p.slug.includes('parfum') || p.slug.includes('perfume') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver') || p.name.toLowerCase().includes('fragrance') || p.name.toLowerCase().includes('perfume') || p.name.toLowerCase().includes('parfum') || p.name.toLowerCase().includes('oud')));
         if (!isFrag) return false;
       }
       if (selectedCategory === 'shirts' && p.category !== 'shirts') {
