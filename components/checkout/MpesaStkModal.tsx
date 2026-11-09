@@ -159,7 +159,7 @@ export const MpesaStkModal: React.FC<MpesaStkModalProps> = ({
         <div className="flex items-center justify-center space-x-2 pt-2 mb-4">
           <div className="px-3 py-1 rounded-full bg-[#00A651]/10 text-[#00A651] border border-[#00A651]/30 text-xs font-bold uppercase tracking-wider flex items-center space-x-1.5">
             <span className="w-2 h-2 rounded-full bg-[#00A651] animate-pulse" />
-            <span>M-Pesa Express • Daraja</span>
+            <span>Lipa Na M-Pesa Online</span>
           </div>
         </div>
 
@@ -270,7 +270,7 @@ export const MpesaStkModal: React.FC<MpesaStkModalProps> = ({
                 className="w-full py-3 bg-[#00A651] hover:bg-[#008f45] text-white rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md transition-all cursor-pointer"
               >
                 <RotateCcw className="w-4 h-4" />
-                <span>Retry M-Pesa STK Push</span>
+                <span>Resend M-Pesa Prompt</span>
               </button>
 
               <button
@@ -289,7 +289,7 @@ export const MpesaStkModal: React.FC<MpesaStkModalProps> = ({
         {/* Footer Guarantee */}
         <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 mt-4 flex items-center justify-center space-x-2 text-[10px] text-slate-400">
           <ShieldCheck className="w-3.5 h-3.5 text-brand-gold" />
-          <span>Safaricom Daraja 2.0 Certified Security</span>
+          <span>Official Safaricom M-Pesa Encrypted Security</span>
         </div>
       </div>
     </div>

@@ -299,7 +299,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
               <div className="bg-white dark:bg-slate-900 p-3 rounded border border-emerald-200/60 dark:border-slate-800">
                 <span className="text-[10px] uppercase font-bold text-slate-400 block">Safaricom Receipt</span>
                 <span className="font-mono font-bold text-sm text-[#00A651] block mt-0.5">
-                  {submittedOrder.mpesa_receipt || 'Verified by Daraja'}
+                  {submittedOrder.mpesa_receipt || 'Verified by Safaricom M-Pesa'}
                 </span>
                 <span className="text-[10px] text-emerald-600 font-semibold block mt-0.5">Settled Online</span>
               </div>
