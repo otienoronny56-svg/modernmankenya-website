@@ -44,17 +44,12 @@ function BookAppointmentContent() {
   const fittingTypes = [
     {
       title: 'Initial Made to Measure Consultation',
-      duration: '60 Minutes',
+      duration: '45 Minutes',
       desc: 'First-time commission. Style profiling, anatomical measurement, and review of 4,000+ cloth swatches.',
     },
     {
-      title: 'Basting Fitting (Stage 2)',
-      duration: '45 Minutes',
-      desc: 'Fitting of your temporary canvas skeleton. White basting thread adjustments on floating canvas.',
-    },
-    {
       title: 'Wedding Party & Groomsmen Wardrobe',
-      duration: '90 Minutes',
+      duration: '60 Minutes',
       desc: 'Coordinated fitting for groom, best man, and groomsmen party in our private VIP lounge.',
     },
     {
@@ -338,7 +333,7 @@ function BookAppointmentContent() {
                           Duration
                         </span>
                         <p className="text-xs font-semibold text-slate-200">
-                          60 Min Fitting
+                          {fittingTypes.find((f) => f.title === fittingType)?.duration || '45 Minutes'}
                         </p>
                       </div>
                     </div>

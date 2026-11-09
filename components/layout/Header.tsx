@@ -141,26 +141,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
               </button>
 
               {activeDropdown === 'occasions' && (
-                <div className="absolute top-full left-0 w-56 pt-2 z-50">
-                  <div className="backdrop-blur-xl rounded-xl shadow-2xl border p-2 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2 bg-white/98 dark:bg-[#181D2A] text-slate-700 dark:text-slate-200 border-slate-200/90 dark:border-slate-700/80 shadow-slate-300/40 dark:shadow-black/70">
-                    <div className="px-3 py-1.5 mb-1 border-b border-slate-100 dark:border-slate-700/60 flex items-center justify-between">
-                      <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-gold">Curated Dress Codes</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
+                <div className="absolute top-full left-0 w-64 pt-2 z-50">
+                  <div className="rounded-xl shadow-2xl border p-2.5 transform origin-top transition-all duration-200 animate-in fade-in zoom-in-95 slide-in-from-top-2 bg-white dark:bg-[#121622] text-slate-800 dark:text-slate-100 border-slate-200 dark:border-slate-700/80 shadow-black/25">
+                    <div className="px-3 py-2 mb-1.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 rounded-lg flex items-center justify-between">
+                      <span className="text-[10px] uppercase tracking-[0.18em] font-extrabold text-amber-800 dark:text-brand-gold">Curated Dress Codes</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-600 dark:bg-brand-gold animate-pulse" />
                     </div>
-                    {occasionLinks.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="group/item flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-100/90 dark:hover:bg-slate-800/90"
-                      >
-                        <span className="group-hover/item:translate-x-1 transition-transform duration-150">
-                          {item.name}
-                        </span>
-                        <span className="opacity-0 group-hover/item:opacity-100 text-brand-gold transition-opacity duration-150 text-[10px]">
-                          →
-                        </span>
-                      </Link>
-                    ))}
+                    <div className="space-y-0.5">
+                      {occasionLinks.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setActiveDropdown(null)}
+                          className="group/item flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-semibold transition-all duration-150 text-slate-800 dark:text-slate-200 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-100 dark:hover:bg-slate-800/80"
+                        >
+                          <span className="group-hover/item:translate-x-1 transition-transform duration-150">
+                            {item.name}
+                          </span>
+                          <span className="opacity-0 group-hover/item:opacity-100 text-amber-600 dark:text-brand-gold transition-opacity duration-150 text-xs font-bold">
+                            →
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
