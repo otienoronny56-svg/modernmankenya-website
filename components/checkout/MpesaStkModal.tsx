@@ -260,7 +260,7 @@ export const MpesaStkModal: React.FC<MpesaStkModalProps> = ({
               </h3>
               <p className="text-xs text-slate-500 max-w-xs mx-auto">
                 {errorMsg ||
-                  'The M-Pesa prompt timed out before a PIN was entered. You can retry or use our manual Buy Goods Till.'}
+                  'The M-Pesa prompt timed out before a PIN was entered. You can retry or pay directly via Paybill 542542 (Account: 923082).'}
               </p>
             </div>
 
@@ -280,7 +280,7 @@ export const MpesaStkModal: React.FC<MpesaStkModalProps> = ({
                 }}
                 className="w-full py-2.5 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl font-semibold text-xs transition-colors"
               >
-                <span>Pay via Buy Goods Till Instead (8234500)</span>
+                <span>Pay via Paybill Instead (542542 • Acc: 923082)</span>
               </button>
             </div>
           </div>

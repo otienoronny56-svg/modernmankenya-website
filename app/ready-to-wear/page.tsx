@@ -182,7 +182,7 @@ function ReadyToWearShopContent() {
               Ready-to-Wear: Shirts & Accessories
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
-              Precision-tailored Egyptian cotton shirts and artisanal accessories available for immediate order, M-Pesa Buy Goods checkout, and same-day Nairobi courier dispatch.
+              Precision-tailored Egyptian cotton shirts, artisanal fragrances, and luxury accessories available for immediate order, instant M-Pesa checkout, and same-day Nairobi courier dispatch.
             </p>
 
             {/* Value Guarantees Banner */}
@@ -191,9 +191,9 @@ function ReadyToWearShopContent() {
                 <Truck className="w-4 h-4 text-brand-gold flex-shrink-0" />
                 <span className="truncate">Nairobi Same-Day Courier</span>
               </div>
-              <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded border border-white/10 backdrop-blur-sm">
+              <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded border border-white/10 backdrop-blur-sm" title="M-Pesa Paybill: 542542, Account: 923082">
                 <CreditCard className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <span className="truncate">M-Pesa Till 8234500</span>
+                <span className="truncate">Paybill 542542 • Acc: 923082</span>
               </div>
               <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded border border-white/10 backdrop-blur-sm">
                 <MessageCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />

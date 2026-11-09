@@ -45,7 +45,8 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
 
   const [submitting, setSubmitting] = useState(false);
   const [submittedOrder, setSubmittedOrder] = useState<any>(null);
-  const [copiedTill, setCopiedTill] = useState(false);
+  const [copiedPaybill, setCopiedPaybill] = useState(false);
+  const [copiedAcc, setCopiedAcc] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [hasSavedMeasurements, setHasSavedMeasurements] = useState(false);
 
@@ -224,10 +225,16 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
     }
   };
 
-  const handleCopyTill = () => {
-    navigator.clipboard.writeText('174379');
-    setCopiedTill(true);
-    setTimeout(() => setCopiedTill(false), 2500);
+  const handleCopyPaybill = () => {
+    navigator.clipboard.writeText('542542');
+    setCopiedPaybill(true);
+    setTimeout(() => setCopiedPaybill(false), 2500);
+  };
+
+  const handleCopyAcc = () => {
+    navigator.clipboard.writeText('923082');
+    setCopiedAcc(true);
+    setTimeout(() => setCopiedAcc(false), 2500);
   };
 
   const handleStkSuccess = (receipt: string) => {
@@ -324,28 +331,48 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="bg-white p-3 rounded border border-slate-200">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block">Paybill / Shortcode</span>
-                <div className="flex items-center justify-between mt-1">
-                  <span className="font-mono font-bold text-sm text-brand-navy">174379</span>
-                  <button
-                    onClick={handleCopyTill}
-                    className="text-xs text-brand-gold hover:text-brand-navy font-semibold flex items-center space-x-1"
-                  >
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>{copiedTill ? 'Copied' : 'Copy'}</span>
-                  </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="bg-white p-3 rounded border border-slate-200 space-y-2">
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">M-Pesa Paybill</span>
+                  <div className="flex items-center justify-between mt-0.5">
+                    <span className="font-mono font-bold text-sm text-brand-navy">542542</span>
+                    <button
+                      onClick={handleCopyPaybill}
+                      className="text-xs text-brand-gold hover:text-brand-navy font-semibold flex items-center space-x-1"
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>{copiedPaybill ? 'Copied' : 'Copy'}</span>
+                    </button>
+                  </div>
                 </div>
-                <span className="text-[10px] text-slate-400 block mt-0.5">Modern Man Kenya</span>
+
+                <div className="pt-2 border-t border-slate-100">
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Account Number</span>
+                  <div className="flex items-center justify-between mt-0.5">
+                    <span className="font-mono font-bold text-sm text-brand-navy">923082</span>
+                    <button
+                      onClick={handleCopyAcc}
+                      className="text-xs text-brand-gold hover:text-brand-navy font-semibold flex items-center space-x-1"
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>{copiedAcc ? 'Copied' : 'Copy'}</span>
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-white p-3 rounded border border-slate-200">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block">Delivery Destination</span>
-                <span className="font-bold text-xs text-slate-800 block mt-1 truncate">
-                  {submittedOrder.delivery_location}
-                </span>
-                <span className="text-[10px] text-emerald-600 font-semibold block mt-0.5">Rider Scheduled</span>
+              <div className="bg-white p-3 rounded border border-slate-200 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 block">Delivery Destination</span>
+                  <span className="font-bold text-xs text-slate-800 block mt-1 truncate">
+                    {submittedOrder.delivery_location}
+                  </span>
+                  <span className="text-[10px] text-emerald-600 font-semibold block mt-0.5">Rider Scheduled</span>
+                </div>
+                <div className="pt-2 border-t border-slate-100 text-[10px] text-slate-400">
+                  Business: Modern Man Kenya
+                </div>
               </div>
             </div>
           </div>
