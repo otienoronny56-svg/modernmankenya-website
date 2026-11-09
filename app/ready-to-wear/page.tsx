@@ -24,10 +24,12 @@ const MAIN_TABS = [
   { id: 'all', label: 'All Ready-to-Wear' },
   { id: 'shirts', label: 'Luxury Shirts' },
   { id: 'accessories', label: 'Artisanal Accessories' },
+  { id: 'fragrances', label: 'Haute Fragrances' },
 ];
 
 const ACCESSORY_SUBTABS = [
   { id: 'all-acc', label: 'All Accessories' },
+  { id: 'fragrances', label: 'Fragrances & Parfums' },
   { id: 'neckwear', label: 'Ties & Bowties' },
   { id: 'cufflinks', label: 'Cufflinks & Hardware' },
   { id: 'lapel-pins', label: 'Lapel Pins & Brooches' },
@@ -42,7 +44,7 @@ function ReadyToWearShopContent() {
 
   const [products, setProducts] = useState<Product[]>(READY_TO_WEAR_PRODUCTS);
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    initialCat === 'shirts' || initialCat === 'accessories' ? initialCat : 'all'
+    initialCat === 'shirts' || initialCat === 'accessories' || initialCat === 'fragrances' ? initialCat : 'all'
   );
   const [accessorySubFilter, setAccessorySubFilter] = useState('all-acc');
   const [searchQuery, setSearchQuery] = useState('');
@@ -55,7 +57,7 @@ function ReadyToWearShopContent() {
   // Sync category param if URL changes
   useEffect(() => {
     const cat = searchParams.get('category');
-    if (cat === 'shirts' || cat === 'accessories' || cat === 'all') {
+    if (cat === 'shirts' || cat === 'accessories' || cat === 'fragrances' || cat === 'all') {
       setSelectedCategory(cat);
     }
   }, [searchParams]);
@@ -90,11 +92,15 @@ function ReadyToWearShopContent() {
           p.name.toLowerCase().includes('shirt') || 
           p.slug.includes('shirt');
         
+        const isFragrance =
+          p.category === 'fragrances' ||
+          (p.category === 'accessories' && (p.slug.includes('parfum') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver') || p.name.toLowerCase().includes('fragrance') || p.name.toLowerCase().includes('parfum') || p.name.toLowerCase().includes('oud')));
+
         const isAccessory = 
-          p.category === 'accessories' && !p.slug.includes('shirt');
+          (p.category === 'accessories' || isFragrance) && !p.slug.includes('shirt');
 
         // Strictly exclude suits, tuxedos, kaunda suits, etc.
-        if (!isShirt && !isAccessory) {
+        if (!isShirt && !isAccessory && !isFragrance) {
           return false;
         }
 
@@ -105,10 +111,15 @@ function ReadyToWearShopContent() {
         if (selectedCategory === 'accessories' && !isAccessory) {
           return false;
         }
+        if (selectedCategory === 'fragrances' && !isFragrance) {
+          return false;
+        }
 
         // Accessory Subfilter (when viewing accessories)
         if (selectedCategory === 'accessories') {
-          if (accessorySubFilter === 'neckwear') {
+          if (accessorySubFilter === 'fragrances') {
+            if (!isFragrance) return false;
+          } else if (accessorySubFilter === 'neckwear') {
             const isNeckwear = p.slug.includes('tie') || p.slug.includes('bowtie');
             if (!isNeckwear) return false;
           } else if (accessorySubFilter === 'cufflinks') {

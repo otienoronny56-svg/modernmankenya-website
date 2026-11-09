@@ -135,7 +135,7 @@ function GalleryContent() {
   const initialCategory = searchParams.get('category') || 'all';
 
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
-  const [accessorySubFilter, setAccessorySubFilter] = useState<'all' | 'neckwear' | 'hardware' | 'leather-timepieces' | 'hats'>('all');
+  const [accessorySubFilter, setAccessorySubFilter] = useState<'all' | 'fragrances' | 'neckwear' | 'hardware' | 'leather-timepieces' | 'hats'>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [lightboxImageIndex, setLightboxImageIndex] = useState<number>(0);
   const [isInspectActive, setIsInspectActive] = useState<boolean>(false);
@@ -214,8 +214,10 @@ function GalleryContent() {
       );
     }
     if (selectedCategory === 'accessories') {
-      let list = liveProducts.filter((p) => p.category === 'accessories' && !p.slug.includes('shirt'));
-      if (accessorySubFilter === 'neckwear') {
+      let list = liveProducts.filter((p) => (p.category === 'accessories' || p.category === 'fragrances') && !p.slug.includes('shirt'));
+      if (accessorySubFilter === 'fragrances') {
+        list = list.filter((p) => p.category === 'fragrances' || p.slug.includes('parfum') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver'));
+      } else if (accessorySubFilter === 'neckwear') {
         list = list.filter((p) => p.slug.includes('tie') || p.slug.includes('cravat') || p.slug.includes('bowtie'));
       } else if (accessorySubFilter === 'hardware') {
         list = list.filter((p) => p.slug.includes('cuff') || p.slug.includes('pin'));
@@ -383,7 +385,8 @@ function GalleryContent() {
               {/* Sub-filter chips */}
               <div className="flex items-center space-x-2 overflow-x-auto pb-1 no-scrollbar">
                 {[
-                  { id: 'all', label: 'All (9)' },
+                  { id: 'all', label: 'All' },
+                  { id: 'fragrances', label: 'Haute Fragrances' },
                   { id: 'neckwear', label: 'Ties & Bowties' },
                   { id: 'hardware', label: 'Cufflinks & Pins' },
                   { id: 'leather-timepieces', label: 'Leather & Watches' },

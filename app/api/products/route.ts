@@ -56,7 +56,9 @@ export async function POST(req: NextRequest) {
 
     const defaultSizes = category === 'accessories' 
       ? ['One Size'] 
-      : (category === 'shirts' ? ['15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', 'M', 'L', 'XL'] : ['38R', '40R', '42R', '44R']);
+      : (category === 'fragrances'
+          ? ['100ml Eau de Parfum', '50ml Extrait', '100ml Extrait de Parfum']
+          : (category === 'shirts' ? ['15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', 'M', 'L', 'XL'] : ['38R', '40R', '42R', '44R']));
     const availableSizes: string[] = sizes && sizes.length > 0 ? sizes : defaultSizes;
     const audience = (['modernman', 'modernwoman', 'modernchild'].includes(body.audience)) 
       ? body.audience 

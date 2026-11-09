@@ -28,11 +28,13 @@ interface ProductFormModalProps {
 
 const CATEGORIES = [
   { id: 'accessories', name: 'Accessories (Ties, Cufflinks, Belts, Pins, Watches)' },
+  { id: 'fragrances', name: 'Haute Parfumerie & Fragrances' },
   { id: 'shirts', name: 'Tailored Ready-to-Wear Shirts' },
 ];
 
 const CATEGORY_SIZE_PRESETS: Record<string, string[]> = {
   accessories: ['One Size', 'Standard Set', 'Adjustable', '32-34 (M)', '36-38 (L)', '40-42 (XL)', '40mm Dial', '42mm Dial'],
+  fragrances: ['50ml Extrait', '100ml Eau de Parfum', '100ml Extrait de Parfum', '15ml Travel Atomizer', 'Full Presentation Box'],
   shirts: ['15.0" (38cm)', '15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', '17.0" (43cm)', 'S', 'M', 'L', 'XL', 'XXL'],
 };
 
@@ -49,6 +51,13 @@ const CATEGORY_DEFAULTS: Record<string, {
     priceKes: 4500,
     priceUsd: 35,
     selectedSizes: ['One Size'],
+  },
+  fragrances: {
+    fabricDetails: 'High Concentration Extrait de Parfum / Precious Natural Resins & Oils',
+    construction: 'Artisanal micro-batch formulation, heavy crystal flacon & magnetic brass cap',
+    priceKes: 18500,
+    priceUsd: 145,
+    selectedSizes: ['100ml Eau de Parfum'],
   },
   shirts: {
     fabricDetails: '100% Egyptian Giza Cotton (120/2 Two-Ply Weave)',
@@ -711,6 +720,7 @@ export function ProductFormModal({
                   { label: 'Silk Necktie', tag: 'Pure Jacquard Silk Necktie', fab: '100% Woven Jacquard Silk (Hand-rolled)', price: 4500 },
                   { label: 'Bow Tie & Square Set', tag: 'Silk Bow Tie & Matching Pocket Square Set', fab: '100% Pure Silk & Microfiber', price: 5500 },
                   { label: 'Cufflinks & Hardware', tag: 'Artisanal Rhodium & Brass Cufflinks', fab: 'Solid Polished Brass & Rhodium Plate', price: 4000 },
+                  { label: 'Haute Fragrance / Parfum', tag: 'Extrait de Parfum Artisanal Blend (100ml)', fab: 'Pure Precious Essential Oils & Oud Wood', price: 18500 },
                   { label: 'Lapel Pin / Boutonnière', tag: 'Handcrafted Boutonnière Lapel Pin', fab: 'Polished Brass & Enamel Finish', price: 3000 },
                   { label: 'Leather Belt', tag: 'Full-Grain Italian Leather Dress Belt', fab: 'Full-Grain Vegetable Tanned Leather', price: 6500 },
                   { label: 'Cravat / Ascot', tag: 'Regal Silk Ascot & Cravat Ensemble', fab: 'Pure Mulberry Silk', price: 6000 },

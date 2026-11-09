@@ -1,5 +1,125 @@
 [
   {
+    "id": "frag-atelier-santal-03",
+    "name": "Atelier Santal & Black Leather Private Reserve",
+    "slug": "atelier-santal-black-leather-private-reserve",
+    "category": "fragrances",
+    "tagline": "Creamy Mysore Sandalwood, Tuscan Leather & Smoked Birch (100ml)",
+    "description": "An intimate, deeply sensual portrait of our bespoke cutting rooms. Evoking aged Italian full-grain leather, fragrant shavings of Mysore sandalwood, warm cashmere musk, and dried tobacco leaf. Packaged in a minimalist heavy espresso glass flacon with rose-gold metallic lettering and dark bronze cap.",
+    "fabricDetails": "Private Reserve Extrait (30% Oil Concentration) / Mysore Sandalwood & Tuscan Leather",
+    "construction": "Heavy espresso glass flacon with rose-gold typography and matte bronze cap",
+    "priceKes": 19500,
+    "priceUsd": 150,
+    "images": [
+      "/images/accessories/modern-man-atelier-santal-leather.jpg"
+    ],
+    "isFeatured": true,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-santal-100",
+        "size": "100ml Extrait",
+        "color": "Amber Bronze",
+        "stockQuantity": 6,
+        "sku": "MM-FRAG-SAN-100"
+      },
+      {
+        "id": "v-santal-50",
+        "size": "50ml Extrait",
+        "color": "Amber Bronze",
+        "stockQuantity": 4,
+        "sku": "MM-FRAG-SAN-50"
+      }
+    ],
+    "detailsList": [
+      "Private Reserve Extrait (30% Oil Concentration)",
+      "Top: Cardamom, Fresh Violet Leaf | Heart: Tuscan Leather, Papyrus | Base: Mysore Sandalwood, Smoked Birch, Amber",
+      "Minimalist heavy espresso tinted glass flacon with rose-gold metallic lettering",
+      "Architectural matte bronze cap",
+      "Signature Modern Man Kenya luxury gift box with certificate of authenticity"
+    ]
+  },
+  {
+    "id": "frag-savile-cedar-02",
+    "name": "Savile Cedar & Spiced Vetiver Eau de Parfum",
+    "slug": "savile-cedar-spiced-vetiver-eau-de-parfum",
+    "category": "fragrances",
+    "tagline": "Crisp Haitian Vetiver, Atlas Cedar & Pink Peppercorn (100ml)",
+    "description": "Inspired by bespoke Savile Row tailoring traditions and crisp Kenyan highlands morning air. A razor-sharp sartorial signature blending Haitian vetiver, aromatic Atlas cedarwood, crushed cardamon, and vibrant green juniper. Housed in a tall fluted faceted crystal flacon with emerald leather ribbon and solid brass cap.",
+    "fabricDetails": "Eau de Parfum (22% Fine Fragrance Concentration) / Haitian Vetiver & Atlas Cedar",
+    "construction": "Fluted crystal flacon with genuine emerald leather neck collar and solid brass cap",
+    "priceKes": 15500,
+    "priceUsd": 120,
+    "images": [
+      "/images/accessories/modern-man-savile-cedar-vetiver.jpg"
+    ],
+    "isFeatured": true,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-cedar-100",
+        "size": "100ml Eau de Parfum",
+        "color": "Champagne Gold",
+        "stockQuantity": 12,
+        "sku": "MM-FRAG-CED-100"
+      },
+      {
+        "id": "v-cedar-50",
+        "size": "50ml Eau de Parfum",
+        "color": "Champagne Gold",
+        "stockQuantity": 8,
+        "sku": "MM-FRAG-CED-50"
+      }
+    ],
+    "detailsList": [
+      "Eau de Parfum (22% Fine Fragrance Concentration)",
+      "Top: Italian Grapefruit, Pink Peppercorn | Heart: Crushed Cardamom, Juniper | Base: Haitian Vetiver, Atlas Cedarwood",
+      "Tall fluted faceted crystal glass flacon",
+      "Emerald green full-grain leather collar with gold rivet accent",
+      "Signature Modern Man Nairobi gift presentation packaging"
+    ]
+  },
+  {
+    "id": "frag-sovereign-oud-01",
+    "name": "Sovereign Oud & Ambergris Extrait de Parfum",
+    "slug": "sovereign-oud-ambergris-extrait-de-parfum",
+    "category": "fragrances",
+    "tagline": "Rare Cambodian Oud, Golden Ambergris & Taif Rose Extrait (100ml)",
+    "description": "An imposing, commanding evening extrait formulated exclusively for the Modern Man. Opens with crisp Calabrian bergamot and pink pepper, melting into an opulent heart of smoked Cambodian oud, Moroccan cedarwood, and rich golden ambergris. Handcrafted in micro-batches with heavy octagonal smoked obsidian flacon, engraved gold brass plaque, and magnetic cap.",
+    "fabricDetails": "Extrait de Parfum (35% High Oil Concentration) / Rare Cambodian Oud & Natural Ambergris",
+    "construction": "Hand-blended in small atelier batches, heavy smoked crystal flacon with gold brass plaque",
+    "priceKes": 18500,
+    "priceUsd": 145,
+    "images": [
+      "/images/accessories/modern-man-sovereign-oud-ambergris.jpg"
+    ],
+    "isFeatured": true,
+    "isInStock": true,
+    "variants": [
+      {
+        "id": "v-oud-100",
+        "size": "100ml Extrait",
+        "color": "Cognac Gold",
+        "stockQuantity": 8,
+        "sku": "MM-FRAG-OUD-100"
+      },
+      {
+        "id": "v-oud-50",
+        "size": "50ml Extrait",
+        "color": "Cognac Gold",
+        "stockQuantity": 6,
+        "sku": "MM-FRAG-OUD-50"
+      }
+    ],
+    "detailsList": [
+      "Extrait de Parfum (35% High Oil Concentration)",
+      "Top: Calabrian Bergamot, Pink Pepper | Heart: Taif Rose, Smoked Cedar | Base: Cambodian Oud, Golden Ambergris",
+      "Heavy smoked obsidian crystal flacon with engraved brushed gold brass plaque",
+      "Solid knurled magnetic brass cap",
+      "Signature Modern Man Nairobi velvet-lined presentation gift box included"
+    ]
+  },
+  {
     "name": "The Sovereign Egyptian Giza White Dress Shirt",
     "slug": "the-sovereign-egyptian-giza-white-dress-shirt",
     "tagline": "140s 2-Ply Giza Cotton with French Cuffs & Hand-Stitched Hem",

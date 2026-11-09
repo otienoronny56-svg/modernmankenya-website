@@ -22,6 +22,7 @@ import { ProductFormModal } from '@/components/admin/ProductFormModal';
 const CATEGORIES = [
   { id: 'all', name: 'All Shop Items' },
   { id: 'accessories', name: 'Accessories' },
+  { id: 'fragrances', name: 'Fragrances & Parfums' },
   { id: 'shirts', name: 'Shirts' },
   { id: 'neckwear', name: 'Ties & Bowties' },
   { id: 'cufflinks', name: 'Cufflinks & Hardware' },
@@ -60,8 +61,12 @@ export default function AdminProductsPage() {
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      if (selectedCategory === 'accessories' && p.category !== 'accessories') {
+      if (selectedCategory === 'accessories' && p.category !== 'accessories' && p.category !== 'fragrances') {
         return false;
+      }
+      if (selectedCategory === 'fragrances') {
+        const isFrag = p.category === 'fragrances' || (p.category === 'accessories' && (p.slug.includes('parfum') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver') || p.name.toLowerCase().includes('fragrance') || p.name.toLowerCase().includes('parfum') || p.name.toLowerCase().includes('oud')));
+        if (!isFrag) return false;
       }
       if (selectedCategory === 'shirts' && p.category !== 'shirts') {
         return false;
