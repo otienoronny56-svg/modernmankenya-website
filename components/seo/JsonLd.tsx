@@ -7,7 +7,7 @@ export const JsonLd: React.FC = () => {
       {
         '@type': ['MensClothingStore', 'ClothingStore', 'LocalBusiness'],
         '@id': 'https://www.modernmanke.com/#store',
-        name: 'Modern Man Kenya 254',
+        name: 'Modern Man Kenya',
         alternateName: 'Modern Man Kenya Made to Measure Tailoring',
         url: 'https://www.modernmanke.com',
         logo: 'https://www.modernmanke.com/images/logo-emblem.png',

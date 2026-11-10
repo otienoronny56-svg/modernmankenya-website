@@ -69,7 +69,7 @@ export default function ContactPage() {
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brand-navy text-brand-gold text-[10px] sm:text-xs uppercase tracking-luxury font-bold">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Modern Man Kenya 254 • Client Care</span>
+            <span>Modern Man Kenya • Client Care</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-5xl font-bold text-brand-navy">
             Contact & Partnerships
@@ -150,7 +150,7 @@ export default function ContactPage() {
                   The Nairobi Atelier
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold mt-1">
-                  Modern Man Kenya 254
+                  Modern Man Kenya
                 </h2>
                 <p className="text-xs text-slate-300 mt-2 font-light leading-relaxed">
                   An exclusive sanctuary of master tailoring, providing made-to-measure tailoring and sartorial excellence in Kenya.

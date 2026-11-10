@@ -297,7 +297,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar: Secure Payments, M-Pesa Badges & Copyright */}
         <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-3 text-xs text-stone-500 text-center sm:text-left">
-            <span>© {new Date().getFullYear()} Modern Man Kenya 254. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} Modern Man Kenya. All rights reserved.</span>
             <span className="hidden sm:inline text-stone-300">•</span>
             <span className="text-[11px] text-brand-gold font-serif italic">Opulence • Simplicity • Class</span>
           </div>
