@@ -33,12 +33,35 @@ export function getEmailTransporter() {
 }
 
 /**
+ * Department sender addresses:
+ * - sales@modernmanke.com: Orders, checkouts, payments, invoices
+ * - support@modernmanke.com: Appointments, private fittings, alterations
+ * - info@modernmanke.com: General atelier inquiries, concierge, announcements
+ */
+export function getDepartmentSenders() {
+  return {
+    sales:
+      process.env.EMAIL_FROM_SALES ||
+      '"Modern Man Kenya Sales" <sales@modernmanke.com>',
+    support:
+      process.env.EMAIL_FROM_SUPPORT ||
+      '"Modern Man Kenya Client Care" <support@modernmanke.com>',
+    info:
+      process.env.EMAIL_FROM_INFO ||
+      '"Modern Man Kenya Atelier" <info@modernmanke.com>',
+    default:
+      process.env.SMTP_FROM ||
+      '"Modern Man Kenya" <info@modernmanke.com>',
+  };
+}
+
+/**
  * Modern Man Kenya standard sender signature
  */
 export function getDefaultFromAddress(): string {
   return (
     process.env.SMTP_FROM ||
-    `"Modern Man Kenya" <${process.env.SMTP_USER && process.env.SMTP_USER.includes('@') ? process.env.SMTP_USER : 'concierge@modernmanke.com'}>`
+    `"Modern Man Kenya" <${process.env.SMTP_USER && process.env.SMTP_USER.includes('@') ? process.env.SMTP_USER : 'info@modernmanke.com'}>`
   );
 }
 

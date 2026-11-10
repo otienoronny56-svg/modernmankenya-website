@@ -1,10 +1,18 @@
 import { NextResponse } from 'next/server';
-import { getEmailTransporter, getDefaultFromAddress, getAdminNotificationEmail } from '@/lib/email/transporter';
+import {
+  getEmailTransporter,
+  getDefaultFromAddress,
+  getDepartmentSenders,
+  getAdminNotificationEmail,
+} from '@/lib/email/transporter';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json().catch(() => ({}));
     const recipient = body.to || getAdminNotificationEmail();
+    const department = body.department as 'sales' | 'support' | 'info' | undefined;
+    const senders = getDepartmentSenders();
+    const from = department && senders[department] ? senders[department] : getDefaultFromAddress();
 
     const transporter = getEmailTransporter();
     if (!transporter) {
@@ -16,7 +24,7 @@ export async function POST(request: Request) {
           host: process.env.SMTP_HOST || 'smtp.resend.com (default)',
           port: process.env.SMTP_PORT || '465 (default)',
           user: process.env.SMTP_USER || 'resend (default)',
-          from: getDefaultFromAddress(),
+          from,
           status: 'Missing Password / API Key',
         },
       });
@@ -25,8 +33,6 @@ export async function POST(request: Request) {
     // Verify SMTP connection
     await transporter.verify();
 
-    // Send luxury test email
-    const from = getDefaultFromAddress();
     const info = await transporter.sendMail({
       from,
       to: recipient,

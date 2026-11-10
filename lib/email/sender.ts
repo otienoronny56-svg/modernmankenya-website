@@ -1,4 +1,9 @@
-import { getEmailTransporter, getDefaultFromAddress, getAdminNotificationEmail } from './transporter';
+import {
+  getEmailTransporter,
+  getDefaultFromAddress,
+  getDepartmentSenders,
+  getAdminNotificationEmail,
+} from './transporter';
 import {
   renderCustomerOrderConfirmation,
   renderAdminOrderAlert,
@@ -14,24 +19,26 @@ export interface SendEmailResult {
 }
 
 /**
- * Universal safe email dispatcher
+ * Universal safe email dispatcher supporting custom departmental senders
  */
 export async function sendEmail({
   to,
   subject,
   html,
   replyTo,
+  from,
 }: {
   to: string;
   subject: string;
   html: string;
   replyTo?: string;
+  from?: string;
 }): Promise<SendEmailResult> {
   const transporter = getEmailTransporter();
-  const from = getDefaultFromAddress();
+  const senderFrom = from || getDefaultFromAddress();
 
   if (!transporter) {
-    console.info(`[Email Preview Mode] To: ${to} | Subject: "${subject}"`);
+    console.info(`[Email Preview Mode] From: ${senderFrom} | To: ${to} | Subject: "${subject}"`);
     return {
       success: true,
       previewOnly: true,
@@ -41,14 +48,14 @@ export async function sendEmail({
 
   try {
     const info = await transporter.sendMail({
-      from,
+      from: senderFrom,
       to,
       subject,
       html,
-      replyTo: replyTo || from,
+      replyTo: replyTo || senderFrom,
     });
 
-    console.info(`[Email Sent] Message ID: ${info.messageId} to ${to}`);
+    console.info(`[Email Sent] Message ID: ${info.messageId} from: ${senderFrom} to: ${to}`);
     return {
       success: true,
       messageId: info.messageId,
@@ -63,7 +70,7 @@ export async function sendEmail({
 }
 
 /**
- * Send Customer & Admin emails when an order is created
+ * Send Customer & Admin emails when an order is created (Dispatched via sales@modernmanke.com)
  */
 export async function dispatchOrderEmails(orderData: {
   orderNumber: string;
@@ -83,12 +90,14 @@ export async function dispatchOrderEmails(orderData: {
   notes?: string;
 }) {
   const tasks: Promise<SendEmailResult>[] = [];
+  const salesSender = getDepartmentSenders().sales;
 
   // 1. Customer Confirmation (if valid email provided)
   if (orderData.customerEmail && orderData.customerEmail.includes('@') && !orderData.customerEmail.includes('example.com')) {
     const customerHtml = renderCustomerOrderConfirmation(orderData);
     tasks.push(
       sendEmail({
+        from: salesSender,
         to: orderData.customerEmail,
         subject: `Your Commission Confirmation: ${orderData.orderNumber} • Modern Man Kenya`,
         html: customerHtml,
@@ -102,6 +111,7 @@ export async function dispatchOrderEmails(orderData: {
     const adminHtml = renderAdminOrderAlert(orderData);
     tasks.push(
       sendEmail({
+        from: salesSender,
         to: adminEmail,
         subject: `🛎️ New Order Received: ${orderData.orderNumber} (KES ${orderData.totalAmountKes.toLocaleString()})`,
         html: adminHtml,
@@ -114,7 +124,7 @@ export async function dispatchOrderEmails(orderData: {
 }
 
 /**
- * Send Customer & Admin emails when an appointment is booked
+ * Send Customer & Admin emails when an appointment is booked (Dispatched via support@modernmanke.com)
  */
 export async function dispatchAppointmentEmails(appointmentData: {
   referenceId: string;
@@ -128,12 +138,14 @@ export async function dispatchAppointmentEmails(appointmentData: {
   notes?: string;
 }) {
   const tasks: Promise<SendEmailResult>[] = [];
+  const supportSender = getDepartmentSenders().support;
 
   // 1. Customer Confirmation
   if (appointmentData.clientEmail && appointmentData.clientEmail.includes('@') && !appointmentData.clientEmail.includes('example.com')) {
     const customerHtml = renderCustomerAppointmentConfirmation(appointmentData);
     tasks.push(
       sendEmail({
+        from: supportSender,
         to: appointmentData.clientEmail,
         subject: `Your Bespoke Fitting Confirmed: ${appointmentData.referenceId} • Modern Man Kenya`,
         html: customerHtml,
@@ -147,6 +159,7 @@ export async function dispatchAppointmentEmails(appointmentData: {
     const adminHtml = renderAdminAppointmentAlert(appointmentData);
     tasks.push(
       sendEmail({
+        from: supportSender,
         to: adminEmail,
         subject: `📅 New Fitting Booking: ${appointmentData.clientName} (${appointmentData.appointmentDate} at ${appointmentData.timeSlot})`,
         html: adminHtml,
