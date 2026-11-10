@@ -61,7 +61,7 @@ const SUIT_TIERS: SuitTier[] = [
     priceRange: 'KSh 30,000 – 49,999',
     badge: 'Most Popular',
     isPopular: true,
-    fabric: '100% Pure Wool (Super 100s to Super 120s) and celebratory luxury Jacquard fabrics (not ordinary blazer)',
+    fabric: '100% Pure Wool (Super 100s to Super 120s) and celebratory luxury Jacquard fabrics',
     build: 'Half floating canvas construction, pick-stitched lapels, horn buttons, and Gurkha trouser side adjusters',
     bestFor: 'Weddings, celebratory jacquard suits, executive presentations, and evening galas',
     points: [
@@ -496,7 +496,7 @@ export default function TheCraftPage() {
                 100% Pure Wool &amp; Jacquards
               </h4>
               <p className="text-xs text-stone-600 dark:text-slate-300 leading-relaxed font-light">
-                Spun from 100% pure natural wool. It naturally breathes in Nairobi heat, sheds sitting wrinkles, and gives a smooth drape that is strong enough for regular wedding and boardroom wear. Paired with celebratory Jacquard fabrics—intricately woven raised patterns designed for full wedding and dinner suits (not ordinary blazers).
+                Spun from 100% pure natural wool. It naturally breathes in Nairobi heat, sheds sitting wrinkles, and gives a smooth drape that is strong enough for regular wedding and boardroom wear. Paired with celebratory Jacquard fabrics—intricately woven raised patterns designed for full wedding and dinner suits.
               </p>
             </div>
 
