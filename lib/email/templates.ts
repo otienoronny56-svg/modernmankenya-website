@@ -427,3 +427,270 @@ export function renderAdminAppointmentAlert(data: AppointmentEmailData): string 
   `;
 }
 
+
+/**
+ * 5. Two-Factor Authentication (2FA) Security Verification Email
+ */
+export function renderTwoFactorEmail({ code, email }: { code: string; email: string }): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Your Security Verification Code • Modern Man Kenya</title>
+      </head>
+      <body style="${baseStyles}">
+        <div style="max-width: 580px; margin: 24px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          ${headerHtml}
+          <div style="padding: 32px 28px; text-align: center;">
+            <span style="color: #C5A059; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">
+              ATELIER SECURITY ACCESS
+            </span>
+            <h2 style="margin: 8px 0 12px 0; color: #0A1128; font-size: 22px; font-family: 'Times New Roman', serif;">
+              Two-Step Authentication Code
+            </h2>
+            <p style="font-size: 14px; color: #475569; line-height: 1.6; margin-bottom: 24px;">
+              You requested access to your Modern Man Kenya account (${email}). Please enter the 6-digit verification pass below to complete your login:
+            </p>
+            
+            <div style="background-color: #0A1128; border: 2px solid #C5A059; border-radius: 8px; padding: 20px; display: inline-block; min-width: 220px; margin: 12px 0 24px 0;">
+              <span style="font-family: 'Courier New', Courier, monospace; font-size: 32px; font-weight: 800; letter-spacing: 0.25em; color: #C5A059;">
+                ${code}
+              </span>
+            </div>
+
+            <p style="font-size: 12px; color: #94a3b8; line-height: 1.5; margin: 0 0 16px 0;">
+              ⏱️ This security code expires in <strong>10 minutes</strong>. Never share this code with anyone. Our atelier staff will never ask for your authentication code.
+            </p>
+          </div>
+          ${footerHtml}
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+/**
+ * 6. Password Reset Email
+ */
+export function renderPasswordResetEmail({ resetUrl, email }: { resetUrl: string; email: string }): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Reset Your Password • Modern Man Kenya</title>
+      </head>
+      <body style="${baseStyles}">
+        <div style="max-width: 580px; margin: 24px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          ${headerHtml}
+          <div style="padding: 32px 28px;">
+            <div style="border-bottom: 2px solid #C5A059; padding-bottom: 14px; margin-bottom: 20px;">
+              <span style="color: #C5A059; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">
+                ACCOUNT SECURITY
+              </span>
+              <h2 style="margin: 4px 0 0 0; color: #0A1128; font-size: 22px; font-family: 'Times New Roman', serif;">
+                Password Reset Request
+              </h2>
+            </div>
+            
+            <p style="font-size: 14px; color: #334155; line-height: 1.6;">
+              We received a request to reset the password for your Modern Man Kenya account (<strong>${email}</strong>).
+            </p>
+            <p style="font-size: 14px; color: #334155; line-height: 1.6;">
+              Click the button below to choose a new password. This link is secure and valid for 1 hour.
+            </p>
+
+            <div style="text-align: center; margin: 28px 0;">
+              <a href="${resetUrl}" style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; padding: 14px 28px; border-radius: 6px; text-decoration: none; border: 1px solid #C5A059;">
+                Reset My Password →
+              </a>
+            </div>
+
+            <p style="font-size: 12px; color: #64748b; line-height: 1.5;">
+              If you did not request a password reset, you can safely disregard this email. Your existing password will remain unchanged.
+            </p>
+          </div>
+          ${footerHtml}
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+/**
+ * 7. Welcome Member Email
+ */
+export function renderWelcomeMemberEmail({ fullName, email }: { fullName: string; email: string }): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Welcome to Modern Man Kenya</title>
+      </head>
+      <body style="${baseStyles}">
+        <div style="max-width: 620px; margin: 24px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          ${headerHtml}
+          <div style="padding: 32px 28px;">
+            <div style="border-bottom: 2px solid #C5A059; padding-bottom: 14px; margin-bottom: 20px;">
+              <span style="color: #C5A059; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">
+                VIP CLIENT PRIVILEGE
+              </span>
+              <h2 style="margin: 4px 0 0 0; color: #0A1128; font-size: 24px; font-family: 'Times New Roman', serif;">
+                Welcome to the Modern Man Atelier, ${fullName}
+              </h2>
+            </div>
+
+            <p style="font-size: 14px; color: #334155; line-height: 1.7;">
+              It is an honour to welcome you to Modern Man Kenya. Our atelier is dedicated to elevating the gentleman&apos;s wardrobe through Savile Row floating-canvas craftsmanship, fine Egyptian cotton shirts, artisanal fragrances, and bespoke precision.
+            </p>
+
+            <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 24px 0;">
+              <h3 style="margin: 0 0 10px 0; color: #0A1128; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em;">
+                Your Atelier Privileges Include:
+              </h3>
+              <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #475569; line-height: 1.8;">
+                <li><strong>Saved Measurements:</strong> Once measured, your anatomical profile is archived for effortless future commissions.</li>
+                <li><strong>Exclusive Ready-to-Wear:</strong> Access to limited-edition Egyptian cotton shirts and artisanal perfumes.</li>
+                <li><strong>Priority Atelier Fittings:</strong> 1-click private consultation booking with our Master Tailors.</li>
+              </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 32px;">
+              <a href="https://www.modernmanke.com/account" style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px 28px; border-radius: 6px; text-decoration: none; border: 1px solid #C5A059; margin-right: 8px;">
+                View My Profile
+              </a>
+              <a href="https://www.modernmanke.com/book-appointment" style="display: inline-block; background-color: #f8fafc; color: #0A1128; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px 28px; border-radius: 6px; text-decoration: none; border: 1px solid #cbd5e1;">
+                Book Private Fitting
+              </a>
+            </div>
+          </div>
+          ${footerHtml}
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+/**
+ * 8. Admin Alert: New Member Signed Up
+ */
+export function renderAdminNewMemberAlert({
+  fullName,
+  email,
+  phone,
+}: {
+  fullName: string;
+  email: string;
+  phone?: string;
+}): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>New Member Registration • Modern Man Kenya</title>
+      </head>
+      <body style="${baseStyles}">
+        <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; border: 1px solid #cbd5e1; overflow: hidden;">
+          <div style="background-color: #0A1128; padding: 20px; color: #ffffff;">
+            <div style="color: #C5A059; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">
+              ATELIER CLIENT REGISTRY
+            </div>
+            <h2 style="margin: 4px 0 0 0; font-size: 20px;">New VIP Member Registered</h2>
+          </div>
+          <div style="padding: 24px;">
+            <table style="width: 100%; font-size: 14px; line-height: 1.8;">
+              <tr>
+                <td style="width: 130px; color: #64748b;"><strong>Member Name:</strong></td>
+                <td><strong>${fullName}</strong></td>
+              </tr>
+              <tr>
+                <td style="color: #64748b;"><strong>Email:</strong></td>
+                <td><a href="mailto:${email}" style="color: #0A1128; font-weight: 600;">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="color: #64748b;"><strong>Phone:</strong></td>
+                <td><a href="tel:${phone}" style="color: #0A1128;">${phone || 'Not provided'}</a></td>
+              </tr>
+              <tr>
+                <td style="color: #64748b;"><strong>Registered On:</strong></td>
+                <td>${new Date().toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })}</td>
+              </tr>
+            </table>
+
+            <div style="margin-top: 24px; text-align: center;">
+              <a href="https://www.modernmanke.com/admin/clients" style="background-color: #0A1128; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: 700;">
+                Open Client Registry →
+              </a>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+/**
+ * 9. Custom Newsletter & Broadcast Email Template
+ */
+export function renderNewsletterEmail({
+  heading,
+  message,
+  ctaText,
+  ctaUrl,
+}: {
+  heading: string;
+  message: string;
+  ctaText?: string;
+  ctaUrl?: string;
+}): string {
+  // Convert newlines to formatted paragraphs
+  const formattedBody = message
+    .split('\n\n')
+    .map((p) => `<p style="font-size: 15px; color: #334155; line-height: 1.8; margin: 0 0 16px 0;">${p.replace(/\n/g, '<br>')}</p>`)
+    .join('');
+
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>${heading}</title>
+      </head>
+      <body style="${baseStyles}">
+        <div style="max-width: 620px; margin: 24px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          ${headerHtml}
+          <div style="padding: 36px 30px;">
+            <div style="border-bottom: 2px solid #C5A059; padding-bottom: 14px; margin-bottom: 24px;">
+              <span style="color: #C5A059; font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">
+                ATELIER DISPATCH
+              </span>
+              <h2 style="margin: 6px 0 0 0; color: #0A1128; font-size: 24px; font-family: 'Times New Roman', serif;">
+                ${heading}
+              </h2>
+            </div>
+
+            <div style="margin: 20px 0;">
+              ${formattedBody}
+            </div>
+
+            ${
+              ctaText && ctaUrl
+                ? `
+              <div style="text-align: center; margin-top: 36px; padding-top: 24px; border-top: 1px solid #f1f5f9;">
+                <a href="${ctaUrl}" style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; padding: 14px 28px; border-radius: 6px; text-decoration: none; border: 1px solid #C5A059;">
+                  ${ctaText} →
+                </a>
+              </div>
+            `
+                : ''
+            }
+          </div>
+          ${footerHtml}
+        </div>
+      </body>
+    </html>
+  `;
+}

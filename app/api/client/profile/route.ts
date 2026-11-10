@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getClientProfile, upsertClientProfile } from '@/lib/clients/store';
+import { getClientProfile, upsertClientProfile, getAllClients } from '@/lib/clients/store';
+import { dispatchNewMemberEmails } from '@/lib/email';
 
 export async function GET(request: Request) {
   try {
@@ -27,7 +28,38 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
-    const updated = await upsertClientProfile(body);
+    const cleanEmail = body.email.toLowerCase().trim();
+
+    // Check if client is already known in registry
+    let isNewRegistration = Boolean(body.isNewRegistration);
+    if (!isNewRegistration) {
+      try {
+        const existingClients = await getAllClients();
+        const found = existingClients.some((c) => c.email?.toLowerCase().trim() === cleanEmail);
+        if (!found) {
+          isNewRegistration = true;
+        }
+      } catch {
+        // Safe fallback
+      }
+    }
+
+    const updated = await upsertClientProfile({
+      ...body,
+      email: cleanEmail,
+    });
+
+    // If new registration, send welcome to member & alert all admins
+    if (isNewRegistration) {
+      dispatchNewMemberEmails({
+        fullName: body.fullName || updated.fullName || 'VIP Client',
+        email: cleanEmail,
+        phone: body.phone || updated.phone,
+      }).catch((emailErr) => {
+        console.error('Failed to dispatch new member welcome & admin alert:', emailErr);
+      });
+    }
+
     return NextResponse.json({ success: true, profile: updated });
   } catch (err: any) {
     console.error('Error in POST /api/client/profile:', err);

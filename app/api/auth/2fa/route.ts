@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 import { generateBase32Secret, generateBackupCodes, getTOTPUri, verifyTOTP } from '@/lib/auth/twoFactor';
 import { get2FAStatus, set2FAEnabled, disable2FA, verifyClient2FA } from '@/lib/clients/store';
+import { dispatchTwoFactorCode } from '@/lib/email';
+
+// In-memory cache for temporary email 2FA verification codes (10 min expiry)
+const EMAIL_2FA_CODES = new Map<string, { code: string; expiresAt: number }>();
 
 export async function GET(request: Request) {
   try {
@@ -67,15 +71,49 @@ export async function POST(request: Request) {
       });
     }
 
+    if (action === 'send-email-code') {
+      const code = Math.floor(100000 + Math.random() * 900000).toString();
+      const cleanEmail = email.toLowerCase().trim();
+      EMAIL_2FA_CODES.set(cleanEmail, {
+        code,
+        expiresAt: Date.now() + 10 * 60 * 1000,
+      });
+
+      try {
+        await dispatchTwoFactorCode({ email: cleanEmail, code });
+      } catch (emailErr) {
+        console.error('Failed to dispatch 2FA email:', emailErr);
+      }
+
+      return NextResponse.json({
+        success: true,
+        message: 'A 6-digit security verification code has been dispatched to your email address.',
+      });
+    }
+
     if (action === 'verify-login') {
       if (!token) {
         return NextResponse.json({ error: 'Verification code is required' }, { status: 400 });
       }
 
+      const cleanEmail = email.toLowerCase().trim();
+      const cleanToken = token.trim();
+
+      // 1. Check Email OTP Pass first
+      const cached = EMAIL_2FA_CODES.get(cleanEmail);
+      if (cached && cached.expiresAt > Date.now() && cached.code === cleanToken) {
+        EMAIL_2FA_CODES.delete(cleanEmail);
+        return NextResponse.json({
+          success: true,
+          message: 'Two-Factor Authentication verified successfully via Email Pass',
+        });
+      }
+
+      // 2. Check TOTP Authenticator or Backup code
       const result = await verifyClient2FA(email, token);
       if (!result.valid) {
         return NextResponse.json(
-          { success: false, error: 'Incorrect two-factor verification code or backup code.' },
+          { success: false, error: 'Incorrect verification code. Please check your email or authenticator app.' },
           { status: 401 }
         );
       }

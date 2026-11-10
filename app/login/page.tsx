@@ -40,6 +40,8 @@ function LoginForm() {
   const [pending2FAEmail, setPending2FAEmail] = useState('');
   const [twoFactorCode, setTwoFactorCode] = useState('');
   const [verifying2FA, setVerifying2FA] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
+  const [resendingEmail, setResendingEmail] = useState(false);
 
   // Form Fields
   const [fullName, setFullName] = useState('');
@@ -49,6 +51,15 @@ function LoginForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
+
+  // Resend code countdown timer
+  useEffect(() => {
+    if (resendCooldown <= 0) return;
+    const timer = setInterval(() => {
+      setResendCooldown((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [resendCooldown]);
 
   // If already logged in, check 2FA before redirecting
   useEffect(() => {
@@ -68,6 +79,12 @@ function LoginForm() {
             if (!isVerified) {
               setPending2FAEmail(userEmail);
               setRequires2FA(true);
+              setResendCooldown(60);
+              fetch('/api/auth/2fa', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'send-email-code', email: userEmail }),
+              }).catch(() => {});
               return;
             }
           }
@@ -142,6 +159,7 @@ function LoginForm() {
           fullName,
           phone: phoneNumber,
           accountStatus: 'approved',
+          isNewRegistration: true,
         }),
       }).catch(() => {});
 
@@ -174,8 +192,15 @@ function LoginForm() {
         if (data.enabled) {
           setPending2FAEmail(email);
           setRequires2FA(true);
+          setResendCooldown(60);
           setSuccessMsg(null);
           setLoading(false);
+          // Dispatch security code to email automatically
+          fetch('/api/auth/2fa', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'send-email-code', email }),
+          }).catch(() => {});
           return;
         }
       } catch (err) {
@@ -217,7 +242,7 @@ function LoginForm() {
 
       const data = await res.json();
       if (!res.ok || !data.success) {
-        setErrorMsg(data.error || 'Invalid 2FA code. Please check your authenticator app.');
+        setErrorMsg(data.error || 'Invalid verification code. Please check your email or authenticator app.');
         setVerifying2FA(false);
         return;
       }
@@ -237,6 +262,31 @@ function LoginForm() {
     }
   };
 
+  // Resend 2FA Email Code
+  const handleResend2FAEmail = async () => {
+    if (resendCooldown > 0 || resendingEmail || !pending2FAEmail) return;
+    setResendingEmail(true);
+    setErrorMsg(null);
+    try {
+      const res = await fetch('/api/auth/2fa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'send-email-code', email: pending2FAEmail }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSuccessMsg(`A fresh 6-digit security code has been dispatched to ${pending2FAEmail}`);
+        setResendCooldown(60);
+      } else {
+        setErrorMsg(data.error || 'Failed to dispatch verification code.');
+      }
+    } catch {
+      setErrorMsg('Failed to dispatch code. Please check your connection.');
+    } finally {
+      setResendingEmail(false);
+    }
+  };
+
   // Handle Forgot Password
   const handleResetPassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -246,12 +296,28 @@ function LoginForm() {
     }
     setLoading(true);
     setErrorMsg(null);
-    const { error } = await resetPasswordForEmail(email);
-    setLoading(false);
-    if (error) {
-      setErrorMsg(error.message);
-    } else {
-      setResetEmailSent(true);
+
+    try {
+      // 1. Dispatch custom luxury branded reset email from support@modernmanke.com
+      const res = await fetch('/api/auth/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      const data = await res.json();
+
+      // 2. Also trigger Supabase client reset in parallel for session token compatibility
+      await resetPasswordForEmail(email).catch(() => {});
+
+      if (res.ok && data.success) {
+        setResetEmailSent(true);
+      } else {
+        setErrorMsg(data.error || 'Unable to process password reset request.');
+      }
+    } catch (err: any) {
+      setErrorMsg(err.message || 'An error occurred while sending password reset email.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -295,8 +361,8 @@ function LoginForm() {
               <h2 className="font-serif text-xl font-bold text-brand-navy">
                 Two-Factor Security Verification
               </h2>
-              <p className="text-xs text-stone-600">
-                Enter the 6-digit code from your authenticator app (Google Authenticator, Microsoft Authenticator, 1Password) or an emergency backup code.
+              <p className="text-xs text-stone-600 leading-relaxed">
+                A 6-digit verification code was sent to <strong className="text-brand-navy">{pending2FAEmail}</strong>. You may also enter a code from your authenticator app or backup recovery code.
               </p>
             </div>
 
@@ -317,7 +383,7 @@ function LoginForm() {
             <form onSubmit={handleVerify2FA} className="space-y-4">
               <div>
                 <label className="block text-xs font-semibold text-stone-700 mb-1.5 text-center">
-                  6-Digit Authentication Code or Backup Code
+                  6-Digit Verification Code or Backup Code
                 </label>
                 <input
                   type="text"
@@ -331,6 +397,21 @@ function LoginForm() {
                 <p className="text-[11px] text-stone-400 text-center mt-1.5">
                   Securing measurements & delivery data for {pending2FAEmail}
                 </p>
+              </div>
+
+              <div className="pt-1 text-center">
+                <button
+                  type="button"
+                  onClick={handleResend2FAEmail}
+                  disabled={resendCooldown > 0 || resendingEmail}
+                  className="text-xs font-semibold text-brand-navy hover:text-brand-gold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {resendingEmail
+                    ? 'Dispatching New Code...'
+                    : resendCooldown > 0
+                    ? `Resend Code to Email (${resendCooldown}s)`
+                    : 'Resend Verification Code to Email'}
+                </button>
               </div>
 
               <button

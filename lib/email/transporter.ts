@@ -66,9 +66,17 @@ export function getDefaultFromAddress(): string {
 }
 
 /**
- * Atelier Administrator notification inbox
+ * Atelier Administrator notification inboxes (supports single or comma-separated list of admin emails)
  */
+export function getAdminNotificationEmails(): string[] {
+  const envVal = process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL || 'otienoronny56@gmail.com';
+  return envVal
+    .split(',')
+    .map((e) => e.trim())
+    .filter((e) => e.length > 0);
+}
+
 export function getAdminNotificationEmail(): string {
-  return process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_EMAIL || 'otienoronny56@gmail.com';
+  return getAdminNotificationEmails()[0] || 'otienoronny56@gmail.com';
 }
 

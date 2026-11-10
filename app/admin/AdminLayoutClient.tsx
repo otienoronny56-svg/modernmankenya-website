@@ -16,7 +16,8 @@ import {
   ShieldCheck,
   Receipt,
   Camera,
-  Ruler
+  Ruler,
+  Mail
 } from 'lucide-react';
 
 interface AdminLayoutClientProps {
@@ -76,6 +77,12 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
       href: '/admin/lookbook',
       icon: Camera,
       active: pathname.startsWith('/admin/lookbook'),
+    },
+    {
+      name: 'Communications',
+      href: '/admin/communications',
+      icon: Mail,
+      active: pathname.startsWith('/admin/communications'),
     },
     {
       name: 'Atelier Team',
