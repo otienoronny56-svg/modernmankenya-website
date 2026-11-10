@@ -30,7 +30,7 @@ export default function AboutPage() {
       {/* 4. The Master Tailoring Disciplines & Operational Standards */}
       <ArtisanDisciplinesSection />
 
-      {/* 5. Nairobi Flagship Atelier Experience & Map Navigation */}
+      {/* 5. The Executive Tier Experience & Map Navigation */}
       <AtelierExperienceSection />
     </main>
   );

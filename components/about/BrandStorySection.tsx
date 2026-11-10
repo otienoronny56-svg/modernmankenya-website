@@ -134,7 +134,7 @@ export const BrandStorySection: React.FC = () => {
               
               {/* Overlay Badge */}
               <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono px-3 py-1 rounded-full">
-                Est. 2020 • Nairobi Flagship
+                Est. 2020 • Nairobi Atelier
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-brand-gold/40 text-brand-navy flex items-center justify-between shadow-lg">

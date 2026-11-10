@@ -83,7 +83,7 @@ export const AboutHero: React.FC = () => {
               4,000+
             </div>
             <div className="text-[11px] sm:text-xs uppercase tracking-luxury text-slate-300 font-medium">
-              European Mill Cloths
+              Curated Global Fabrics
             </div>
           </div>
 

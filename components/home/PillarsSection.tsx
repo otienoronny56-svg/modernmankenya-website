@@ -23,11 +23,11 @@ export const PillarsSection: React.FC = () => {
     },
     {
       icon: Layers,
-      title: 'Premium Imported Cloths',
-      subtitle: 'Yorkshire, Biella & Scottish Weaves',
+      title: 'Premium Global Cloths',
+      subtitle: 'World-Renowned Textile Houses',
       description:
-        'Direct partnerships with the world’s most prestigious mills: Scabal (Huddersfield), Dormeuil (England/France), Loro Piana (Italy), and Holland & Sherry (London). From Super 150s merino wools to pure silk velvets and Irish linens.',
-      badge: '4,000+ Swatches',
+        'Curated selections from the world’s most prestigious mills: Scabal, Dormeuil, Loro Piana, and leading textile houses. From 100% pure wools (Super 100s to Super 150s) to celebratory jacquards, rich cashmere, and fine linens.',
+      badge: '4,000+ Global Swatches',
     },
   ];
 

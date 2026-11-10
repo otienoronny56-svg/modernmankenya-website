@@ -19,23 +19,23 @@ export const AtelierExperienceSection: React.FC = () => {
   const experiences = [
     {
       icon: Coffee,
-      title: 'Private Lounge & Hospitality',
-      desc: 'Sip single malt scotch or artisanal Kenyan espresso in our private lounge while discussing your wardrobe needs with our Style Director.',
+      title: 'Private Lounge & Warm Hospitality',
+      desc: 'Relax in our comfortable private lounge while discussing your wardrobe needs, upcoming events, and personal style one-on-one with our Master Tailor.',
     },
     {
       icon: Sparkles,
-      title: 'The Vault of 4,000+ Mill Bunches',
-      desc: 'Explore physical fabric swatch bunches from Scabal, Dormeuil, and Loro Piana across super 130s to super 180s wools, cashmere, and silk.',
+      title: 'Vault of 4,000+ Global Fabrics',
+      desc: 'Touch and feel physical fabric swatches from premier mills worldwide—featuring Super 130s to Super 150s pure wools, celebratory jacquards, cashmere, and silk.',
     },
     {
       icon: Glasses,
-      title: 'The Basting Fitting Ritual',
-      desc: 'Experience our intermediate basting fitting where your coat is sculpted directly on your shoulders using white basting cotton before final stitching.',
+      title: 'Hand-Basted Precision Fitting',
+      desc: 'Your suit is temporarily basted with white cotton thread and sculpted directly on your shoulders before final completion, ensuring an exact custom fit.',
     },
     {
       icon: ShieldCheck,
-      title: 'Confidentiality & Discretion',
-      desc: 'We uphold absolute privacy for high-profile dignitaries, corporate leaders, and wedding parties visiting our Nairobi salon.',
+      title: 'Complete Privacy & Discretion',
+      desc: 'We provide a quiet, fully private environment and dedicated personal attention for corporate leaders, executives, diplomats, and wedding grooms.',
     },
   ];
 
@@ -46,13 +46,13 @@ export const AtelierExperienceSection: React.FC = () => {
         {/* Top Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-[11px] sm:text-xs uppercase font-bold tracking-luxury text-brand-gold">
-            Private Consultation
+            Executive Tier • VIP Tailoring Journey
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy">
-            The Flagship Atelier Experience
+            The Executive Tier Experience
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm md:text-base font-light leading-relaxed">
-            A made-to-measure commission at Modern Man Kenya is more than an appointment; it is a personalized sartorial journey.
+            Reserved for our Executive Tier commissions. Enjoy a dedicated one-on-one tailoring journey with personalized fittings, private lounge hospitality, and access to the world&apos;s finest wools.
           </p>
         </div>
 
@@ -85,7 +85,7 @@ export const AtelierExperienceSection: React.FC = () => {
           {/* Map Preview */}
           <div className="lg:col-span-7">
             <AtelierMap 
-              title="Modern Man Kenya Flagship Atelier"
+              title="Modern Man Kenya Nairobi Atelier"
               showDetailsCard={true}
             />
           </div>
@@ -96,16 +96,16 @@ export const AtelierExperienceSection: React.FC = () => {
 
             <div className="relative z-10 space-y-5">
               <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-white/10 px-3 py-1 rounded-full inline-block border border-brand-gold/30">
-                Exclusive Consultations
+                Executive Consultations
               </span>
 
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug">
-                Reserve Your Private Fitting Session
+                Reserve Your Executive Fitting Session
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                Step into our humble Atelier for a one-on-one consultation with our Master Tailor. 
-                Whether for an executive wardrobe or wedding party, your sartorial legacy begins here.
+                Book a private one-on-one session with our Master Tailor. 
+                Whether you are crafting an executive power suit or a milestone wedding ensemble, we guide you every step of the way.
               </p>
 
               <div className="space-y-2.5 text-xs text-slate-300 pt-2 border-t border-white/10">

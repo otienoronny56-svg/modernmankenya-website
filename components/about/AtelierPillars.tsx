@@ -20,8 +20,8 @@ export const AtelierPillars: React.FC = () => {
     {
       num: '03',
       icon: Gem,
-      title: 'Prestigious European Mill Cloths',
-      desc: 'Direct mill curation from Huddersfield, Yorkshire, and Biella, Italy—featuring Scabal Super 150s, Dormeuil Amadeus, and Loro Piana Tasmanian wools.',
+      title: 'Curated World-Class Global Fabrics',
+      desc: 'Sourced from the world’s most prestigious textile mills—featuring 100% pure wools from Super 100s to Super 150s, celebratory jacquards, cashmere, and fine silks.',
     },
     {
       num: '04',
