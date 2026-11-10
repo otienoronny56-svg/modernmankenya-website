@@ -42,8 +42,8 @@ const SUIT_TIERS: SuitTier[] = [
     name: 'Standard Tier',
     subtitle: 'Daily Business & Sharp Corporate Cut',
     timeline: '1 Week (7 Days)',
-    priceRange: 'KSh 18,000 – 25,000',
-    fabric: 'Durable Poly-Wool & Fine Cotton Blends (Non-100% wool for easy maintenance and crease resistance)',
+    priceRange: 'KSh 18,000 – 29,999',
+    fabric: 'Durable Poly-Wool & Fine Cotton Blends (Crease-resistant blend engineered for daily office wear & easy maintenance)',
     build: 'Machine-assisted precision cut with clean half-canvas chest structure and one physical fitting',
     bestFor: 'Everyday office suits, corporate wear, advocates, and urgent events',
     points: [
@@ -58,15 +58,16 @@ const SUIT_TIERS: SuitTier[] = [
     name: 'Premium Tier',
     subtitle: 'Weddings, Boardrooms & Special Milestones',
     timeline: '2 Weeks (14 Days)',
-    priceRange: 'KSh 30,000 – 45,000',
+    priceRange: 'KSh 30,000 – 49,999',
     badge: 'Most Popular',
     isPopular: true,
-    fabric: 'High-twist fine wool blends, lightweight pure wools, and specialty jacquard blazers',
+    fabric: '100% Pure Wool (Super 100s to Super 120s) and celebratory luxury Jacquard fabrics (not ordinary blazer)',
     build: 'Half floating canvas construction, pick-stitched lapels, horn buttons, and Gurkha trouser side adjusters',
-    bestFor: 'Weddings, groomsmen sets, executive presentations, and evening galas',
+    bestFor: 'Weddings, celebratory jacquard suits, executive presentations, and evening galas',
     points: [
+      '100% pure wool (Super 100s–120s): Soft, smooth natural fibers that breathe easily & resist wrinkles',
+      'Woven Jacquard fabrics with raised regal patterns for wedding statement suits',
       '2 physical fittings including jacket basting check',
-      'Breathable cloth that drapes cleanly in Nairobi heat',
       'Gurkha metal side adjusters (no belt required)',
     ],
     ctaLink: '/book-appointment?tier=premium',
@@ -78,10 +79,11 @@ const SUIT_TIERS: SuitTier[] = [
     timeline: '3 to 4 Weeks (21–28 Days)',
     priceRange: 'KSh 50,000 – 200,000',
     badge: 'Master Atelier',
-    fabric: '100% Pure imported high-twist wool (Super 140s–180s from Scabal, Dormeuil, Loro Piana, Zegna) and metallic relief jacquards',
+    fabric: '100% Pure imported high-twist wool (Super 130s to Super 150s from prestigious European mills) and metallic relief jacquards',
     build: 'Full floating horsehair canvas, hand-stitched Milanese lapel buttonhole, surgeon cuffs, and custom monogram embroidery',
     bestFor: 'Black-tie weddings, CEOs, diplomatic summits, red carpets, and legacy keepsakes',
     points: [
+      'Super 130s to Super 150s ultra-fine luxury wool: Silky hand-feel, featherlight drape & natural luster',
       'Multiple basted fittings until the drape is millimetric',
       '100% pure wool with natural stretch and zero synthetic glue',
       'Working sleeve buttonholes & bespoke interior silk lining',
@@ -121,7 +123,7 @@ const FABRICS_DATA: FabricCategory[] = [
     image: '/images/craft/fabric-pure-wool.jpg',
     useCase: 'Boardroom Meetings, Corporate Leadership, Diplomatic Delegations',
     whyKenyansLoveIt: 'Natural merino wool breathes with your body. It keeps you cool during warm Nairobi afternoons and warm during cold July mornings, naturally shedding wrinkles after hours of sitting.',
-    features: ['100% Natural fiber', 'Super 130s to 180s grades', 'Excellent natural bounce & drape'],
+    features: ['100% Natural pure wool', 'Super 100s to 150s grades', 'Excellent natural bounce & drape'],
     linkText: 'See Executive Wear Collection',
     linkHref: '/occasions/executive-wear',
   },
@@ -132,7 +134,7 @@ const FABRICS_DATA: FabricCategory[] = [
     image: '/images/craft/fabric-wool-blend.jpg',
     useCase: 'Everyday Work, Court Appearances, Frequent Travel & Commercial Wear',
     whyKenyansLoveIt: 'Blended with strong microfibers, this cloth handles the daily Nairobi commute, resists friction and creasing, and is priced affordably without losing a clean tailored taper.',
-    features: ['Budget-friendly (18k – 25k tier)', 'Very durable & easy to press', 'Holds sharp trouser crease'],
+    features: ['Budget-friendly (18k – 29,999 tier)', 'Very durable & easy to press', 'Holds sharp trouser crease'],
     linkText: 'Browse Suits in Gallery',
     linkHref: '/gallery?category=suits',
   },
@@ -455,6 +457,61 @@ export default function TheCraftPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Simple English Wool & Jacquard Guide */}
+        <div className="mt-12 bg-white dark:bg-[#1E202B] rounded-2xl p-6 sm:p-8 border border-brand-gold/30 shadow-md">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-stone-200 dark:border-slate-800">
+            <div>
+              <span className="text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold">
+                Atelier Sartorial Guide
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy dark:text-white mt-1">
+                What Does &ldquo;Super 100s to Super 150s&rdquo; &amp; Jacquard Mean in Simple English?
+              </h3>
+            </div>
+            <p className="text-xs text-stone-500 dark:text-slate-400 max-w-sm">
+              Clear, transparent guidance so you know exactly which fabric matches your occasion and budget.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+            <div className="bg-stone-50 dark:bg-[#242738] p-5 rounded-xl border border-stone-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="px-2.5 py-0.5 rounded-full bg-brand-gold/20 text-brand-navy dark:text-brand-gold text-[10px] font-bold uppercase tracking-wider">
+                The &ldquo;Super&rdquo; Number Explained
+              </span>
+              <h4 className="font-serif text-base font-bold text-stone-900 dark:text-white">
+                Fiber Softness &amp; Fineness
+              </h4>
+              <p className="text-xs text-stone-600 dark:text-slate-300 leading-relaxed font-light">
+                In suiting, the &ldquo;Super&rdquo; number tells you how finely the natural wool fiber is spun. The higher the number, the finer, softer, and smoother the wool feels against your skin.
+              </p>
+            </div>
+
+            <div className="bg-stone-50 dark:bg-[#242738] p-5 rounded-xl border border-stone-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="px-2.5 py-0.5 rounded-full bg-brand-gold/20 text-brand-navy dark:text-brand-gold text-[10px] font-bold uppercase tracking-wider">
+                Super 100s to Super 120s (Premium Tier)
+              </span>
+              <h4 className="font-serif text-base font-bold text-stone-900 dark:text-white">
+                100% Pure Wool &amp; Jacquards
+              </h4>
+              <p className="text-xs text-stone-600 dark:text-slate-300 leading-relaxed font-light">
+                Spun from 100% pure natural wool. It naturally breathes in Nairobi heat, sheds sitting wrinkles, and gives a smooth drape that is strong enough for regular wedding and boardroom wear. Paired with celebratory Jacquard fabrics—intricately woven raised patterns designed for full wedding and dinner suits (not ordinary blazers).
+              </p>
+            </div>
+
+            <div className="bg-stone-50 dark:bg-[#242738] p-5 rounded-xl border border-stone-200/60 dark:border-slate-700/60 space-y-2">
+              <span className="px-2.5 py-0.5 rounded-full bg-brand-gold/20 text-brand-navy dark:text-brand-gold text-[10px] font-bold uppercase tracking-wider">
+                Super 130s to Super 150s (Executive Tier)
+              </span>
+              <h4 className="font-serif text-base font-bold text-stone-900 dark:text-white">
+                Silky, Featherlight Luxury
+              </h4>
+              <p className="text-xs text-stone-600 dark:text-slate-300 leading-relaxed font-light">
+                Crafted from ultra-fine luxury fibers from leading European mills. It has a silky hand-feel, a gentle natural sheen, and a fluid, featherlight drape. Reserved for milestone weddings, high-level diplomatic summits, and red carpets.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

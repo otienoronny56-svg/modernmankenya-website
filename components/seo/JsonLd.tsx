@@ -48,7 +48,7 @@ export const JsonLd: React.FC = () => {
               itemOffered: {
                 '@type': 'Service',
                 name: "Standard Made to Measure Men's Suits",
-                description: 'Full canvas suit handcrafted in 1 week (KES 18,000 - 25,000)',
+                description: 'Made to measure tailored corporate suit in 1 week (KES 18,000 - 29,999)',
               },
             },
             {
@@ -56,7 +56,7 @@ export const JsonLd: React.FC = () => {
               itemOffered: {
                 '@type': 'Service',
                 name: "Premium Made to Measure Men's Suits",
-                description: 'High-grade wool blends handcrafted in 2 weeks (KES 30,000 - 45,000)',
+                description: '100% Pure Wool Super 100s-120s & celebratory Jacquard fabrics in 2 weeks (KES 30,000 - 49,999)',
               },
             },
             {
@@ -64,7 +64,7 @@ export const JsonLd: React.FC = () => {
               itemOffered: {
                 '@type': 'Service',
                 name: "Executive Luxury Men's Suits",
-                description: 'Pure wool Super 130s-160s, cashmere & silk in 3-4 weeks (KES 50,000 - 200,000)',
+                description: '100% Pure wool Super 130s-150s & luxury metallic jacquards in 3-4 weeks (KES 50,000 - 200,000)',
               },
             },
             {
