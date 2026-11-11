@@ -42,7 +42,7 @@ export default function AdminDashboardPage() {
       const [prodRes, ordRes, aptRes] = await Promise.all([
         fetch('/api/products'),
         fetch('/api/orders'),
-        fetch('/api/appointments'),
+        fetch(`/api/appointments?t=${Date.now()}`, { cache: 'no-store' }),
       ]);
       const prodData = await prodRes.json();
       const ordData = await ordRes.json();

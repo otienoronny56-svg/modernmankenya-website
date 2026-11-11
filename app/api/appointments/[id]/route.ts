@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { updateAppointment, deleteAppointment } from '@/lib/appointments/store';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ id: string }> }

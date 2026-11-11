@@ -72,7 +72,7 @@ export default function AdminAppointmentsPage() {
   const fetchAppointments = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/appointments');
+      const res = await fetch(`/api/appointments?t=${Date.now()}`, { cache: 'no-store' });
       const data = await res.json();
       if (data.success && Array.isArray(data.appointments)) {
         setAppointments(data.appointments);

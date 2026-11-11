@@ -77,53 +77,73 @@ export function formatFriendlyDate(dateStr: string): string {
 }
 
 /**
- * Get all appointments, merging local cache with Supabase if configured
+ * Get all appointments directly from Supabase (primary) merged with local cache
  */
 export async function getAllAppointments(): Promise<StoredAppointment[]> {
-  const localList = readLocalAppointments();
+  const appointmentsMap = new Map<string, StoredAppointment>();
 
+  // 1. Load from Supabase as primary persistent source of truth
   try {
     const { getSupabaseAdmin } = await import('@/lib/supabase/server');
     const supabaseAdmin = getSupabaseAdmin();
     const { data, error } = await (supabaseAdmin.from('appointments') as any)
       .select('*')
-      .order('created_at', { ascending: false });
+      .order('appointment_date', { ascending: true });
 
     if (!error && Array.isArray(data)) {
       for (const row of data) {
         const id = String(row.id);
-        const exists = localList.some(
-          (a) => a.id === id || a.reference_id === row.reference_id
-        );
-        if (!exists) {
-          const dateIso = normalizeDateToIso(row.appointment_date || row.created_at);
-          localList.unshift({
-            id: `supabase-${id}`,
-            reference_id: row.reference_id || `MMK-${row.id.slice(0, 6)}`,
-            client_name: row.client_name || 'Client',
-            client_email: row.client_email || '',
-            client_phone: row.client_phone || '',
-            fitting_type: row.fitting_type || 'Bespoke Fitting',
-            location_type: row.location_type || 'Flagship Atelier Nairobi',
-            appointment_date: formatFriendlyDate(dateIso),
-            appointment_date_iso: dateIso,
-            time_slot: row.time_slot || '11:00 AM',
-            status: (row.status as any) || 'confirmed',
-            notes: row.notes || '',
-            created_by: 'client',
-            created_at: row.created_at || new Date().toISOString(),
-            updated_at: row.updated_at || new Date().toISOString(),
-          });
-        }
+        const prefs = (typeof row.sartorial_preferences === 'object' && row.sartorial_preferences) || {};
+        const dateIso = normalizeDateToIso(row.appointment_date || row.created_at);
+        const refId =
+          prefs.reference_id ||
+          `MMK-${id.replace(/[^0-9]/g, '').slice(0, 6) || Math.floor(100000 + Math.random() * 900000)}`;
+
+        appointmentsMap.set(id, {
+          id,
+          reference_id: refId,
+          client_name: row.client_name || 'VIP Client',
+          client_email: row.client_email || '',
+          client_phone: row.client_phone || '',
+          fitting_type: row.fitting_type || 'Initial Made to Measure Consultation',
+          location_type: row.location_type || 'Flagship Atelier Nairobi',
+          appointment_date: formatFriendlyDate(dateIso),
+          appointment_date_iso: dateIso,
+          time_slot: row.time_slot || '11:00 AM',
+          status: (row.status as any) || 'confirmed',
+          notes: row.notes || '',
+          created_by: prefs.created_by || 'client',
+          created_at: row.created_at || new Date().toISOString(),
+          updated_at: row.created_at || new Date().toISOString(),
+          sartorial_preferences: prefs,
+        });
       }
-      writeLocalAppointments(localList);
+    } else if (error) {
+      console.warn('Notice from Supabase appointments query:', error.message);
     }
-  } catch {
-    // Resilient offline fallback to local store
+  } catch (err) {
+    console.warn('Could not query Supabase appointments:', err);
   }
 
+  // 2. Also merge any local development records if not already represented
+  const localList = readLocalAppointments();
+  for (const localApt of localList) {
+    const exists = Array.from(appointmentsMap.values()).some(
+      (a) =>
+        a.reference_id === localApt.reference_id ||
+        (a.client_phone === localApt.client_phone &&
+          a.appointment_date_iso === localApt.appointment_date_iso &&
+          a.time_slot === localApt.time_slot)
+    );
+    if (!exists) {
+      appointmentsMap.set(localApt.id, localApt);
+    }
+  }
+
+  const combined = Array.from(appointmentsMap.values());
+
   // Sort upcoming by date and time
-  return localList.sort((a, b) => {
+  return combined.sort((a, b) => {
     const dateComp = a.appointment_date_iso.localeCompare(b.appointment_date_iso);
     if (dateComp !== 0) return dateComp;
     return a.time_slot.localeCompare(b.time_slot);
@@ -162,7 +182,7 @@ export async function isSlotBooked(
   const appointments = await getAllAppointments();
 
   return appointments.some((a) => {
-    if (excludeId && a.id === excludeId) return false;
+    if (excludeId && (a.id === excludeId || a.reference_id === excludeId)) return false;
     if (a.status === 'cancelled') return false;
     return (
       a.appointment_date_iso === cleanIso &&
@@ -172,7 +192,7 @@ export async function isSlotBooked(
 }
 
 /**
- * Create a new appointment with conflict detection
+ * Create a new appointment, persisting directly to Supabase as primary database
  */
 export async function createAppointment(
   data: Omit<StoredAppointment, 'id' | 'reference_id' | 'created_at' | 'updated_at' | 'appointment_date_iso'> & {
@@ -194,70 +214,108 @@ export async function createAppointment(
     };
   }
 
-  const localList = readLocalAppointments();
-  const now = new Date().toISOString();
   const referenceId = `MMK-${Math.floor(100000 + Math.random() * 900000)}`;
-  const newAppointment: StoredAppointment = {
-    id: `apt-${Date.now()}`,
+  const now = new Date().toISOString();
+
+  const sartorialPrefs = {
+    ...(data.sartorial_preferences || {}),
     reference_id: referenceId,
-    client_name: data.client_name,
-    client_email: data.client_email,
-    client_phone: data.client_phone,
-    fitting_type: data.fitting_type,
-    location_type: data.location_type,
-    appointment_date: formatFriendlyDate(dateIso),
-    appointment_date_iso: dateIso,
-    time_slot: data.time_slot,
-    status: data.status || 'confirmed',
-    notes: data.notes || '',
     created_by: data.created_by || 'client',
-    created_at: now,
-    updated_at: now,
-    sartorial_preferences: data.sartorial_preferences,
   };
 
-  localList.unshift(newAppointment);
-  writeLocalAppointments(localList);
+  let createdAppointment: StoredAppointment;
 
-  // Sync to Supabase in background
+  // 1. Primary write directly into Supabase
   try {
     const { getSupabaseAdmin } = await import('@/lib/supabase/server');
     const supabaseAdmin = getSupabaseAdmin();
-    await (supabaseAdmin.from('appointments') as any).insert({
-      client_name: newAppointment.client_name,
-      client_email: newAppointment.client_email,
-      client_phone: newAppointment.client_phone,
-      fitting_type: newAppointment.fitting_type,
-      location_type: newAppointment.location_type,
-      appointment_date: newAppointment.appointment_date,
-      time_slot: newAppointment.time_slot,
-      status: newAppointment.status,
-      notes: newAppointment.notes,
-      reference_id: newAppointment.reference_id,
-      sartorial_preferences: newAppointment.sartorial_preferences || {},
-    });
-  } catch {
-    // Supabase resilient fallback
+    const { data: inserted, error: insertError } = await (supabaseAdmin.from('appointments') as any)
+      .insert({
+        client_name: data.client_name.trim(),
+        client_email: (data.client_email || '').trim(),
+        client_phone: data.client_phone.trim(),
+        fitting_type: data.fitting_type || 'Initial Made to Measure Consultation',
+        location_type: data.location_type || 'Flagship Atelier Nairobi',
+        appointment_date: dateIso, // Strict Postgres DATE format (YYYY-MM-DD)
+        time_slot: data.time_slot,
+        status: data.status || 'confirmed',
+        notes: data.notes || '',
+        sartorial_preferences: sartorialPrefs,
+      })
+      .select()
+      .single();
+
+    if (insertError) {
+      console.error('Supabase appointment insert error:', insertError);
+      throw insertError;
+    }
+
+    createdAppointment = {
+      id: String(inserted.id),
+      reference_id: referenceId,
+      client_name: inserted.client_name,
+      client_email: inserted.client_email,
+      client_phone: inserted.client_phone,
+      fitting_type: inserted.fitting_type,
+      location_type: inserted.location_type,
+      appointment_date: formatFriendlyDate(dateIso),
+      appointment_date_iso: dateIso,
+      time_slot: inserted.time_slot,
+      status: inserted.status as any,
+      notes: inserted.notes || '',
+      created_by: data.created_by || 'client',
+      created_at: inserted.created_at || now,
+      updated_at: inserted.created_at || now,
+      sartorial_preferences: sartorialPrefs,
+    };
+  } catch (err) {
+    console.warn('Fallback to local appointment caching due to Supabase error:', err);
+    createdAppointment = {
+      id: `apt-${Date.now()}`,
+      reference_id: referenceId,
+      client_name: data.client_name,
+      client_email: data.client_email,
+      client_phone: data.client_phone,
+      fitting_type: data.fitting_type,
+      location_type: data.location_type,
+      appointment_date: formatFriendlyDate(dateIso),
+      appointment_date_iso: dateIso,
+      time_slot: data.time_slot,
+      status: data.status || 'confirmed',
+      notes: data.notes || '',
+      created_by: data.created_by || 'client',
+      created_at: now,
+      updated_at: now,
+      sartorial_preferences: sartorialPrefs,
+    };
   }
 
-  return { success: true, appointment: newAppointment };
+  // 2. Also write to local store for offline/local development cache
+  try {
+    const localList = readLocalAppointments();
+    localList.unshift(createdAppointment);
+    writeLocalAppointments(localList);
+  } catch {
+    // Non-fatal if filesystem is read-only
+  }
+
+  return { success: true, appointment: createdAppointment };
 }
 
 /**
- * Update an appointment's status, notes, or date/time with conflict check
+ * Update an appointment's status, notes, or date/time in Supabase and local cache
  */
 export async function updateAppointment(
   id: string,
   updates: Partial<StoredAppointment>
 ): Promise<{ success: boolean; appointment?: StoredAppointment; error?: string; conflict?: boolean }> {
-  const localList = readLocalAppointments();
-  const index = localList.findIndex((a) => a.id === id || a.reference_id === id);
+  const all = await getAllAppointments();
+  const existing = all.find((a) => a.id === id || a.reference_id === id);
 
-  if (index === -1) {
+  if (!existing) {
     return { success: false, error: 'Appointment not found' };
   }
 
-  const existing = localList[index];
   const newDateIso = updates.appointment_date
     ? normalizeDateToIso(updates.appointment_date)
     : updates.appointment_date_iso || existing.appointment_date_iso;
@@ -278,7 +336,7 @@ export async function updateAppointment(
     }
   }
 
-  const updated: StoredAppointment = {
+  const updatedApt: StoredAppointment = {
     ...existing,
     ...updates,
     appointment_date_iso: newDateIso,
@@ -287,44 +345,85 @@ export async function updateAppointment(
     updated_at: new Date().toISOString(),
   };
 
-  localList[index] = updated;
-  writeLocalAppointments(localList);
+  // 1. Update in Supabase
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(existing.id);
 
-  return { success: true, appointment: updated };
+    const sbUpdate: any = {};
+    if (updates.status) sbUpdate.status = updates.status;
+    if (updates.notes !== undefined) sbUpdate.notes = updates.notes;
+    if (newDateIso) sbUpdate.appointment_date = newDateIso;
+    if (updates.time_slot) sbUpdate.time_slot = updates.time_slot;
+
+    if (isUuid) {
+      await (supabaseAdmin.from('appointments') as any).update(sbUpdate).eq('id', existing.id);
+    } else {
+      await (supabaseAdmin.from('appointments') as any)
+        .update(sbUpdate)
+        .contains('sartorial_preferences', { reference_id: existing.reference_id });
+    }
+  } catch (sbErr) {
+    console.warn('Could not update appointment in Supabase:', sbErr);
+  }
+
+  // 2. Update in local cache
+  try {
+    const localList = readLocalAppointments();
+    const idx = localList.findIndex((a) => a.id === id || a.reference_id === id);
+    if (idx > -1) {
+      localList[idx] = updatedApt;
+      writeLocalAppointments(localList);
+    }
+  } catch {
+    // Non-fatal
+  }
+
+  return { success: true, appointment: updatedApt };
 }
 
 /**
- * Delete / remove an appointment permanently
+ * Delete an appointment permanently from Supabase and local cache
  */
 export async function deleteAppointment(id: string): Promise<boolean> {
-  const localList = readLocalAppointments();
-  const match = localList.find((a) => a.id === id || a.reference_id === id);
-  const filtered = localList.filter((a) => a.id !== id && a.reference_id !== id);
+  let deletedFromSupabase = false;
 
-  if (filtered.length !== localList.length) {
-    writeLocalAppointments(filtered);
+  // 1. Delete from Supabase
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
 
-    // Sync deletion to Supabase in background
-    try {
-      const { getSupabaseAdmin } = await import('@/lib/supabase/server');
-      const supabaseAdmin = getSupabaseAdmin();
-      const rawId = id.replace('supabase-', '');
-      if (match?.reference_id) {
-        await (supabaseAdmin.from('appointments') as any)
-          .delete()
-          .or(`reference_id.eq.${match.reference_id},id.eq.${rawId}`);
-      } else {
-        await (supabaseAdmin.from('appointments') as any)
-          .delete()
-          .eq('id', rawId);
-      }
-    } catch {
-      // Offline fallback
+    if (isUuid) {
+      const { error } = await (supabaseAdmin.from('appointments') as any)
+        .delete()
+        .eq('id', id);
+      if (!error) deletedFromSupabase = true;
+    } else {
+      const { error } = await (supabaseAdmin.from('appointments') as any)
+        .delete()
+        .contains('sartorial_preferences', { reference_id: id });
+      if (!error) deletedFromSupabase = true;
     }
-
-    return true;
+  } catch (err) {
+    console.warn('Could not delete from Supabase:', err);
   }
-  return false;
+
+  // 2. Delete from local cache
+  let deletedFromLocal = false;
+  try {
+    const localList = readLocalAppointments();
+    const filtered = localList.filter((a) => a.id !== id && a.reference_id !== id);
+    if (filtered.length !== localList.length) {
+      writeLocalAppointments(filtered);
+      deletedFromLocal = true;
+    }
+  } catch {
+    // Non-fatal
+  }
+
+  return deletedFromSupabase || deletedFromLocal;
 }
 
 /**
@@ -378,4 +477,3 @@ export async function getCalendarSummary(): Promise<{
 
   return summary;
 }
-
