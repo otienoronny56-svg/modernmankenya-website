@@ -50,6 +50,7 @@ export default function AdminAppointmentsPage() {
   // Modal states
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [rescheduleModalApt, setRescheduleModalApt] = useState<StoredAppointment | null>(null);
+  const [deleteModalApt, setDeleteModalApt] = useState<StoredAppointment | null>(null);
   const [actionLoading, setActionLoading] = useState(false);
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
@@ -171,6 +172,33 @@ export default function AdminAppointmentsPage() {
       }
     } catch {
       setFeedback({ type: 'error', message: 'Network error updating appointment status.' });
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Handle Permanent Appointment Deletion
+  const handleDeleteAppointment = async () => {
+    if (!deleteModalApt) return;
+    setActionLoading(true);
+    setFeedback(null);
+    try {
+      const res = await fetch(`/api/appointments/${deleteModalApt.id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setFeedback({
+          type: 'success',
+          message: `Appointment for ${deleteModalApt.client_name} (${deleteModalApt.reference_id}) has been deleted and the time slot is now available.`,
+        });
+        setDeleteModalApt(null);
+        await fetchAppointments();
+      } else {
+        setFeedback({ type: 'error', message: data.error || 'Failed to delete appointment.' });
+      }
+    } catch {
+      setFeedback({ type: 'error', message: 'Network error deleting appointment.' });
     } finally {
       setActionLoading(false);
     }
@@ -593,11 +621,13 @@ export default function AdminAppointmentsPage() {
                           </button>
 
                           <button
-                            onClick={() => handleUpdateStatus(booking.id, 'cancelled')}
+                            onClick={() => setDeleteModalApt(booking)}
                             disabled={actionLoading}
-                            className="px-2.5 py-1 rounded bg-slate-100 hover:bg-rose-50 hover:text-rose-700 text-slate-600 font-semibold text-[11px] transition-colors"
+                            className="px-2.5 py-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-[11px] transition-colors flex items-center space-x-1"
+                            title="Delete this appointment permanently"
                           >
-                            Cancel
+                            <Trash2 className="w-3 h-3" />
+                            <span>Delete</span>
                           </button>
                         </div>
                       </div>
@@ -747,6 +777,14 @@ export default function AdminAppointmentsPage() {
                           className="px-2 py-1 rounded bg-slate-100 hover:bg-brand-navy hover:text-white text-slate-700 font-semibold text-[10px]"
                         >
                           Reschedule
+                        </button>
+                        <button
+                          onClick={() => setDeleteModalApt(apt)}
+                          className="px-2 py-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-[10px] inline-flex items-center space-x-1"
+                          title="Delete appointment permanently"
+                        >
+                          <Trash2 className="w-3 h-3" />
+                          <span>Delete</span>
                         </button>
                       </td>
                     </tr>
@@ -1000,23 +1038,92 @@ export default function AdminAppointmentsPage() {
                 </select>
               </div>
 
-              <div className="flex items-center justify-end space-x-2 pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-100">
                 <button
                   type="button"
-                  onClick={() => setRescheduleModalApt(null)}
-                  className="px-4 py-2 border border-slate-200 rounded-lg text-slate-600 hover:bg-slate-50 font-semibold"
+                  onClick={() => {
+                    const toDelete = rescheduleModalApt;
+                    setRescheduleModalApt(null);
+                    setDeleteModalApt(toDelete);
+                  }}
+                  className="text-xs text-rose-600 hover:text-rose-800 font-semibold flex items-center space-x-1"
                 >
-                  Cancel
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>Delete Appointment</span>
                 </button>
-                <button
-                  type="submit"
-                  disabled={actionLoading}
-                  className="px-5 py-2 bg-brand-navy hover:bg-brand-navy/90 text-brand-gold font-bold uppercase tracking-wider rounded-lg shadow-md border border-brand-gold/30 disabled:opacity-50"
-                >
-                  {actionLoading ? 'Updating...' : 'Save New Time'}
-                </button>
+
+                <div className="flex items-center space-x-2">
+                  <button
+                    type="button"
+                    onClick={() => setRescheduleModalApt(null)}
+                    className="px-4 py-2 border border-slate-200 rounded-lg text-slate-600 hover:bg-slate-50 font-semibold"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={actionLoading}
+                    className="px-5 py-2 bg-brand-navy hover:bg-brand-navy/90 text-brand-gold font-bold uppercase tracking-wider rounded-lg shadow-md border border-brand-gold/30 disabled:opacity-50"
+                  >
+                    {actionLoading ? 'Updating...' : 'Save New Time'}
+                  </button>
+                </div>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 3: Delete Confirmation Modal */}
+      {deleteModalApt && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-200">
+            <div className="w-12 h-12 rounded-full bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center mx-auto">
+              <Trash2 className="w-6 h-6" />
+            </div>
+
+            <div className="text-center space-y-1">
+              <h3 className="font-serif text-xl font-bold text-brand-navy">
+                Delete Fitting Appointment
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Are you sure you want to permanently delete the booking for{' '}
+                <strong className="text-brand-navy">{deleteModalApt.client_name}</strong> (
+                {deleteModalApt.reference_id})?
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1.5 text-slate-700">
+              <div className="flex justify-between">
+                <span className="text-slate-500 font-semibold">Date & Time:</span>
+                <span className="font-bold text-brand-navy">{deleteModalApt.appointment_date} at {deleteModalApt.time_slot}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500 font-semibold">Discipline:</span>
+                <span className="font-medium text-slate-800">{deleteModalApt.fitting_type}</span>
+              </div>
+              <p className="text-[11px] text-rose-600 font-medium pt-1 border-t border-slate-200/60">
+                ⚠️ This appointment will be permanently removed, and this hour will immediately be marked as <strong>AVAILABLE</strong> on the calendar.
+              </p>
+            </div>
+
+            <div className="flex items-center space-x-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setDeleteModalApt(null)}
+                className="flex-1 py-2.5 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors"
+              >
+                Keep Booking
+              </button>
+              <button
+                type="button"
+                onClick={handleDeleteAppointment}
+                disabled={actionLoading}
+                className="flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-md disabled:opacity-50"
+              >
+                {actionLoading ? 'Deleting...' : 'Yes, Delete'}
+              </button>
+            </div>
           </div>
         </div>
       )}

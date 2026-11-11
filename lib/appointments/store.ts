@@ -294,13 +294,34 @@ export async function updateAppointment(
 }
 
 /**
- * Delete / remove an appointment
+ * Delete / remove an appointment permanently
  */
 export async function deleteAppointment(id: string): Promise<boolean> {
   const localList = readLocalAppointments();
+  const match = localList.find((a) => a.id === id || a.reference_id === id);
   const filtered = localList.filter((a) => a.id !== id && a.reference_id !== id);
+
   if (filtered.length !== localList.length) {
     writeLocalAppointments(filtered);
+
+    // Sync deletion to Supabase in background
+    try {
+      const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+      const supabaseAdmin = getSupabaseAdmin();
+      const rawId = id.replace('supabase-', '');
+      if (match?.reference_id) {
+        await (supabaseAdmin.from('appointments') as any)
+          .delete()
+          .or(`reference_id.eq.${match.reference_id},id.eq.${rawId}`);
+      } else {
+        await (supabaseAdmin.from('appointments') as any)
+          .delete()
+          .eq('id', rawId);
+      }
+    } catch {
+      // Offline fallback
+    }
+
     return true;
   }
   return false;
