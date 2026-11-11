@@ -656,7 +656,7 @@ function BookAppointmentContent() {
                   <input
                     type="tel"
                     required
-                    placeholder="+254 700 000 000"
+                    placeholder="e.g. 0718 923 082 or +254 7..."
                     value={clientPhone}
                     onChange={(e) => setClientPhone(e.target.value)}
                     className="w-full px-4 py-2.5 rounded border border-slate-300 text-sm focus:outline-none focus:border-brand-navy"

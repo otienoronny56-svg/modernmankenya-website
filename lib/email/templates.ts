@@ -43,30 +43,32 @@ const baseStyles = `
 `;
 
 const headerHtml = `
-  <div style="background-color: #0A1128; padding: 32px 24px; text-align: center; border-top: 4px solid #C5A059;">
-    <div style="color: #C5A059; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">
-      Atelier Nairobi • Savile Row Craftsmanship
+  <div style="background-color: #0A1128; padding: 28px 24px; text-align: center; border-top: 4px solid #C5A059;">
+    <div style="color: #C5A059; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">
+      Trust Mansion, Tubman Road, Nairobi
     </div>
     <h1 style="color: #ffffff; font-size: 26px; font-weight: 800; letter-spacing: 0.08em; margin: 0; font-family: 'Times New Roman', serif;">
       MODERN MAN KENYA
     </h1>
-    <div style="color: #94a3b8; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 4px;">
-      Bespoke Sartorial & Luxury Perfumes
+    <div style="color: #C5A059; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 6px; font-family: 'Georgia', serif; font-style: italic;">
+      Opulence • Simplicity • Class
     </div>
   </div>
 `;
 
 const footerHtml = `
-  <div style="background-color: #0d1527; padding: 28px 24px; text-align: center; color: #94a3b8; font-size: 12px; border-top: 1px solid #1e293b;">
-    <p style="margin: 0 0 8px 0; color: #cbd5e1; font-weight: 600;">Modern Man Kenya Atelier</p>
-    <p style="margin: 0 0 12px 0;">Nairobi, Kenya • WhatsApp Concierge: +254 700 000 000</p>
-    <div style="margin: 14px 0;">
+  <div style="background-color: #0d1527; padding: 24px 20px; text-align: center; color: #94a3b8; font-size: 12px; border-top: 1px solid #1e293b;">
+    <p style="margin: 0 0 6px 0; color: #cbd5e1; font-weight: 600;">Modern Man Kenya Atelier</p>
+    <p style="margin: 0 0 10px 0; font-size: 11.5px; color: #94a3b8;">
+      Trust Mansion, 1st Floor, Tubman Road, Nairobi • WhatsApp: <a href="https://wa.me/254114122510" style="color: #C5A059; text-decoration: none; font-weight: 600;">+254 114 122 510</a> • Tel: <a href="tel:+254718923082" style="color: #C5A059; text-decoration: none; font-weight: 600;">+254 718 923 082</a>
+    </p>
+    <div style="margin: 10px 0;">
       <a href="https://www.modernmanke.com" style="color: #C5A059; text-decoration: none; margin: 0 10px; font-weight: 600;">Official Atelier</a> •
       <a href="https://www.modernmanke.com/ready-to-wear" style="color: #C5A059; text-decoration: none; margin: 0 10px; font-weight: 600;">Ready-to-Wear</a> •
       <a href="https://www.modernmanke.com/book-appointment" style="color: #C5A059; text-decoration: none; margin: 0 10px; font-weight: 600;">Book a Fitting</a>
     </div>
-    <p style="margin: 16px 0 0 0; font-size: 11px; color: #64748b;">
-      © ${new Date().getFullYear()} Modern Man Kenya. All rights reserved. Precision Sartorial Distinction.
+    <p style="margin: 12px 0 0 0; font-size: 11px; color: #64748b;">
+      © ${new Date().getFullYear()} Modern Man Kenya. All rights reserved.
     </p>
   </div>
 `;
@@ -121,7 +123,7 @@ export function renderCustomerOrderConfirmation(data: OrderEmailData): string {
           <div>• <strong>Amount:</strong> KES ${data.totalAmountKes.toLocaleString()}</div>
         </div>
         <p style="margin: 8px 0 0 0; color: #92400e; font-size: 12px;">
-          Once sent, your order will be instantly verified by our dispatch concierge.
+          Once sent, your payment will be verified and your order will be prepared for delivery.
         </p>
       </div>
     `;
@@ -144,7 +146,7 @@ export function renderCustomerOrderConfirmation(data: OrderEmailData): string {
                 ORDER CONFIRMATION
               </span>
               <h2 style="margin: 4px 0 0 0; color: #0A1128; font-size: 22px; font-family: 'Times New Roman', serif;">
-                Thank you for your commission, ${data.customerName}
+                Thank you for your order, ${data.customerName}
               </h2>
               <p style="margin: 4px 0 0 0; color: #64748b; font-size: 13px;">
                 Reference: <strong style="color: #0A1128;">${data.orderNumber}</strong> • Placed on ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
@@ -152,7 +154,7 @@ export function renderCustomerOrderConfirmation(data: OrderEmailData): string {
             </div>
 
             <p style="font-size: 14px; color: #334155; line-height: 1.6;">
-              We have received your bespoke order. Each item in our collection is crafted with unwavering sartorial standards. Below is the summary of your selected items:
+              We have received your order. Each piece is crafted with care to your selected fit. Below is the summary of your items:
             </p>
 
             <table style="width: 100%; border-collapse: collapse; margin: 24px 0;">
@@ -169,7 +171,7 @@ export function renderCustomerOrderConfirmation(data: OrderEmailData): string {
               <tfoot>
                 <tr>
                   <td colspan="2" style="padding: 16px 8px 6px 8px; font-size: 15px; font-weight: 700; color: #0A1128; text-align: right;">
-                    Total Commission:
+                    Total:
                   </td>
                   <td style="padding: 16px 8px 6px 8px; font-size: 18px; font-weight: 800; color: #C5A059; text-align: right;">
                     KES ${data.totalAmountKes.toLocaleString()}
@@ -190,10 +192,10 @@ export function renderCustomerOrderConfirmation(data: OrderEmailData): string {
               </p>
             </div>
 
-            <div style="text-align: center; margin-top: 32px;">
-              <a href="https://wa.me/254700000000?text=Hello%20Modern%20Man%20Kenya,%20I%20am%20inquiring%20about%20my%20order%20${encodeURIComponent(data.orderNumber)}" 
+            <div style="text-align: center; margin-top: 28px;">
+              <a href="https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya,%20I%20am%20inquiring%20about%20my%20order%20${encodeURIComponent(data.orderNumber)}" 
                  style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px 28px; border-radius: 6px; text-decoration: none; border: 1px solid #C5A059;">
-                Connect With Atelier Concierge
+                Contact Us on WhatsApp
               </a>
             </div>
           </div>
@@ -296,24 +298,24 @@ export function renderCustomerAppointmentConfirmation(data: AppointmentEmailData
           <div style="padding: 32px 28px;">
             <div style="border-bottom: 2px solid #C5A059; padding-bottom: 16px; margin-bottom: 24px;">
               <span style="color: #C5A059; font-size: 12px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;">
-                BESPOKE FITTING CONFIRMATION
+                FITTING APPOINTMENT CONFIRMATION
               </span>
               <h2 style="margin: 4px 0 0 0; color: #0A1128; font-size: 24px; font-family: 'Times New Roman', serif;">
-                Your Sartorial Session is Confirmed, ${data.clientName}
+                Your Fitting is Confirmed, ${data.clientName}
               </h2>
               <p style="margin: 4px 0 0 0; color: #64748b; font-size: 13px;">
-                Booking Pass: <strong style="color: #0A1128;">${data.referenceId}</strong>
+                Booking Reference: <strong style="color: #0A1128;">${data.referenceId}</strong>
               </p>
             </div>
 
             <p style="font-size: 14px; color: #334155; line-height: 1.6;">
-              Our Master Tailors have reserved your private appointment. We look forward to guiding you through our curated archive of Italian wools, English flannels, and bespoke styling disciplines.
+              Our tailors have reserved your private fitting appointment. We look forward to welcoming you and helping you choose quality fabrics and custom styling made to your exact measurements.
             </p>
 
             <div style="background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; margin: 24px 0;">
               <table style="width: 100%; font-size: 14px; line-height: 1.8;">
                 <tr>
-                  <td style="width: 140px; color: #64748b;"><strong>Fitting Discipline:</strong></td>
+                  <td style="width: 140px; color: #64748b;"><strong>Fitting Type:</strong></td>
                   <td style="color: #0A1128; font-weight: 700;">${data.fittingType}</td>
                 </tr>
                 <tr>
@@ -339,14 +341,14 @@ export function renderCustomerAppointmentConfirmation(data: AppointmentEmailData
                 Appointment Preparation Note:
               </h4>
               <p style="margin: 0; font-size: 13px; color: #475569;">
-                For accurate drape and shoulder contours, we recommend wearing a well-fitting collared dress shirt and the dress shoes you intend to wear with your commission.
+                For accurate drape and shoulder contours, we recommend wearing a well-fitting collared dress shirt and the dress shoes you intend to wear with your outfit.
               </p>
             </div>
 
-            <div style="text-align: center; margin-top: 32px;">
-              <a href="https://wa.me/254700000000?text=Hello%20Modern%20Man%20Kenya,%20I%20have%20an%20appointment%20${encodeURIComponent(data.referenceId)}%20on%20${encodeURIComponent(data.appointmentDate)}"
+            <div style="text-align: center; margin-top: 28px;">
+              <a href="https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya,%20I%20have%20an%20appointment%20${encodeURIComponent(data.referenceId)}%20on%20${encodeURIComponent(data.appointmentDate)}"
                  style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px 28px; border-radius: 6px; text-decoration: none; border: 1px solid #C5A059;">
-                Reschedule or Message Concierge
+                Reschedule or WhatsApp Us
               </a>
             </div>
           </div>
@@ -543,7 +545,7 @@ export function renderWelcomeMemberEmail({ fullName, email }: { fullName: string
             </div>
 
             <p style="font-size: 14px; color: #334155; line-height: 1.7;">
-              It is an honour to welcome you to Modern Man Kenya. Our atelier is dedicated to elevating the gentleman&apos;s wardrobe through Savile Row floating-canvas craftsmanship, fine Egyptian cotton shirts, artisanal fragrances, and bespoke precision.
+              It is a pleasure to welcome you to Modern Man Kenya. We specialize in made-to-measure tailoring, premium fabrics, artisanal fragrances, and custom styling crafted to your exact measurements.
             </p>
 
             <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 24px 0;">

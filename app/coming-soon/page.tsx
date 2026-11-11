@@ -375,7 +375,15 @@ export default function PreLaunchPage() {
             isLight ? 'text-slate-500' : 'text-slate-500'
           }`}
         >
-          &copy; {new Date().getFullYear()} Modern Man Kenya. Opulence • Simplicity • Class.
+          &copy; {new Date().getFullYear()} Modern Man Kenya. Designed and engineered by{' '}
+          <a
+            href="https://eyelobetech.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-1 hover:text-brand-gold transition-colors"
+          >
+            Eyelobe Technologies Ltd
+          </a>
         </div>
       </footer>
     </div>

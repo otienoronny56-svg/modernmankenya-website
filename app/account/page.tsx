@@ -443,7 +443,7 @@ export default function ClientDashboardPage() {
 
           <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href={`https://wa.me/254700000000?text=${encodeURIComponent(
+              href={`https://wa.me/254114122510?text=${encodeURIComponent(
                 `Hello Modern Man Kenya atelier team, I have registered my account (${user?.email}) and would like to request account approval.`
               )}`}
               target="_blank"
@@ -1369,7 +1369,7 @@ export default function ClientDashboardPage() {
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="e.g. +254 722 000 000"
+                    placeholder="e.g. 0718 923 082 or +254 7..."
                     className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
                   />
                 </div>

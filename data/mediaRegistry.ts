@@ -543,6 +543,35 @@ export const MEDIA_REGISTRY: RegisteredMediaItem[] = [
     "featured": false
   },
   {
+    "id": "root-22-lkm-2052-jpg",
+    "filename": "LKM_2052.jpg",
+    "src": "/images/LKM_2052.jpg",
+    "size": 1938515,
+    "width": 3840,
+    "height": 5760,
+    "aspect": "portrait",
+    "title": "African Sophistication Ceremonial Agbada",
+    "category": "signature-african",
+    "secondaryCategories": [
+      "traditional",
+      "ceremonial"
+    ],
+    "tags": [
+      "kaftan",
+      "agbada",
+      "african-sophistication",
+      "ceremonial-robe",
+      "cane",
+      "monarch"
+    ],
+    "suggestedPages": [
+      "/gallery",
+      "/bespoke",
+      "/collections"
+    ],
+    "featured": true
+  },
+  {
     "id": "root-22-logo-emblem-png",
     "filename": "logo-emblem.png",
     "src": "/images/logo-emblem.png",

@@ -365,6 +365,14 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "square"
   },
   {
+    "id": "kaftan-flagship",
+    "title": "African Sophistication",
+    "tag": "Ceremonial Royal Agbada",
+    "category": "kaftan-agbada",
+    "image": "/images/LKM_2052.jpg",
+    "aspect": "portrait"
+  },
+  {
     "id": "kaftan-1",
     "title": "Forest Kaftan",
     "tag": "Groomsmen Entourage",

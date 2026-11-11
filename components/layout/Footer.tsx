@@ -8,11 +8,11 @@ import { PaymentBadges } from '@/components/common/PaymentBadges';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#FAF8F5] text-stone-700 py-8 sm:py-10 border-t border-brand-gold/30 relative">
+    <footer className="bg-[#FAF8F5] text-stone-700 pt-7 pb-5 sm:pt-8 sm:pb-6 border-t border-brand-gold/30 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Minimalist Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* 1. Brand & Contact Information (5 cols) */}
           <div className="lg:col-span-5 space-y-3.5">
@@ -149,11 +149,6 @@ export const Footer: React.FC = () => {
                   </a>
                 </div>
               </div>
-
-              {/* Copyright Notice */}
-              <p className="text-[11px] text-stone-600 pt-2">
-                © {new Date().getFullYear()} Modern Man Kenya. All rights reserved.
-              </p>
             </div>
           </div>
 
@@ -294,12 +289,22 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        {/* Bottom Bar: Secure Payments, M-Pesa Badges & Copyright */}
-        <div className="mt-8 pt-6 border-t border-stone-200/80 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-3 text-xs text-stone-500 text-center sm:text-left">
+        {/* Bottom Bar: Secure Payments, M-Pesa Badges, Attribution & Copyright */}
+        <div className="mt-6 pt-4 border-t border-stone-200/80 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-stone-500">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Modern Man Kenya. All rights reserved.</span>
-            <span className="hidden sm:inline text-stone-300">•</span>
-            <span className="text-[11px] text-brand-gold font-serif italic">Opulence • Simplicity • Class</span>
+            <span className="text-stone-300 hidden sm:inline">•</span>
+            <span className="text-stone-600">
+              Designed and engineered by{' '}
+              <a
+                href="https://eyelobetech.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stone-800 hover:text-brand-gold font-medium underline underline-offset-2 transition-colors"
+              >
+                Eyelobe Technologies Ltd
+              </a>
+            </span>
           </div>
 
           {/* Payment Method Trust Strip */}
