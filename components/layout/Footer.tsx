@@ -302,7 +302,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-stone-800 hover:text-brand-gold font-medium underline underline-offset-2 transition-colors"
               >
-                Eyelobe Technologies Ltd
+                Eyelobe
               </a>
             </span>
           </div>

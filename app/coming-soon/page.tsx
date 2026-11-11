@@ -382,7 +382,7 @@ export default function PreLaunchPage() {
             rel="noopener noreferrer"
             className="underline underline-offset-1 hover:text-brand-gold transition-colors"
           >
-            Eyelobe Technologies Ltd
+            Eyelobe
           </a>
         </div>
       </footer>
