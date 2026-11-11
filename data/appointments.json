@@ -1,0 +1,54 @@
+[
+  {
+    "id": "apt-seed-101",
+    "reference_id": "MMK-481920",
+    "client_name": "Marcus Otieno",
+    "client_email": "marcus.otieno@example.com",
+    "client_phone": "+254 712 345 678",
+    "fitting_type": "Initial Made to Measure Consultation",
+    "location_type": "Flagship Atelier Nairobi",
+    "appointment_date": "Thu, Nov 12, 2026",
+    "appointment_date_iso": "2026-11-12",
+    "time_slot": "11:00 AM",
+    "status": "confirmed",
+    "notes": "Interested in Super 130s English wool navy 2-piece for executive summit.",
+    "created_by": "client",
+    "created_at": "2026-11-10T10:00:00.000Z",
+    "updated_at": "2026-11-10T10:00:00.000Z"
+  },
+  {
+    "id": "apt-seed-102",
+    "reference_id": "MMK-739201",
+    "client_name": "Arch. Brian Kimani",
+    "client_email": "brian.kimani@example.com",
+    "client_phone": "+254 722 890 123",
+    "fitting_type": "Wedding Party & Groomsmen Wardrobe",
+    "location_type": "Flagship Atelier Nairobi",
+    "appointment_date": "Thu, Nov 12, 2026",
+    "appointment_date_iso": "2026-11-12",
+    "time_slot": "03:00 PM",
+    "status": "confirmed",
+    "notes": "Black tie tuxedo consultation with 4 groomsmen.",
+    "created_by": "client",
+    "created_at": "2026-11-10T14:30:00.000Z",
+    "updated_at": "2026-11-10T14:30:00.000Z"
+  },
+  {
+    "id": "apt-seed-103",
+    "reference_id": "MMK-519842",
+    "client_name": "Hon. Patrick Mutua",
+    "client_email": "patrick.mutua@example.com",
+    "client_phone": "+254 733 456 789",
+    "fitting_type": "Tailoring & Alteration Fitting",
+    "location_type": "Flagship Atelier Nairobi",
+    "appointment_date": "Fri, Nov 13, 2026",
+    "appointment_date_iso": "2026-11-13",
+    "time_slot": "01:30 PM",
+    "status": "confirmed",
+    "notes": "Second basted fitting on Italian charcoal chalkstripe suit.",
+    "created_by": "admin",
+    "created_at": "2026-11-11T08:00:00.000Z",
+    "updated_at": "2026-11-11T08:00:00.000Z"
+  }
+]
+

@@ -15,6 +15,14 @@ interface LuxuryCalendarPickerProps {
   selectedDate: string; // Format: 'YYYY-MM-DD'
   onSelectDate: (dateStr: string, displayStr: string) => void;
   minDate?: string; // Format: 'YYYY-MM-DD'
+  calendarSummary?: {
+    [dateIso: string]: {
+      totalBooked: number;
+      isFull: boolean;
+      bookedSlots?: string[];
+      freeSlots?: string[];
+    };
+  };
 }
 
 const MONTH_NAMES = [
@@ -28,6 +36,7 @@ export function LuxuryCalendarPicker({
   selectedDate,
   onSelectDate,
   minDate,
+  calendarSummary,
 }: LuxuryCalendarPickerProps) {
   // Parse selected date safely without timezone distortion
   const initialDate = useMemo(() => {
@@ -322,6 +331,10 @@ export function LuxuryCalendarPicker({
             }
 
             // Active / Selectable Date
+            const daySummary = calendarSummary?.[slot.dateString];
+            const isFullDay = Boolean(daySummary?.isFull);
+            const bookedCount = daySummary?.totalBooked || 0;
+
             return (
               <button
                 key={index}
@@ -330,23 +343,36 @@ export function LuxuryCalendarPicker({
                 className={`aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex flex-col items-center justify-center text-sm font-semibold transition-all duration-200 relative group ${
                   slot.isSelected
                     ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-[0_6px_20px_rgba(27,20,100,0.35)] scale-105 z-10'
-                    : 'text-brand-navy bg-white hover:bg-amber-50/80 border border-slate-200 hover:border-brand-gold/60 shadow-sm hover:shadow hover:scale-[1.03]'
+                    : isFullDay
+                    ? 'bg-rose-50/70 text-slate-700 border border-rose-200 hover:border-rose-300'
+                    : 'text-brand-navy bg-white hover:bg-amber-50/80 border border-slate-200 hover:border-brand-gold/60 shadow-xs hover:shadow hover:scale-[1.03]'
                 }`}
               >
-                <span className={`leading-none ${slot.isSelected ? 'text-brand-gold font-bold text-base sm:text-lg' : 'text-slate-800'}`}>
+                <span className={`leading-none ${slot.isSelected ? 'text-brand-gold font-bold text-base sm:text-lg' : isFullDay ? 'text-rose-900 font-bold' : 'text-slate-800'}`}>
                   {slot.day}
                 </span>
 
                 {/* Subtle marker for Today */}
                 {slot.isToday && !slot.isSelected && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold absolute bottom-1.5" title="Today" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold absolute bottom-1" title="Today" />
                 )}
 
                 {/* Golden Badge on Selected Day */}
-                {slot.isSelected && (
+                {slot.isSelected ? (
                   <span className="text-[8px] uppercase tracking-widest text-brand-gold font-extrabold mt-0.5 leading-none">
                     FITTING
                   </span>
+                ) : isFullDay ? (
+                  <span className="text-[8px] font-bold text-rose-600 uppercase tracking-wider mt-0.5 leading-none">
+                    FULL
+                  </span>
+                ) : bookedCount > 0 ? (
+                  <span className="text-[8px] font-semibold text-brand-gold mt-0.5 leading-none flex items-center space-x-0.5">
+                    <span className="w-1 h-1 rounded-full bg-brand-gold inline-block" />
+                    <span>{bookedCount}</span>
+                  </span>
+                ) : (
+                  <span className="w-1 h-1 rounded-full bg-emerald-400 opacity-60 mt-1" title="Free day — all slots open" />
                 )}
               </button>
             );

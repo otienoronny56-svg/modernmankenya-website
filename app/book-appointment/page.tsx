@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { 
@@ -12,7 +12,8 @@ import {
   ArrowRight, 
   ArrowLeft,
   Sparkles,
-  ShieldCheck
+  ShieldCheck,
+  AlertCircle
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
 import { LuxuryCalendarPicker } from '@/components/booking/LuxuryCalendarPicker';
@@ -28,18 +29,96 @@ function BookAppointmentContent() {
   const [loading, setLoading] = useState<boolean>(false);
   const [confirmedBookingId, setConfirmedBookingId] = useState<string | null>(null);
 
+  // Initial date computation
+  const getInitialDates = () => {
+    const now = new Date();
+    // Default to tomorrow or today if early
+    const target = new Date(now);
+    if (now.getHours() >= 17) {
+      target.setDate(now.getDate() + 1);
+    }
+    const y = target.getFullYear();
+    const m = String(target.getMonth() + 1).padStart(2, '0');
+    const d = String(target.getDate()).padStart(2, '0');
+    const iso = `${y}-${m}-${d}`;
+    const display = target.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+    return { iso, display };
+  };
+
+  const init = getInitialDates();
+
   // Form state
   const [fittingType, setFittingType] = useState<string>(
     prefilledService ? `Made to Measure Consultation: ${prefilledService}` : 'Initial Made to Measure Consultation'
   );
   const [locationType, setLocationType] = useState<string>('Flagship Atelier Nairobi');
-  const [selectedDate, setSelectedDate] = useState<string>('2026-09-10');
-  const [selectedDateDisplay, setSelectedDateDisplay] = useState<string>('Thu, Sep 10, 2026');
+  const [selectedDate, setSelectedDate] = useState<string>(init.iso);
+  const [selectedDateDisplay, setSelectedDateDisplay] = useState<string>(init.display);
   const [selectedTime, setSelectedTime] = useState<string>('11:00 AM');
   const [clientName, setClientName] = useState<string>('');
   const [clientEmail, setClientEmail] = useState<string>('');
   const [clientPhone, setClientPhone] = useState<string>('');
   const [notes, setNotes] = useState<string>(prefilledFabric ? `Interested in cloth: ${prefilledFabric}` : '');
+
+  // Real-time appointment schedule states
+  const [calendarSummary, setCalendarSummary] = useState<any>({});
+  const [bookedSlots, setBookedSlots] = useState<string[]>([]);
+  const [loadingSlots, setLoadingSlots] = useState<boolean>(false);
+  const [conflictError, setConflictError] = useState<string | null>(null);
+
+  // Fetch monthly calendar summary
+  const fetchCalendarSummary = () => {
+    fetch('/api/appointments?summary=true')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.calendarSummary) {
+          setCalendarSummary(data.calendarSummary);
+        }
+      })
+      .catch(() => {});
+  };
+
+  useEffect(() => {
+    fetchCalendarSummary();
+  }, []);
+
+  // Fetch booked slots whenever selectedDate changes
+  useEffect(() => {
+    if (!selectedDate) return;
+    setLoadingSlots(true);
+    setConflictError(null);
+
+    fetch(`/api/appointments?date=${encodeURIComponent(selectedDate)}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          const taken: string[] = data.bookedSlots || [];
+          setBookedSlots(taken);
+
+          // If the currently chosen slot is booked on this date, guide the user
+          if (taken.includes(selectedTime)) {
+            const firstFree = timeSlots.find((s) => !taken.includes(s));
+            if (firstFree) {
+              setSelectedTime(firstFree);
+              setConflictError(
+                `Notice: The ${selectedTime} slot on this date is already booked. We have selected the next available slot (${firstFree}) for you.`
+              );
+            } else {
+              setConflictError(
+                `All fitting slots on ${selectedDateDisplay || selectedDate} are fully reserved. Please choose another free day on the calendar.`
+              );
+            }
+          }
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoadingSlots(false));
+  }, [selectedDate]);
 
   const fittingTypes = [
     {
@@ -83,7 +162,6 @@ function BookAppointmentContent() {
     setLoading(true);
 
     try {
-      // Submit to our secure serverless endpoint which saves and dispatches luxury automated emails
       const response = await fetch('/api/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -102,6 +180,20 @@ function BookAppointmentContent() {
       });
 
       const resData = await response.json();
+
+      if (!response.ok) {
+        if (resData?.conflict) {
+          setConflictError(
+            resData.error ||
+              `The ${selectedTime} slot on this date is already reserved. Please choose an alternate time or another date.`
+          );
+          setStep(3);
+          setLoading(false);
+          return;
+        }
+        throw new Error(resData?.error || 'Failed to submit booking');
+      }
+
       const referenceId = resData?.referenceId || `MMK-${Math.floor(100000 + Math.random() * 900000)}`;
 
       setConfirmedBookingId(referenceId);
@@ -110,12 +202,19 @@ function BookAppointmentContent() {
         date: selectedDateDisplay,
         location: locationType,
       });
+      // Refresh calendar summary in background
+      fetchCalendarSummary();
       setStep(5); // Confirmation screen
-    } catch (err) {
+    } catch (err: any) {
       console.error('Appointment submit error:', err);
-      // Resilient fallback
-      setConfirmedBookingId(`MMK-${Math.floor(100000 + Math.random() * 900000)}`);
-      setStep(5);
+      if (err.message && err.message.includes('booked')) {
+        setConflictError(err.message);
+        setStep(3);
+      } else {
+        // Resilient fallback
+        setConfirmedBookingId(`MMK-${Math.floor(100000 + Math.random() * 900000)}`);
+        setStep(5);
+      }
     } finally {
       setLoading(false);
     }
@@ -269,20 +368,41 @@ function BookAppointmentContent() {
                   3. Choose Private Appointment Slot
                 </h2>
                 <p className="text-xs text-slate-500 mt-1">
-                  Select your fitting date on the appointment calendar, then choose an executive consultation time.
+                  Select your fitting date on the appointment calendar, then choose an available consultation time.
                 </p>
               </div>
+
+              {/* Conflict / Schedule Notice Banner */}
+              {conflictError && (
+                <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-xs sm:text-sm flex items-start space-x-3 animate-in fade-in">
+                  <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div className="space-y-0.5">
+                    <p className="font-bold text-amber-950">Atelier Booking Notice</p>
+                    <p className="leading-relaxed">{conflictError}</p>
+                  </div>
+                </div>
+              )}
 
               {/* Responsive Layout: Calendar on Left, Time Slots & Overview on Right */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 
                 {/* Left: Luxury Monthly Calendar Picker (7 Cols on desktop) */}
                 <div className="lg:col-span-7 space-y-2">
-                  <label className="block text-xs font-bold uppercase tracking-luxury text-brand-slate">
-                    Select Fitting Date
-                  </label>
+                  <div className="flex items-center justify-between">
+                    <label className="block text-xs font-bold uppercase tracking-luxury text-brand-slate">
+                      Select Fitting Date
+                    </label>
+                    <span className="text-[11px] text-slate-500 font-medium">
+                      {bookedSlots.length === 6 ? (
+                        <span className="text-rose-600 font-bold">● Fully Booked Day</span>
+                      ) : (
+                        <span className="text-emerald-700 font-medium">● {6 - bookedSlots.length} of 6 slots free</span>
+                      )}
+                    </span>
+                  </div>
                   <LuxuryCalendarPicker
                     selectedDate={selectedDate}
+                    calendarSummary={calendarSummary}
                     onSelectDate={(dateStr, displayStr) => {
                       setSelectedDate(dateStr);
                       setSelectedDateDisplay(displayStr);
@@ -363,23 +483,56 @@ function BookAppointmentContent() {
                         Morning Sessions
                       </span>
                       <div className="grid grid-cols-2 gap-2">
-                        {['09:30 AM', '11:00 AM'].map((time) => (
-                          <button
-                            key={time}
-                            type="button"
-                            onClick={() => setSelectedTime(time)}
-                            className={`py-3 px-2.5 rounded-xl border text-center transition-all ${
-                              selectedTime === time
-                                ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-md font-bold'
-                                : 'bg-slate-50/70 text-slate-700 border-slate-200 hover:border-brand-gold/60 hover:bg-amber-50/50'
-                            }`}
-                          >
-                            <span className={`text-xs font-bold block ${selectedTime === time ? 'text-brand-gold' : 'text-brand-navy'}`}>
-                              {time}
-                            </span>
-                            <span className="text-[9px] text-slate-400 block mt-0.5">Private Salon</span>
-                          </button>
-                        ))}
+                        {['09:30 AM', '11:00 AM'].map((time) => {
+                          const isBooked = bookedSlots.includes(time);
+                          return (
+                            <button
+                              key={time}
+                              type="button"
+                              disabled={isBooked}
+                              onClick={() => {
+                                if (isBooked) {
+                                  setConflictError(
+                                    `The ${time} slot on this date is already booked. Please choose an available slot or another date.`
+                                  );
+                                  return;
+                                }
+                                setSelectedTime(time);
+                                setConflictError(null);
+                              }}
+                              className={`py-3 px-2.5 rounded-xl border text-center transition-all ${
+                                isBooked
+                                  ? 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed opacity-60'
+                                  : selectedTime === time
+                                  ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-md font-bold'
+                                  : 'bg-slate-50/70 text-slate-700 border-slate-200 hover:border-brand-gold/60 hover:bg-amber-50/50'
+                              }`}
+                            >
+                              <span
+                                className={`text-xs font-bold block ${
+                                  isBooked
+                                    ? 'line-through text-slate-400'
+                                    : selectedTime === time
+                                    ? 'text-brand-gold'
+                                    : 'text-brand-navy'
+                                }`}
+                              >
+                                {time}
+                              </span>
+                              <span
+                                className={`text-[9px] block mt-0.5 ${
+                                  isBooked
+                                    ? 'text-rose-500 font-bold uppercase tracking-wider'
+                                    : selectedTime === time
+                                    ? 'text-slate-300'
+                                    : 'text-emerald-600 font-semibold'
+                                }`}
+                              >
+                                {isBooked ? '• Reserved' : '• Available'}
+                              </span>
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
 
@@ -389,25 +542,56 @@ function BookAppointmentContent() {
                         Afternoon & Evening Sessions
                       </span>
                       <div className="grid grid-cols-2 gap-2">
-                        {['01:30 PM', '03:00 PM', '04:30 PM', '06:00 PM'].map((time) => (
-                          <button
-                            key={time}
-                            type="button"
-                            onClick={() => setSelectedTime(time)}
-                            className={`py-3 px-2.5 rounded-xl border text-center transition-all ${
-                              selectedTime === time
-                                ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-md font-bold'
-                                : 'bg-slate-50/70 text-slate-700 border-slate-200 hover:border-brand-gold/60 hover:bg-amber-50/50'
-                            }`}
-                          >
-                            <span className={`text-xs font-bold block ${selectedTime === time ? 'text-brand-gold' : 'text-brand-navy'}`}>
-                              {time}
-                            </span>
-                            <span className="text-[9px] text-slate-400 block mt-0.5">
-                              {time === '06:00 PM' ? 'Evening Lounge' : 'Private Salon'}
-                            </span>
-                          </button>
-                        ))}
+                        {['01:30 PM', '03:00 PM', '04:30 PM', '06:00 PM'].map((time) => {
+                          const isBooked = bookedSlots.includes(time);
+                          return (
+                            <button
+                              key={time}
+                              type="button"
+                              disabled={isBooked}
+                              onClick={() => {
+                                if (isBooked) {
+                                  setConflictError(
+                                    `The ${time} slot on this date is already booked. Please choose an available slot or another date.`
+                                  );
+                                  return;
+                                }
+                                setSelectedTime(time);
+                                setConflictError(null);
+                              }}
+                              className={`py-3 px-2.5 rounded-xl border text-center transition-all ${
+                                isBooked
+                                  ? 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed opacity-60'
+                                  : selectedTime === time
+                                  ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-md font-bold'
+                                  : 'bg-slate-50/70 text-slate-700 border-slate-200 hover:border-brand-gold/60 hover:bg-amber-50/50'
+                              }`}
+                            >
+                              <span
+                                className={`text-xs font-bold block ${
+                                  isBooked
+                                    ? 'line-through text-slate-400'
+                                    : selectedTime === time
+                                    ? 'text-brand-gold'
+                                    : 'text-brand-navy'
+                                }`}
+                              >
+                                {time}
+                              </span>
+                              <span
+                                className={`text-[9px] block mt-0.5 ${
+                                  isBooked
+                                    ? 'text-rose-500 font-bold uppercase tracking-wider'
+                                    : selectedTime === time
+                                    ? 'text-slate-300'
+                                    : 'text-emerald-600 font-semibold'
+                                }`}
+                              >
+                                {isBooked ? '• Reserved' : '• Available'}
+                              </span>
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -426,8 +610,15 @@ function BookAppointmentContent() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setStep(4)}
-                  className="px-8 py-3.5 bg-brand-navy hover:bg-brand-navy-light text-white text-xs font-bold uppercase tracking-luxury rounded flex items-center space-x-2 transition-all shadow-md"
+                  disabled={bookedSlots.includes(selectedTime) || bookedSlots.length >= 6}
+                  onClick={() => {
+                    if (bookedSlots.includes(selectedTime)) {
+                      setConflictError(`The selected time slot (${selectedTime}) is already booked. Please choose an available slot or another date.`);
+                      return;
+                    }
+                    setStep(4);
+                  }}
+                  className="px-8 py-3.5 bg-brand-navy hover:bg-brand-navy-light disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold uppercase tracking-luxury rounded flex items-center space-x-2 transition-all shadow-md"
                 >
                   <span>Client Information</span>
                   <ArrowRight className="w-4 h-4 text-brand-gold" />

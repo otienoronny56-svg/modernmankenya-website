@@ -17,7 +17,8 @@ import {
   Receipt,
   Camera,
   Ruler,
-  Mail
+  Mail,
+  Calendar
 } from 'lucide-react';
 
 interface AdminLayoutClientProps {
@@ -65,6 +66,12 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
       href: '/admin/clients',
       icon: Ruler,
       active: pathname.startsWith('/admin/clients'),
+    },
+    {
+      name: 'Fittings & Calendar',
+      href: '/admin/appointments',
+      icon: Calendar,
+      active: pathname.startsWith('/admin/appointments'),
     },
     {
       name: 'Shop (Shirts & Accessories)',

@@ -30,6 +30,7 @@ import type { StoredOrder } from '@/app/api/orders/route';
 export default function AdminDashboardPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [orders, setOrders] = useState<StoredOrder[]>([]);
+  const [appointments, setAppointments] = useState<any[]>([]);
   const [analytics, setAnalytics] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,17 +39,22 @@ export default function AdminDashboardPage() {
   const fetchDashboardData = async () => {
     setLoading(true);
     try {
-      const [prodRes, ordRes] = await Promise.all([
+      const [prodRes, ordRes, aptRes] = await Promise.all([
         fetch('/api/products'),
         fetch('/api/orders'),
+        fetch('/api/appointments'),
       ]);
       const prodData = await prodRes.json();
       const ordData = await ordRes.json();
+      const aptData = await aptRes.json();
 
       if (prodData.products) setProducts(prodData.products);
       if (ordData.orders) {
         setOrders(ordData.orders);
         setAnalytics(ordData.analytics);
+      }
+      if (aptData.appointments) {
+        setAppointments(aptData.appointments);
       }
     } catch (err) {
       console.error('Error fetching dashboard data:', err);
@@ -201,6 +207,103 @@ export default function AdminDashboardPage() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Upcoming Atelier Fittings & Schedule Card */}
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        <div className="px-6 py-4 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
+              <h2 className="font-serif font-bold text-base text-brand-navy">
+                Atelier Fitting Schedule & Consultations
+              </h2>
+            </div>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Live schedule of bespoke consultations, basted fittings, and free slot occupancy
+            </p>
+          </div>
+
+          <Link
+            href="/admin/appointments"
+            className="text-xs font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors flex items-center space-x-1"
+          >
+            <span>Open Master Calendar ({appointments.filter((a) => a.status !== 'cancelled').length})</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        {loading ? (
+          <div className="p-8 text-center text-slate-400">
+            <RefreshCw className="w-5 h-5 animate-spin mx-auto text-brand-gold mb-1" />
+            <span className="text-xs">Loading appointments...</span>
+          </div>
+        ) : appointments.filter((a) => a.status !== 'cancelled').length === 0 ? (
+          <div className="p-8 text-center text-slate-400 text-xs space-y-2">
+            <p>No upcoming fitting appointments currently scheduled.</p>
+            <Link
+              href="/admin/appointments"
+              className="inline-block px-3 py-1.5 rounded-lg bg-brand-navy text-brand-gold font-bold uppercase tracking-wider text-[11px]"
+            >
+              + Schedule Walk-In
+            </Link>
+          </div>
+        ) : (
+          <div className="divide-y divide-slate-100">
+            {appointments
+              .filter((a) => a.status !== 'cancelled')
+              .slice(0, 3)
+              .map((apt) => (
+                <div
+                  key={apt.id}
+                  className="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50/60 transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="text-center bg-brand-navy text-white px-2.5 py-1.5 rounded-lg flex-shrink-0">
+                      <div className="text-[10px] uppercase font-bold text-brand-gold font-mono leading-none">
+                        {apt.time_slot}
+                      </div>
+                      <div className="text-[9px] text-slate-300 font-medium mt-0.5 leading-none">
+                        {apt.appointment_date.split(',')[0] || 'Day'}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900 text-xs flex items-center space-x-2">
+                        <span>{apt.client_name}</span>
+                        <span className="font-mono text-[10px] text-slate-400">({apt.reference_id})</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-medium">
+                        {apt.fitting_type} • <span className="text-brand-navy">{apt.appointment_date}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-3 text-xs">
+                    <span className="text-[11px] text-slate-600 hidden md:inline">
+                      {apt.client_phone}
+                    </span>
+
+                    <span
+                      className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full capitalize ${
+                        apt.status === 'completed'
+                          ? 'bg-emerald-100 text-emerald-800'
+                          : 'bg-brand-gold/20 text-brand-navy border border-brand-gold/40'
+                      }`}
+                    >
+                      {apt.status}
+                    </span>
+
+                    <Link
+                      href="/admin/appointments"
+                      className="px-2.5 py-1 rounded bg-slate-100 hover:bg-brand-navy hover:text-white text-slate-700 font-semibold text-[11px] transition-colors"
+                    >
+                      View in Calendar →
+                    </Link>
+                  </div>
+                </div>
+              ))}
+          </div>
+        )}
       </div>
 
       {/* Live Recent Orders Quick Overview */}
