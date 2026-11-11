@@ -290,7 +290,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Secure Payments, M-Pesa Badges, Attribution & Copyright */}
-        <div className="mt-4 pt-3.5 border-t border-stone-200/80 flex flex-col lg:flex-row items-center justify-between gap-3 text-xs text-stone-500">
+        <div className="mt-4 pt-3.5 border-t border-stone-200/80 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-stone-500">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Modern Man Kenya. All rights reserved.</span>
             <span className="text-stone-300 hidden sm:inline">•</span>
@@ -308,7 +308,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Payment Method Trust Strip */}
-          <div className="w-full lg:w-auto flex justify-center lg:justify-end">
+          <div className="w-full md:w-auto flex justify-center md:justify-end">
             <PaymentBadges variant="compact" showLabel={true} />
           </div>
         </div>

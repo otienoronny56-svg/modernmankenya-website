@@ -27,7 +27,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
         </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex items-center gap-1 sm:gap-1.5 flex-nowrap overflow-x-auto sm:overflow-visible py-0.5">
         {/* 1. Safaricom Lipa Na M-Pesa */}
         <div
           className="h-7 px-2 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1 hover:border-emerald-500 transition-colors"
