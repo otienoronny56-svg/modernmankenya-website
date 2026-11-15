@@ -66,7 +66,7 @@ const REVIEWS_DATA: ReviewItem[] = [
   },
   {
     id: 'rev-03',
-    client: 'Hon. Nelson Kipkorir',
+    client: 'Honorable Ndolo',
     title: 'Senior Advocate & Managing Partner',
     city: 'Nairobi (Upper Hill)',
     category: 'executive',
@@ -82,7 +82,7 @@ const REVIEWS_DATA: ReviewItem[] = [
   },
   {
     id: 'rev-04',
-    client: 'Brian & Vanessa Mutua',
+    client: 'Vincent Juma & Laving',
     title: 'Ruracio / Traditional Wedding Celebrants',
     city: 'Machakos & Nairobi',
     category: 'african',
@@ -92,7 +92,7 @@ const REVIEWS_DATA: ReviewItem[] = [
     fabric: 'Heavy Weight Polish Cotton with Metallic Threading',
     quote: 'Our families were left in awe. The agbada combined ancestral nobility with contemporary tailored structure.',
     fullReview:
-      'Traditional African garments are often either too bulky or lack structure. Modern Man Kenya drafted an engineered inner tunic that fit my shoulders like an Italian blazer while maintaining the sweeping grandeur of the outer agbada robe. The copper hand embroidery matched Vanessa’s gown flawlessly.',
+      'Traditional African garments are often either too bulky or lack structure. Modern Man Kenya drafted an engineered inner tunic that fit my shoulders like an Italian blazer while maintaining the sweeping grandeur of the outer agbada robe. The copper hand embroidery matched Laving’s gown flawlessly.',
     image: '/images/traditional-wedding-ruracio-groom-dance.jpeg',
     verified: true,
   },
