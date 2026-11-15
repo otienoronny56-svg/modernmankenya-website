@@ -12,10 +12,10 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Minimalist Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* 1. Brand & Contact Information (5 cols) */}
-          <div className="lg:col-span-5 space-y-3.5">
+          {/* 1. Brand & Contact Information (6 cols) */}
+          <div className="md:col-span-6 lg:col-span-6 space-y-3.5">
             {/* Minimalist Brand Full Logo */}
             <Link
               href="/"
@@ -152,52 +152,8 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. What We Create (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
-              What We Create
-            </h4>
-            <ul className="space-y-2 text-xs text-stone-600">
-              <li>
-                <Link href="/bespoke/bespoke-suits" className="hover:text-brand-gold transition-colors">
-                  2 & 3-Piece Suits
-                </Link>
-              </li>
-              <li>
-                <Link href="/bespoke/bespoke-evening-wear" className="hover:text-brand-gold transition-colors">
-                  Tuxedos & Eveningwear
-                </Link>
-              </li>
-              <li>
-                <Link href="/bespoke/kaunda-suits" className="hover:text-brand-gold transition-colors">
-                  Kaunda Suits (Senator Suits)
-                </Link>
-              </li>
-              <li>
-                <Link href="/bespoke/weddings" className="hover:text-brand-gold transition-colors">
-                  Weddings & Groom Ensembles
-                </Link>
-              </li>
-              <li>
-                <Link href="/ready-to-wear" className="hover:text-brand-gold transition-colors font-medium">
-                  Shirts & Accessories (Shop)
-                </Link>
-              </li>
-              <li>
-                <Link href="/bespoke/bespoke-shirts" className="hover:text-brand-gold transition-colors">
-                  Custom Shirts & Separates
-                </Link>
-              </li>
-              <li>
-                <Link href="/bespoke/corporate-wardrobes" className="hover:text-brand-gold transition-colors">
-                  Corporate & Executive
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* 3. Occasions (2 cols) */}
-          <div className="lg:col-span-2 space-y-3">
+          {/* 2. Occasions (3 cols) */}
+          <div className="md:col-span-3 lg:col-span-3 space-y-3">
             <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
               <Link href="/occasions" className="hover:text-brand-gold transition-colors">
                 Occasions
@@ -237,8 +193,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* 4. Client Services & Legal (2 cols) */}
-          <div className="lg:col-span-2 space-y-3">
+          {/* 3. The Maison (3 cols) */}
+          <div className="md:col-span-3 lg:col-span-3 space-y-3">
             <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
               The Maison
             </h4>
