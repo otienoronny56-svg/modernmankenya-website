@@ -32,7 +32,8 @@ export interface Product {
     | 'modern-kids'
     | 'modern-women'
     | 'fragrances'
-    | 'accessories';
+    | 'accessories'
+    | 'watches';
   audience?: ProductAudience;
   fabricDetails: string;
   construction: string; // e.g. "Full Floating Canvas", "Unstructured Deconstructed"

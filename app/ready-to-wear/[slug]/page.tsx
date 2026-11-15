@@ -18,7 +18,8 @@ import {
   ArrowLeft,
   ChevronLeft,
   Sliders,
-  Scissors
+  Scissors,
+  Watch
 } from 'lucide-react';
 import type { Product } from '@/types';
 import { useCartStore } from '@/store/cartStore';
@@ -147,6 +148,18 @@ export default function ProductDetailPage() {
 
   const images = product.images.length > 0 ? product.images : ['/images/bespoke-placeholder.jpg'];
   const formattedPrice = formatCurrencyPrice(product.priceKes, currency, product.priceUsd);
+
+  const isWatch =
+    product.category === 'watches' ||
+    /watch|rolex|cartier|patek|audemars|omega|breitling|rado|richard mille|franck muller|tudor|hublot|iwc|jacob & co|seiko|tag heuer|tissot/i.test(
+      `${product.name} ${product.slug} ${product.tagline || ''}`
+    );
+
+  const isFragrance =
+    product.category === 'fragrances' ||
+    /perfume|fragrance|parfum|cologne|eau de|extrait/i.test(
+      `${product.name} ${product.slug} ${product.tagline || ''}`
+    );
 
   return (
     <div className="bg-[#FAF9F6] min-h-screen pb-20 pt-6 sm:pt-10">
@@ -304,7 +317,7 @@ export default function ProductDetailPage() {
             <div className="space-y-2 border-b border-slate-100 pb-5">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-luxury text-brand-gold bg-brand-navy/5 px-2.5 py-0.5 rounded">
-                  {product.category}
+                  {isWatch ? 'Luxury Timepiece' : isFragrance ? 'Haute Parfumerie' : product.category.replace('-', ' ')}
                 </span>
                 <span className="text-xs text-emerald-600 font-semibold flex items-center space-x-1">
                   <Check className="w-3.5 h-3.5" />
@@ -338,7 +351,7 @@ export default function ProductDetailPage() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center text-xs">
                   <label className="font-bold uppercase tracking-wider text-brand-navy">
-                    Select Specification / Size
+                    {isWatch ? 'Select Case Size / Strap' : isFragrance ? 'Select Volume / Bottle' : 'Select Specification / Size'}
                   </label>
                   <span className="text-slate-400 font-medium">
                     {selectedSize}
@@ -411,11 +424,11 @@ export default function ProductDetailPage() {
               </a>
             </div>
 
-            {/* Description & Material Accordion */}
+            {/* Description & Technical Specifications Accordion */}
             <div className="space-y-4 pt-4 border-t border-slate-100 text-xs text-slate-600 leading-relaxed">
               <div>
                 <h4 className="font-bold text-brand-navy uppercase tracking-wider mb-1.5">
-                  The Sartorial Description
+                  {isWatch ? 'Horologist Notes' : isFragrance ? 'Olfactory Profile & Notes' : 'The Sartorial Description'}
                 </h4>
                 <p>{product.description}</p>
               </div>
@@ -423,20 +436,28 @@ export default function ProductDetailPage() {
               {/* Technical Specifications */}
               <div className="bg-slate-50 rounded-lg p-3.5 border border-slate-200/80 space-y-2">
                 <div className="flex justify-between">
-                  <span className="font-semibold text-slate-500">Materials / Finishing:</span>
+                  <span className="font-semibold text-slate-500">
+                    {isWatch ? 'Case & Crystal:' : isFragrance ? 'Essence & Concentration:' : 'Materials / Finishing:'}
+                  </span>
                   <span className="font-bold text-brand-navy text-right max-w-[200px]">
                     {product.fabricDetails}
                   </span>
                 </div>
                 <div className="flex justify-between border-t border-slate-200/50 pt-2">
-                  <span className="font-semibold text-slate-500">Movement / Craft:</span>
+                  <span className="font-semibold text-slate-500">
+                    {isWatch ? 'Movement & Calibre:' : isFragrance ? 'Bottle & Atomizer Craft:' : 'Movement / Craft:'}
+                  </span>
                   <span className="font-bold text-brand-navy text-right max-w-[200px]">
                     {product.construction}
                   </span>
                 </div>
                 <div className="flex justify-between border-t border-slate-200/50 pt-2">
-                  <span className="font-semibold text-slate-500">Atelier Origin:</span>
-                  <span className="font-bold text-brand-navy">Trust Mansion, Tubman Rd, Nairobi</span>
+                  <span className="font-semibold text-slate-500">
+                    {isWatch ? 'Curation & Inspection:' : isFragrance ? 'House Provenance:' : 'Atelier Origin:'}
+                  </span>
+                  <span className="font-bold text-brand-navy">
+                    {isWatch ? 'Haute Horlogerie Curation • Nairobi Flagship' : 'Trust Mansion, Tubman Rd, Nairobi'}
+                  </span>
                 </div>
               </div>
 
@@ -451,8 +472,12 @@ export default function ProductDetailPage() {
                   <span>Authentic Certified</span>
                 </div>
                 <div className="p-2 rounded bg-slate-50 border border-slate-200/50 flex flex-col items-center space-y-1">
-                  <Scissors className="w-4 h-4 text-brand-gold" />
-                  <span>Made to Measure</span>
+                  {isWatch ? (
+                    <Watch className="w-4 h-4 text-brand-gold" />
+                  ) : (
+                    <Scissors className="w-4 h-4 text-brand-gold" />
+                  )}
+                  <span>{isWatch ? 'Precision Calibre' : isFragrance ? 'Haute Parfumerie' : 'Made to Measure'}</span>
                 </div>
               </div>
             </div>

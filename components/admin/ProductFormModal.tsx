@@ -27,13 +27,15 @@ interface ProductFormModalProps {
 }
 
 const CATEGORIES = [
-  { id: 'accessories', name: 'Accessories (Ties, Cufflinks, Belts, Pins, Watches)' },
+  { id: 'watches', name: 'Luxury Watches & Timepieces' },
+  { id: 'accessories', name: 'Accessories (Ties, Cufflinks, Belts, Pocket Squares, Pins)' },
   { id: 'fragrances', name: 'Luxury Fragrances & Perfumes' },
   { id: 'shirts', name: 'Tailored Ready-to-Wear Shirts' },
 ];
 
 const CATEGORY_SIZE_PRESETS: Record<string, string[]> = {
-  accessories: ['One Size', 'Standard Set', 'Adjustable', '32-34 (M)', '36-38 (L)', '40-42 (XL)', '40mm Dial', '42mm Dial'],
+  watches: ['36mm Case', '38mm Case', '40mm Case', '41mm Case', '42mm Case', '44mm Case', 'Oyster Strap', 'Jubilee Strap', 'Leather Strap', 'Standard'],
+  accessories: ['One Size', 'Standard Set', 'Adjustable', '32-34 (M)', '36-38 (L)', '40-42 (XL)'],
   fragrances: ['50ml Extrait', '100ml Eau de Parfum', '100ml Extrait de Parfum', '15ml Travel Atomizer', 'Full Presentation Box'],
   shirts: ['15.0" (38cm)', '15.5" (39cm)', '16.0" (41cm)', '16.5" (42cm)', '17.0" (43cm)', 'S', 'M', 'L', 'XL', 'XXL'],
 };
@@ -45,6 +47,13 @@ const CATEGORY_DEFAULTS: Record<string, {
   priceUsd: number | string;
   selectedSizes: string[];
 }> = {
+  watches: {
+    fabricDetails: '316L Stainless Steel & Double-Domed Sapphire Crystal',
+    construction: 'Precision Automatic Mechanical Movement • 50M Water Resistance',
+    priceKes: 32000,
+    priceUsd: 250,
+    selectedSizes: ['40mm Case', 'Standard'],
+  },
   accessories: {
     fabricDetails: 'Pure Jacquard Silk / Solid Polished Brass',
     construction: 'Artisanal Hand-finished detailing with presentation gift box',
@@ -416,6 +425,18 @@ export function ProductFormModal({
 
   if (!isOpen) return null;
 
+  const isWatch =
+    category === 'watches' ||
+    /watch|rolex|cartier|patek|audemars|omega|breitling|rado|richard mille|franck muller|tudor|hublot|iwc|jacob & co|seiko|tag heuer|tissot/i.test(
+      `${name} ${tagline} ${description}`
+    );
+
+  const isFragrance =
+    category === 'fragrances' ||
+    /perfume|fragrance|parfum|cologne|eau de|extrait/i.test(
+      `${name} ${tagline} ${description}`
+    );
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="relative w-full max-w-3xl bg-white rounded-xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col border border-slate-200">
@@ -709,6 +730,52 @@ export function ProductFormModal({
             </div>
           </div>
 
+          {/* Quick Subcategory Pills for Watches */}
+          {category === 'watches' && (
+            <div className="p-3 bg-amber-50/60 border border-amber-200/80 rounded-lg space-y-2">
+              <span className="block text-[11px] font-bold uppercase tracking-wider text-amber-900">
+                ⚡ Quick Fill Luxury Timepiece (Click to Auto-Configure):
+              </span>
+              <div className="flex flex-wrap items-center gap-1.5">
+                {[
+                  { label: 'Rolex Submariner Date', tag: 'Automatic Diver 300M in 904L Oystersteel & Cerachrom', fab: '904L Stainless Steel & Scratch-Resistant Sapphire Crystal', con: 'Precision Automatic Mechanical Movement • 300M Water Resistance', price: 35000 },
+                  { label: 'Rolex GMT-Master II', tag: 'Dual-Time Automatic Chronometer with Cerachrom Bezel', fab: '316L Stainless Steel & Double-Domed Sapphire Crystal', con: 'Precision Automatic Mechanical Movement • 50M Water Resistance', price: 40000 },
+                  { label: 'Rolex Datejust 41', tag: 'Classic Fluted Bezel on Jubilee Bracelet', fab: 'Rolesor Two-Tone Gold & Oystersteel with Sapphire Crystal', con: 'Precision Automatic Mechanical Movement • 100M Water Resistance', price: 32000 },
+                  { label: 'Cartier Santos De Cartier', tag: 'Iconic Geometric Square Bezel with Exposed Screws', fab: 'Polished 316L Stainless Steel & Blue Synthetic Spinel Crown', con: 'Automatic Mechanical Calibre • 100M Water Resistance', price: 28000 },
+                  { label: 'Audemars Piguet Royal Oak', tag: 'Octagonal Bezel with Grande Tapisserie Dial', fab: 'Brushed Stainless Steel & Glareproofed Sapphire Crystal', con: 'Self-Winding Automatic Movement • 50M Water Resistance', price: 45000 },
+                  { label: 'Patek Philippe Nautilus', tag: 'Rounded Octagonal Bezel with Horizontally Embossed Dial', fab: 'Solid 316L Stainless Steel & Double Sapphire Exhibition Case', con: 'Self-Winding Mechanical Calibre • 120M Water Resistance', price: 50000 },
+                  { label: 'Omega Speedmaster Professional', tag: 'Legendary Moonwatch Chronograph with Tachymeter Bezel', fab: '316L Stainless Steel & Hesalite / Sapphire Crystal', con: 'Manual-Winding / Automatic Chronograph Calibre', price: 34000 },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    type="button"
+                    onClick={() => {
+                      setName(item.label);
+                      setTagline(item.tag);
+                      setFabricDetails(item.fab);
+                      setConstruction(item.con);
+                      setPriceKes(item.price);
+                      setPriceUsd(Math.round(item.price / 129.5));
+                      setDescription(
+                        `Features high-grade ${item.fab.toLowerCase()}, powered by a ${item.con.toLowerCase()}, fitted with a luxury bracelet and secure deployment clasp.`
+                      );
+                      setSelectedSizes(['40mm Case', 'Standard']);
+                      setDetailsList([
+                        item.fab,
+                        item.con,
+                        'Signature Modern Man Nairobi horology presentation box included',
+                        'Nairobi Flagship inspection & complimentary bracelet sizing',
+                      ]);
+                    }}
+                    className="px-2.5 py-1 bg-white hover:bg-brand-navy hover:text-brand-gold text-slate-700 rounded text-xs font-semibold border border-amber-300 shadow-sm transition-all"
+                  >
+                    + {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Quick Subcategory Pills for Accessories */}
           {category === 'accessories' && (
             <div className="p-3 bg-amber-50/60 border border-amber-200/80 rounded-lg space-y-2">
@@ -761,7 +828,13 @@ export function ProductFormModal({
               type="text"
               value={tagline}
               onChange={(e) => setTagline(e.target.value)}
-              placeholder={category === 'accessories' ? 'e.g. Pure Jacquard Silk Necktie with Hand-rolled Edges' : 'e.g. 6x2 Stance in Loro Piana Pure Cashmere'}
+              placeholder={
+                isWatch
+                  ? 'e.g. Automatic Chronometer 40mm in Two-Tone 18k Gold & Oystersteel'
+                  : category === 'accessories'
+                  ? 'e.g. Pure Jacquard Silk Necktie with Hand-rolled Edges'
+                  : 'e.g. 6x2 Stance in Loro Piana Pure Cashmere'
+              }
               className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
             />
           </div>
@@ -769,53 +842,94 @@ export function ProductFormModal({
           {/* Description */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-              Garment / Product Description (Brief & Punchy)
+              {isWatch
+                ? 'Horologist Notes & Watch Description (Brief & Punchy)'
+                : isFragrance
+                ? 'Perfumer Notes & Olfactory Description'
+                : 'Garment / Product Description (Brief & Punchy)'}
             </label>
             <textarea
               rows={2}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder={category === 'accessories' ? 'Brief description (e.g. Handcrafted from lustrous Italian silk with a substantial drape, perfect for black-tie galas and boardroom confidence.)' : 'Brief 1-2 sentence description (e.g. Tailored with clean lines and soft drape, crafted for effortless evening distinction.)'}
+              placeholder={
+                isWatch
+                  ? 'Brief horologist notes (e.g. Features an 18k yellow gold case with a bidirectional black ceramic Cerachrom bezel, black dial with luminescent hour markers, and automatic mechanical movement.)'
+                  : category === 'accessories'
+                  ? 'Brief description (e.g. Handcrafted from lustrous Italian silk with a substantial drape, perfect for black-tie galas and boardroom confidence.)'
+                  : 'Brief 1-2 sentence description (e.g. Tailored with clean lines and soft drape, crafted for effortless evening distinction.)'
+              }
               className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy leading-relaxed"
             />
           </div>
 
-          {/* 3. FABRIC & CONSTRUCTION */}
+          {/* 3. FABRIC & CONSTRUCTION / CASE & MOVEMENT */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-                Material / Fabric Details
+                {isWatch
+                  ? 'Case & Crystal Materials (Composition)'
+                  : isFragrance
+                  ? 'Olfactive Notes & Concentration'
+                  : 'Material / Fabric Details'}
               </label>
               <input
                 type="text"
                 value={fabricDetails}
                 onChange={(e) => setFabricDetails(e.target.value)}
-                placeholder={category === 'accessories' ? 'e.g. 100% Woven Jacquard Silk or Solid Brass' : 'e.g. Scabal Super 150s Pure Merino Wool'}
+                placeholder={
+                  isWatch
+                    ? 'e.g. 316L Stainless Steel & Double-Domed Sapphire Crystal, Ceramic Bezel'
+                    : category === 'accessories'
+                    ? 'e.g. 100% Woven Jacquard Silk or Solid Brass'
+                    : 'e.g. Scabal Super 150s Pure Merino Wool'
+                }
                 className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
               />
             </div>
 
             <div>
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-1">
-                Construction & Craftsmanship Finish
+                {isWatch
+                  ? 'Movement, Calibre & Water Resistance (Specs)'
+                  : isFragrance
+                  ? 'Flacon Craft & Presentation'
+                  : 'Construction & Craftsmanship Finish'}
               </label>
               <input
                 type="text"
                 list="construction-options"
                 value={construction}
                 onChange={(e) => setConstruction(e.target.value)}
-                placeholder="e.g. Artisanal Hand-finished detailing with presentation gift box"
+                placeholder={
+                  isWatch
+                    ? 'e.g. Precision Automatic Mechanical Movement • 50M Water Resistance'
+                    : 'e.g. Artisanal Hand-finished detailing with presentation gift box'
+                }
                 className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-300 rounded focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-gold text-brand-navy"
               />
               <datalist id="construction-options">
-                <option value="Artisanal Hand-finished detailing with presentation gift box" />
-                <option value="Hand-rolled edges with pure silk thread finish" />
-                <option value="Precision rhodium & solid brass jewelry casting" />
-                <option value="Full-grain leather with hand-burnished edge finish" />
-                <option value="Single-needle French seam stitching with mother-of-pearl buttons" />
-                <option value="Full Floating Canvas (Horsehair interior)" />
-                <option value="Half Canvas Sartorial" />
-                <option value="Soft Unstructured Tailoring" />
+                {isWatch ? (
+                  <>
+                    <option value="Precision Automatic Mechanical Movement • 50M Water Resistance" />
+                    <option value="Swiss Self-Winding Mechanical Calibre • 100M Water Resistance" />
+                    <option value="High-Precision Quartz Movement • Scratch-Resistant Sapphire Crystal" />
+                    <option value="Automatic Chronograph Movement with Tachymeter Scale" />
+                    <option value="Manual Wind Skeleton Tourbillon Movement • Exhibition Caseback" />
+                    <option value="Bi-directional Self-Winding Movement with Date Window" />
+                  </>
+                ) : (
+                  <>
+                    <option value="Artisanal Hand-finished detailing with presentation gift box" />
+                    <option value="Hand-rolled edges with pure silk thread finish" />
+                    <option value="Precision rhodium & solid brass jewelry casting" />
+                    <option value="Full-grain leather with hand-burnished edge finish" />
+                    <option value="Single-needle French seam stitching with mother-of-pearl buttons" />
+                    <option value="Full Floating Canvas (Horsehair interior)" />
+                    <option value="Half Canvas Sartorial" />
+                    <option value="Soft Unstructured Tailoring" />
+                  </>
+                )}
               </datalist>
             </div>
           </div>
@@ -823,10 +937,16 @@ export function ProductFormModal({
           {/* 3.5 CRAFTSMANSHIP & SARTORIAL HIGHLIGHTS */}
           <div className="space-y-2">
             <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
-              Key Craftsmanship Highlights & Details (Bullet Points)
+              {isWatch
+                ? 'Horological Highlights & Key Specifications (Bullet Points)'
+                : isFragrance
+                ? 'Fragrance Highlights & Notes (Bullet Points)'
+                : 'Key Craftsmanship Highlights & Details (Bullet Points)'}
             </label>
             <p className="text-[11px] text-slate-500">
-              Bullet points displayed on storefront product dossiers (auto-crafted by Gemini AI or editable manually).
+              {isWatch
+                ? 'Bullet points displayed on storefront timepiece dossiers (e.g. Ceramic Bezel, 48h Power Reserve, Jubilee Bracelet).'
+                : 'Bullet points displayed on storefront product dossiers (auto-crafted by Gemini AI or editable manually).'}
             </p>
 
             {detailsList.length > 0 && (
@@ -932,17 +1052,17 @@ export function ProductFormModal({
           <div>
             <div className="flex items-center justify-between mb-2">
               <label className="block text-xs font-semibold uppercase tracking-wider text-slate-700">
-                Available Sizes ({category === 'accessories' ? 'Accessories' : category === 'shirts' ? 'Tailored Shirts' : 'Suits'})
+                Available Sizes ({isWatch ? 'Timepieces' : category === 'accessories' ? 'Accessories' : category === 'shirts' ? 'Tailored Shirts' : 'Suits'})
               </label>
               <button
                 type="button"
                 onClick={() => {
-                  const def = CATEGORY_DEFAULTS[category]?.selectedSizes || ['One Size'];
+                  const def = CATEGORY_DEFAULTS[category]?.selectedSizes || (isWatch ? ['40mm Case', 'Standard'] : ['One Size']);
                   setSelectedSizes(def);
                 }}
                 className="text-[11px] text-brand-gold hover:underline font-semibold"
               >
-                Reset to {category === 'accessories' ? 'Accessories' : category} standard sizes
+                Reset to {isWatch ? 'watch case' : category === 'accessories' ? 'accessories' : category} standard sizes
               </button>
             </div>
             <div className="flex flex-wrap gap-2 mb-2">

@@ -61,6 +61,18 @@ export function GarmentZoomModal({
 
   if (!isOpen || !product) return null;
 
+  const isWatch =
+    product.category === 'watches' ||
+    /watch|rolex|cartier|patek|audemars|omega|breitling|rado|richard mille|franck muller|tudor|hublot|iwc|jacob & co|seiko|tag heuer|tissot/i.test(
+      `${product.name} ${product.slug} ${product.tagline || ''}`
+    );
+
+  const isFragrance =
+    product.category === 'fragrances' ||
+    /perfume|fragrance|parfum|cologne|eau de|extrait/i.test(
+      `${product.name} ${product.slug} ${product.tagline || ''}`
+    );
+
   const images = product.images.length > 0 ? product.images : ['/images/bespoke-placeholder.jpg'];
 
   const handlePrev = (e?: React.MouseEvent) => {
@@ -114,7 +126,13 @@ export function GarmentZoomModal({
           {/* Zoom Hint Indicator */}
           <div className="absolute top-4 left-4 z-20 flex items-center space-x-2 bg-black/60 px-3 py-1.5 rounded-full text-[11px] text-brand-gold border border-brand-gold/30 backdrop-blur-sm">
             <ZoomIn className="w-3.5 h-3.5" />
-            <span>Hover to inspect stitching & cloth weave</span>
+            <span>
+              {isWatch
+                ? 'Hover to inspect dial & case details'
+                : isFragrance
+                ? 'Hover to inspect flacon & seal details'
+                : 'Hover to inspect stitching & cloth weave'}
+            </span>
           </div>
 
           {/* Main Inspection Canvas */}
@@ -198,7 +216,11 @@ export function GarmentZoomModal({
           <div className="space-y-4">
             <div>
               <span className="text-[10px] uppercase tracking-luxury text-brand-gold font-bold px-2 py-0.5 bg-white/5 border border-brand-gold/30 rounded inline-block mb-2">
-                {product.category.replace('-', ' ')}
+                {isWatch
+                  ? 'Luxury Timepiece'
+                  : isFragrance
+                  ? 'Haute Parfumerie'
+                  : product.category.replace('-', ' ')}
               </span>
               <h2 className="font-serif text-xl sm:text-2xl font-bold leading-tight">
                 {product.name}
@@ -227,25 +249,37 @@ export function GarmentZoomModal({
               </div>
             </div>
 
-            {/* Fabric & Silhouette */}
+            {/* Fabric & Silhouette / Case & Movement */}
             <div className="space-y-2 text-xs text-slate-300">
               <div>
                 <p className="font-bold text-white uppercase text-[10px] tracking-wider text-slate-400">
-                  Cloth Mill & Composition
+                  {isWatch
+                    ? 'Case & Crystal Materials'
+                    : isFragrance
+                    ? 'Olfactive Notes & Concentration'
+                    : 'Cloth Mill & Composition'}
                 </p>
                 <p className="mt-0.5 font-medium">{product.fabricDetails}</p>
               </div>
 
               <div>
                 <p className="font-bold text-white uppercase text-[10px] tracking-wider text-slate-400">
-                  Internal Construction
+                  {isWatch
+                    ? 'Movement & Specifications'
+                    : isFragrance
+                    ? 'Flacon & Bottle Craft'
+                    : 'Internal Construction'}
                 </p>
                 <p className="mt-0.5 font-medium">{product.construction}</p>
               </div>
 
               <div className="pt-1">
                 <p className="font-bold text-white uppercase text-[10px] tracking-wider text-slate-400">
-                  Atelier Notes
+                  {isWatch
+                    ? 'Horologist Notes'
+                    : isFragrance
+                    ? 'Perfumer Notes'
+                    : 'Atelier Notes'}
                 </p>
                 <p className="mt-0.5 text-[11px] leading-relaxed text-slate-300 line-clamp-3">
                   {product.description}
@@ -256,7 +290,11 @@ export function GarmentZoomModal({
             {/* Size Selector */}
             <div>
               <p className="font-bold text-white uppercase text-[10px] tracking-wider text-slate-400 mb-2">
-                Select Tailored Size
+                {isWatch
+                  ? 'Select Case Size / Strap'
+                  : isFragrance
+                  ? 'Select Volume'
+                  : 'Select Tailored Size'}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {product.variants.map((v) => (
@@ -288,7 +326,13 @@ export function GarmentZoomModal({
 
             <div className="flex items-center justify-center space-x-1.5 text-[10px] text-slate-400">
               <ShieldCheck className="w-3.5 h-3.5 text-brand-gold" />
-              <span>Full Canvas • Nairobi Flagship Fitting Included</span>
+              <span>
+                {isWatch
+                  ? 'Authentic Timepiece • Nairobi Flagship Inspection & Sizing'
+                  : isFragrance
+                  ? 'Original Haute Parfumerie • Nairobi Flagship Sampling'
+                  : 'Full Canvas • Nairobi Flagship Fitting Included'}
+              </span>
             </div>
           </div>
         </div>

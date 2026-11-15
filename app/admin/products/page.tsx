@@ -61,7 +61,7 @@ export default function AdminProductsPage() {
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      if (selectedCategory === 'accessories' && p.category !== 'accessories' && p.category !== 'fragrances') {
+      if (selectedCategory === 'accessories' && p.category !== 'accessories' && p.category !== 'fragrances' && p.category !== 'watches') {
         return false;
       }
       if (selectedCategory === 'fragrances') {
@@ -88,7 +88,11 @@ export default function AdminProductsPage() {
         if (!isBelt) return false;
       }
       if (selectedCategory === 'watches') {
-        const isWatch = p.category === 'accessories' && (p.slug.includes('watch') || p.name.toLowerCase().includes('watch'));
+        const isWatch =
+          p.category === 'watches' ||
+          /watch|rolex|cartier|patek|audemars|omega|breitling|rado|richard mille|franck muller|tudor|hublot|iwc|jacob & co|seiko|tag heuer|tissot/i.test(
+            `${p.name} ${p.slug} ${p.tagline || ''}`
+          );
         if (!isWatch) return false;
       }
       if (searchQuery.trim()) {

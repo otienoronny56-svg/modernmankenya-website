@@ -113,7 +113,8 @@ export async function POST(req: NextRequest) {
 Your task is to analyze the provided garment photograph(s) (or styling concept hint) and generate complete, polished luxury menswear catalog metadata.
 
 EXACT REQUIREMENTS:
-- Category MUST be one of: "suits", "jackets", "velvets", "evening-dinner", "fragrances", "accessories".
+- Category MUST be one of: "suits", "jackets", "velvets", "evening-dinner", "fragrances", "accessories", "watches".
+  - If it is a wristwatch, luxury watch, or timepiece, select "watches".
   - If it is a velvet dinner or smoking jacket, select "velvets".
   - If it is a 2-piece or 3-piece formal suit, select "suits".
   - If it is a sport coat, blazer, or casual jacket, select "jackets".
@@ -122,15 +123,15 @@ EXACT REQUIREMENTS:
   - If tailored for gentlemen, output "modernman".
   - If tailored for ladies / women (e.g. women's suit, tailored women's blazer, pantsuit), output "modernwoman".
   - If tailored for children / juniors / boys / girls, output "modernchild".
-- "name": An evocative, aristocratic title following the brand's naming convention (e.g. "The Sovereign Midnight Velvet Shawl Dinner Jacket", "The Biella Glen Check Three-Piece Worsted Suit", "The Royal Savoy Double-Breasted Cashmere Blazer", "The Baroness Sculpted Wool Trouser Suit").
-- "tagline": A concise headline under 10 words describing the stance or cloth (e.g. "6x2 Button Stance in 320g British Cotton Velvet", "Hand-Drafted Two-Piece in Scabal Super 150s Worsted Wool").
-- "description": CRITICAL CONSTRAINT: Keep it brief, refined, and punchy — strictly 1 to 2 short sentences (maximum 35 to 50 words total). Do NOT output long paragraphs, filler, or walls of text. Focus cleanly on the silhouette, cloth essence, and occasion versatility.
-- "fabricDetails": Mill provenance, cloth weight, and composition (e.g., "Holland & Sherry Royal Emerald Cotton Velvet (320g/m)", "Loro Piana Tasmanian Super 150s Fine Merino & Cashmere (260g/m)", "Scabal Super 150s Midnight Navy Worsted Wool (270g/m)").
-- "construction": Internal craftsmanship architecture (e.g., "Full Floating Horsehair Canvas with Hand-Padded Lapels", "Half Canvas Soft Tailoring with Quilted Silk Interior").
-- "detailsList": An array of 3 to 5 concise bullet points (each under 10 words) highlighting specific craftsmanship elements visible in the photo or tailored for this garment (e.g. "Hand-sewn Milanese lapel buttonhole in pure silk", "Deep jetted pockets with matching silk facings", "Real horn buttons with brand engraving", "Made to measure in our Nairobi Atelier").
-- "suggestedPriceKes": Realistic luxury made-to-measure price in Kenyan Shillings (e.g. 125000 to 195000 depending on complexity).
+- "name": An evocative, aristocratic title following the brand's naming convention (e.g. "The Sovereign Midnight Velvet Shawl Dinner Jacket", "The Biella Glen Check Three-Piece Worsted Suit", "Rolex GMT-Master II Dual-Time", "The Baroness Sculpted Wool Trouser Suit").
+- "tagline": A concise headline under 10 words describing the stance, cloth, or watch movement (e.g. "6x2 Button Stance in 320g British Cotton Velvet", "Automatic Chronometer 40mm in Oystersteel & 18k Gold").
+- "description": CRITICAL CONSTRAINT: Keep it brief, refined, and punchy — strictly 1 to 2 short sentences (maximum 35 to 50 words total). Do NOT output long paragraphs, filler, or walls of text. For watches, provide horologist notes on dial, bezel, and case finish.
+- "fabricDetails": For garments: mill provenance, cloth weight, and composition. For watches: case metal, bezel material, and crystal glass (e.g. "316L Stainless Steel & Double-Domed Sapphire Crystal", "18k Yellow Gold Case & Scratch-Resistant Sapphire").
+- "construction": For garments: internal canvas architecture. For watches: movement type, calibre, and water resistance (e.g. "Precision Automatic Mechanical Movement • 50M Water Resistance", "Swiss High-Precision Quartz Calibre • 30M Water Resistance").
+- "detailsList": An array of 3 to 5 concise bullet points (each under 10 words) highlighting specific craftsmanship elements visible in the photo or tailored for this garment/timepiece.
+- "suggestedPriceKes": Realistic luxury made-to-measure / timepiece price in Kenyan Shillings (e.g. 28000 to 45000 for luxury watches, 125000 to 195000 for suits).
 - "suggestedPriceUsd": Corresponding USD price (rounded, ~1 USD = 129.5 KES).
-- "suggestedSizes": Default sizing array (e.g. ["38R", "40R", "42R", "44R"]).
+- "suggestedSizes": Default sizing array (e.g. ["38R", "40R", "42R", "44R"] for suits, ["40mm Case", "Standard"] for watches).
 
 Return ONLY a valid JSON object matching this schema. Keep description strictly to 1-2 short sentences. Return pure raw JSON without markdown code fences.`;
 
@@ -212,7 +213,8 @@ Return ONLY a valid JSON object matching this schema. Keep description strictly 
     // Category mapping fallback
     let normalizedCategory = 'suits';
     const rawCat = (parsedResult.category || '').toLowerCase();
-    if (rawCat.includes('velvet')) normalizedCategory = 'velvets';
+    if (rawCat.includes('watch') || rawCat.includes('timepiece') || rawCat.includes('horolog')) normalizedCategory = 'watches';
+    else if (rawCat.includes('velvet')) normalizedCategory = 'velvets';
     else if (rawCat.includes('dinner') || rawCat.includes('tux') || rawCat.includes('evening')) normalizedCategory = 'evening-dinner';
     else if (rawCat.includes('jacket') || rawCat.includes('blazer') || rawCat.includes('coat')) normalizedCategory = 'jackets';
     else if (rawCat.includes('fragrance') || rawCat.includes('perfume')) normalizedCategory = 'fragrances';

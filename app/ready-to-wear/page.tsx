@@ -96,11 +96,17 @@ function ReadyToWearShopContent() {
           p.category === 'fragrances' ||
           (p.category === 'accessories' && (p.slug.includes('parfum') || p.slug.includes('perfume') || p.slug.includes('fragrance') || p.slug.includes('oud') || p.slug.includes('santal') || p.slug.includes('vetiver') || p.name.toLowerCase().includes('fragrance') || p.name.toLowerCase().includes('perfume') || p.name.toLowerCase().includes('parfum') || p.name.toLowerCase().includes('oud')));
 
+        const isWatch =
+          p.category === 'watches' ||
+          /watch|rolex|cartier|patek|audemars|omega|breitling|rado|richard mille|franck muller|tudor|hublot|iwc|jacob & co|seiko|tag heuer|tissot/i.test(
+            `${p.name} ${p.slug} ${p.tagline || ''}`
+          );
+
         const isAccessory = 
-          (p.category === 'accessories' || isFragrance) && !p.slug.includes('shirt');
+          (p.category === 'accessories' || p.category === 'watches' || isWatch || isFragrance) && !p.slug.includes('shirt');
 
         // Strictly exclude suits, tuxedos, kaunda suits, etc.
-        if (!isShirt && !isAccessory && !isFragrance) {
+        if (!isShirt && !isAccessory && !isFragrance && !isWatch) {
           return false;
         }
 
@@ -135,7 +141,6 @@ function ReadyToWearShopContent() {
             const isBelt = p.slug.includes('belt') || p.slug.includes('suspender');
             if (!isBelt) return false;
           } else if (accessorySubFilter === 'watches') {
-            const isWatch = p.slug.includes('watch') || p.slug.includes('hat');
             if (!isWatch) return false;
           }
         }
