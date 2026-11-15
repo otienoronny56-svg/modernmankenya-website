@@ -332,8 +332,8 @@ function GalleryContent() {
       {/* Main Content Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Category Navigation Bar */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 mb-8 border-b border-slate-200 dark:border-slate-800 gap-4">
-          <div className="flex items-center space-x-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible no-scrollbar">
+        <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 mb-8 border-b border-slate-200 dark:border-slate-800 gap-4 max-w-full overflow-hidden">
+          <div className="flex items-center space-x-2 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible no-scrollbar max-w-full">
             {categories.map((cat) => {
               const isActive = selectedCategory === cat.id;
               return (

@@ -40,14 +40,16 @@ export const ClientLayout: React.FC<ClientLayoutProps> = ({ children, hasBypass 
   return (
     <ThemeProvider>
       <AuthProvider>
-        <Header onOpenSearch={() => setSearchOpen(true)} />
-        {children}
-        <Footer />
-        <CartDrawer />
-        <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
-        <FloatingWhatsAppButton />
-        <ModernManAIAssistant />
-        <PreviewModeBanner />
+        <div className="relative w-full max-w-full overflow-x-hidden flex flex-col min-h-screen">
+          <Header onOpenSearch={() => setSearchOpen(true)} />
+          <main className="flex-grow w-full max-w-full overflow-x-hidden">{children}</main>
+          <Footer />
+          <CartDrawer />
+          <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+          <FloatingWhatsAppButton />
+          <ModernManAIAssistant />
+          <PreviewModeBanner />
+        </div>
       </AuthProvider>
     </ThemeProvider>
   );

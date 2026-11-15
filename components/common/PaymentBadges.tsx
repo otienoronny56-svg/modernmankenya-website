@@ -14,9 +14,9 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
   showLabel = true,
 }) => {
   return (
-    <div className={`space-y-2 ${className}`}>
+    <div className={`space-y-2 max-w-full ${className}`}>
       {showLabel && (
-        <div className="flex items-center justify-between text-[11px] text-stone-500 font-medium">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] text-stone-500 font-medium">
           <span className="uppercase tracking-wider text-[10px] font-bold text-stone-400">
             Guaranteed Secure Payments
           </span>
@@ -27,7 +27,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
         </div>
       )}
 
-      <div className="flex items-center gap-1.5 sm:gap-2 flex-nowrap overflow-x-auto sm:overflow-visible py-1">
+      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap sm:flex-nowrap justify-center sm:justify-end py-1 max-w-full">
         {/* 1. Safaricom Lipa Na M-Pesa */}
         <div
           className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-emerald-500 transition-colors"

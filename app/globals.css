@@ -20,10 +20,15 @@
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
   }
 
   body {
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
     font-family: var(--font-jakarta), sans-serif;
   }
 

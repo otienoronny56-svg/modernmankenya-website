@@ -225,21 +225,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
             {/* Clear, Visible Log In / Sign In Button (Top Right) */}
             {user ? (
-              <div className="flex items-center space-x-1.5 sm:space-x-2 pl-2 border-l border-slate-200">
+              <div className="flex items-center space-x-1 sm:space-x-2 pl-1.5 sm:pl-2 border-l border-slate-200 dark:border-stone-800">
                 <Link
                   href="/account"
-                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy bg-brand-gold/15 hover:bg-brand-navy hover:text-brand-gold transition-all border border-brand-gold/40 shadow-xs group"
+                  className="inline-flex items-center space-x-1 px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy bg-brand-gold/15 hover:bg-brand-navy hover:text-brand-gold transition-all border border-brand-gold/40 shadow-xs group"
                   title="Client Dashboard & Measurements"
                 >
                   <User className="w-3.5 h-3.5 text-brand-navy group-hover:text-brand-gold transition-colors" />
-                  <span className="truncate max-w-[100px] sm:max-w-[120px]">
+                  <span className="hidden sm:inline truncate max-w-[100px] sm:max-w-[120px]">
                     {profile?.fullName?.split(' ')[0] || 'Dashboard'}
                   </span>
                 </Link>
                 <button
                   type="button"
                   onClick={signOut}
-                  className="px-2 py-1 text-xs text-stone-500 hover:text-red-600 transition-colors cursor-pointer font-medium hover:underline flex items-center space-x-1"
+                  className="hidden sm:flex px-2 py-1 text-xs text-stone-500 hover:text-red-600 transition-colors cursor-pointer font-medium hover:underline items-center space-x-1"
                   title="Sign Out"
                 >
                   <LogOut className="w-3.5 h-3.5 text-stone-400" />
@@ -249,11 +249,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             ) : (
               <Link
                 href="/login"
-                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy dark:text-brand-gold bg-stone-100 dark:bg-slate-800/80 hover:bg-brand-navy hover:text-brand-gold dark:hover:bg-brand-gold dark:hover:text-brand-navy transition-all border border-stone-200 dark:border-slate-700 shadow-xs hover:border-brand-gold/40"
+                className="inline-flex items-center space-x-1 px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-bold text-brand-navy dark:text-brand-gold bg-stone-100 dark:bg-slate-800/80 hover:bg-brand-navy hover:text-brand-gold dark:hover:bg-brand-gold dark:hover:text-brand-navy transition-all border border-stone-200 dark:border-slate-700 shadow-xs hover:border-brand-gold/40"
                 title="Log In / Sign In"
               >
                 <User className="w-3.5 h-3.5 text-brand-gold" />
-                <span>Log In</span>
+                <span className="hidden sm:inline">Log In</span>
               </Link>
             )}
 
