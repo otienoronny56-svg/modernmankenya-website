@@ -901,60 +901,6 @@
   },
   {
     "index": 101,
-    "id": "3ee836f2-eb26-468d-9a1a-cd57e55288b8",
-    "slug": "watch-elysium-101",
-    "current_name": "Elysium",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-elysium-101.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-elysium-101.webp"
-  },
-  {
-    "index": 102,
-    "id": "02a2ebad-90fd-44e3-8085-82625c6aba99",
-    "slug": "watch-kronos-103",
-    "current_name": "Kronos",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-kronos-103.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-kronos-103.webp"
-  },
-  {
-    "index": 103,
-    "id": "2db048b2-6cca-411f-a451-fef638e50db8",
-    "slug": "watch-valhalla-102",
-    "current_name": "Valhalla",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-valhalla-102.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-valhalla-102.webp"
-  },
-  {
-    "index": 104,
-    "id": "99d6d29c-1352-405e-a429-ed56f4185e04",
-    "slug": "watch-excalibur-105",
-    "current_name": "Excalibur",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-excalibur-105.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-excalibur-105.webp"
-  },
-  {
-    "index": 105,
-    "id": "23d9baba-0815-46b8-a5b1-f873ad95095e",
-    "slug": "watch-chronarch-104",
-    "current_name": "Chronarch",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-chronarch-104.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-chronarch-104.webp"
-  },
-  {
-    "index": 106,
-    "id": "849b3da4-16d5-4e7c-88e2-355b2b161909",
-    "slug": "watch-centaur-107",
-    "current_name": "Centaur",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-centaur-107.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-centaur-107.webp"
-  },
-  {
-    "index": 107,
     "id": "770c037c-a574-4101-9b5c-1679c9a29806",
     "slug": "watch-cerberus-109",
     "current_name": "Cerberus",
@@ -963,43 +909,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-cerberus-109.webp"
   },
   {
-    "index": 108,
-    "id": "15ac29f6-7a6b-4d0b-8e3c-cd38179c0eed",
-    "slug": "watch-paladin-106",
-    "current_name": "Paladin",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-paladin-106.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-paladin-106.webp"
-  },
-  {
-    "index": 109,
-    "id": "bafc6bc3-a56c-43ee-8e6e-a04db3987eb2",
-    "slug": "watch-hyperion-110",
-    "current_name": "Hyperion",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-hyperion-110.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-hyperion-110.webp"
-  },
-  {
-    "index": 110,
-    "id": "0c4e538c-af31-4c47-a377-7a72d10ae28f",
-    "slug": "watch-minotaur-108",
-    "current_name": "Minotaur",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-minotaur-108.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-minotaur-108.webp"
-  },
-  {
-    "index": 111,
-    "id": "2ab590e6-9719-4fcb-9de3-5ce3bdb86901",
-    "slug": "watch-prometheus-111",
-    "current_name": "Prometheus",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-prometheus-111.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-prometheus-111.webp"
-  },
-  {
-    "index": 112,
+    "index": 102,
     "id": "bbf1c8be-6b76-41b8-adfe-694d502ac39c",
     "slug": "watch-icarus-112",
     "current_name": "Icarus",
@@ -1008,25 +918,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-icarus-112.webp"
   },
   {
-    "index": 113,
-    "id": "2888e3c7-6ca5-45b1-9c2f-177b00b900b5",
-    "slug": "watch-daedalus-113",
-    "current_name": "Daedalus",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-daedalus-113.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-daedalus-113.webp"
-  },
-  {
-    "index": 114,
-    "id": "ee6c9587-b284-4fdc-b3c1-aa697a764143",
-    "slug": "watch-achilles-114",
-    "current_name": "Achilles",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-achilles-114.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-achilles-114.webp"
-  },
-  {
-    "index": 115,
+    "index": 103,
     "id": "193e73c2-6962-46fe-a8bc-674dd6566e14",
     "slug": "watch-hector-115",
     "current_name": "Hector",
@@ -1035,16 +927,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-hector-115.webp"
   },
   {
-    "index": 116,
-    "id": "8833e038-d5b0-4dcc-b366-5073200a2ea8",
-    "slug": "watch-odysseus-116",
-    "current_name": "Odysseus",
-    "current_price_kes": 24500,
-    "image_url": "https://dzglmkwjbvvvqfieofdt.supabase.co/storage/v1/object/public/product-images/watches/watch-odysseus-116.webp",
-    "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-odysseus-116.webp"
-  },
-  {
-    "index": 117,
+    "index": 104,
     "id": "1cf06781-e63d-454c-abb9-bda202b27294",
     "slug": "watch-theseus-118",
     "current_name": "Theseus",
@@ -1053,7 +936,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-theseus-118.webp"
   },
   {
-    "index": 118,
+    "index": 105,
     "id": "6354a840-ef28-4ea3-b95c-48286ea5ce34",
     "slug": "watch-perseus-117",
     "current_name": "Perseus",
@@ -1062,7 +945,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-perseus-117.webp"
   },
   {
-    "index": 119,
+    "index": 106,
     "id": "08266279-f5e2-4cad-a312-faa7537ea50e",
     "slug": "watch-leonidas-120",
     "current_name": "Leonidas",
@@ -1071,7 +954,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-leonidas-120.webp"
   },
   {
-    "index": 120,
+    "index": 107,
     "id": "bc2dc698-e493-4086-8290-1388d0a6befe",
     "slug": "watch-jason-119",
     "current_name": "Jason",
@@ -1080,7 +963,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-jason-119.webp"
   },
   {
-    "index": 121,
+    "index": 108,
     "id": "f99d04e5-0d1f-4729-8a8e-e28ffa6c137a",
     "slug": "watch-sparta-121",
     "current_name": "Sparta",
@@ -1089,7 +972,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-sparta-121.webp"
   },
   {
-    "index": 122,
+    "index": 109,
     "id": "4b7d03c2-3ca5-45fb-9b51-27974236de7a",
     "slug": "watch-athens-122",
     "current_name": "Athens",
@@ -1098,7 +981,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-athens-122.webp"
   },
   {
-    "index": 123,
+    "index": 110,
     "id": "c3ddf553-dba4-4688-abbe-9923f0ebe9a2",
     "slug": "watch-corinth-123",
     "current_name": "Corinth",
@@ -1107,7 +990,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-corinth-123.webp"
   },
   {
-    "index": 124,
+    "index": 111,
     "id": "67456fe8-96b3-4401-bd9c-d1e9c288a998",
     "slug": "watch-delphi-124",
     "current_name": "Delphi",
@@ -1116,7 +999,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-delphi-124.webp"
   },
   {
-    "index": 125,
+    "index": 112,
     "id": "3ba77628-55d8-4643-895a-3f1185bcebe9",
     "slug": "watch-olympia-125",
     "current_name": "Olympia",
@@ -1125,7 +1008,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-olympia-125.webp"
   },
   {
-    "index": 126,
+    "index": 113,
     "id": "9234651b-8ec3-419e-b1ea-f2dd1a4843f2",
     "slug": "watch-arcadia-126",
     "current_name": "Arcadia",
@@ -1134,7 +1017,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-arcadia-126.webp"
   },
   {
-    "index": 127,
+    "index": 114,
     "id": "d2ad57ce-af44-4b73-a973-803544bc6e99",
     "slug": "watch-macedonia-127",
     "current_name": "Macedonia",
@@ -1143,7 +1026,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-macedonia-127.webp"
   },
   {
-    "index": 128,
+    "index": 115,
     "id": "956e2fec-7dc7-4121-b3ea-f868bc614bb8",
     "slug": "watch-thrace-128",
     "current_name": "Thrace",
@@ -1152,7 +1035,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-thrace-128.webp"
   },
   {
-    "index": 129,
+    "index": 116,
     "id": "efa55b2c-4d16-404f-85ad-b50be35ca2f3",
     "slug": "watch-rhodes-129",
     "current_name": "Rhodes",
@@ -1161,7 +1044,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-rhodes-129.webp"
   },
   {
-    "index": 130,
+    "index": 117,
     "id": "d63d91d3-c31b-4a0e-8153-b0170bc1dafb",
     "slug": "watch-marathon-130",
     "current_name": "Marathon",
@@ -1170,7 +1053,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-marathon-130.webp"
   },
   {
-    "index": 131,
+    "index": 118,
     "id": "bfa05745-94d5-4105-89af-c6edeed5a792",
     "slug": "watch-thermopylae-131",
     "current_name": "Thermopylae",
@@ -1179,7 +1062,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-thermopylae-131.webp"
   },
   {
-    "index": 132,
+    "index": 119,
     "id": "34d88abe-cc00-4607-a583-dda562017510",
     "slug": "watch-salamis-132",
     "current_name": "Salamis",
@@ -1188,7 +1071,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-salamis-132.webp"
   },
   {
-    "index": 133,
+    "index": 120,
     "id": "55a38c8d-e208-4b47-aa59-0b01f85c5154",
     "slug": "watch-plataea-133",
     "current_name": "Plataea",
@@ -1197,7 +1080,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-plataea-133.webp"
   },
   {
-    "index": 134,
+    "index": 121,
     "id": "f35c9218-efb7-428a-829e-d38b5c33652b",
     "slug": "watch-byzantium-134",
     "current_name": "Byzantium",
@@ -1206,7 +1089,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-byzantium-134.webp"
   },
   {
-    "index": 135,
+    "index": 122,
     "id": "b75f465e-a007-4d94-9cf4-c3b6460d28ae",
     "slug": "watch-carthage-136",
     "current_name": "Carthage",
@@ -1215,7 +1098,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-carthage-136.webp"
   },
   {
-    "index": 136,
+    "index": 123,
     "id": "157e73ed-8beb-460b-8e17-1351fb4e4035",
     "slug": "watch-alexandria-135",
     "current_name": "Alexandria",
@@ -1224,7 +1107,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-alexandria-135.webp"
   },
   {
-    "index": 137,
+    "index": 124,
     "id": "f7df6783-9398-46e4-8676-2760d2650d4d",
     "slug": "watch-ravenna-137",
     "current_name": "Ravenna",
@@ -1233,7 +1116,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-ravenna-137.webp"
   },
   {
-    "index": 138,
+    "index": 125,
     "id": "7e55c1e1-a068-4512-9e49-d295c70019f4",
     "slug": "watch-venice-138",
     "current_name": "Venice",
@@ -1242,7 +1125,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-venice-138.webp"
   },
   {
-    "index": 139,
+    "index": 126,
     "id": "ba4cf1a1-760b-4043-9707-e312fbcbdded",
     "slug": "watch-florence-139",
     "current_name": "Florence",
@@ -1251,7 +1134,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-florence-139.webp"
   },
   {
-    "index": 140,
+    "index": 127,
     "id": "07f8e54a-dce7-4d10-b52a-aa0e264dee76",
     "slug": "watch-milan-141",
     "current_name": "Milan",
@@ -1260,7 +1143,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-milan-141.webp"
   },
   {
-    "index": 141,
+    "index": 128,
     "id": "d140d9b6-52b7-49c7-a97f-295ea8848c8d",
     "slug": "watch-verona-140",
     "current_name": "Verona",
@@ -1269,7 +1152,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-verona-140.webp"
   },
   {
-    "index": 142,
+    "index": 129,
     "id": "180996c3-9a85-4a34-9a0d-6e4a2f0f8d31",
     "slug": "watch-genoa-142",
     "current_name": "Genoa",
@@ -1278,7 +1161,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-genoa-142.webp"
   },
   {
-    "index": 143,
+    "index": 130,
     "id": "d9f93ee7-9a57-4c04-8d1f-e9ccf1854cb9",
     "slug": "watch-palermo-144",
     "current_name": "Palermo",
@@ -1287,7 +1170,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-palermo-144.webp"
   },
   {
-    "index": 144,
+    "index": 131,
     "id": "06538474-2f75-4362-8665-8f85a5ec99a1",
     "slug": "watch-amalfi-143",
     "current_name": "Amalfi",
@@ -1296,7 +1179,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-amalfi-143.webp"
   },
   {
-    "index": 145,
+    "index": 132,
     "id": "3ea7cc7e-19cb-4183-beff-66e4364407e3",
     "slug": "watch-napoli-146",
     "current_name": "Napoli",
@@ -1305,7 +1188,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-napoli-146.webp"
   },
   {
-    "index": 146,
+    "index": 133,
     "id": "3b025261-4ee7-430e-a6a2-9db3e2e668fa",
     "slug": "watch-syracuse-145",
     "current_name": "Syracuse",
@@ -1314,7 +1197,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-syracuse-145.webp"
   },
   {
-    "index": 147,
+    "index": 134,
     "id": "cd2ac8ef-e475-43fc-a17b-65b1a79015ef",
     "slug": "watch-pompeii-147",
     "current_name": "Pompeii",
@@ -1323,7 +1206,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-pompeii-147.webp"
   },
   {
-    "index": 148,
+    "index": 135,
     "id": "08e0162b-cc9b-4f8b-9217-f2f32a3129f0",
     "slug": "watch-sartor-149",
     "current_name": "Sartor",
@@ -1332,7 +1215,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-sartor-149.webp"
   },
   {
-    "index": 149,
+    "index": 136,
     "id": "4af5b376-aa17-4951-bf20-64ebf27a9857",
     "slug": "watch-torino-148",
     "current_name": "Torino",
@@ -1341,7 +1224,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-torino-148.webp"
   },
   {
-    "index": 150,
+    "index": 137,
     "id": "f6b940f1-95ef-4ab4-9a9d-4eb3396fd8db",
     "slug": "watch-sartorio-150",
     "current_name": "Sartorio",
@@ -1350,7 +1233,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-sartorio-150.webp"
   },
   {
-    "index": 151,
+    "index": 138,
     "id": "06d07e6f-2fa0-4d62-bfdf-80e5c67fb857",
     "slug": "watch-imperator-152",
     "current_name": "Imperator",
@@ -1359,7 +1242,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-imperator-152.webp"
   },
   {
-    "index": 152,
+    "index": 139,
     "id": "6b560c97-18d3-4b68-a823-7ec40320267e",
     "slug": "watch-regalis-151",
     "current_name": "Regalis",
@@ -1368,7 +1251,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-regalis-151.webp"
   },
   {
-    "index": 153,
+    "index": 140,
     "id": "f89fda42-7442-43dc-bd49-4f85c5f85231",
     "slug": "watch-tiberius-154",
     "current_name": "Tiberius",
@@ -1377,7 +1260,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-tiberius-154.webp"
   },
   {
-    "index": 154,
+    "index": 141,
     "id": "42377520-ec22-4be0-b765-1d8d4d9a969f",
     "slug": "watch-augustus-153",
     "current_name": "Augustus",
@@ -1386,7 +1269,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-augustus-153.webp"
   },
   {
-    "index": 155,
+    "index": 142,
     "id": "75f3bbe6-76ca-42bf-8775-ba52b8137ca7",
     "slug": "watch-claudius-155",
     "current_name": "Claudius",
@@ -1395,7 +1278,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-claudius-155.webp"
   },
   {
-    "index": 156,
+    "index": 143,
     "id": "e6ca7c7b-e7d1-4b03-9280-95d264b12a03",
     "slug": "watch-trajan-157",
     "current_name": "Trajan",
@@ -1404,7 +1287,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-trajan-157.webp"
   },
   {
-    "index": 157,
+    "index": 144,
     "id": "39c792d6-bc00-46b6-af5d-f25a064fe2e4",
     "slug": "watch-aurelian-156",
     "current_name": "Aurelian",
@@ -1413,7 +1296,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-aurelian-156.webp"
   },
   {
-    "index": 158,
+    "index": 145,
     "id": "4664b669-291d-4b1d-961e-def01e0e1d9c",
     "slug": "watch-hadrian-158",
     "current_name": "Hadrian",
@@ -1422,7 +1305,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-hadrian-158.webp"
   },
   {
-    "index": 159,
+    "index": 146,
     "id": "40332849-062d-403c-98de-2469c1ecd7f5",
     "slug": "watch-starlight-161",
     "current_name": "Starlight",
@@ -1431,7 +1314,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-starlight-161.webp"
   },
   {
-    "index": 160,
+    "index": 147,
     "id": "801cb8db-71e6-44ec-89cc-d4975feffc0c",
     "slug": "watch-aurelius-160",
     "current_name": "Aurelius",
@@ -1440,7 +1323,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-aurelius-160.webp"
   },
   {
-    "index": 161,
+    "index": 148,
     "id": "40683e95-3001-445d-b23a-cd6fec963a1a",
     "slug": "watch-antoninus-159",
     "current_name": "Antoninus",
@@ -1449,7 +1332,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-antoninus-159.webp"
   },
   {
-    "index": 162,
+    "index": 149,
     "id": "a7420025-f973-4736-9b31-46c957f32c94",
     "slug": "watch-moonphase-162",
     "current_name": "Moonphase",
@@ -1458,7 +1341,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-moonphase-162.webp"
   },
   {
-    "index": 163,
+    "index": 150,
     "id": "fb39b1f6-837e-45d2-88e3-168d80cb6dbb",
     "slug": "watch-celestial-164",
     "current_name": "Celestial",
@@ -1467,7 +1350,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-celestial-164.webp"
   },
   {
-    "index": 164,
+    "index": 151,
     "id": "1d647633-9353-4d36-b23f-1ad5fb1367d3",
     "slug": "watch-solar-163",
     "current_name": "Solar",
@@ -1476,7 +1359,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-solar-163.webp"
   },
   {
-    "index": 165,
+    "index": 152,
     "id": "59eb2e94-1db0-45ba-b0f3-1b2d55cf75c8",
     "slug": "watch-nebula-166",
     "current_name": "Nebula",
@@ -1485,7 +1368,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-nebula-166.webp"
   },
   {
-    "index": 166,
+    "index": 153,
     "id": "6ec10591-8993-4e33-a9b8-00763d61daa7",
     "slug": "watch-galaxy-165",
     "current_name": "Galaxy",
@@ -1494,7 +1377,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-galaxy-165.webp"
   },
   {
-    "index": 167,
+    "index": 154,
     "id": "66b6e597-73be-44c1-a7aa-4bd5f6b5d0b0",
     "slug": "watch-cosmos-167",
     "current_name": "Cosmos",
@@ -1503,7 +1386,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-cosmos-167.webp"
   },
   {
-    "index": 168,
+    "index": 155,
     "id": "20379da4-cd9a-44bb-ab41-fdc84d88db90",
     "slug": "watch-pulsar-168",
     "current_name": "Pulsar",
@@ -1512,7 +1395,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-pulsar-168.webp"
   },
   {
-    "index": 169,
+    "index": 156,
     "id": "9cffc13a-99dc-4874-af72-f9b60ecbc47c",
     "slug": "watch-supernova-170",
     "current_name": "Supernova",
@@ -1521,7 +1404,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-supernova-170.webp"
   },
   {
-    "index": 170,
+    "index": 157,
     "id": "8bd2a159-42ce-476a-92c9-444fa74876ef",
     "slug": "watch-quasar-169",
     "current_name": "Quasar",
@@ -1530,7 +1413,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-quasar-169.webp"
   },
   {
-    "index": 171,
+    "index": 158,
     "id": "194d3d68-675b-47ef-9a8d-a51cbcbf2b90",
     "slug": "watch-meteor-172",
     "current_name": "Meteor",
@@ -1539,7 +1422,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-meteor-172.webp"
   },
   {
-    "index": 172,
+    "index": 159,
     "id": "4504070f-407f-46f2-bce7-a268753169f0",
     "slug": "watch-comet-171",
     "current_name": "Comet",
@@ -1548,7 +1431,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-comet-171.webp"
   },
   {
-    "index": 173,
+    "index": 160,
     "id": "ddac078d-4d5a-4ef0-90d6-d1a2f716fe19",
     "slug": "watch-asteroid-173",
     "current_name": "Asteroid",
@@ -1557,7 +1440,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-asteroid-173.webp"
   },
   {
-    "index": 174,
+    "index": 161,
     "id": "105ff92c-cecb-41d8-bbdb-68e916acafc4",
     "slug": "watch-aurora-174",
     "current_name": "Aurora",
@@ -1566,7 +1449,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-aurora-174.webp"
   },
   {
-    "index": 175,
+    "index": 162,
     "id": "fc4ddec6-18e3-4439-bcd0-6059b77ed97c",
     "slug": "watch-borealis-175",
     "current_name": "Borealis",
@@ -1575,7 +1458,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-borealis-175.webp"
   },
   {
-    "index": 176,
+    "index": 163,
     "id": "6d7d38bf-08a0-4279-9682-606d778c7e15",
     "slug": "watch-canopus-177",
     "current_name": "Canopus",
@@ -1584,7 +1467,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-canopus-177.webp"
   },
   {
-    "index": 177,
+    "index": 164,
     "id": "78f89187-2872-4c6b-970e-8a75427a7049",
     "slug": "watch-australis-176",
     "current_name": "Australis",
@@ -1593,7 +1476,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-australis-176.webp"
   },
   {
-    "index": 178,
+    "index": 165,
     "id": "ffe8ae4d-20d3-4b5c-8bc3-25d99192b9a9",
     "slug": "watch-fomalhaut-178",
     "current_name": "Fomalhaut",
@@ -1602,7 +1485,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-fomalhaut-178.webp"
   },
   {
-    "index": 179,
+    "index": 166,
     "id": "e7f1d959-b6ca-4c64-a6e7-f3de30a86a2a",
     "slug": "watch-deneb-180",
     "current_name": "Deneb",
@@ -1611,7 +1494,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-deneb-180.webp"
   },
   {
-    "index": 180,
+    "index": 167,
     "id": "36116226-584c-4c89-811b-ae6fde0cc2ee",
     "slug": "watch-regulus-179",
     "current_name": "Regulus",
@@ -1620,7 +1503,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-regulus-179.webp"
   },
   {
-    "index": 181,
+    "index": 168,
     "id": "21119a4e-7ed7-45f9-83bc-fa9b25cfa707",
     "slug": "watch-altair-181",
     "current_name": "Altair",
@@ -1629,7 +1512,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-altair-181.webp"
   },
   {
-    "index": 182,
+    "index": 169,
     "id": "29675c8d-257c-4f99-9579-c93da0658527",
     "slug": "watch-vega-182",
     "current_name": "Vega",
@@ -1638,7 +1521,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-vega-182.webp"
   },
   {
-    "index": 183,
+    "index": 170,
     "id": "c8ae88e7-a65a-40f0-90d0-bcdac3168ab4",
     "slug": "watch-sirius-183",
     "current_name": "Sirius",
@@ -1647,7 +1530,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-sirius-183.webp"
   },
   {
-    "index": 184,
+    "index": 171,
     "id": "cea4cdb7-83ec-407d-9a19-757401d5f397",
     "slug": "watch-polaris-184",
     "current_name": "Polaris",
@@ -1656,7 +1539,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-polaris-184.webp"
   },
   {
-    "index": 185,
+    "index": 172,
     "id": "0ba0a32d-dff1-4672-a534-70f2c82956bf",
     "slug": "watch-arcturus-185",
     "current_name": "Arcturus",
@@ -1665,7 +1548,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-arcturus-185.webp"
   },
   {
-    "index": 186,
+    "index": 173,
     "id": "275cf983-f4a3-4430-91ea-7e8317b18ce4",
     "slug": "watch-capella-186",
     "current_name": "Capella",
@@ -1674,7 +1557,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-capella-186.webp"
   },
   {
-    "index": 187,
+    "index": 174,
     "id": "2d3ec2c3-5c42-427f-94a4-bc2d3362c9ad",
     "slug": "watch-procyon-187",
     "current_name": "Procyon",
@@ -1683,7 +1566,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-procyon-187.webp"
   },
   {
-    "index": 188,
+    "index": 175,
     "id": "3bbe5b09-4325-4a2e-8740-924e44ebcec7",
     "slug": "watch-betelgeuse-188",
     "current_name": "Betelgeuse",
@@ -1692,7 +1575,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-betelgeuse-188.webp"
   },
   {
-    "index": 189,
+    "index": 176,
     "id": "64a17b7c-0ba6-48ff-a455-65c4c0a798fb",
     "slug": "watch-aldebaran-189",
     "current_name": "Aldebaran",
@@ -1701,7 +1584,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-aldebaran-189.webp"
   },
   {
-    "index": 190,
+    "index": 177,
     "id": "bcdb1d26-c0a0-4646-ad3d-e07c36fe20b5",
     "slug": "watch-spica-191",
     "current_name": "Spica",
@@ -1710,7 +1593,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-spica-191.webp"
   },
   {
-    "index": 191,
+    "index": 178,
     "id": "c51c6757-1624-4d15-ae7a-0ed79e471d06",
     "slug": "watch-antares-190",
     "current_name": "Antares",
@@ -1719,7 +1602,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-antares-190.webp"
   },
   {
-    "index": 192,
+    "index": 179,
     "id": "d7a02c46-bf22-4ae4-8933-47302fcc92f0",
     "slug": "watch-castor-192",
     "current_name": "Castor",
@@ -1728,7 +1611,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-castor-192.webp"
   },
   {
-    "index": 193,
+    "index": 180,
     "id": "e83ebe3a-75f9-468a-bf50-a73cb509dda3",
     "slug": "watch-pollux-193",
     "current_name": "Pollux",
@@ -1737,7 +1620,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-pollux-193.webp"
   },
   {
-    "index": 194,
+    "index": 181,
     "id": "f6dac9d3-25c2-4345-8313-cae2e062270c",
     "slug": "watch-rigel-194",
     "current_name": "Rigel",
@@ -1746,7 +1629,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-rigel-194.webp"
   },
   {
-    "index": 195,
+    "index": 182,
     "id": "af85f312-8bd5-4c14-b956-104d60a530ac",
     "slug": "watch-centurion-195",
     "current_name": "Centurion",
@@ -1755,7 +1638,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-centurion-195.webp"
   },
   {
-    "index": 196,
+    "index": 183,
     "id": "11572821-9b2e-43c9-9da6-641bd0134c23",
     "slug": "watch-vanguard-196",
     "current_name": "Vanguard",
@@ -1764,7 +1647,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-vanguard-196.webp"
   },
   {
-    "index": 197,
+    "index": 184,
     "id": "c424104e-46de-42fb-9cd4-71e49aca78da",
     "slug": "watch-apex-197",
     "current_name": "Apex",
@@ -1773,7 +1656,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-apex-197.webp"
   },
   {
-    "index": 198,
+    "index": 185,
     "id": "722a821b-f0d0-458a-9cd7-38578ffb0058",
     "slug": "watch-summit-198",
     "current_name": "Summit",
@@ -1782,7 +1665,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-summit-198.webp"
   },
   {
-    "index": 199,
+    "index": 186,
     "id": "fb0526ad-7937-4e8a-8168-7a21d47c2d12",
     "slug": "watch-orbit-199",
     "current_name": "Orbit",
@@ -1791,7 +1674,7 @@
     "local_path": "C:/Users/ronny/Desktop/all projects/Modernmankenya Website/data/watches_images/watch-orbit-199.webp"
   },
   {
-    "index": 200,
+    "index": 187,
     "id": "fabdd702-e413-4d01-b8e1-58cf2849ee6c",
     "slug": "watch-titanium-200",
     "current_name": "Titanium",
