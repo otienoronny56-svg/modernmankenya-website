@@ -308,7 +308,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Payment Method Trust Strip */}
-          <div className="w-full md:w-auto flex justify-center md:justify-end pr-14 sm:pr-16 md:pr-14 lg:pr-12 xl:pr-0">
+          <div className="w-full md:w-auto flex justify-center md:justify-end pr-14 sm:pr-16 md:pr-14 lg:pr-14 xl:pr-14">
             <PaymentBadges variant="compact" showLabel={true} />
           </div>
         </div>

@@ -351,13 +351,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             </div>
 
             <Link
-              href="/the-experience"
-              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
-            >
-              The Experience
-            </Link>
-
-            <Link
               href="/about"
               className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
             >
