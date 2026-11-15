@@ -114,7 +114,7 @@ const REVIEWS_DATA: ReviewItem[] = [
   },
   {
     id: 'rev-06',
-    client: 'Kiplagat Chepkwony',
+    client: 'Brian Akoko',
     title: 'Corporate Executive & State Gala Guest',
     city: 'Eldoret & Nairobi',
     category: 'african',
@@ -146,7 +146,7 @@ const REVIEWS_DATA: ReviewItem[] = [
   },
   {
     id: 'rev-08',
-    client: 'Dennis & Nicole Kariuki',
+    client: 'Dennis Kariuki',
     title: 'Destination Wedding Groomsmen Party',
     city: 'Diani Beach & Nairobi',
     category: 'weddings',

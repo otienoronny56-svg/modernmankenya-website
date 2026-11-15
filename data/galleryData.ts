@@ -831,6 +831,14 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
+    "id": "kaunda-16",
+    "title": "Terracotta Safari",
+    "tag": "Groomsmen Kaunda",
+    "category": "kaunda-suits",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.53 PM (1).jpeg",
+    "aspect": "portrait"
+  },
+  {
     "id": "trad-1",
     "title": "Ruracio Dance",
     "tag": "Joyful Entourage",
@@ -844,7 +852,11 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "tag": "Nuptial Blessing",
     "category": "traditional",
     "image": "/images/traditional-wedding-ruracio-groom-gold-bride.jpeg",
-    "aspect": "portrait"
+    "aspect": "portrait",
+    "images": [
+      "/images/traditional-wedding-ruracio-groom-gold-bride.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.51.08 PM.jpeg"
+    ]
   },
   {
     "id": "trad-3",
@@ -880,27 +892,17 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     "id": "trad-7",
-    "title": "Flywhisk Line",
-    "tag": "Groomsmen Honor",
-    "category": "traditional",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.21 PM.jpeg",
-    "aspect": "landscape"
-  },
-  {
-    "id": "trad-8",
-    "title": "Emerald Caps",
+    "title": "Emerald Groomsmen",
     "tag": "Sacred Entourage",
     "category": "traditional",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.24 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "trad-9",
-    "title": "Nuptial Joy",
-    "tag": "Heritage Steps",
-    "category": "traditional",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.28 PM.jpeg",
-    "aspect": "portrait"
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.21 PM.jpeg",
+    "aspect": "landscape",
+    "images": [
+      "/images/more/WhatsApp Image 2026-10-19 at 3.55.21 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.55.24 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.55.28 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.50.56 PM.jpeg"
+    ]
   },
   {
     "id": "trad-10",
@@ -936,19 +938,15 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     "id": "trad-14",
-    "title": "Antelope Cane",
-    "tag": "Velvet Cap",
+    "title": "Cowhide Regalia",
+    "tag": "Antelope Cane",
     "category": "traditional",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.49 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "trad-15",
-    "title": "Cowhide Vest",
-    "tag": "Beaded Regalia",
-    "category": "traditional",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg",
-    "aspect": "landscape"
+    "aspect": "portrait",
+    "images": [
+      "/images/more/WhatsApp Image 2026-10-19 at 3.55.49 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.55.53 PM.jpeg"
+    ]
   },
   {
     "id": "trad-17",
@@ -1155,28 +1153,59 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
+    "id": "tux-39",
+    "title": "Formal Black Tie",
+    "tag": "Evening Dinner Suit",
+    "category": "evening-dinner",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM.jpeg",
+    "aspect": "square"
+  },
+  {
+    "id": "tux-37",
+    "title": "Monarch Jacquard Tux",
+    "tag": "Groom Black Tie",
+    "category": "evening-dinner",
+    "image": "/images/DSC_0865-1.jpg.jpeg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "tux-38",
+    "title": "Ivory Dinner Coat",
+    "tag": "Black Tie Groom",
+    "category": "evening-dinner",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg",
+    "aspect": "landscape"
+  },
+  {
+    "id": "tux-highland",
+    "title": "Highland Ivory Tuxedo",
+    "tag": "Peak Lapel Tuxedo",
+    "category": "evening-dinner",
+    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg",
+    "images": [
+      "/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.47.54 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.47.56 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.47.59 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.50.12 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.50.13 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.50.23 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 3.51.41 PM.jpeg"
+    ],
+    "aspect": "portrait"
+  },
+  {
     "id": "suit-1",
-    "title": "Royal Blue",
-    "tag": "Nairobi Boardroom",
+    "title": "Nairobi Statesman",
+    "tag": "Pinstripe Three-Piece",
     "category": "suits",
     "image": "/images/MOK_7655.jpg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-2",
-    "title": "Double Breasted",
-    "tag": "Chalkstripe Worsted",
-    "category": "suits",
-    "image": "/images/MOK_7660.jpg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-3",
-    "title": "Slate Three-Piece",
-    "tag": "Executive Vest",
-    "category": "suits",
-    "image": "/images/MOK_7662.jpg",
-    "aspect": "portrait"
+    "aspect": "portrait",
+    "images": [
+      "/images/MOK_7655.jpg",
+      "/images/MOK_7660.jpg",
+      "/images/MOK_7662.jpg"
+    ]
   },
   {
     "id": "suit-4",
@@ -1220,19 +1249,16 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     "id": "suit-9",
-    "title": "Navy Two-Piece",
-    "tag": "Classic Two-Button",
+    "title": "Royal Blue Suiting",
+    "tag": "Three-Piece Line",
     "category": "suits",
     "image": "/images/two-piece-suit-blue.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-10",
-    "title": "Blue Three-Piece",
-    "tag": "Horseshoe Vest",
-    "category": "suits",
-    "image": "/images/three-piece-suit-blue.jpeg",
-    "aspect": "portrait"
+    "aspect": "portrait",
+    "images": [
+      "/images/two-piece-suit-blue.jpeg",
+      "/images/three-piece-suit-blue.jpeg",
+      "/images/three-piece-vest-look.jpeg"
+    ]
   },
   {
     "id": "suit-11",
@@ -1240,14 +1266,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "tag": "Three-Piece Suit",
     "category": "suits",
     "image": "/images/three-piece-suit-olive-sage.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-12",
-    "title": "Horseshoe Vest",
-    "tag": "Waistcoat Line",
-    "category": "suits",
-    "image": "/images/three-piece-vest-look.jpeg",
     "aspect": "portrait"
   },
   {
@@ -1283,58 +1301,28 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "suit-17",
-    "title": "Highland Groom",
-    "tag": "Ivory Double Breasted",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg",
-    "images": [
-      "/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg",
-      "/images/more/WhatsApp Image 2026-10-19 at 3.47.54 PM.jpeg",
-      "/images/more/WhatsApp Image 2026-10-19 at 3.47.56 PM.jpeg",
-      "/images/more/WhatsApp Image 2026-10-19 at 3.47.59 PM.jpeg"
-    ],
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-21",
-    "title": "Champagne Toast",
-    "tag": "Groomsmen Toast",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.51.08 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-22",
-    "title": "Groom Toast",
-    "tag": "Champagne Flute",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.51.41 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
     "id": "suit-23",
-    "title": "Garden Altar",
-    "tag": "Rose Petal Walk",
+    "title": "Rose Petal Aisle",
+    "tag": "Navy Horseshoe Suit",
     "category": "suits",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM (1).jpeg",
-    "aspect": "landscape"
-  },
-  {
-    "id": "suit-24",
-    "title": "Tan Entourage",
-    "tag": "Groomsmen Suiting",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.53 PM (1).jpeg",
-    "aspect": "portrait"
+    "aspect": "landscape",
+    "images": [
+      "/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM (1).jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (2).jpeg"
+    ]
   },
   {
     "id": "suit-25",
-    "title": "Cognac Palette",
-    "tag": "Champagne Groom",
+    "title": "Champagne & Cognac",
+    "tag": "Three-Piece Nuptial",
     "category": "suits",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg",
-    "aspect": "square"
+    "aspect": "square",
+    "images": [
+      "/images/more/WhatsApp Image 2026-10-19 at 4.17.14 PM.jpeg",
+      "/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM (1).jpeg"
+    ]
   },
   {
     "id": "suit-26",
@@ -1343,46 +1331,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "category": "suits",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (2).jpeg",
     "aspect": "square"
-  },
-  {
-    "id": "suit-27",
-    "title": "Tan Groom",
-    "tag": "Double Breasted",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.18 PM (1).jpeg",
-    "aspect": "square"
-  },
-  {
-    "id": "suit-28",
-    "title": "Worsted Fitting",
-    "tag": "Bespoke Atelier",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.50.12 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-29",
-    "title": "Charcoal Worsted",
-    "tag": "Consultation Drape",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.50.13 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-30",
-    "title": "Horseshoe Fitting",
-    "tag": "Three-Piece Line",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.50.23 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-31",
-    "title": "Skyline Stride",
-    "tag": "Nairobi City",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 3.50.56 PM.jpeg",
-    "aspect": "portrait"
   },
   {
     "id": "suit-32",
@@ -1422,14 +1370,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "tag": "Executive Weave",
     "category": "suits",
     "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.15 PM.jpeg",
-    "aspect": "square"
-  },
-  {
-    "id": "suit-37",
-    "title": "Classic Worsted",
-    "tag": "Navy Single-Breasted",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM.jpeg",
     "aspect": "square"
   },
   {
@@ -1481,30 +1421,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "landscape"
   },
   {
-    "id": "suit-44",
-    "title": "Cognac Groomsmen",
-    "tag": "Wedding Entourage",
-    "category": "suits",
-    "image": "/images/DSC_0865-1.jpg.jpeg",
-    "aspect": "landscape"
-  },
-  {
-    "id": "suit-45",
-    "title": "Nuptial Harmony",
-    "tag": "Three-Piece Suit",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (2).jpeg",
-    "aspect": "landscape"
-  },
-  {
-    "id": "suit-46",
-    "title": "Groomsman Ensemble",
-    "tag": "Ivory & Navy",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg",
-    "aspect": "landscape"
-  },
-  {
     "id": "suit-47",
     "title": "Locomotive Stride",
     "tag": "Check Suiting",
@@ -1521,14 +1437,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
-    "id": "suit-overcoat",
-    "title": "Tailored Overcoat",
-    "tag": "Double-Breasted",
-    "category": "suits",
-    "image": "/images/more/WhatsApp Image 2026-10-19 at 4.16.55 PM.jpeg",
-    "aspect": "portrait"
-  },
-  {
     "id": "suit-49",
     "title": "Ocean Glen Check",
     "tag": "Three-Piece Suit",
@@ -1538,14 +1446,6 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
       "/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM (1).jpeg",
       "/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM (2).jpeg"
     ],
-    "aspect": "portrait"
-  },
-  {
-    "id": "suit-50",
-    "title": "Courtroom Pinstripe",
-    "tag": "Advocate Suiting",
-    "category": "suits",
-    "image": "/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM.jpeg",
     "aspect": "portrait"
   },
   {
