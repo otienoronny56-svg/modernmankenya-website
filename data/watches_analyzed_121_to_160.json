@@ -1,0 +1,322 @@
+[
+  {
+    "index": 121,
+    "slug": "watch-sparta-121",
+    "id": "f99d04e5-0d1f-4729-8a8e-e28ffa6c137a",
+    "brand": "Franck Muller",
+    "name": "Franck Muller Vanguard",
+    "description": "Tonneau stainless steel case encrusted with brilliant-cut diamonds, blue dial with wind-rose motif, oversized Arabic numerals, and a date window at 6 o'clock. Completed with a blue leather strap."
+  },
+  {
+    "index": 122,
+    "slug": "watch-athens-122",
+    "id": "4b7d03c2-3ca5-45fb-9b51-27974236de7a",
+    "brand": "Richard Mille",
+    "name": "Richard Mille RM 27-05",
+    "description": "Tonneau-shaped Carbon TPT case with signature spline screws, skeletonized movement displaying a flying tourbillon, and luminous-tipped hands. Fitted with a lightweight black woven strap."
+  },
+  {
+    "index": 123,
+    "slug": "watch-corinth-123",
+    "id": "c3ddf553-dba4-4688-abbe-9923f0ebe9a2",
+    "brand": "Rolex",
+    "name": "Rolex GMT-Master II",
+    "description": "Stainless steel case featuring a red and blue 'Pepsi' ceramic 24-hour bezel, black dial with luminous geometric markers, a red GMT hand, and a magnified date window. Paired with a stainless steel Oyster bracelet."
+  },
+  {
+    "index": 124,
+    "slug": "watch-delphi-124",
+    "id": "67456fe8-96b3-4401-bd9c-d1e9c288a998",
+    "brand": "Vacheron Constantin",
+    "name": "Vacheron Constantin Overseas",
+    "description": "Rose gold case with a Maltese cross-inspired notched bezel, sunburst blue dial with luminescent hour markers, and a date window at 3 o'clock. Fitted with an integrated rose gold bracelet."
+  },
+  {
+    "index": 125,
+    "slug": "watch-olympia-125",
+    "id": "3ba77628-55d8-4643-895a-3f1185bcebe9",
+    "brand": "Omega",
+    "name": "Omega Speedmaster",
+    "description": "Stainless steel case with a blue ceramic tachymeter bezel, silver-white dial with blue hands, blue hour markers, and contrasting blue chronograph sub-dials. Fitted with a stainless steel bracelet."
+  },
+  {
+    "index": 126,
+    "slug": "watch-arcadia-126",
+    "id": "9234651b-8ec3-419e-b1ea-f2dd1a4843f2",
+    "brand": "Tudor",
+    "name": "Tudor Black Bay Chrono",
+    "description": "Stainless steel case with a black tachymeter bezel, reverse panda black dial featuring silver chronograph sub-dials and a date window at 6 o'clock. Completed with a five-link stainless steel bracelet."
+  },
+  {
+    "index": 127,
+    "slug": "watch-macedonia-127",
+    "id": "d2ad57ce-af44-4b73-a973-803544bc6e99",
+    "brand": "Rolex",
+    "name": "Rolex GMT-Master II",
+    "description": "Stainless steel case with a black and blue 'Batman' ceramic 24-hour bezel, black dial with luminous hour markers, a blue GMT hand, and a magnified date window. Fitted with an Oyster stainless steel bracelet."
+  },
+  {
+    "index": 128,
+    "slug": "watch-thrace-128",
+    "id": "956e2fec-7dc7-4121-b3ea-f868bc614bb8",
+    "brand": "Tudor",
+    "name": "Tudor Pelagos",
+    "description": "Titanium case with a unidirectional rotating blue ceramic bezel, matte blue dial with signature snowflake hands, luminescent hour markers, and a date aperture at 3 o'clock. Paired with a titanium bracelet."
+  },
+  {
+    "index": 129,
+    "slug": "watch-rhodes-129",
+    "id": "efa55b2c-4d16-404f-85ad-b50be35ca2f3",
+    "brand": "Rolex",
+    "name": "Rolex Day-Date",
+    "description": "Yellow gold case with a fluted bezel, champagne dial with diamond hour markers, full day display at 12 o'clock, and a magnified date window at 3 o'clock. Fitted with a yellow gold President bracelet."
+  },
+  {
+    "index": 130,
+    "slug": "watch-marathon-130",
+    "id": "d63d91d3-c31b-4a0e-8153-b0170bc1dafb",
+    "brand": "Rolex",
+    "name": "Rolex Submariner",
+    "description": "Stainless steel case featuring a green ceramic unidirectional rotating bezel, green sunburst dial with luminous hour markers, and a magnified date aperture at 3 o'clock. Completed with an Oyster bracelet."
+  },
+  {
+    "index": 131,
+    "slug": "watch-thermopylae-131",
+    "id": "bfa05745-94d5-4105-89af-c6edeed5a792",
+    "brand": "Rolex",
+    "name": "Rolex Daytona",
+    "description": "Rose gold case with diamond-paved lugs and a multicolored baguette sapphire rainbow bezel, black dial with rainbow hour markers and gold crystal sub-dials. Paired with an Everose gold Oyster bracelet."
+  },
+  {
+    "index": 132,
+    "slug": "watch-salamis-132",
+    "id": "34d88abe-cc00-4607-a583-dda562017510",
+    "brand": "Rolex",
+    "name": "Rolex Submariner",
+    "description": "Two-tone stainless steel and yellow gold case with a black ceramic unidirectional bezel, black dial with luminous gold-rimmed markers, and a magnified date window at 3 o'clock. Fitted with a two-tone Oyster bracelet."
+  },
+  {
+    "index": 133,
+    "slug": "watch-plataea-133",
+    "id": "55a38c8d-e208-4b47-aa59-0b01f85c5154",
+    "brand": "Tudor",
+    "name": "Tudor Black Bay Chrono",
+    "description": "Two-tone stainless steel and yellow gold case with a black tachymeter bezel, champagne dial featuring black chronograph sub-dials and a date window at 6 o'clock. Completed with a two-tone bracelet."
+  },
+  {
+    "index": 134,
+    "slug": "watch-byzantium-134",
+    "id": "f35c9218-efb7-428a-829e-d38b5c33652b",
+    "brand": "Rolex",
+    "name": "Rolex Daytona",
+    "description": "White gold case with a black ceramic tachymeter bezel featuring a red '100' mark, reverse panda black dial with white chronograph counters and a 24-hour display at 9 o'clock. Fitted with an Oyster bracelet."
+  },
+  {
+    "index": 135,
+    "slug": "watch-carthage-136",
+    "id": "b75f465e-a007-4d94-9cf4-c3b6460d28ae",
+    "brand": "Tudor",
+    "name": "Tudor Pelagos",
+    "description": "Titanium case with a unidirectional rotating green ceramic bezel, matte green dial with snowflake hands and square luminous indices, and a date window at 3 o'clock. Paired with a titanium bracelet."
+  },
+  {
+    "index": 136,
+    "slug": "watch-alexandria-135",
+    "id": "157e73ed-8beb-460b-8e17-1351fb4e4035",
+    "brand": "Rolex",
+    "name": "Rolex GMT-Master II",
+    "description": "Stainless steel case with a red and blue 'Pepsi' ceramic 24-hour bezel, black dial with luminous indices, red GMT hand, and a magnified date window at 3 o'clock. Fitted with a stainless steel Jubilee bracelet."
+  },
+  {
+    "index": 137,
+    "slug": "watch-ravenna-137",
+    "id": "f7df6783-9398-46e4-8676-2760d2650d4d",
+    "brand": "Vacheron Constantin",
+    "name": "Vacheron Constantin Overseas",
+    "description": "Rose gold case with a notched six-sided bezel, silver opaline dial with perpetual calendar sub-dials, leap year indicator, and a moonphase display at 6 o'clock. Completed with a blue leather strap."
+  },
+  {
+    "index": 138,
+    "slug": "watch-venice-138",
+    "id": "7e55c1e1-a068-4512-9e49-d295c70019f4",
+    "brand": "Rolex",
+    "name": "Rolex Daytona",
+    "description": "White gold case with diamond-set lugs and a multicolored baguette sapphire rainbow bezel, black dial with baguette sapphire indices and crystal chronograph sub-dials. Paired with an Oyster bracelet."
+  },
+  {
+    "index": 139,
+    "slug": "watch-florence-139",
+    "id": "ba4cf1a1-760b-4043-9707-e312fbcbdded",
+    "brand": "Tudor",
+    "name": "Tudor Pelagos",
+    "description": "Satin-finished titanium case featuring a black ceramic unidirectional rotating bezel, matte black dial with snowflake hands, luminous square indices, and a date display at 3 o'clock. Fitted on a titanium bracelet."
+  },
+  {
+    "index": 140,
+    "slug": "watch-milan-141",
+    "id": "07f8e54a-dce7-4d10-b52a-aa0e264dee76",
+    "brand": "Tudor",
+    "name": "Tudor Black Bay Chrono",
+    "description": "Stainless steel case with a black tachymeter bezel, vibrant turquoise blue dial with contrasting black chronograph sub-dials and a date window at 6 o'clock. Completed with a five-link stainless steel bracelet."
+  },
+  {
+    "index": 141,
+    "slug": "watch-verona-140",
+    "id": "d140d9b6-52b7-49c7-a97f-295ea8848c8d",
+    "brand": "Tudor",
+    "name": "Tudor Black Bay Chrono",
+    "description": "Stainless steel case with a blue tachymeter bezel, sunburst blue dial featuring contrasting silver sub-dials and a date aperture at 6 o'clock. Paired with a five-link stainless steel bracelet."
+  },
+  {
+    "index": 142,
+    "slug": "watch-genoa-142",
+    "id": "180996c3-9a85-4a34-9a0d-6e4a2f0f8d31",
+    "brand": "Rolex",
+    "name": "Rolex GMT-Master II",
+    "description": "Stainless steel case with a black and blue 'Batman' ceramic 24-hour bezel, black dial with luminous hour markers, a blue GMT hand, and a magnified date window. Fitted with a stainless steel Jubilee bracelet."
+  },
+  {
+    "index": 143,
+    "slug": "watch-palermo-144",
+    "id": "d9f93ee7-9a57-4c04-8d1f-e9ccf1854cb9",
+    "brand": "Tudor",
+    "name": "Tudor Black Bay Chrono",
+    "description": "Two-tone stainless steel and yellow gold case with a black tachymeter bezel, black dial with champagne-gold chronograph sub-dials, and a date window at 6 o'clock. Fitted with a two-tone steel and gold bracelet."
+  },
+  {
+    "index": 144,
+    "slug": "watch-amalfi-143",
+    "id": "06538474-2f75-4362-8665-8f85a5ec99a1",
+    "brand": "Tudor",
+    "name": "Tudor Black Bay Chrono",
+    "description": "Stainless steel case featuring a black tachymeter bezel, pastel pink dial with contrasting black chronograph sub-dials, and a date window at 6 o'clock. Fitted with a five-link stainless steel bracelet."
+  },
+  {
+    "index": 145,
+    "slug": "watch-napoli-146",
+    "id": "3ea7cc7e-19cb-4183-beff-66e4364407e3",
+    "brand": "IWC",
+    "name": "IWC Pilot's Watch",
+    "description": "Stainless steel case with a blue sunray dial, white Arabic numerals, day and date displays at 3 o'clock, and three chronograph sub-dials. Completed with a multi-link stainless steel bracelet."
+  },
+  {
+    "index": 146,
+    "slug": "watch-syracuse-145",
+    "id": "3b025261-4ee7-430e-a6a2-9db3e2e668fa",
+    "brand": "Rolex",
+    "name": "Rolex Daytona",
+    "description": "Platinum case with a chestnut brown ceramic tachymeter bezel, ice blue dial with baguette diamond indices and brown sub-dial rings. Fitted with an Oyster platinum bracelet."
+  },
+  {
+    "index": 147,
+    "slug": "watch-pompeii-147",
+    "id": "cd2ac8ef-e475-43fc-a17b-65b1a79015ef",
+    "brand": "Rolex",
+    "name": "Rolex Daytona",
+    "description": "Two-tone stainless steel and yellow gold case with a yellow gold engraved tachymeter bezel, black dial with gold chronograph sub-dials, and luminous markers. Paired with a two-tone Oyster bracelet."
+  },
+  {
+    "index": 148,
+    "slug": "watch-sartor-149",
+    "id": "08e0162b-cc9b-4f8b-9217-f2f32a3129f0",
+    "brand": "Franck Muller",
+    "name": "Franck Muller Casablanca",
+    "description": "Rose gold tonneau case with an art deco black dial, exaggerated white Arabic numerals, vivid red chronograph sub-dials, and a date display at 6 o'clock. Completed with a black leather strap with red stitching."
+  },
+  {
+    "index": 149,
+    "slug": "watch-torino-148",
+    "id": "4af5b376-aa17-4951-bf20-64ebf27a9857",
+    "brand": "Jaeger-LeCoultre",
+    "name": "Jaeger-LeCoultre Master Ultra Thin",
+    "description": "Rose gold case with an eggshell silver dial featuring perpetual calendar sub-dials, a four-digit year window, and a moonphase indicator at 12 o'clock. Fitted with a brown alligator leather strap."
+  },
+  {
+    "index": 150,
+    "slug": "watch-sartorio-150",
+    "id": "f6b940f1-95ef-4ab4-9a9d-4eb3396fd8db",
+    "brand": "Rolex",
+    "name": "Rolex Datejust",
+    "description": "Yellow gold case with a fluted bezel, white dial set with brilliant-cut diamond hour markers, and a date aperture with Cyclops magnifier at 3 o'clock. Completed with a yellow gold bracelet."
+  },
+  {
+    "index": 151,
+    "slug": "watch-imperator-152",
+    "id": "06d07e6f-2fa0-4d62-bfdf-80e5c67fb857",
+    "brand": "Rolex",
+    "name": "Rolex Day-Date",
+    "description": "Yellow gold case with a fluted bezel, rich black dial set with baguette diamond hour markers, day display at 12 o'clock, and date magnifier at 3 o'clock. Paired with a yellow gold President bracelet."
+  },
+  {
+    "index": 152,
+    "slug": "watch-regalis-151",
+    "id": "6b560c97-18d3-4b68-a823-7ec40320267e",
+    "brand": "Longines",
+    "name": "Longines Master Collection",
+    "description": "Stainless steel case featuring a silver barleycorn textured dial, blued steel hands, Arabic numerals, full calendar with moonphase display, and chronograph functions. Fitted on a brown leather strap."
+  },
+  {
+    "index": 153,
+    "slug": "watch-tiberius-154",
+    "id": "f89fda42-7442-43dc-bd49-4f85c5f85231",
+    "brand": "Omega",
+    "name": "Omega Seamaster Diver 300M",
+    "description": "Rose gold case with a textured diving bezel, white ceramic wave dial with luminescent indices, and a date window at 6 o'clock. Paired with an integrated brown rubber strap."
+  },
+  {
+    "index": 154,
+    "slug": "watch-augustus-153",
+    "id": "42377520-ec22-4be0-b765-1d8d4d9a969f",
+    "brand": "Franck Muller",
+    "name": "Franck Muller Casablanca",
+    "description": "Rose gold tonneau case with an expressive black dial, white Arabic numerals, contrasting green chronograph sub-dials, and a date display at 6 o'clock. Completed with a green leather strap."
+  },
+  {
+    "index": 155,
+    "slug": "watch-claudius-155",
+    "id": "75f3bbe6-76ca-42bf-8775-ba52b8137ca7",
+    "brand": "Patek Philippe",
+    "name": "Patek Philippe Grand Complications",
+    "description": "Rose gold case with a smooth bezel, opaline silver dial with perpetual calendar sub-dials, moonphase aperture, and chronograph counters with an outer tachymeter scale. Fitted on a black leather strap."
+  },
+  {
+    "index": 156,
+    "slug": "watch-trajan-157",
+    "id": "e6ca7c7b-e7d1-4b03-9280-95d264b12a03",
+    "brand": "Rolex",
+    "name": "Rolex Datejust",
+    "description": "Everose gold case with a smooth polished bezel, chocolate sunburst dial with diamond hour markers, and a date aperture with Cyclops magnifier at 3 o'clock. Paired with an Everose gold bracelet."
+  },
+  {
+    "index": 157,
+    "slug": "watch-aurelian-156",
+    "id": "39c792d6-bc00-46b6-af5d-f25a064fe2e4",
+    "brand": "Rolex",
+    "name": "Rolex Datejust",
+    "description": "Everose gold case with a fluted bezel, chocolate brown dial featuring star-shaped diamond hour markers and a diamond-paved Roman numeral IX, and a magnified date window. Completed with an Everose gold President bracelet."
+  },
+  {
+    "index": 158,
+    "slug": "watch-hadrian-158",
+    "id": "4664b669-291d-4b1d-961e-def01e0e1d9c",
+    "brand": "IWC",
+    "name": "IWC Pilot's Watch",
+    "description": "Stainless steel case with a matte black dial, high-contrast Arabic numerals, day-date aperture at 3 o'clock, and three chronograph sub-dials. Fitted with a black leather pilot strap."
+  },
+  {
+    "index": 159,
+    "slug": "watch-starlight-161",
+    "id": "40332849-062d-403c-98de-2469c1ecd7f5",
+    "brand": "IWC",
+    "name": "IWC Portugieser",
+    "description": "Stainless steel round case showcasing a rich burgundy red sunburst dial, 7-day power reserve sub-dial, small seconds counter, and a date window at 6 o'clock. Completed with a black leather strap."
+  },
+  {
+    "index": 160,
+    "slug": "watch-aurelius-160",
+    "id": "801cb8db-71e6-44ec-89cc-d4975feffc0c",
+    "brand": "Omega",
+    "name": "Omega Seamaster Diver 300M",
+    "description": "Titanium case with a tropical brown aluminum diving bezel, dark brown dial with vintage-tinted luminescent markers, skeleton hands, and military arrow insignia. Fitted with a titanium mesh bracelet."
+  }
+]

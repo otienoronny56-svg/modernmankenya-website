@@ -1,0 +1,322 @@
+[
+  {
+    "index": 1,
+    "id": "d221df3d-ce81-4017-a27e-b09e2ef1919d",
+    "slug": "watch-vantage-04",
+    "brand": "Cartier",
+    "name": "Cartier Tank",
+    "description": "Rectangular stainless steel case with a classic white Roman numeral dial, blued steel sword hands, sapphire cabochon crown, and black leather strap."
+  },
+  {
+    "index": 2,
+    "id": "f39d7546-85a6-484a-b405-50dd7bd2b811",
+    "slug": "watch-sovereign-03",
+    "brand": "Cartier",
+    "name": "Cartier Tank",
+    "description": "Rectangular yellow gold case with a white dial, black Roman numerals, blued steel hands, sapphire cabochon crown, and a black leather strap."
+  },
+  {
+    "index": 3,
+    "id": "586e1838-47f1-4369-a483-5adcdab4350c",
+    "slug": "watch-chronos-01",
+    "brand": "Cartier",
+    "name": "Cartier Tank",
+    "description": "Elongated rectangular yellow gold case with a silver-white Roman numeral dial, blued steel sword hands, sapphire cabochon crown, and black leather strap."
+  },
+  {
+    "index": 4,
+    "id": "1d1fbf6b-eb58-483c-b533-0921a0c623f0",
+    "slug": "watch-royale-05",
+    "brand": "Patek Philippe",
+    "name": "Patek Philippe Nautilus",
+    "description": "Two-tone stainless steel and rose gold case with a blue horizontal embossed dial, chronograph monocounter at 6 o'clock, date window, and a two-tone bracelet."
+  },
+  {
+    "index": 5,
+    "id": "e9ec7610-504f-4f0c-9a23-7344f785bbcb",
+    "slug": "watch-nautilus-02",
+    "brand": "Franck Muller",
+    "name": "Franck Muller Crazy Hours",
+    "description": "Curved tonneau black PVD stainless steel case with a black dial displaying colorful jumping hour numerals and a black leather strap."
+  },
+  {
+    "index": 6,
+    "id": "44b56dae-cc31-4532-a5fa-bec3febdf3a6",
+    "slug": "watch-eclipse-07",
+    "brand": "Patek Philippe",
+    "name": "Patek Philippe Calatrava",
+    "description": "Round stainless steel case with a textured charcoal dial, luminescent Arabic numerals, date window at 3 o'clock, and a tan suede leather strap."
+  },
+  {
+    "index": 7,
+    "id": "bdd18d74-d2ce-4290-a9d9-73033a368ef4",
+    "slug": "watch-presage-09",
+    "brand": "Cartier",
+    "name": "Cartier Tank",
+    "description": "Rectangular stainless steel case with a white Roman numeral dial, blued steel hands, sapphire cabochon crown, and black leather strap."
+  },
+  {
+    "index": 8,
+    "id": "8b3eefd2-d6f1-433c-9769-282fb2c08d2c",
+    "slug": "watch-meridian-06",
+    "brand": "Patek Philippe",
+    "name": "Patek Philippe Calatrava",
+    "description": "Round stainless steel case with an embossed carbon-textured black dial, luminescent Arabic numerals, red accent seconds hand, and a textured black leather strap with red stitching."
+  },
+  {
+    "index": 9,
+    "id": "dd419c92-4841-4406-a4eb-780d8237844a",
+    "slug": "watch-legacy-10",
+    "brand": "Franck Muller",
+    "name": "Franck Muller Crazy Hours",
+    "description": "Tonneau black PVD case featuring a black guilloché dial with vibrant multi-colored Arabic numerals and a black alligator-pattern leather strap."
+  },
+  {
+    "index": 10,
+    "id": "943692e8-6ed4-4361-abdd-92f9dad1b9f9",
+    "slug": "watch-heritage-08",
+    "brand": "Richard Mille",
+    "name": "Richard Mille RM 011",
+    "description": "Tonneau titanium case with exposed bezel screws, skeletonized chronograph dial with an oversized double date window at 12 o'clock, and a black vented rubber strap."
+  },
+  {
+    "index": 11,
+    "id": "4a7480bf-86b5-4bff-b0c5-daa44609b26a",
+    "slug": "watch-imperium-13",
+    "brand": "Patek Philippe",
+    "name": "Patek Philippe Nautilus",
+    "description": "Two-tone stainless steel and yellow gold case with a taupe-brown wave dial, date at 6 o'clock, applied 12 numeral, and an integrated two-tone bracelet."
+  },
+  {
+    "index": 12,
+    "id": "4d4c0f35-2cc2-4b8a-b2be-20d2d44c363f",
+    "slug": "watch-zenith-11",
+    "brand": "Cartier",
+    "name": "Cartier Tank",
+    "description": "Elongated curved rose gold case with a flinqué guilloché dial, black Roman numerals, blued sword hands, sapphire cabochon crown, and black leather strap."
+  },
+  {
+    "index": 13,
+    "id": "a93f7556-d052-437b-b2f9-f003ac36b344",
+    "slug": "watch-calatrava-14",
+    "brand": "Audemars Piguet",
+    "name": "Audemars Piguet Royal Oak",
+    "description": "Frosted yellow gold octagonal case with exposed screws, matching gold Tapisserie dial with luminescent hands, and an integrated frosted gold bracelet."
+  },
+  {
+    "index": 14,
+    "id": "b39f93ba-53c0-4bf2-b42d-ef766e1d50b2",
+    "slug": "watch-astral-15",
+    "brand": "Tory Burch",
+    "name": "Tory Burch Eleanor",
+    "description": "Polished stainless steel square case with stirrup lugs, ice-blue dial with gold hands and double-T logo, and a stainless steel link bracelet."
+  },
+  {
+    "index": 15,
+    "id": "021b0d78-d8bf-4515-b621-c4b5a51e8e18",
+    "slug": "watch-monaco-12",
+    "brand": "Franck Muller",
+    "name": "Franck Muller Vanguard",
+    "description": "Brushed stainless steel tonneau case with a black dial displaying colorful pop-art styled jumping numerals, smiley face, and an integrated black leather strap."
+  },
+  {
+    "index": 16,
+    "id": "0d68dfd5-3c36-429a-89b6-4b3a06c7beb1",
+    "slug": "watch-horizon-16",
+    "brand": "Hublot",
+    "name": "Hublot Big Bang",
+    "description": "Stainless steel case featuring a cyan-gem-set bezel, white dial with silver luminescent numerals, date at 3 o'clock, and a turquoise and white rubber strap."
+  },
+  {
+    "index": 17,
+    "id": "cd1751a8-43be-43d9-aac7-47664ffc6dc4",
+    "slug": "watch-summit-20",
+    "brand": "Tory Burch",
+    "name": "Tory Burch Eleanor",
+    "description": "Purple ion-plated square case with wire-style lugs, deep purple dial with gold accents and double-T logo, and an integrated purple stainless steel bracelet."
+  },
+  {
+    "index": 18,
+    "id": "fab56503-8040-4d57-8448-de4494c605cf",
+    "slug": "watch-vanguard-17",
+    "brand": "Hublot",
+    "name": "Hublot Big Bang",
+    "description": "Stainless steel case with an orange-gem-set bezel, white dial with luminescent markers, date at 3 o'clock, and a vibrant orange and white rubber strap."
+  },
+  {
+    "index": 19,
+    "id": "c31bfaf4-534c-4e67-89e0-a4ee8f84b5ee",
+    "slug": "watch-dynasty-18",
+    "brand": "Cartier",
+    "name": "Cartier Ballon Bleu",
+    "description": "Rose gold rounded case with an integrated crown guard enclosing a blue cabochon, silver guilloché dial with Roman numerals, and a plum-purple alligator leather strap."
+  },
+  {
+    "index": 20,
+    "id": "f0d49f3a-0c86-4c10-bb20-256f02cb59df",
+    "slug": "watch-apex-19",
+    "brand": "Michael Kors",
+    "name": "Michael Kors Parker",
+    "description": "Gold-tone stainless steel case with a double-row crystal pave bezel, black monogram chronograph dial with crystal indices, and a black leather strap."
+  },
+  {
+    "index": 21,
+    "id": "be60da53-38da-4930-9619-c3c433c65cad",
+    "slug": "watch-orbit-21",
+    "brand": "Piaget",
+    "name": "Piaget Limelight Gala",
+    "description": "Rose gold oval-cushion case highlighted by an elongated diamond-set bezel, silver sunburst dial with Roman numerals, and an integrated rose gold link bracelet."
+  },
+  {
+    "index": 22,
+    "id": "4daa2a08-5c6d-4aef-addc-33d466082c3b",
+    "slug": "watch-titanium-22",
+    "brand": "Tory Burch",
+    "name": "Tory Burch Eleanor",
+    "description": "Gold-tone square case adorned with a sparkling crystal bezel, clean ivory dial with gold double-T logo, and an integrated gold-tone link bracelet."
+  },
+  {
+    "index": 23,
+    "id": "54788d50-0f8a-4855-b89c-ab9479811467",
+    "slug": "watch-obsidian-23",
+    "brand": "Rolex",
+    "name": "Rolex Datejust",
+    "description": "Stainless steel case with a smooth domed bezel, pastel salmon-pink dial with applied Roman numerals, cyclops date at 3 o'clock, and an Oyster bracelet."
+  },
+  {
+    "index": 24,
+    "id": "37e8fb11-8570-432e-9e6d-10cdae0a984b",
+    "slug": "watch-prestige-27",
+    "brand": "Audemars Piguet",
+    "name": "Audemars Piguet Royal Oak",
+    "description": "18k rose gold octagonal case with exposed screws, black Grande Tapisserie dial featuring three chronograph sub-dials, date window, and an integrated rose gold bracelet."
+  },
+  {
+    "index": 25,
+    "id": "6d463fc1-f26f-49f5-bba9-2867662f39f0",
+    "slug": "watch-sapphire-24",
+    "brand": "Rado",
+    "name": "Rado True Thinline",
+    "description": "White high-tech ceramic monobloc case and bracelet with a textured silver-white dial and minimalist black hands."
+  },
+  {
+    "index": 26,
+    "id": "26645afa-72e3-47a6-9088-c363d2d802aa",
+    "slug": "watch-aureus-25",
+    "brand": "Versace",
+    "name": "Versace Palazzo Empire",
+    "description": "Two-tone stainless steel and gold case with a champagne dial centered by a prominent 3D sculpted gold Medusa head and iconic Greca detailing."
+  },
+  {
+    "index": 27,
+    "id": "ea445c57-c3dd-4eb8-b3b9-b44ce0624a2a",
+    "slug": "watch-solstice-26",
+    "brand": "Cartier",
+    "name": "Cartier Santos",
+    "description": "Rose gold square case with signature bezel screws, brushed rose-gold Roman numeral dial, sapphire cabochon crown, and an integrated rose gold bracelet."
+  },
+  {
+    "index": 28,
+    "id": "296bbed0-7c75-4468-baca-259519019294",
+    "slug": "watch-paragon-28",
+    "brand": "Franck Muller",
+    "name": "Franck Muller Crazy Hours",
+    "description": "Rose gold tonneau case fully paved with brilliant diamonds, featuring a matching diamond-set dial with black jumping hour numerals and a black alligator leather strap."
+  },
+  {
+    "index": 29,
+    "id": "6550d110-e3bd-4fde-ac5b-282f53d4651f",
+    "slug": "watch-tempest-30",
+    "brand": "Rolex",
+    "name": "Rolex Daytona",
+    "description": "Stainless steel case with an engraved steel tachymeter bezel, royal blue sunray dial with red-accented chronograph sub-dials, and an Oyster bracelet."
+  },
+  {
+    "index": 30,
+    "id": "e5e40b63-2d57-47a9-9ce6-0550e067b85f",
+    "slug": "watch-maestro-29",
+    "brand": "Omega",
+    "name": "Omega Speedmaster",
+    "description": "Sedna rose gold case with a diamond-paved bezel, mother-of-pearl dial with diamond-trimmed oval sub-dials, and an emerald green alligator leather strap."
+  },
+  {
+    "index": 31,
+    "id": "cbc441ac-5986-408e-861b-4837fd992440",
+    "slug": "watch-spectre-31",
+    "brand": "Richard Mille",
+    "name": "Richard Mille RM 27",
+    "description": "Ultra-lightweight black Carbon TPT tonneau case with exposed spline screws, skeletonized tourbillon movement, and an integrated black fabric strap."
+  },
+  {
+    "index": 32,
+    "id": "f14209c0-96ca-448e-9320-d3097dd37a70",
+    "slug": "watch-navigator-32",
+    "brand": "Rolex",
+    "name": "Rolex Datejust",
+    "description": "Yellow gold case with a fluted bezel, white mother-of-pearl dial accented with diamond hour markers, cyclops date window, and a yellow gold bracelet."
+  },
+  {
+    "index": 33,
+    "id": "36372eb7-7ab2-442f-813e-932d47734a54",
+    "slug": "watch-equinox-33",
+    "brand": "Rolex",
+    "name": "Rolex Datejust",
+    "description": "Yellow gold case and bracelet entirely pavé-set with diamonds, featuring a diamond-encrusted dial with Arabic-Indic numerals and a magnified date window."
+  },
+  {
+    "index": 34,
+    "id": "f4a5cbc0-776c-4fa2-9d82-1f31b51c3847",
+    "slug": "watch-centurion-34",
+    "brand": "Omega",
+    "name": "Omega Speedmaster",
+    "description": "Stainless steel case with a blue ceramic tachymeter bezel, silver dial featuring blue sub-dials with an embossed Snoopy medallion at 9 o'clock, and a steel bracelet."
+  },
+  {
+    "index": 35,
+    "id": "ba7380d7-694d-487d-b720-6c6b986fcc66",
+    "slug": "watch-viceroy-35",
+    "brand": "Gucci",
+    "name": "Gucci 25H",
+    "description": "Ultra-thin yellow gold-plated cushion case with an integrated bracelet, featuring a horizontal-grooved black dial subtly patterned with interlocking GG logos."
+  },
+  {
+    "index": 36,
+    "id": "e96a7aed-9a63-4d13-96e1-9b33125ada00",
+    "slug": "watch-chronograph-36",
+    "brand": "Patek Philippe",
+    "name": "Patek Philippe Perpetual Calendar",
+    "description": "18k rose gold round case with a silvery-white dial, applied Breguet numerals, perpetual calendar sub-dials with moon phase display, and a brown alligator leather strap."
+  },
+  {
+    "index": 37,
+    "id": "c50ac021-8ea2-444d-b2f5-eb85ae354b45",
+    "slug": "watch-stellar-37",
+    "brand": "Gucci",
+    "name": "Gucci 25H",
+    "description": "Ultra-thin yellow gold-tone cushion case with a silver-grey horizontal-striped dial featuring GG motifs and an integrated gold-tone bracelet."
+  },
+  {
+    "index": 38,
+    "id": "67175b28-34e8-449d-a6c8-b45f8a42d0e5",
+    "slug": "watch-odyssey-38",
+    "brand": "Gucci",
+    "name": "Gucci 25H",
+    "description": "Ultra-thin yellow gold-tone cushion case featuring a vibrant turquoise-green horizontal grooved dial with GG motifs and an integrated gold-tone bracelet."
+  },
+  {
+    "index": 39,
+    "id": "eb65fe77-6be1-4b70-b8ab-883b21cad2b0",
+    "slug": "watch-carrera-39",
+    "brand": "Gucci",
+    "name": "Gucci 25H",
+    "description": "Ultra-thin yellow gold-tone cushion case with a crisp white horizontal-grooved dial featuring interlocking GG emblems and an integrated gold-tone bracelet."
+  },
+  {
+    "index": 40,
+    "id": "bc63fd40-692b-490d-b946-d307bb2a255b",
+    "slug": "watch-daytona-40",
+    "brand": "Gucci",
+    "name": "Gucci 25H",
+    "description": "All-gold monochrome design with an ultra-thin yellow gold-tone cushion case, matching gold grooved dial with GG motifs, and an integrated gold-tone bracelet."
+  }
+]
