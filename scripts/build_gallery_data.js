@@ -64,6 +64,89 @@ const items = [
     image: '/images/modern-kids-portrait-8.jpeg', 
     aspect: 'portrait' 
   },
+  { 
+    id: 'kid-7', 
+    title: 'Ring Security', 
+    tag: 'Junior Tuxedo', 
+    category: 'modern-kids', 
+    image: '/latest/WhatsApp Image 2026-11-15 at 8.15.25 PM.jpeg', 
+    images: [
+      '/latest/WhatsApp Image 2026-11-15 at 8.15.25 PM.jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 8.15.26 PM.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'kid-8', 
+    title: 'Bridal Herald', 
+    tag: 'Junior Tuxedo', 
+    category: 'modern-kids', 
+    image: '/latest/WhatsApp Image 2026-11-15 at 8.15.26 PM (1).jpeg', 
+    images: [
+      '/latest/WhatsApp Image 2026-11-15 at 8.15.26 PM (1).jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 8.15.27 PM.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { id: 'kid-9', title: 'Emerald Brocade', tag: 'Junior Tuxedo', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.52 PM.jpeg', aspect: 'portrait' },
+  { id: 'kid-10', title: 'Gilded Damask', tag: 'Junior Tuxedo', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.53 PM.jpeg', aspect: 'portrait' },
+  { id: 'kid-11', title: 'Ivory Velvet', tag: 'Dinner Jacket', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.54 PM (1).jpeg', aspect: 'portrait' },
+  { id: 'kid-12', title: 'Midnight Damask', tag: 'Junior Tuxedo', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.54 PM (2).jpeg', aspect: 'portrait' },
+  { id: 'kid-13', title: 'Classic Ivory', tag: 'Junior Tuxedo', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.54 PM.jpeg', aspect: 'portrait' },
+  { id: 'kid-14', title: 'Royal Agbada', tag: 'Heritage Robe', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.55 PM (1).jpeg', aspect: 'portrait' },
+  { id: 'kid-15', title: 'Azure Sovereign', tag: 'Junior Agbada', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.55 PM (2).jpeg', aspect: 'portrait' },
+  { id: 'kid-16', title: 'Junior Aviator', tag: 'Captain Uniform', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.55 PM.jpeg', aspect: 'portrait' },
+  { 
+    id: 'kid-17', 
+    title: 'Sapphire Tunic', 
+    tag: 'Slitted Sleeve', 
+    category: 'modern-kids', 
+    image: '/latest/WhatsApp Image 2026-11-15 at 8.17.56 PM.jpeg', 
+    images: [
+      '/latest/WhatsApp Image 2026-11-15 at 8.17.56 PM.jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 8.17.57 PM.jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 8.17.57 PM (1).jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { id: 'kid-18', title: 'Windowpane Vest', tag: 'Bespoke Suiting', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.57 PM (2).jpeg', aspect: 'portrait' },
+  { id: 'kid-19', title: 'Midnight Agbada', tag: 'African Heritage', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.58 PM.jpeg', aspect: 'portrait' },
+  { 
+    id: 'kid-20', 
+    title: 'Naval Cape', 
+    tag: 'Royal Uniform', 
+    category: 'modern-kids', 
+    image: '/latest/WhatsApp Image 2026-11-15 at 8.17.58 PM (1).jpeg', 
+    images: [
+      '/latest/WhatsApp Image 2026-11-15 at 8.17.58 PM (1).jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 8.17.59 PM.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { id: 'kid-21', title: 'Royal Guardsman', tag: 'Ceremonial Uniform', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.17.59 PM (1).jpeg', aspect: 'portrait' },
+  { id: 'kid-22', title: 'Berry Suiting', tag: 'Two-Piece Suit', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.18.00 PM.jpeg', aspect: 'portrait' },
+  { 
+    id: 'kid-23', 
+    title: 'Safari Senator', 
+    tag: 'Junior Kaunda', 
+    category: 'modern-kids', 
+    image: '/latest/WhatsApp Image 2026-11-15 at 8.18.00 PM (1).jpeg', 
+    images: [
+      '/latest/WhatsApp Image 2026-11-15 at 8.18.00 PM (1).jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 8.18.01 PM.jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 8.18.01 PM (1).jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { id: 'kid-24', title: 'Textured Black Tie', tag: 'Junior Tuxedo', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.18.01 PM (2).jpeg', aspect: 'portrait' },
+  { id: 'kid-25', title: 'Velvet Viceroy', tag: 'Double-Breasted', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.18.01 PM (3).jpeg', aspect: 'portrait' },
+  { id: 'kid-26', title: 'Crystal Velvet', tag: 'Dinner Jacket', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.18.01 PM (4).jpeg', aspect: 'portrait' },
+  { id: 'kid-27', title: 'Marble Jacquard', tag: 'Three-Piece Suit', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.18.02 PM (1).jpeg', aspect: 'portrait' },
+  { id: 'kid-28', title: 'Heritage Tweed', tag: 'Horseshoe Vest', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.18.02 PM.jpeg', aspect: 'portrait' },
+  { id: 'kid-29', title: 'Little Commander', tag: 'Safari Uniform', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.53.49 PM.jpeg', aspect: 'portrait' },
+  { id: 'kid-30', title: 'Brocade Agbada', tag: 'Junior Regalia', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 8.53.49 PM (1).jpeg', aspect: 'portrait' },
+  { id: 'kid-31', title: 'Emerald Suiting', tag: 'Three-Piece Suit', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 9.13.31 PM.jpeg', aspect: 'portrait' },
+  { id: 'kid-32', title: 'Monochrome Avant', tag: 'Statement Suit', category: 'modern-kids', image: '/latest/WhatsApp Image 2026-11-15 at 9.13.32 PM.jpeg', aspect: 'portrait' },
 
   // --- MODERN WOMEN (7 Bespoke Tailored Ensembles, 9 Images Total - Pure Suiting, Zero Dresses) ---
   {
@@ -180,6 +263,28 @@ const items = [
   { id: 'kaunda-2', title: 'Purple Safari', tag: 'Bespoke Kaunda', category: 'kaunda-suits', image: '/images/kaunda-safari-purple-suit-1.jpeg', aspect: 'portrait' },
   { id: 'kaunda-3', title: 'Safari Pocket', tag: 'Senator Cut', category: 'kaunda-suits', image: '/images/kaunda-safari-purple-suit-2.jpeg', aspect: 'portrait' },
   { id: 'kaunda-4', title: 'White Senator', tag: 'Ankara Trim', category: 'kaunda-suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM.jpeg', aspect: 'portrait' },
+  { id: 'kaunda-5', title: 'Tribal Accent', tag: 'Kaunda Suit', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.14.33 PM.jpeg', aspect: 'portrait' },
+  { id: 'kaunda-6', title: 'Terracotta Bandhgala', tag: 'Mandarin Collar', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.38 PM.jpeg', aspect: 'portrait' },
+  { id: 'kaunda-7', title: 'Magenta Velvet', tag: 'Mandarin Collar', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.38 PM (1).jpeg', aspect: 'portrait' },
+  { id: 'kaunda-8', title: 'White Commander', tag: 'Safari Suit', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.39 PM.jpeg', aspect: 'portrait' },
+  { 
+    id: 'kaunda-9', 
+    title: 'Slate Safari', 
+    tag: 'Long-Sleeve Kaunda', 
+    category: 'kaunda-suits', 
+    image: '/latest/WhatsApp Image 2026-11-15 at 9.15.39 PM (1).jpeg', 
+    images: [
+      '/latest/WhatsApp Image 2026-11-15 at 9.15.39 PM (1).jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 9.15.39 PM (2).jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { id: 'kaunda-10', title: 'Pintuck Charcoal', tag: 'Mandarin Collar', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.39 PM (3).jpeg', aspect: 'portrait' },
+  { id: 'kaunda-11', title: 'Woven Navy', tag: 'Safari Suit', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.39 PM (4).jpeg', aspect: 'portrait' },
+  { id: 'kaunda-12', title: 'Midnight Windowpane', tag: 'Safari Suit', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.40 PM.jpeg', aspect: 'portrait' },
+  { id: 'kaunda-13', title: 'Charcoal Senator', tag: 'Long-Sleeve Kaunda', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.40 PM (1).jpeg', aspect: 'portrait' },
+  { id: 'kaunda-14', title: 'Cobalt Safari', tag: 'Executive Kaunda', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.40 PM (2).jpeg', aspect: 'portrait' },
+  { id: 'kaunda-15', title: 'Naval Tunic', tag: 'Safari Commander', category: 'kaunda-suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.15.40 PM (3).jpeg', aspect: 'portrait' },
 
   // --- TRADITIONAL WEAR & RURACIO (18 Items) ---
   { id: 'trad-1', title: 'Ruracio Dance', tag: 'Joyful Entourage', category: 'traditional', image: '/images/traditional-wedding-ruracio-groom-dance.jpeg', aspect: 'portrait' },
@@ -200,41 +305,176 @@ const items = [
   { id: 'trad-17', title: 'Sartorial Pride', tag: 'Cultural Elders', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.56 PM.jpeg', aspect: 'landscape' },
   { id: 'trad-18', title: 'Entrance March', tag: 'Groom March', category: 'traditional', image: '/images/more/WhatsApp Image 2026-10-19 at 3.55.57 PM.jpeg', aspect: 'landscape' },
   { id: 'trad-19', title: 'Navy Brocade', tag: 'Bespoke Kaftan', category: 'traditional', image: '/images/DSC_2606.jpg.jpeg', aspect: 'portrait' },
+  { 
+    id: 'trad-20', 
+    title: 'Terracotta Regalia', 
+    tag: 'Ruracio Blessing', 
+    category: 'traditional', 
+    image: '/latest/IMG_0194.jpg.jpeg', 
+    images: [
+      '/latest/IMG_0194.jpg.jpeg', 
+      '/latest/IMG_0494.jpg.jpeg', 
+      '/latest/IMG_0503.jpg.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
 
-  // --- TUXEDOS & EVENINGWEAR (30 Items - Pure Tuxedos & Dinner Suits, Zero Dresses) ---
-  { id: 'tux-cover', title: 'Scarlet Lapel', tag: 'Bespoke Tuxedo', category: 'evening-dinner', image: '/images/DSC09238.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-1', title: 'Ivory Shawl', tag: 'Altar Tuxedo', category: 'evening-dinner', image: '/images/tuxedo.jpeg', aspect: 'portrait' },
-  { id: 'tux-2', title: 'Black Barathea', tag: 'Floating Canvas', category: 'evening-dinner', image: '/images/Black.jpg', aspect: 'landscape' },
-  { id: 'tux-3', title: 'Studio Profile', tag: 'Black Tie', category: 'evening-dinner', image: '/images/MOK_1920.jpg', aspect: 'portrait' },
-  { id: 'tux-4', title: 'Satin Peak', tag: 'Gala Tuxedo', category: 'evening-dinner', image: '/images/MOK_2101.jpg', aspect: 'portrait' },
-  { id: 'tux-5', title: 'Evening Stance', tag: 'Formal Black Tie', category: 'evening-dinner', image: '/images/MOK_2129.jpg', aspect: 'portrait' },
-  { id: 'tux-6', title: 'Contrast Lapel', tag: 'Dinner Suit', category: 'evening-dinner', image: '/images/MOK_2142.jpg', aspect: 'portrait' },
-  { id: 'tux-7', title: 'Editorial Tux', tag: 'Full Length', category: 'evening-dinner', image: '/images/MOK_2146 (1).jpg', aspect: 'portrait' },
-  { id: 'tux-8', title: 'Emerald Velvet', tag: 'Smoking Jacket', category: 'evening-dinner', image: '/images/MOK_2154.jpg', aspect: 'portrait' },
-  { id: 'tux-9', title: 'Navy Velvet', tag: 'Dinner Coat', category: 'evening-dinner', image: '/images/MOK_2171.jpg', aspect: 'portrait' },
-  { id: 'tux-10', title: 'Velvet Motion', tag: 'Red Carpet', category: 'evening-dinner', image: '/images/MOK_2219.jpg', aspect: 'portrait' },
-  { id: 'tux-11', title: 'Classic Tuxedo', tag: 'Bowtie Ensemble', category: 'evening-dinner', image: '/images/tuxedo-black-tie-classic.jpeg', aspect: 'portrait' },
-  { id: 'tux-12', title: 'Velvet Entourage', tag: 'Gala Evening', category: 'evening-dinner', image: '/images/tuxedo-ivory-black-velvet-entourage.jpeg', aspect: 'portrait' },
-  { id: 'tux-13', title: 'Navy Shawl', tag: 'Crimson Waistcoat', category: 'evening-dinner', image: '/images/tuxedo-navy-shawl-red-vest.jpeg', aspect: 'portrait' },
-  { id: 'tux-14', title: 'Sky Blue Tux', tag: 'Daytime Black Tie', category: 'evening-dinner', image: '/images/tuxedo-sky-blue-wedding.jpeg', aspect: 'portrait' },
-  { id: 'tux-15', title: 'Burgundy Velvet', tag: 'Silk Shawl', category: 'evening-dinner', image: '/images/tuxedo-velvet-burgundy.jpeg', aspect: 'portrait' },
-  { id: 'tux-16', title: 'Architectural Ivory', tag: 'Peak Lapel', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.14 PM.jpeg', aspect: 'portrait' },
-  { id: 'tux-17', title: 'Editorial Drape', tag: 'Monochrome Black', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.26 PM.jpeg', aspect: 'portrait' },
-  { id: 'tux-18', title: 'Jacquard Coat', tag: 'Golden Cane', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg', aspect: 'landscape' },
-  { id: 'tux-19', title: 'Monarch Jacquard', tag: 'Royal Barathea', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.49 PM.jpeg', aspect: 'landscape' },
-  { id: 'tux-20', title: 'Crimson Velvet', tag: 'Silk Lapel', category: 'evening-dinner', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg', aspect: 'square' },
-  { id: 'tux-21', title: 'Gala Tuxedo', tag: 'Scarlet Lapel', category: 'evening-dinner', image: '/images/DSC09202.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-22', title: 'Grand Entrance', tag: 'Evening Wear', category: 'evening-dinner', image: '/images/DSC09216.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-23', title: 'Sartorial Stride', tag: 'Black Tie', category: 'evening-dinner', image: '/images/DSC09233.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-25', title: 'Regal Poise', tag: 'Bespoke Tuxedo', category: 'evening-dinner', image: '/images/DSC09241.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-29', title: 'Embroidered Shawl', tag: 'Dinner Jacket', category: 'evening-dinner', image: '/images/IMG-142.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-30', title: 'Midnight Sovereign', tag: 'White Tuxedo', category: 'evening-dinner', image: '/images/IMG-143.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-31', title: 'Double Vest', tag: 'Groom Waistcoat', category: 'evening-dinner', image: '/images/IMG-145.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-32', title: 'Jacquard Draped', tag: 'Evening Luxury', category: 'evening-dinner', image: '/images/IMG-146.jpg.jpeg', aspect: 'portrait' },
-  { id: 'tux-33', title: 'White Damask', tag: 'Mirror Reflection', category: 'evening-dinner', image: '/images/tuxedo-white-damask-mirror.jpeg', aspect: 'portrait' },
-  { id: 'tux-34', title: 'Groomsmen Joy', tag: 'Midnight Horseshoe', category: 'evening-dinner', image: '/images/groomsmen-prep-horseshoe-vest.jpeg', aspect: 'portrait' },
+  // --- TUXEDOS & EVENINGWEAR (Curated Black Tie & Dinner Jackets, Multi-Image Grouped) ---
+  { 
+    id: 'tux-cover', 
+    title: 'Scarlet Lapel', 
+    tag: 'Bespoke Tuxedo', 
+    category: 'evening-dinner', 
+    image: '/images/DSC09238.jpg.jpeg', 
+    images: [
+      '/images/DSC09238.jpg.jpeg', 
+      '/images/DSC09202.jpg.jpeg', 
+      '/images/DSC09216.jpg.jpeg', 
+      '/images/DSC09233.jpg.jpeg', 
+      '/images/DSC09241.jpg.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-1', 
+    title: 'Ivory Shawl', 
+    tag: 'Altar Tuxedo', 
+    category: 'evening-dinner', 
+    image: '/images/tuxedo.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-4', 
+    title: 'Plaid Dinner Coat', 
+    tag: 'Satin Shawl', 
+    category: 'evening-dinner', 
+    image: '/images/MOK_2101.jpg', 
+    images: [
+      '/images/MOK_2101.jpg', 
+      '/images/MOK_2129.jpg', 
+      '/images/MOK_2142.jpg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-7', 
+    title: 'Scarlet Velvet', 
+    tag: 'Dinner Jacket', 
+    category: 'evening-dinner', 
+    image: '/images/MOK_2146 (1).jpg', 
+    images: [
+      '/images/MOK_2146 (1).jpg', 
+      '/images/MOK_2154.jpg', 
+      '/images/MOK_2171.jpg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-10', 
+    title: 'Velvet Houndstooth', 
+    tag: 'Red Carpet', 
+    category: 'evening-dinner', 
+    image: '/images/MOK_2219.jpg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-11', 
+    title: 'Classic Tuxedo', 
+    tag: 'Bowtie Ensemble', 
+    category: 'evening-dinner', 
+    image: '/images/tuxedo-black-tie-classic.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-12', 
+    title: 'Velvet Entourage', 
+    tag: 'Gala Evening', 
+    category: 'evening-dinner', 
+    image: '/images/tuxedo-ivory-black-velvet-entourage.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-13', 
+    title: 'Navy Shawl', 
+    tag: 'Crimson Waistcoat', 
+    category: 'evening-dinner', 
+    image: '/images/tuxedo-navy-shawl-red-vest.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-14', 
+    title: 'Sky Blue Tux', 
+    tag: 'Brocade Shawl', 
+    category: 'evening-dinner', 
+    image: '/images/tuxedo-sky-blue-wedding.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-16', 
+    title: 'Architectural Ivory', 
+    tag: 'Peak Lapel', 
+    category: 'evening-dinner', 
+    image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.14 PM.jpeg', 
+    images: [
+      '/images/more/WhatsApp Image 2026-10-19 at 3.50.14 PM.jpeg', 
+      '/images/more/WhatsApp Image 2026-10-19 at 3.50.26 PM.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-18', 
+    title: 'Monarch Jacquard', 
+    tag: 'Golden Cane', 
+    category: 'evening-dinner', 
+    image: '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg', 
+    images: [
+      '/images/more/WhatsApp Image 2026-10-19 at 3.50.45 PM.jpeg', 
+      '/images/more/WhatsApp Image 2026-10-19 at 3.50.49 PM.jpeg'
+    ], 
+    aspect: 'landscape' 
+  },
+  { 
+    id: 'tux-20', 
+    title: 'Burgundy Velvet', 
+    tag: 'Satin Peak', 
+    category: 'evening-dinner', 
+    image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.27 PM.jpeg', 
+    aspect: 'square' 
+  },
+  { 
+    id: 'tux-29', 
+    title: 'Embroidered Damask', 
+    tag: 'Bespoke Tuxedo', 
+    category: 'evening-dinner', 
+    image: '/images/IMG-142.jpg.jpeg', 
+    images: [
+      '/images/IMG-142.jpg.jpeg', 
+      '/images/IMG-143.jpg.jpeg', 
+      '/images/IMG-145.jpg.jpeg', 
+      '/images/IMG-146.jpg.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-33', 
+    title: 'White Damask', 
+    tag: 'Mirror Reflection', 
+    category: 'evening-dinner', 
+    image: '/images/tuxedo-white-damask-mirror.jpeg', 
+    aspect: 'portrait' 
+  },
+  { 
+    id: 'tux-34', 
+    title: 'Horseshoe Vest', 
+    tag: 'Black Tie', 
+    category: 'evening-dinner', 
+    image: '/images/groomsmen-prep-horseshoe-vest.jpeg', 
+    aspect: 'portrait' 
+  },
+  { id: 'tux-35', title: 'Horseshoe Shawl', tag: 'Groom Tuxedo', category: 'evening-dinner', image: '/latest/WhatsApp Image 2026-11-15 at 9.13.46 PM.jpeg', aspect: 'portrait' },
+  { id: 'tux-36', title: 'Nuptial Circle', tag: 'Wedding Tuxedo', category: 'evening-dinner', image: '/latest/WhatsApp Image 2026-11-15 at 9.13.46 PM (1).jpeg', aspect: 'portrait' },
 
-  // --- SUITS: 2 & 3-PIECE SUITS (44 Items) ---
+  // --- SUITS: 2 & 3-PIECE SUITS (Bespoke Suiting & Overcoats) ---
   { id: 'suit-1', title: 'Royal Blue', tag: 'Nairobi Boardroom', category: 'suits', image: '/images/MOK_7655.jpg', aspect: 'portrait' },
   { id: 'suit-2', title: 'Double Breasted', tag: 'Chalkstripe Worsted', category: 'suits', image: '/images/MOK_7660.jpg', aspect: 'portrait' },
   { id: 'suit-3', title: 'Slate Three-Piece', tag: 'Executive Vest', category: 'suits', image: '/images/MOK_7662.jpg', aspect: 'portrait' },
@@ -251,10 +491,20 @@ const items = [
   { id: 'suit-14', title: 'Silver Statesman', tag: 'Executive Portrait', category: 'suits', image: '/images/executive-portrait-silver-hair-navy-suit.jpeg', aspect: 'portrait' },
   { id: 'suit-15', title: 'Ivory Waistcoat', tag: 'Three-Piece Navy', category: 'suits', image: '/images/executive-three-piece-navy-ivory-waistcoat.jpeg', aspect: 'portrait' },
   { id: 'suit-16', title: 'Three-Piece Groom', tag: 'Wedding Nuptial', category: 'suits', image: '/images/DSC04995.jpg', aspect: 'portrait' },
-  { id: 'suit-17', title: 'Highland Groom', tag: 'Ivory Double Breasted', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg', aspect: 'portrait' },
-  { id: 'suit-18', title: 'Tea Plantation', tag: 'Highland Romance', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 3.47.54 PM.jpeg', aspect: 'portrait' },
-  { id: 'suit-19', title: 'Highland Altar', tag: 'Boutonniere Detail', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 3.47.56 PM.jpeg', aspect: 'portrait' },
-  { id: 'suit-20', title: 'Ivory Jacket', tag: 'Black Trousers', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 3.47.59 PM.jpeg', aspect: 'portrait' },
+  { 
+    id: 'suit-17', 
+    title: 'Highland Groom', 
+    tag: 'Ivory Double Breasted', 
+    category: 'suits', 
+    image: '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg', 
+    images: [
+      '/images/more/WhatsApp Image 2026-10-19 at 3.47.01 PM.jpeg', 
+      '/images/more/WhatsApp Image 2026-10-19 at 3.47.54 PM.jpeg', 
+      '/images/more/WhatsApp Image 2026-10-19 at 3.47.56 PM.jpeg', 
+      '/images/more/WhatsApp Image 2026-10-19 at 3.47.59 PM.jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
   { id: 'suit-21', title: 'Champagne Toast', tag: 'Groomsmen Toast', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 3.51.08 PM.jpeg', aspect: 'portrait' },
   { id: 'suit-22', title: 'Groom Toast', tag: 'Champagne Flute', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 3.51.41 PM.jpeg', aspect: 'portrait' },
   { id: 'suit-23', title: 'Garden Altar', tag: 'Rose Petal Walk', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.16.51 PM (1).jpeg', aspect: 'landscape' },
@@ -282,13 +532,28 @@ const items = [
   { id: 'suit-45', title: 'Nuptial Harmony', tag: 'Three-Piece Suit', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (2).jpeg', aspect: 'landscape' },
   { id: 'suit-46', title: 'Groomsman Ensemble', tag: 'Ivory & Navy', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.16.54 PM (1).jpeg', aspect: 'landscape' },
   { id: 'suit-47', title: 'Locomotive Stride', tag: 'Check Suiting', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM (2).jpeg', aspect: 'portrait' },
+  { id: 'suit-48', title: 'Cerulean Profile', tag: 'Two-Piece Suit', category: 'suits', image: '/images/MOK_1920.jpg', aspect: 'portrait' },
+  { id: 'suit-overcoat', title: 'Tailored Overcoat', tag: 'Double-Breasted', category: 'suits', image: '/images/more/WhatsApp Image 2026-10-19 at 4.16.55 PM.jpeg', aspect: 'portrait' },
+  { 
+    id: 'suit-49', 
+    title: 'Ocean Glen Check', 
+    tag: 'Three-Piece Suit', 
+    category: 'suits', 
+    image: '/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM (1).jpeg', 
+    images: [
+      '/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM (1).jpeg', 
+      '/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM (2).jpeg'
+    ], 
+    aspect: 'portrait' 
+  },
+  { id: 'suit-50', title: 'Courtroom Pinstripe', tag: 'Advocate Suiting', category: 'suits', image: '/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM.jpeg', aspect: 'portrait' },
 
-  // --- SMART CASUAL & BLAZERS (5 Items) ---
+  // --- SMART CASUAL & BLAZERS (Curated Blazers & Separates) ---
   { id: 'sc-1', title: 'Tailored Blazer', tag: 'Double Breasted', category: 'smart-casual', image: '/images/Blazer.jpg', aspect: 'landscape' },
   { id: 'sc-2', title: 'Beige Blazer', tag: 'Smart Casual', category: 'smart-casual', image: '/images/smart-casual-beige-blazer-parking.jpeg', aspect: 'portrait' },
-  { id: 'sc-4', title: 'Royal Blazer', tag: 'Gold Buttons', category: 'smart-casual', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (1).jpeg', aspect: 'square' },
+  { id: 'sc-3', title: 'Barathea Blazer', tag: 'Notch Lapel', category: 'smart-casual', image: '/images/Black.jpg', aspect: 'landscape' },
+  { id: 'sc-4', title: 'Royal Blazer', tag: 'Tailored Cut', category: 'smart-casual', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.17 PM (1).jpeg', aspect: 'square' },
   { id: 'sc-5', title: 'Scarlet Blazer', tag: 'Statement Coat', category: 'smart-casual', image: '/images/more/WhatsApp Image 2026-10-19 at 4.17.23 PM.jpeg', aspect: 'square' },
-  { id: 'sc-6', title: 'Tailored Overcoat', tag: 'Ankara Accent', category: 'smart-casual', image: '/images/more/WhatsApp Image 2026-10-19 at 4.16.55 PM.jpeg', aspect: 'portrait' },
 ];
 
 const header = `/**

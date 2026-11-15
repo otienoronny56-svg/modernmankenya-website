@@ -34,6 +34,16 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, onOpenLightbox }) => {
   return (
     <div
       onClick={() => onOpenLightbox(activeImage)}
+      onMouseEnter={() => {
+        if (hasMultipleImages && currentImgIndex === 0) {
+          setCurrentImgIndex(1);
+        }
+      }}
+      onMouseLeave={() => {
+        if (hasMultipleImages) {
+          setCurrentImgIndex(0);
+        }
+      }}
       className="group relative bg-white dark:bg-[#1A1C28] rounded-lg border border-slate-200/90 dark:border-slate-800/80 hover:border-brand-gold/60 dark:hover:border-brand-gold/60 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col"
     >
       {/* Image Container */}
