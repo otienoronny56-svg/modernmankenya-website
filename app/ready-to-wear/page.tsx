@@ -196,9 +196,12 @@ function ReadyToWearShopContent() {
                 <Truck className="w-4 h-4 text-brand-gold flex-shrink-0" />
                 <span className="truncate">Nairobi Same-Day Courier</span>
               </div>
-              <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded border border-white/10 backdrop-blur-sm" title="M-Pesa Paybill: 542542, Account: 923082">
+              <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded border border-brand-gold/30 backdrop-blur-sm" title="M-Pesa Paybill: 542542, Account: 923082">
                 <CreditCard className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <span className="truncate">Paybill 542542 • Acc: 923082</span>
+                <div className="flex flex-col leading-tight min-w-0">
+                  <span className="font-semibold text-white whitespace-nowrap">Paybill: <span className="text-brand-gold font-bold">542542</span></span>
+                  <span className="text-[10px] text-slate-300 whitespace-nowrap">Acc: <span className="text-white font-bold">923082</span></span>
+                </div>
               </div>
               <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded border border-white/10 backdrop-blur-sm">
                 <MessageCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />

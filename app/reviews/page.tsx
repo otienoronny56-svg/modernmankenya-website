@@ -34,8 +34,8 @@ interface ReviewItem {
 const REVIEWS_DATA: ReviewItem[] = [
   {
     id: 'rev-01',
-    client: 'Dr. David Ochieng',
-    title: 'Groom & Neurosurgeon',
+    client: 'Samuel Ngengi',
+    title: 'Groom & Client',
     city: 'Nairobi & Great Rift Valley',
     category: 'weddings',
     rating: 5,
@@ -50,7 +50,7 @@ const REVIEWS_DATA: ReviewItem[] = [
   },
   {
     id: 'rev-02',
-    client: 'Ambassador K. Mwangi',
+    client: 'Ambassador Edward Sterling',
     title: 'Diplomatic Envoy & Collector',
     city: 'Nairobi & Geneva',
     category: 'executive',

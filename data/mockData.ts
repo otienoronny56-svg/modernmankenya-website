@@ -219,15 +219,15 @@ export const FITTING_PROCESS_STEPS = [
 export const CLIENT_TESTIMONIALS = [
   {
     quote: 'The level of craftsmanship at Modern Man Kenya is unmatched. The floating canvas feels like a second skin in the Nairobi climate.',
-    client: 'Ambassador K. Mwangi',
+    client: 'Ambassador Edward Sterling',
     role: 'Diplomatic Envoy & Collector',
     city: 'Nairobi & Geneva',
   },
   {
     quote: 'For my wedding at the Great Rift Valley, they outfitted both myself and my groomsmen with millimetric precision. The gold paisley lining detail was pure opulence.',
-    client: 'Dr. David Ochieng',
-    role: 'Neurosurgeon & Entrepreneur',
-    city: 'Nairobi, Kenya',
+    client: 'Samuel Ngengi',
+    role: 'Groom & Client',
+    city: 'Nairobi & Great Rift Valley',
   },
   {
     quote: 'A rare sanctuary of true made-to-measure tailoring in East Africa. The attention to balance, drape, and cloth quality is extraordinary.',
