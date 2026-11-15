@@ -23,6 +23,7 @@ import { useCartStore } from '@/store/cartStore';
 import { useAuth } from '@/lib/auth/AuthContext';
 import { formatCurrencyPrice } from '@/lib/currency';
 import { MpesaStkModal } from '@/components/checkout/MpesaStkModal';
+import { MpesaManualPaybillModal } from '@/components/checkout/MpesaManualPaybillModal';
 import { PaymentBadges } from '@/components/common/PaymentBadges';
 import type { CartItem } from '@/types';
 
@@ -53,6 +54,10 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
   // M-Pesa STK Push state
   const [stkModalOpen, setStkModalOpen] = useState(false);
   const [pendingOrderForStk, setPendingOrderForStk] = useState<any>(null);
+
+  // M-Pesa Manual Paybill Modal state (Paybill 542542, Account 923082)
+  const [manualPaybillModalOpen, setManualPaybillModalOpen] = useState(false);
+  const [pendingOrderForManual, setPendingOrderForManual] = useState<any>(null);
 
   // Auto-fill from authenticated user profile or saved client blueprint
   useEffect(() => {
@@ -195,10 +200,17 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
         }).catch(() => {});
       }
 
-      // If website checkout, trigger Lipa Na M-Pesa STK Push prompt on user's phone!
+      // Check M-Pesa Checkout Mode ('stk' vs 'manual' default)
+      const isStkMode = process.env.NEXT_PUBLIC_MPESA_MODE === 'stk';
+
       if (orderMethod === 'website') {
-        setPendingOrderForStk(order);
-        setStkModalOpen(true);
+        if (isStkMode) {
+          setPendingOrderForStk(order);
+          setStkModalOpen(true);
+        } else {
+          setPendingOrderForManual(order);
+          setManualPaybillModalOpen(true);
+        }
         return;
       }
 
@@ -252,17 +264,59 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
 
   const handleFallbackToTill = () => {
     if (pendingOrderForStk) {
-      setSubmittedOrder(pendingOrderForStk);
-      clearCart();
       setStkModalOpen(false);
-      if (onSuccess) onSuccess(pendingOrderForStk.order_number);
+      setPendingOrderForManual(pendingOrderForStk);
+      setManualPaybillModalOpen(true);
+    }
+  };
+
+  const handleManualPaymentConfirmed = async (details: {
+    receiptCode: string;
+    fullMessage: string;
+    method: 'whatsapp' | 'website';
+  }) => {
+    if (pendingOrderForManual) {
+      const orderRef = pendingOrderForManual.order_number;
+
+      // Update payment status and receipt on server
+      try {
+        await fetch('/api/orders', {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            orderId: orderRef,
+            payment_status: 'paid',
+            fulfillment_status: 'confirmed',
+            mpesa_receipt: details.receiptCode,
+            mpesa_message: details.fullMessage,
+          }),
+        });
+      } catch (err) {
+        console.warn('Notice updating manual payment receipt:', err);
+      }
+
+      setSubmittedOrder({
+        ...pendingOrderForManual,
+        payment_status: 'paid',
+        mpesa_receipt: details.receiptCode,
+        mpesa_message: details.fullMessage,
+      });
+
+      clearCart();
+      setManualPaybillModalOpen(false);
+      if (onSuccess) onSuccess(orderRef);
     }
   };
 
   // Order Confirmed Screen
   if (submittedOrder) {
     const cleanPhone = submittedOrder.customer_phone.replace(/[^0-9]/g, '');
-    const waFollowUp = `Hello Modern Man Kenya, I have placed order #${submittedOrder.order_number} for KES ${submittedOrder.total_amount_kes.toLocaleString()} for delivery to ${submittedOrder.delivery_location}.`;
+    const mpesaSummary = submittedOrder.mpesa_receipt
+      ? `\n*M-Pesa Receipt:* ${submittedOrder.mpesa_receipt}`
+      : submittedOrder.mpesa_message
+      ? `\n*M-Pesa Confirmation:* ${submittedOrder.mpesa_message}`
+      : '\n*Payment Method:* M-Pesa Paybill 542542 (Acc: 923082)';
+    const waFollowUp = `Hello Modern Man Kenya, I have placed order #${submittedOrder.order_number} for KES ${submittedOrder.total_amount_kes.toLocaleString()} for delivery to ${submittedOrder.delivery_location}.${mpesaSummary}`;
 
     return (
       <div className="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200/90 shadow-xl max-w-xl mx-auto space-y-6 text-center">
@@ -693,6 +747,21 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
           orderNumber={pendingOrderForStk.order_number}
           onPaymentSuccess={handleStkSuccess}
           onFallbackToManualTill={handleFallbackToTill}
+        />
+      )}
+
+      {/* Lipa Na M-Pesa Manual Paybill Modal (Instant Copy & WhatsApp Confirmation) */}
+      {pendingOrderForManual && (
+        <MpesaManualPaybillModal
+          isOpen={manualPaybillModalOpen}
+          onClose={() => setManualPaybillModalOpen(false)}
+          orderNumber={pendingOrderForManual.order_number}
+          totalAmountKes={pendingOrderForManual.total_amount_kes}
+          customerName={pendingOrderForManual.customer_name}
+          customerPhone={pendingOrderForManual.customer_phone}
+          deliveryLocation={pendingOrderForManual.delivery_location}
+          items={pendingOrderForManual.items}
+          onConfirmPayment={handleManualPaymentConfirmed}
         />
       )}
     </div>

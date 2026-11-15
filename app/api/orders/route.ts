@@ -302,12 +302,14 @@ export async function POST(request: Request) {
 export async function PATCH(request: Request) {
   try {
     const body = await request.json();
-    const { orderId, fulfillment_status, payment_status } = body;
+    const { orderId, fulfillment_status, payment_status, mpesa_receipt, mpesa_message } = body;
 
     const orderIndex = LOCAL_ORDERS_CACHE.findIndex((o) => o.id === orderId || o.order_number === orderId);
     if (orderIndex > -1) {
       if (fulfillment_status) LOCAL_ORDERS_CACHE[orderIndex].fulfillment_status = fulfillment_status;
       if (payment_status) LOCAL_ORDERS_CACHE[orderIndex].payment_status = payment_status;
+      if (mpesa_receipt) (LOCAL_ORDERS_CACHE[orderIndex] as any).mpesa_receipt = mpesa_receipt;
+      if (mpesa_message) (LOCAL_ORDERS_CACHE[orderIndex] as any).mpesa_message = mpesa_message;
     }
 
     // Update directly in Supabase
@@ -317,6 +319,10 @@ export async function PATCH(request: Request) {
       const updatePayload: any = {};
       if (fulfillment_status) updatePayload.fulfillment_status = fulfillment_status;
       if (payment_status) updatePayload.payment_status = payment_status;
+      if (mpesa_receipt) updatePayload.mpesa_receipt = mpesa_receipt;
+      if (mpesa_message) {
+        updatePayload.special_instructions = `M-Pesa Receipt: ${mpesa_receipt || ''} | Message: ${mpesa_message}`;
+      }
 
       await (supabaseAdmin.from('orders') as any)
         .update(updatePayload)
