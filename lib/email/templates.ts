@@ -696,3 +696,194 @@ export function renderNewsletterEmail({
     </html>
   `;
 }
+
+/**
+ * 8. Customer Order Status Update Email (Fulfillment or Payment change)
+ */
+export interface OrderStatusEmailData {
+  orderNumber: string;
+  customerName: string;
+  customerEmail: string;
+  customerPhone?: string;
+  deliveryLocation: string;
+  items: Array<{
+    name: string;
+    priceKes: number;
+    quantity: number;
+    size?: string;
+    color?: string;
+  }>;
+  totalAmountKes: number;
+  paymentStatus: 'paid' | 'pending' | 'on_delivery';
+  fulfillmentStatus: 'pending' | 'confirmed' | 'dispatched' | 'delivered' | 'cancelled';
+  statusChangeType?: 'fulfillment' | 'payment' | 'both';
+  adminNote?: string;
+}
+
+export function renderCustomerOrderStatusUpdate(data: OrderStatusEmailData): { subject: string; html: string } {
+  let statusBadge = 'ORDER STATUS UPDATE';
+  let badgeColor = '#0A1128';
+  let badgeBg = '#f1f5f9';
+  let statusHeading = 'Your Order Has Been Updated';
+  let statusMessage = `Your order #${data.orderNumber} status has been updated.`;
+  let subject = `Order #${data.orderNumber} Status Update • Modern Man Kenya`;
+
+  if (data.statusChangeType === 'payment' || (data.paymentStatus === 'paid' && data.fulfillmentStatus === 'pending')) {
+    statusBadge = 'PAYMENT RECEIVED & VERIFIED';
+    badgeColor = '#065f46';
+    badgeBg = '#ecfdf5';
+    statusHeading = 'Payment Verified Successfully';
+    statusMessage = `We have received and verified your payment of <strong>KES ${data.totalAmountKes.toLocaleString()}</strong>. Your commission is now queued in our master atelier schedule.`;
+    subject = `Payment Verified: Order #${data.orderNumber} • Modern Man Kenya`;
+  } else if (data.fulfillmentStatus === 'confirmed') {
+    statusBadge = 'ORDER APPROVED & IN CUTTING';
+    badgeColor = '#047857';
+    badgeBg = '#ecfdf5';
+    statusHeading = 'Your Commission Has Been Confirmed';
+    statusMessage = 'Our master tailors have approved your order. Precision cutting, floating horsehair canvas crafting, and atelier finishing are now actively underway.';
+    subject = `Order Confirmed: #${data.orderNumber} • Modern Man Kenya`;
+  } else if (data.fulfillmentStatus === 'dispatched') {
+    statusBadge = 'DISPATCHED • OUT FOR DELIVERY';
+    badgeColor = '#1d4ed8';
+    badgeBg = '#eff6ff';
+    statusHeading = 'Your Order Is on the Way';
+    statusMessage = `Your garments have completed final sartorial inspection and have been dispatched for delivery to <strong>${data.deliveryLocation}</strong>. Our courier will contact you at <strong>${data.customerPhone || 'your registered phone'}</strong> upon arrival.`;
+    subject = `Dispatched for Delivery: Order #${data.orderNumber} • Modern Man Kenya`;
+  } else if (data.fulfillmentStatus === 'delivered') {
+    statusBadge = 'HANDOVER COMPLETE • DELIVERED';
+    badgeColor = '#065f46';
+    badgeBg = '#ecfdf5';
+    statusHeading = 'Your Order Has Been Delivered';
+    statusMessage = 'Your commission has been delivered. We hope you appreciate the millimetric precision and bespoke elegance. Should any fine-tuning or adjustments be required, our Nairobi atelier remains entirely at your service.';
+    subject = `Delivered: Order #${data.orderNumber} • Modern Man Kenya`;
+  } else if (data.fulfillmentStatus === 'cancelled') {
+    statusBadge = 'ORDER CANCELLED';
+    badgeColor = '#b91c1c';
+    badgeBg = '#fef2f2';
+    statusHeading = 'Order Cancellation Notice';
+    statusMessage = `Order #${data.orderNumber} has been marked as cancelled. If this is unexpected or if you need assistance, please reach out to our client care team.`;
+    subject = `Order #${data.orderNumber} Notice • Modern Man Kenya`;
+  }
+
+  const itemsRows = (data.items || [])
+    .map(
+      (item) => `
+      <tr>
+        <td style="padding: 12px 8px; border-bottom: 1px solid #edf2f7; font-size: 13.5px;">
+          <strong style="color: #0A1128;">${item.name}</strong>
+          ${item.size ? `<br><span style="color: #64748b; font-size: 12px;">Size: ${item.size}</span>` : ''}
+          ${item.color ? `<span style="color: #64748b; font-size: 12px;"> • ${item.color}</span>` : ''}
+        </td>
+        <td style="padding: 12px 8px; border-bottom: 1px solid #edf2f7; font-size: 13.5px; text-align: center; color: #475569;">
+          × ${item.quantity}
+        </td>
+        <td style="padding: 12px 8px; border-bottom: 1px solid #edf2f7; font-size: 13.5px; text-align: right; font-weight: 700; color: #0A1128;">
+          KES ${(item.priceKes * item.quantity).toLocaleString()}
+        </td>
+      </tr>
+    `
+    )
+    .join('');
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${statusHeading} - Modern Man Kenya</title>
+      </head>
+      <body style="${baseStyles}">
+        <div style="max-width: 620px; margin: 24px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+          ${headerHtml}
+
+          <div style="padding: 32px 28px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <span style="display: inline-block; background-color: ${badgeBg}; color: ${badgeColor}; border: 1px solid ${badgeColor}33; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;">
+                ${statusBadge}
+              </span>
+            </div>
+
+            <h2 style="margin: 0 0 10px 0; color: #0A1128; font-size: 22px; font-family: 'Times New Roman', serif; text-align: center;">
+              ${statusHeading}
+            </h2>
+
+            <p style="margin: 0 0 24px 0; font-size: 14px; color: #475569; text-align: center; line-height: 1.6;">
+              Dear <strong>${data.customerName}</strong>,<br>
+              ${statusMessage}
+            </p>
+
+            ${
+              data.adminNote
+                ? `
+              <div style="background-color: #f8fafc; border-left: 3px solid #C5A059; padding: 12px 16px; margin: 0 0 24px 0; font-size: 13px; color: #334155;">
+                <strong style="color: #0A1128; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">Atelier Note:</strong>
+                ${data.adminNote}
+              </div>
+            `
+                : ''
+            }
+
+            <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-bottom: 24px;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 12px; font-size: 13px;">
+                <span style="color: #64748b;">Order Reference:</span>
+                <strong style="color: #0A1128; font-family: monospace; font-size: 14px;">#${data.orderNumber}</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 12px; font-size: 13px;">
+                <span style="color: #64748b;">Payment Status:</span>
+                <strong style="color: ${data.paymentStatus === 'paid' ? '#059669' : '#d97706'}; text-transform: uppercase; font-size: 12px;">
+                  ${data.paymentStatus === 'paid' ? '✓ Paid & Verified' : '• Payment Pending'}
+                </strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                <span style="color: #64748b;">Delivery Destination:</span>
+                <strong style="color: #0A1128;">${data.deliveryLocation}</strong>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 24px;">
+              <h3 style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: #64748b; margin: 0 0 10px 0; font-weight: 700;">
+                Commission Ensembles & Items
+              </h3>
+              <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                  <tr style="border-bottom: 2px solid #e2e8f0; text-align: left;">
+                    <th style="padding: 8px; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700;">Item</th>
+                    <th style="padding: 8px; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700; text-align: center;">Qty</th>
+                    <th style="padding: 8px; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700; text-align: right;">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${itemsRows}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="2" style="padding: 14px 8px; font-size: 14px; font-weight: 700; color: #0A1128;">
+                      Total Commission Value
+                    </td>
+                    <td style="padding: 14px 8px; font-size: 16px; font-weight: 800; color: #0A1128; text-align: right; font-family: monospace;">
+                      KES ${data.totalAmountKes.toLocaleString()}
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid #edf2f7;">
+              <a href="https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya%2C%20regarding%20my%20order%20%23${data.orderNumber}" style="display: inline-block; background-color: #059669; color: #ffffff; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 22px; border-radius: 6px; text-decoration: none; margin: 4px;">
+                Chat on WhatsApp
+              </a>
+              <a href="tel:+254718923082" style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 22px; border-radius: 6px; text-decoration: none; margin: 4px; border: 1px solid #C5A059;">
+                Call Atelier
+              </a>
+            </div>
+          </div>
+
+          ${footerHtml}
+        </div>
+      </body>
+    </html>
+  `;
+
+  return { subject, html };
+}

@@ -302,14 +302,25 @@ export async function POST(request: Request) {
 export async function PATCH(request: Request) {
   try {
     const body = await request.json();
-    const { orderId, fulfillment_status, payment_status, mpesa_receipt, mpesa_message } = body;
+    const {
+      orderId,
+      fulfillment_status,
+      payment_status,
+      mpesa_receipt,
+      mpesa_message,
+      notify_client = true,
+      admin_note,
+    } = body;
 
     const orderIndex = LOCAL_ORDERS_CACHE.findIndex((o) => o.id === orderId || o.order_number === orderId);
+    let targetOrder: StoredOrder | null = null;
+
     if (orderIndex > -1) {
       if (fulfillment_status) LOCAL_ORDERS_CACHE[orderIndex].fulfillment_status = fulfillment_status;
       if (payment_status) LOCAL_ORDERS_CACHE[orderIndex].payment_status = payment_status;
       if (mpesa_receipt) (LOCAL_ORDERS_CACHE[orderIndex] as any).mpesa_receipt = mpesa_receipt;
       if (mpesa_message) (LOCAL_ORDERS_CACHE[orderIndex] as any).mpesa_message = mpesa_message;
+      targetOrder = LOCAL_ORDERS_CACHE[orderIndex];
     }
 
     // Update directly in Supabase
@@ -324,16 +335,68 @@ export async function PATCH(request: Request) {
         updatePayload.special_instructions = `M-Pesa Receipt: ${mpesa_receipt || ''} | Message: ${mpesa_message}`;
       }
 
-      await (supabaseAdmin.from('orders') as any)
+      const { data } = await (supabaseAdmin.from('orders') as any)
         .update(updatePayload)
-        .or(`id.eq.${orderId},order_number.eq.${orderId}`);
+        .or(`id.eq.${orderId},order_number.eq.${orderId}`)
+        .select('*');
+
+      if (data && data[0] && !targetOrder) {
+        targetOrder = {
+          id: data[0].id,
+          order_number: data[0].order_number,
+          customer_name: data[0].customer_name,
+          customer_email: data[0].customer_email,
+          customer_phone: data[0].customer_phone,
+          delivery_location: data[0].shipping_address?.town || 'Nairobi',
+          shipping_address: data[0].shipping_address || {},
+          items: data[0].shipping_address?.items || [],
+          total_amount_kes: data[0].total_amount_kes || 0,
+          currency: data[0].currency || 'KES',
+          payment_status: data[0].payment_status || 'pending',
+          fulfillment_status: data[0].fulfillment_status || 'pending',
+          order_method: 'website',
+          created_at: data[0].created_at,
+        };
+      }
     } catch (err) {
       console.warn('Supabase order status update notice:', err);
     }
 
+    let emailSent = false;
+    let emailNotice = '';
+
+    // If client notification is enabled and we have valid customer email
+    if (notify_client && targetOrder && targetOrder.customer_email && targetOrder.customer_email.includes('@')) {
+      try {
+        const { dispatchOrderStatusUpdateEmail } = await import('@/lib/email');
+        const res = await dispatchOrderStatusUpdateEmail({
+          orderNumber: targetOrder.order_number,
+          customerName: targetOrder.customer_name,
+          customerEmail: targetOrder.customer_email,
+          customerPhone: targetOrder.customer_phone,
+          deliveryLocation: targetOrder.delivery_location,
+          items: targetOrder.items || [],
+          totalAmountKes: targetOrder.total_amount_kes,
+          paymentStatus: targetOrder.payment_status,
+          fulfillmentStatus: targetOrder.fulfillment_status,
+          statusChangeType: payment_status && !fulfillment_status ? 'payment' : fulfillment_status && !payment_status ? 'fulfillment' : 'both',
+          adminNote: admin_note,
+        });
+
+        emailSent = res?.success || false;
+        emailNotice = emailSent
+          ? `Status email sent to ${targetOrder.customer_email}`
+          : res?.error || 'Email dispatch attempted';
+      } catch (emailErr) {
+        console.error('Status update email dispatch error:', emailErr);
+      }
+    }
+
     return NextResponse.json({
       success: true,
-      order: LOCAL_ORDERS_CACHE[orderIndex] || null,
+      order: targetOrder || LOCAL_ORDERS_CACHE[orderIndex] || null,
+      emailSent,
+      emailNotice,
     });
   } catch (error) {
     console.error('Order status update error:', error);

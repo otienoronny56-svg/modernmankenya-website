@@ -15,6 +15,8 @@ import {
   renderWelcomeMemberEmail,
   renderAdminNewMemberAlert,
   renderNewsletterEmail,
+  renderCustomerOrderStatusUpdate,
+  OrderStatusEmailData,
 } from './templates';
 
 export interface SendEmailResult {
@@ -294,5 +296,39 @@ export async function dispatchNewsletterBroadcast({
   }
 
   return results;
+}
+
+/**
+ * Dispatch real-time Order Status Update email to client (Dispatched via sales@modernmanke.com)
+ */
+export async function dispatchOrderStatusUpdateEmail(data: OrderStatusEmailData): Promise<SendEmailResult> {
+  if (!data.customerEmail || !data.customerEmail.includes('@') || data.customerEmail.includes('example.com')) {
+    console.warn(`Skipping status update email for order #${data.orderNumber}: customer email missing or demo (${data.customerEmail})`);
+    return { success: false, error: 'Customer email missing or demo address' };
+  }
+
+  const salesSender = getDepartmentSenders().sales;
+  const { subject, html } = renderCustomerOrderStatusUpdate(data);
+
+  const res = await sendEmail({
+    from: salesSender,
+    to: data.customerEmail,
+    subject,
+    html,
+  });
+
+  // Also send an audit trail copy to Ronny / admin team
+  const adminEmails = getAdminNotificationEmails();
+  for (const adminEmail of adminEmails) {
+    sendEmail({
+      from: salesSender,
+      to: adminEmail,
+      subject: `[Atelier Audit] Status Updated for #${data.orderNumber} • ${data.fulfillmentStatus.toUpperCase()}`,
+      html,
+      replyTo: data.customerEmail,
+    }).catch((err) => console.warn('Admin status audit email notice:', err));
+  }
+
+  return res;
 }
 
