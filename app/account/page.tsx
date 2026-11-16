@@ -912,7 +912,7 @@ export default function ClientDashboardPage() {
                       Need help measuring or want standard size reference?
                     </h4>
                     <p className="text-[11px] text-slate-300">
-                      Explore our 17-point anatomical diagram and standard S–3XL conversion matrix.
+                      Explore our 18-point anatomical diagram and standard S–5XL sizing matrix.
                     </p>
                   </div>
                 </div>
@@ -946,7 +946,7 @@ export default function ClientDashboardPage() {
                     <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
                     <span className="font-bold text-brand-gold">Modern Man Kenya Atelier Tailoring Chart</span>
                     <span className="text-white/40 hidden sm:inline">•</span>
-                    <span className="text-[11px] text-slate-300 hidden sm:inline">Auto-fill your profile with standard S–3XL measurements below</span>
+                    <span className="text-[11px] text-slate-300 hidden sm:inline">Auto-fill your profile with standard S–5XL measurements below</span>
                   </div>
                   <button
                     type="button"

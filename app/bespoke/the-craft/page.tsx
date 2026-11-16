@@ -811,7 +811,7 @@ export default function TheCraftPage() {
               Men&apos;s Measurement Chart &amp; Tailoring Guide
             </h3>
             <p className="text-xs text-stone-300 font-light leading-relaxed">
-              Explore our 17-point anatomical measurement guide and standard S–3XL size conversion matrix with live Inches and CM toggling.
+              Explore our 18-point anatomical measurement guide and standard S–5XL size chart with live Inches and CM toggling.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 relative z-10 shrink-0 w-full md:w-auto">

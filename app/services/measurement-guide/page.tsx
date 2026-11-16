@@ -8,11 +8,11 @@ import { ModernManMeasurementChart } from '@/components/measurements/ModernManMe
 export const metadata: Metadata = {
   title: "Men's Tailoring Measurement Guide & Sizing Chart | Modern Man Kenya",
   description:
-    "Master tailoring 17-point anatomical measurement chart, standard S-3XL sizing matrix, and step-by-step guidance for bespoke suits, tuxedos, and contemporary African wear in Nairobi.",
+    "Master tailoring 18-point anatomical measurement chart, standard S-5XL sizing matrix, and step-by-step guidance for made-to-measure suits, tuxedos, and contemporary African wear in Nairobi.",
   openGraph: {
     title: "Men's Measurement Chart & Tailoring Guide | Modern Man Kenya",
     description:
-      'Master tailoring 17-point anatomical measurement chart and standard S-3XL sizing matrix with live Inches and CM conversion.',
+      'Master tailoring 18-point anatomical measurement chart and standard S-5XL sizing matrix with live Inches and CM conversion.',
     images: ['/images/measurement-guide-poster.jpg'],
   },
 };
@@ -46,7 +46,7 @@ export default function MeasurementGuidePage() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-2xl">
-              An authoritative 17-point anatomical blueprint for gentlemen commissioning Made-to-Measure suiting, tuxedo black-tie ensembles, crisp dress shirts, and signature African Senator tunics.
+              An authoritative 18-point anatomical blueprint for gentlemen commissioning Made-to-Measure suiting, tuxedo black-tie ensembles, crisp dress shirts, and signature African Senator tunics.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-3 text-xs">

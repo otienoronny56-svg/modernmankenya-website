@@ -38,10 +38,12 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
   // Conversion helper
   const toUnit = (valInches: number | number[] | [number, number]) => {
     if (Array.isArray(valInches)) {
-      if (unit === 'inches') return `${valInches[0]}-${valInches[1] ?? valInches[0]}`;
-      const cm1 = Math.round(valInches[0] * 2.54);
-      const cm2 = Math.round((valInches[1] ?? valInches[0]) * 2.54);
-      return `${cm1}-${cm2}`;
+      const v1 = valInches[0];
+      const v2 = valInches[1] ?? valInches[0];
+      if (unit === 'inches') return `${v1}/${v2}`;
+      const cm1 = Math.round(v1 * 2.54);
+      const cm2 = Math.round(v2 * 2.54);
+      return `${cm1}/${cm2}`;
     }
     if (unit === 'inches') return `${valInches}`;
     return `${Math.round(valInches * 2.54)}`;
@@ -65,33 +67,33 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
     { id: 15, name: 'Trouser Length', instruction: 'Measure from the top of the waistband straight down the outseam to the desired heel/shoe break.', key: 'trouserLength', defaultInches: 41 },
     { id: 16, name: 'Inseam', instruction: 'Measure from the lowest point of the crotch seam down the inner leg to the ankle.', key: 'inseam', defaultInches: 32 },
     { id: 17, name: 'Crotch Depth', instruction: 'While seated upright on a flat firm chair, measure vertically from waistband to chair surface.', key: 'crotchRise', defaultInches: 10.5 },
+    { id: 18, name: 'Trouser Bottom', instruction: 'Measure horizontally around the very bottom trouser cuff opening right above the ankle bone.', key: 'ankleOpening', defaultInches: 15 },
   ];
 
-  // Standard Size Matrix in Inches (converted dynamically to cm when unit === 'cm')
+  // Modern Man Kenya Official Shop Sizing Chart in Inches (converted dynamically to cm when unit === 'cm')
   const standardSizeMatrix = [
-    { size: 'S', chestTag: '36-38"', neck: [14, 14.5], shoulder: 17, chest: [36, 38], waist: [30, 32], hips: [36, 38], sleeve: [24, 24.5], shirt: [28, 29], jacket: [29, 30], trouser: 40 },
-    { size: 'M', chestTag: '38-40"', neck: [15, 15.5], shoulder: 17.5, chest: [38, 40], waist: [32, 34], hips: [38, 40], sleeve: [24.5, 25], shirt: [29, 30], jacket: [30, 31], trouser: 41 },
-    { size: 'L', chestTag: '40-42"', neck: [16, 16.5], shoulder: 18, chest: [40, 42], waist: [34, 36], hips: [40, 42], sleeve: [25, 25.5], shirt: [30, 31], jacket: [31, 32], trouser: 42 },
-    { size: 'XL', chestTag: '42-44"', neck: [17, 17.5], shoulder: 18.5, chest: [42, 44], waist: [36, 38], hips: [42, 44], sleeve: [25.5, 26], shirt: [31, 32], jacket: [32, 33], trouser: 43 },
-    { size: '2XL', chestTag: '44-46"', neck: [18, 18.5], shoulder: 19, chest: [44, 46], waist: [38, 40], hips: [44, 46], sleeve: [26, 26.5], shirt: [32, 33], jacket: [33, 34], trouser: 44 },
-    { size: '3XL', chestTag: '46-48"', neck: [19, 19.5], shoulder: 19.5, chest: [46, 48], waist: [40, 42], hips: [46, 48], sleeve: [26.5, 27], shirt: [33, 34], jacket: [34, 35], trouser: 44.5 },
+    { size: 'S', chestTag: '38"', chest: 38, sleeve: 25, stomach: 37, shoulder: 17 },
+    { size: 'M', chestTag: '40"', chest: 40, sleeve: 25, stomach: [38, 39], shoulder: 18 },
+    { size: 'L', chestTag: '42"', chest: 42, sleeve: 25, stomach: 40, shoulder: 18.5 },
+    { size: 'XL', chestTag: '44"', chest: 44, sleeve: 26, stomach: [41, 42], shoulder: 19 },
+    { size: '2XL', chestTag: '45"', chest: 45, sleeve: 26, stomach: 43, shoulder: 20 },
+    { size: '3XL', chestTag: '46"', chest: 46, sleeve: 27, stomach: [44, 45], shoulder: 20 },
+    { size: '4XL', chestTag: '48"', chest: 48, sleeve: 27, stomach: 48, shoulder: 20 },
+    { size: '5XL', chestTag: '50"', chest: 50, sleeve: 26, stomach: 50, shoulder: 21 },
   ];
 
   const handleApplyPreset = (sizeItem: typeof standardSizeMatrix[0]) => {
     if (onSelectSize) onSelectSize(sizeItem.size);
     if (onApplyMeasurements) {
       const multiplier = unit === 'cm' ? 2.54 : 1;
+      const avg = (v: number | number[]) =>
+        Array.isArray(v) ? (v[0] + (v[1] ?? v[0])) / 2 : v;
       const data: Record<string, number> = {
-        chest: (sizeItem.chest[0] + sizeItem.chest[1]) / 2 * multiplier,
-        waistStomach: (sizeItem.waist[0] + sizeItem.waist[1]) / 2 * multiplier,
-        hipsSeat: (sizeItem.hips[0] + sizeItem.hips[1]) / 2 * multiplier,
-        shoulderWidth: sizeItem.shoulder * multiplier,
-        jacketLength: (sizeItem.jacket[0] + sizeItem.jacket[1]) / 2 * multiplier,
-        trouserWaist: (sizeItem.waist[0] + sizeItem.waist[1]) / 2 * multiplier,
-        trouserLength: sizeItem.trouser * multiplier,
-        sleeveLengthLeft: (sizeItem.sleeve[0] + sizeItem.sleeve[1]) / 2 * multiplier,
-        sleeveLengthRight: (sizeItem.sleeve[0] + sizeItem.sleeve[1]) / 2 * multiplier,
-        neckCollar: (sizeItem.neck[0] + sizeItem.neck[1]) / 2 * multiplier,
+        chest: Math.round(sizeItem.chest * multiplier * 10) / 10,
+        sleeveLengthLeft: Math.round(sizeItem.sleeve * multiplier * 10) / 10,
+        sleeveLengthRight: Math.round(sizeItem.sleeve * multiplier * 10) / 10,
+        waistStomach: Math.round(avg(sizeItem.stomach) * multiplier * 10) / 10,
+        shoulderWidth: Math.round(sizeItem.shoulder * multiplier * 10) / 10,
       };
       onApplyMeasurements(data);
     }
@@ -182,18 +184,18 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
                 </span>
               </div>
               <span className="text-[10px] uppercase font-bold text-brand-gold bg-white/10 px-2.5 py-0.5 rounded-full border border-brand-gold/30">
-                17 Reference Points
+                18 Reference Points
               </span>
             </div>
 
-            {/* Visual Tailoring Model - Clean Cropped Model exactly as provided */}
-            <div className="relative w-full h-[580px] sm:h-[640px] rounded-xl overflow-hidden bg-[#0A1128] border border-white/10 flex items-center justify-center p-1.5 shadow-inner">
+            {/* Visual Tailoring Model - Crisp 9:16 Studio Reference Chart */}
+            <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden bg-[#0A1128] border border-white/10 shadow-inner">
               <Image
                 src="/images/measurements/mens-measurement-model.jpg"
                 alt="Men's Measurement Chart for Tailoring & Fashion Design"
                 fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-contain object-center"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover object-center"
                 priority
               />
             </div>
@@ -203,7 +205,7 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
             </div>
           </div>
 
-          {/* Right: Numbered 1-17 Master How-to-Measure Guide */}
+          {/* Right: Numbered 1-18 Master How-to-Measure Guide */}
           <div className="lg:col-span-7 space-y-4">
             <div className="border-b border-stone-200 dark:border-slate-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
@@ -215,12 +217,12 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
                 </h3>
               </div>
               <span className="text-xs text-stone-500 dark:text-slate-400 font-medium">
-                17 Anatomical Reference Steps
+                18 Anatomical Reference Steps
               </span>
             </div>
 
-            {/* Scrollable / Grid of 17 Steps */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[580px] overflow-y-auto pr-1">
+            {/* Scrollable / Grid of 18 Steps */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[600px] lg:max-h-[760px] overflow-y-auto pr-1">
               {measurementSteps.map((step) => {
                 const isHighlighted = activePoint === step.id;
                 return (
@@ -279,19 +281,14 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-stone-200/90 dark:border-slate-800 shadow-xs">
-            <table className="w-full text-xs text-left border-collapse min-w-[760px]">
+            <table className="w-full text-xs text-left border-collapse min-w-[540px]">
               <thead>
                 <tr className="bg-[#0A1128] text-brand-gold font-serif uppercase tracking-wider text-[11px] border-b border-brand-gold/30">
                   <th className="py-3.5 px-4 font-bold text-white">Size</th>
-                  <th className="py-3.5 px-3">Neck</th>
-                  <th className="py-3.5 px-3">Shoulder</th>
-                  <th className="py-3.5 px-3">Chest</th>
-                  <th className="py-3.5 px-3">Waist</th>
-                  <th className="py-3.5 px-3">Hips</th>
-                  <th className="py-3.5 px-3">Sleeve</th>
-                  <th className="py-3.5 px-3">Shirt Len</th>
-                  <th className="py-3.5 px-3">Jacket Len</th>
-                  <th className="py-3.5 px-3">Trouser Len</th>
+                  <th className="py-3.5 px-4">Chest</th>
+                  <th className="py-3.5 px-4">Sleeve</th>
+                  <th className="py-3.5 px-4">Stomach</th>
+                  <th className="py-3.5 px-4">Shoulder</th>
                   <th className="py-3.5 px-4 text-right">Action</th>
                 </tr>
               </thead>
@@ -305,20 +302,15 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
                     onClick={() => handleApplyPreset(row)}
                   >
                     <td className="py-3 px-4 font-bold font-serif text-brand-navy dark:text-slate-100 text-sm flex items-center space-x-2">
-                      <span className="w-7 h-7 rounded-lg bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-sans font-extrabold text-xs">
+                      <span className="w-8 h-7 rounded-lg bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-sans font-extrabold text-xs shrink-0">
                         {row.size}
                       </span>
-                      <span className="text-[11px] text-stone-400 dark:text-slate-500 font-normal">{row.chestTag}</span>
+                      <span className="text-[11px] text-stone-400 dark:text-slate-500 font-normal hidden sm:inline">Chest {row.chestTag}</span>
                     </td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.neck)}</td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.shoulder)}</td>
-                    <td className="py-3 px-3 font-semibold text-brand-navy dark:text-slate-100">{toUnit(row.chest)}</td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.waist)}</td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.hips)}</td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.sleeve)}</td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.shirt)}</td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.jacket)}</td>
-                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.trouser)}</td>
+                    <td className="py-3 px-4 font-semibold text-brand-navy dark:text-slate-100">{toUnit(row.chest)}</td>
+                    <td className="py-3 px-4 text-stone-700 dark:text-slate-300">{toUnit(row.sleeve)}</td>
+                    <td className="py-3 px-4 text-stone-700 dark:text-slate-300">{toUnit(row.stomach)}</td>
+                    <td className="py-3 px-4 text-stone-700 dark:text-slate-300">{toUnit(row.shoulder)}</td>
                     <td className="py-3 px-4 text-right">
                       <button
                         type="button"
@@ -353,14 +345,14 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
           </div>
 
           {/* Visual Inset Banner from Modern Man Kenya Tailoring Guide */}
-          <div className="relative w-full max-w-2xl mx-auto rounded-2xl overflow-hidden border border-brand-gold/30 shadow-lg bg-[#0A1128] p-2">
-            <div className="relative w-full h-44 sm:h-56 rounded-xl overflow-hidden bg-[#0A1128]">
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-brand-gold/40 shadow-xl">
+            <div className="relative w-full aspect-[1440/920]">
               <Image
                 src="/images/measurements/extra-measurements.jpg"
                 alt="Extra Measurements (as needed) - Back Length, Crotch Depth, Inseam"
                 fill
-                sizes="(max-width: 1024px) 100vw, 680px"
-                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 768px"
+                className="object-cover"
               />
             </div>
           </div>
