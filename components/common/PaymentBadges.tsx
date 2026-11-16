@@ -33,14 +33,11 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
           ? 'justify-start' 
           : 'justify-center sm:justify-end'
       }`}>
-        {/* 1. Safaricom Lipa Na M-Pesa - Authentic Brand Logo */}
+        {/* 1. Safaricom M-Pesa - Authentic Brand Logo */}
         <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-emerald-500 transition-colors"
-          title="Safaricom Lipa Na M-Pesa Online (STK Push & Till)"
+          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center shrink-0 hover:border-emerald-500 transition-colors"
+          title="Safaricom M-Pesa Online (STK Push & Till)"
         >
-          <span className="text-[8px] sm:text-[8.5px] font-black tracking-wider text-[#006B35] uppercase whitespace-nowrap">
-            LIPA NA
-          </span>
           <div className="relative h-5 w-14 shrink-0 flex items-center">
             <Image
               src="/mpesa-logo.png"
@@ -52,19 +49,6 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
               priority
             />
           </div>
-        </div>
-
-        {/* 2. Bank Transfer / PesaLink */}
-        <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-stone-50 border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 text-stone-700 hover:border-stone-400 transition-colors"
-          title="Electronic Bank Transfer & PesaLink Real-Time Settlement"
-        >
-          <svg className="w-4 h-4 text-stone-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 2L2 7h20L12 2z" />
-          </svg>
-          <span className="text-[11px] font-bold tracking-wider uppercase text-stone-700 whitespace-nowrap">
-            Bank / EFT
-          </span>
         </div>
 
         {/* 3. Visa */}

@@ -17,7 +17,7 @@ export const JsonLd: React.FC = () => {
         telephone: '+254114122510',
         priceRange: 'KES 18,000 - 200,000',
         currenciesAccepted: 'KES, USD, EUR, GBP',
-        paymentAccepted: 'Cash, Credit Card, M-Pesa, Bank Transfer',
+        paymentAccepted: 'Cash, Credit Card, M-Pesa',
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Nairobi Flagship Atelier',
