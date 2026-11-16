@@ -220,10 +220,10 @@ export function LuxuryCalendarPicker({
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-white to-amber-50/20 rounded-2xl border border-brand-gold/30 shadow-xl overflow-hidden">
+    <div className="w-full bg-gradient-to-b from-white to-amber-50/20 dark:from-[#121727] dark:to-[#0c101c] rounded-2xl border border-brand-gold/30 dark:border-slate-800 shadow-xl overflow-hidden">
       
       {/* Luxury Gold & Navy Crown Header */}
-      <div className="bg-brand-navy p-5 sm:p-6 text-white border-b-2 border-brand-gold relative overflow-hidden">
+      <div className="bg-brand-navy dark:bg-[#0c101c] p-5 sm:p-6 text-white border-b-2 border-brand-gold relative overflow-hidden">
         {/* Subtle Background Monogram Accent */}
         <div className="absolute -right-6 -bottom-8 opacity-10 pointer-events-none select-none text-white font-serif text-9xl font-bold">
           MM
@@ -274,11 +274,11 @@ export function LuxuryCalendarPicker({
       </div>
 
       {/* Calendar Body */}
-      <div className="p-4 sm:p-6 space-y-4">
+      <div className="p-4 sm:p-6 space-y-4 bg-white dark:bg-[#121727]">
         
         {/* Weekdays Row: Strict 7 Columns via explicit CSS grid */}
         <div 
-          className="w-full pb-2 border-b border-slate-100"
+          className="w-full pb-2 border-b border-slate-100 dark:border-slate-800"
           style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(7, minmax(0, 1fr))',
@@ -310,7 +310,7 @@ export function LuxuryCalendarPicker({
               return (
                 <div
                   key={index}
-                  className="aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex items-center justify-center text-xs text-slate-300 select-none opacity-20 border border-transparent"
+                  className="aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex items-center justify-center text-xs text-slate-300 dark:text-slate-600 select-none opacity-20 border border-transparent"
                 >
                   {slot.day}
                 </div>
@@ -322,7 +322,7 @@ export function LuxuryCalendarPicker({
               return (
                 <div
                   key={index}
-                  className="aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex flex-col items-center justify-center text-xs text-slate-300 bg-slate-50/60 border border-slate-100 select-none cursor-not-allowed line-through decoration-slate-300"
+                  className="aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex flex-col items-center justify-center text-xs text-slate-300 dark:text-slate-600 bg-slate-50/60 dark:bg-[#161e32]/40 border border-slate-100 dark:border-slate-800 select-none cursor-not-allowed line-through decoration-slate-300 dark:decoration-slate-600"
                   title="Past Date"
                 >
                   {slot.day}
@@ -342,13 +342,13 @@ export function LuxuryCalendarPicker({
                 onClick={() => handleSelect(slot.dateString)}
                 className={`aspect-square min-h-[42px] sm:min-h-[48px] rounded-xl flex flex-col items-center justify-center text-sm font-semibold transition-all duration-200 relative group ${
                   slot.isSelected
-                    ? 'bg-brand-navy text-white border-2 border-brand-gold shadow-[0_6px_20px_rgba(27,20,100,0.35)] scale-105 z-10'
+                    ? 'bg-brand-navy dark:bg-brand-gold text-white dark:text-brand-navy border-2 border-brand-gold dark:border-brand-gold-light shadow-[0_6px_20px_rgba(27,20,100,0.35)] scale-105 z-10'
                     : isFullDay
-                    ? 'bg-rose-50/70 text-slate-700 border border-rose-200 hover:border-rose-300'
-                    : 'text-brand-navy bg-white hover:bg-amber-50/80 border border-slate-200 hover:border-brand-gold/60 shadow-xs hover:shadow hover:scale-[1.03]'
+                    ? 'bg-rose-50/70 dark:bg-rose-950/30 text-slate-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900 hover:border-rose-300'
+                    : 'text-brand-navy dark:text-slate-200 bg-white dark:bg-[#161e32] hover:bg-amber-50/80 dark:hover:bg-[#1a233a] border border-slate-200 dark:border-slate-700 hover:border-brand-gold/60 dark:hover:border-brand-gold/60 shadow-xs hover:shadow hover:scale-[1.03]'
                 }`}
               >
-                <span className={`leading-none ${slot.isSelected ? 'text-brand-gold font-bold text-base sm:text-lg' : isFullDay ? 'text-rose-900 font-bold' : 'text-slate-800'}`}>
+                <span className={`leading-none ${slot.isSelected ? 'text-brand-gold dark:text-brand-navy font-bold text-base sm:text-lg' : isFullDay ? 'text-rose-900 dark:text-rose-300 font-bold' : 'text-slate-800 dark:text-slate-200'}`}>
                   {slot.day}
                 </span>
 
@@ -359,11 +359,11 @@ export function LuxuryCalendarPicker({
 
                 {/* Golden Badge on Selected Day */}
                 {slot.isSelected ? (
-                  <span className="text-[8px] uppercase tracking-widest text-brand-gold font-extrabold mt-0.5 leading-none">
+                  <span className="text-[8px] uppercase tracking-widest text-brand-gold dark:text-brand-navy font-extrabold mt-0.5 leading-none">
                     FITTING
                   </span>
                 ) : isFullDay ? (
-                  <span className="text-[8px] font-bold text-rose-600 uppercase tracking-wider mt-0.5 leading-none">
+                  <span className="text-[8px] font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider mt-0.5 leading-none">
                     FULL
                   </span>
                 ) : bookedCount > 0 ? (
@@ -380,7 +380,7 @@ export function LuxuryCalendarPicker({
         </div>
 
         {/* Quick Executive Preset Buttons */}
-        <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
+        <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2.5">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mr-1">
               Shortcuts:
@@ -388,28 +388,28 @@ export function LuxuryCalendarPicker({
             <button
               type="button"
               onClick={() => selectQuickOffset(1)}
-              className="px-3 py-1.5 rounded-full bg-white hover:bg-brand-navy hover:text-white text-slate-700 text-xs font-semibold transition-all border border-slate-200 hover:border-brand-navy shadow-sm"
+              className="px-3 py-1.5 rounded-full bg-white dark:bg-[#161e32] hover:bg-brand-navy dark:hover:bg-brand-gold hover:text-white dark:hover:text-brand-navy text-slate-700 dark:text-slate-200 text-xs font-semibold transition-all border border-slate-200 dark:border-slate-700 hover:border-brand-navy shadow-sm"
             >
               Tomorrow
             </button>
             <button
               type="button"
               onClick={() => selectQuickOffset(3)}
-              className="px-3 py-1.5 rounded-full bg-white hover:bg-brand-navy hover:text-white text-slate-700 text-xs font-semibold transition-all border border-slate-200 hover:border-brand-navy shadow-sm"
+              className="px-3 py-1.5 rounded-full bg-white dark:bg-[#161e32] hover:bg-brand-navy dark:hover:bg-brand-gold hover:text-white dark:hover:text-brand-navy text-slate-700 dark:text-slate-200 text-xs font-semibold transition-all border border-slate-200 dark:border-slate-700 hover:border-brand-navy shadow-sm"
             >
               In 3 Days
             </button>
             <button
               type="button"
               onClick={selectNextSaturday}
-              className="px-3 py-1.5 rounded-full bg-white hover:bg-brand-navy hover:text-white text-slate-700 text-xs font-semibold transition-all border border-slate-200 hover:border-brand-navy shadow-sm"
+              className="px-3 py-1.5 rounded-full bg-white dark:bg-[#161e32] hover:bg-brand-navy dark:hover:bg-brand-gold hover:text-white dark:hover:text-brand-navy text-slate-700 dark:text-slate-200 text-xs font-semibold transition-all border border-slate-200 dark:border-slate-700 hover:border-brand-navy shadow-sm"
             >
               This Saturday
             </button>
           </div>
 
           {/* Active Status Badge */}
-          <div className="flex items-center space-x-1.5 text-xs text-brand-navy bg-amber-50 px-3 py-1.5 rounded-full border border-brand-gold/40">
+          <div className="flex items-center space-x-1.5 text-xs text-brand-navy dark:text-brand-gold bg-amber-50 dark:bg-[#182238] px-3 py-1.5 rounded-full border border-brand-gold/40 dark:border-slate-700">
             <Check className="w-3.5 h-3.5 text-brand-gold stroke-[3]" />
             <span className="font-serif font-bold">
               {formatFriendlyDate(selectedDate)}

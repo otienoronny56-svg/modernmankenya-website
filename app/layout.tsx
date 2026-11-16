@@ -141,7 +141,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-white dark:bg-[#0A0A0F] text-brand-slate dark:text-slate-100 antialiased selection:bg-brand-gold selection:text-brand-navy">
+      <body className="min-h-screen bg-white dark:bg-[#0c101c] text-brand-slate dark:text-slate-100 antialiased selection:bg-brand-gold selection:text-brand-navy">
         <JsonLd />
         <GoogleAnalytics />
         <ClientLayout hasBypass={hasBypass}>{children}</ClientLayout>

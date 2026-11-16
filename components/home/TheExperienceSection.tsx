@@ -34,7 +34,7 @@ const STEPS = [
 
 export const TheExperienceSection: React.FC = () => {
   return (
-    <section id="the-experience" className="py-14 sm:py-20 bg-brand-canvas-alt border-b border-slate-200/80 relative">
+    <section id="the-experience" className="py-14 sm:py-20 bg-brand-canvas-alt dark:bg-[#0f1424] border-b border-slate-200/80 dark:border-slate-800 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Simple Header */}
@@ -42,7 +42,7 @@ export const TheExperienceSection: React.FC = () => {
           <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
             How It Works
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy dark:text-white font-bold tracking-tight">
             How We Tailor Your Suit
           </h2>
         </div>
@@ -52,16 +52,16 @@ export const TheExperienceSection: React.FC = () => {
           {STEPS.map((s) => (
             <div
               key={s.step}
-              className="bg-white p-5 sm:p-6 rounded-xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white dark:bg-[#121727] p-5 sm:p-6 rounded-xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-brand-gold/80 dark:hover:border-brand-gold/80 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 <span className="font-mono text-2xl font-bold text-brand-gold block mb-3">
                   {s.step}
                 </span>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors mb-2">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy dark:text-white group-hover:text-brand-gold transition-colors mb-2">
                   {s.title}
                 </h3>
-                <p className="text-xs text-slate-500 font-light leading-relaxed">
+                <p className="text-xs text-slate-500 dark:text-slate-300 font-light leading-relaxed">
                   {s.text}
                 </p>
               </div>
@@ -73,9 +73,9 @@ export const TheExperienceSection: React.FC = () => {
         <div className="text-center">
           <Link
             href="/book-appointment"
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-lg bg-brand-navy hover:bg-brand-gold hover:text-brand-navy text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm group"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-lg bg-brand-navy dark:bg-brand-gold hover:bg-brand-gold dark:hover:bg-brand-gold-light hover:text-brand-navy dark:hover:text-brand-navy text-white dark:text-brand-navy text-xs font-bold uppercase tracking-wider transition-all shadow-sm group"
           >
-            <Calendar className="w-4 h-4 text-brand-gold group-hover:text-brand-navy transition-colors" />
+            <Calendar className="w-4 h-4 text-brand-gold dark:text-brand-navy group-hover:text-brand-navy transition-colors" />
             <span>Book a Fitting in Nairobi</span>
             <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </Link>

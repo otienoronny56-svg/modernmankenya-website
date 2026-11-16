@@ -8,9 +8,9 @@ import { BRAND_PROFILE } from '@/data/brandProfile';
 
 export const AtelierInvitation: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 bg-white relative">
+    <section className="py-14 sm:py-20 bg-white dark:bg-[#0c101c] relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-stone-900 rounded-2xl overflow-hidden shadow-xl border border-brand-gold/40 grid grid-cols-1 lg:grid-cols-12 text-white">
+        <div className="bg-stone-900 dark:bg-[#121727] rounded-2xl overflow-hidden shadow-xl border border-brand-gold/40 dark:border-slate-800 grid grid-cols-1 lg:grid-cols-12 text-white">
           
           {/* Left Visual Area with Authentic Modern Man Kenya Shoot Image */}
           <div className="lg:col-span-6 relative min-h-[360px] sm:min-h-[460px] lg:min-h-[500px]">

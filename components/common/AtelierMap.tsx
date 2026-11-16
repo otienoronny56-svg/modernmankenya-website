@@ -26,7 +26,7 @@ export function AtelierMap({
   const embedUrl = 'https://maps.google.com/maps?q=-1.2834854,36.8187773(Modern%20Man%20Kenya)&t=&z=17&ie=UTF8&iwloc=B&output=embed';
 
   return (
-    <div className={`w-full rounded-2xl overflow-hidden border border-brand-gold/30 shadow-xl bg-white ${className}`}>
+    <div className={`w-full rounded-2xl overflow-hidden border border-brand-gold/30 dark:border-slate-800 shadow-xl bg-white dark:bg-[#121727] ${className}`}>
       
       {/* Top Header Bar */}
       <div className="bg-brand-navy p-4 sm:p-5 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b-2 border-brand-gold">
@@ -61,7 +61,7 @@ export function AtelierMap({
       </div>
 
       {/* Interactive Map Embed Container */}
-      <div className="relative w-full h-[320px] sm:h-[400px] bg-slate-100 overflow-hidden">
+      <div className="relative w-full h-[320px] sm:h-[400px] bg-slate-100 dark:bg-[#0c101c] overflow-hidden">
         <iframe
           title="Modern Man Kenya Atelier Google Maps Location"
           src={embedUrl}
@@ -83,37 +83,37 @@ export function AtelierMap({
 
       {/* Optional Details Footer Strip */}
       {showDetailsCard && (
-        <div className="p-4 sm:p-5 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-700">
+        <div className="p-4 sm:p-5 bg-gradient-to-b from-slate-50 to-white dark:from-[#151c2e] dark:to-[#101524] border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-700 dark:text-slate-300">
           
           <div className="flex items-start space-x-2.5">
             <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-brand-navy uppercase tracking-wider text-[10px]">
+              <p className="font-bold text-brand-navy dark:text-brand-gold uppercase tracking-wider text-[10px]">
                 Atelier Address
               </p>
-              <p className="text-slate-600 font-medium">Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi</p>
-              <p className="text-[11px] text-slate-400">Valet & Executive Parking Available</p>
+              <p className="text-slate-600 dark:text-slate-300 font-medium">Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi</p>
+              <p className="text-[11px] text-slate-400 dark:text-slate-400">Valet & Executive Parking Available</p>
             </div>
           </div>
 
           <div className="flex items-start space-x-2.5">
             <Clock className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-brand-navy uppercase tracking-wider text-[10px]">
+              <p className="font-bold text-brand-navy dark:text-brand-gold uppercase tracking-wider text-[10px]">
                 Consultation Hours
               </p>
-              <p className="text-slate-600 font-medium">Tuesday – Saturday: 09:30 – 18:30</p>
-              <p className="text-[11px] text-slate-400">By Private Appointment Only</p>
+              <p className="text-slate-600 dark:text-slate-300 font-medium">Tuesday – Saturday: 09:30 – 18:30</p>
+              <p className="text-[11px] text-slate-400 dark:text-slate-400">By Private Appointment Only</p>
             </div>
           </div>
 
           <div className="flex items-start space-x-2.5">
             <ShieldCheck className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-brand-navy uppercase tracking-wider text-[10px]">
+              <p className="font-bold text-brand-navy dark:text-brand-gold uppercase tracking-wider text-[10px]">
                 Customer Assistance
               </p>
-              <a href="tel:+254114122510" className="text-slate-600 hover:text-brand-navy font-medium block">
+              <a href="tel:+254114122510" className="text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-white font-medium block">
                 0114 122 510 / +254 114 122 510
               </a>
               <a 

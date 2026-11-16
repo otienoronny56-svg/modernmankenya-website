@@ -43,7 +43,7 @@ const OCCASION_CARDS: OccasionCard[] = [
 
 export const OccasionsSection: React.FC = () => {
   return (
-    <section id="occasions" className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative">
+    <section id="occasions" className="py-14 sm:py-20 bg-white dark:bg-[#0f1424] border-b border-slate-200/80 dark:border-slate-800 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header with Direct Link to All Occasions */}
@@ -52,13 +52,13 @@ export const OccasionsSection: React.FC = () => {
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
               Tailored For You
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy dark:text-white font-bold tracking-tight">
               Suits for Every Occasion
             </h2>
           </div>
           <Link
             href="/occasions"
-            className="inline-flex items-center space-x-2 text-xs uppercase tracking-widest font-bold text-brand-navy hover:text-brand-gold transition-colors pb-1 border-b border-brand-gold/60"
+            className="inline-flex items-center space-x-2 text-xs uppercase tracking-widest font-bold text-brand-navy dark:text-brand-gold hover:text-brand-gold dark:hover:text-amber-300 transition-colors pb-1 border-b border-brand-gold/60"
           >
             <span>Explore All</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -71,15 +71,15 @@ export const OccasionsSection: React.FC = () => {
             <Link
               key={item.id}
               href={item.href}
-              className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
+              className="group bg-white dark:bg-[#121727] rounded-xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-brand-gold/80 dark:hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
             >
               {/* 1. Title on Top of Image */}
-              <div className="px-5 py-3.5 bg-brand-canvas-alt border-b border-slate-200/80 flex items-center justify-between">
+              <div className="px-5 py-3.5 bg-brand-canvas-alt dark:bg-[#161e32] border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors">
+                  <h3 className="font-serif text-lg font-bold text-brand-navy dark:text-white group-hover:text-brand-gold transition-colors">
                     {item.title}
                   </h3>
-                  <span className="text-[11px] text-slate-500 font-medium block">
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium block">
                     {item.sub}
                   </span>
                 </div>
@@ -98,11 +98,11 @@ export const OccasionsSection: React.FC = () => {
               </div>
 
               {/* 3. Bottom: Book for [Occasion] with Arrow */}
-              <div className="p-4 sm:p-5 flex items-center justify-between bg-white group-hover:bg-slate-50 transition-colors border-t border-slate-100">
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-navy group-hover:text-brand-gold transition-colors">
+              <div className="p-4 sm:p-5 flex items-center justify-between bg-white dark:bg-[#121727] group-hover:bg-slate-50 dark:group-hover:bg-[#161e32] transition-colors border-t border-slate-100 dark:border-slate-800">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-navy dark:text-slate-200 group-hover:text-brand-gold transition-colors">
                   View Lookbook
                 </span>
-                <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-brand-gold group-hover:text-brand-navy text-slate-600 flex items-center justify-center transition-all duration-200 flex-shrink-0 ml-3">
+                <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-brand-gold group-hover:text-brand-navy text-slate-600 dark:text-slate-300 flex items-center justify-center transition-all duration-200 flex-shrink-0 ml-3">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>

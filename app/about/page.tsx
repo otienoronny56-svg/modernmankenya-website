@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-[#0c101c] text-stone-900 dark:text-slate-100">
       {/* 1. Grand Editorial Hero with Brand Ethos */}
       <AboutHero />
 

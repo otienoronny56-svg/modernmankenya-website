@@ -8,7 +8,7 @@ import { WHAT_WE_CREATE } from '@/data/brandProfile';
 
 export const WhatWeCreateSection: React.FC = () => {
   return (
-    <section id="creations" className="py-14 sm:py-20 bg-brand-canvas-alt border-b border-slate-200/80 relative">
+    <section id="creations" className="py-14 sm:py-20 bg-brand-canvas-alt dark:bg-[#0c101c] border-b border-slate-200/80 dark:border-slate-800 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Simple English Clean Header */}
@@ -16,7 +16,7 @@ export const WhatWeCreateSection: React.FC = () => {
           <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
             Our Creations
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy dark:text-white font-bold tracking-tight">
             What We Make
           </h2>
         </div>
@@ -27,7 +27,7 @@ export const WhatWeCreateSection: React.FC = () => {
             <Link
               key={item.id}
               href={`/gallery?category=${item.categoryParam}`}
-              className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
+              className="group bg-white dark:bg-[#121727] rounded-xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-brand-gold/80 dark:hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
             >
               {/* Visual Garment Image */}
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-stone-900">
@@ -56,11 +56,11 @@ export const WhatWeCreateSection: React.FC = () => {
               </div>
 
               {/* Clean Bottom Label Bar - Just Title & Arrow Link */}
-              <div className="p-4 sm:p-5 flex items-center justify-between bg-white group-hover:bg-slate-50 transition-colors">
-                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors">
+              <div className="p-4 sm:p-5 flex items-center justify-between bg-white dark:bg-[#121727] group-hover:bg-slate-50 dark:group-hover:bg-[#161e32] transition-colors">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy dark:text-slate-100 group-hover:text-brand-gold transition-colors">
                   {item.title}
                 </h3>
-                <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-brand-gold group-hover:text-brand-navy text-slate-600 flex items-center justify-center transition-all duration-200 flex-shrink-0 ml-3">
+                <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-brand-gold group-hover:text-brand-navy text-slate-600 dark:text-slate-300 flex items-center justify-center transition-all duration-200 flex-shrink-0 ml-3">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>

@@ -36,11 +36,11 @@ export const ArtisanDisciplinesSection: React.FC = () => {
   ];
 
   return (
-    <section id="craft-standards" className="py-12 sm:py-16 bg-brand-canvas-alt dark:bg-[#0c0d14] border-b border-slate-200/80 dark:border-stone-800 relative">
+    <section id="craft-standards" className="pt-10 pb-8 sm:pt-14 sm:pb-10 bg-brand-canvas-alt dark:bg-[#0c101c] border-b border-slate-200/80 dark:border-slate-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-2.5">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-2.5">
           <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
             <Users className="w-4 h-4" />
             <span>Master Craftsmen & Roles</span>
@@ -61,7 +61,7 @@ export const ArtisanDisciplinesSection: React.FC = () => {
             return (
               <div
                 key={d.title}
-                className="bg-white dark:bg-[#1A1C27] p-6 sm:p-7 rounded-xl border border-slate-200/80 dark:border-stone-800 hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-luxury"
+                className="bg-white dark:bg-[#121727] p-6 sm:p-7 rounded-xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-luxury"
               >
                 <div className="space-y-3.5">
                   <div className="flex items-center justify-between">
@@ -85,7 +85,7 @@ export const ArtisanDisciplinesSection: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-stone-800 flex items-center space-x-1.5 text-[11px] font-bold text-brand-navy dark:text-brand-gold">
+                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center space-x-1.5 text-[11px] font-bold text-brand-navy dark:text-brand-gold">
                   <ClipboardCheck className="w-3.5 h-3.5 text-brand-gold" />
                   <span>Verified Standard</span>
                 </div>

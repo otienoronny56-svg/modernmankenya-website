@@ -8,7 +8,7 @@ import { PaymentBadges } from '@/components/common/PaymentBadges';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#FAF8F5] text-stone-700 pt-6 pb-2.5 sm:pt-7 sm:pb-3 border-t border-brand-gold/30 relative">
+    <footer className="bg-[#FAF8F5] dark:bg-[#0c101c] text-stone-700 dark:text-slate-300 pt-6 pb-2.5 sm:pt-7 sm:pb-3 border-t border-brand-gold/30 dark:border-slate-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Minimalist Grid */}
@@ -28,28 +28,20 @@ export const Footer: React.FC = () => {
                   alt="Modern Man Kenya - Opulence • Simplicity • Class"
                   fill
                   sizes="(max-width: 640px) 128px, 144px"
-                  className="object-contain dark:hidden"
-                  priority
-                />
-                <Image
-                  src="/images/logo-dark-mode.png"
-                  alt="Modern Man Kenya - Opulence • Simplicity • Class"
-                  fill
-                  sizes="(max-width: 640px) 128px, 144px"
-                  className="object-contain hidden dark:block"
+                  className="object-contain"
                   priority
                 />
               </div>
             </Link>
 
-            <div className="space-y-2 text-xs text-stone-600">
+            <div className="space-y-2 text-xs text-stone-600 dark:text-slate-400">
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
                 <a
                   href="https://maps.app.goo.gl/FV4B4XcDXLx5DWGj8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-brand-gold transition-colors inline-flex items-center space-x-1"
+                  className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors inline-flex items-center space-x-1 text-stone-600 dark:text-slate-300"
                 >
                   <span>Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi</span>
                   <ExternalLink className="w-3 h-3 text-brand-gold opacity-80 flex-shrink-0" />
@@ -60,20 +52,20 @@ export const Footer: React.FC = () => {
               <div className="flex flex-wrap items-center gap-3 pt-0.5">
                 <a
                   href="tel:+254114122510"
-                  className="inline-flex items-center space-x-1.5 text-stone-700 hover:text-brand-gold transition-colors font-medium group"
+                  className="inline-flex items-center space-x-1.5 text-stone-700 dark:text-slate-200 hover:text-brand-gold dark:hover:text-brand-gold transition-colors font-medium group"
                   title="Call Modern Man Kenya at +254 114 122 510"
                 >
                   <Phone className="w-4 h-4 text-brand-gold flex-shrink-0 group-hover:scale-110 transition-transform" />
                   <span>+254 114 122 510</span>
                 </a>
 
-                <span className="text-stone-300">•</span>
+                <span className="text-stone-300 dark:text-slate-700">•</span>
 
                 <a
                   href="https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya%2C%20I%20would%20like%20to%20inquire%20about%20your%20suits%20and%20tailoring."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1.5 text-emerald-700 hover:text-emerald-800 transition-colors font-medium group"
+                  className="inline-flex items-center space-x-1.5 text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 transition-colors font-medium group"
                   title="Chat with Modern Man Kenya on WhatsApp (0114 122 510)"
                 >
                   <svg
@@ -90,7 +82,7 @@ export const Footer: React.FC = () => {
               {/* Email Address */}
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <a href="mailto:info@modernmanke.com" className="hover:text-stone-900 transition-colors">
+                <a href="mailto:info@modernmanke.com" className="hover:text-stone-900 dark:hover:text-white transition-colors text-stone-600 dark:text-slate-300">
                   info@modernmanke.com
                 </a>
               </div>
@@ -106,7 +98,7 @@ export const Footer: React.FC = () => {
                     href="https://www.instagram.com/modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-pink-600 dark:hover:text-pink-400 hover:border-pink-300 dark:hover:border-pink-500/50 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-200 hover:text-pink-600 dark:hover:text-pink-400 hover:border-pink-300 dark:hover:border-pink-500/50 flex items-center justify-center transition-all shadow-xs group"
                     title="Follow Modern Man on Instagram (@modernmanke)"
                     aria-label="Modern Man Instagram Profile"
                   >
@@ -120,7 +112,7 @@ export const Footer: React.FC = () => {
                     href="https://www.tiktok.com/@modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-black dark:hover:text-white hover:border-stone-400 dark:hover:border-slate-500 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-200 hover:text-black dark:hover:text-white hover:border-stone-400 dark:hover:border-slate-500 flex items-center justify-center transition-all shadow-xs group"
                     title="Follow Modern Man on TikTok (@modernmanke)"
                     aria-label="Modern Man TikTok Profile"
                   >
@@ -134,7 +126,7 @@ export const Footer: React.FC = () => {
                     href="https://www.facebook.com/modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500/50 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500/50 flex items-center justify-center transition-all shadow-xs group"
                     title="Connect with Modern Man Kenya on Facebook"
                     aria-label="Modern Man Facebook Page"
                   >
@@ -148,7 +140,7 @@ export const Footer: React.FC = () => {
                     href="https://x.com/modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-black dark:hover:text-white hover:border-stone-400 dark:hover:border-slate-500 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-200 hover:text-black dark:hover:text-white hover:border-stone-400 dark:hover:border-slate-500 flex items-center justify-center transition-all shadow-xs group"
                     title="Follow Modern Man Kenya on X (@modernmanke)"
                     aria-label="Modern Man X Profile"
                   >
@@ -163,39 +155,39 @@ export const Footer: React.FC = () => {
 
           {/* 2. Occasions (3 cols) */}
           <div className="md:col-span-3 lg:col-span-3 space-y-3">
-            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
-              <Link href="/occasions" className="hover:text-brand-gold transition-colors">
+            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 dark:text-white font-bold">
+              <Link href="/occasions" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                 Occasions
               </Link>
             </h4>
-            <ul className="space-y-2 text-xs text-stone-600">
+            <ul className="space-y-2 text-xs text-stone-600 dark:text-slate-400">
               <li>
-                <Link href="/occasions" className="hover:text-brand-gold transition-colors text-brand-gold font-medium">
+                <Link href="/occasions" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors text-brand-gold font-medium">
                   All Occasions
                 </Link>
               </li>
               <li>
-                <Link href="/occasions/executive-wear" className="hover:text-brand-gold transition-colors">
+                <Link href="/occasions/executive-wear" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Executive Wear
                 </Link>
               </li>
               <li>
-                <Link href="/occasions/black-tie-wedding" className="hover:text-brand-gold transition-colors">
+                <Link href="/occasions/black-tie-wedding" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Black Tie & Wedding
                 </Link>
               </li>
               <li>
-                <Link href="/occasions/african-wear" className="hover:text-brand-gold transition-colors">
+                <Link href="/occasions/african-wear" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   African Wear
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=smart-casual" className="hover:text-brand-gold transition-colors">
+                <Link href="/gallery?category=smart-casual" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Smart Casual & Blazers
                 </Link>
               </li>
               <li>
-                <Link href="/gallery?category=kaftan-agbada" className="hover:text-brand-gold transition-colors">
+                <Link href="/gallery?category=kaftan-agbada" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Kaftans & Agbada
                 </Link>
               </li>
@@ -204,27 +196,27 @@ export const Footer: React.FC = () => {
 
           {/* 3. The Maison (3 cols) */}
           <div className="md:col-span-3 lg:col-span-3 space-y-3">
-            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 font-bold">
+            <h4 className="font-serif text-xs uppercase tracking-wider text-stone-900 dark:text-white font-bold">
               The Maison
             </h4>
-            <ul className="space-y-2 text-xs text-stone-600">
+            <ul className="space-y-2 text-xs text-stone-600 dark:text-slate-400">
               <li>
-                <Link href="/about" className="hover:text-brand-gold transition-colors font-medium">
+                <Link href="/about" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors font-medium">
                   About Modern Man
                 </Link>
               </li>
               <li>
-                <Link href="/reviews" className="hover:text-brand-gold transition-colors font-medium">
+                <Link href="/reviews" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors font-medium">
                   Client Reviews
                 </Link>
               </li>
               <li>
-                <Link href="/journal" className="hover:text-brand-gold transition-colors font-medium">
+                <Link href="/journal" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors font-medium">
                   Sartorial Journal
                 </Link>
               </li>
               <li>
-                <Link href="/services/measurement-guide" className="hover:text-brand-gold transition-colors font-medium">
+                <Link href="/services/measurement-guide" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors font-medium">
                   Tailoring Measurement Guide
                 </Link>
               </li>
@@ -235,22 +227,22 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-brand-gold transition-colors">
+                <Link href="/contact" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-brand-gold transition-colors">
+                <Link href="/privacy" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-brand-gold transition-colors">
+                <Link href="/terms" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="hover:text-brand-gold transition-colors">
+                <Link href="/returns" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
                   Fitting & Returns Policy
                 </Link>
               </li>
@@ -260,17 +252,17 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Secure Payments, M-Pesa Badges, Attribution & Copyright */}
-        <div className="mt-4 pt-3.5 border-t border-stone-200/80 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-stone-500 max-w-full">
+        <div className="mt-4 pt-3.5 border-t border-stone-200/80 dark:border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-stone-500 dark:text-slate-400 max-w-full">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Modern Man Kenya. All rights reserved.</span>
-            <span className="text-stone-300 hidden sm:inline">•</span>
-            <span className="text-stone-600">
+            <span className="text-stone-300 dark:text-slate-700 hidden sm:inline">•</span>
+            <span className="text-stone-600 dark:text-slate-400">
               Designed and engineered by{' '}
               <a
                 href="https://eyelobetech.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-800 hover:text-brand-gold font-medium underline underline-offset-2 transition-colors"
+                className="text-stone-800 dark:text-slate-200 hover:text-brand-gold dark:hover:text-brand-gold font-medium underline underline-offset-2 transition-colors"
               >
                 Eyelobe
               </a>

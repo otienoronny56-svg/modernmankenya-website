@@ -51,7 +51,7 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
 
 export const ReadyToWearSection: React.FC = () => {
   return (
-    <section id="gallery" className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative">
+    <section id="gallery" className="py-14 sm:py-20 bg-white dark:bg-[#0c101c] border-b border-slate-200/80 dark:border-slate-800 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Simple Clean Header */}
@@ -60,14 +60,14 @@ export const ReadyToWearSection: React.FC = () => {
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
               Signature Collection
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy dark:text-white font-bold tracking-tight">
               Curated Ensembles
             </h2>
           </div>
 
           <Link
             href="/ready-to-wear"
-            className="mt-4 sm:mt-0 inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors group"
+            className="mt-4 sm:mt-0 inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-brand-gold hover:text-brand-gold dark:hover:text-amber-300 transition-colors group"
           >
             <span>Explore The Collection</span>
             <ArrowUpRight className="w-4 h-4 text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -80,7 +80,7 @@ export const ReadyToWearSection: React.FC = () => {
             <Link
               key={item.id}
               href={item.href}
-              className="group bg-white rounded-xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
+              className="group bg-white dark:bg-[#121727] rounded-xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-brand-gold/80 dark:hover:border-brand-gold/80 transition-all duration-300 flex flex-col"
             >
               {/* Visual Garment Image with Unique Client Photo */}
               <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden bg-stone-900">
@@ -107,16 +107,16 @@ export const ReadyToWearSection: React.FC = () => {
               </div>
 
               {/* Clean Bottom Label Bar */}
-              <div className="p-4 sm:p-5 flex items-center justify-between bg-white group-hover:bg-slate-50 transition-colors">
+              <div className="p-4 sm:p-5 flex items-center justify-between bg-white dark:bg-[#121727] group-hover:bg-slate-50 dark:group-hover:bg-[#161e32] transition-colors">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-brand-gold block mb-0.5">
                     {item.category}
                   </span>
-                  <h3 className="font-serif text-sm sm:text-base font-bold text-brand-navy group-hover:text-brand-gold transition-colors leading-snug line-clamp-1">
+                  <h3 className="font-serif text-sm sm:text-base font-bold text-brand-navy dark:text-slate-100 group-hover:text-brand-gold transition-colors leading-snug line-clamp-1">
                     {item.name}
                   </h3>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-brand-gold group-hover:text-brand-navy text-slate-600 flex items-center justify-center transition-all duration-200 flex-shrink-0 ml-3">
+                <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 group-hover:bg-brand-gold group-hover:text-brand-navy text-slate-600 dark:text-slate-300 flex items-center justify-center transition-all duration-200 flex-shrink-0 ml-3">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>

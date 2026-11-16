@@ -29,7 +29,7 @@ const CRAFT_POINTS = [
 
 export const CraftsmanshipSection: React.FC = () => {
   return (
-    <section id="craftsmanship" className="py-14 sm:py-20 bg-white border-b border-slate-200/80 relative">
+    <section id="craftsmanship" className="py-14 sm:py-20 bg-white dark:bg-[#0c101c] border-b border-slate-200/80 dark:border-slate-800 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Simple Header */}
@@ -37,7 +37,7 @@ export const CraftsmanshipSection: React.FC = () => {
           <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
             Tailoring Quality
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy dark:text-white font-bold tracking-tight">
             How We Build Your Suit
           </h2>
         </div>
@@ -46,7 +46,7 @@ export const CraftsmanshipSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Real Workshop Craft Image - Uncropped Portrait View */}
-          <div className="lg:col-span-5 relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-stone-900">
+          <div className="lg:col-span-5 relative aspect-[3/4] sm:aspect-[4/5] rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 bg-stone-900">
             <Image
               src="/images/_MG_3310.jpg"
               alt="Tailoring craftsmanship at Modern Man Kenya"
@@ -67,15 +67,15 @@ export const CraftsmanshipSection: React.FC = () => {
               return (
                 <div
                   key={pt.title}
-                  className="bg-brand-canvas-alt p-5 sm:p-6 rounded-xl border border-slate-200/90 shadow-sm hover:border-brand-gold/80 transition-all flex flex-col justify-between"
+                  className="bg-brand-canvas-alt dark:bg-[#121727] p-5 sm:p-6 rounded-xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:border-brand-gold/80 dark:hover:border-brand-gold/80 transition-all flex flex-col justify-between"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-brand-navy dark:bg-[#182238] text-white flex items-center justify-center mb-3 border dark:border-slate-700">
                     <Icon className="w-5 h-5 text-brand-gold" />
                   </div>
-                  <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy mb-1">
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy dark:text-white mb-1">
                     {pt.title}
                   </h3>
-                  <p className="text-xs text-slate-600 font-light leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 font-light leading-relaxed">
                     {pt.text}
                   </p>
                 </div>

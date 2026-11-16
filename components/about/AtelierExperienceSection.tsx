@@ -40,8 +40,8 @@ export const AtelierExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-white dark:bg-[#12131A] border-t border-slate-100 dark:border-stone-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+    <section className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-white dark:bg-[#0f1424] border-t border-slate-100 dark:border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         
         {/* Top Header */}
         <div className="text-center max-w-3xl mx-auto space-y-2.5">
@@ -63,7 +63,7 @@ export const AtelierExperienceSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-brand-canvas-alt dark:bg-[#1A1C27] border border-brand-gold/20 dark:border-stone-800 p-6 rounded-xl space-y-3 hover:border-brand-gold hover:shadow-luxury transition-all"
+                className="bg-brand-canvas-alt dark:bg-[#121727] border border-brand-gold/20 dark:border-slate-800 p-6 rounded-xl space-y-3 hover:border-brand-gold hover:shadow-luxury transition-all"
               >
                 <div className="w-10 h-10 rounded-full bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center mb-2">
                   <Icon className="w-5 h-5" />

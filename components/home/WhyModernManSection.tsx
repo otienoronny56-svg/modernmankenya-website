@@ -29,7 +29,7 @@ const REASONS = [
 
 export const WhyModernManSection: React.FC = () => {
   return (
-    <section id="why-us" className="py-14 sm:py-20 bg-brand-canvas-alt border-b border-slate-200/80 relative">
+    <section id="why-us" className="py-14 sm:py-20 bg-brand-canvas-alt dark:bg-[#0f1424] border-b border-slate-200/80 dark:border-slate-800 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Simple Header */}
@@ -37,7 +37,7 @@ export const WhyModernManSection: React.FC = () => {
           <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-brand-gold font-bold block mb-2">
             Why Choose Us
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy font-bold tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-navy dark:text-white font-bold tracking-tight">
             Why Modern Man Kenya
           </h2>
         </div>
@@ -47,16 +47,16 @@ export const WhyModernManSection: React.FC = () => {
           {REASONS.map((r) => (
             <div
               key={r.num}
-              className="bg-white p-6 rounded-xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-gold/80 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white dark:bg-[#121727] p-6 rounded-xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-brand-gold/80 dark:hover:border-brand-gold/80 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 <span className="font-mono text-2xl font-bold text-brand-gold block mb-3">
                   {r.num}
                 </span>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors mb-2">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-brand-navy dark:text-white group-hover:text-brand-gold transition-colors mb-2">
                   {r.title}
                 </h3>
-                <p className="text-xs text-slate-500 font-light leading-relaxed">
+                <p className="text-xs text-slate-500 dark:text-slate-300 font-light leading-relaxed">
                   {r.text}
                 </p>
               </div>

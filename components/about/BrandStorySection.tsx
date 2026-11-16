@@ -18,11 +18,11 @@ import { BRAND_PROFILE, CORE_VALUES } from '@/data/brandProfile';
 
 export const BrandStorySection: React.FC = () => {
   return (
-    <section id="philosophy" className="py-12 sm:py-16 bg-white dark:bg-[#12131A] border-b border-slate-100 dark:border-stone-800 relative">
+    <section id="philosophy" className="py-10 sm:py-14 bg-white dark:bg-[#0c101c] border-b border-slate-100 dark:border-slate-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Story Narrative: Genesis & Philosophy */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10 pb-10 border-b border-slate-100 dark:border-stone-800">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-8 pb-8 border-b border-slate-100 dark:border-slate-800">
           
           {/* Left Text Narrative */}
           <div className="lg:col-span-7 space-y-5">
@@ -60,7 +60,7 @@ export const BrandStorySection: React.FC = () => {
 
             {/* The 3 Pillars of The Modern Man */}
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="p-4 rounded-xl bg-brand-canvas-alt dark:bg-[#1A1C27] border border-brand-gold/25 space-y-1.5">
+              <div className="p-4 rounded-xl bg-brand-canvas-alt dark:bg-[#121727] border border-brand-gold/25 dark:border-slate-800 space-y-1.5">
                 <div className="w-8 h-8 rounded-full bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-bold text-xs mb-2">
                   01
                 </div>
@@ -72,7 +72,7 @@ export const BrandStorySection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-brand-canvas-alt dark:bg-[#1A1C27] border border-brand-gold/25 space-y-1.5">
+              <div className="p-4 rounded-xl bg-brand-canvas-alt dark:bg-[#121727] border border-brand-gold/25 dark:border-slate-800 space-y-1.5">
                 <div className="w-8 h-8 rounded-full bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-bold text-xs mb-2">
                   02
                 </div>
@@ -84,7 +84,7 @@ export const BrandStorySection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-brand-canvas-alt dark:bg-[#1A1C27] border border-brand-gold/25 space-y-1.5">
+              <div className="p-4 rounded-xl bg-brand-canvas-alt dark:bg-[#121727] border border-brand-gold/25 dark:border-slate-800 space-y-1.5">
                 <div className="w-8 h-8 rounded-full bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-bold text-xs mb-2">
                   03
                 </div>
@@ -117,7 +117,7 @@ export const BrandStorySection: React.FC = () => {
                 Est. 2020 • Nairobi Atelier
               </div>
 
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 dark:bg-[#12131A]/95 backdrop-blur-md border border-brand-gold/40 text-brand-navy dark:text-white flex items-center justify-between shadow-lg">
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 dark:bg-[#121727]/95 backdrop-blur-md border border-brand-gold/40 text-brand-navy dark:text-white flex items-center justify-between shadow-lg">
                 <div>
                   <p className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold">
                     The Modern Man Creed
@@ -136,7 +136,7 @@ export const BrandStorySection: React.FC = () => {
         </div>
 
         {/* Full-Width Signature Climax Motto Callout - Beautifully Proportionate */}
-        <div className="mb-10 p-5 sm:p-7 rounded-2xl bg-brand-navy text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-brand-gold/40 shadow-lg">
+        <div className="mb-8 p-5 sm:p-6 rounded-2xl bg-brand-navy text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-brand-gold/40 shadow-lg">
           <div className="space-y-1 text-center sm:text-left">
             <span className="text-[10px] uppercase font-bold tracking-[0.25em] text-brand-gold">
               Our Hallmark • Est. 2020
@@ -156,8 +156,8 @@ export const BrandStorySection: React.FC = () => {
         </div>
 
         {/* Vision & Mission Strip */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 pb-10 border-b border-slate-100 dark:border-stone-800">
-          <div className="p-6 sm:p-8 bg-brand-canvas-alt dark:bg-[#1A1C27] rounded-xl border border-slate-200/80 dark:border-stone-800 space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 pb-8 border-b border-slate-100 dark:border-slate-800">
+          <div className="p-6 sm:p-7 bg-brand-canvas-alt dark:bg-[#121727] rounded-xl border border-slate-200/80 dark:border-slate-800 space-y-3">
             <div className="flex items-center space-x-2 text-brand-navy dark:text-brand-gold">
               <Compass className="w-5 h-5 text-brand-gold" />
               <h3 className="font-serif text-xl font-bold uppercase tracking-wide text-brand-navy dark:text-white">Our Vision</h3>
@@ -167,7 +167,7 @@ export const BrandStorySection: React.FC = () => {
             </p>
           </div>
 
-          <div className="p-6 sm:p-8 bg-brand-canvas-alt dark:bg-[#1A1C27] rounded-xl border border-slate-200/80 dark:border-stone-800 space-y-3">
+          <div className="p-6 sm:p-7 bg-brand-canvas-alt dark:bg-[#121727] rounded-xl border border-slate-200/80 dark:border-slate-800 space-y-3">
             <div className="flex items-center space-x-2 text-brand-navy dark:text-brand-gold">
               <Target className="w-5 h-5 text-brand-gold" />
               <h3 className="font-serif text-xl font-bold uppercase tracking-wide text-brand-navy dark:text-white">Our Mission</h3>
@@ -193,7 +193,7 @@ export const BrandStorySection: React.FC = () => {
             {CORE_VALUES.map((val, idx) => (
               <div
                 key={val.title}
-                className="p-5 bg-white dark:bg-[#1A1C27] rounded-xl border border-slate-200/80 dark:border-stone-800 hover:border-brand-gold/60 transition-colors space-y-2 group shadow-sm flex flex-col justify-between"
+                className="p-5 bg-white dark:bg-[#121727] rounded-xl border border-slate-200/80 dark:border-slate-800 hover:border-brand-gold/60 transition-colors space-y-2 group shadow-sm flex flex-col justify-between"
               >
                 <div className="space-y-2">
                   <div className="text-[11px] font-mono font-bold text-brand-gold/60 group-hover:text-brand-gold transition-colors">

@@ -480,31 +480,31 @@ export default function ClientDashboardPage() {
   const previousOrders = orders.filter((o) => o.fulfillment_status === 'delivered' || o.fulfillment_status === 'cancelled');
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#0c0d14] py-8 sm:py-12">
+    <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#0c101c] py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
         {/* Top Header Card */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 shadow-luxury p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div className="bg-white dark:bg-[#121727] rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-luxury p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="flex items-start sm:items-center space-x-4">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-navy text-brand-gold flex items-center justify-center flex-shrink-0 border-2 border-brand-gold shadow-md font-serif text-xl sm:text-2xl font-bold">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center flex-shrink-0 border-2 border-brand-gold shadow-md font-serif text-xl sm:text-2xl font-bold">
               {fullName ? fullName.charAt(0).toUpperCase() : user.email?.charAt(0).toUpperCase()}
             </div>
             <div className="space-y-1">
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
+                <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy dark:text-white">
                   {fullName || 'Modern Gentleman'}
                 </h1>
-                <span className="px-2.5 py-0.5 rounded-full bg-brand-gold/20 text-brand-navy text-[10px] font-bold uppercase tracking-luxury border border-brand-gold/40">
+                <span className="px-2.5 py-0.5 rounded-full bg-brand-gold/20 text-brand-navy dark:text-brand-gold text-[10px] font-bold uppercase tracking-luxury border border-brand-gold/40">
                   Atelier Patron
                 </span>
                 {twoFactorStatus.enabled && (
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold flex items-center space-x-1 border border-emerald-200">
-                    <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold flex items-center space-x-1 border border-emerald-200 dark:border-emerald-800/60">
+                    <ShieldCheck className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                     <span>2FA Protected</span>
                   </span>
                 )}
               </div>
-              <div className="text-xs text-slate-500 flex flex-wrap items-center gap-x-4 gap-y-1">
+              <div className="text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span>{user.email}</span>
                 {phone && <span>• {phone}</span>}
                 <span>• Client Ref: MMK-{user.id.slice(0, 8).toUpperCase()}</span>
@@ -512,24 +512,24 @@ export default function ClientDashboardPage() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
+          <div className="flex flex-wrap items-center gap-2.5 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100 dark:border-slate-800">
             <Link
               href="/book-appointment"
-              className="px-4 py-2 rounded-xl bg-brand-gold text-brand-navy text-xs font-bold uppercase tracking-wider hover:bg-brand-gold-light transition-all shadow-xs flex items-center space-x-1.5"
+              className="px-4 py-2 rounded-xl bg-brand-gold hover:bg-brand-gold-light text-brand-navy text-xs font-bold uppercase tracking-wider transition-all shadow-xs flex items-center space-x-1.5"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>Book Atelier Fitting</span>
             </Link>
             <Link
               href="/ready-to-wear"
-              className="px-4 py-2 rounded-xl bg-brand-navy text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-900 transition-all shadow-xs flex items-center space-x-1.5"
+              className="px-4 py-2 rounded-xl bg-brand-navy dark:bg-slate-800 text-white dark:text-slate-100 text-xs font-bold uppercase tracking-wider hover:bg-slate-900 dark:hover:bg-slate-700 transition-all shadow-xs flex items-center space-x-1.5"
             >
               <ShoppingBag className="w-3.5 h-3.5 text-brand-gold" />
               <span>Order Ensembles</span>
             </Link>
             <button
               onClick={signOut}
-              className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-colors"
+              className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-slate-800 rounded-xl transition-colors"
               title="Sign Out"
             >
               <LogOut className="w-4 h-4" />
@@ -539,25 +539,25 @@ export default function ClientDashboardPage() {
 
         {/* Global Feedback Alert */}
         {saveSuccess && (
-          <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center space-x-2 animate-in fade-in shadow-xs">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+          <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 text-xs font-semibold flex items-center space-x-2 animate-in fade-in shadow-xs">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
             <span>{saveSuccess}</span>
           </div>
         )}
         {saveError && (
-          <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center space-x-2 animate-in fade-in shadow-xs">
-            <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0" />
+          <div className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 text-rose-800 dark:text-rose-300 text-xs font-semibold flex items-center space-x-2 animate-in fade-in shadow-xs">
+            <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 flex-shrink-0" />
             <span>{saveError}</span>
           </div>
         )}
 
         {/* Navigation Tabs */}
-        <div className="flex rounded-xl bg-white p-1.5 border border-slate-200/90 shadow-xs overflow-x-auto no-scrollbar">
+        <div className="flex rounded-xl bg-white dark:bg-[#121727] p-1.5 border border-slate-200/90 dark:border-slate-800 shadow-xs overflow-x-auto no-scrollbar">
           <button
             onClick={() => setActiveTab('orders')}
             className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 ${activeTab === 'orders'
-                ? 'bg-brand-navy text-brand-gold shadow-sm'
-                : 'text-slate-600 hover:text-brand-navy hover:bg-slate-50'
+                ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-50 dark:hover:bg-slate-800/60'
               }`}
           >
             <ShoppingBag className="w-4 h-4" />
@@ -567,8 +567,8 @@ export default function ClientDashboardPage() {
           <button
             onClick={() => setActiveTab('measurements')}
             className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 ${activeTab === 'measurements'
-                ? 'bg-brand-navy text-brand-gold shadow-sm'
-                : 'text-slate-600 hover:text-brand-navy hover:bg-slate-50'
+                ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-50 dark:hover:bg-slate-800/60'
               }`}
           >
             <Ruler className="w-4 h-4" />
@@ -581,8 +581,8 @@ export default function ClientDashboardPage() {
           <button
             onClick={() => setActiveTab('saved_info')}
             className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 ${activeTab === 'saved_info'
-                ? 'bg-brand-navy text-brand-gold shadow-sm'
-                : 'text-slate-600 hover:text-brand-navy hover:bg-slate-50'
+                ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-50 dark:hover:bg-slate-800/60'
               }`}
           >
             <MapPin className="w-4 h-4" />
@@ -592,8 +592,8 @@ export default function ClientDashboardPage() {
           <button
             onClick={() => setActiveTab('ai_stylist')}
             className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 ${activeTab === 'ai_stylist'
-                ? 'bg-brand-navy text-brand-gold shadow-sm'
-                : 'text-slate-600 hover:text-brand-navy hover:bg-slate-50'
+                ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-50 dark:hover:bg-slate-800/60'
               }`}
           >
             <Sparkles className="w-4 h-4 text-brand-gold animate-pulse" />
@@ -603,8 +603,8 @@ export default function ClientDashboardPage() {
           <button
             onClick={() => setActiveTab('security')}
             className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center space-x-2 ${activeTab === 'security'
-                ? 'bg-brand-navy text-brand-gold shadow-sm'
-                : 'text-slate-600 hover:text-brand-navy hover:bg-slate-50'
+                ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-sm'
+                : 'text-slate-600 dark:text-slate-300 hover:text-brand-navy dark:hover:text-brand-gold hover:bg-slate-50 dark:hover:bg-slate-800/60'
               }`}
           >
             <ShieldCheck className="w-4 h-4" />
@@ -624,31 +624,31 @@ export default function ClientDashboardPage() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-serif text-lg sm:text-xl font-bold text-brand-navy flex items-center space-x-2">
+                  <h2 className="font-serif text-lg sm:text-xl font-bold text-brand-navy dark:text-white flex items-center space-x-2">
                     <Clock className="w-5 h-5 text-brand-gold" />
                     <span>Active Orders & Real-Time Status</span>
                   </h2>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     Live updates as your bespoke commission progresses from cutting to delivery.
                   </p>
                 </div>
               </div>
 
               {loadingOrders ? (
-                <div className="bg-white rounded-2xl p-10 text-center border border-slate-200">
+                <div className="bg-white dark:bg-[#121727] rounded-2xl p-10 text-center border border-slate-200 dark:border-slate-800">
                   <div className="w-8 h-8 border-2 border-brand-gold border-t-transparent rounded-full animate-spin mx-auto mb-2" />
-                  <p className="text-xs text-slate-500">Retrieving your atelier commissions...</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Retrieving your atelier commissions...</p>
                 </div>
               ) : currentOrders.length === 0 ? (
-                <div className="bg-white rounded-2xl p-8 sm:p-10 text-center border border-slate-200/80 shadow-xs space-y-3">
-                  <ShoppingBag className="w-10 h-10 text-slate-300 mx-auto" />
-                  <h3 className="font-serif text-base font-bold text-brand-navy">No Active Orders</h3>
-                  <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                <div className="bg-white dark:bg-[#121727] rounded-2xl p-8 sm:p-10 text-center border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3">
+                  <ShoppingBag className="w-10 h-10 text-slate-300 dark:text-slate-600 mx-auto" />
+                  <h3 className="font-serif text-base font-bold text-brand-navy dark:text-white">No Active Orders</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
                     You currently have no garments in production. Order bespoke custom shirts, ties, or luxury ensembles.
                   </p>
                   <Link
                     href="/ready-to-wear"
-                    className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-brand-navy text-brand-gold text-xs font-bold uppercase tracking-wider hover:bg-slate-900 transition-all shadow-xs"
+                    className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-brand-navy hover:bg-slate-900 dark:bg-brand-gold dark:hover:bg-brand-gold-light text-brand-gold dark:text-brand-navy text-xs font-bold uppercase tracking-wider transition-all shadow-xs"
                   >
                     <span>Browse Atelier Collection</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -670,21 +670,21 @@ export default function ClientDashboardPage() {
                     return (
                       <div
                         key={order.id}
-                        className="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-5 sm:p-6 space-y-6"
+                        className="bg-white dark:bg-[#121727] rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm p-5 sm:p-6 space-y-6"
                       >
                         {/* Order Top Bar */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
                           <div>
                             <div className="flex items-center space-x-2">
-                              <span className="font-mono text-sm sm:text-base font-bold text-brand-navy">
+                              <span className="font-mono text-sm sm:text-base font-bold text-brand-navy dark:text-brand-gold">
                                 {order.order_number}
                               </span>
                               <span
                                 className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${order.fulfillment_status === 'confirmed'
-                                    ? 'bg-blue-50 text-blue-800 border border-blue-200'
+                                    ? 'bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800'
                                     : order.fulfillment_status === 'dispatched'
-                                      ? 'bg-purple-50 text-purple-800 border border-purple-200'
-                                      : 'bg-amber-50 text-amber-800 border border-amber-200'
+                                      ? 'bg-purple-50 dark:bg-purple-950/40 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800'
+                                      : 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800'
                                   }`}
                               >
                                 {order.fulfillment_status === 'confirmed' ? 'Approved & In Craft' : order.fulfillment_status}
@@ -696,14 +696,14 @@ export default function ClientDashboardPage() {
                           </div>
 
                           <div className="flex items-center space-x-3">
-                            <span className="text-base sm:text-lg font-bold font-mono text-brand-navy">
+                            <span className="text-base sm:text-lg font-bold font-mono text-brand-navy dark:text-white">
                               {formatCurrencyPrice(order.total_amount_kes, 'KES')}
                             </span>
                             <a
                               href={`https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya,%20inquiring%20about%20my%20order%20${order.order_number}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 text-xs font-semibold flex items-center space-x-1 transition-colors"
+                              className="px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800/60 text-xs font-semibold flex items-center space-x-1 transition-colors"
                             >
                               <MessageSquare className="w-3.5 h-3.5" />
                               <span>Atelier Liaison</span>
@@ -724,17 +724,17 @@ export default function ClientDashboardPage() {
                                 <div
                                   key={step.id}
                                   className={`p-3 rounded-xl border text-center transition-all ${isCurrent
-                                      ? 'bg-brand-gold/15 border-brand-gold text-brand-navy font-bold shadow-xs'
+                                      ? 'bg-brand-gold/15 border-brand-gold text-brand-navy dark:text-brand-gold font-bold shadow-xs'
                                       : isCompleted
-                                        ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
-                                        : 'bg-slate-50 border-slate-200/60 text-slate-400'
+                                        ? 'bg-emerald-50/60 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300'
+                                        : 'bg-slate-50 dark:bg-[#161e32] border-slate-200/60 dark:border-slate-800 text-slate-400'
                                     }`}
                                 >
                                   <div className="flex items-center justify-center mb-1">
                                     {isCompleted ? (
-                                      <CheckCircle2 className={`w-4 h-4 ${isCurrent ? 'text-brand-gold' : 'text-emerald-600'}`} />
+                                      <CheckCircle2 className={`w-4 h-4 ${isCurrent ? 'text-brand-gold' : 'text-emerald-600 dark:text-emerald-400'}`} />
                                     ) : (
-                                      <div className="w-4 h-4 rounded-full border border-slate-300" />
+                                      <div className="w-4 h-4 rounded-full border border-slate-300 dark:border-slate-600" />
                                     )}
                                   </div>
                                   <div className="text-xs font-bold leading-tight">{step.label}</div>
@@ -746,28 +746,28 @@ export default function ClientDashboardPage() {
                         </div>
 
                         {/* Items in Order */}
-                        <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 space-y-2">
+                        <div className="bg-slate-50 dark:bg-[#161e32] rounded-xl p-4 border border-slate-100 dark:border-slate-800 space-y-2">
                           <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">
                             Ensembles In Production
                           </span>
-                          <div className="divide-y divide-slate-200/60">
+                          <div className="divide-y divide-slate-200/60 dark:divide-slate-800">
                             {order.items.map((item, i) => (
                               <div key={i} className="py-2 first:pt-0 last:pb-0 flex items-center justify-between text-xs">
                                 <div className="flex items-center space-x-3">
                                   {item.image && (
-                                    <div className="relative w-10 h-10 rounded overflow-hidden bg-white border border-slate-200 flex-shrink-0">
+                                    <div className="relative w-10 h-10 rounded overflow-hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex-shrink-0">
                                       <Image src={item.image} alt={item.name} fill sizes="40px" className="object-cover" />
                                     </div>
                                   )}
                                   <div>
-                                    <div className="font-bold text-slate-900">{item.name}</div>
-                                    <div className="text-[11px] text-slate-500">
+                                    <div className="font-bold text-slate-900 dark:text-white">{item.name}</div>
+                                    <div className="text-[11px] text-slate-500 dark:text-slate-400">
                                       {item.size && <span>Size: {item.size} • </span>}
                                       <span>Qty: {item.quantity}</span>
                                     </div>
                                   </div>
                                 </div>
-                                <div className="font-mono font-semibold text-brand-navy">
+                                <div className="font-mono font-semibold text-brand-navy dark:text-brand-gold">
                                   {formatCurrencyPrice((item.priceKes || 0) * (item.quantity || 1), 'KES')}
                                 </div>
                               </div>
@@ -776,9 +776,9 @@ export default function ClientDashboardPage() {
                         </div>
 
                         {/* Delivery Destination */}
-                        <div className="text-xs text-slate-600 flex items-center space-x-2">
+                        <div className="text-xs text-slate-600 dark:text-slate-300 flex items-center space-x-2">
                           <Truck className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
-                          <span>Delivery Address: <strong className="text-slate-800">{order.delivery_location}</strong></span>
+                          <span>Delivery Address: <strong className="text-slate-800 dark:text-white">{order.delivery_location}</strong></span>
                         </div>
                       </div>
                     );
@@ -838,18 +838,18 @@ export default function ClientDashboardPage() {
 
         {/* TAB 2: BESPOKE MEASUREMENTS */}
         {activeTab === 'measurements' && (
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-luxury p-6 sm:p-8 space-y-8">
+          <div className="bg-white dark:bg-[#121727] rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-luxury p-6 sm:p-8 space-y-8">
             {/* Header & Master Tailor Seal */}
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-2.5 py-1 rounded inline-flex items-center space-x-1.5 mb-2">
+                <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-2.5 py-1 rounded inline-flex items-center space-x-1.5 mb-2 border border-brand-gold/30">
                   <Sparkles className="w-3 h-3" />
                   <span>Anatomical Tailoring Blueprint</span>
                 </span>
-                <h2 className="font-serif text-2xl font-bold text-brand-navy">
+                <h2 className="font-serif text-2xl font-bold text-brand-navy dark:text-white">
                   Your Master Tailor Measurements
                 </h2>
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                   Cut specifically for your shoulder slope, posture, and natural silhouette. Used for all subsequent commissions.
                 </p>
               </div>
@@ -869,17 +869,17 @@ export default function ClientDashboardPage() {
                   <span>{showMeasurementGuide ? 'Hide Tailoring Chart' : 'View Atelier Sizing Chart'}</span>
                 </button>
 
-                <div className="flex items-center space-x-2 bg-slate-100 p-1 rounded-lg">
+                <div className="flex items-center space-x-2 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
                   <button
                     onClick={() => setMeasurementUnit('inches')}
-                    className={`px-3 py-1 rounded text-xs font-bold transition-all ${measurementUnit === 'inches' ? 'bg-brand-navy text-brand-gold shadow-xs' : 'text-slate-600'
+                    className={`px-3 py-1 rounded text-xs font-bold transition-all ${measurementUnit === 'inches' ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-xs' : 'text-slate-600 dark:text-slate-300'
                       }`}
                   >
                     Inches
                   </button>
                   <button
                     onClick={() => setMeasurementUnit('cm')}
-                    className={`px-3 py-1 rounded text-xs font-bold transition-all ${measurementUnit === 'cm' ? 'bg-brand-navy text-brand-gold shadow-xs' : 'text-slate-600'
+                    className={`px-3 py-1 rounded text-xs font-bold transition-all ${measurementUnit === 'cm' ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-xs' : 'text-slate-600 dark:text-slate-300'
                       }`}
                   >
                     CM
@@ -888,8 +888,8 @@ export default function ClientDashboardPage() {
 
                 <div
                   className={`px-3 py-1.5 rounded-xl border flex items-center space-x-1.5 text-xs font-bold ${clientData?.approvalStatus === 'approved'
-                      ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                      : 'bg-amber-50 border-amber-200 text-amber-800'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
+                      : 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-300'
                     }`}
                 >
                   <ShieldCheck className="w-4 h-4" />
@@ -984,7 +984,7 @@ export default function ClientDashboardPage() {
             )}
 
             {/* Garment Categorization Filter Bar */}
-            <div className="flex items-center space-x-2 overflow-x-auto pb-1 no-scrollbar border-b border-slate-100">
+            <div className="flex items-center space-x-2 overflow-x-auto pb-1 no-scrollbar border-b border-slate-100 dark:border-slate-800">
               {[
                 { id: 'all', label: 'All Garments', icon: '✨' },
                 { id: 'jacket', label: 'Jacket & Blazer', icon: '🧥' },
@@ -1000,8 +1000,8 @@ export default function ClientDashboardPage() {
                   onClick={() => setSelectedGarmentCategory(g.id as any)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center space-x-1.5 cursor-pointer ${
                     selectedGarmentCategory === g.id
-                      ? 'bg-brand-navy text-brand-gold shadow-xs scale-105'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                      ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-xs scale-105'
+                      : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200'
                   }`}
                 >
                   <span>{g.icon}</span>
@@ -1014,15 +1014,15 @@ export default function ClientDashboardPage() {
             <div className="space-y-8">
               {/* 1. UPPER BODY / JACKET & BLAZER */}
               {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'jacket') && (
-                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
-                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                <div className="space-y-3 bg-slate-50/70 dark:bg-[#161e32] p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                  <div className="border-b border-slate-200/90 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-brand-gold flex items-center space-x-2">
                         <span className="text-base">🧥</span>
                         <span>Jacket & Blazer Anatomical Points</span>
                         <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
                       </h3>
-                      <p className="text-[11px] text-slate-500">Cut for suit jackets, blazers, dinner jackets, and tuxedos.</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Cut for suit jackets, blazers, dinner jackets, and tuxedos.</p>
                     </div>
                     <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Jacket</span>
                   </div>
@@ -1040,8 +1040,8 @@ export default function ClientDashboardPage() {
                       { key: 'bicep', label: 'Bicep Circumference' },
                       { key: 'wrist', label: 'Wrist Circumference' },
                     ].map((field) => (
-                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                      <div key={field.key} className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                           {field.label}
                         </label>
                         <div className="relative">
@@ -1056,7 +1056,7 @@ export default function ClientDashboardPage() {
                                 [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
                               }))
                             }
-                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                            className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-mono font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                           />
                           <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
                             {measurementUnit}
@@ -1070,15 +1070,15 @@ export default function ClientDashboardPage() {
 
               {/* 2. LOWER BODY / TROUSERS & PANTS */}
               {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'trousers') && (
-                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
-                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                <div className="space-y-3 bg-slate-50/70 dark:bg-[#161e32] p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                  <div className="border-b border-slate-200/90 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-brand-gold flex items-center space-x-2">
                         <span className="text-base">👖</span>
                         <span>Trouser & Lower Body Points</span>
                         <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
                       </h3>
-                      <p className="text-[11px] text-slate-500">Dimensions for tailored trousers, chinos, and tuxedo pants.</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Dimensions for tailored trousers, chinos, and tuxedo pants.</p>
                     </div>
                     <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Trousers</span>
                   </div>
@@ -1093,8 +1093,8 @@ export default function ClientDashboardPage() {
                       { key: 'ankleOpening', label: 'Ankle / Cuff Opening' },
                       { key: 'crotchRise', label: 'Total Rise' },
                     ].map((field) => (
-                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                      <div key={field.key} className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                           {field.label}
                         </label>
                         <div className="relative">
@@ -1109,7 +1109,7 @@ export default function ClientDashboardPage() {
                                 [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
                               }))
                             }
-                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                            className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-mono font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                           />
                           <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
                             {measurementUnit}
@@ -1123,15 +1123,15 @@ export default function ClientDashboardPage() {
 
               {/* 3. WAISTCOAT & VEST */}
               {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'waistcoat') && (
-                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
-                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                <div className="space-y-3 bg-slate-50/70 dark:bg-[#161e32] p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                  <div className="border-b border-slate-200/90 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-brand-gold flex items-center space-x-2">
                         <span className="text-base">🦺</span>
                         <span>Waistcoat & Vest Points</span>
                         <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
                       </h3>
-                      <p className="text-[11px] text-slate-500">Cut for 3-piece wedding vests, horseshoe waistcoats, and double-breasted vests.</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Cut for 3-piece wedding vests, horseshoe waistcoats, and double-breasted vests.</p>
                     </div>
                     <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Waistcoat</span>
                   </div>
@@ -1142,8 +1142,8 @@ export default function ClientDashboardPage() {
                       { key: 'vestFrontLength', label: 'Front Point Length' },
                       { key: 'vestBackLength', label: 'Center Back Length' },
                     ].map((field) => (
-                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                      <div key={field.key} className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                           {field.label}
                         </label>
                         <div className="relative">
@@ -1158,7 +1158,7 @@ export default function ClientDashboardPage() {
                                 [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
                               }))
                             }
-                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                            className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-mono font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                           />
                           <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
                             {measurementUnit}
@@ -1172,15 +1172,15 @@ export default function ClientDashboardPage() {
 
               {/* 4. DRESS SHIRTS & TUNICS */}
               {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'shirt') && (
-                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
-                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                <div className="space-y-3 bg-slate-50/70 dark:bg-[#161e32] p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                  <div className="border-b border-slate-200/90 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-brand-gold flex items-center space-x-2">
                         <span className="text-base">👔</span>
                         <span>Dress Shirts & Kaunda / Senator Tunics</span>
                         <span className="text-[10px] text-slate-400 font-normal">({measurementUnit})</span>
                       </h3>
-                      <p className="text-[11px] text-slate-500">Dimensions for tailored formal shirts, tuxedo shirts, and African kaftan tunics.</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Dimensions for tailored formal shirts, tuxedo shirts, and African kaftan tunics.</p>
                     </div>
                     <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Shirts</span>
                   </div>
@@ -1193,8 +1193,8 @@ export default function ClientDashboardPage() {
                       { key: 'shirtLength', label: 'Shirt / Tunic Length' },
                       { key: 'shirtCuff', label: 'Cuff Circumference' },
                     ].map((field) => (
-                      <div key={field.key} className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                        <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                      <div key={field.key} className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                        <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                           {field.label}
                         </label>
                         <div className="relative">
@@ -1209,7 +1209,7 @@ export default function ClientDashboardPage() {
                                 [field.key]: e.target.value === '' ? null : parseFloat(e.target.value),
                               }))
                             }
-                            className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                            className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-mono font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                           />
                           <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
                             {measurementUnit}
@@ -1223,21 +1223,21 @@ export default function ClientDashboardPage() {
 
               {/* 5. SHOES & FOOTWEAR */}
               {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'shoes') && (
-                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
-                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                <div className="space-y-3 bg-slate-50/70 dark:bg-[#161e32] p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                  <div className="border-b border-slate-200/90 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-brand-gold flex items-center space-x-2">
                         <span className="text-base">👞</span>
                         <span>Shoes & Handcrafted Footwear</span>
                       </h3>
-                      <p className="text-[11px] text-slate-500">Shoe sizing for handcrafted leather oxfords, loafers, monk straps, and Chelsea boots.</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Shoe sizing for handcrafted leather oxfords, loafers, monk straps, and Chelsea boots.</p>
                     </div>
                     <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Footwear</span>
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-1">
                     {/* EU Shoe Size */}
-                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <div className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                         EU Shoe Size (Kenya Std)
                       </label>
                       <select
@@ -1248,7 +1248,7 @@ export default function ClientDashboardPage() {
                             shoeSizeEu: e.target.value === '' ? null : e.target.value,
                           }))
                         }
-                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                        className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                       >
                         <option value="">Select EU Size</option>
                         {[38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48].map((sz) => (
@@ -1260,8 +1260,8 @@ export default function ClientDashboardPage() {
                     </div>
 
                     {/* UK / US Shoe Size */}
-                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <div className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                         UK / US Size
                       </label>
                       <input
@@ -1274,13 +1274,13 @@ export default function ClientDashboardPage() {
                             shoeSizeUk: e.target.value,
                           }))
                         }
-                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                        className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                       />
                     </div>
 
                     {/* Foot Length */}
-                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <div className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                         Foot Length (Heel to Toe)
                       </label>
                       <div className="relative">
@@ -1295,7 +1295,7 @@ export default function ClientDashboardPage() {
                               footLength: e.target.value === '' ? null : parseFloat(e.target.value),
                             }))
                           }
-                          className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                          className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-mono font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                         />
                         <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
                           {measurementUnit}
@@ -1304,8 +1304,8 @@ export default function ClientDashboardPage() {
                     </div>
 
                     {/* Foot Width */}
-                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <div className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                         Foot Width / Fitting
                       </label>
                       <select
@@ -1316,7 +1316,7 @@ export default function ClientDashboardPage() {
                             footWidth: e.target.value,
                           }))
                         }
-                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                        className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                       >
                         <option value="Standard (D)">Standard Width (D)</option>
                         <option value="Wide (EE)">Wide Fit (EE)</option>
@@ -1330,21 +1330,21 @@ export default function ClientDashboardPage() {
 
               {/* 6. HATS & MASTER FEDORAS */}
               {(selectedGarmentCategory === 'all' || selectedGarmentCategory === 'headwear') && (
-                <div className="space-y-3 bg-slate-50/70 p-5 rounded-2xl border border-slate-200/80">
-                  <div className="border-b border-slate-200/90 pb-2 flex items-center justify-between">
+                <div className="space-y-3 bg-slate-50/70 dark:bg-[#161e32] p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800">
+                  <div className="border-b border-slate-200/90 dark:border-slate-800 pb-2 flex items-center justify-between">
                     <div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-2">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-brand-gold flex items-center space-x-2">
                         <span className="text-base">🎩</span>
                         <span>Hats & Master Fedoras</span>
                       </h3>
-                      <p className="text-[11px] text-slate-500">Millinery measurements for 100% Australian wool felt fedoras and ceremonial caps.</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">Millinery measurements for 100% Australian wool felt fedoras and ceremonial caps.</p>
                     </div>
                     <span className="text-[10px] uppercase font-bold text-brand-gold bg-brand-navy px-2 py-0.5 rounded">Hats</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1">
                     {/* Head Circumference */}
-                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <div className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                         Head Circumference (Above Ears & Forehead)
                       </label>
                       <div className="relative">
@@ -1359,7 +1359,7 @@ export default function ClientDashboardPage() {
                               headCircumference: e.target.value === '' ? null : parseFloat(e.target.value),
                             }))
                           }
-                          className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                          className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-mono font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                         />
                         <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-400">
                           {measurementUnit === 'cm' ? 'cm' : 'inches'}
@@ -1368,8 +1368,8 @@ export default function ClientDashboardPage() {
                     </div>
 
                     {/* Fedora Hat Size */}
-                    <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
-                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                    <div className="p-3 rounded-xl bg-white dark:bg-[#1c2842] border border-slate-200/80 dark:border-slate-700 shadow-2xs">
+                      <label className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mb-1">
                         Hat Size Range
                       </label>
                       <select
@@ -1380,7 +1380,7 @@ export default function ClientDashboardPage() {
                             hatSize: e.target.value,
                           }))
                         }
-                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-brand-navy focus:outline-none focus:border-brand-navy"
+                        className="w-full px-2.5 py-1.5 bg-slate-50 dark:bg-[#141b2d] border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-brand-navy dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                       >
                         <option value="">Select Hat Size</option>
                         <option value="Small (55-56 cm)">Small (55–56 cm)</option>
@@ -1396,14 +1396,14 @@ export default function ClientDashboardPage() {
             </div>
 
             {/* Save Button */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-200">
-              <span className="text-xs text-slate-500">
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-200 dark:border-slate-800">
+              <span className="text-xs text-slate-500 dark:text-slate-400">
                 Need re-calibration? Book a personal measurement session at our Nairobi workshop on Tubman Road.
               </span>
               <button
                 onClick={handleSaveInfo}
                 disabled={saving}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 text-brand-gold text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center space-x-2 disabled:opacity-60 cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 dark:bg-brand-gold dark:hover:bg-brand-gold-light text-brand-gold dark:text-brand-navy text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center space-x-2 disabled:opacity-60 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 <span>{saving ? 'Saving Measurements...' : 'Update Sartorial Measurements'}</span>
@@ -1414,16 +1414,16 @@ export default function ClientDashboardPage() {
 
         {/* TAB 3: SAVED INFO FOR SUBSEQUENT ORDERS */}
         {activeTab === 'saved_info' && (
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-luxury p-6 sm:p-8 space-y-8">
+          <div className="bg-white dark:bg-[#121727] rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-luxury p-6 sm:p-8 space-y-8">
             <div>
-              <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-2.5 py-1 rounded inline-flex items-center space-x-1.5 mb-2">
+              <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy dark:bg-[#182238] dark:border dark:border-slate-700 px-2.5 py-1 rounded inline-flex items-center space-x-1.5 mb-2">
                 <MapPin className="w-3 h-3" />
                 <span>Saved Coordinates & Fit Profile</span>
               </span>
-              <h2 className="font-serif text-2xl font-bold text-brand-navy">
+              <h2 className="font-serif text-2xl font-bold text-brand-navy dark:text-white">
                 Keep Info for Subsequent Orders
               </h2>
-              <p className="text-xs text-slate-500 mt-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 Once saved, your delivery location and style preferences will automatically populate during checkout for frictionless ordering.
               </p>
             </div>
@@ -1431,12 +1431,12 @@ export default function ClientDashboardPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Delivery Address & White Glove */}
               <div className="space-y-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy border-b border-slate-100 pb-1">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1">
                   Saved White-Glove Delivery Destination
                 </h3>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Client Full Name
                   </label>
                   <input
@@ -1444,12 +1444,12 @@ export default function ClientDashboardPage() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="e.g. David Mwangi"
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Direct Phone Number (for Driver Coordination)
                   </label>
                   <input
@@ -1457,12 +1457,12 @@ export default function ClientDashboardPage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. 0114 122 510 or +254 7..."
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Town / Estate (Primary Destination)
                   </label>
                   <input
@@ -1470,12 +1470,12 @@ export default function ClientDashboardPage() {
                     value={deliveryTown}
                     onChange={(e) => setDeliveryTown(e.target.value)}
                     placeholder="e.g. Kilimani, Nairobi"
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Street Address / Apartment / Office Suite
                   </label>
                   <input
@@ -1483,12 +1483,12 @@ export default function ClientDashboardPage() {
                     value={deliveryStreet}
                     onChange={(e) => setDeliveryStreet(e.target.value)}
                     placeholder="e.g. Wood Avenue Court, 4th Floor Suite 4B"
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     White-Glove Delivery Instructions
                   </label>
                   <textarea
@@ -1496,83 +1496,83 @@ export default function ClientDashboardPage() {
                     value={deliveryNotes}
                     onChange={(e) => setDeliveryNotes(e.target.value)}
                     placeholder="e.g. Leave with reception, gate code 4092, suit garment bag required..."
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                   />
                 </div>
               </div>
 
               {/* Sartorial Style Preferences */}
               <div className="space-y-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy border-b border-slate-100 pb-1">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1">
                   Atelier Sartorial Preferences
                 </h3>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Preferred Silhouette & Cut
                   </label>
                   <select
                     value={fitStyle}
                     onChange={(e) => setFitStyle(e.target.value as any)}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                   >
-                    <option value="slim_bespoke">Slim Bespoke (Close anatomical taper)</option>
-                    <option value="contemporary_tailored">Contemporary Tailored (Modern structured drape)</option>
-                    <option value="classic_comfort">Classic Comfort (Generous traditional drape)</option>
+                    <option value="slim_bespoke" className="dark:bg-[#182238] dark:text-white">Slim Bespoke (Close anatomical taper)</option>
+                    <option value="contemporary_tailored" className="dark:bg-[#182238] dark:text-white">Contemporary Tailored (Modern structured drape)</option>
+                    <option value="classic_comfort" className="dark:bg-[#182238] dark:text-white">Classic Comfort (Generous traditional drape)</option>
                   </select>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                       Lapel Preference
                     </label>
                     <select
                       value={lapelPreference}
                       onChange={(e) => setLapelPreference(e.target.value as any)}
-                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                     >
-                      <option value="peak_lapel">Peak Lapel (Formal & Bold)</option>
-                      <option value="notch_lapel">Notch Lapel (Versatile Business)</option>
-                      <option value="shawl_collar">Shawl Collar (Tuxedo & Evening)</option>
+                      <option value="peak_lapel" className="dark:bg-[#182238] dark:text-white">Peak Lapel (Formal & Bold)</option>
+                      <option value="notch_lapel" className="dark:bg-[#182238] dark:text-white">Notch Lapel (Versatile Business)</option>
+                      <option value="shawl_collar" className="dark:bg-[#182238] dark:text-white">Shawl Collar (Tuxedo & Evening)</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                       Jacket Vents
                     </label>
                     <select
                       value={jacketVents}
                       onChange={(e) => setJacketVents(e.target.value as any)}
-                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                     >
-                      <option value="double_side_vents">Double Side Vents (English Style)</option>
-                      <option value="center_vent">Center Single Vent (American)</option>
-                      <option value="ventless">Ventless (Ultra Clean Formal)</option>
+                      <option value="double_side_vents" className="dark:bg-[#182238] dark:text-white">Double Side Vents (English Style)</option>
+                      <option value="center_vent" className="dark:bg-[#182238] dark:text-white">Center Single Vent (American)</option>
+                      <option value="ventless" className="dark:bg-[#182238] dark:text-white">Ventless (Ultra Clean Formal)</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                       Trouser Break Level
                     </label>
                     <select
                       value={trouserBreak}
                       onChange={(e) => setTrouserBreak(e.target.value as any)}
-                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                     >
-                      <option value="no_break">No Break (Cropped clean cuff)</option>
-                      <option value="slight_break">Slight Break (Tailored standard)</option>
-                      <option value="medium_break">Medium Break (Classic gentleman)</option>
-                      <option value="full_break">Full Break (Traditional drape)</option>
+                      <option value="no_break" className="dark:bg-[#182238] dark:text-white">No Break (Cropped clean cuff)</option>
+                      <option value="slight_break" className="dark:bg-[#182238] dark:text-white">Slight Break (Tailored standard)</option>
+                      <option value="medium_break" className="dark:bg-[#182238] dark:text-white">Medium Break (Classic gentleman)</option>
+                      <option value="full_break" className="dark:bg-[#182238] dark:text-white">Full Break (Traditional drape)</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                       Monogram Initials
                     </label>
                     <input
@@ -1581,13 +1581,13 @@ export default function ClientDashboardPage() {
                       value={monogramInitials}
                       onChange={(e) => setMonogramInitials(e.target.value)}
                       placeholder="e.g. D.M."
-                      className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy uppercase font-mono"
+                      className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold uppercase font-mono"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                     Cloth & Sartorial Notes
                   </label>
                   <textarea
@@ -1595,17 +1595,17 @@ export default function ClientDashboardPage() {
                     value={styleNotes}
                     onChange={(e) => setStyleNotes(e.target.value)}
                     placeholder="e.g. Prefer horn buttons, contrast silk lining in navy gold..."
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-[#182238] border border-slate-200 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 flex justify-end border-t border-slate-200">
+            <div className="pt-4 flex justify-end border-t border-slate-200 dark:border-slate-800">
               <button
                 onClick={handleSaveInfo}
                 disabled={saving}
-                className="px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 text-brand-gold text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex items-center space-x-2 disabled:opacity-60 cursor-pointer"
+                className="px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 dark:bg-brand-gold dark:hover:bg-brand-gold-light text-brand-gold dark:text-brand-navy text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex items-center space-x-2 disabled:opacity-60 cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 <span>{saving ? 'Saving Info...' : 'Save Info for Subsequent Orders'}</span>
@@ -1616,25 +1616,25 @@ export default function ClientDashboardPage() {
 
         {/* TAB 4: SECURITY & 2FA */}
         {activeTab === 'security' && (
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-luxury p-6 sm:p-8 space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+          <div className="bg-white dark:bg-[#121727] rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-luxury p-6 sm:p-8 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-2.5 py-1 rounded inline-flex items-center space-x-1.5 mb-2">
+                <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy dark:bg-[#182238] dark:border dark:border-slate-700 px-2.5 py-1 rounded inline-flex items-center space-x-1.5 mb-2">
                   <ShieldCheck className="w-3 h-3" />
                   <span>Client Account Protection</span>
                 </span>
-                <h2 className="font-serif text-2xl font-bold text-brand-navy">
+                <h2 className="font-serif text-2xl font-bold text-brand-navy dark:text-white">
                   Two-Factor Authentication (2FA)
                 </h2>
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                   Safeguard your anatomical measurements, home delivery address, and atelier order records with an extra layer of authentication.
                 </p>
               </div>
 
               <div
                 className={`px-3.5 py-1.5 rounded-xl border flex items-center space-x-2 text-xs font-bold ${twoFactorStatus.enabled
-                    ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                    : 'bg-amber-50 border-amber-200 text-amber-800'
+                    ? 'bg-emerald-50 border-emerald-200 text-emerald-800 dark:bg-emerald-950/40 dark:border-emerald-800 dark:text-emerald-300'
+                    : 'bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950/40 dark:border-amber-800 dark:text-amber-300'
                   }`}
               >
                 <ShieldCheck className="w-4 h-4" />
@@ -1646,14 +1646,14 @@ export default function ClientDashboardPage() {
             {twoFactorMsg && (
               <div
                 className={`p-3.5 rounded-xl text-xs flex items-start space-x-2 animate-in fade-in ${twoFactorMsg.type === 'success'
-                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                    : 'bg-rose-50 text-rose-800 border border-rose-200'
+                    ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800'
+                    : 'bg-rose-50 text-rose-800 border border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800'
                   }`}
               >
                 {twoFactorMsg.type === 'success' ? (
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
                 ) : (
-                  <AlertCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 flex-shrink-0 mt-0.5" />
                 )}
                 <span>{twoFactorMsg.text}</span>
               </div>
@@ -1661,20 +1661,20 @@ export default function ClientDashboardPage() {
 
             {/* 2FA Card Content */}
             {!twoFactorStatus.enabled && !setup2FAData && (
-              <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 text-center max-w-xl mx-auto space-y-4">
-                <div className="w-14 h-14 rounded-full bg-brand-navy text-brand-gold flex items-center justify-center mx-auto shadow-sm">
+              <div className="bg-slate-50 dark:bg-[#161e32] rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 text-center max-w-xl mx-auto space-y-4">
+                <div className="w-14 h-14 rounded-full bg-brand-navy dark:bg-[#1c2842] border dark:border-slate-700 text-brand-gold flex items-center justify-center mx-auto shadow-sm">
                   <Lock className="w-7 h-7" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-brand-navy">
+                <h3 className="font-serif text-lg font-bold text-brand-navy dark:text-white">
                   Protect Your Atelier Account with 2FA
                 </h3>
-                <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
                   When enabled, you will be prompted for a 6-digit code from Google Authenticator, Microsoft Authenticator, or 1Password when signing in.
                 </p>
                 <button
                   onClick={handleStart2FASetup}
                   disabled={twoFactorLoading}
-                  className="px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 text-brand-gold font-bold text-xs uppercase tracking-wider transition-all shadow-sm inline-flex items-center space-x-2"
+                  className="px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 dark:bg-brand-gold dark:text-brand-navy dark:hover:bg-brand-gold-light font-bold text-xs uppercase tracking-wider transition-all shadow-sm inline-flex items-center space-x-2"
                 >
                   <Key className="w-3.5 h-3.5" />
                   <span>{twoFactorLoading ? 'Setting Up...' : 'Configure Two-Factor Authentication'}</span>
@@ -1684,22 +1684,22 @@ export default function ClientDashboardPage() {
 
             {/* Setup In Progress */}
             {setup2FAData && (
-              <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-brand-gold/40 max-w-xl mx-auto space-y-6">
+              <div className="bg-slate-50 dark:bg-[#161e32] rounded-2xl p-6 sm:p-8 border border-brand-gold/40 max-w-xl mx-auto space-y-6">
                 <div className="text-center space-y-1">
-                  <h3 className="font-serif text-lg font-bold text-brand-navy">
+                  <h3 className="font-serif text-lg font-bold text-brand-navy dark:text-white">
                     Configure Authenticator App
                   </h3>
-                  <p className="text-xs text-slate-600">
+                  <p className="text-xs text-slate-600 dark:text-slate-300">
                     Step 1: Open Google Authenticator or 1Password. Add an account and enter this secret key or scan the setup code.
                   </p>
                 </div>
 
                 {/* Secret Key Display */}
-                <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2 text-center">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                <div className="bg-white dark:bg-[#1c2842] p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2 text-center">
+                  <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-400 tracking-wider">
                     Your Secret Setup Key
                   </span>
-                  <div className="font-mono text-sm sm:text-base font-bold text-brand-navy tracking-widest break-all">
+                  <div className="font-mono text-sm sm:text-base font-bold text-brand-navy dark:text-white tracking-widest break-all">
                     {setup2FAData.secret}
                   </div>
                   <button
@@ -1716,13 +1716,13 @@ export default function ClientDashboardPage() {
                 </div>
 
                 {/* Backup Codes */}
-                <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
-                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block text-center">
+                <div className="bg-white dark:bg-[#1c2842] p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                  <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-400 tracking-wider block text-center">
                     Emergency Backup Recovery Codes (Keep in a safe place)
                   </span>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs text-center text-slate-700">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs text-center text-slate-700 dark:text-slate-200">
                     {setup2FAData.backupCodes.map((code, i) => (
-                      <span key={i} className="p-1.5 bg-slate-50 rounded border border-slate-200 font-semibold">
+                      <span key={i} className="p-1.5 bg-slate-50 dark:bg-[#141b2d] rounded border border-slate-200 dark:border-slate-700 font-semibold">
                         {code}
                       </span>
                     ))}
@@ -1732,7 +1732,7 @@ export default function ClientDashboardPage() {
                 {/* Verification Form */}
                 <form onSubmit={handleVerifyAndEnable2FA} className="space-y-4 text-center">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                       Step 2: Enter the 6-digit code shown in your app
                     </label>
                     <input
@@ -1742,7 +1742,7 @@ export default function ClientDashboardPage() {
                       autoFocus
                       value={verificationCode}
                       onChange={(e) => setVerificationCode(e.target.value)}
-                      className="w-48 mx-auto text-center font-mono text-xl tracking-widest px-3 py-2 bg-white border border-slate-300 rounded-xl focus:outline-none focus:border-brand-navy font-bold text-brand-navy"
+                      className="w-48 mx-auto text-center font-mono text-xl tracking-widest px-3 py-2 bg-white dark:bg-[#141b2d] border border-slate-300 dark:border-slate-700 rounded-xl focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold font-bold text-brand-navy dark:text-white"
                     />
                   </div>
 
@@ -1750,14 +1750,14 @@ export default function ClientDashboardPage() {
                     <button
                       type="submit"
                       disabled={twoFactorLoading}
-                      className="px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 text-brand-gold font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+                      className="px-6 py-2.5 rounded-xl bg-brand-navy hover:bg-slate-900 dark:bg-brand-gold dark:text-brand-navy dark:hover:bg-brand-gold-light font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
                     >
                       {twoFactorLoading ? 'Verifying...' : 'Verify & Activate 2FA'}
                     </button>
                     <button
                       type="button"
                       onClick={() => setSetup2FAData(null)}
-                      className="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold text-xs hover:bg-slate-100 transition-colors"
+                      className="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold text-xs hover:bg-slate-100 dark:hover:bg-[#141b2d] transition-colors"
                     >
                       Cancel
                     </button>
@@ -1768,21 +1768,21 @@ export default function ClientDashboardPage() {
 
             {/* If 2FA is active */}
             {twoFactorStatus.enabled && (
-              <div className="bg-emerald-50/60 rounded-2xl p-6 sm:p-8 border border-emerald-200 text-center max-w-xl mx-auto space-y-4">
+              <div className="bg-emerald-50/60 dark:bg-emerald-950/30 rounded-2xl p-6 sm:p-8 border border-emerald-200 dark:border-emerald-800/60 text-center max-w-xl mx-auto space-y-4">
                 <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-sm">
                   <ShieldCheck className="w-8 h-8" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-brand-navy">
+                <h3 className="font-serif text-lg font-bold text-brand-navy dark:text-white">
                   Your Account is Fortified with 2FA
                 </h3>
-                <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
                   Your bespoke tailoring blueprint, private measurements, and delivery destinations are protected against unauthorized access.
                 </p>
                 <div className="pt-2">
                   <button
                     onClick={handleDisable2FA}
                     disabled={twoFactorLoading}
-                    className="px-4 py-2 rounded-lg border border-rose-300 text-rose-700 hover:bg-rose-50 text-xs font-semibold transition-colors"
+                    className="px-4 py-2 rounded-lg border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-xs font-semibold transition-colors"
                   >
                     Deactivate 2FA
                   </button>

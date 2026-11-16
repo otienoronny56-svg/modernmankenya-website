@@ -53,7 +53,7 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] py-12 sm:py-20 px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#0c101c] py-12 sm:py-20 px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
       <div className="max-w-md w-full mx-auto space-y-8">
         {/* Brand Header */}
         <div className="text-center space-y-3">
@@ -64,40 +64,32 @@ export default function ResetPasswordPage() {
                 alt="Modern Man Kenya"
                 fill
                 sizes="176px"
-                className="object-contain dark:hidden"
-                priority
-              />
-              <Image
-                src="/images/logo-dark-mode.png"
-                alt="Modern Man Kenya"
-                fill
-                sizes="176px"
-                className="object-contain hidden dark:block"
+                className="object-contain"
                 priority
               />
             </div>
           </Link>
           <div className="space-y-1">
-            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy dark:text-white">
               Set New Password
             </h1>
-            <p className="text-xs sm:text-sm text-stone-600 font-light">
+            <p className="text-xs sm:text-sm text-stone-600 dark:text-slate-400 font-light">
               Enter your new secure password below to regain access to your Modern Man Kenya account.
             </p>
           </div>
         </div>
 
         {/* Card */}
-        <div className="bg-white rounded-2xl shadow-luxury border border-stone-200/80 p-6 sm:p-8 space-y-6">
+        <div className="bg-white dark:bg-[#121727] rounded-2xl shadow-luxury border border-stone-200/80 dark:border-slate-800 p-6 sm:p-8 space-y-6">
           {errorMsg && (
-            <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-start space-x-2 animate-in fade-in">
+            <div className="p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60 text-red-700 dark:text-red-300 text-xs flex items-start space-x-2 animate-in fade-in">
               <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {successMsg && (
-            <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-start space-x-2 animate-in fade-in">
+            <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 text-xs flex items-start space-x-2 animate-in fade-in">
               <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-emerald-600" />
               <span>{successMsg}</span>
             </div>
@@ -105,7 +97,7 @@ export default function ResetPasswordPage() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300 mb-1.5">
                 New Password
               </label>
               <div className="relative">
@@ -118,21 +110,21 @@ export default function ResetPasswordPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-10 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-stone-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-colors"
+                  className="w-full pl-10 pr-10 py-2.5 bg-stone-50 dark:bg-[#182238] border border-stone-200 dark:border-slate-700 rounded-xl text-stone-900 dark:text-white text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-stone-400 hover:text-stone-600 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-              <p className="text-[11px] text-stone-400 mt-1">Minimum 6 characters.</p>
+              <p className="text-[11px] text-stone-400 dark:text-slate-400 mt-1">Minimum 6 characters.</p>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300 mb-1.5">
                 Confirm New Password
               </label>
               <div className="relative">
@@ -145,7 +137,7 @@ export default function ResetPasswordPage() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-stone-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-colors"
+                  className="w-full pl-10 pr-3.5 py-2.5 bg-stone-50 dark:bg-[#182238] border border-stone-200 dark:border-slate-700 rounded-xl text-stone-900 dark:text-white text-sm focus:outline-hidden focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-colors"
                 />
               </div>
             </div>
@@ -153,17 +145,17 @@ export default function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 rounded-xl bg-brand-navy hover:bg-brand-navy/90 text-brand-gold font-bold text-xs uppercase tracking-widest shadow-md transition-all duration-300 flex items-center justify-center space-x-2 border border-brand-gold/30 disabled:opacity-50 disabled:cursor-not-allowed group"
+              className="w-full py-3 px-4 rounded-xl bg-brand-navy hover:bg-slate-900 dark:bg-brand-gold dark:hover:bg-brand-gold-light text-brand-gold dark:text-brand-navy font-bold text-xs uppercase tracking-widest shadow-md transition-all duration-300 flex items-center justify-center space-x-2 border border-brand-gold/30 disabled:opacity-50 disabled:cursor-not-allowed group"
             >
               <span>{loading ? 'Updating Password...' : 'Update Password'}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </form>
 
-          <div className="text-center pt-2 border-t border-stone-100">
+          <div className="text-center pt-2 border-t border-stone-100 dark:border-slate-800">
             <Link
               href="/login"
-              className="text-xs font-medium text-stone-500 hover:text-brand-navy transition-colors"
+              className="text-xs font-medium text-stone-500 dark:text-slate-400 hover:text-brand-navy dark:hover:text-brand-gold transition-colors"
             >
               ← Back to Sign In
             </Link>

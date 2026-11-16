@@ -74,8 +74,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#f4f4f5]/95 dark:bg-[#0e0e15]/95 backdrop-blur-md shadow-sm py-1.5 sm:py-2 border-b border-slate-300/80 dark:border-stone-800'
-            : 'bg-[#f7f7f8] dark:bg-[#0b0b10] py-2 sm:py-2.5 border-b border-slate-200 dark:border-stone-800'
+            ? 'bg-[#f4f4f5]/95 dark:bg-[#0c101c]/95 backdrop-blur-md shadow-sm py-1.5 sm:py-2 border-b border-slate-300/80 dark:border-slate-800'
+            : 'bg-[#f7f7f8] dark:bg-[#0c101c] py-2 sm:py-2.5 border-b border-slate-200 dark:border-slate-800'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -92,15 +92,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 alt="Modern Man Kenya - Opulence • Simplicity • Class"
                 fill
                 sizes="(max-width: 640px) 64px, 96px"
-                className="object-contain dark:hidden"
-                priority
-              />
-              <Image
-                src="/images/logo-dark-mode.png"
-                alt="Modern Man Kenya - Opulence • Simplicity • Class"
-                fill
-                sizes="(max-width: 640px) 64px, 96px"
-                className="object-contain hidden dark:block"
+                className="object-contain"
                 priority
               />
             </div>
@@ -287,21 +279,21 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 dark:border-stone-800 bg-white dark:bg-[#0e0e15] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-200">
+          <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121727] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-200">
             
             {/* Country Selector in Mobile */}
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-stone-800">
-              <span className="text-xs text-slate-500 font-medium">Select Region &amp; Currency:</span>
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Select Region &amp; Currency:</span>
               <CountryCurrencySelector theme={theme} />
             </div>
 
             {/* Appearance / Theme Selector in Mobile */}
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-stone-800">
-              <span className="text-xs text-slate-500 font-medium">Appearance:</span>
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Appearance:</span>
               <button
                 type="button"
                 onClick={toggleTheme}
-                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-stone-800 dark:hover:bg-stone-700 text-brand-navy dark:text-brand-gold border border-slate-200 dark:border-stone-700 transition-colors"
+                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-brand-navy dark:text-brand-gold border border-slate-200 dark:border-slate-700 transition-colors"
               >
                 {theme === 'dark' ? (
                   <>
@@ -320,7 +312,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Gallery Direct Link */}
             <Link
               href="/gallery"
-              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold dark:hover:text-brand-gold"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 hover:text-brand-gold dark:hover:text-brand-gold"
             >
               Gallery
             </Link>
@@ -328,13 +320,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* The Craft Direct Link */}
             <Link
               href="/the-craft"
-              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold dark:hover:text-brand-gold"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 hover:text-brand-gold dark:hover:text-brand-gold"
             >
               The Craft
             </Link>
 
             {/* Accordion: Occasions */}
-            <div className="border-b border-slate-100 dark:border-stone-800 pb-2">
+            <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
               <button
                 onClick={() => setMobileSectionOpen(mobileSectionOpen === 'occasions' ? null : 'occasions')}
                 className="w-full flex items-center justify-between py-2 text-left font-semibold text-sm text-brand-navy dark:text-slate-100"
@@ -360,44 +352,44 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
 
             <Link
               href="/about"
-              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 hover:text-brand-gold"
             >
               About
             </Link>
 
             <Link
               href="/reviews"
-              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 hover:text-brand-gold"
             >
               Client Reviews
             </Link>
 
             <Link
               href="/journal"
-              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-stone-800 hover:text-brand-gold"
+              className="block py-2 text-sm font-semibold text-brand-navy dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 hover:text-brand-gold"
             >
               The Journal
             </Link>
 
             {/* Mobile Account Section */}
-            <div className="border-b border-slate-100 py-2.5">
+            <div className="border-b border-slate-100 dark:border-slate-800 py-2.5">
               {user ? (
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs font-semibold text-brand-navy">
+                  <div className="flex items-center justify-between text-xs font-semibold text-brand-navy dark:text-slate-200">
                     <span>Hi, {profile?.fullName || user.email}</span>
                     <button
                       type="button"
                       onClick={signOut}
-                      className="text-stone-500 hover:text-red-600 text-xs flex items-center space-x-1 cursor-pointer font-medium"
+                      className="text-stone-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 text-xs flex items-center space-x-1 cursor-pointer font-medium"
                     >
-                      <LogOut className="w-3.5 h-3.5 text-stone-400" />
+                      <LogOut className="w-3.5 h-3.5 text-stone-400 dark:text-slate-400" />
                       <span>Log Out</span>
                     </button>
                   </div>
                   <Link
                     href="/account"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-center space-x-2 w-full py-2 px-3 rounded-lg bg-brand-navy text-brand-gold text-xs font-bold hover:bg-slate-900 transition-colors shadow-xs"
+                    className="flex items-center justify-center space-x-2 w-full py-2 px-3 rounded-lg bg-brand-navy dark:bg-slate-800 text-brand-gold text-xs font-bold hover:bg-slate-900 dark:hover:bg-slate-700 transition-colors shadow-xs"
                   >
                     <User className="w-3.5 h-3.5 text-brand-gold" />
                     <span>Client Dashboard & Measurements</span>
@@ -407,7 +399,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <Link
                     href="/login"
-                    className="flex items-center space-x-1.5 text-brand-navy hover:text-brand-gold py-1"
+                    className="flex items-center space-x-1.5 text-brand-navy dark:text-slate-200 hover:text-brand-gold py-1"
                   >
                     <User className="w-4 h-4 text-brand-gold" />
                     <span>Log In</span>

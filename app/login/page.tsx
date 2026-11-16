@@ -322,7 +322,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] py-12 sm:py-20 px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#0c101c] py-12 sm:py-20 px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
       <div className="max-w-md w-full mx-auto space-y-8">
         
         {/* Brand Header */}
@@ -334,24 +334,16 @@ function LoginForm() {
                 alt="Modern Man Kenya"
                 fill
                 sizes="176px"
-                className="object-contain dark:hidden"
-                priority
-              />
-              <Image
-                src="/images/logo-dark-mode.png"
-                alt="Modern Man Kenya"
-                fill
-                sizes="176px"
-                className="object-contain hidden dark:block"
+                className="object-contain"
                 priority
               />
             </div>
           </Link>
           <div className="space-y-1">
-            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy dark:text-white">
               {mode === 'signin' ? 'Welcome Back' : 'Create Your Client Account'}
             </h1>
-            <p className="text-xs sm:text-sm text-stone-600 font-light">
+            <p className="text-xs sm:text-sm text-stone-600 dark:text-slate-400 font-light">
               {mode === 'signin'
                 ? 'Sign in to access your fitting appointments, saved orders, and sartorial profile.'
                 : 'Join Modern Man Kenya for saved measurements, appointment tracking, and bespoke client services.'}
@@ -361,12 +353,12 @@ function LoginForm() {
 
         {/* Main Card */}
         {requires2FA ? (
-          <div className="bg-white rounded-2xl shadow-luxury border border-stone-200/80 p-6 sm:p-8 space-y-6">
+          <div className="bg-white dark:bg-[#121727] rounded-2xl shadow-luxury border border-stone-200/80 dark:border-slate-800 p-6 sm:p-8 space-y-6">
             <div className="text-center space-y-2">
               <div className="w-12 h-12 rounded-full bg-brand-gold/15 text-brand-gold border border-brand-gold/40 flex items-center justify-center mx-auto">
-                <ShieldCheck className="w-6 h-6 text-brand-navy" />
+                <ShieldCheck className="w-6 h-6 text-brand-navy dark:text-brand-gold" />
               </div>
-              <h2 className="font-serif text-xl font-bold text-brand-navy">
+              <h2 className="font-serif text-xl font-bold text-brand-navy dark:text-white">
                 Two-Factor Security Verification
               </h2>
               <p className="text-xs text-stone-600 leading-relaxed">
@@ -452,10 +444,10 @@ function LoginForm() {
             </form>
           </div>
         ) : (
-        <div className="bg-white rounded-2xl shadow-luxury border border-stone-200/80 p-6 sm:p-8 space-y-6">
+        <div className="bg-white dark:bg-[#121727] rounded-2xl shadow-luxury border border-stone-200/80 dark:border-slate-800 p-6 sm:p-8 space-y-6">
           
           {/* Mode Switcher Tabs */}
-          <div className="flex rounded-xl bg-stone-100 p-1 border border-stone-200">
+          <div className="flex rounded-xl bg-stone-100 dark:bg-slate-800/80 p-1 border border-stone-200 dark:border-slate-700">
             <button
               type="button"
               onClick={() => {
@@ -465,8 +457,8 @@ function LoginForm() {
               }}
               className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all ${
                 mode === 'signin'
-                  ? 'bg-brand-navy text-brand-gold shadow-sm'
-                  : 'text-stone-600 hover:text-stone-900'
+                  ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-sm'
+                  : 'text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-white'
               }`}
             >
               Sign In
@@ -480,8 +472,8 @@ function LoginForm() {
               }}
               className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all ${
                 mode === 'signup'
-                  ? 'bg-brand-navy text-brand-gold shadow-sm'
-                  : 'text-stone-600 hover:text-stone-900'
+                  ? 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy shadow-sm'
+                  : 'text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-white'
               }`}
             >
               Create Account
@@ -490,14 +482,14 @@ function LoginForm() {
 
           {/* Feedback Notices */}
           {errorMsg && (
-            <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-start space-x-2 animate-in fade-in">
+            <div className="p-3.5 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60 text-red-700 dark:text-red-300 text-xs flex items-start space-x-2 animate-in fade-in">
               <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {successMsg && (
-            <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-start space-x-2 animate-in fade-in">
+            <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 text-xs flex items-start space-x-2 animate-in fade-in">
               <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-emerald-600" />
               <span>{successMsg}</span>
             </div>
@@ -509,10 +501,10 @@ function LoginForm() {
               type="button"
               onClick={handleGoogleSignIn}
               disabled={googleLoading || loading}
-              className="w-full py-3 px-4 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 font-semibold text-xs sm:text-sm flex items-center justify-center space-x-3 transition-all shadow-xs hover:border-stone-400 active:scale-[0.99] disabled:opacity-60 cursor-pointer"
+              className="w-full py-3 px-4 rounded-xl border border-stone-300 dark:border-slate-700 bg-white dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-700 text-stone-800 dark:text-slate-100 font-semibold text-xs sm:text-sm flex items-center justify-center space-x-3 transition-all shadow-xs hover:border-stone-400 active:scale-[0.99] disabled:opacity-60 cursor-pointer"
             >
               {googleLoading ? (
-                <div className="w-5 h-5 border-2 border-brand-navy border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-brand-navy dark:border-brand-gold border-t-transparent rounded-full animate-spin" />
               ) : (
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path
@@ -545,11 +537,11 @@ function LoginForm() {
 
           {/* Divider */}
           <div className="relative flex items-center justify-center">
-            <div className="border-t border-stone-200 w-full" />
-            <span className="bg-white px-3 text-[11px] uppercase tracking-wider text-stone-400 font-medium">
+            <div className="border-t border-stone-200 dark:border-slate-800 w-full" />
+            <span className="bg-white dark:bg-[#121727] px-3 text-[11px] uppercase tracking-wider text-stone-400 dark:text-slate-400 font-medium">
               or with email
             </span>
-            <div className="border-t border-stone-200 w-full" />
+            <div className="border-t border-stone-200 dark:border-slate-800 w-full" />
           </div>
 
           {/* 2. Email Form */}
@@ -558,7 +550,7 @@ function LoginForm() {
             {/* Full Name (Sign Up only) */}
             {mode === 'signup' && (
               <div className="space-y-1.5">
-                <label className="block text-xs font-semibold text-stone-700">
+                <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300">
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
@@ -570,7 +562,7 @@ function LoginForm() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="e.g. David Mwangi"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 dark:border-slate-700 bg-white dark:bg-[#182238] text-xs sm:text-sm text-stone-900 dark:text-white focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
                   />
                 </div>
               </div>
@@ -578,7 +570,7 @@ function LoginForm() {
 
             {/* Email Address */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-stone-700">
+              <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300">
                 Email Address <span className="text-red-500">*</span>
               </label>
               <div className="relative">
@@ -590,7 +582,7 @@ function LoginForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@example.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 dark:border-slate-700 bg-white dark:bg-[#182238] text-xs sm:text-sm text-stone-900 dark:text-white focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
                 />
               </div>
             </div>
@@ -598,7 +590,7 @@ function LoginForm() {
             {/* Phone Number (Sign Up only) */}
             {mode === 'signup' && (
               <div className="space-y-1.5">
-                <label className="block text-xs font-semibold text-stone-700">
+                <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300">
                   Phone / WhatsApp <span className="text-stone-400 font-normal">(Optional)</span>
                 </label>
                 <div className="relative">
@@ -608,7 +600,7 @@ function LoginForm() {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     placeholder="e.g. 0712 345 678"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 dark:border-slate-700 bg-white dark:bg-[#182238] text-xs sm:text-sm text-stone-900 dark:text-white focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
                   />
                 </div>
               </div>
@@ -617,7 +609,7 @@ function LoginForm() {
             {/* Password */}
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label className="block text-xs font-semibold text-stone-700">
+                <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300">
                   Password <span className="text-red-500">*</span>
                 </label>
                 {mode === 'signin' && (
@@ -641,12 +633,12 @@ function LoginForm() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={mode === 'signup' ? 'At least 6 characters' : 'Enter your password'}
-                  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
+                  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-stone-300 dark:border-slate-700 bg-white dark:bg-[#182238] text-xs sm:text-sm text-stone-900 dark:text-white focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -656,7 +648,7 @@ function LoginForm() {
             {/* Confirm Password (Sign Up only) */}
             {mode === 'signup' && (
               <div className="space-y-1.5">
-                <label className="block text-xs font-semibold text-stone-700">
+                <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300">
                   Confirm Password <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
@@ -667,7 +659,7 @@ function LoginForm() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="Repeat your password"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm text-stone-900 focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 dark:border-slate-700 bg-white dark:bg-[#182238] text-xs sm:text-sm text-stone-900 dark:text-white focus:outline-hidden focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition-all"
                   />
                 </div>
               </div>
@@ -678,10 +670,10 @@ function LoginForm() {
               <button
                 type="submit"
                 disabled={loading || googleLoading}
-                className="w-full py-3.5 px-4 bg-brand-navy hover:bg-slate-900 text-brand-gold font-bold uppercase tracking-wider text-xs rounded-xl transition-all shadow-md flex items-center justify-center space-x-2 disabled:opacity-60 cursor-pointer"
+                className="w-full py-3.5 px-4 bg-brand-navy hover:bg-slate-900 dark:bg-brand-gold dark:hover:bg-brand-gold-light text-brand-gold dark:text-brand-navy font-bold uppercase tracking-wider text-xs rounded-xl transition-all shadow-md flex items-center justify-center space-x-2 disabled:opacity-60 cursor-pointer"
               >
                 {loading ? (
-                  <div className="w-4 h-4 border-2 border-brand-gold border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-brand-gold dark:border-brand-navy border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <>
                     <span>{mode === 'signin' ? 'Sign In to Modern Man' : 'Create Client Account'}</span>
@@ -694,11 +686,11 @@ function LoginForm() {
 
           {/* Forgot Password Drawer / Modal */}
           {forgotPasswordOpen && (
-            <div className="p-4 rounded-xl bg-stone-50 border border-brand-gold/30 space-y-3 animate-in fade-in">
-              <h3 className="font-serif text-sm font-bold text-brand-navy">
+            <div className="p-4 rounded-xl bg-stone-50 dark:bg-[#182238] border border-brand-gold/30 space-y-3 animate-in fade-in">
+              <h3 className="font-serif text-sm font-bold text-brand-navy dark:text-white">
                 Reset Your Password
               </h3>
-              <p className="text-xs text-stone-600 font-light">
+              <p className="text-xs text-stone-600 dark:text-slate-300 font-light">
                 Enter your account email address. We will send you a secure link to create a new password.
               </p>
               {resetEmailSent ? (

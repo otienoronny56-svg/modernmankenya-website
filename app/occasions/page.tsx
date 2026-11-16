@@ -50,7 +50,7 @@ export default function OccasionsHubPage() {
       </section>
 
       {/* 2. THE 3 OCCASION CATEGORIES (EXECUTIVE WEAR, BLACK TIE & WEDDING, AFRICAN WEAR) */}
-      <div className="divide-y divide-slate-200/80">
+      <div className="divide-y divide-slate-200/80 dark:divide-slate-800">
         {ALL_OCCASIONS_LIST.map((occ, occIdx) => {
           const isEven = occIdx % 2 === 0;
           return (
@@ -170,7 +170,7 @@ export default function OccasionsHubPage() {
                   {occ.heroPills.map((pill, i) => (
                     <span
                       key={i}
-                      className="bg-white border border-slate-200/90 px-3 py-1 rounded-md text-[11px] font-semibold tracking-wider uppercase text-slate-700 shadow-2xs"
+                      className="bg-white dark:bg-[#151c2e] border border-slate-200/90 dark:border-slate-700 px-3 py-1 rounded-md text-[11px] font-semibold tracking-wider uppercase text-slate-700 dark:text-slate-300 shadow-2xs"
                     >
                       {pill}
                     </span>
@@ -184,7 +184,7 @@ export default function OccasionsHubPage() {
       </div>
 
       {/* 3. ATELIER INVITATION FOOTER (DEEP BRAND NAVY LUXURY CONTRAST) */}
-      <section className="bg-gradient-to-br from-brand-navy via-[#1B1464] to-[#0F0B3D] py-16 sm:py-24 border-t border-slate-200 text-center text-white">
+      <section className="bg-gradient-to-br from-brand-navy via-[#1B1464] to-[#0F0B3D] py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 text-center text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <span className="text-xs uppercase tracking-[0.3em] text-brand-gold font-bold block">
             Nairobi Atelier
