@@ -130,8 +130,17 @@ html.dark .bg-\[\#f8fafc\],
 html.dark .bg-\[\#FAF8F5\],
 html.dark .bg-\[\#FAF9F6\],
 html.dark .bg-\[\#f7f7f8\],
-html.dark .bg-\[\#f4f4f5\] {
+html.dark .bg-\[\#f4f4f5\],
+html.dark .bg-\[\#FDFBF7\],
+html.dark .bg-\[\#fdfbf7\] {
   background-color: #12131A !important;
+}
+
+/* Eliminate Light Gradient Leaks in Dark Mode */
+html.dark .from-white {
+  --tw-gradient-from: #12131A var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: #12131A var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), #161824 var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
 }
 
 /* Primary Card Surfaces (Graphite Slate Grey) */

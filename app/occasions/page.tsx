@@ -12,34 +12,34 @@ export const metadata: Metadata = {
 
 export default function OccasionsHubPage() {
   return (
-    <div className="min-h-screen bg-[#fafafc] text-slate-900 selection:bg-brand-gold selection:text-brand-navy">
+    <div className="min-h-screen bg-[#fafafc] dark:bg-[#0c0d14] text-slate-900 dark:text-slate-100 selection:bg-brand-gold selection:text-brand-navy">
       
-      {/* 1. LUMINOUS EDITORIAL OCCASIONS HEADER (WHITE & BRAND NAVY) */}
-      <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white via-blue-50/30 to-[#f8fafc] border-b border-slate-200/80 overflow-hidden">
+      {/* 1. LUMINOUS EDITORIAL OCCASIONS HEADER (WHITE & BRAND NAVY / NOCTURNE DARK CANVAS) */}
+      <section className="relative py-16 sm:py-24 bg-gradient-to-b from-white via-blue-50/30 to-[#f8fafc] dark:from-[#0d0e15] dark:via-[#141522] dark:to-[#0d0e15] border-b border-slate-200/80 dark:border-stone-800 overflow-hidden">
         {/* Subtle Luxury Pattern Background */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#1B1464_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] bg-[radial-gradient(#1B1464_1px,transparent_1px)] dark:bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:24px_24px]" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 bg-blue-50 border border-blue-200/80 px-3.5 py-1 rounded-full text-brand-navy text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] shadow-xs">
+          <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-slate-800/80 border border-blue-200/80 dark:border-slate-700 px-3.5 py-1 rounded-full text-brand-navy dark:text-brand-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
             <span>Occasions</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-brand-navy">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-brand-navy dark:text-white">
             Suits for Every Occasion
           </h1>
 
-          <p className="font-serif text-base sm:text-xl text-slate-600 font-normal max-w-2xl mx-auto tracking-wide">
+          <p className="font-serif text-base sm:text-xl text-slate-600 dark:text-slate-300 font-normal max-w-2xl mx-auto tracking-wide">
             Custom Suits for Every Event • Nairobi
           </p>
 
-          {/* Quick Filter Pill Buttons in Crisp White & Navy */}
+          {/* Quick Filter Pill Buttons in Crisp White & Navy / Dark Charcoal & Gold */}
           <div className="pt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {ALL_OCCASIONS_LIST.map((occ, idx) => (
               <a
                 key={occ.slug}
                 href={`#${occ.slug}`}
-                className="px-4 py-2 rounded-full bg-white hover:bg-brand-navy hover:text-white text-slate-700 text-xs font-bold uppercase tracking-wider border border-slate-200/90 shadow-sm transition-all duration-200 hover:shadow-md flex items-center space-x-1.5"
+                className="px-4 py-2 rounded-full bg-white dark:bg-[#1a1c27] hover:bg-brand-navy dark:hover:bg-brand-gold hover:text-white dark:hover:text-brand-navy text-slate-700 dark:text-slate-200 text-xs font-bold uppercase tracking-wider border border-slate-200/90 dark:border-stone-800 shadow-sm transition-all duration-200 hover:shadow-md flex items-center space-x-1.5"
               >
                 <span className="text-brand-gold font-mono text-[10px]">0{idx + 1}</span>
                 <span>{occ.title}</span>
@@ -58,25 +58,25 @@ export default function OccasionsHubPage() {
               key={occ.slug}
               id={occ.slug}
               className={`py-16 sm:py-24 relative overflow-hidden ${
-                isEven ? 'bg-white' : 'bg-[#f8fafc]'
+                isEven ? 'bg-white dark:bg-[#12131A]' : 'bg-[#f8fafc] dark:bg-[#0c0d14]'
               }`}
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 {/* Occasion Header Strip */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 border-b border-slate-200/90 pb-5">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 border-b border-slate-200/90 dark:border-stone-800 pb-5">
                   <div className="space-y-2">
                     <div className="flex items-center space-x-2">
                       <span className="font-mono text-xs text-brand-gold font-bold">
                         0{occIdx + 1}
                       </span>
-                      <span className="text-slate-300">•</span>
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-brand-navy font-bold bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200/60">
+                      <span className="text-slate-300 dark:text-stone-700">•</span>
+                      <span className="text-[10px] uppercase tracking-[0.25em] text-brand-navy dark:text-brand-gold font-bold bg-blue-50 dark:bg-slate-800 px-2.5 py-0.5 rounded border border-blue-200/60 dark:border-slate-700">
                         {occ.badge}
                       </span>
                     </div>
 
-                    <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy tracking-tight">
+                    <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy dark:text-white tracking-tight">
                       {occ.title}
                     </h2>
                     
@@ -85,7 +85,7 @@ export default function OccasionsHubPage() {
                       {occ.subCategories.map((sub) => (
                         <span
                           key={sub.id}
-                          className="bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded text-[11px] font-semibold text-slate-700 uppercase tracking-wider"
+                          className="bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-[11px] font-semibold text-slate-700 dark:text-slate-200 uppercase tracking-wider"
                         >
                           {sub.title}
                         </span>
@@ -104,7 +104,7 @@ export default function OccasionsHubPage() {
 
                     <Link
                       href={`/book-appointment?occasion=${occ.slug}`}
-                      className="px-4 py-2.5 bg-white hover:bg-blue-50 text-brand-navy font-bold text-xs uppercase tracking-wider rounded border border-slate-200/90 transition-all duration-200 flex items-center space-x-1.5 shadow-xs"
+                      className="px-4 py-2.5 bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 text-brand-navy dark:text-brand-gold font-bold text-xs uppercase tracking-wider rounded border border-slate-200/90 dark:border-slate-700 transition-all duration-200 flex items-center space-x-1.5 shadow-xs"
                     >
                       <Calendar className="w-3.5 h-3.5 text-brand-gold" />
                       <span className="hidden sm:inline">Book Fitting</span>
@@ -118,10 +118,10 @@ export default function OccasionsHubPage() {
                     <Link
                       key={sub.id}
                       href={`/occasions/${occ.slug}`}
-                      className="group bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-navy/50 transition-all duration-300 flex flex-col"
+                      className="group bg-white dark:bg-[#1A1C27] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-brand-gold/50 transition-all duration-300 flex flex-col"
                     >
                       {/* Image */}
-                      <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
+                      <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
                         <Image
                           src={sub.heroImage}
                           alt={sub.title}
@@ -132,7 +132,7 @@ export default function OccasionsHubPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/20 to-transparent" />
                         
                         <div className="absolute top-3 left-3">
-                          <span className="bg-white/95 backdrop-blur-md text-[9px] font-bold text-brand-navy px-2.5 py-0.5 rounded border border-slate-200 uppercase tracking-wider shadow-2xs">
+                          <span className="bg-white/95 dark:bg-[#12131A]/95 backdrop-blur-md text-[9px] font-bold text-brand-navy dark:text-brand-gold px-2.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 uppercase tracking-wider shadow-2xs">
                             {sub.title}
                           </span>
                         </div>
@@ -146,18 +146,18 @@ export default function OccasionsHubPage() {
                               {sub.title}
                             </h3>
                           </div>
-                          <div className="w-7 h-7 rounded-full bg-white text-brand-navy group-hover:bg-brand-gold group-hover:text-brand-navy flex items-center justify-center transition-all flex-shrink-0 shadow">
+                          <div className="w-7 h-7 rounded-full bg-white dark:bg-slate-800 text-brand-navy dark:text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-navy flex items-center justify-center transition-all flex-shrink-0 shadow">
                             <ArrowRight className="w-3.5 h-3.5" />
                           </div>
                         </div>
                       </div>
 
                       {/* Micro Description */}
-                      <div className="p-3.5 bg-white border-t border-slate-100 flex items-center justify-between">
-                        <span className="text-xs text-slate-600 font-medium line-clamp-1">
+                      <div className="p-3.5 bg-white dark:bg-[#1A1C27] border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <span className="text-xs text-slate-600 dark:text-slate-300 font-medium line-clamp-1">
                           {sub.description}
                         </span>
-                        <span className="text-[10px] uppercase font-bold text-brand-navy group-hover:text-brand-gold whitespace-nowrap pl-2">
+                        <span className="text-[10px] uppercase font-bold text-brand-navy dark:text-brand-gold group-hover:text-brand-gold whitespace-nowrap pl-2">
                           View →
                         </span>
                       </div>

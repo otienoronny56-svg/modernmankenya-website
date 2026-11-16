@@ -410,7 +410,7 @@ export default function ClientDashboardPage() {
 
   if (isPendingApproval) {
     return (
-      <div className="min-h-screen bg-[#FDFBF7] py-16 sm:py-24 px-4 sm:px-6">
+      <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#0c0d14] py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-xl mx-auto bg-white rounded-3xl shadow-xl border border-brand-gold/40 p-8 sm:p-12 text-center space-y-6">
           <div className="relative mx-auto w-20 h-20 rounded-full bg-brand-navy flex items-center justify-center text-brand-gold shadow-lg border border-brand-gold/40">
             <Clock className="w-10 h-10 animate-pulse text-brand-gold" />
@@ -480,7 +480,7 @@ export default function ClientDashboardPage() {
   const previousOrders = orders.filter((o) => o.fulfillment_status === 'delivered' || o.fulfillment_status === 'cancelled');
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] py-8 sm:py-12">
+    <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#0c0d14] py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
         {/* Top Header Card */}
