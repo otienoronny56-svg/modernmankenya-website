@@ -30,7 +30,7 @@ export const PreviewModeBanner: React.FC = () => {
     }
   };
 
-  if (!isPreview || isDismissed) return null;
+  if (!LAUNCH_CONFIG.isPrelaunch || !isPreview || isDismissed) return null;
 
   return (
     <aside

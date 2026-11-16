@@ -262,18 +262,19 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
   try {
     const { getSupabaseAdmin } = await import('@/lib/supabase/server');
     const supabaseAdmin = getSupabaseAdmin();
-    const { data, error } = await supabaseAdmin.auth.admin.listUsers();
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 });
     if (!error && data?.users) {
       for (const u of data.users) {
         if (!u.email) continue;
         const meta = u.user_metadata || {};
-        const isUserApprovedInMeta = meta.accountStatus === 'approved';
+        const isUserApprovedInMeta = meta.accountStatus === 'approved' || meta.approvalStatus === 'approved';
         const isAdmin = u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com';
         const existingIndex = localClients.findIndex((c) => c.email.toLowerCase() === u.email?.toLowerCase());
 
         if (existingIndex > -1) {
           if (isUserApprovedInMeta || isAdmin) {
             localClients[existingIndex].accountStatus = 'approved';
+            localClients[existingIndex].approvalStatus = 'approved';
           }
         } else {
           const newProfile: ClientMeasurementProfile = {
@@ -335,9 +336,77 @@ export async function getClientProfile(emailOrId: string): Promise<ClientMeasure
     (c) => c.email.toLowerCase() === lower || c.id === emailOrId || (c.phone && c.phone.replace(/\s+/g, '') === lower)
   );
 
+  // Directly check Supabase Auth to confirm whether user has been approved
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const { data } = await supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 });
+    const sbUser = data?.users?.find(
+      (u) => u.email?.toLowerCase().trim() === lower || u.id === emailOrId
+    );
+    if (sbUser) {
+      const meta = sbUser.user_metadata || {};
+      const isApprovedInMeta = meta.accountStatus === 'approved' || meta.approvalStatus === 'approved';
+      const isAdmin = lower === 'admin@modernmankenya.com' || lower === 'otienoronny56@gmail.com';
+
+      if (match) {
+        if (isApprovedInMeta || isAdmin) {
+          match.accountStatus = 'approved';
+          match.approvalStatus = 'approved';
+        }
+        return match;
+      }
+
+      // If user exists in Supabase Auth but wasn't in localClients
+      return {
+        id: sbUser.id,
+        email: sbUser.email || lower,
+        fullName: meta.full_name || meta.name || lower.split('@')[0],
+        phone: meta.phone || '',
+        savedDelivery: { town: 'Nairobi', streetAddress: '', deliveryNotes: '' },
+        preferences: {
+          fitStyle: 'contemporary_tailored',
+          shoulderSlope: 'normal',
+          lapelPreference: 'peak_lapel',
+          jacketVents: 'double_side_vents',
+          trouserBreak: 'slight_break',
+        },
+        measurements: {
+          unit: 'inches',
+          chest: null,
+          waistStomach: null,
+          hipsSeat: null,
+          shoulderWidth: null,
+          halfBack: null,
+          jacketLength: null,
+          sleeveLengthLeft: null,
+          sleeveLengthRight: null,
+          neckCollar: null,
+          bicep: null,
+          wrist: null,
+          trouserWaist: null,
+          trouserSeat: null,
+          trouserOutseam: null,
+          trouserInseam: null,
+          thigh: null,
+          knee: null,
+          ankleOpening: null,
+          crotchRise: null,
+        },
+        approvalStatus: (isAdmin || isApprovedInMeta) ? 'approved' : 'pending_review',
+        accountStatus: (isAdmin || isApprovedInMeta) ? 'approved' : 'pending_approval',
+        tailorNotes: (isAdmin || isApprovedInMeta) ? 'Approved Atelier Patron' : 'Registered user account. Awaiting Atelier Admin access approval.',
+        updatedAt: sbUser.updated_at || new Date().toISOString(),
+        createdAt: sbUser.created_at || new Date().toISOString(),
+      };
+    }
+  } catch (err) {
+    console.warn('Error verifying Supabase user in getClientProfile:', err);
+  }
+
   if (match) return match;
 
-  // If email was given but not found, provide a clean default profile structure for that user
+  // Fallback if email was given but not found anywhere
   if (emailOrId.includes('@')) {
     return {
       id: `client-${Date.now()}`,
@@ -502,6 +571,7 @@ export async function approveClientAccount(
         user_metadata: {
           ...(sbUser.user_metadata || {}),
           accountStatus: 'approved',
+          approvalStatus: 'approved',
           accountApprovedBy: approvedBy,
           accountApprovedAt: now,
         },
@@ -514,6 +584,7 @@ export async function approveClientAccount(
   // 2. Update local state
   if (index > -1) {
     clients[index].accountStatus = 'approved';
+    clients[index].approvalStatus = 'approved';
     clients[index].accountApprovedBy = approvedBy;
     clients[index].accountApprovedAt = now;
     clients[index].updatedAt = now;
@@ -615,13 +686,38 @@ export async function approveClientMeasurements(
 
   if (index === -1) return null;
 
+  const now = new Date().toISOString();
   clients[index].approvalStatus = 'approved';
+  clients[index].accountStatus = 'approved';
   clients[index].approvedBy = approvedBy;
-  clients[index].approvedAt = new Date().toISOString();
+  clients[index].approvedAt = now;
   if (tailorNotes) {
     clients[index].tailorNotes = tailorNotes;
   }
-  clients[index].updatedAt = new Date().toISOString();
+  clients[index].updatedAt = now;
+
+  // Sync to Supabase Auth metadata as well so client JWT reflects approval immediately
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const { data } = await supabaseAdmin.auth.admin.listUsers();
+    const sbUser = data?.users?.find(
+      (u) => u.email?.toLowerCase() === lower || u.id === emailOrId
+    );
+    if (sbUser) {
+      await supabaseAdmin.auth.admin.updateUserById(sbUser.id, {
+        user_metadata: {
+          ...(sbUser.user_metadata || {}),
+          accountStatus: 'approved',
+          approvalStatus: 'approved',
+          approvedBy,
+          approvedAt: now,
+        },
+      });
+    }
+  } catch (err) {
+    console.warn('Could not update Supabase user metadata in approveClientMeasurements:', err);
+  }
 
   writeLocalClients(clients);
   return clients[index];

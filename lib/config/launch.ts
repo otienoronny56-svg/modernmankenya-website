@@ -2,16 +2,16 @@
 
 export const LAUNCH_CONFIG = {
   /**
-   * Set NEXT_PUBLIC_LAUNCH_STATUS="live" in Vercel Environment Variables
-   * or change this to false when you are ready to open the full site to the public.
+   * Website is LIVE to the public.
+   * Anyone can visit the site, browse collections, book fittings, and sign in.
    */
-  isPrelaunch: process.env.NEXT_PUBLIC_LAUNCH_STATUS !== 'live',
+  isPrelaunch: false,
 
   /**
    * Official Launch Date & Time:
-   * November 17, 2026 at 09:00:00 AM East Africa Time (Nairobi, UTC+3)
+   * November 17, 2026 at 06:00:00 AM East Africa Time (Nairobi, UTC+3)
    */
-  launchDate: '2026-11-17T09:00:00+03:00',
+  launchDate: '2026-11-17T06:00:00+03:00',
 
   /**
    * Secret Passcode for preview access:

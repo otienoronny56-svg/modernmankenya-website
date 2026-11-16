@@ -97,7 +97,10 @@ export async function middleware(req: NextRequest) {
 
     // Direct access to /admin dashboards requires valid token
     if (!isValid) {
-      return NextResponse.rewrite(new URL('/coming-soon', req.url));
+      if (LAUNCH_CONFIG.isPrelaunch) {
+        return NextResponse.rewrite(new URL('/coming-soon', req.url));
+      }
+      return NextResponse.redirect(new URL('/admin/login', req.url));
     }
     return NextResponse.next();
   }
@@ -118,6 +121,9 @@ export async function middleware(req: NextRequest) {
     if (!hasBypassAccess) {
       return NextResponse.rewrite(new URL('/coming-soon', req.url));
     }
+  } else if (pathname === '/coming-soon') {
+    // If site is live to the public, redirect legacy /coming-soon visitors to home
+    return NextResponse.redirect(new URL('/', req.url));
   }
 
   return NextResponse.next();

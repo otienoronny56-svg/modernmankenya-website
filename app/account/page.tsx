@@ -98,6 +98,9 @@ export default function ClientDashboardPage() {
             if (data.profile) {
               const p: ClientMeasurementProfile = data.profile;
               setClientData(p);
+              if (p.accountStatus === 'approved' || p.approvalStatus === 'approved') {
+                supabase.auth.refreshSession().catch(() => {});
+              }
               setFullName(p.fullName || profile?.fullName || '');
               setPhone(p.phone || profile?.phone || '');
               setDeliveryTown(p.savedDelivery?.town || 'Nairobi');
@@ -404,9 +407,22 @@ export default function ClientDashboardPage() {
   }
 
   // If Logged In but Account is Pending Admin Approval
-  const userMetadataApproved = (user?.user_metadata as any)?.accountStatus === 'approved';
-  const isAdmin = user?.email === 'admin@modernmankenya.com' || user?.email === 'otienoronny56@gmail.com' || (profile as any)?.role === 'admin';
-  const isPendingApproval = !isAdmin && !userMetadataApproved && clientData?.accountStatus === 'pending_approval';
+  const userMetadataApproved =
+    (user?.user_metadata as any)?.accountStatus === 'approved' ||
+    (user?.user_metadata as any)?.approvalStatus === 'approved';
+  const clientDataApproved =
+    clientData?.accountStatus === 'approved' ||
+    clientData?.approvalStatus === 'approved';
+  const isAdmin =
+    user?.email === 'admin@modernmankenya.com' ||
+    user?.email === 'otienoronny56@gmail.com' ||
+    (profile as any)?.role === 'admin';
+  const isApproved = isAdmin || userMetadataApproved || clientDataApproved;
+  const isPendingApproval =
+    !isApproved &&
+    !loadingProfile &&
+    clientData !== null &&
+    clientData?.accountStatus === 'pending_approval';
 
   if (isPendingApproval) {
     return (
