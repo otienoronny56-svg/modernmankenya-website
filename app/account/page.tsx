@@ -597,7 +597,7 @@ export default function ClientDashboardPage() {
               }`}
           >
             <Sparkles className="w-4 h-4 text-brand-gold animate-pulse" />
-            <span>AI Sartorial Stylist</span>
+            <span>Kasuku AI Stylist</span>
           </button>
 
           <button
