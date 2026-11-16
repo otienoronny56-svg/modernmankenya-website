@@ -92,15 +92,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 alt="Modern Man Kenya - Opulence • Simplicity • Class"
                 fill
                 sizes="(max-width: 640px) 64px, 96px"
-                className="object-contain dark:hidden"
-                priority
-              />
-              <Image
-                src="/images/logo-full-light.png"
-                alt="Modern Man Kenya - Opulence • Simplicity • Class"
-                fill
-                sizes="(max-width: 640px) 64px, 96px"
-                className="object-contain hidden dark:block"
+                className="object-contain"
                 priority
               />
             </div>

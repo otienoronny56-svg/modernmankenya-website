@@ -60,7 +60,7 @@ export const WHAT_WE_CREATE: BrandCreationItem[] = [
   {
     id: 'two-three-piece',
     title: '2 & 3-Piece Suits',
-    image: '/images/three-piece-suit-blue.jpeg',
+    image: '/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM.jpeg',
     categoryParam: 'suits',
     badge: 'Executive & Ceremony',
   },

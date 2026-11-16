@@ -28,14 +28,7 @@ export const Footer: React.FC = () => {
                   alt="Modern Man Kenya - Opulence • Simplicity • Class"
                   fill
                   sizes="(max-width: 640px) 128px, 144px"
-                  className="object-contain dark:hidden"
-                />
-                <Image
-                  src="/images/logo-full-light.png"
-                  alt="Modern Man Kenya - Opulence • Simplicity • Class"
-                  fill
-                  sizes="(max-width: 640px) 128px, 144px"
-                  className="object-contain hidden dark:block"
+                  className="object-contain"
                 />
               </div>
             </Link>
