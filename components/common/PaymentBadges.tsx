@@ -28,7 +28,11 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
         </div>
       )}
 
-      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap sm:flex-nowrap justify-center sm:justify-end py-1 max-w-full">
+      <div className={`flex items-center gap-1.5 sm:gap-2 flex-wrap py-1 max-w-full ${
+        variant === 'checkout' 
+          ? 'justify-start' 
+          : 'justify-center sm:justify-end'
+      }`}>
         {/* 1. Safaricom Lipa Na M-Pesa - Authentic Brand Logo */}
         <div
           className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-emerald-500 transition-colors"

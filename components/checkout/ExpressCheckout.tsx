@@ -692,7 +692,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
       </div>
 
       {/* Trust & Payment Method Logos */}
-      <div className="bg-slate-50/80 p-3 rounded-xl border border-slate-200/80">
+      <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/80 overflow-hidden">
         <PaymentBadges variant="checkout" showLabel={true} />
       </div>
 
