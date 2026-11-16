@@ -318,6 +318,39 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait"
   },
   {
+    "id": "kid-33",
+    "title": "Black & Gold Royal Tunic",
+    "tag": "African Prince",
+    "category": "modern-kids",
+    "image": "/latest/MOK_1791.jpg.jpeg",
+    "images": [
+      "/latest/MOK_1791.jpg.jpeg",
+      "/latest/MOK_1795.jpg.jpeg",
+      "/latest/MOK_1801.jpg.jpeg"
+    ],
+    "aspect": "portrait"
+  },
+  {
+    "id": "kid-34",
+    "title": "Cobalt 3-Piece",
+    "tag": "Junior Waistcoat",
+    "category": "modern-kids",
+    "image": "/latest/MOK_1846.jpg.jpeg",
+    "images": [
+      "/latest/MOK_1846.jpg.jpeg",
+      "/latest/MOK_1952.jpg.jpeg"
+    ],
+    "aspect": "portrait"
+  },
+  {
+    "id": "exec-latest-1",
+    "title": "Advocate Pinstripe",
+    "tag": "Legal Bespoke",
+    "category": "executive-wear",
+    "image": "/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM.jpeg",
+    "aspect": "portrait"
+  },
+  {
     "id": "women-1",
     "title": "Sage Green",
     "tag": "Trouser Suit",
