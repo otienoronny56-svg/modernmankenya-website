@@ -322,10 +322,6 @@ export const CORE_VALUES = [
     title: 'Service',
     description: 'We build lasting relationships through personal attention and professional guidance.',
   },
-  {
-    title: 'Innovation',
-    description: 'We continually explore new fabrics, silhouettes, styling ideas and techniques while respecting the foundations of menswear.',
-  },
 ];
 
 export const CRAFTSMANSHIP_DETAILS = {

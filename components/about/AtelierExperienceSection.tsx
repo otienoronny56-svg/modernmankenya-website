@@ -40,38 +40,38 @@ export const AtelierExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white border-t border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
+    <section className="py-12 sm:py-16 bg-white dark:bg-[#12131A] border-t border-slate-100 dark:border-stone-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
         {/* Top Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
+        <div className="text-center max-w-3xl mx-auto space-y-2.5">
           <span className="text-[11px] sm:text-xs uppercase font-bold tracking-luxury text-brand-gold">
             Executive Tier • VIP Tailoring Journey
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy dark:text-white">
             The Executive Tier Experience
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm md:text-base font-light leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm md:text-base font-light leading-relaxed">
             Reserved for our Executive Tier commissions. Enjoy a dedicated one-on-one tailoring journey with personalized fittings, private lounge hospitality, and access to the world&apos;s finest wools.
           </p>
         </div>
 
         {/* 4 Feature Highlights */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {experiences.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="bg-brand-canvas-alt border border-brand-gold/20 p-6 rounded-lg space-y-3 hover:border-brand-gold hover:shadow-luxury transition-all"
+                className="bg-brand-canvas-alt dark:bg-[#1A1C27] border border-brand-gold/20 dark:border-stone-800 p-6 rounded-xl space-y-3 hover:border-brand-gold hover:shadow-luxury transition-all"
               >
-                <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-brand-gold mb-2">
+                <div className="w-10 h-10 rounded-full bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center mb-2">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif font-bold text-base text-brand-navy">
+                <h3 className="font-serif font-bold text-base text-brand-navy dark:text-white">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-500 font-light leading-relaxed">
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                   {item.desc}
                 </p>
               </div>
