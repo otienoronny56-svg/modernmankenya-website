@@ -404,7 +404,9 @@ export default function ClientDashboardPage() {
   }
 
   // If Logged In but Account is Pending Admin Approval
-  const isPendingApproval = clientData && clientData.accountStatus === 'pending_approval';
+  const userMetadataApproved = (user?.user_metadata as any)?.accountStatus === 'approved';
+  const isAdmin = user?.email === 'admin@modernmankenya.com' || user?.email === 'otienoronny56@gmail.com' || (profile as any)?.role === 'admin';
+  const isPendingApproval = !isAdmin && !userMetadataApproved && clientData?.accountStatus === 'pending_approval';
 
   if (isPendingApproval) {
     return (

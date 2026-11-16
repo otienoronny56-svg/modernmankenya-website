@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
             >
               <div className="relative w-32 h-16 sm:w-36 sm:h-20 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/images/logo-full.png"
+                  src="/images/logo-dark-mode.png"
                   alt="Modern Man Kenya - Opulence • Simplicity • Class"
                   fill
                   sizes="(max-width: 640px) 128px, 144px"

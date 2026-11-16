@@ -322,11 +322,11 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "title": "Black & Gold Royal Tunic",
     "tag": "African Prince",
     "category": "modern-kids",
-    "image": "/latest/MOK_1791.jpg.jpeg",
+    "image": "/images/modern-kids-royal-tunic-1.jpeg",
     "images": [
-      "/latest/MOK_1791.jpg.jpeg",
-      "/latest/MOK_1795.jpg.jpeg",
-      "/latest/MOK_1801.jpg.jpeg"
+      "/images/modern-kids-royal-tunic-1.jpeg",
+      "/images/modern-kids-royal-tunic-2.jpeg",
+      "/images/modern-kids-royal-tunic-3.jpeg"
     ],
     "aspect": "portrait"
   },
@@ -335,10 +335,10 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "title": "Cobalt 3-Piece",
     "tag": "Junior Waistcoat",
     "category": "modern-kids",
-    "image": "/latest/MOK_1846.jpg.jpeg",
+    "image": "/images/modern-kids-cobalt-suit-1.jpeg",
     "images": [
-      "/latest/MOK_1846.jpg.jpeg",
-      "/latest/MOK_1952.jpg.jpeg"
+      "/images/modern-kids-cobalt-suit-1.jpeg",
+      "/images/modern-kids-cobalt-suit-2.jpeg"
     ],
     "aspect": "portrait"
   },
@@ -346,8 +346,8 @@ export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
     "id": "exec-latest-1",
     "title": "Advocate Pinstripe",
     "tag": "Legal Bespoke",
-    "category": "executive-wear",
-    "image": "/latest/WhatsApp Image 2026-11-15 at 9.13.56 PM.jpeg",
+    "category": "suits",
+    "image": "/images/two-three-piece-advocate.jpeg",
     "aspect": "portrait"
   },
   {

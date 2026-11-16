@@ -234,6 +234,29 @@ function writeLocalClients(clients: ClientMeasurementProfile[]) {
   }
 }
 
+const DEFAULT_BLANK_MEASUREMENTS: ClientMeasurementProfile['measurements'] = {
+  unit: 'inches',
+  chest: null,
+  waistStomach: null,
+  hipsSeat: null,
+  shoulderWidth: null,
+  halfBack: null,
+  jacketLength: null,
+  sleeveLengthLeft: null,
+  sleeveLengthRight: null,
+  neckCollar: null,
+  bicep: null,
+  wrist: null,
+  trouserWaist: null,
+  trouserSeat: null,
+  trouserOutseam: null,
+  trouserInseam: null,
+  thigh: null,
+  knee: null,
+  ankleOpening: null,
+  crotchRise: null,
+};
+
 export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
   const localClients = readLocalClients();
   try {
@@ -243,9 +266,16 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
     if (!error && data?.users) {
       for (const u of data.users) {
         if (!u.email) continue;
-        const exists = localClients.some((c) => c.email.toLowerCase() === u.email?.toLowerCase());
-        if (!exists) {
-          const meta = u.user_metadata || {};
+        const meta = u.user_metadata || {};
+        const isUserApprovedInMeta = meta.accountStatus === 'approved';
+        const isAdmin = u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com';
+        const existingIndex = localClients.findIndex((c) => c.email.toLowerCase() === u.email?.toLowerCase());
+
+        if (existingIndex > -1) {
+          if (isUserApprovedInMeta || isAdmin) {
+            localClients[existingIndex].accountStatus = 'approved';
+          }
+        } else {
           const newProfile: ClientMeasurementProfile = {
             id: u.id,
             email: u.email,
@@ -281,9 +311,9 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
               ankleOpening: null,
               crotchRise: null,
             },
-            approvalStatus: (u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com') ? 'approved' : 'pending_review',
-            accountStatus: (u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com') ? 'approved' : 'pending_approval',
-            tailorNotes: (u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com') ? 'Administrator Account' : 'Registered user account. Awaiting Atelier Admin access approval.',
+            approvalStatus: (isAdmin || isUserApprovedInMeta) ? 'approved' : 'pending_review',
+            accountStatus: (isAdmin || isUserApprovedInMeta) ? 'approved' : (meta.accountStatus || 'pending_approval'),
+            tailorNotes: isAdmin ? 'Administrator Account' : (isUserApprovedInMeta ? 'Approved Atelier Patron' : 'Registered user account. Awaiting Atelier Admin access approval.'),
             updatedAt: u.updated_at || new Date().toISOString(),
             createdAt: u.created_at || new Date().toISOString(),
           };
@@ -457,16 +487,86 @@ export async function approveClientAccount(
   const clients = readLocalClients();
   const lower = emailOrId.toLowerCase().trim();
   const index = clients.findIndex((c) => c.email.toLowerCase() === lower || c.id === emailOrId);
+  const now = new Date().toISOString();
 
-  if (index === -1) return null;
+  // 1. Update Supabase Auth user metadata permanently
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const { data } = await supabaseAdmin.auth.admin.listUsers();
+    const sbUser = data?.users?.find(
+      (u) => u.email?.toLowerCase() === lower || u.id === emailOrId
+    );
+    if (sbUser) {
+      await supabaseAdmin.auth.admin.updateUserById(sbUser.id, {
+        user_metadata: {
+          ...(sbUser.user_metadata || {}),
+          accountStatus: 'approved',
+          accountApprovedBy: approvedBy,
+          accountApprovedAt: now,
+        },
+      });
+    }
+  } catch (err) {
+    console.warn('Could not update Supabase user metadata in approveClientAccount:', err);
+  }
 
-  clients[index].accountStatus = 'approved';
-  clients[index].accountApprovedBy = approvedBy;
-  clients[index].accountApprovedAt = new Date().toISOString();
-  clients[index].updatedAt = new Date().toISOString();
-
-  writeLocalClients(clients);
-  return clients[index];
+  // 2. Update local state
+  if (index > -1) {
+    clients[index].accountStatus = 'approved';
+    clients[index].accountApprovedBy = approvedBy;
+    clients[index].accountApprovedAt = now;
+    clients[index].updatedAt = now;
+    writeLocalClients(clients);
+    return clients[index];
+  } else {
+    const newProfile: ClientMeasurementProfile = {
+      id: `client-${Date.now()}`,
+      email: lower,
+      fullName: lower.split('@')[0],
+      phone: '',
+      savedDelivery: { town: 'Nairobi', streetAddress: '', deliveryNotes: '' },
+      preferences: {
+        fitStyle: 'contemporary_tailored',
+        shoulderSlope: 'normal',
+        lapelPreference: 'peak_lapel',
+        jacketVents: 'double_side_vents',
+        trouserBreak: 'slight_break',
+      },
+      measurements: {
+        unit: 'inches',
+        chest: null,
+        waistStomach: null,
+        hipsSeat: null,
+        shoulderWidth: null,
+        halfBack: null,
+        jacketLength: null,
+        sleeveLengthLeft: null,
+        sleeveLengthRight: null,
+        neckCollar: null,
+        bicep: null,
+        wrist: null,
+        trouserWaist: null,
+        trouserSeat: null,
+        trouserOutseam: null,
+        trouserInseam: null,
+        thigh: null,
+        knee: null,
+        ankleOpening: null,
+        crotchRise: null,
+      },
+      approvalStatus: 'approved',
+      accountStatus: 'approved',
+      accountApprovedBy: approvedBy,
+      accountApprovedAt: now,
+      tailorNotes: 'Approved by Atelier Admin',
+      updatedAt: now,
+      createdAt: now,
+    };
+    clients.unshift(newProfile);
+    writeLocalClients(clients);
+    return newProfile;
+  }
 }
 
 export async function rejectClientAccount(
@@ -476,13 +576,32 @@ export async function rejectClientAccount(
   const lower = emailOrId.toLowerCase().trim();
   const index = clients.findIndex((c) => c.email.toLowerCase() === lower || c.id === emailOrId);
 
-  if (index === -1) return null;
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const { data } = await supabaseAdmin.auth.admin.listUsers();
+    const sbUser = data?.users?.find(
+      (u) => u.email?.toLowerCase() === lower || u.id === emailOrId
+    );
+    if (sbUser) {
+      await supabaseAdmin.auth.admin.updateUserById(sbUser.id, {
+        user_metadata: {
+          ...(sbUser.user_metadata || {}),
+          accountStatus: 'pending_approval',
+        },
+      });
+    }
+  } catch (err) {
+    console.warn('Could not update Supabase user metadata in rejectClientAccount:', err);
+  }
 
-  clients[index].accountStatus = 'rejected';
-  clients[index].updatedAt = new Date().toISOString();
-
-  writeLocalClients(clients);
-  return clients[index];
+  if (index > -1) {
+    clients[index].accountStatus = 'pending_approval';
+    clients[index].updatedAt = new Date().toISOString();
+    writeLocalClients(clients);
+    return clients[index];
+  }
+  return null;
 }
 
 export async function approveClientMeasurements(
