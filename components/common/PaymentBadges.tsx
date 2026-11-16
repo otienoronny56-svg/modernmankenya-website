@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 interface PaymentBadgesProps {
   className?: string;
@@ -28,25 +29,24 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
       )}
 
       <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap sm:flex-nowrap justify-center sm:justify-end py-1 max-w-full">
-        {/* 1. Safaricom Lipa Na M-Pesa */}
+        {/* 1. Safaricom Lipa Na M-Pesa - Authentic Brand Logo */}
         <div
           className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-emerald-500 transition-colors"
           title="Safaricom Lipa Na M-Pesa Online (STK Push & Till)"
         >
-          <div className="w-5 h-5 rounded-xs bg-[#00A651] flex items-center justify-center p-0.5 shrink-0 shadow-2xs">
-            <div className="w-full h-full bg-white rounded-[2px] flex items-center justify-center relative">
-              <svg className="w-3 h-3 text-[#ED1C24]" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="#ED1C24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center leading-none">
-            <span className="text-[7.5px] font-extrabold tracking-widest text-[#006B35] uppercase leading-tight">
-              Lipa Na
-            </span>
-            <span className="text-[12px] font-black tracking-tight text-[#00A651] uppercase leading-none">
-              M-PESA
-            </span>
+          <span className="text-[8px] sm:text-[8.5px] font-black tracking-wider text-[#006B35] uppercase whitespace-nowrap">
+            LIPA NA
+          </span>
+          <div className="relative h-5 w-14 shrink-0 flex items-center">
+            <Image
+              src="/mpesa-logo.png"
+              alt="M-PESA"
+              width={56}
+              height={20}
+              style={{ width: 'auto' }}
+              className="h-4.5 sm:h-5 object-contain"
+              priority
+            />
           </div>
         </div>
 

@@ -26,22 +26,8 @@ export default function CartPage() {
   const subtotalKes = getSubtotalKes();
 
   return (
-    <div className="min-h-screen bg-brand-canvas-alt py-12 sm:py-16">
+    <div className="min-h-screen bg-brand-canvas-alt py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Title */}
-        <div className="mb-8 sm:mb-10 space-y-1.5 text-center sm:text-left">
-          <span className="text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center sm:justify-start space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Review & Express Checkout</span>
-          </span>
-          <h1 className="font-serif text-3xl sm:text-4xl text-brand-navy font-bold">
-            Your Selected Ensembles & Accessories
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500">
-            Order custom shirts, luxury accessories, and ready garments with instant dispatch.
-          </p>
-        </div>
 
         {items.length === 0 ? (
           <div className="bg-white rounded-2xl p-12 sm:p-16 text-center border border-slate-200 shadow-sm max-w-2xl mx-auto space-y-4">
@@ -70,8 +56,22 @@ export default function CartPage() {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
-            {/* Left Items Table */}
-            <div className="lg:col-span-6 space-y-6">
+            {/* Left Items Table - Sticky on Desktop so only the right side scrolls */}
+            <div className="lg:col-span-6 space-y-6 lg:sticky lg:top-24 self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1">
+              {/* Title */}
+              <div className="space-y-1.5 text-center sm:text-left">
+                <span className="text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center sm:justify-start space-x-2">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Review & Express Checkout</span>
+                </span>
+                <h1 className="font-serif text-2xl sm:text-3xl text-brand-navy font-bold">
+                  Your Selected Ensembles & Accessories
+                </h1>
+                <p className="text-xs sm:text-sm text-slate-500">
+                  Order custom shirts, luxury accessories, and ready garments with instant dispatch.
+                </p>
+              </div>
+
               <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                 <div className="p-5 sm:p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
                   <h2 className="font-serif text-base sm:text-lg font-bold text-brand-navy flex items-center space-x-2">
