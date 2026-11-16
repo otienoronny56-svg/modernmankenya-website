@@ -28,7 +28,14 @@ export const Footer: React.FC = () => {
                   alt="Modern Man Kenya - Opulence • Simplicity • Class"
                   fill
                   sizes="(max-width: 640px) 128px, 144px"
-                  className="object-contain"
+                  className="object-contain dark:hidden"
+                />
+                <Image
+                  src="/images/logo-full-light.png"
+                  alt="Modern Man Kenya - Opulence • Simplicity • Class"
+                  fill
+                  sizes="(max-width: 640px) 128px, 144px"
+                  className="object-contain hidden dark:block"
                 />
               </div>
             </Link>
@@ -88,7 +95,7 @@ export const Footer: React.FC = () => {
 
               {/* Official Social Media Channels */}
               <div className="pt-1.5">
-                <p className="text-[11px] uppercase tracking-wider text-stone-500 font-semibold mb-2">
+                <p className="text-[11px] uppercase tracking-wider text-stone-500 dark:text-slate-400 font-semibold mb-2">
                   Follow Modern Man Kenya
                 </p>
                 <div className="flex items-center space-x-2.5">
@@ -97,7 +104,7 @@ export const Footer: React.FC = () => {
                     href="https://www.instagram.com/modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-7 h-7 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-pink-600 hover:border-pink-300 hover:bg-pink-50/50 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-pink-600 dark:hover:text-pink-400 hover:border-pink-300 dark:hover:border-pink-500/50 flex items-center justify-center transition-all shadow-xs group"
                     title="Follow Modern Man on Instagram (@modernmanke)"
                     aria-label="Modern Man Instagram Profile"
                   >
@@ -111,7 +118,7 @@ export const Footer: React.FC = () => {
                     href="https://www.tiktok.com/@modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-7 h-7 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-black hover:border-stone-400 hover:bg-stone-50 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-black dark:hover:text-white hover:border-stone-400 dark:hover:border-slate-500 flex items-center justify-center transition-all shadow-xs group"
                     title="Follow Modern Man on TikTok (@modernmanke)"
                     aria-label="Modern Man TikTok Profile"
                   >
@@ -125,7 +132,7 @@ export const Footer: React.FC = () => {
                     href="https://www.facebook.com/modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-7 h-7 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-blue-600 hover:border-blue-300 hover:bg-blue-50/50 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500/50 flex items-center justify-center transition-all shadow-xs group"
                     title="Connect with Modern Man Kenya on Facebook"
                     aria-label="Modern Man Facebook Page"
                   >
@@ -139,7 +146,7 @@ export const Footer: React.FC = () => {
                     href="https://x.com/modernmanke"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-7 h-7 rounded-full bg-white border border-stone-200 text-stone-700 hover:text-black hover:border-stone-400 hover:bg-stone-50 flex items-center justify-center transition-all shadow-xs group"
+                    className="social-icon-btn w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-stone-700 dark:text-slate-100 hover:text-black dark:hover:text-white hover:border-stone-400 dark:hover:border-slate-500 flex items-center justify-center transition-all shadow-xs group"
                     title="Follow Modern Man Kenya on X (@modernmanke)"
                     aria-label="Modern Man X Profile"
                   >

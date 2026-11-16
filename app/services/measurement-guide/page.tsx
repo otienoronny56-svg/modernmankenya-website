@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function MeasurementGuidePage() {
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 pb-20">
+    <div className="min-h-screen bg-stone-50 dark:bg-[#0E0F15] text-stone-900 dark:text-slate-100 pb-20">
       
       {/* 1. Hero Header */}
       <section className="relative bg-[#0A1128] text-white py-14 sm:py-20 border-b-2 border-brand-gold overflow-hidden">
@@ -80,52 +80,52 @@ export default function MeasurementGuidePage() {
 
       {/* 3. Three Sartorial Truths (Atelier Advisory) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
-        <div className="bg-white rounded-3xl border border-stone-200/90 p-8 sm:p-12 shadow-sm space-y-8">
+        <div className="bg-white dark:bg-[#1A1C27] rounded-3xl border border-stone-200/90 dark:border-slate-800 p-8 sm:p-12 shadow-sm space-y-8">
           <div className="max-w-2xl">
             <span className="text-[10px] font-bold uppercase tracking-luxury text-brand-gold block mb-1">
               Atelier Principles
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
-              Three Rules of Master Bespoke Fitting
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy dark:text-slate-100">
+              Rules of Master Made-to-Measure Fitting
             </h2>
-            <p className="text-xs text-stone-600 mt-2">
+            <p className="text-xs text-stone-600 dark:text-slate-400 mt-2">
               Taking measurements accurately ensures your suit drapes flawlessly without pulling, tension lines, or collar roll.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-brand-navy text-brand-gold flex items-center justify-center font-bold text-xs">
+            <div className="p-5 rounded-2xl bg-stone-50 dark:bg-[#151722] border border-stone-200 dark:border-slate-800 space-y-2.5">
+              <div className="w-8 h-8 rounded-xl bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-bold text-xs">
                 01
               </div>
-              <h3 className="font-serif font-bold text-base text-brand-navy">
+              <h3 className="font-serif font-bold text-base text-brand-navy dark:text-slate-100">
                 Wear Well-Fitted Dress Trousers &amp; Shirt
               </h3>
-              <p className="text-xs text-stone-600 leading-relaxed">
+              <p className="text-xs text-stone-600 dark:text-slate-400 leading-relaxed">
                 Never measure over thick denim, hoodies, or bulky outerwear. Stand naturally in comfortable socks and standard dress shoes to gauge exact trouser hem breaks.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-brand-navy text-brand-gold flex items-center justify-center font-bold text-xs">
+            <div className="p-5 rounded-2xl bg-stone-50 dark:bg-[#151722] border border-stone-200 dark:border-slate-800 space-y-2.5">
+              <div className="w-8 h-8 rounded-xl bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-bold text-xs">
                 02
               </div>
-              <h3 className="font-serif font-bold text-base text-brand-navy">
+              <h3 className="font-serif font-bold text-base text-brand-navy dark:text-slate-100">
                 Keep the Tape Snug, Never Stretched
               </h3>
-              <p className="text-xs text-stone-600 leading-relaxed">
+              <p className="text-xs text-stone-600 dark:text-slate-400 leading-relaxed">
                 The tape measure should lie flat against your body. Maintain one index finger between your body and the tape at the collar and waist to guarantee ease of breathing and movement.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-2.5">
-              <div className="w-8 h-8 rounded-xl bg-brand-navy text-brand-gold flex items-center justify-center font-bold text-xs">
+            <div className="p-5 rounded-2xl bg-stone-50 dark:bg-[#151722] border border-stone-200 dark:border-slate-800 space-y-2.5">
+              <div className="w-8 h-8 rounded-xl bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-bold text-xs">
                 03
               </div>
-              <h3 className="font-serif font-bold text-base text-brand-navy">
+              <h3 className="font-serif font-bold text-base text-brand-navy dark:text-slate-100">
                 Calibrated by Modern Man Cutters
               </h3>
-              <p className="text-xs text-stone-600 leading-relaxed">
+              <p className="text-xs text-stone-600 dark:text-slate-400 leading-relaxed">
                 Your submitted numbers serve as a base draft. Modern Man Kenya master tailors adjust for natural shoulder slope, lordosis/kyphosis posture, and movement tolerance before cutting cloth.
               </p>
             </div>

@@ -98,7 +98,7 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
   };
 
   return (
-    <div className={`bg-white rounded-3xl border border-stone-200/90 shadow-2xl overflow-hidden ${className}`}>
+    <div className={`bg-white dark:bg-[#1A1C27] rounded-3xl border border-stone-200/90 dark:border-slate-800 shadow-2xl overflow-hidden ${className}`}>
       
       {/* 1. Atelier Header Strip */}
       <div className="bg-[#0A1128] text-white p-6 sm:p-8 relative overflow-hidden border-b-2 border-brand-gold">
@@ -171,109 +171,50 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left: Anatomical Visual Callout Model Card */}
-          <div className="lg:col-span-5 bg-gradient-to-b from-[#0A1128] to-[#121c38] rounded-2xl p-5 text-white border border-brand-gold/30 shadow-xl relative overflow-hidden flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-gradient-to-b from-[#0A1128] via-[#0E152F] to-[#121c38] rounded-2xl p-4 sm:p-5 text-white border border-brand-gold/30 shadow-xl relative overflow-hidden flex flex-col justify-between">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
             
-            <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+            <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-3 mb-3">
               <div className="flex items-center space-x-2">
                 <Scissors className="w-4 h-4 text-brand-gold" />
                 <span className="text-xs font-serif font-bold text-white uppercase tracking-wider">
-                  Tailoring Reference Points
+                  Men&apos;s Measurement Chart
                 </span>
               </div>
-              <span className="text-[10px] uppercase font-bold text-brand-gold bg-white/10 px-2 py-0.5 rounded">
-                Hover to Highlight
+              <span className="text-[10px] uppercase font-bold text-brand-gold bg-white/10 px-2.5 py-0.5 rounded-full border border-brand-gold/30">
+                17 Reference Points
               </span>
             </div>
 
-            {/* Visual Tailoring Model with Interactive Points */}
-            <div className="relative w-full h-[520px] sm:h-[580px] rounded-xl overflow-hidden bg-slate-900/60 border border-white/10">
+            {/* Visual Tailoring Model - Clean Cropped Model exactly as provided */}
+            <div className="relative w-full h-[580px] sm:h-[640px] rounded-xl overflow-hidden bg-[#0A1128] border border-white/10 flex items-center justify-center p-1.5 shadow-inner">
               <Image
-                src="/images/kaunda-safari-purple-suit-1.jpeg"
-                alt="Modern Man Kenya Bespoke Tailoring Model"
+                src="/images/measurements/mens-measurement-model.jpg"
+                alt="Men's Measurement Chart for Tailoring & Fashion Design"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-top opacity-90 transition-transform duration-500 hover:scale-102"
+                className="object-contain object-center"
                 priority
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128] via-transparent to-black/30 pointer-events-none" />
-
-              {/* Measurement Pins & Callouts Layer */}
-              <div className="absolute inset-0 pointer-events-auto">
-                {[
-                  { id: 1, label: 'Neck', top: '15%', left: '50%' },
-                  { id: 2, label: 'Shoulder', top: '21%', left: '33%' },
-                  { id: 3, label: 'Chest', top: '28%', left: '50%' },
-                  { id: 7, label: 'Bicep', top: '32%', left: '76%' },
-                  { id: 4, label: 'Waist', top: '40%', left: '48%' },
-                  { id: 6, label: 'Sleeve Length', top: '37%', left: '22%' },
-                  { id: 8, label: 'Wrist', top: '53%', left: '21%' },
-                  { id: 5, label: 'Hips / Seat', top: '52%', left: '50%' },
-                  { id: 9, label: 'Shirt / Jacket Hem', top: '57%', left: '38%' },
-                  { id: 12, label: 'Thigh', top: '65%', left: '54%' },
-                  { id: 13, label: 'Knee', top: '76%', left: '52%' },
-                  { id: 14, label: 'Calf', top: '83%', left: '54%' },
-                  { id: 15, label: 'Trouser Length', top: '88%', left: '26%' },
-                ].map((pin) => (
-                  <button
-                    key={pin.id}
-                    type="button"
-                    onMouseEnter={() => setActivePoint(pin.id)}
-                    onMouseLeave={() => setActivePoint(null)}
-                    onClick={() => setActivePoint(pin.id)}
-                    style={{ top: pin.top, left: pin.left }}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 group transition-all z-20 ${
-                      activePoint === pin.id ? 'scale-125 z-30' : 'hover:scale-110'
-                    }`}
-                  >
-                    <div className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-tight flex items-center space-x-1 border shadow-lg backdrop-blur-md transition-all ${
-                      activePoint === pin.id
-                        ? 'bg-brand-gold text-brand-navy border-white shadow-brand-gold/50'
-                        : 'bg-brand-navy/90 text-white border-brand-gold/60 hover:bg-brand-gold hover:text-brand-navy'
-                    }`}>
-                      <span className="w-3.5 h-3.5 rounded-full bg-brand-gold text-brand-navy flex items-center justify-center text-[9px] font-black shrink-0">
-                        {pin.id}
-                      </span>
-                      <span className="whitespace-nowrap">{pin.label}</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-
-              {/* Bottom Badge inside photo */}
-              <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-brand-navy/90 backdrop-blur-md border border-brand-gold/40 text-xs flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Ruler className="w-4 h-4 text-brand-gold" />
-                  <span className="font-semibold text-slate-200">
-                    {activePoint 
-                      ? measurementSteps.find(s => s.id === activePoint)?.name 
-                      : 'Interactive Anatomical Points'}
-                  </span>
-                </div>
-                <span className="text-[11px] text-brand-gold font-bold">
-                  {unit.toUpperCase()}
-                </span>
-              </div>
             </div>
 
             <div className="pt-3 text-center text-[11px] text-slate-300">
-              Modern Man Kenya bespoke cutters calibrate individual posture, shoulder balance, and sleeve curvature.
+              Modern Man Kenya master cutters calibrate individual posture, shoulder balance, and sleeve curvature.
             </div>
           </div>
 
           {/* Right: Numbered 1-17 Master How-to-Measure Guide */}
           <div className="lg:col-span-7 space-y-4">
-            <div className="border-b border-stone-200 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="border-b border-stone-200 dark:border-slate-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-luxury text-brand-gold block">
                   Master Tailor Standard
                 </span>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy dark:text-slate-100">
                   How to Take Measurements
                 </h3>
               </div>
-              <span className="text-xs text-stone-500 font-medium">
+              <span className="text-xs text-stone-500 dark:text-slate-400 font-medium">
                 17 Anatomical Reference Steps
               </span>
             </div>
@@ -290,23 +231,25 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
                     className={`p-3 rounded-xl border transition-all text-xs cursor-pointer ${
                       isHighlighted
                         ? 'bg-brand-navy text-white border-brand-gold shadow-md scale-[1.02]'
-                        : 'bg-stone-50/70 hover:bg-stone-100/90 border-stone-200/90 text-stone-800'
+                        : 'bg-stone-50/70 dark:bg-[#151722] hover:bg-stone-100/90 dark:hover:bg-[#1E202C] border-stone-200/90 dark:border-slate-800 text-stone-800 dark:text-slate-200'
                     }`}
                   >
                     <div className="flex items-center space-x-2.5 mb-1.5">
                       <span className={`w-5 h-5 rounded-full flex items-center justify-center font-black text-[10px] shrink-0 ${
                         isHighlighted
                           ? 'bg-brand-gold text-brand-navy'
-                          : 'bg-brand-navy text-brand-gold'
+                          : 'bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy'
                       }`}>
                         {step.id}
                       </span>
-                      <span className="font-serif font-bold text-sm tracking-wide">
+                      <span className={`font-serif font-bold text-sm tracking-wide ${
+                        isHighlighted ? 'text-white' : 'text-brand-navy dark:text-slate-100'
+                      }`}>
                         {step.name}
                       </span>
                     </div>
                     <p className={`text-[11px] leading-relaxed font-light ${
-                      isHighlighted ? 'text-slate-200' : 'text-stone-600'
+                      isHighlighted ? 'text-slate-200' : 'text-stone-600 dark:text-slate-400'
                     }`}>
                       {step.instruction}
                     </p>
@@ -319,23 +262,23 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
         </div>
 
         {/* 3. Standard Men's Sizing Matrix Table (Inches & CM) */}
-        <div className="space-y-4 pt-6 border-t border-stone-200">
+        <div className="space-y-4 pt-6 border-t border-stone-200 dark:border-slate-800">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold block">
                 Off-The-Rack &amp; MTM Conversion
               </span>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy dark:text-slate-100">
                 Standard Men&apos;s Measurement Chart ({unit === 'inches' ? 'Inches' : 'Centimeters'})
               </h3>
             </div>
-            <div className="text-xs text-stone-500 flex items-center space-x-2">
+            <div className="text-xs text-stone-500 dark:text-slate-400 flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
               <span>Click a size row to auto-apply to your profile</span>
             </div>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-stone-200/90 shadow-xs">
+          <div className="overflow-x-auto rounded-2xl border border-stone-200/90 dark:border-slate-800 shadow-xs">
             <table className="w-full text-xs text-left border-collapse min-w-[760px]">
               <thead>
                 <tr className="bg-[#0A1128] text-brand-gold font-serif uppercase tracking-wider text-[11px] border-b border-brand-gold/30">
@@ -352,30 +295,30 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
                   <th className="py-3.5 px-4 text-right">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-100 font-mono">
+              <tbody className="divide-y divide-stone-100 dark:divide-slate-800 font-mono">
                 {standardSizeMatrix.map((row, idx) => (
                   <tr 
                     key={row.size}
-                    className={`hover:bg-brand-gold/10 transition-colors group cursor-pointer ${
-                      idx % 2 === 0 ? 'bg-white' : 'bg-stone-50/50'
+                    className={`hover:bg-brand-gold/10 dark:hover:bg-brand-gold/15 transition-colors group cursor-pointer ${
+                      idx % 2 === 0 ? 'bg-white dark:bg-[#1A1C27]' : 'bg-stone-50/50 dark:bg-[#151722]'
                     }`}
                     onClick={() => handleApplyPreset(row)}
                   >
-                    <td className="py-3 px-4 font-bold font-serif text-brand-navy text-sm flex items-center space-x-2">
-                      <span className="w-7 h-7 rounded-lg bg-brand-navy text-brand-gold flex items-center justify-center font-sans font-extrabold text-xs">
+                    <td className="py-3 px-4 font-bold font-serif text-brand-navy dark:text-slate-100 text-sm flex items-center space-x-2">
+                      <span className="w-7 h-7 rounded-lg bg-brand-navy dark:bg-brand-gold text-brand-gold dark:text-brand-navy flex items-center justify-center font-sans font-extrabold text-xs">
                         {row.size}
                       </span>
-                      <span className="text-[11px] text-stone-400 font-normal">{row.chestTag}</span>
+                      <span className="text-[11px] text-stone-400 dark:text-slate-500 font-normal">{row.chestTag}</span>
                     </td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.neck)}</td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.shoulder)}</td>
-                    <td className="py-3 px-3 font-semibold text-brand-navy">{toUnit(row.chest)}</td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.waist)}</td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.hips)}</td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.sleeve)}</td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.shirt)}</td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.jacket)}</td>
-                    <td className="py-3 px-3 text-stone-700">{toUnit(row.trouser)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.neck)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.shoulder)}</td>
+                    <td className="py-3 px-3 font-semibold text-brand-navy dark:text-slate-100">{toUnit(row.chest)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.waist)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.hips)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.sleeve)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.shirt)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.jacket)}</td>
+                    <td className="py-3 px-3 text-stone-700 dark:text-slate-300">{toUnit(row.trouser)}</td>
                     <td className="py-3 px-4 text-right">
                       <button
                         type="button"
@@ -383,7 +326,7 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
                           e.stopPropagation();
                           handleApplyPreset(row);
                         }}
-                        className="px-3 py-1 rounded bg-stone-100 group-hover:bg-brand-navy group-hover:text-brand-gold text-[10px] font-bold uppercase tracking-wider transition-all"
+                        className="px-3 py-1 rounded bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:bg-brand-navy dark:group-hover:bg-brand-gold group-hover:text-brand-gold dark:group-hover:text-brand-navy text-[10px] font-bold uppercase tracking-wider transition-all"
                       >
                         Select {row.size}
                       </button>
@@ -395,29 +338,47 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
           </div>
         </div>
 
-        {/* 4. Extra Inset Precision Guides (Back Length, Crotch Depth, Inseam) */}
-        <div className="space-y-4 pt-6 border-t border-stone-200">
-          <div className="flex items-center space-x-2">
-            <Layers className="w-5 h-5 text-brand-gold" />
-            <h3 className="font-serif text-lg sm:text-xl font-bold text-brand-navy">
-              Specialized Anatomical Calibrations (As Needed)
-            </h3>
+        {/* 4. Extra Measurements (As Needed) - Visual Demonstration & Guide */}
+        <div className="space-y-6 pt-6 border-t border-stone-200 dark:border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center space-x-2">
+              <Layers className="w-5 h-5 text-brand-gold" />
+              <h3 className="font-serif text-lg sm:text-2xl font-bold text-brand-navy dark:text-slate-100">
+                Extra Measurements (as needed)
+              </h3>
+            </div>
+            <span className="text-xs text-stone-500 dark:text-slate-400">
+              Back Length • Crotch Depth • Inseam
+            </span>
+          </div>
+
+          {/* Visual Inset Banner from Modern Man Kenya Tailoring Guide */}
+          <div className="relative w-full max-w-2xl mx-auto rounded-2xl overflow-hidden border border-brand-gold/30 shadow-lg bg-[#0A1128] p-2">
+            <div className="relative w-full h-44 sm:h-56 rounded-xl overflow-hidden bg-[#0A1128]">
+              <Image
+                src="/images/measurements/extra-measurements.jpg"
+                alt="Extra Measurements (as needed) - Back Length, Crotch Depth, Inseam"
+                fill
+                sizes="(max-width: 1024px) 100vw, 680px"
+                className="object-contain"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             {/* Guide 1: Back Length */}
-            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 space-y-2">
+            <div className="p-4 rounded-2xl bg-stone-50 dark:bg-[#151722] border border-stone-200/90 dark:border-slate-800 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-serif font-bold text-sm text-brand-navy">
-                  Back Length (Nape to Waist)
+                <span className="font-serif font-bold text-sm text-brand-navy dark:text-slate-100">
+                  Back Length (neck to waist)
                 </span>
                 <span className="w-5 h-5 rounded-full bg-brand-gold text-brand-navy flex items-center justify-center font-bold text-[10px]">
                   A
                 </span>
               </div>
-              <p className="text-[11px] text-stone-600 leading-relaxed font-light">
-                Measured along the spine from the base of the neck (C7 vertebrae) down to the waistline. Essential for correct jacket balance and eliminating collar rolls.
+              <p className="text-[11px] text-stone-600 dark:text-slate-400 leading-relaxed font-light">
+                Measured along the spine from the base of the neck down to the natural waistline. Essential for correct jacket balance, sleeve pitch, and eliminating collar rolls.
               </p>
               <div className="text-[10px] font-semibold text-brand-gold uppercase tracking-wider">
                 Standard: 17 – 18.5 in (43 – 47 cm)
@@ -425,17 +386,17 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
             </div>
 
             {/* Guide 2: Crotch Depth */}
-            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 space-y-2">
+            <div className="p-4 rounded-2xl bg-stone-50 dark:bg-[#151722] border border-stone-200/90 dark:border-slate-800 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-serif font-bold text-sm text-brand-navy">
-                  Crotch Depth / Rise (Sitting)
+                <span className="font-serif font-bold text-sm text-brand-navy dark:text-slate-100">
+                  Crotch Depth (waist to crotch)
                 </span>
                 <span className="w-5 h-5 rounded-full bg-brand-gold text-brand-navy flex items-center justify-center font-bold text-[10px]">
                   B
                 </span>
               </div>
-              <p className="text-[11px] text-stone-600 leading-relaxed font-light">
-                Sit upright on a flat wooden chair. Measure from your waistband vertically down the side to the chair seat. Ensures trousers never pull when seated.
+              <p className="text-[11px] text-stone-600 dark:text-slate-400 leading-relaxed font-light">
+                Sit upright on a flat firm surface or chair. Measure vertically from waistband to crotch level (sitting depth). Ensures tailored trousers sit comfortably without binding when seated.
               </p>
               <div className="text-[10px] font-semibold text-brand-gold uppercase tracking-wider">
                 Standard: 9.5 – 11.5 in (24 – 29 cm)
@@ -443,17 +404,17 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
             </div>
 
             {/* Guide 3: Inseam */}
-            <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 space-y-2">
+            <div className="p-4 rounded-2xl bg-stone-50 dark:bg-[#151722] border border-stone-200/90 dark:border-slate-800 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-serif font-bold text-sm text-brand-navy">
-                  Inseam (Inner Crotch to Ankle)
+                <span className="font-serif font-bold text-sm text-brand-navy dark:text-slate-100">
+                  Inseam (crotch to ankle)
                 </span>
                 <span className="w-5 h-5 rounded-full bg-brand-gold text-brand-navy flex items-center justify-center font-bold text-[10px]">
                   C
                 </span>
               </div>
-              <p className="text-[11px] text-stone-600 leading-relaxed font-light">
-                Stand straight with legs slightly apart. Measure from the lowest crotch apex along the inner thigh down to the top of the shoe heel.
+              <p className="text-[11px] text-stone-600 dark:text-slate-400 leading-relaxed font-light">
+                Stand straight with feet slightly apart. Measure from the crotch apex along the inner leg to the ankle for optimal trouser break over your dress shoes.
               </p>
               <div className="text-[10px] font-semibold text-brand-gold uppercase tracking-wider">
                 Standard: 30 – 34 in (76 – 86 cm)

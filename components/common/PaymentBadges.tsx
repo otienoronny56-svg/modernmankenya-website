@@ -35,7 +35,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
       }`}>
         {/* 1. Safaricom M-Pesa - Authentic Brand Logo */}
         <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center shrink-0 hover:border-emerald-500 transition-colors"
+          className="payment-badge-pill h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center shrink-0 hover:border-emerald-500 transition-colors"
           title="Safaricom M-Pesa Online (STK Push & Till)"
         >
           <div className="relative h-5 w-14 shrink-0 flex items-center">
@@ -53,7 +53,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
 
         {/* 3. Visa */}
         <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center shrink-0 hover:border-blue-500 transition-colors"
+          className="payment-badge-pill h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center shrink-0 hover:border-blue-500 transition-colors"
           title="Visa Debit & Credit Cards"
         >
           <svg className="w-11 h-3.5 shrink-0" width="44" height="14" viewBox="0 0 52 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
 
         {/* 4. Mastercard */}
         <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-amber-400 transition-colors"
+          className="payment-badge-pill h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-amber-400 transition-colors"
           title="Mastercard"
         >
           <svg className="w-7 h-4.5 shrink-0" width="28" height="18" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +79,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
 
         {/* 5. Google Pay */}
         <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-stone-400 transition-colors"
+          className="payment-badge-pill h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-stone-400 transition-colors"
           title="Google Pay"
         >
           <svg className="w-4 h-4 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
 
         {/* 6. Apple Pay */}
         <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-stone-400 transition-colors"
+          className="payment-badge-pill h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-stone-400 transition-colors"
           title="Apple Pay"
         >
           <svg className="w-3.5 h-3.5 shrink-0 text-black fill-current" width="14" height="14" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +108,7 @@ export const PaymentBadges: React.FC<PaymentBadgesProps> = ({
 
         {/* 7. PayPal */}
         <div
-          className="h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-blue-500 transition-colors"
+          className="payment-badge-pill h-8 px-2.5 sm:px-3 rounded-md bg-white border border-stone-200/90 shadow-2xs flex items-center space-x-1.5 shrink-0 hover:border-blue-500 transition-colors"
           title="PayPal International & Diaspora Payments"
         >
           <div className="flex items-center -space-x-1">

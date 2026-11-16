@@ -457,13 +457,13 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
   }
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-md p-6 sm:p-8 space-y-6">
-      <div className="border-b border-slate-100 pb-4 flex items-center justify-between">
+    <div className="bg-white dark:bg-[#1A1C27] rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-md p-6 sm:p-8 space-y-6">
+      <div className="border-b border-slate-100 dark:border-slate-800 pb-4 flex items-center justify-between">
         <div>
           <span className="text-[10px] uppercase tracking-luxury text-brand-gold font-bold block mb-1">
             Express Checkout
           </span>
-          <h2 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy">
+          <h2 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy dark:text-slate-100">
             Delivery & Instant Order
           </h2>
         </div>
@@ -502,17 +502,17 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
         </div>
       ) : (
         <div className="space-y-2.5">
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div className="bg-slate-50 dark:bg-[#151722] border border-slate-200 dark:border-slate-700/80 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
             <div>
-              <span className="font-bold text-brand-navy block">Have an account or Google profile?</span>
-              <span className="text-slate-500 text-[11px]">1-click auto-fill your name & contact details</span>
+              <span className="font-bold text-brand-navy dark:text-slate-100 block">Have an account or Google profile?</span>
+              <span className="text-slate-500 dark:text-slate-400 text-[11px]">1-click auto-fill your name & contact details</span>
             </div>
             <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={handleGoogleSignIn}
                 type="button"
                 disabled={isGoogleLoading}
-                className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-800 rounded border border-slate-300 font-bold flex items-center justify-center space-x-2 shadow-xs transition-colors whitespace-nowrap disabled:opacity-60"
+                className="px-4 py-2 bg-white dark:bg-[#1E202C] hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded border border-slate-300 dark:border-slate-600 font-bold flex items-center justify-center space-x-2 shadow-xs transition-colors whitespace-nowrap disabled:opacity-60"
               >
                 {isGoogleLoading ? (
                   <>
@@ -547,7 +547,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
               <button
                 type="button"
                 onClick={handleQuickGuestFill}
-                className="px-3 py-2 bg-slate-200/80 hover:bg-slate-300 text-slate-700 rounded text-xs font-semibold transition-colors flex items-center space-x-1"
+                className="px-3 py-2 bg-slate-200/80 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded text-xs font-semibold transition-colors flex items-center space-x-1"
                 title="Populate test address and details instantly"
               >
                 <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
@@ -558,12 +558,12 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
 
           {/* Helpful alert if Google is not enabled yet in Supabase Auth */}
           {googleNotice && (
-            <div className="bg-amber-50/90 border border-amber-300 text-amber-900 rounded-xl p-3.5 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs animate-fadeIn">
+            <div className="bg-amber-50/90 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-700/60 text-amber-900 dark:text-amber-200 rounded-xl p-3.5 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs animate-fadeIn">
               <div className="flex items-start space-x-2.5">
-                <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <p className="font-bold text-amber-950">Google Sign-In Notice</p>
-                  <p className="text-[11px] text-amber-800 leading-relaxed">{googleNotice}</p>
+                  <p className="font-bold text-amber-950 dark:text-amber-100">Google Sign-In Notice</p>
+                  <p className="text-[11px] text-amber-800 dark:text-amber-300 leading-relaxed">{googleNotice}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2 self-end sm:self-auto flex-shrink-0">
@@ -577,7 +577,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
                 <button
                   type="button"
                   onClick={() => setGoogleNotice(null)}
-                  className="px-2 py-1 text-amber-800 hover:text-amber-950 text-[11px] underline"
+                  className="px-2 py-1 text-amber-800 dark:text-amber-300 hover:text-amber-950 dark:hover:text-amber-100 text-[11px] underline"
                 >
                   Dismiss
                 </button>
@@ -591,7 +591,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Full Name */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
             Full Name *
           </label>
           <input
@@ -600,13 +600,13 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
             placeholder="e.g. David Mwangi"
-            className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+            className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#1E202C] border border-slate-200 dark:border-slate-700 rounded text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
           />
         </div>
 
         {/* Email Address */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
             Email Address (Optional)
           </label>
           <input
@@ -614,13 +614,13 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
             value={customerEmail}
             onChange={(e) => setCustomerEmail(e.target.value)}
             placeholder="e.g. client@example.com"
-            className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+            className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#1E202C] border border-slate-200 dark:border-slate-700 rounded text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
           />
         </div>
 
         {/* Phone Number (Crucial for Courier & M-Pesa) */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
             Phone Number (for Courier & M-Pesa) *
           </label>
           <div className="relative">
@@ -631,14 +631,14 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
               value={customerPhone}
               onChange={(e) => setCustomerPhone(e.target.value)}
               placeholder="e.g. 0114 122 510 or +254 7..."
-              className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-900 focus:outline-none focus:border-brand-navy font-mono"
+              className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 dark:bg-[#1E202C] border border-slate-200 dark:border-slate-700 rounded text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold font-mono"
             />
           </div>
         </div>
 
         {/* Delivery Destination */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
             Delivery Town / Estate *
           </label>
           <div className="relative">
@@ -649,7 +649,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
               value={deliveryLocation}
               onChange={(e) => setDeliveryLocation(e.target.value)}
               placeholder="e.g. Kilimani, Nairobi or Westlands"
-              className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+              className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 dark:bg-[#1E202C] border border-slate-200 dark:border-slate-700 rounded text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
             />
           </div>
         </div>
@@ -657,7 +657,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
 
       {/* Special Instruction Note */}
       <div>
-        <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
           Order / Delivery Notes (Optional)
         </label>
         <input
@@ -665,34 +665,34 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="e.g. Preferred delivery time, apartment name, or packaging notes"
-          className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
+          className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-[#1E202C] border border-slate-200 dark:border-slate-700 rounded text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-navy dark:focus:border-brand-gold"
         />
       </div>
 
       {/* Error Message */}
       {errorMsg && (
-        <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded font-medium">
+        <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-xs rounded font-medium">
           {errorMsg}
         </div>
       )}
 
       {/* Total Display */}
-      <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
         <div>
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+          <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block">
             Total Payable (KES)
           </span>
-          <span className="text-xl sm:text-2xl font-serif font-bold text-brand-navy">
+          <span className="text-xl sm:text-2xl font-serif font-bold text-brand-navy dark:text-slate-100">
             {formatCurrencyPrice(totalKes, 'KES')}
           </span>
         </div>
-        <div className="text-right text-[11px] text-slate-500">
+        <div className="text-right text-[11px] text-slate-500 dark:text-slate-400">
           <span>Delivery: {shippingCost === 0 ? 'Complimentary' : 'KES 2,500'}</span>
         </div>
       </div>
 
       {/* Trust & Payment Method Logos */}
-      <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/80 overflow-hidden">
+      <div className="bg-slate-50/80 dark:bg-[#151722] p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 overflow-hidden">
         <PaymentBadges variant="checkout" showLabel={true} />
       </div>
 

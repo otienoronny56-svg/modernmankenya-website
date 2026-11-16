@@ -92,7 +92,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
                 alt="Modern Man Kenya - Opulence • Simplicity • Class"
                 fill
                 sizes="(max-width: 640px) 64px, 96px"
-                className="object-contain"
+                className="object-contain dark:hidden"
+                priority
+              />
+              <Image
+                src="/images/logo-full-light.png"
+                alt="Modern Man Kenya - Opulence • Simplicity • Class"
+                fill
+                sizes="(max-width: 640px) 64px, 96px"
+                className="object-contain hidden dark:block"
                 priority
               />
             </div>
@@ -184,7 +192,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Search Trigger */}
             <button
               onClick={onOpenSearch}
-              className="p-1.5 text-slate-600 hover:text-brand-navy transition-colors"
+              className="p-1.5 text-slate-600 hover:text-brand-navy dark:text-slate-300 dark:hover:text-brand-gold transition-colors"
               aria-label="Search"
             >
               <Search className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
@@ -193,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
             {/* Cart Trigger */}
             <button
               onClick={() => toggleCart(true)}
-              className="relative p-1.5 text-slate-600 hover:text-brand-navy transition-colors"
+              className="relative p-1.5 text-slate-600 hover:text-brand-navy dark:text-slate-300 dark:hover:text-brand-gold transition-colors"
               aria-label="View Cart"
             >
               <ShoppingBag className="w-4 h-4 sm:w-4.5 sm:h-4.5" />

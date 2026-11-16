@@ -74,29 +74,29 @@ export default function CartPage() {
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Review & Express Checkout</span>
                 </span>
-                <h1 className="font-serif text-2xl sm:text-3xl text-brand-navy font-bold">
+                <h1 className="font-serif text-2xl sm:text-3xl text-brand-navy dark:text-slate-100 font-bold">
                   Your Selected Ensembles & Accessories
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-500">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
                   Order custom shirts, luxury accessories, and ready garments with instant dispatch.
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                <div className="p-5 sm:p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-                  <h2 className="font-serif text-base sm:text-lg font-bold text-brand-navy flex items-center space-x-2">
+              <div className="bg-white dark:bg-[#1A1C27] rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+                <div className="p-5 sm:p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-[#151722]">
+                  <h2 className="font-serif text-base sm:text-lg font-bold text-brand-navy dark:text-slate-100 flex items-center space-x-2">
                     <ShoppingBag className="w-4 h-4 text-brand-gold" />
                     <span>Garment Selections ({items.length})</span>
                   </h2>
                   <button
                     onClick={clearCart}
-                    className="text-xs font-semibold text-slate-400 hover:text-rose-600 transition-colors"
+                    className="text-xs font-semibold text-slate-400 hover:text-rose-500 transition-colors"
                   >
                     Clear All
                   </button>
                 </div>
 
-                <div className="divide-y divide-slate-100 p-5 sm:p-6 space-y-5">
+                <div className="divide-y divide-slate-100 dark:divide-slate-800 p-5 sm:p-6 space-y-5">
                   {items.map((item) => (
                     <div key={item.id} className="pt-5 first:pt-0 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-start sm:items-center justify-between">
                       <div className="flex space-x-3.5 items-center">
@@ -112,16 +112,16 @@ export default function CartPage() {
                         <div>
                           <Link
                             href="/ready-to-wear"
-                            className="font-serif text-sm sm:text-base font-bold text-brand-navy hover:text-brand-gold transition-colors line-clamp-1"
+                            className="font-serif text-sm sm:text-base font-bold text-brand-navy dark:text-slate-100 hover:text-brand-gold transition-colors line-clamp-1"
                           >
                             {item.name}
                           </Link>
                           {item.size && (
-                            <p className="text-[11px] text-slate-500 mt-0.5">
-                              Size / Fit: <span className="font-semibold text-brand-navy">{item.size}</span>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                              Size / Fit: <span className="font-semibold text-brand-navy dark:text-slate-200">{item.size}</span>
                             </p>
                           )}
-                          <p className="text-xs font-bold text-brand-navy font-mono mt-1">
+                          <p className="text-xs font-bold text-brand-navy dark:text-slate-100 font-mono mt-1">
                             {formatCurrencyPrice(item.priceKes, currency, item.priceUsd)}
                           </p>
                         </div>
@@ -129,25 +129,25 @@ export default function CartPage() {
 
                       {/* Quantity and Actions */}
                       <div className="flex items-center space-x-4 self-end sm:self-center">
-                        <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 rounded p-1">
+                        <div className="flex items-center space-x-2 bg-slate-50 dark:bg-[#1E202C] border border-slate-200 dark:border-slate-700 rounded p-1">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="w-6 h-6 rounded flex items-center justify-center hover:bg-white text-slate-600"
+                            className="w-6 h-6 rounded flex items-center justify-center hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
                             title="Decrease quantity"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
-                          <span className="text-xs font-bold px-1.5">{item.quantity}</span>
+                          <span className="text-xs font-bold px-1.5 text-brand-navy dark:text-slate-100">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="w-6 h-6 rounded flex items-center justify-center hover:bg-white text-slate-600"
+                            className="w-6 h-6 rounded flex items-center justify-center hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
                             title="Increase quantity"
                           >
                             <Plus className="w-3 h-3" />
                           </button>
                         </div>
 
-                        <span className="font-mono text-xs sm:text-sm font-bold text-brand-navy w-24 text-right">
+                        <span className="font-mono text-xs sm:text-sm font-bold text-brand-navy dark:text-slate-100 w-24 text-right">
                           {formatCurrencyPrice(item.priceKes * item.quantity, currency, item.priceUsd * item.quantity)}
                         </span>
 
@@ -165,14 +165,14 @@ export default function CartPage() {
               </div>
 
               {/* Bespoke Packaging & Gift Message */}
-              <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+              <div className="bg-white dark:bg-[#1A1C27] p-5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 space-y-3">
                 <div className="flex items-center space-x-3">
                   <Gift className="w-5 h-5 text-brand-gold flex-shrink-0" />
                   <div>
-                    <h3 className="font-serif text-sm font-bold text-brand-navy">
+                    <h3 className="font-serif text-sm font-bold text-brand-navy dark:text-slate-100">
                       Signature Luxury Packaging Included
                     </h3>
-                    <p className="text-[11px] text-slate-500">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
                       Every piece arrives pressed, protected in breathable garment bags, and gift-ready.
                     </p>
                   </div>
