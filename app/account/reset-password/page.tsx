@@ -64,7 +64,15 @@ export default function ResetPasswordPage() {
                 alt="Modern Man Kenya"
                 fill
                 sizes="176px"
-                className="object-contain"
+                className="object-contain dark:hidden"
+                priority
+              />
+              <Image
+                src="/images/logo-dark-mode.png"
+                alt="Modern Man Kenya"
+                fill
+                sizes="176px"
+                className="object-contain hidden dark:block"
                 priority
               />
             </div>

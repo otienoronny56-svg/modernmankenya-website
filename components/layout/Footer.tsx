@@ -24,11 +24,18 @@ export const Footer: React.FC = () => {
             >
               <div className="relative w-32 h-16 sm:w-36 sm:h-20 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
+                  src="/images/logo-full.png"
+                  alt="Modern Man Kenya - Opulence • Simplicity • Class"
+                  fill
+                  sizes="(max-width: 640px) 128px, 144px"
+                  className="object-contain dark:hidden"
+                />
+                <Image
                   src="/images/logo-dark-mode.png"
                   alt="Modern Man Kenya - Opulence • Simplicity • Class"
                   fill
                   sizes="(max-width: 640px) 128px, 144px"
-                  className="object-contain"
+                  className="object-contain hidden dark:block"
                 />
               </div>
             </Link>
