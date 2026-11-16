@@ -215,6 +215,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/services/measurement-guide" className="hover:text-brand-gold transition-colors font-medium">
+                  Tailoring Measurement Guide
+                </Link>
+              </li>
+              <li>
                 <Link href="/book-appointment" className="text-brand-gold font-semibold hover:underline flex items-center space-x-1">
                   <span>Book a Fitting</span>
                   <ArrowRight className="w-3 h-3" />

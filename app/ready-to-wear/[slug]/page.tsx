@@ -19,7 +19,9 @@ import {
   ChevronLeft,
   Sliders,
   Scissors,
-  Watch
+  Watch,
+  Ruler,
+  ExternalLink
 } from 'lucide-react';
 import type { Product } from '@/types';
 import { useCartStore } from '@/store/cartStore';
@@ -353,9 +355,21 @@ export default function ProductDetailPage() {
                   <label className="font-bold uppercase tracking-wider text-brand-navy">
                     {isWatch ? 'Select Case Size / Strap' : isFragrance ? 'Select Volume / Bottle' : 'Select Specification / Size'}
                   </label>
-                  <span className="text-slate-400 font-medium">
-                    {selectedSize}
-                  </span>
+                  {!isWatch && !isFragrance ? (
+                    <Link
+                      href="/services/measurement-guide"
+                      target="_blank"
+                      className="text-brand-gold hover:underline font-semibold flex items-center space-x-1"
+                    >
+                      <Ruler className="w-3.5 h-3.5" />
+                      <span>Size Guide</span>
+                      <ExternalLink className="w-3 h-3 ml-0.5" />
+                    </Link>
+                  ) : (
+                    <span className="text-slate-400 font-medium">
+                      {selectedSize}
+                    </span>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-3 gap-2">

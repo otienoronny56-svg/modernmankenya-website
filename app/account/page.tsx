@@ -33,6 +33,7 @@ import { useAuth } from '@/lib/auth/AuthContext';
 import { formatCurrencyPrice } from '@/lib/currency';
 import { supabase } from '@/lib/supabase/client';
 import { AccountAIStylistSection } from '@/components/account/AccountAIStylistSection';
+import { ModernManMeasurementChart } from '@/components/measurements/ModernManMeasurementChart';
 import { trackMeasurementSave } from '@/lib/analytics/gtag';
 import type { StoredOrder } from '@/app/api/orders/route';
 import type { ClientMeasurementProfile } from '@/lib/clients/store';
@@ -42,6 +43,7 @@ export default function ClientDashboardPage() {
   const { user, profile, loading: authLoading, signOut } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'orders' | 'measurements' | 'saved_info' | 'ai_stylist' | 'security'>('orders');
+  const [showMeasurementGuide, setShowMeasurementGuide] = useState(false);
   const [clientData, setClientData] = useState<ClientMeasurementProfile | null>(null);
   const [orders, setOrders] = useState<StoredOrder[]>([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
@@ -850,8 +852,21 @@ export default function ClientDashboardPage() {
                 </p>
               </div>
 
-              {/* Status Badge */}
-              <div className="flex items-center space-x-3">
+              {/* Status Badge & Guide Controls */}
+              <div className="flex items-center space-x-3 flex-wrap gap-y-2">
+                <button
+                  type="button"
+                  onClick={() => setShowMeasurementGuide((prev) => !prev)}
+                  className={`px-3.5 py-1.5 rounded-xl border text-xs font-bold transition-all flex items-center space-x-1.5 shadow-xs cursor-pointer ${
+                    showMeasurementGuide
+                      ? 'bg-brand-gold text-brand-navy border-brand-gold shadow-md font-extrabold'
+                      : 'bg-brand-navy hover:bg-brand-navy-light text-brand-gold border-brand-gold/50'
+                  }`}
+                >
+                  <Ruler className="w-3.5 h-3.5" />
+                  <span>{showMeasurementGuide ? 'Hide Tailoring Chart' : 'View Atelier Sizing Chart'}</span>
+                </button>
+
                 <div className="flex items-center space-x-2 bg-slate-100 p-1 rounded-lg">
                   <button
                     onClick={() => setMeasurementUnit('inches')}
@@ -884,6 +899,76 @@ export default function ClientDashboardPage() {
                 </div>
               </div>
             </div>
+
+            {/* Quick Sizing Guide Teaser Banner */}
+            {!showMeasurementGuide && (
+              <div className="p-4 rounded-xl bg-gradient-to-r from-brand-navy via-[#121c38] to-brand-navy text-white flex flex-col sm:flex-row items-center justify-between gap-3 border border-brand-gold/40 shadow-sm">
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-xl bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 border border-brand-gold/30">
+                    <Ruler className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="font-serif text-sm font-bold text-white">
+                      Need help measuring or want standard size reference?
+                    </h4>
+                    <p className="text-[11px] text-slate-300">
+                      Explore our 17-point anatomical diagram and standard S–3XL conversion matrix.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2 w-full sm:w-auto">
+                  <button
+                    type="button"
+                    onClick={() => setShowMeasurementGuide(true)}
+                    className="px-3.5 py-1.5 rounded-lg bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-wider transition-all shadow-xs flex-1 sm:flex-initial text-center cursor-pointer"
+                  >
+                    Open Tailoring Chart
+                  </button>
+                  <a
+                    href="/images/measurement-guide-poster.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all flex items-center justify-center space-x-1"
+                    title="View High-Resolution Tailoring Infographic"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Poster</span>
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {/* Expandable Interactive Measurement Chart */}
+            {showMeasurementGuide && (
+              <div className="rounded-2xl border-2 border-brand-gold/60 p-2 sm:p-4 bg-stone-50/60 shadow-xl space-y-3 animate-in fade-in duration-300">
+                <div className="flex items-center justify-between px-4 py-2.5 bg-[#0A1128] rounded-xl text-white">
+                  <div className="flex items-center space-x-2 text-xs">
+                    <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                    <span className="font-bold text-brand-gold">Modern Man Kenya Atelier Tailoring Chart</span>
+                    <span className="text-white/40 hidden sm:inline">•</span>
+                    <span className="text-[11px] text-slate-300 hidden sm:inline">Auto-fill your profile with standard S–3XL measurements below</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowMeasurementGuide(false)}
+                    className="text-white/80 hover:text-white text-xs font-bold px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
+                  >
+                    Close Chart ✕
+                  </button>
+                </div>
+
+                <ModernManMeasurementChart
+                  onApplyMeasurements={(applied) => {
+                    setMeasurements((prev) => ({
+                      ...prev,
+                      ...applied,
+                    }));
+                    setSaveSuccess('Standard size measurements auto-applied to your profile fields! Review and click Save Changes below.');
+                    setTimeout(() => setSaveSuccess(null), 6000);
+                  }}
+                />
+              </div>
+            )}
 
             {/* Tailor Verification Notes */}
             {clientData?.tailorNotes && (

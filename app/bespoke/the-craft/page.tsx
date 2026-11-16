@@ -798,6 +798,34 @@ export default function TheCraftPage() {
         </div>
       </section>
 
+      {/* 6.5. Anatomical Measurement Chart Teaser */}
+      <section className="py-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-stone-900 text-white rounded-3xl p-8 border border-brand-gold/50 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-radial-at-c from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
+          <div className="space-y-2 relative z-10 max-w-xl">
+            <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-white/10 px-2.5 py-1 rounded inline-flex items-center space-x-1.5">
+              <Ruler className="w-3.5 h-3.5" />
+              <span>Tailoring Architecture</span>
+            </span>
+            <h3 className="font-serif text-2xl font-bold text-white">
+              Men&apos;s Measurement Chart &amp; Tailoring Guide
+            </h3>
+            <p className="text-xs text-stone-300 font-light leading-relaxed">
+              Explore our 17-point anatomical measurement guide and standard S–3XL size conversion matrix with live Inches and CM toggling.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 relative z-10 shrink-0 w-full md:w-auto">
+            <Link
+              href="/services/measurement-guide"
+              className="px-5 py-3 rounded-xl bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold text-xs uppercase tracking-luxury transition-all shadow-md flex items-center justify-center space-x-2 flex-1 md:flex-initial"
+            >
+              <span>Explore Measurement Chart</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 7. Trust & Location Banner */}
       <section className="py-16 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-brand-navy text-white rounded-3xl p-8 sm:p-12 border-2 border-brand-gold/40 shadow-xl space-y-8 relative overflow-hidden text-center sm:text-left">
