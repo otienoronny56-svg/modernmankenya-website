@@ -22,6 +22,13 @@ export default function CartPage() {
   const { items, updateQuantity, removeItem, clearCart, getSubtotalKes, currency } = useCartStore();
   const [giftWrap, setGiftWrap] = useState(false);
   const [giftMessage, setGiftMessage] = useState('');
+  const rightColRef = React.useRef<HTMLDivElement>(null);
+
+  const handleLeftWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (typeof window !== 'undefined' && window.innerWidth >= 1024 && rightColRef.current) {
+      rightColRef.current.scrollTop += e.deltaY;
+    }
+  };
 
   const subtotalKes = getSubtotalKes();
 
@@ -56,8 +63,11 @@ export default function CartPage() {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
-            {/* Left Items Table - Sticky on Desktop so only the right side scrolls */}
-            <div className="lg:col-span-6 space-y-6 lg:sticky lg:top-24 self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1">
+            {/* Left Items Table - Fixed/Sticky on Desktop, forwards scroll to right */}
+            <div 
+              onWheel={handleLeftWheel}
+              className="lg:col-span-6 space-y-6 lg:sticky lg:top-24 self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1"
+            >
               {/* Title */}
               <div className="space-y-1.5 text-center sm:text-left">
                 <span className="text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center sm:justify-start space-x-2">
@@ -171,8 +181,11 @@ export default function CartPage() {
 
             </div>
 
-            {/* Right: Instant Express Checkout Form (with Google Sign-In & Dual Order Buttons) */}
-            <div className="lg:col-span-6">
+            {/* Right: Instant Express Checkout Form - Exclusively scrolls on Desktop */}
+            <div 
+              ref={rightColRef}
+              className="lg:col-span-6 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-2 lg:pb-12"
+            >
               <ExpressCheckout />
             </div>
 

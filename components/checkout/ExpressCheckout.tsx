@@ -630,7 +630,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
               required
               value={customerPhone}
               onChange={(e) => setCustomerPhone(e.target.value)}
-              placeholder="e.g. 0718 923 082 or +254 7..."
+              placeholder="e.g. 0114 122 510 or +254 7..."
               className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-900 focus:outline-none focus:border-brand-navy font-mono"
             />
           </div>

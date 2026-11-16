@@ -58,8 +58,8 @@ export const AtelierInvitation: React.FC = () => {
                 {/* Official Call Line */}
                 <div className="flex items-center space-x-2.5">
                   <Phone className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                  <a href="tel:+254718923082" className="hover:text-white transition-colors font-medium">
-                    Call: +254 718 923 082
+                  <a href="tel:+254114122510" className="hover:text-white transition-colors font-medium">
+                    Call: +254 114 122 510
                   </a>
                 </div>
 
@@ -101,7 +101,7 @@ export const AtelierInvitation: React.FC = () => {
                 <span>Book an Appointment</span>
               </Link>
               <a
-                href="tel:+254718923082"
+                href="tel:+254114122510"
                 className="w-full sm:w-auto text-center py-2 sm:py-0 text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center justify-center space-x-1.5"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-gold" />

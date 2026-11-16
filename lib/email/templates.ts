@@ -60,7 +60,7 @@ const footerHtml = `
   <div style="background-color: #0d1527; padding: 24px 20px; text-align: center; color: #94a3b8; font-size: 12px; border-top: 1px solid #1e293b;">
     <p style="margin: 0 0 6px 0; color: #cbd5e1; font-weight: 600;">Modern Man Kenya Atelier</p>
     <p style="margin: 0 0 10px 0; font-size: 11.5px; color: #94a3b8;">
-      Trust Mansion, 1st Floor, Tubman Road, Nairobi • WhatsApp: <a href="https://wa.me/254114122510" style="color: #C5A059; text-decoration: none; font-weight: 600;">+254 114 122 510</a> • Tel: <a href="tel:+254718923082" style="color: #C5A059; text-decoration: none; font-weight: 600;">+254 718 923 082</a>
+      Trust Mansion, 1st Floor, Tubman Road, Nairobi • WhatsApp: <a href="https://wa.me/254114122510" style="color: #C5A059; text-decoration: none; font-weight: 600;">+254 114 122 510</a> • Tel: <a href="tel:+254114122510" style="color: #C5A059; text-decoration: none; font-weight: 600;">+254 114 122 510</a>
     </p>
     <div style="margin: 10px 0;">
       <a href="https://www.modernmanke.com" style="color: #C5A059; text-decoration: none; margin: 0 10px; font-weight: 600;">Official Atelier</a> •
@@ -873,7 +873,7 @@ export function renderCustomerOrderStatusUpdate(data: OrderStatusEmailData): { s
               <a href="https://wa.me/254114122510?text=Hello%20Modern%20Man%20Kenya%2C%20regarding%20my%20order%20%23${data.orderNumber}" style="display: inline-block; background-color: #059669; color: #ffffff; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 22px; border-radius: 6px; text-decoration: none; margin: 4px;">
                 Chat on WhatsApp
               </a>
-              <a href="tel:+254718923082" style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 22px; border-radius: 6px; text-decoration: none; margin: 4px; border: 1px solid #C5A059;">
+              <a href="tel:+254114122510" style="display: inline-block; background-color: #0A1128; color: #C5A059; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; padding: 12px 22px; border-radius: 6px; text-decoration: none; margin: 4px; border: 1px solid #C5A059;">
                 Call Atelier
               </a>
             </div>

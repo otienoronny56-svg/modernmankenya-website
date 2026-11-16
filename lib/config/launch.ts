@@ -29,7 +29,7 @@ export const LAUNCH_CONFIG = {
    * Official Atelier details from brand profile
    */
   conciergeWhatsApp: '254114122510',
-  conciergePhone: '+254 718 923 082',
+  conciergePhone: '+254 114 122 510',
   atelierEmail: 'info@modernmanke.com',
   atelierLocation: 'Trust Mansion, 1st Floor, opposite City Market, Tubman Road, Nairobi',
   atelierHours: 'Monday – Saturday: 9:00 AM – 7:00 PM EAT',

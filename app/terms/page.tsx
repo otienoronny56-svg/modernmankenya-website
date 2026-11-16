@@ -133,11 +133,11 @@ export default function TermsPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
-                href="tel:+254718923082"
+                href="tel:+254114122510"
                 className="inline-flex items-center justify-center space-x-2 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold px-6 py-3 rounded-lg transition-colors shadow-md text-sm whitespace-nowrap"
               >
                 <Phone className="w-4 h-4" />
-                <span>Call: 0718 923 082</span>
+                <span>Call: 0114 122 510</span>
               </a>
               <Link
                 href="/returns"
@@ -150,7 +150,7 @@ export default function TermsPage() {
           </div>
           <div className="mt-6 pt-6 border-t border-white/10 flex justify-between items-center text-xs text-slate-400">
             <span>Modern Man Kenya • Executive Management</span>
-            <span>Tel: +254 718 923 082</span>
+            <span>Tel: +254 114 122 510</span>
           </div>
         </div>
 

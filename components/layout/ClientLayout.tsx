@@ -40,9 +40,9 @@ export const ClientLayout: React.FC<ClientLayoutProps> = ({ children, hasBypass 
   return (
     <ThemeProvider>
       <AuthProvider>
-        <div className="relative w-full max-w-full overflow-x-hidden flex flex-col min-h-screen">
+        <div className="relative w-full max-w-full overflow-x-clip flex flex-col min-h-screen">
           <Header onOpenSearch={() => setSearchOpen(true)} />
-          <main className="flex-grow w-full max-w-full overflow-x-hidden">{children}</main>
+          <main className="flex-grow w-full max-w-full overflow-x-clip">{children}</main>
           <Footer />
           <CartDrawer />
           <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />

@@ -1,14 +1,20 @@
 const { spawnSync } = require('child_process');
+const path = require('path');
 
 process.env.NODE_OPTIONS = '--max-old-space-size=4096';
 
-const isWindows = process.platform === 'win32';
-const nextCmd = isWindows ? 'npx.cmd' : 'npx';
+const nextBin = path.join(__dirname, '..', 'node_modules', 'next', 'dist', 'bin', 'next');
 
-const result = spawnSync(nextCmd, ['next', 'build'], {
-  stdio: 'inherit',
-  shell: true,
-  env: process.env,
-});
+const result = spawnSync(
+  process.execPath,
+  ['--max-old-space-size=4096', nextBin, 'build'],
+  {
+    stdio: 'inherit',
+    env: {
+      ...process.env,
+      NODE_OPTIONS: '--max-old-space-size=4096',
+    },
+  }
+);
 
 process.exit(result.status !== null ? result.status : 0);

@@ -50,12 +50,12 @@ export const Footer: React.FC = () => {
               {/* Phone and WhatsApp Icons & Links Above Email */}
               <div className="flex flex-wrap items-center gap-3 pt-0.5">
                 <a
-                  href="tel:+254718923082"
+                  href="tel:+254114122510"
                   className="inline-flex items-center space-x-1.5 text-stone-700 hover:text-brand-gold transition-colors font-medium group"
-                  title="Call Modern Man Kenya at +254 718 923 082"
+                  title="Call Modern Man Kenya at +254 114 122 510"
                 >
                   <Phone className="w-4 h-4 text-brand-gold flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span>+254 718 923 082</span>
+                  <span>+254 114 122 510</span>
                 </a>
 
                 <span className="text-stone-300">•</span>

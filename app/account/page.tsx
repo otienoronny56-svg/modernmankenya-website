@@ -1369,7 +1369,7 @@ export default function ClientDashboardPage() {
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="e.g. 0718 923 082 or +254 7..."
+                    placeholder="e.g. 0114 122 510 or +254 7..."
                     className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-900 focus:outline-none focus:border-brand-navy"
                   />
                 </div>
