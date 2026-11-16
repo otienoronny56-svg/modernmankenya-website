@@ -23,7 +23,7 @@ const OCCASIONS: OccasionOption[] = [
     description: 'Two-piece and three-piece suits engineered with floating canvas for effortless comfort during long boardroom days.',
     image: '/images/MOK_7716.jpg',
     href: '/occasions/executive-wear',
-    features: ['Super 130s–160s Wool', 'Notch or Peak Lapels', 'Personal Monogramming'],
+    features: ['Super 120s–150s Wool', 'Notch or Peak Lapels', 'Personal Monogramming'],
   },
   {
     id: 'wedding',
