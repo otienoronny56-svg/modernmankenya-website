@@ -22,13 +22,14 @@ export const Footer: React.FC = () => {
               className="inline-block group focus:outline-hidden"
               aria-label="Modern Man Kenya Home"
             >
-              <div className="relative w-32 h-16 sm:w-36 sm:h-20 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-28 h-20 sm:w-32 sm:h-22 md:w-36 md:h-24 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/images/logo-full.png"
                   alt="Modern Man Kenya - Opulence • Simplicity • Class"
                   fill
                   sizes="(max-width: 640px) 128px, 144px"
                   className="object-contain dark:hidden"
+                  priority
                 />
                 <Image
                   src="/images/logo-dark-mode.png"
@@ -36,6 +37,7 @@ export const Footer: React.FC = () => {
                   fill
                   sizes="(max-width: 640px) 128px, 144px"
                   className="object-contain hidden dark:block"
+                  priority
                 />
               </div>
             </Link>
