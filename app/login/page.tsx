@@ -19,6 +19,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth/AuthContext';
+import { HumanVerificationCaptcha } from '@/components/auth/HumanVerificationCaptcha';
 
 function LoginForm() {
   const router = useRouter();
@@ -51,6 +52,7 @@ function LoginForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [forgotPasswordOpen, setForgotPasswordOpen] = useState(false);
   const [resetEmailSent, setResetEmailSent] = useState(false);
+  const [isHumanVerified, setIsHumanVerified] = useState(false);
 
   // Resend code countdown timer
   useEffect(() => {
@@ -138,10 +140,17 @@ function LoginForm() {
         setLoading(false);
         return;
       }
+      if (!isHumanVerified) {
+        setErrorMsg('Please complete the security check below to verify you are human.');
+        setLoading(false);
+        return;
+      }
 
       const { error, user: newUser } = await signUpWithEmail(email, password, {
         full_name: fullName,
         phone: phoneNumber,
+        accountStatus: 'approved',
+        approvalStatus: 'approved',
       });
 
       if (error) {
@@ -663,6 +672,14 @@ function LoginForm() {
                   />
                 </div>
               </div>
+            )}
+
+            {/* Human Verification (Sign Up only) */}
+            {mode === 'signup' && (
+              <HumanVerificationCaptcha
+                onVerify={setIsHumanVerified}
+                isVerified={isHumanVerified}
+              />
             )}
 
             {/* Submit Button */}

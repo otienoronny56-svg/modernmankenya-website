@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { BlackNovemberBanner } from '@/components/home/BlackNovemberBanner';
 import { HeroSection } from '@/components/home/HeroSection';
 import { NeedleThreadTransition } from '@/components/canvas/NeedleThreadTransition';
 import { ScissorsCutTransition } from '@/components/canvas/ScissorsCutTransition';
@@ -32,6 +33,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white dark:bg-[#12131A] text-brand-slate dark:text-slate-100 transition-colors duration-200">
+      {/* Black November & Black Friday 20% Off Sartorial Banner */}
+      <BlackNovemberBanner />
+
       {/* 1. Hero: Where Fit Meets Character */}
       <HeroSection />
 

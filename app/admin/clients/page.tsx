@@ -21,7 +21,8 @@ import {
   ShoppingBag,
   Plus,
   Truck,
-  DollarSign
+  DollarSign,
+  AlertCircle
 } from 'lucide-react';
 import { formatCurrencyPrice } from '@/lib/currency';
 import type { ClientMeasurementProfile } from '@/lib/clients/store';
@@ -34,7 +35,7 @@ export default function AdminClientsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [approvingId, setApprovingId] = useState<string | null>(null);
   const [approvingAccountId, setApprovingAccountId] = useState<string | null>(null);
-  const [accountFilter, setAccountFilter] = useState<'all' | 'pending' | 'approved'>('all');
+  const [accountFilter, setAccountFilter] = useState<'all' | 'suspended' | 'active'>('all');
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   // Add Order Modal State
@@ -143,13 +144,13 @@ export default function AdminClientsPage() {
   };
 
   const handleRevokeAccount = async (client: ClientMeasurementProfile) => {
-    if (!confirm(`Suspend account access for ${client.fullName}? They will see the verification notice upon visiting.`)) return;
+    if (!confirm(`Suspend account access for ${client.fullName}? They will see the suspension notice upon visiting.`)) return;
     try {
       const res = await fetch('/api/admin/clients', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          action: 'reject_account',
+          action: 'suspend_account',
           email: client.email,
         }),
       });
@@ -157,11 +158,11 @@ export default function AdminClientsPage() {
       const data = await res.json();
       if (data.success) {
         setClients((prev) =>
-          prev.map((c) => (c.email === client.email ? { ...c, accountStatus: 'pending_approval' } : c))
+          prev.map((c) => (c.email === client.email ? { ...c, accountStatus: 'suspended' } : c))
         );
       }
     } catch (err) {
-      console.error('Error rejecting client account:', err);
+      console.error('Error suspending client account:', err);
     }
   };
 
@@ -231,7 +232,9 @@ export default function AdminClientsPage() {
   };
 
   const totalClients = clients.length;
+  const suspendedAccountsCount = clients.filter((c) => c.accountStatus === 'suspended').length;
   const pendingAccountsCount = clients.filter((c) => c.accountStatus === 'pending_approval').length;
+  const activeAccountsCount = clients.filter((c) => c.accountStatus !== 'suspended').length;
   const approvedMeasurementsCount = clients.filter((c) => c.approvalStatus === 'approved').length;
   const totalOrdersCount = allOrders.length;
   const activeOrdersCount = allOrders.filter((o) => o.fulfillment_status !== 'delivered' && o.fulfillment_status !== 'cancelled').length;
@@ -245,8 +248,8 @@ export default function AdminClientsPage() {
       (c.savedDelivery?.town && c.savedDelivery.town.toLowerCase().includes(q));
 
     if (!matchesSearch) return false;
-    if (accountFilter === 'pending') return c.accountStatus === 'pending_approval';
-    if (accountFilter === 'approved') return c.accountStatus !== 'pending_approval';
+    if (accountFilter === 'suspended') return c.accountStatus === 'suspended';
+    if (accountFilter === 'active') return c.accountStatus !== 'suspended';
     return true;
   });
 
@@ -294,23 +297,23 @@ export default function AdminClientsPage() {
         </div>
 
         <div className={`p-5 rounded-xl border shadow-sm transition-all ${
-          pendingAccountsCount > 0 
-            ? 'bg-amber-50/80 border-amber-300' 
+          suspendedAccountsCount > 0 
+            ? 'bg-rose-50/80 border-rose-300' 
             : 'bg-white border-slate-200'
         }`}>
-          <div className="flex items-center justify-between text-xs font-bold uppercase text-amber-900">
-            <span>Pending Approvals</span>
-            <Clock className="w-4 h-4 text-amber-600" />
+          <div className="flex items-center justify-between text-xs font-bold uppercase text-rose-900">
+            <span>Suspended Accounts</span>
+            <AlertCircle className="w-4 h-4 text-rose-600" />
           </div>
-          <div className="mt-3 text-2xl font-bold text-amber-950 font-mono flex items-center space-x-2">
-            <span>{pendingAccountsCount}</span>
-            {pendingAccountsCount > 0 && (
-              <span className="text-[11px] font-sans font-bold px-2 py-0.5 rounded-full bg-amber-200 text-amber-900 animate-pulse">
-                Needs Review
+          <div className="mt-3 text-2xl font-bold text-rose-950 font-mono flex items-center space-x-2">
+            <span>{suspendedAccountsCount}</span>
+            {suspendedAccountsCount > 0 && (
+              <span className="text-[11px] font-sans font-bold px-2 py-0.5 rounded-full bg-rose-200 text-rose-900">
+                Action Required
               </span>
             )}
           </div>
-          <div className="text-[11px] text-amber-800 mt-1">New accounts awaiting activation</div>
+          <div className="text-[11px] text-rose-800 mt-1">Patron dashboard access revoked</div>
         </div>
 
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
@@ -357,31 +360,31 @@ export default function AdminClientsPage() {
             All ({totalClients})
           </button>
           <button
-            onClick={() => setAccountFilter('pending')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1 cursor-pointer ${
-              accountFilter === 'pending'
-                ? 'bg-amber-600 text-white shadow-xs'
-                : 'text-amber-800 hover:bg-amber-50'
-            }`}
-          >
-            <span>Pending</span>
-            {pendingAccountsCount > 0 && (
-              <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
-                accountFilter === 'pending' ? 'bg-white text-amber-900' : 'bg-amber-200 text-amber-900'
-              }`}>
-                {pendingAccountsCount}
-              </span>
-            )}
-          </button>
-          <button
-            onClick={() => setAccountFilter('approved')}
+            onClick={() => setAccountFilter('active')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              accountFilter === 'approved'
+              accountFilter === 'active'
                 ? 'bg-emerald-600 text-white shadow-xs'
                 : 'text-emerald-800 hover:bg-emerald-50'
             }`}
           >
-            Approved ({totalClients - pendingAccountsCount})
+            Active Patrons ({activeAccountsCount})
+          </button>
+          <button
+            onClick={() => setAccountFilter('suspended')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1 cursor-pointer ${
+              accountFilter === 'suspended'
+                ? 'bg-red-600 text-white shadow-xs'
+                : 'text-red-800 hover:bg-red-50'
+            }`}
+          >
+            <span>Suspended</span>
+            {suspendedAccountsCount > 0 && (
+              <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-bold ${
+                accountFilter === 'suspended' ? 'bg-white text-red-900' : 'bg-red-200 text-red-900'
+              }`}>
+                {suspendedAccountsCount}
+              </span>
+            )}
           </button>
         </div>
       </div>
@@ -424,12 +427,12 @@ export default function AdminClientsPage() {
                       </span>
                       <span
                         className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${
-                          client.accountStatus === 'pending_approval'
-                            ? 'bg-amber-100 text-amber-900 border border-amber-300 animate-pulse'
+                          client.accountStatus === 'suspended'
+                            ? 'bg-red-100 text-red-800 border border-red-300'
                             : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                         }`}
                       >
-                        {client.accountStatus === 'pending_approval' ? 'Account: Pending Approval' : 'Account: Approved'}
+                        {client.accountStatus === 'suspended' ? 'Account: Suspended' : 'Account: Active'}
                       </span>
                       <span
                         className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${
@@ -474,7 +477,17 @@ export default function AdminClientsPage() {
 
                   {/* Actions */}
                   <div className="flex flex-wrap items-center gap-2 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-100">
-                    {client.accountStatus === 'pending_approval' ? (
+                    {client.accountStatus === 'suspended' ? (
+                      <button
+                        onClick={() => handleApproveAccount(client)}
+                        disabled={approvingAccountId === client.id}
+                        className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-xs flex items-center space-x-1.5 cursor-pointer"
+                        title="Reactivate client account access"
+                      >
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span>{approvingAccountId === client.id ? 'Reactivating...' : 'Reactivate Access'}</span>
+                      </button>
+                    ) : client.accountStatus === 'pending_approval' ? (
                       <button
                         onClick={() => handleApproveAccount(client)}
                         disabled={approvingAccountId === client.id}
@@ -487,7 +500,7 @@ export default function AdminClientsPage() {
                     ) : (
                       <button
                         onClick={() => handleRevokeAccount(client)}
-                        className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-amber-50 text-slate-500 hover:text-amber-800 text-xs font-medium transition-colors cursor-pointer"
+                        className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-500 hover:text-rose-700 text-xs font-medium transition-colors cursor-pointer"
                         title="Suspend client dashboard access"
                       >
                         <span>Suspend Access</span>

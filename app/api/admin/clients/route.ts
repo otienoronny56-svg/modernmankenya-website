@@ -47,12 +47,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, profile: approved, message: 'Client account access granted & approved!' });
     }
 
-    if (action === 'reject_account') {
+    if (action === 'reject_account' || action === 'suspend_account') {
       const rejected = await rejectClientAccount(identifier);
       if (!rejected) {
         return NextResponse.json({ error: 'Client profile not found' }, { status: 404 });
       }
-      return NextResponse.json({ success: true, profile: rejected, message: 'Client account access rejected' });
+      return NextResponse.json({ success: true, profile: rejected, message: 'Client account access suspended' });
     }
 
     if (profileData) {

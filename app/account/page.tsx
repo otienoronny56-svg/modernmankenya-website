@@ -406,86 +406,79 @@ export default function ClientDashboardPage() {
     );
   }
 
-  // If Logged In but Account is Pending Admin Approval
-  const userMetadataApproved =
-    (user?.user_metadata as any)?.accountStatus === 'approved' ||
-    (user?.user_metadata as any)?.approvalStatus === 'approved';
-  const clientDataApproved =
-    clientData?.accountStatus === 'approved' ||
-    clientData?.approvalStatus === 'approved';
+  // Check if account has been explicitly suspended by an admin
   const isAdmin =
     user?.email === 'admin@modernmankenya.com' ||
     user?.email === 'otienoronny56@gmail.com' ||
     (profile as any)?.role === 'admin';
-  const isApproved = isAdmin || userMetadataApproved || clientDataApproved;
-  const isPendingApproval =
-    !isApproved &&
-    !loadingProfile &&
-    clientData !== null &&
-    clientData?.accountStatus === 'pending_approval';
 
-  if (isPendingApproval) {
+  const isSuspended =
+    !isAdmin &&
+    (clientData?.accountStatus === 'suspended' ||
+      (user?.user_metadata as any)?.accountStatus === 'suspended');
+
+  if (isSuspended) {
     return (
-      <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#0c0d14] py-16 sm:py-24 px-4 sm:px-6">
-        <div className="max-w-xl mx-auto bg-white rounded-3xl shadow-xl border border-brand-gold/40 p-8 sm:p-12 text-center space-y-6">
-          <div className="relative mx-auto w-20 h-20 rounded-full bg-brand-navy flex items-center justify-center text-brand-gold shadow-lg border border-brand-gold/40">
-            <Clock className="w-10 h-10 animate-pulse text-brand-gold" />
-            <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-amber-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold">
+      <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#0c101c] py-16 sm:py-24 px-4 sm:px-6">
+        <div className="max-w-xl mx-auto bg-white dark:bg-[#121622] rounded-3xl shadow-xl border border-red-200 dark:border-red-900/60 p-8 sm:p-12 text-center space-y-6">
+          <div className="relative mx-auto w-20 h-20 rounded-full bg-red-50 dark:bg-red-950/60 flex items-center justify-center text-red-600 shadow-lg border border-red-200 dark:border-red-800">
+            <Lock className="w-10 h-10 text-red-600 dark:text-red-400" />
+            <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-red-600 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold">
               !
             </div>
           </div>
 
           <div className="space-y-2">
-            <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-3.5 py-1 rounded-full inline-block">
-              Security Protocol • Verification Required
+            <span className="text-[10px] uppercase font-bold tracking-luxury text-red-700 dark:text-red-400 bg-red-100 dark:bg-red-950/80 px-3.5 py-1 rounded-full inline-block">
+              Security Notice • Account Suspended
             </span>
-            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
-              Account Pending Approval
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+              Account Access Suspended
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Welcome to Modern Man Kenya, <strong className="text-brand-navy">{fullName || user?.email}</strong>. Your account has been registered and is currently awaiting activation by our Atelier Administrator.
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Access to your Modern Man Kenya client account (<strong className="text-stone-900 dark:text-white">{user?.email}</strong>) has been temporarily suspended by Atelier Administration.
             </p>
           </div>
 
-          <div className="bg-amber-50/70 border border-amber-200/90 rounded-2xl p-5 text-left space-y-3">
-            <div className="flex items-center space-x-2 text-xs font-bold text-amber-950 uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4 text-amber-600" />
-              <span>Bespoke Privacy & Security Protocol</span>
+          <div className="bg-red-50/70 dark:bg-red-950/30 border border-red-200 dark:border-red-800/60 rounded-2xl p-5 text-left space-y-3">
+            <div className="flex items-center space-x-2 text-xs font-bold text-red-950 dark:text-red-200 uppercase tracking-wider">
+              <AlertCircle className="w-4 h-4 text-red-600" />
+              <span>Atelier Concierge Assistance</span>
             </div>
-            <p className="text-xs text-amber-900/90 leading-relaxed">
-              To protect sartorial measurement blueprints, orders, and tailoring records, new accounts are individually reviewed by our team before granting access to the client dashboard.
+            <p className="text-xs text-red-900/90 dark:text-red-300 leading-relaxed">
+              If you have ongoing sartorial orders, bespoke fittings, or believe this suspension is in error, please contact our concierge team directly. We are ready to assist you.
             </p>
-            <div className="flex items-center space-x-2 text-[11px] text-amber-800 font-semibold pt-1 border-t border-amber-200/60">
-              <RefreshCw className="w-3.5 h-3.5 animate-spin text-amber-600" />
-              <span>Live status: Checking approval automatically in real-time...</span>
-            </div>
           </div>
 
           <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={`https://wa.me/254114122510?text=${encodeURIComponent(
-                `Hello Modern Man Kenya atelier team, I have registered my account (${user?.email}) and would like to request account approval.`
+                `Hello Modern Man Kenya atelier team, my account (${user?.email}) has been marked as suspended and I would like assistance.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-sm"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Fast-Track via WhatsApp</span>
+              <span>Contact via WhatsApp</span>
+            </a>
+
+            <a
+              href="tel:+254114122510"
+              className="px-6 py-3 rounded-xl bg-brand-navy hover:bg-slate-900 text-brand-gold font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-sm"
+            >
+              <Phone className="w-4 h-4" />
+              <span>Call Concierge</span>
             </a>
 
             <button
               onClick={() => signOut()}
-              className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
+              className="px-5 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Sign Out</span>
             </button>
           </div>
-
-          <p className="text-[11px] text-slate-400">
-            Registered as <span className="font-mono text-slate-600">{user?.email}</span>
-          </p>
         </div>
       </div>
     );

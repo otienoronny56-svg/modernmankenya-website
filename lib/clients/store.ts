@@ -69,8 +69,8 @@ export interface ClientMeasurementProfile {
   approvedBy?: string;
   approvedAt?: string;
   tailorNotes?: string;
-  // Account Access Approval (Strict Security: Requires Admin Approval for New Clients)
-  accountStatus: 'approved' | 'pending_approval' | 'rejected';
+  // Account Access Approval & Suspension
+  accountStatus: 'approved' | 'pending_approval' | 'rejected' | 'suspended';
   accountApprovedBy?: string;
   accountApprovedAt?: string;
   // 2FA Security fields
@@ -267,12 +267,15 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
       for (const u of data.users) {
         if (!u.email) continue;
         const meta = u.user_metadata || {};
-        const isUserApprovedInMeta = meta.accountStatus === 'approved' || meta.approvalStatus === 'approved';
+        const isSuspended = meta.accountStatus === 'suspended';
+        const isUserApprovedInMeta = meta.accountStatus === 'approved' || meta.approvalStatus === 'approved' || !isSuspended;
         const isAdmin = u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com';
         const existingIndex = localClients.findIndex((c) => c.email.toLowerCase() === u.email?.toLowerCase());
 
         if (existingIndex > -1) {
-          if (isUserApprovedInMeta || isAdmin) {
+          if (isSuspended) {
+            localClients[existingIndex].accountStatus = 'suspended';
+          } else {
             localClients[existingIndex].accountStatus = 'approved';
             localClients[existingIndex].approvalStatus = 'approved';
           }
@@ -312,9 +315,9 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
               ankleOpening: null,
               crotchRise: null,
             },
-            approvalStatus: (isAdmin || isUserApprovedInMeta) ? 'approved' : 'pending_review',
-            accountStatus: (isAdmin || isUserApprovedInMeta) ? 'approved' : (meta.accountStatus || 'pending_approval'),
-            tailorNotes: isAdmin ? 'Administrator Account' : (isUserApprovedInMeta ? 'Approved Atelier Patron' : 'Registered user account. Awaiting Atelier Admin access approval.'),
+            approvalStatus: 'approved',
+            accountStatus: isSuspended ? 'suspended' : 'approved',
+            tailorNotes: isAdmin ? 'Administrator Account' : (isSuspended ? 'Account access suspended by Atelier Admin.' : 'Active Atelier Patron.'),
             updatedAt: u.updated_at || new Date().toISOString(),
             createdAt: u.created_at || new Date().toISOString(),
           };
@@ -346,11 +349,13 @@ export async function getClientProfile(emailOrId: string): Promise<ClientMeasure
     );
     if (sbUser) {
       const meta = sbUser.user_metadata || {};
-      const isApprovedInMeta = meta.accountStatus === 'approved' || meta.approvalStatus === 'approved';
+      const isSuspended = meta.accountStatus === 'suspended';
       const isAdmin = lower === 'admin@modernmankenya.com' || lower === 'otienoronny56@gmail.com';
 
       if (match) {
-        if (isApprovedInMeta || isAdmin) {
+        if (isSuspended) {
+          match.accountStatus = 'suspended';
+        } else {
           match.accountStatus = 'approved';
           match.approvalStatus = 'approved';
         }
@@ -393,9 +398,9 @@ export async function getClientProfile(emailOrId: string): Promise<ClientMeasure
           ankleOpening: null,
           crotchRise: null,
         },
-        approvalStatus: (isAdmin || isApprovedInMeta) ? 'approved' : 'pending_review',
-        accountStatus: (isAdmin || isApprovedInMeta) ? 'approved' : 'pending_approval',
-        tailorNotes: (isAdmin || isApprovedInMeta) ? 'Approved Atelier Patron' : 'Registered user account. Awaiting Atelier Admin access approval.',
+        approvalStatus: 'approved',
+        accountStatus: isSuspended ? 'suspended' : 'approved',
+        tailorNotes: isAdmin ? 'Administrator Account' : (isSuspended ? 'Account access suspended by Atelier Admin.' : 'Active Atelier Patron.'),
         updatedAt: sbUser.updated_at || new Date().toISOString(),
         createdAt: sbUser.created_at || new Date().toISOString(),
       };
@@ -449,9 +454,9 @@ export async function getClientProfile(emailOrId: string): Promise<ClientMeasure
         ankleOpening: null,
         crotchRise: null,
       },
-      approvalStatus: 'pending_review',
-      accountStatus: 'pending_approval',
-      tailorNotes: 'New client profile. Awaiting Atelier Admin access approval.',
+      approvalStatus: 'approved',
+      accountStatus: 'approved',
+      tailorNotes: 'Active Atelier Patron',
       updatedAt: new Date().toISOString(),
       createdAt: new Date().toISOString(),
     };
@@ -533,13 +538,13 @@ export async function upsertClientProfile(
         ankleOpening: data.measurements?.ankleOpening ?? null,
         crotchRise: data.measurements?.crotchRise ?? null,
       },
-      approvalStatus: data.approvalStatus || 'pending_review',
+      approvalStatus: data.approvalStatus || 'approved',
       approvedBy: data.approvedBy,
       approvedAt: data.approvedAt,
-      accountStatus: data.accountStatus || 'pending_approval',
+      accountStatus: data.accountStatus || 'approved',
       accountApprovedBy: data.accountApprovedBy,
       accountApprovedAt: data.accountApprovedAt,
-      tailorNotes: data.tailorNotes || 'Profile registered. Awaiting Atelier Admin access approval.',
+      tailorNotes: data.tailorNotes || 'Active Patron. Verified and registered via online portal.',
       updatedAt: now,
       createdAt: now,
     };
@@ -658,7 +663,7 @@ export async function rejectClientAccount(
       await supabaseAdmin.auth.admin.updateUserById(sbUser.id, {
         user_metadata: {
           ...(sbUser.user_metadata || {}),
-          accountStatus: 'pending_approval',
+          accountStatus: 'suspended',
         },
       });
     }
@@ -667,13 +672,15 @@ export async function rejectClientAccount(
   }
 
   if (index > -1) {
-    clients[index].accountStatus = 'pending_approval';
+    clients[index].accountStatus = 'suspended';
     clients[index].updatedAt = new Date().toISOString();
     writeLocalClients(clients);
     return clients[index];
   }
   return null;
 }
+
+export const suspendClientAccount = rejectClientAccount;
 
 export async function approveClientMeasurements(
   emailOrId: string,

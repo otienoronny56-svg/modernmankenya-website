@@ -24,6 +24,7 @@ function BookAppointmentContent() {
   const searchParams = useSearchParams();
   const prefilledService = searchParams.get('service') || '';
   const prefilledFabric = searchParams.get('fabric') || '';
+  const promoCode = searchParams.get('promo') || '';
 
   const [step, setStep] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
@@ -63,7 +64,12 @@ function BookAppointmentContent() {
   const [clientName, setClientName] = useState<string>('');
   const [clientEmail, setClientEmail] = useState<string>('');
   const [clientPhone, setClientPhone] = useState<string>('');
-  const [notes, setNotes] = useState<string>(prefilledFabric ? `Interested in cloth: ${prefilledFabric}` : '');
+  const [notes, setNotes] = useState<string>(() => {
+    const parts: string[] = [];
+    if (prefilledFabric) parts.push(`Interested in cloth: ${prefilledFabric}`);
+    if (promoCode) parts.push(`[Promo Applied: ${promoCode} - 20% Off Black November Bespoke Special]`);
+    return parts.join(' | ');
+  });
 
   // Real-time appointment schedule states
   const [calendarSummary, setCalendarSummary] = useState<any>({});
@@ -237,6 +243,19 @@ function BookAppointmentContent() {
             Select your preferred consultation discipline, date, and atelier location in Nairobi.
           </p>
         </div>
+
+        {/* Promo Privilege Banner */}
+        {promoCode && (
+          <div className="mb-6 max-w-xl mx-auto bg-gradient-to-r from-stone-950 via-[#131728] to-stone-950 border border-brand-gold/60 rounded-xl p-3 sm:p-4 text-center shadow-lg animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="flex items-center justify-center space-x-2 text-brand-gold text-xs font-bold uppercase tracking-widest mb-1">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+              <span>Privilege Activated: 20% Off Bespoke Tailoring</span>
+            </div>
+            <p className="text-xs text-slate-200">
+              Code <strong className="font-mono text-amber-300 font-bold">{promoCode}</strong> applied. Your 20% Black November & Black Friday privilege will be honored on your bespoke commission.
+            </p>
+          </div>
+        )}
 
         {/* Wizard Progress Bar */}
         {step <= 4 && (

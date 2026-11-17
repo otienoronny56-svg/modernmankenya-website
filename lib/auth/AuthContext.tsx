@@ -22,7 +22,7 @@ interface AuthContextType {
   signUpWithEmail: (
     email: string,
     pass: string,
-    metadata?: { full_name?: string; phone?: string }
+    metadata?: { full_name?: string; phone?: string; accountStatus?: string; approvalStatus?: string }
   ) => Promise<{ error: AuthError | null; user: User | null }>;
   signOut: () => Promise<void>;
   resetPasswordForEmail: (email: string) => Promise<{ error: AuthError | null }>;
@@ -162,7 +162,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signUpWithEmail = async (
     email: string,
     pass: string,
-    metadata?: { full_name?: string; phone?: string }
+    metadata?: { full_name?: string; phone?: string; accountStatus?: string; approvalStatus?: string }
   ) => {
     try {
       const origin = typeof window !== 'undefined' ? window.location.origin : '';
@@ -173,6 +173,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           data: {
             full_name: metadata?.full_name?.trim(),
             phone: metadata?.phone?.trim(),
+            accountStatus: metadata?.accountStatus || 'approved',
+            approvalStatus: metadata?.approvalStatus || 'approved',
           },
           emailRedirectTo: `${origin}/auth/callback`,
         },
