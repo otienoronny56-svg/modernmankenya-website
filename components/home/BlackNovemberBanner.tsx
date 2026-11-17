@@ -102,7 +102,7 @@ export const BlackNovemberBanner: React.FC = () => {
                 <strong className="text-white font-bold sm:text-base font-serif tracking-wide text-brand-gold">
                   20% OFF
                 </strong>{' '}
-                all Bespoke Suits, Made-to-Measure Tuxedos, Kaunda Suits & Fine Tailoring.
+                all Suits, Made-to-Measure Tuxedos, Kaunda Suits & Fine Tailoring.
               </p>
             </div>
           </div>
