@@ -225,7 +225,7 @@ export default function AdminLookbookPage() {
   };
 
   const handleDelete = async (id: string, itemTitle: string) => {
-    if (!confirm(`Are you sure you want to remove "${itemTitle}" from the lookbook?`)) {
+    if (!confirm(`Are you sure you want to permanently remove "${itemTitle}" from the lookbook & gallery?`)) {
       return;
     }
 
@@ -234,8 +234,14 @@ export default function AdminLookbookPage() {
       const res = await fetch(`/api/admin/lookbook/${id}`, { method: 'DELETE' });
       if (res.ok) {
         setItems((prev) => prev.filter((i) => i.id !== id));
+        if (isModalOpen) {
+          setIsModalOpen(false);
+          setEditingItem(null);
+        }
+        setSuccessToast(`✨ "${itemTitle}" was removed from the lookbook.`);
+        setTimeout(() => setSuccessToast(null), 4000);
       } else {
-        alert('This photo is part of the permanent base archive or could not be removed.');
+        alert('Could not remove this showcase photo.');
       }
     } catch (err) {
       console.error('Error deleting lookbook photo:', err);
@@ -393,20 +399,18 @@ export default function AdminLookbookPage() {
                     >
                       <Edit3 className="w-3.5 h-3.5" />
                     </button>
-                    {isCustom && (
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDelete(item.id, item.title);
-                        }}
-                        disabled={deletingId === item.id}
-                        className="p-1.5 bg-black/75 hover:bg-red-600 text-white rounded transition-colors shadow cursor-pointer"
-                        title="Delete this lookbook photo"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
-                    )}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDelete(item.id, item.title);
+                      }}
+                      disabled={deletingId === item.id}
+                      className="p-1.5 bg-black/75 hover:bg-red-600 text-white rounded transition-colors shadow cursor-pointer"
+                      title="Delete this lookbook showcase"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
 
@@ -581,28 +585,45 @@ export default function AdminLookbookPage() {
                 />
               </div>
 
-              <div className="pt-4 flex items-center justify-end space-x-2 border-t border-slate-200">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 text-xs font-bold text-slate-600 hover:text-slate-800 uppercase"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={submitting || uploading}
-                  className="px-5 py-2.5 bg-brand-navy hover:bg-slate-900 text-brand-gold rounded text-xs font-bold uppercase tracking-wider disabled:opacity-50 flex items-center space-x-1.5 shadow cursor-pointer transition-all"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>
-                    {submitting
-                      ? 'Saving...'
-                      : editingItem
-                      ? 'Save Changes'
-                      : 'Publish to Lookbook'}
-                  </span>
-                </button>
+              <div className="pt-4 flex items-center justify-between border-t border-slate-200">
+                {editingItem ? (
+                  <button
+                    type="button"
+                    onClick={() => handleDelete(editingItem.id, editingItem.title)}
+                    disabled={deletingId === editingItem.id || submitting}
+                    className="px-3.5 py-2 text-xs font-bold text-rose-600 hover:text-white bg-rose-50 hover:bg-rose-600 rounded border border-rose-200 hover:border-rose-600 transition-all uppercase flex items-center space-x-1.5 cursor-pointer disabled:opacity-50 shadow-xs"
+                    title="Permanently remove this showcase from the gallery"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                    <span>{deletingId === editingItem.id ? 'Deleting...' : 'Delete Showcase'}</span>
+                  </button>
+                ) : (
+                  <div />
+                )}
+
+                <div className="flex items-center space-x-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-4 py-2 text-xs font-bold text-slate-600 hover:text-slate-800 uppercase cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={submitting || uploading}
+                    className="px-5 py-2.5 bg-brand-navy hover:bg-slate-900 text-brand-gold rounded text-xs font-bold uppercase tracking-wider disabled:opacity-50 flex items-center space-x-1.5 shadow cursor-pointer transition-all"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+                    <span>
+                      {submitting
+                        ? 'Saving...'
+                        : editingItem
+                        ? 'Save Changes'
+                        : 'Publish to Lookbook'}
+                    </span>
+                  </button>
+                </div>
               </div>
             </form>
           </div>

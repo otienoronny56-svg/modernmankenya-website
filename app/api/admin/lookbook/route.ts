@@ -1,14 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { SARTORIAL_GALLERY_ITEMS, GalleryItem } from '@/data/galleryData';
+import { GalleryItem } from '@/data/galleryData';
 import { verifyAdminSessionToken, ADMIN_COOKIE_NAME } from '@/lib/auth/admin-auth';
-import { getCustomLookbookItems, addCustomLookbookItem } from '@/lib/lookbook/store';
+import { getMergedLookbookItems, addCustomLookbookItem } from '@/lib/lookbook/store';
 
 export async function GET(req: NextRequest) {
   try {
-    const customItems = await getCustomLookbookItems();
-    // Return custom first (newest), followed by seeded archive
-    const merged = [...customItems, ...SARTORIAL_GALLERY_ITEMS];
-    return NextResponse.json({ items: merged, customCount: customItems.length });
+    const merged = await getMergedLookbookItems();
+    return NextResponse.json({ items: merged });
   } catch (error) {
     console.error('Error fetching lookbook items:', error);
     return NextResponse.json({ error: 'Failed to fetch lookbook' }, { status: 500 });
