@@ -66,6 +66,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSearch }) => {
     { name: 'Smart Casual & Blazers', href: '/gallery?category=smart-casual' },
     { name: 'Shirts & Accessories Shop', href: '/ready-to-wear?category=accessories' },
     { name: 'Kaftans & Agbada', href: '/gallery?category=kaftan-agbada' },
+    { name: 'Modern Woman', href: '/gallery?category=modern-women' },
+    { name: 'Modern Kids', href: '/gallery?category=modern-kids' },
   ];
 
   return (

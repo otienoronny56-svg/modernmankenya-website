@@ -191,6 +191,16 @@ export const Footer: React.FC = () => {
                   Kaftans & Agbada
                 </Link>
               </li>
+              <li>
+                <Link href="/gallery?category=modern-women" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
+                  Modern Woman
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery?category=modern-kids" className="hover:text-brand-gold dark:hover:text-brand-gold transition-colors">
+                  Modern Kids
+                </Link>
+              </li>
             </ul>
           </div>
 
