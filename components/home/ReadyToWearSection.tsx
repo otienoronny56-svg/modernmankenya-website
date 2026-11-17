@@ -12,6 +12,7 @@ interface GalleryHighlight {
   image: string;
   badge: string;
   href: string;
+  imagePosition?: string;
 }
 
 const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
@@ -22,6 +23,7 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
     image: '/images/MOK_2198.jpg',
     badge: 'Pure Wool',
     href: '/gallery?category=suits',
+    imagePosition: 'object-bottom',
   },
   {
     id: 'double-breasted-blazer',
@@ -89,7 +91,7 @@ export const ReadyToWearSection: React.FC = () => {
                   alt={item.name}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className={`object-cover ${item.imagePosition || 'object-top'} group-hover:scale-105 transition-transform duration-700 ease-out`}
                 />
                 
                 {/* Subtle Gradient Shadow */}
