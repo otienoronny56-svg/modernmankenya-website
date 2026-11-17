@@ -115,7 +115,7 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         aspect: 'portrait',
       },
       {
-        src: '/images/double-breasted-suit-navy.jpeg',
+        src: '/images/collections/suit-navy-pinstripe-double-breasted-2.jpeg',
         label: 'Double Breasted',
         tag: 'Official Suit',
         subCategory: 'official-suit',
@@ -181,7 +181,7 @@ export const OCCASIONS_DATA: Record<string, OccasionCategoryData> = {
         aspect: 'portrait',
       },
       {
-        src: '/images/double-breasted-suit-navy.jpeg',
+        src: '/images/collections/suit-navy-pinstripe-double-breasted-2.jpeg',
         label: 'Navy Double Breasted',
         tag: 'Official Suit',
         subCategory: 'official-suit',

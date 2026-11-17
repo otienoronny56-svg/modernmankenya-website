@@ -26,10 +26,10 @@ const GALLERY_HIGHLIGHTS: GalleryHighlight[] = [
   {
     id: 'double-breasted-blazer',
     name: 'Modern Double-Breasted Tailoring',
-    category: 'Blazers',
-    image: '/images/double-breasted-suit-navy.jpeg',
-    badge: 'Tailored Separates',
-    href: '/gallery?category=smart-casual',
+    category: 'Suits',
+    image: '/images/collections/suit-navy-pinstripe-double-breasted-2.jpeg',
+    badge: 'Double-Breasted',
+    href: '/gallery?category=suits',
   },
   {
     id: 'african-ceremony-wear',

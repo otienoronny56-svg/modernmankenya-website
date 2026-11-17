@@ -37,7 +37,7 @@ const CHALLENGE_THEMES: ChallengeTheme[] = [
     targetInstruction: 'Select all squares with bespoke suits or tailored blazers',
     targets: [
       { src: '/images/Bespoke Suit.jpg', alt: 'Bespoke Tailored Suit' },
-      { src: '/images/double-breasted-suit-navy.jpeg', alt: 'Double Breasted Navy Suit' },
+      { src: '/images/collections/suit-navy-pinstripe-double-breasted-2.jpeg', alt: 'Double Breasted Navy Suit' },
       { src: '/images/advocate-legal-barrister-navy-1.jpeg', alt: 'Advocate Pinstripe Suit' },
       { src: '/images/tuxedo-black-tie-classic.jpeg', alt: 'Black Tie Tuxedo' },
     ],
@@ -63,7 +63,7 @@ const CHALLENGE_THEMES: ChallengeTheme[] = [
     decoys: [
       { src: '/images/Bespoke Suit.jpg', alt: 'Bespoke Suit' },
       { src: '/images/agbada-chocolate-brown.jpeg', alt: 'African Agbada' },
-      { src: '/images/double-breasted-suit-navy.jpeg', alt: 'Double Breasted Suit' },
+      { src: '/images/collections/suit-navy-pinstripe-double-breasted-2.jpeg', alt: 'Double Breasted Suit' },
       { src: '/images/advocate-legal-barrister-navy-1.jpeg', alt: 'Advocate Suit' },
       { src: '/images/women-suit-emerald-green.jpeg', alt: 'Emerald Green Suit' },
       { src: '/images/agbada-classic-1.jpeg', alt: 'Classic Agbada' },
