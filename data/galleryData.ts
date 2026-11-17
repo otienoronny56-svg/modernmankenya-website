@@ -27,6 +27,47 @@ export interface GalleryItem {
 
 export const SARTORIAL_GALLERY_ITEMS: GalleryItem[] = [
   {
+    "id": "kaunda-amethyst-royal",
+    "title": "Imperial Amethyst Kaunda",
+    "tag": "Mandarin Asymmetric",
+    "category": "kaunda-suits",
+    "image": "/images/collections/kaunda-purple-amethyst-1.jpeg",
+    "images": [
+      "/images/collections/kaunda-purple-amethyst-1.jpeg",
+      "/images/collections/kaunda-purple-amethyst-2.jpeg",
+      "/images/collections/kaunda-purple-amethyst-3.jpeg"
+    ],
+    "aspect": "portrait"
+  },
+  {
+    "id": "suit-navy-pinstripe-db",
+    "title": "Wall Street Double-Breasted",
+    "tag": "6x2 Peak Lapel",
+    "category": "suits",
+    "image": "/images/collections/suit-navy-pinstripe-double-breasted-1.jpeg",
+    "images": [
+      "/images/collections/suit-navy-pinstripe-double-breasted-1.jpeg",
+      "/images/collections/suit-navy-pinstripe-double-breasted-2.jpeg",
+      "/images/collections/suit-navy-pinstripe-double-breasted-3.jpeg"
+    ],
+    "aspect": "portrait"
+  },
+  {
+    "id": "suit-terracotta-rose-3pc",
+    "title": "Terracotta Rose Executive 3-Piece",
+    "tag": "Savile Cedar 3-Piece",
+    "category": "suits",
+    "image": "/images/collections/suit-terracotta-rose-3piece-1.jpeg",
+    "images": [
+      "/images/collections/suit-terracotta-rose-3piece-1.jpeg",
+      "/images/collections/suit-terracotta-rose-3piece-2.jpeg",
+      "/images/collections/suit-terracotta-rose-3piece-3.jpeg",
+      "/images/collections/suit-terracotta-rose-3piece-4.jpeg",
+      "/images/collections/suit-terracotta-rose-3piece-5.jpeg"
+    ],
+    "aspect": "portrait"
+  },
+  {
     "id": "kid-1",
     "title": "African Lavender",
     "tag": "Traditional Cut",
