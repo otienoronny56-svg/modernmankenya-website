@@ -26,7 +26,8 @@ const LOOKBOOK_CATEGORIES = [
   { id: 'kaunda-suits', name: 'Kaunda Suits' },
   { id: 'traditional', name: 'Traditional & Kaftans' },
   { id: 'smart-casual', name: 'Smart Casual & Blazers' },
-  { id: 'modern-kids', name: 'Kids Bespoke' },
+  { id: 'modern-kids', name: 'Modern Kids' },
+  { id: 'modern-women', name: 'Modern Woman' },
 ];
 
 export default function AdminLookbookPage() {
@@ -484,8 +485,8 @@ export default function AdminLookbookPage() {
                   <option value="kaunda-suits">Kaunda Suits (Senator Suits)</option>
                   <option value="traditional">Traditional Wear & Kaftans / Agbada</option>
                   <option value="smart-casual">Smart Casual & Blazers</option>
-                  <option value="modern-kids">Modern Kids Bespoke</option>
-                  <option value="modern-women">Modern Woman Bespoke</option>
+                  <option value="modern-kids">Modern Kids</option>
+                  <option value="modern-women">Modern Woman</option>
                 </select>
               </div>
 
