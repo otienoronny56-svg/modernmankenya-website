@@ -269,7 +269,7 @@ export async function getAllClients(): Promise<ClientMeasurementProfile[]> {
         const meta = u.user_metadata || {};
         const isSuspended = meta.accountStatus === 'suspended';
         const isUserApprovedInMeta = meta.accountStatus === 'approved' || meta.approvalStatus === 'approved' || !isSuspended;
-        const isAdmin = u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com';
+        const isAdmin = u.email.toLowerCase() === 'admin@modernmankenya.com' || u.email.toLowerCase() === 'otienoronny56@gmail.com' || u.email.toLowerCase() === 'modernmanke254@gmail.com';
         const existingIndex = localClients.findIndex((c) => c.email.toLowerCase() === u.email?.toLowerCase());
 
         if (existingIndex > -1) {
@@ -350,7 +350,7 @@ export async function getClientProfile(emailOrId: string): Promise<ClientMeasure
     if (sbUser) {
       const meta = sbUser.user_metadata || {};
       const isSuspended = meta.accountStatus === 'suspended';
-      const isAdmin = lower === 'admin@modernmankenya.com' || lower === 'otienoronny56@gmail.com';
+      const isAdmin = lower === 'admin@modernmankenya.com' || lower === 'otienoronny56@gmail.com' || lower === 'modernmanke254@gmail.com';
 
       if (match) {
         if (isSuspended) {

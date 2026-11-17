@@ -55,6 +55,7 @@ export function verifyAdminCredentials(email: string, pass: string): boolean {
   const allowedEmails = [
     'admin@modernmankenya.com',
     'otienoronny56@gmail.com',
+    'modernmanke254@gmail.com',
     'admin',
     (process.env.ADMIN_EMAIL || '').trim().toLowerCase(),
   ].filter(Boolean);

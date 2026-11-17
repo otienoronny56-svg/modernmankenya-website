@@ -415,6 +415,7 @@ export default function ClientDashboardPage() {
   const isAdmin =
     user?.email === 'admin@modernmankenya.com' ||
     user?.email === 'otienoronny56@gmail.com' ||
+    user?.email === 'modernmanke254@gmail.com' ||
     (profile as any)?.role === 'admin';
 
   const isSuspended =
