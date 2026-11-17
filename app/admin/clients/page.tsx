@@ -22,6 +22,7 @@ import {
   Plus,
   Truck,
   DollarSign,
+  Trash2,
   AlertCircle
 } from 'lucide-react';
 import { formatCurrencyPrice } from '@/lib/currency';
@@ -35,6 +36,7 @@ export default function AdminClientsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [approvingId, setApprovingId] = useState<string | null>(null);
   const [approvingAccountId, setApprovingAccountId] = useState<string | null>(null);
+  const [deletingClientId, setDeletingClientId] = useState<string | null>(null);
   const [accountFilter, setAccountFilter] = useState<'all' | 'suspended' | 'active'>('all');
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
@@ -163,6 +165,38 @@ export default function AdminClientsPage() {
       }
     } catch (err) {
       console.error('Error suspending client account:', err);
+    }
+  };
+
+  const handleDeleteClient = async (client: ClientMeasurementProfile) => {
+    const confirmed = window.confirm(
+      `⚠️ PERMANENT DELETION WARNING:\n\nAre you sure you want to permanently delete the client account for:\n"${client.fullName}" (${client.email})?\n\nThis will completely erase their account profile, bespoke measurements, and Supabase login credentials.`
+    );
+    if (!confirmed) return;
+
+    setDeletingClientId(client.id);
+    try {
+      const res = await fetch('/api/admin/clients', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'delete_account',
+          email: client.email,
+          id: client.id,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setClients((prev) => prev.filter((c) => c.email.toLowerCase() !== client.email.toLowerCase() && c.id !== client.id));
+      } else {
+        alert(data.error || 'Failed to delete client account');
+      }
+    } catch (err: any) {
+      console.error('Error deleting client account:', err);
+      alert('Network error while deleting client account.');
+    } finally {
+      setDeletingClientId(null);
     }
   };
 
@@ -506,6 +540,16 @@ export default function AdminClientsPage() {
                         <span>Suspend Access</span>
                       </button>
                     )}
+
+                    <button
+                      onClick={() => handleDeleteClient(client)}
+                      disabled={deletingClientId === client.id}
+                      className="px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 hover:text-rose-800 border border-rose-200 text-xs font-semibold transition-colors flex items-center space-x-1.5 cursor-pointer disabled:opacity-50"
+                      title="Permanently delete client account and login credentials"
+                    >
+                      <Trash2 className="w-3.5 h-3.5 text-rose-600" />
+                      <span>{deletingClientId === client.id ? 'Deleting...' : 'Delete'}</span>
+                    </button>
 
                     <button
                       onClick={() => setAddOrderModalClient(client)}

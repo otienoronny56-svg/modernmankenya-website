@@ -1,39 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 import { SARTORIAL_GALLERY_ITEMS, GalleryItem } from '@/data/galleryData';
 import { verifyAdminSessionToken, ADMIN_COOKIE_NAME } from '@/lib/auth/admin-auth';
-
-const STORAGE_FILE = path.join(process.cwd(), 'data', 'custom_lookbook.json');
-
-function readCustomLookbook(): GalleryItem[] {
-  try {
-    if (!fs.existsSync(STORAGE_FILE)) {
-      return [];
-    }
-    const data = fs.readFileSync(STORAGE_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch (err) {
-    console.error('Error reading custom lookbook:', err);
-    return [];
-  }
-}
-
-function writeCustomLookbook(items: GalleryItem[]) {
-  try {
-    const dir = path.dirname(STORAGE_FILE);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    fs.writeFileSync(STORAGE_FILE, JSON.stringify(items, null, 2), 'utf-8');
-  } catch (err) {
-    console.error('Error writing custom lookbook:', err);
-  }
-}
+import { getCustomLookbookItems, addCustomLookbookItem } from '@/lib/lookbook/store';
 
 export async function GET(req: NextRequest) {
   try {
-    const customItems = readCustomLookbook();
+    const customItems = await getCustomLookbookItems();
     // Return custom first (newest), followed by seeded archive
     const merged = [...customItems, ...SARTORIAL_GALLERY_ITEMS];
     return NextResponse.json({ items: merged, customCount: customItems.length });
@@ -74,9 +46,7 @@ export async function POST(req: NextRequest) {
       aspect: aspect || 'portrait',
     };
 
-    const current = readCustomLookbook();
-    current.unshift(newItem);
-    writeCustomLookbook(current);
+    await addCustomLookbookItem(newItem);
 
     return NextResponse.json({
       success: true,

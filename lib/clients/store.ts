@@ -682,6 +682,38 @@ export async function rejectClientAccount(
 
 export const suspendClientAccount = rejectClientAccount;
 
+export async function deleteClientAccount(
+  emailOrId: string
+): Promise<boolean> {
+  const clients = readLocalClients();
+  const lower = emailOrId.toLowerCase().trim();
+  const initialLength = clients.length;
+  const filtered = clients.filter((c) => c.email.toLowerCase() !== lower && c.id !== emailOrId);
+
+  let deletedFromSupabase = false;
+  try {
+    const { getSupabaseAdmin } = await import('@/lib/supabase/server');
+    const supabaseAdmin = getSupabaseAdmin();
+    const { data } = await supabaseAdmin.auth.admin.listUsers({ page: 1, perPage: 1000 });
+    const sbUser = data?.users?.find(
+      (u) => u.email?.toLowerCase().trim() === lower || u.id === emailOrId
+    );
+    if (sbUser) {
+      const { error: delErr } = await supabaseAdmin.auth.admin.deleteUser(sbUser.id);
+      if (!delErr) {
+        deletedFromSupabase = true;
+      } else {
+        console.warn('Supabase deleteUser error:', delErr);
+      }
+    }
+  } catch (err) {
+    console.warn('Could not delete user in Supabase deleteClientAccount:', err);
+  }
+
+  writeLocalClients(filtered);
+  return filtered.length < initialLength || deletedFromSupabase;
+}
+
 export async function approveClientMeasurements(
   emailOrId: string,
   approvedBy = 'Samuel M. (Master Cutter)',

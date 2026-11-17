@@ -7,6 +7,7 @@ import {
   PlusCircle, 
   Search, 
   Trash2, 
+  Edit3,
   RefreshCw, 
   Sparkles, 
   X, 
@@ -37,6 +38,7 @@ export default function AdminLookbookPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [editingItem, setEditingItem] = useState<GalleryItem | null>(null);
 
   // Form State
   const [title, setTitle] = useState('');
@@ -133,10 +135,23 @@ export default function AdminLookbookPage() {
   };
 
   const handleOpenModal = () => {
+    setEditingItem(null);
     setTitle('');
     setTag('');
     setCategory('suits');
     setImages([]);
+    setCustomImageUrl('');
+    setFormError(null);
+    setIsModalOpen(true);
+  };
+
+  const handleOpenEditModal = (item: GalleryItem) => {
+    setEditingItem(item);
+    setTitle(item.title || '');
+    setTag(item.tag || '');
+    setCategory(item.category || 'suits');
+    const existingImages = item.images && item.images.length > 0 ? item.images : (item.image ? [item.image] : []);
+    setImages(existingImages);
     setCustomImageUrl('');
     setFormError(null);
     setIsModalOpen(true);
@@ -166,21 +181,42 @@ export default function AdminLookbookPage() {
         aspect: 'portrait',
       };
 
-      const res = await fetch('/api/admin/lookbook', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      if (editingItem) {
+        // Edit existing showcase
+        const res = await fetch(`/api/admin/lookbook/${editingItem.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
 
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to save lookbook showcase');
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Failed to update lookbook showcase');
+        }
+
+        setItems((prev) => prev.map((i) => (i.id === editingItem.id ? data.item : i)));
+        setIsModalOpen(false);
+        setEditingItem(null);
+        setSuccessToast('✨ Lookbook showcase updated successfully!');
+        setTimeout(() => setSuccessToast(null), 4000);
+      } else {
+        // Publish new showcase
+        const res = await fetch('/api/admin/lookbook', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Failed to save lookbook showcase');
+        }
+
+        setItems((prev) => [data.item, ...prev]);
+        setIsModalOpen(false);
+        setSuccessToast('✨ Lookbook photo successfully published to gallery!');
+        setTimeout(() => setSuccessToast(null), 4000);
       }
-
-      setItems((prev) => [data.item, ...prev]);
-      setIsModalOpen(false);
-      setSuccessToast('✨ Lookbook photo successfully published to gallery!');
-      setTimeout(() => setSuccessToast(null), 4000);
     } catch (err: any) {
       setFormError(err.message || 'Failed to save lookbook showcase');
     } finally {
@@ -322,11 +358,16 @@ export default function AdminLookbookPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
 
-                  {/* Category Pill Badge */}
-                  <div className="absolute top-2 left-2 z-10">
+                  {/* Category Pill Badge + Custom Badge */}
+                  <div className="absolute top-2 left-2 z-10 flex flex-col items-start gap-1">
                     <span className="px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-black/70 backdrop-blur-sm text-brand-gold border border-brand-gold/30">
                       {item.category.replace('-', ' ')}
                     </span>
+                    {isCustom && (
+                      <span className="px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider bg-emerald-600/90 text-white shadow">
+                        Live Upload
+                      </span>
+                    )}
                   </div>
 
                   {/* Multi-angle indicator */}
@@ -339,17 +380,34 @@ export default function AdminLookbookPage() {
                     </div>
                   )}
 
-                  {/* Delete button if custom */}
-                  {isCustom && (
+                  {/* Action buttons (Edit & Delete) */}
+                  <div className="absolute bottom-2 right-2 z-10 flex items-center space-x-1">
                     <button
-                      onClick={() => handleDelete(item.id, item.title)}
-                      disabled={deletingId === item.id}
-                      className="absolute bottom-2 right-2 z-10 p-1.5 bg-black/75 hover:bg-red-600 text-white rounded transition-colors shadow"
-                      title="Delete this lookbook photo"
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleOpenEditModal(item);
+                      }}
+                      className="p-1.5 bg-black/75 hover:bg-brand-gold hover:text-brand-navy text-white rounded transition-colors shadow cursor-pointer"
+                      title="Edit this lookbook showcase"
                     >
-                      <Trash2 className="w-3.5 h-3.5" />
+                      <Edit3 className="w-3.5 h-3.5" />
                     </button>
-                  )}
+                    {isCustom && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(item.id, item.title);
+                        }}
+                        disabled={deletingId === item.id}
+                        className="p-1.5 bg-black/75 hover:bg-red-600 text-white rounded transition-colors shadow cursor-pointer"
+                        title="Delete this lookbook photo"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 {/* Details Footer */}
@@ -377,9 +435,13 @@ export default function AdminLookbookPage() {
               <div className="flex items-center space-x-2.5">
                 <Camera className="w-5 h-5 text-brand-gold" />
                 <div>
-                  <h3 className="font-serif text-lg font-bold">Add Photo to Lookbook & Gallery</h3>
+                  <h3 className="font-serif text-lg font-bold">
+                    {editingItem ? 'Edit Lookbook Showcase' : 'Add Photo to Lookbook & Gallery'}
+                  </h3>
                   <p className="text-[11px] text-slate-300">
-                    Upload bespoke tailoring photography to showcase in the website gallery.
+                    {editingItem
+                      ? 'Update showcase title, sartorial tag, category, or add and replace photos.'
+                      : 'Upload bespoke tailoring photography to showcase in the website gallery.'}
                   </p>
                 </div>
               </div>
@@ -530,10 +592,16 @@ export default function AdminLookbookPage() {
                 <button
                   type="submit"
                   disabled={submitting || uploading}
-                  className="px-5 py-2.5 bg-brand-navy hover:bg-brand-navy-dark text-white rounded text-xs font-bold uppercase tracking-wider disabled:opacity-50 flex items-center space-x-1.5 shadow"
+                  className="px-5 py-2.5 bg-brand-navy hover:bg-slate-900 text-brand-gold rounded text-xs font-bold uppercase tracking-wider disabled:opacity-50 flex items-center space-x-1.5 shadow cursor-pointer transition-all"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>{submitting ? 'Publishing...' : 'Publish to Lookbook'}</span>
+                  <span>
+                    {submitting
+                      ? 'Saving...'
+                      : editingItem
+                      ? 'Save Changes'
+                      : 'Publish to Lookbook'}
+                  </span>
                 </button>
               </div>
             </form>

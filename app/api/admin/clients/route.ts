@@ -4,6 +4,7 @@ import {
   approveClientMeasurements, 
   approveClientAccount, 
   rejectClientAccount, 
+  deleteClientAccount,
   upsertClientProfile 
 } from '@/lib/clients/store';
 
@@ -55,6 +56,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, profile: rejected, message: 'Client account access suspended' });
     }
 
+    if (action === 'delete_account' || action === 'delete_client') {
+      const deleted = await deleteClientAccount(identifier);
+      return NextResponse.json({
+        success: true,
+        deleted,
+        message: 'Client account permanently deleted from atelier database and authentication system.',
+      });
+    }
+
     if (profileData) {
       const updated = await upsertClientProfile({ ...profileData, email: identifier });
       return NextResponse.json({ success: true, profile: updated });
@@ -63,6 +73,29 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
   } catch (err: any) {
     console.error('Error in POST /api/admin/clients:', err);
+    return NextResponse.json({ error: err.message || 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    const email = searchParams.get('email');
+    const identifier = email || id;
+
+    if (!identifier) {
+      return NextResponse.json({ error: 'Client email or ID required' }, { status: 400 });
+    }
+
+    const deleted = await deleteClientAccount(identifier);
+    return NextResponse.json({
+      success: true,
+      deleted,
+      message: 'Client account permanently deleted.',
+    });
+  } catch (err: any) {
+    console.error('Error in DELETE /api/admin/clients:', err);
     return NextResponse.json({ error: err.message || 'Internal server error' }, { status: 500 });
   }
 }
