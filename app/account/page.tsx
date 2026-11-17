@@ -84,23 +84,24 @@ export default function ClientDashboardPage() {
   // Fetch client profile and orders
   useEffect(() => {
     if (!authLoading && !user) {
+      setLoadingProfile(false);
+      setLoadingOrders(false);
       return;
     }
 
     if (user?.email) {
       const email = user.email;
+      let isMounted = true;
 
-      // 1. Fetch Client Profile & Measurements (and poll to detect admin approval)
+      // 1. Fetch Client Profile & Measurements (once on mount/auth change)
       const fetchProfileData = () => {
         fetch(`/api/client/profile?email=${encodeURIComponent(email)}`)
           .then((res) => res.json())
           .then((data) => {
+            if (!isMounted) return;
             if (data.profile) {
               const p: ClientMeasurementProfile = data.profile;
               setClientData(p);
-              if (p.accountStatus === 'approved' || p.approvalStatus === 'approved') {
-                supabase.auth.refreshSession().catch(() => {});
-              }
               setFullName(p.fullName || profile?.fullName || '');
               setPhone(p.phone || profile?.phone || '');
               setDeliveryTown(p.savedDelivery?.town || 'Nairobi');
@@ -120,30 +121,33 @@ export default function ClientDashboardPage() {
             }
           })
           .catch((err) => console.error('Error fetching client profile:', err))
-          .finally(() => setLoadingProfile(false));
+          .finally(() => {
+            if (isMounted) setLoadingProfile(false);
+          });
       };
 
-      setLoadingProfile(true);
       fetchProfileData();
 
-      // Poll profile every 3.5s to automatically unlock the dashboard once the admin approves
-      const profilePoll = setInterval(fetchProfileData, 3500);
-
       // 2. Fetch Client Orders & Setup Real-time Supabase Sync
-      const fetchClientOrders = () => {
+      const fetchClientOrders = (isInitial = false) => {
+        if (isInitial) {
+          setLoadingOrders(true);
+        }
         fetch(`/api/orders?email=${encodeURIComponent(email)}`)
           .then((res) => res.json())
           .then((data) => {
+            if (!isMounted) return;
             if (data.orders) {
               setOrders(data.orders);
             }
           })
           .catch((err) => console.error('Error fetching client orders:', err))
-          .finally(() => setLoadingOrders(false));
+          .finally(() => {
+            if (isMounted) setLoadingOrders(false);
+          });
       };
 
-      setLoadingOrders(true);
-      fetchClientOrders();
+      fetchClientOrders(true);
 
       // Realtime listener on Supabase 'orders' table
       const liveChannel = supabase
@@ -152,31 +156,32 @@ export default function ClientDashboardPage() {
           'postgres_changes',
           { event: '*', schema: 'public', table: 'orders' },
           () => {
-            fetchClientOrders();
+            fetchClientOrders(false);
           }
         )
         .subscribe();
 
-      // Background poll interval (every 4s) to guarantee real-time updates
+      // Gentle background poll (every 30s) to keep order status in sync without UI thrashing
       const pollInterval = setInterval(() => {
-        fetchClientOrders();
-      }, 4000);
+        fetchClientOrders(false);
+      }, 30000);
 
       // 3. Fetch 2FA Status
       fetch(`/api/auth/2fa?email=${encodeURIComponent(email)}&action=status`)
         .then((res) => res.json())
         .then((data) => {
+          if (!isMounted) return;
           setTwoFactorStatus({ enabled: Boolean(data.enabled), method: data.method });
         })
         .catch((err) => console.error('Error fetching 2FA status:', err));
 
       return () => {
+        isMounted = false;
         supabase.removeChannel(liveChannel);
         clearInterval(pollInterval);
-        clearInterval(profilePoll);
       };
     }
-  }, [user, profile, authLoading]);
+  }, [user?.email, authLoading]);
 
   // Handle Save Info & Measurements for Subsequent Orders
   const handleSaveInfo = async () => {
@@ -797,48 +802,55 @@ export default function ClientDashboardPage() {
             </div>
 
             {/* 2. Previous Orders History */}
-            <div className="space-y-4 pt-6 border-t border-slate-200">
+            <div className="space-y-4 pt-6 border-t border-slate-200 dark:border-slate-800">
               <div>
-                <h2 className="font-serif text-lg sm:text-xl font-bold text-brand-navy flex items-center space-x-2">
+                <h2 className="font-serif text-lg sm:text-xl font-bold text-brand-navy dark:text-white flex items-center space-x-2">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                   <span>Previous Orders & Commission Archive</span>
                 </h2>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Past garments and accessories completed and delivered to your wardrobe.
                 </p>
               </div>
 
               {previousOrders.length === 0 ? (
-                <div className="bg-white rounded-xl p-6 text-center border border-slate-200 text-xs text-slate-500">
+                <div className="bg-white dark:bg-[#121727] rounded-xl p-6 text-center border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
                   No previous orders archived yet. Once an active order is delivered, it will be securely logged here.
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {previousOrders.map((order) => (
-                    <div
-                      key={order.id}
-                      className="bg-white rounded-xl border border-slate-200/90 shadow-xs p-5 space-y-3"
-                    >
-                      <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                        <span className="font-mono text-xs font-bold text-brand-navy">{order.order_number}</span>
-                        <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                          Delivered
-                        </span>
+                  {previousOrders.map((order) => {
+                    const isCancelled = order.fulfillment_status === 'cancelled';
+                    return (
+                      <div
+                        key={order.id}
+                        className="bg-white dark:bg-[#121727] rounded-xl border border-slate-200/90 dark:border-slate-800 shadow-xs p-5 space-y-3"
+                      >
+                        <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                          <span className="font-mono text-xs font-bold text-brand-navy dark:text-brand-gold">{order.order_number}</span>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                            isCancelled
+                              ? 'text-rose-700 bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-900/60'
+                              : 'text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-900/60'
+                          }`}>
+                            {isCancelled ? 'Cancelled' : 'Delivered'}
+                          </span>
+                        </div>
+                        <div className="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                          {(order.items || []).map((it, idx) => (
+                            <div key={idx} className="flex justify-between">
+                              <span>{it.quantity}x {it.name}</span>
+                              <span className="font-mono">{formatCurrencyPrice((it.priceKes || 0) * (it.quantity || 1), 'KES')}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                          <span className="text-slate-400">Total Settled</span>
+                          <span className="font-mono font-bold text-brand-navy dark:text-white">{formatCurrencyPrice(order.total_amount_kes || 0, 'KES')}</span>
+                        </div>
                       </div>
-                      <div className="text-xs text-slate-600 space-y-1">
-                        {order.items.map((it, idx) => (
-                          <div key={idx} className="flex justify-between">
-                            <span>{it.quantity}x {it.name}</span>
-                            <span className="font-mono">{formatCurrencyPrice(it.priceKes * it.quantity, 'KES')}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
-                        <span className="text-slate-400">Total Settled</span>
-                        <span className="font-mono font-bold text-brand-navy">{formatCurrencyPrice(order.total_amount_kes, 'KES')}</span>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>

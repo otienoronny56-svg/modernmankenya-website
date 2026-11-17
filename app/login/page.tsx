@@ -102,6 +102,13 @@ function LoginForm() {
   // Handle Google Sign In
   const handleGoogleSignIn = async () => {
     setErrorMsg(null);
+    setSuccessMsg(null);
+
+    if (mode === 'signup' && !isHumanVerified) {
+      setErrorMsg('Please complete the verification check ("I am not a robot") above before creating an account.');
+      return;
+    }
+
     setGoogleLoading(true);
     try {
       const { error } = await signInWithGoogle(
@@ -141,7 +148,7 @@ function LoginForm() {
         return;
       }
       if (!isHumanVerified) {
-        setErrorMsg('Please complete the security check below to verify you are human.');
+        setErrorMsg('Please complete the security verification check ("I am not a robot") above.');
         setLoading(false);
         return;
       }
@@ -504,6 +511,19 @@ function LoginForm() {
             </div>
           )}
 
+          {/* Human Verification (Sign Up only: required for both Google & Email account creation) */}
+          {mode === 'signup' && (
+            <div className="space-y-1">
+              <label className="block text-xs font-semibold text-stone-700 dark:text-slate-300">
+                Security Verification <span className="text-red-500">*</span>
+              </label>
+              <HumanVerificationCaptcha
+                onVerify={setIsHumanVerified}
+                isVerified={isHumanVerified}
+              />
+            </div>
+          )}
+
           {/* 1. Google OAuth Button */}
           <div className="space-y-3">
             <button
@@ -672,14 +692,6 @@ function LoginForm() {
                   />
                 </div>
               </div>
-            )}
-
-            {/* Human Verification (Sign Up only) */}
-            {mode === 'signup' && (
-              <HumanVerificationCaptcha
-                onVerify={setIsHumanVerified}
-                isVerified={isHumanVerified}
-              />
             )}
 
             {/* Submit Button */}
