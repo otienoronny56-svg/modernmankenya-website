@@ -263,14 +263,20 @@ function GalleryContent() {
       return item.category === selectedCategory;
     });
 
-    // Pin the 4 signature Modern Kids showcases at the start of Row 1 in the Modern Kids section
-    // so they always remain together in one row even when new photos are added.
+    // Pin the 8 signature Modern Kids showcases at the start of Rows 1 & 2 in the Modern Kids section
+    // so they always remain together in the top two rows even when new photos are added.
     if (selectedCategory === 'modern-kids') {
       const pinnedMatchers: Array<(item: GalleryItem) => boolean> = [
+        // Row 1
         (item) => item.id === 'kid-6' || item.title.toLowerCase().includes('african monarch'),
         (item) => item.id === 'kid-5' || item.title.toLowerCase().includes('bespoke youth'),
         (item) => item.id === 'kid-34' || item.tag.toLowerCase().includes('junior waistcoat'),
         (item) => item.id === 'kid-33' || item.title.toLowerCase().includes('black & gold royal tunic'),
+        // Row 2
+        (item) => item.id === 'kid-11' || item.title.toLowerCase().includes('ivory velvet'),
+        (item) => item.id === 'kid-12' || item.title.toLowerCase().includes('midnight damask'),
+        (item) => item.id === 'kid-9' || item.title.toLowerCase().includes('emerald brocade'),
+        (item) => item.id === 'kid-10' || item.title.toLowerCase().includes('gilded damask'),
       ];
 
       const pinned: GalleryItem[] = [];
