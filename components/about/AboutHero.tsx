@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Sparkles, ArrowRight, Shield, Award, Compass, Scissors } from 'lucide-react';
+import { ArrowRight, Shield, Award, Compass, Scissors } from 'lucide-react';
 
 export const AboutHero: React.FC = () => {
   return (
@@ -18,7 +18,6 @@ export const AboutHero: React.FC = () => {
         {/* Top Tagline Pill */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/5 border border-brand-gold/30 backdrop-blur-sm">
-            <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
             <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold">
               About Modern Man KE • Nairobi, Kenya • Est. 2020
             </span>

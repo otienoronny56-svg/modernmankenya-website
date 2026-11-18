@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Calendar, Quote, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Calendar, Quote, CheckCircle2, ArrowRight } from 'lucide-react';
 import { FITTING_PROCESS_STEPS, CLIENT_TESTIMONIALS } from '@/data/mockData';
 
 export const ProcessSection: React.FC = () => {
@@ -12,9 +12,8 @@ export const ProcessSection: React.FC = () => {
         
         {/* Part 1: Bespoke Fitting Process Walkthrough */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16 space-y-2 sm:space-y-3">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>The Modern Man Methodology</span>
+          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+            The Modern Man Methodology
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-brand-navy font-bold">
             The Made to Measure Journey

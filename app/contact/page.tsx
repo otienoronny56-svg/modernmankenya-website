@@ -9,7 +9,6 @@ import {
   Clock, 
   Send, 
   Check, 
-  Sparkles, 
   Briefcase, 
   Layers, 
   Users, 
@@ -68,7 +67,6 @@ export default function ContactPage() {
         {/* Title Banner */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brand-navy text-brand-gold text-[10px] sm:text-xs uppercase tracking-luxury font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>Modern Man Kenya • Client Care</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-5xl font-bold text-brand-navy">
@@ -84,7 +82,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-lg border border-brand-gold/30 shadow-sm space-y-3">
             <div className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-brand-gold">
-              <Sparkles className="w-5 h-5" />
+              <Users className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-base text-brand-navy">
               Private Clients & Grooms

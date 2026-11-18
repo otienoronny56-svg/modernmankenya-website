@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect, useCallback, useRef, Suspense } fr
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles, Calendar, Maximize2, ChevronLeft, ChevronRight, X, ArrowRight, ShoppingBag, ZoomIn, ZoomOut } from 'lucide-react';
+import { Calendar, Maximize2, ChevronLeft, ChevronRight, X, ArrowRight, ShoppingBag, ZoomIn, ZoomOut } from 'lucide-react';
 import { SARTORIAL_GALLERY_ITEMS, GalleryItem } from '@/data/galleryData';
 import { READY_TO_WEAR_PRODUCTS } from '@/data/mockData';
 import { ProductCardWithGallery } from '@/components/product/ProductCardWithGallery';
@@ -325,9 +325,8 @@ function GalleryContent() {
         <div className="absolute inset-0 bg-radial-vignette opacity-40 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-3">
-            <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center space-x-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Sartorial Portfolio</span>
+            <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+              Sartorial Portfolio
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white">
               The Sartorial Gallery
@@ -382,9 +381,8 @@ function GalleryContent() {
           <div className="mb-8 p-5 sm:p-6 bg-gradient-to-r from-stone-900 via-brand-navy to-stone-900 text-white rounded-xl border border-brand-gold/30 shadow-lg">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
               <div>
-                <span className="text-[10px] uppercase tracking-widest text-brand-gold font-bold flex items-center space-x-1.5 mb-1">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>Curated Atelier Accoutrements</span>
+                <span className="text-[10px] uppercase tracking-widest text-brand-gold font-bold block mb-1">
+                  Curated Atelier Accoutrements
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">Bespoke Accessories</h2>
                 <p className="text-xs text-slate-300 font-light max-w-xl mt-1">
@@ -424,9 +422,8 @@ function GalleryContent() {
           <div>
             <div className="mb-6 p-4 bg-brand-gold/10 border border-brand-gold/30 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-brand-navy">
               <div>
-                <p className="font-bold flex items-center space-x-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>Ready-to-Order Collection with Live Pricing</span>
+                <p className="font-bold">
+                  Ready-to-Order Collection with Live Pricing
                 </p>
                 <p className="text-slate-600 text-[11px] mt-0.5">
                   Select your collar size, add directly to your bag, or 1-click order via WhatsApp with Nairobi same-day dispatch.
@@ -614,7 +611,7 @@ function GalleryContent() {
               {/* Floating Guidance Badge */}
               {isInspectActive && (
                 <div className="absolute bottom-3 inset-x-0 mx-auto w-fit z-30 pointer-events-none bg-brand-navy/95 border border-brand-gold/50 text-brand-gold text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-2xl backdrop-blur-md flex items-center space-x-1.5 animate-fadeIn">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-spin" />
+                  <ZoomIn className="w-3.5 h-3.5 text-brand-gold" />
                   <span>2.8× Magnification • Move cursor to inspect details</span>
                 </div>
               )}
@@ -680,7 +677,7 @@ function GalleryContent() {
                 href={`/book-appointment?ref=${activeLightboxItem.id}&title=${encodeURIComponent(activeLightboxItem.title)}`}
                 className="px-4 sm:px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-wider text-xs rounded-md transition-all shadow-md flex items-center space-x-2"
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <Calendar className="w-3.5 h-3.5" />
                 <span>Commission This Look</span>
               </Link>
               <button

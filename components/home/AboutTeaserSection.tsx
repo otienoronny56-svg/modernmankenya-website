@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Scissors, Sparkles, ArrowRight, Award } from 'lucide-react';
+import { Scissors, ArrowRight, Award } from 'lucide-react';
 import { TeamSection } from '@/components/about/TeamSection';
 
 export const AboutTeaserSection: React.FC = () => {
@@ -15,7 +15,6 @@ export const AboutTeaserSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 pb-12 border-b border-slate-200">
           <div className="lg:col-span-7 space-y-4">
             <div className="inline-flex items-center space-x-2 text-brand-gold font-bold text-xs uppercase tracking-luxury">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>Modern Man Kenya • The Atelier Heritage</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy leading-tight">

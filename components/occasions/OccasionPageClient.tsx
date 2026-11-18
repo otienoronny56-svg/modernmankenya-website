@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { 
   ArrowRight, 
   Calendar, 
-  Sparkles, 
   Maximize2, 
   X, 
   ChevronLeft, 
@@ -164,7 +163,6 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
           <div className="max-w-2xl space-y-4">
             
             <div className="inline-flex items-center space-x-2 bg-white/15 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/25 text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] shadow-xs">
-              <Sparkles className="w-3 h-3 text-brand-gold" />
               <span>{data.badge}</span>
             </div>
 
@@ -538,7 +536,7 @@ export const OccasionPageClient: React.FC<OccasionPageClientProps> = ({ data }) 
             {/* Floating Guidance Badge */}
             {isInspectActive && (
               <div className="absolute bottom-3 inset-x-0 mx-auto w-fit z-30 pointer-events-none bg-brand-navy/95 border border-brand-gold/50 text-brand-gold text-[11px] font-bold px-3.5 py-1.5 rounded-full shadow-2xl backdrop-blur-md flex items-center space-x-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-spin" />
+                <ZoomIn className="w-3.5 h-3.5 text-brand-gold" />
                 <span>2.8× Magnification • Move cursor to inspect details</span>
               </div>
             )}

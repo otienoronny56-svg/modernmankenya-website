@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
-  Sparkles, 
   Tag, 
   ArrowRight, 
   Check, 
@@ -83,7 +82,7 @@ export const BlackNovemberBanner: React.FC = () => {
           {/* Left: Tag + Headline + Copy */}
           <div className="flex items-center space-x-3 text-center lg:text-left">
             <div className="hidden sm:flex flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/15 border border-brand-gold/30 items-center justify-center text-brand-gold">
-              <Sparkles className="w-5 h-5 text-amber-300 animate-pulse" />
+              <Tag className="w-5 h-5 text-amber-300" />
             </div>
 
             <div>

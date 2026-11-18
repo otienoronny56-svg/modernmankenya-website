@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { BRAND_PROFILE } from '@/data/brandProfile';
 
 export const BrandOverviewSection: React.FC = () => {
@@ -12,7 +12,6 @@ export const BrandOverviewSection: React.FC = () => {
         
         {/* Subtle Category Pill */}
         <div className="inline-flex items-center space-x-2 text-xs uppercase tracking-luxury text-brand-gold font-semibold">
-          <Sparkles className="w-3.5 h-3.5" />
           <span>The Atelier Philosophy</span>
         </div>
 

@@ -11,8 +11,7 @@ import {
   ArrowRight, 
   ShieldCheck, 
   Truck, 
-  Gift, 
-  Sparkles 
+  Gift
 } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { formatCurrencyPrice } from '@/lib/currency';
@@ -70,9 +69,8 @@ export default function CartPage() {
             >
               {/* Title */}
               <div className="space-y-1.5 text-center sm:text-left">
-                <span className="text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center sm:justify-start space-x-2">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Review & Express Checkout</span>
+                <span className="text-[10px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+                  Review & Express Checkout
                 </span>
                 <h1 className="font-serif text-2xl sm:text-3xl text-brand-navy dark:text-slate-100 font-bold">
                   Your Selected Ensembles & Accessories

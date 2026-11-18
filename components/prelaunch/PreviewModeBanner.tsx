@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Eye, LogOut, Sparkles, X } from 'lucide-react';
+import { Eye, LogOut, X } from 'lucide-react';
 import { LAUNCH_CONFIG } from '@/lib/config/launch';
 
 export const PreviewModeBanner: React.FC = () => {
@@ -40,7 +40,7 @@ export const PreviewModeBanner: React.FC = () => {
       <div className="flex items-start justify-between space-x-2">
         <div className="flex items-center space-x-2">
           <div className="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold flex-shrink-0">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+            <Eye className="w-3.5 h-3.5" />
           </div>
           <div>
             <div className="text-[11px] font-bold text-brand-gold uppercase tracking-wider leading-tight">

@@ -18,6 +18,7 @@ import {
   Link as LinkIcon
 } from 'lucide-react';
 import type { Product, ProductAudience } from '@/types';
+import { compressImage } from '@/lib/utils/imageCompressor';
 
 interface ProductFormModalProps {
   isOpen: boolean;
@@ -220,25 +221,50 @@ export function ProductFormModal({
     setError(null);
 
     try {
-      const uploadPromises = Array.from(files).map(async (file) => {
+      const fileList = Array.from(files);
+      const uploadedUrls: string[] = [];
+
+      for (const file of fileList) {
+        // Automatically optimize & compress in browser to avoid 413 Payload Too Large
+        const processedFile = await compressImage(file, {
+          maxWidth: 2048,
+          maxHeight: 2560,
+          quality: 0.85,
+        });
+
         const formData = new FormData();
-        formData.append('file', file);
+        formData.append('file', processedFile);
 
         const res = await fetch('/api/admin/upload', {
           method: 'POST',
           body: formData,
         });
 
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data.error || 'Failed to upload photo');
+        const rawText = await res.text();
+        let data: any = null;
+        try {
+          data = JSON.parse(rawText);
+        } catch {
+          data = null;
         }
-        return data.url as string;
-      });
 
-      const uploadedUrls = await Promise.all(uploadPromises);
+        if (!res.ok) {
+          if (res.status === 413) {
+            throw new Error(`"${file.name}" exceeds the server upload limit. Please try a smaller photo.`);
+          }
+          throw new Error(data?.error || rawText || 'Failed to upload photo');
+        }
+
+        if (!data || !data.url) {
+          throw new Error('Upload completed, but no image URL was returned.');
+        }
+
+        uploadedUrls.push(data.url as string);
+      }
+
       setImages((prev) => [...prev, ...uploadedUrls]);
     } catch (err: any) {
+      console.error('Product photo upload error:', err);
       setError(err.message || 'Error uploading photos');
     } finally {
       setUploading(false);
@@ -565,7 +591,7 @@ export function ProductFormModal({
               />
               <UploadCloud className="w-8 h-8 mx-auto text-slate-400 group-hover:text-brand-gold transition-colors mb-2" />
               <p className="text-xs font-semibold text-slate-700">
-                {uploading ? 'Uploading photos to Atelier store...' : 'Click to select photos from your device'}
+                {uploading ? 'Optimizing & uploading photos to Atelier store...' : 'Click to select photos from your device'}
               </p>
               <p className="text-[11px] text-slate-500 mt-1">
                 Supports JPG, PNG, WEBP high-resolution photography.

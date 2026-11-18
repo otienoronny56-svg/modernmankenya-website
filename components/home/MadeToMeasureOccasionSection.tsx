@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Sparkles, ArrowRight, Scissors, Calendar, Check, MessageSquare } from 'lucide-react';
+import { ArrowRight, Scissors, Calendar, Check, MessageSquare } from 'lucide-react';
 
 interface OccasionOption {
   id: string;
@@ -79,7 +79,7 @@ export const MadeToMeasureOccasionSection: React.FC = () => {
               href="/occasions"
               className="inline-flex items-center space-x-2.5 px-6 sm:px-8 py-3.5 rounded-full bg-brand-gold hover:bg-brand-gold-light text-brand-navy font-bold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 shadow-xl hover:shadow-brand-gold/20 hover:scale-105 group"
             >
-              <Sparkles className="w-4 h-4 text-brand-navy group-hover:rotate-12 transition-transform" />
+              <Scissors className="w-4 h-4 text-brand-navy group-hover:rotate-12 transition-transform" />
               <span>Customize Your Fit for Your Occasion</span>
               <ArrowRight className="w-4 h-4 text-brand-navy group-hover:translate-x-1 transition-transform" />
             </Link>

@@ -19,6 +19,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import type { GalleryItem } from '@/data/galleryData';
+import { compressImage } from '@/lib/utils/imageCompressor';
 
 const LOOKBOOK_CATEGORIES = [
   { id: 'all', name: 'All Showcases' },
@@ -101,21 +102,52 @@ export default function AdminLookbookPage() {
     setFormError(null);
 
     try {
-      const uploadPromises = Array.from(files).map(async (file) => {
+      const fileList = Array.from(files);
+      const uploadedUrls: string[] = [];
+
+      for (const file of fileList) {
+        // Automatically optimize and downscale large phone/camera images in the browser
+        // to prevent 413 Payload Too Large / Vercel 4.5MB request body limit
+        const processedFile = await compressImage(file, {
+          maxWidth: 2048,
+          maxHeight: 2560,
+          quality: 0.85,
+        });
+
         const formData = new FormData();
-        formData.append('file', file);
+        formData.append('file', processedFile);
+
         const res = await fetch('/api/admin/upload', {
           method: 'POST',
           body: formData,
         });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Failed to upload photo');
-        return data.url as string;
-      });
 
-      const uploadedUrls = await Promise.all(uploadPromises);
+        // Safe response text reading to avoid "Unexpected token 'R', Request En... is not valid JSON"
+        const rawText = await res.text();
+        let data: any = null;
+        try {
+          data = JSON.parse(rawText);
+        } catch {
+          data = null;
+        }
+
+        if (!res.ok) {
+          if (res.status === 413) {
+            throw new Error(`"${file.name}" exceeds the server upload limit. Please try a smaller photo.`);
+          }
+          throw new Error(data?.error || rawText || `Upload failed with status ${res.status}`);
+        }
+
+        if (!data || !data.url) {
+          throw new Error('Upload completed, but no image URL was returned.');
+        }
+
+        uploadedUrls.push(data.url as string);
+      }
+
       setImages((prev) => [...prev, ...uploadedUrls]);
     } catch (err: any) {
+      console.error('Lookbook upload error:', err);
       setFormError(err.message || 'Error uploading photos');
     } finally {
       setUploading(false);
@@ -490,7 +522,7 @@ export default function AdminLookbookPage() {
 
                 {uploading && (
                   <p className="text-xs text-brand-navy font-semibold mt-2 animate-pulse text-center">
-                    Uploading images...
+                    📸 Optimizing & uploading photography...
                   </p>
                 )}
 

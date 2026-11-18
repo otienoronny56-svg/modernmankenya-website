@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Scissors, Calendar, Check, ShieldCheck, Sparkles } from 'lucide-react';
+import { Scissors, Calendar, Check, ShieldCheck } from 'lucide-react';
 
 export default function AlterationsPage() {
   const alterationServices = [
@@ -32,9 +32,8 @@ export default function AlterationsPage() {
     <div className="min-h-screen bg-brand-canvas-alt py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
-          <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Master Tailor Surgical Refinement</span>
+          <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+            Master Tailor Surgical Refinement
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl text-brand-navy font-bold">
             Master Alterations & Remodeling

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { 
   Coffee, 
-  Sparkles, 
+  Layers, 
   MapPin, 
   Calendar, 
   ShieldCheck, 
@@ -23,7 +23,7 @@ export const AtelierExperienceSection: React.FC = () => {
       desc: 'Relax in our comfortable private lounge while discussing your wardrobe needs, upcoming events, and personal style one-on-one with our Master Tailor.',
     },
     {
-      icon: Sparkles,
+      icon: Layers,
       title: 'Vault of 4,000+ Global Fabrics',
       desc: 'Touch and feel physical fabric swatches from premier mills worldwide—featuring Super 130s to Super 150s pure wools, celebratory jacquards, cashmere, and silk.',
     },

@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   Ruler, 
-  Sparkles, 
   ShieldCheck, 
   Check, 
   HelpCircle, 
@@ -421,7 +420,7 @@ export const ModernManMeasurementChart: React.FC<ModernManMeasurementChartProps>
           <div className="p-6 rounded-2xl bg-[#0A1128] text-white flex flex-col md:flex-row items-center justify-between gap-4 border border-brand-gold/40 shadow-xl">
             <div className="flex items-center space-x-3.5">
               <div className="w-10 h-10 rounded-full bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0 border border-brand-gold/40">
-                <Sparkles className="w-5 h-5" />
+                <Scissors className="w-5 h-5" />
               </div>
               <div>
                 <h4 className="font-serif text-base font-bold text-white">

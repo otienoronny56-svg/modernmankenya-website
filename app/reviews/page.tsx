@@ -7,7 +7,6 @@ import {
   Star, 
   Quote, 
   CheckCircle2, 
-  Sparkles, 
   Calendar, 
   ArrowRight, 
   ExternalLink,
@@ -177,7 +176,6 @@ export default function ReviewsPage() {
         <div className="absolute inset-0 bg-radial-vignette opacity-70 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brand-gold/20 text-brand-gold border border-brand-gold/40 text-xs uppercase tracking-luxury font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>Verified Patron Testimonials</span>
           </div>
 

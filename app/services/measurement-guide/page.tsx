@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Ruler, Sparkles, Download, Calendar, MessageSquare, ExternalLink, Scissors, CheckCircle2 } from 'lucide-react';
+import { Ruler, Download, Calendar, MessageSquare, ExternalLink, Scissors, CheckCircle2 } from 'lucide-react';
 import { ModernManMeasurementChart } from '@/components/measurements/ModernManMeasurementChart';
 
 export const metadata: Metadata = {
@@ -37,7 +37,6 @@ export default function MeasurementGuidePage() {
             </nav>
 
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>Modern Man Kenya Sartorial Precision Standard</span>
             </div>
 

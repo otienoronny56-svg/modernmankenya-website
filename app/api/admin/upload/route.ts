@@ -4,6 +4,9 @@ import fs from 'fs';
 import { verifyAdminSessionToken, ADMIN_COOKIE_NAME } from '@/lib/auth/admin-auth';
 import { getSupabaseAdmin } from '@/lib/supabase/server';
 
+export const dynamic = 'force-dynamic';
+export const maxDuration = 60;
+
 export async function POST(req: NextRequest) {
   try {
     // 1. Authenticate admin request
@@ -34,6 +37,8 @@ export async function POST(req: NextRequest) {
     const cleanName = path.basename(file.name, ext).replace(/[^a-zA-Z0-9_-]/g, '_');
     const uniqueFilename = `mm_${Date.now()}_${cleanName}${ext}`;
 
+    let supabaseErrorMsg = '';
+
     // 4. Try Supabase Storage if configured
     if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
       try {
@@ -41,7 +46,7 @@ export async function POST(req: NextRequest) {
         const { data, error } = await supabase.storage
           .from('product-images')
           .upload(uniqueFilename, buffer, {
-            contentType: file.type,
+            contentType: file.type || 'image/jpeg',
             upsert: true,
           });
 
@@ -56,31 +61,45 @@ export async function POST(req: NextRequest) {
             filename: uniqueFilename,
           });
         }
-      } catch (storageErr) {
+
+        if (error) {
+          console.warn('Supabase storage upload error:', error.message);
+          supabaseErrorMsg = error.message;
+        }
+      } catch (storageErr: any) {
         console.warn('Supabase storage upload failed, falling back to local storage:', storageErr);
+        supabaseErrorMsg = storageErr?.message || 'Storage error';
       }
     }
 
-    // 5. Local Fallback: write to public/uploads/products
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'products');
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
+    // 5. Local Fallback: write to public/uploads/products (for local dev)
+    try {
+      const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'products');
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+
+      const filePath = path.join(uploadDir, uniqueFilename);
+      fs.writeFileSync(filePath, buffer);
+
+      const publicUrl = `/uploads/products/${uniqueFilename}`;
+
+      return NextResponse.json({
+        success: true,
+        url: publicUrl,
+        filename: uniqueFilename,
+      });
+    } catch (localErr: any) {
+      console.error('Local file write error:', localErr);
+      return NextResponse.json(
+        { error: supabaseErrorMsg || localErr?.message || 'Failed to save uploaded image' },
+        { status: 500 }
+      );
     }
-
-    const filePath = path.join(uploadDir, uniqueFilename);
-    fs.writeFileSync(filePath, buffer);
-
-    const publicUrl = `/uploads/products/${uniqueFilename}`;
-
-    return NextResponse.json({
-      success: true,
-      url: publicUrl,
-      filename: uniqueFilename,
-    });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Photo upload error:', error);
     return NextResponse.json(
-      { error: 'Failed to upload photo' },
+      { error: error?.message || 'Failed to upload photo' },
       { status: 500 }
     );
   }

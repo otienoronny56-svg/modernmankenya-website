@@ -4,7 +4,6 @@ import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { 
-  Sparkles, 
   ShoppingBag, 
   Search, 
   Truck, 
@@ -373,9 +372,8 @@ function ReadyToWearShopContent() {
         {/* Bottom Made-to-Measure Upsell */}
         <section className="mt-16 p-8 bg-white rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-sm">
           <div className="space-y-1">
-            <span className="text-[11px] uppercase tracking-wider text-brand-gold font-bold flex items-center justify-center md:justify-start space-x-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-              <span>Looking for Custom Bespoke Tailoring?</span>
+            <span className="text-[11px] uppercase tracking-wider text-brand-gold font-bold block">
+              Looking for Custom Bespoke Tailoring?
             </span>
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-brand-navy">
               Suits & Ensembles Drafted to Your Anatomy

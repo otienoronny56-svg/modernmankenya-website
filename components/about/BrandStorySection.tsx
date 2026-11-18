@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { 
   Compass, 
   Target, 
-  Sparkles, 
   Flame, 
   ShieldCheck, 
   Award, 
@@ -127,7 +126,7 @@ export const BrandStorySection: React.FC = () => {
                   </p>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-brand-navy dark:bg-brand-gold/20 flex items-center justify-center text-brand-gold flex-shrink-0 ml-3">
-                  <Sparkles className="w-5 h-5" />
+                  <Award className="w-5 h-5" />
                 </div>
               </div>
             </div>

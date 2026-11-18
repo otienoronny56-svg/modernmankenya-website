@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Scissors, Ruler, Layers, Sparkles } from 'lucide-react';
+import { Scissors, Ruler, Layers } from 'lucide-react';
 
 export const PillarsSection: React.FC = () => {
   const pillars = [
@@ -37,9 +37,8 @@ export const PillarsSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>The Foundations of Made to Measure</span>
+          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+            The Foundations of Made to Measure
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl text-brand-navy font-bold tracking-tight">
             Three Uncompromising Pillars of Sartorial Mastery

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   Check, 
-  Sparkles, 
   Phone, 
   MapPin, 
   Truck, 
@@ -495,7 +494,7 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
 
           {hasSavedMeasurements && (
             <div className="pt-2 border-t border-emerald-200/60 flex items-center space-x-1.5 text-[11px] text-emerald-900 font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-brand-gold flex-shrink-0" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" />
               <span>Saved Bespoke Measurements Attached (Master Tailor Approved)</span>
             </div>
           )}
@@ -550,7 +549,6 @@ export const ExpressCheckout: React.FC<ExpressCheckoutProps> = ({ onSuccess }) =
                 className="px-3 py-2 bg-slate-200/80 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded text-xs font-semibold transition-colors flex items-center space-x-1"
                 title="Populate test address and details instantly"
               >
-                <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
                 <span>Auto-Fill Demo</span>
               </button>
             </div>

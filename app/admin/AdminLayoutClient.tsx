@@ -10,7 +10,6 @@ import {
   Users,
   ExternalLink, 
   LogOut, 
-  Sparkles, 
   Menu, 
   X,
   ShieldCheck,
@@ -158,7 +157,7 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
               className="flex items-center justify-between px-3.5 py-2.5 rounded text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white transition-colors"
             >
               <span className="flex items-center space-x-3">
-                <Sparkles className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                <ShoppingBag className="w-4 h-4 text-brand-gold flex-shrink-0" />
                 <span>Live Ready to Wear</span>
               </span>
               <ExternalLink className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
@@ -266,7 +265,7 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
                   className="flex items-center justify-between px-3.5 py-2.5 rounded text-xs font-medium text-slate-300 hover:bg-white/5 hover:text-white transition-colors"
                 >
                   <span className="flex items-center space-x-3">
-                    <Sparkles className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                    <ShoppingBag className="w-4 h-4 text-brand-gold flex-shrink-0" />
                     <span>Live Ready to Wear</span>
                   </span>
                   <ExternalLink className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
@@ -319,7 +318,7 @@ export function AdminLayoutClient({ children }: AdminLayoutClientProps) {
               target="_blank"
               className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded bg-white/5 hover:bg-white/10 text-brand-gold text-xs font-semibold border border-brand-gold/30 transition-colors"
             >
-              <Sparkles className="w-3.5 h-3.5" />
+              <ShoppingBag className="w-3.5 h-3.5" />
               <span>View Store</span>
               <ExternalLink className="w-3 h-3 text-slate-400" />
             </Link>

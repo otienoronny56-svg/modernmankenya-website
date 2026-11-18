@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   ShoppingBag, 
-  Sparkles, 
   PlusCircle, 
   ArrowRight, 
   CheckCircle2, 
@@ -85,9 +84,8 @@ export default function AdminDashboardPage() {
       {/* Top Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
-          <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-2.5 py-1 rounded inline-flex items-center space-x-1.5 mb-2">
-            <Sparkles className="w-3 h-3" />
-            <span>Nairobi Atelier Executive Control</span>
+          <span className="text-[10px] uppercase font-bold tracking-luxury text-brand-gold bg-brand-navy px-2.5 py-1 rounded inline-block mb-2">
+            Nairobi Atelier Executive Control
           </span>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-navy">
             Atelier Management Dashboard

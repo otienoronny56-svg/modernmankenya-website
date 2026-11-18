@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Gift, Check, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Gift, Check, ArrowRight, ShieldCheck } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { formatCurrencyPrice } from '@/lib/currency';
 
@@ -31,9 +31,8 @@ export default function GiftVouchersPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
-          <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>The Gift of Sartorial Excellence</span>
+          <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+            The Gift of Sartorial Excellence
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl text-brand-navy font-bold">
             Sartorial Gift Certificates

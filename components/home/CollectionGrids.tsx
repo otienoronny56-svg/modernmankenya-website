@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const CollectionGrids: React.FC = () => {
   const collections = [
@@ -43,9 +43,8 @@ export const CollectionGrids: React.FC = () => {
         {/* Section Title */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-16 pb-4 sm:pb-6 border-b border-slate-200">
           <div>
-            <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center space-x-2 mb-1.5 sm:mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Curated Collections</span>
+            <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold block mb-1.5 sm:mb-2">
+              Curated Collections
             </span>
             <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-brand-navy font-bold">
               The Sartorial Portfolios

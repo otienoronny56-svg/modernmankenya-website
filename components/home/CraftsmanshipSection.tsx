@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Layers, Scissors, ShieldCheck, Sparkles } from 'lucide-react';
+import { Award, Layers, Scissors, ShieldCheck } from 'lucide-react';
 
 const CRAFT_POINTS = [
   {
@@ -11,7 +11,7 @@ const CRAFT_POINTS = [
     text: 'Natural horsehair canvas inside the chest that shapes to your body over time, never stiff glue.',
   },
   {
-    icon: Sparkles,
+    icon: Award,
     title: 'Hand Stitching',
     text: 'Careful hand-sewn lapels, collars, and fine silk buttonholes for a clean luxury finish.',
   },

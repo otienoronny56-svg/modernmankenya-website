@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { 
   ChevronRight, 
   ShoppingBag, 
-  Sparkles, 
   Check, 
   ZoomIn, 
   ShieldCheck, 
@@ -282,7 +281,7 @@ export default function ProductDetailPage() {
 
                 {/* Desktop Hover Hint */}
                 <div className="absolute bottom-4 left-4 z-10 hidden md:flex items-center space-x-1.5 bg-black/60 text-white/90 text-[10px] px-3 py-1 rounded-full backdrop-blur-sm pointer-events-none">
-                  <Sparkles className="w-3 h-3 text-brand-gold" />
+                  <ZoomIn className="w-3 h-3 text-brand-gold" />
                   <span>Hover to magnify • Click to expand</span>
                 </div>
               </div>

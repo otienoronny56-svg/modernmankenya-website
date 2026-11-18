@@ -11,7 +11,6 @@ import {
   Check, 
   ArrowRight, 
   ArrowLeft,
-  Sparkles,
   ShieldCheck,
   AlertCircle
 } from 'lucide-react';
@@ -232,9 +231,8 @@ function BookAppointmentContent() {
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center justify-center space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Private Sartorial Service</span>
+          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+            Private Sartorial Service
           </span>
           <h1 className="font-serif text-2xl sm:text-4xl text-brand-navy dark:text-white font-bold">
             Book a Private Fitting
@@ -248,7 +246,6 @@ function BookAppointmentContent() {
         {promoCode && (
           <div className="mb-6 max-w-xl mx-auto bg-gradient-to-r from-stone-950 via-[#131728] to-stone-950 border border-brand-gold/60 rounded-xl p-3 sm:p-4 text-center shadow-lg animate-in fade-in slide-in-from-top-2 duration-300">
             <div className="flex items-center justify-center space-x-2 text-brand-gold text-xs font-bold uppercase tracking-widest mb-1">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
               <span>Privilege Activated: 20% Off Bespoke Tailoring</span>
             </div>
             <p className="text-xs text-slate-200">
@@ -435,9 +432,8 @@ function BookAppointmentContent() {
                   <div className="p-5 rounded-2xl bg-gradient-to-br from-brand-navy via-[#16114E] to-brand-navy text-white border-2 border-brand-gold/40 shadow-2xl relative overflow-hidden space-y-3.5">
                     {/* Golden top accent banner */}
                     <div className="flex items-center justify-between text-[11px] text-brand-gold font-bold uppercase tracking-[0.2em] border-b border-white/10 pb-2.5">
-                      <span className="flex items-center space-x-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                        <span>Private Fitting Pass</span>
+                      <span>
+                        Private Fitting Pass
                       </span>
                       <span className="bg-brand-gold text-brand-navy px-2 py-0.5 rounded text-[9px] font-extrabold tracking-wider">
                         VIP SERVICE

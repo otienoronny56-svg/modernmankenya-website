@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, X, ArrowRight, Sparkles } from 'lucide-react';
+import { Search, X, ArrowRight } from 'lucide-react';
 import { READY_TO_WEAR_PRODUCTS, BESPOKE_CATEGORIES } from '@/data/mockData';
 import { useCartStore } from '@/store/cartStore';
 import { formatCurrencyPrice } from '@/lib/currency';
@@ -75,9 +75,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
         <div className="max-h-[60vh] overflow-y-auto p-6 space-y-6">
           {query.trim() === '' ? (
             <div className="space-y-4">
-              <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold flex items-center space-x-1.5">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Featured Atelier Collections</span>
+              <span className="text-xs uppercase tracking-luxury text-brand-gold font-bold block">
+                Featured Atelier Collections
               </span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {BESPOKE_CATEGORIES.slice(0, 6).map((cat) => (

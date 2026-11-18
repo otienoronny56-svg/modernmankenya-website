@@ -11,7 +11,6 @@ import {
   XCircle, 
   Phone, 
   Calendar, 
-  Sparkles, 
   ShieldCheck, 
   Clock,
   Tag,
@@ -313,7 +312,6 @@ export default function TheCraftPage() {
         <div className="absolute inset-0 sartorial-pinstripe opacity-10 pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/10 text-brand-gold text-xs uppercase tracking-luxury font-semibold border border-brand-gold/30">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>Modern Man Kenya Sartorial Craft</span>
           </div>
           
@@ -607,9 +605,8 @@ export default function TheCraftPage() {
       {/* 4. SUIT LININGS (PATTERNED VS PLAIN) */}
       <section id="linings" className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold inline-flex items-center space-x-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>The Interior Secret</span>
+          <span className="text-[11px] sm:text-xs uppercase tracking-luxury text-brand-gold font-bold inline-block">
+            The Interior Secret
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy dark:text-white">
             Patterned or Plain Linings

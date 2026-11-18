@@ -7,7 +7,6 @@ import {
   ExternalLink, 
   Clock, 
   ShieldCheck, 
-  Sparkles,
   Phone
 } from 'lucide-react';
 
@@ -76,7 +75,7 @@ export function AtelierMap({
 
         {/* Floating Quick Badge on Map */}
         <div className="absolute top-4 left-4 z-10 pointer-events-none hidden sm:flex items-center space-x-2 bg-brand-navy/90 text-white backdrop-blur-md px-3.5 py-2 rounded-xl border border-brand-gold/40 shadow-lg text-xs font-semibold">
-          <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+          <MapPin className="w-3.5 h-3.5 text-brand-gold" />
           <span>Modern Man Kenya • Nairobi Atelier</span>
         </div>
       </div>

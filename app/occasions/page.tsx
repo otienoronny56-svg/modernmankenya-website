@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { ArrowRight, Calendar, Sparkles, Scissors, Eye, Layers } from 'lucide-react';
+import { ArrowRight, Calendar, Scissors, Eye, Layers } from 'lucide-react';
 import { ALL_OCCASIONS_LIST } from '@/data/occasionsData';
 
 export const metadata: Metadata = {
@@ -21,7 +21,6 @@ export default function OccasionsHubPage() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-slate-800/80 border border-blue-200/80 dark:border-slate-700 px-3.5 py-1 rounded-full text-brand-navy dark:text-brand-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
             <span>Occasions</span>
           </div>
 

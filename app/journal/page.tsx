@@ -8,7 +8,6 @@ import {
   Clock, 
   Calendar, 
   ArrowRight, 
-  Sparkles, 
   Tag, 
   Share2, 
   Check, 
@@ -344,9 +343,8 @@ export default function JournalPage() {
 
               {/* Key Takeaways Callout Box */}
               <div className="bg-brand-canvas p-4 sm:p-5 rounded-xl border border-brand-gold/40 space-y-2">
-                <p className="text-xs font-bold uppercase tracking-wider text-brand-navy flex items-center space-x-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>Key Sartorial Principles</span>
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-navy">
+                  Key Sartorial Principles
                 </p>
                 <ul className="space-y-1.5 text-xs text-slate-700">
                   {activeArticle.keyTakeaways.map((tip, idx) => (
