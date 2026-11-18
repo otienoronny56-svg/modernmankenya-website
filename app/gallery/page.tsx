@@ -240,7 +240,7 @@ function GalleryContent() {
   }, [liveProducts, selectedCategory, accessorySubFilter]);
 
   const filteredItems = useMemo(() => {
-    return lookbookItems.filter((item) => {
+    const items = lookbookItems.filter((item) => {
       if (selectedCategory === 'all') return true;
 
       if (selectedCategory === 'accessories') {
@@ -262,6 +262,33 @@ function GalleryContent() {
 
       return item.category === selectedCategory;
     });
+
+    // Pin the 4 signature Modern Kids showcases at the start of Row 1 in the Modern Kids section
+    // so they always remain together in one row even when new photos are added.
+    if (selectedCategory === 'modern-kids') {
+      const pinnedMatchers: Array<(item: GalleryItem) => boolean> = [
+        (item) => item.id === 'kid-6' || item.title.toLowerCase().includes('african monarch'),
+        (item) => item.id === 'kid-5' || item.title.toLowerCase().includes('bespoke youth'),
+        (item) => item.id === 'kid-34' || item.tag.toLowerCase().includes('junior waistcoat'),
+        (item) => item.id === 'kid-33' || item.title.toLowerCase().includes('black & gold royal tunic'),
+      ];
+
+      const pinned: GalleryItem[] = [];
+      const pinnedIds = new Set<string>();
+
+      for (const match of pinnedMatchers) {
+        const found = items.find((item) => !pinnedIds.has(item.id) && match(item));
+        if (found) {
+          pinned.push(found);
+          pinnedIds.add(found.id);
+        }
+      }
+
+      const rest = items.filter((item) => !pinnedIds.has(item.id));
+      return [...pinned, ...rest];
+    }
+
+    return items;
   }, [selectedCategory, accessorySubFilter, lookbookItems]);
 
   // Lightbox navigation helpers
